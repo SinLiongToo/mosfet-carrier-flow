@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MOSFET Carrier Flow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: lab-instrument console. Stage header, live cross-section, then controls + equation + I–V plots in a two-column bench. */
+:root{
+  --bg:#0b0f15; --panel:#121821; --panel2:#18202b; --line:#253041; --fg:#e7edf5; --muted:#8693a6;
+  --accent:#f2b434; --accent-ink:#1a1305;
+  --electron:#4da3ff; --hole:#ff7a6b; --channel:#2dd4bf; --oxide:#7d6be0; --metal:#c3ccd8;
+  --si:#161e2a; --nplus:rgba(77,163,255,.16); --pplus:rgba(255,122,107,.16); --deplete:rgba(150,165,190,.16); --ion:#7d8aa0;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){ :root:not([data-theme="dark"]){
+  --bg:#f3f5f8; --panel:#ffffff; --panel2:#f0f3f7; --line:#d5dce6; --fg:#121a24; --muted:#586577;
+  --accent:#b77a0b; --accent-ink:#ffffff;
+  --electron:#1d6fd6; --hole:#d8453a; --channel:#0d9a87; --oxide:#6650d0; --metal:#8f9cad;
+  --si:#e6ebf1; --nplus:rgba(29,111,214,.12); --pplus:rgba(216,69,58,.12); --deplete:rgba(90,105,130,.14); --ion:#76839a;
+  color-scheme:light;
+}}
+:root[data-theme="light"]{
+  --bg:#f3f5f8; --panel:#ffffff; --panel2:#f0f3f7; --line:#d5dce6; --fg:#121a24; --muted:#586577;
+  --accent:#b77a0b; --accent-ink:#ffffff;
+  --electron:#1d6fd6; --hole:#d8453a; --channel:#0d9a87; --oxide:#6650d0; --metal:#8f9cad;
+  --si:#e6ebf1; --nplus:rgba(29,111,214,.12); --pplus:rgba(216,69,58,.12); --deplete:rgba(90,105,130,.14); --ion:#76839a;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.55;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px;padding-block:20px 48px;display:grid;gap:18px}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.top h1{font-family:var(--f-display);font-weight:700;font-size:1.35rem;margin:0;letter-spacing:-.01em}
+.top h1 small{display:block;font-family:var(--f-mono);font-weight:400;font-size:.75rem;color:var(--muted);letter-spacing:.02em}
+.seg{display:inline-flex;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:3px;gap:3px}
+.seg button{font:600 .85rem var(--f-mono);color:var(--muted);background:transparent;border:0;border-radius:7px;padding:7px 16px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.stagehead{display:grid;justify-items:center;gap:4px;text-align:center}
+.stagehead .row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}
+.pill{font:700 1rem var(--f-mono);background:var(--accent);color:var(--accent-ink);padding:3px 10px;border-radius:8px}
+.stagehead h2{font-family:var(--f-display);font-size:clamp(1.6rem,4vw,2.3rem);margin:0;color:var(--accent);line-height:1.1;text-wrap:balance}
+.stagehead p{margin:0;color:var(--muted)}
+
+.stepper{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center}
+.stepper button{font:500 .8rem var(--f-mono);color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer}
+.stepper button.on{border-color:var(--accent);color:var(--accent)}
+.stepper .play{background:var(--fg);color:var(--bg);border-color:var(--fg);font-weight:600}
+
+.device{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;display:grid;gap:10px}
+.device canvas{width:100%;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;font-size:.82rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:11px;height:11px;border-radius:50%;display:inline-block}
+
+.bench{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:18px}
+@media (max-width:820px){.bench{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:14px;min-width:0;align-content:start}
+.eyebrow{font:600 .7rem var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0}
+
+.readouts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ro{display:grid;gap:2px}
+.ro label{font-size:.78rem;color:var(--muted)}
+.ro b{font:600 clamp(1.15rem,3.4vw,1.6rem) var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.ro.id b{color:var(--accent)}
+.slider{display:grid;gap:4px}
+.slider .lab{display:flex;justify-content:space-between;font-size:.85rem}
+.slider .lab span:last-child{font-family:var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--accent);height:24px}
+.region{display:inline-flex;align-items:center;gap:8px;font:600 .8rem var(--f-mono);padding:4px 10px;border-radius:999px;border:1px solid var(--line);justify-self:start}
+.region i{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.region.on i{background:var(--channel)}
+.region.sat i{background:var(--accent)}
+
+.eq{display:grid;gap:8px}
+.eqrow{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:4px 12px;padding:10px 12px;border-radius:10px;border:1px solid transparent;color:var(--muted);font-size:.88rem}
+.eqrow .name{font-weight:600}
+.eqrow .f{font-family:var(--f-mono);font-size:.86rem;overflow-x:auto}
+.eqrow .sub{grid-column:2;font-family:var(--f-mono);font-size:.86rem;color:var(--fg)}
+.eqrow.act{border-color:var(--accent);background:var(--panel2);color:var(--fg)}
+.eqrow.act .name{color:var(--accent)}
+@media (max-width:480px){.eqrow{grid-template-columns:minmax(0,1fr)}.eqrow .sub{grid-column:1}}
+.consts{font:.8rem var(--f-mono);color:var(--muted);margin:0}
+
+.plots{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:12px}
+@media (max-width:520px){.plots{grid-template-columns:minmax(0,1fr)}}
+.plot{display:grid;gap:4px;min-width:0}
+.plot svg{width:100%;height:auto;display:block;overflow:visible}
+.plot svg text{font-family:var(--f-mono);font-size:10px;fill:var(--muted)}
+
+.explain p{margin:0;max-width:68ch}
+.explain .flow{display:flex;flex-wrap:wrap;gap:8px 20px;font:.82rem var(--f-mono);color:var(--muted)}
+.explain .flow b{color:var(--fg);font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <h1>MOSFET Carrier Flow<small id="sub-top">N-channel · Vth = +1.0 V · body tied to source</small></h1>
+    <div class="seg" role="group" aria-label="Transistor type">
+      <button id="bt-n" aria-pressed="true">NMOS</button>
+      <button id="bt-p" aria-pressed="false">PMOS</button>
+    </div>
+  </header>
+
+  <div class="stagehead">
+    <div class="row"><span class="pill" id="st-num">2/5</span><h2 id="st-name">Depletion</h2></div>
+    <p id="st-sub">Gate repels holes · still off</p>
+  </div>
+
+  <div class="stepper" id="stepper">
+    <button class="play" id="play">▶ Play tour</button>
+  </div>
+
+  <section class="device">
+    <canvas id="cv" aria-label="Animated cross-section of the transistor showing carriers"></canvas>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <div class="bench">
+    <section class="card">
+      <p class="eyebrow">Bias</p>
+      <div class="readouts">
+        <div class="ro"><label id="lab-g">Gate–source VGS</label><b id="ro-g">0.70 V</b></div>
+        <div class="ro"><label id="lab-d">Drain–source VDS</label><b id="ro-d">0.00 V</b></div>
+        <div class="ro id"><label id="lab-i">Drain current ID</label><b id="ro-i">0.00 mA</b></div>
+      </div>
+      <div class="slider">
+        <div class="lab"><span id="sl-g-name">Gate voltage VGS</span><span>0 – 4 V</span></div>
+        <input id="vgs" type="range" min="0" max="4" step="0.01" value="0.7">
+      </div>
+      <div class="slider">
+        <div class="lab"><span id="sl-d-name">Drain voltage VDS</span><span>0 – 4 V</span></div>
+        <input id="vds" type="range" min="0" max="4" step="0.01" value="0">
+      </div>
+      <span class="region" id="region"><i></i><span>Cutoff</span></span>
+
+      <p class="eyebrow">Current equation</p>
+      <div class="eq" id="eq"></div>
+      <p class="consts" id="consts"></p>
+    </section>
+
+    <section class="card">
+      <p class="eyebrow">I–V characteristics</p>
+      <div class="plots">
+        <div class="plot"><svg id="out" viewBox="0 0 300 220" role="img" aria-label="Output characteristic, drain current versus drain voltage"></svg></div>
+        <div class="plot"><svg id="tr" viewBox="0 0 220 220" role="img" aria-label="Transfer characteristic, drain current versus gate voltage"></svg></div>
+      </div>
+      <div class="explain card" style="padding:14px;background:var(--panel2);border-color:var(--line)">
+        <p class="eyebrow">What the carriers are doing</p>
+        <p id="explain"></p>
+        <div class="flow" id="flow"></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+(() => {
+const DEV = {
+  n:{ name:"N-channel", Vth:1.0, K:0.40, lam:0.02, carrier:"electron", carriers:"electrons", maj:"hole", majs:"holes",
+      sd:"n+", body:"p-type body", ionSign:-1, mu:"μn" },
+  p:{ name:"P-channel", Vth:1.0, K:0.16, lam:0.03, carrier:"hole", carriers:"holes", maj:"electron", majs:"electrons",
+      sd:"p+", body:"n-type body", ionSign:1, mu:"μp" }
+};
+const STAGES = ["Off","Depletion","Inversion","Linear","Saturation"];
+const PRESETS = [[0,2],[0.7,0],[2.5,0],[2.5,0.6],[2.5,3]];
+const SUB = {
+  n:["Gate at 0 V · no channel","Gate repels holes · still off","Electron channel forms · no current yet","Electrons drift source → drain","Channel pinches off · current saturates"],
+  p:["Gate at source potential · no channel","Gate repels electrons · still off","Hole channel forms · no current yet","Holes drift source → drain","Channel pinches off · current saturates"]
+};
+const EXPLAIN = {
+  n:[
+   "With VGS = 0 the gate does nothing. The p-type body is full of holes right up to the oxide, and the two n+ regions are separated by back-to-back PN junctions. Even with voltage on the drain, no electrons can cross, so ID = 0.",
+   "A small positive gate voltage pushes holes away from the surface. Left behind are fixed, negatively charged acceptor ions that cannot move. This depletion layer carries no current. VGS is still below Vth, so the transistor stays off.",
+   "Once VGS passes Vth, the surface pulls in enough electrons from the n+ source and drain to form a thin n-type layer: the channel. The surface has been inverted from p to n. With VDS = 0 there is no field along the channel, so electrons only jiggle in place.",
+   "A small VDS tilts the potential along the channel and electrons drift from source to drain. Conventional current flows the other way, drain to source. The channel thins toward the drain, because the gate-to-channel voltage there is only VGS − VDS. ID rises almost linearly with VDS, like a resistor set by the gate.",
+   "When VDS ≥ VGS − Vth, the gate-to-channel voltage at the drain end falls to Vth and the channel pinches off. Electrons reach the pinch-off point and the strong field of the drain depletion region sweeps them across. Raising VDS mostly widens that region, so ID levels off near ½k(VGS − Vth)²."
+  ],
+  p:[
+   "With VSG = 0 the n-type body is full of free electrons right up to the oxide. The p+ source and drain are isolated by PN junctions, so no holes can cross and ID = 0.",
+   "Pulling the gate a little below the source pushes electrons away from the surface. Left behind are fixed, positively charged donor ions. The depletion layer carries no current, and VSG is still below |Vtp|, so the device is off.",
+   "Once VSG passes |Vtp|, holes gather under the oxide and form a p-type channel. The surface has been inverted from n to p. With VSD = 0 the holes have no reason to move.",
+   "With the drain below the source, holes drift from source to drain. Holes are positive, so conventional current also flows source to drain, the opposite of an NMOS. Holes are slower than electrons (μp ≈ 0.4 μn), so the same voltages give less current.",
+   "When VSD ≥ VSG − |Vtp|, the channel pinches off at the drain end. Holes reach the pinch-off point and are swept across the drain depletion region, so the current levels off near ½k(VSG − |Vtp|)²."
+  ]
+};
+
+let type = "n";
+let vgs = 0.7, vds = 0;
+const $ = id => document.getElementById(id);
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- physics ---------- */
+function current(t, g, d){
+  const p = DEV[t], ov = g - p.Vth;
+  if (ov <= 0) return 0;
+  if (d < ov) return 2*p.K*(ov*d - d*d/2);
+  return p.K*ov*ov*(1 + p.lam*(d - ov));
+}
+function region(g, d){
+  const ov = g - DEV[type].Vth;
+  if (ov <= 0) return "cut";
+  return d < ov ? "tri" : "sat";
+}
+function stageOf(g, d){
+  const Vth = DEV[type].Vth;
+  if (g < 0.3) return 0;
+  if (g < Vth) return 1;
+  if (d < 0.05) return 2;
+  if (d < g - Vth) return 3;
+  return 4;
+}
+// channel state along normalized position u (0 = source edge, 1 = drain edge)
+function chan(){
+  const ov = vgs - DEV[type].Vth, inv = ov > 0;
+  const veff = Math.min(vds, Math.max(ov,0));
+  const uP = inv && vds >= ov ? Math.max(0.72, 1 - 0.07*(vds - ov)) : 1;
+  const Q = u => {
+    if (!inv || u >= uP) return 0;
+    const uu = Math.max(0, u)/uP;
+    return Math.sqrt(Math.max(0, ov*ov - uu*(ov*ov - (ov-veff)*(ov-veff))));
+  };
+  const V = u => {
+    if (!inv) return 0;
+    if (u < uP) return ov - Q(u);
+    return ov + (u - uP)/(1 - uP + 1e-9)*(vds - ov);
+  };
+  return {ov, inv, uP, Q, V};
+}
+
+/* ---------- canvas geometry (logical units) ---------- */
+const W = 1000, H = 450, SURF = 196, BODY_B = 438;
+const CH0 = 320, CH1 = 680, L = CH1 - CH0;
+const SRC = {x0:46, x1:CH0, y0:SURF, y1:272}, DRN = {x0:CH1, x1:954, y0:SURF, y1:272};
+const cv = $("cv"), ctx = cv.getContext("2d");
+let scale = 1, dpr = 1;
+
+function resize(){
+  const w = cv.clientWidth || cv.parentElement.clientWidth;
+  scale = w / W; dpr = window.devicePixelRatio || 1;
+  cv.style.height = (H*scale) + "px";
+  cv.width = Math.round(w*dpr); cv.height = Math.round(H*scale*dpr);
+}
+new ResizeObserver(resize).observe(cv.parentElement);
+
+let C = {};
+function readColors(){
+  const cs = getComputedStyle(document.documentElement);
+  ["bg","panel","line","fg","muted","accent","electron","hole","channel","oxide","metal","si","nplus","pplus","deplete","ion"]
+    .forEach(k => C[k] = cs.getPropertyValue("--"+k).trim());
+}
+readColors();
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", readColors);
+new MutationObserver(readColors).observe(document.documentElement, {attributes:true, attributeFilter:["data-theme"]});
+
+const rnd = (a,b) => a + Math.random()*(b-a);
+
+/* majority carriers in the body */
+const maj = [];
+for (let i=0; maj.length<130 && i<5000; i++){
+  const x = rnd(26, 974), y = rnd(SURF+6, BODY_B-8);
+  const inBox = b => x > b.x0-20 && x < b.x1+20 && y < b.y1+20;
+  if (inBox(SRC) || inBox(DRN)) continue;
+  maj.push({hx:x, hy:y, x, y, off:rnd(4,22), ph:rnd(0,6.28), w:rnd(1.5,3)});
+}
+/* carriers sitting in source/drain wells */
+const wells = [];
+[SRC, DRN].forEach(b => { for (let i=0;i<30;i++) wells.push({x:rnd(b.x0+10,b.x1-10), y:rnd(b.y0+8,b.y1-8), ph:rnd(0,6.28), w:rnd(1.5,3)}); });
+/* fixed-ion grid */
+const ions = [];
+for (let x=34; x<970; x+=20) for (let y=SURF+9; y<BODY_B-6; y+=17) ions.push({x: x + ((y/17)%2 ? 6 : 0), y});
+/* channel carriers */
+let chp = [];
+
+function depthAt(x, ch){
+  if (x < CH0-4 || x > CH1+4) return 0;
+  const Vth = DEV[type].Vth;
+  const base = 72*Math.sqrt(Math.min(Math.max(vgs,0), Vth)/Vth);
+  if (!ch.inv) return base;
+  return base*Math.sqrt(1 + 0.32*ch.V((x-CH0)/L));
+}
+const chThick = (x, ch) => { const q = ch.Q((x-CH0)/L); return q > 0 ? 2 + 22*Math.min(q,3)/3 : 0; };
+const haloS = () => 12;
+const haloD = () => 12 + 15*Math.sqrt(vds);
+
+function inDepletion(x, y, ch){
+  if (x > CH0 && x < CH1){
+    const d = depthAt(x, ch);
+    if (y > SURF + chThick(x,ch) + 3 && y < SURF + d) return true;
+  }
+  const inHalo = (b, h) => x > b.x0-h && x < b.x1+h && y < b.y1+h && !(x > b.x0 && x < b.x1 && y < b.y1);
+  return inHalo(SRC, haloS()) || inHalo(DRN, haloD());
+}
+
+let flowMemo = 0;
+function stepChannel(dt, ch, I){
+  // target number of channel carriers ~ total inversion charge
+  let mean = 0; for (let k=0;k<40;k++) mean += ch.Q((k+0.5)/40); mean /= 40;
+  const target = Math.round(30*mean);
+  let add = Math.min(3, target - chp.length);
+  while (add-- > 0){
+    // place new carriers where charge already is (sampled by Q)
+    let u, tries = 0;
+    do { u = Math.random(); tries++; } while (tries < 20 && Math.random()*Math.max(ch.ov,0.01) > ch.Q(u));
+    chp.push({u, f:Math.random(), ph:rnd(0,6.28), w:rnd(1.5,3), fade:0});
+  }
+  if (chp.length > target){ for (let k=0;k<3 && chp.length>target;k++) chp.splice(Math.floor(Math.random()*chp.length),1); }
+
+  for (const p of chp){
+    p.fade = Math.min(1, p.fade + dt*3);
+    if (I > 1e-4){
+      let v;
+      if (p.u < 0) v = 70;
+      else if (p.u >= ch.uP) v = 460;
+      else v = Math.min(520, 60*I/Math.max(ch.Q(p.u), 0.06));
+      p.u += v*dt/L;
+      if (p.u > 1.1){ p.u = -0.05 - Math.random()*0.04; p.f = Math.random(); }
+    }
+  }
+}
+
+function sign(x, y, r, s, color){
+  ctx.strokeStyle = color; ctx.lineWidth = 1.4;
+  ctx.beginPath(); ctx.moveTo(x-r, y); ctx.lineTo(x+r, y);
+  if (s > 0){ ctx.moveTo(x, y-r); ctx.lineTo(x, y+r); }
+  ctx.stroke();
+}
+function arrow(x0, x1, y, color, label, alpha){
+  ctx.globalAlpha = alpha; ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = 2.5;
+  ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(x1, y); ctx.stroke();
+  const dir = Math.sign(x1-x0);
+  ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(x1-dir*12, y-7); ctx.lineTo(x1-dir*12, y+7); ctx.closePath(); ctx.fill();
+  ctx.font = `600 ${fs(12)}px "IBM Plex Mono", monospace`; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+  ctx.fillText(label, (x0+x1)/2, y-6);
+  ctx.globalAlpha = 1;
+}
+const fs = px => Math.max(px, Math.min(30, 11/scale));
+
+let last = performance.now(), T = 0;
+function frame(now){
+  const dt = Math.min(0.05, (now-last)/1000); last = now; T += dt;
+  tourTick(dt);
+  const ch = chan(), I = current(type, vgs, vds), d = DEV[type];
+  const carrierCol = type === "n" ? C.electron : C.hole;
+  const majCol = type === "n" ? C.hole : C.electron;
+  const wellFill = type === "n" ? C.nplus : C.pplus;
+  const jit = reduce ? 0 : 1.4;
+
+  ctx.setTransform(dpr*scale,0,0,dpr*scale,0,0);
+  ctx.clearRect(0,0,W,H);
+
+  // body
+  ctx.fillStyle = C.si; ctx.fillRect(16, SURF, W-32, BODY_B-SURF);
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(16.5, SURF, W-33, BODY_B-SURF);
+
+  // depletion: under gate + junction halos
+  ctx.fillStyle = C.deplete;
+  const hs = haloS(), hd = haloD();
+  ctx.fillRect(SRC.x0-hs, SURF, (SRC.x1-SRC.x0)+2*hs, (SRC.y1-SURF)+hs);
+  ctx.fillRect(DRN.x0-hd, SURF, (DRN.x1-DRN.x0)+hd, (DRN.y1-SURF)+hd);
+  ctx.beginPath(); ctx.moveTo(CH0, SURF);
+  for (let x=CH0; x<=CH1; x+=6) ctx.lineTo(x, SURF + depthAt(x, ch));
+  ctx.lineTo(CH1, SURF); ctx.closePath(); ctx.fill();
+
+  // fixed ions
+  ctx.globalAlpha = 0.9;
+  for (const o of ions) if (inDepletion(o.x, o.y, ch)){
+    ctx.strokeStyle = C.ion; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.arc(o.x, o.y, 4.2, 0, 6.283); ctx.stroke();
+    sign(o.x, o.y, 2.2, d.ionSign, C.ion);
+  }
+  ctx.globalAlpha = 1;
+
+  // source / drain wells
+  [SRC, DRN].forEach(b => {
+    ctx.fillStyle = C.bg; ctx.fillRect(b.x0, b.y0, b.x1-b.x0, b.y1-b.y0);
+    ctx.fillStyle = wellFill; ctx.fillRect(b.x0, b.y0, b.x1-b.x0, b.y1-b.y0);
+    ctx.strokeStyle = carrierCol; ctx.globalAlpha = .55; ctx.lineWidth = 1.5;
+    ctx.strokeRect(b.x0+.75, b.y0+.75, b.x1-b.x0-1.5, b.y1-b.y0-1.5); ctx.globalAlpha = 1;
+  });
+
+  // channel band
+  if (ch.inv){
+    ctx.fillStyle = C.channel; ctx.globalAlpha = .32;
+    ctx.beginPath(); ctx.moveTo(CH0-2, SURF);
+    for (let x=CH0; x<=CH1; x+=4) ctx.lineTo(x, SURF + chThick(x, ch));
+    ctx.lineTo(CH1+2, SURF); ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1;
+    if (ch.uP < 1){
+      const xp = CH0 + ch.uP*L;
+      ctx.setLineDash([4,4]); ctx.strokeStyle = C.accent; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(xp, SURF-2); ctx.lineTo(xp, SURF+38); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = C.accent; ctx.font = `600 ${fs(11)}px "IBM Plex Mono", monospace`;
+      ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText("pinch-off", xp, SURF+40);
+    }
+  }
+
+  // carrier dots helpers
+  const dot = (x, y, col, isHole, a=1) => {
+    ctx.globalAlpha = a;
+    if (isHole){ ctx.strokeStyle = col; ctx.lineWidth = 1.8; ctx.beginPath(); ctx.arc(x, y, 3.8, 0, 6.283); ctx.stroke(); }
+    else { ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x, y, 3.6, 0, 6.283); ctx.fill(); }
+    ctx.globalAlpha = 1;
+  };
+  const carrierIsHole = type === "p";
+
+  // majority carriers: pushed out of depletion regions
+  for (const m of maj){
+    let tx = m.hx, ty = m.hy;
+    if (tx > CH0-6 && tx < CH1+6){ const dd = depthAt(tx, ch); if (ty < SURF + dd + m.off*0.6) ty = SURF + dd + m.off*0.6; }
+    if (tx > DRN.x0-hd-6 && ty < DRN.y1+hd+6) ty = DRN.y1 + hd + m.off*0.5;
+    if (tx < SRC.x1+hs+6 && ty < SRC.y1+hs+6) ty = SRC.y1 + hs + m.off*0.5;
+    ty = Math.min(ty, BODY_B-6);
+    const k = Math.min(1, dt*3.5);
+    m.x += (tx-m.x)*k; m.y += (ty-m.y)*k;
+    dot(m.x + Math.sin(T*m.w+m.ph)*jit, m.y + Math.cos(T*m.w*1.3+m.ph)*jit, majCol, !carrierIsHole);
+  }
+  // well carriers
+  for (const w of wells) dot(w.x + Math.sin(T*w.w+w.ph)*jit, w.y + Math.cos(T*w.w*1.2+w.ph)*jit, carrierCol, carrierIsHole);
+
+  // channel carriers
+  stepChannel(dt, ch, I);
+  for (const p of chp){
+    const x = CH0 + p.u*L;
+    let y;
+    if (p.u < 0) y = SURF + 4 + p.f*18;
+    else if (p.u >= ch.uP){ const k = (p.u-ch.uP)/(1.1-ch.uP); y = SURF + 4 + k*30*p.f + 2; }
+    else y = SURF + 2 + p.f*Math.max(chThick(x, ch)-3, 1);
+    const moving = I > 1e-4;
+    dot(x + (moving ? 0 : Math.sin(T*p.w+p.ph)*jit), y + Math.cos(T*p.w+p.ph)*jit*0.6, carrierCol, carrierIsHole, p.fade);
+  }
+
+  // oxide + gate
+  ctx.fillStyle = C.oxide; ctx.fillRect(CH0-24, SURF-14, L+48, 14);
+  ctx.fillStyle = C.metal; ctx.fillRect(CH0-24, SURF-56, L+48, 42);
+  const nq = Math.min(16, Math.round(vgs*4));
+  for (let i=0;i<nq;i++){
+    const x = CH0 - 10 + (i+0.5)*(L+20)/nq;
+    sign(x, SURF-22, 4, type === "n" ? 1 : -1, C.bg);
+  }
+
+  // terminals
+  const term = (x, yTop, name, val) => {
+    ctx.strokeStyle = C.muted; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(x, 62); ctx.lineTo(x, yTop); ctx.stroke();
+    ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+    ctx.fillStyle = C.muted; ctx.font = `500 ${fs(13)}px "IBM Plex Sans", sans-serif`; ctx.fillText(name, x, 24);
+    ctx.fillStyle = C.fg; ctx.font = `600 ${fs(15)}px "IBM Plex Mono", monospace`; ctx.fillText(val, x, 50);
+  };
+  const sgn = type === "n" ? 1 : -1;
+  term((SRC.x0+SRC.x1)/2 - 20, SURF, "Source", "0.0 V");
+  term(500, SURF-56, "Gate", (sgn*vgs).toFixed(2) + " V");
+  term((DRN.x0+DRN.x1)/2 + 20, SURF, "Drain", (sgn*vds).toFixed(2) + " V");
+
+  // region labels
+  ctx.font = `600 ${fs(13)}px "IBM Plex Mono", monospace`; ctx.textBaseline = "middle"; ctx.fillStyle = C.fg;
+  ctx.textAlign = "left"; ctx.fillText(d.sd + " source", SRC.x0+12, SRC.y1-18);
+  ctx.textAlign = "right"; ctx.fillText(d.sd + " drain", DRN.x1-12, DRN.y1-18);
+  ctx.textAlign = "left"; ctx.fillStyle = C.muted; ctx.font = `500 ${fs(12)}px "IBM Plex Mono", monospace`;
+  ctx.fillText(d.body, 28, BODY_B-14);
+
+  // flow arrows
+  if (I > 1e-3){
+    const a = Math.min(1, 0.35 + I/0.6);
+    const yA = SURF + 112;
+    arrow(CH0+30, CH1-30, yA, carrierCol, `${d.carrier} flow  S → D`, a);
+    if (type === "n") arrow(CH1-30, CH0+30, yA+44, C.accent, "conventional current  D → S", a);
+    else arrow(CH0+30, CH1-30, yA+44, C.accent, "conventional current  S → D", a);
+  }
+
+  requestAnimationFrame(frame);
+}
+
+/* ---------- UI ---------- */
+const stepper = $("stepper");
+const stepBtns = STAGES.map((s,i) => {
+  const b = document.createElement("button");
+  b.textContent = `${i+1} ${s}`;
+  b.addEventListener("click", () => { stopTour(); goTo(PRESETS[i]); });
+  stepper.insertBefore(b, $("play"));
+  return b;
+});
+
+let anim = null;
+function goTo([g, dd]){ anim = {g0:vgs, d0:vds, g1:g, d1:dd, t:0}; }
+let tour = null;
+function tourTick(dt){
+  if (anim){
+    anim.t = Math.min(1, anim.t + dt/(reduce ? 0.01 : 0.9));
+    const e = anim.t < .5 ? 2*anim.t*anim.t : 1 - Math.pow(-2*anim.t+2, 2)/2;
+    vgs = anim.g0 + (anim.g1-anim.g0)*e; vds = anim.d0 + (anim.d1-anim.d0)*e;
+    if (anim.t >= 1) anim = null;
+    syncInputs(); update();
+  }
+  if (tour){
+    tour.t += dt;
+    if (tour.t > 4.5){
+      tour.t = 0; tour.i++;
+      if (tour.i >= PRESETS.length){ stopTour(); return; }
+      goTo(PRESETS[tour.i]);
+    }
+  }
+}
+function stopTour(){ tour = null; $("play").textContent = "▶ Play tour"; }
+$("play").addEventListener("click", () => {
+  if (tour){ stopTour(); return; }
+  tour = {i:0, t:0}; goTo(PRESETS[0]); $("play").textContent = "❚❚ Pause tour";
+});
+
+function syncInputs(){ $("vgs").value = vgs; $("vds").value = vds; }
+$("vgs").addEventListener("input", e => { stopTour(); anim = null; vgs = +e.target.value; update(); });
+$("vds").addEventListener("input", e => { stopTour(); anim = null; vds = +e.target.value; update(); });
+
+function setType(t){
+  type = t;
+  $("bt-n").setAttribute("aria-pressed", t === "n"); $("bt-p").setAttribute("aria-pressed", t === "p");
+  chp = [];
+  buildLegend(); update();
+}
+$("bt-n").addEventListener("click", () => setType("n"));
+$("bt-p").addEventListener("click", () => setType("p"));
+
+function buildLegend(){
+  const n = type === "n";
+  const ring = c => `<span class="sw" style="border:2px solid var(--${c});width:11px;height:11px"></span>`;
+  const fill = c => `<span class="sw" style="background:var(--${c})"></span>`;
+  $("legend").innerHTML =
+    `<span>${n ? ring("hole") : fill("electron")} ${n ? "Hole (majority in body)" : "Electron (majority in body)"}</span>` +
+    `<span>${n ? fill("electron") : ring("hole")} ${n ? "Electron (channel carrier)" : "Hole (channel carrier)"}</span>` +
+    `<span><span class="sw" style="background:var(--channel);border-radius:3px;opacity:.6"></span> Channel</span>` +
+    `<span><span class="sw" style="background:var(--deplete);border:1px solid var(--line);border-radius:3px"></span> Depletion</span>` +
+    `<span><span class="sw" style="border:1px solid var(--ion)"></span> Fixed ${n ? "acceptor ion (−)" : "donor ion (+)"}</span>` +
+    `<span><span class="sw" style="background:var(--oxide);border-radius:3px"></span> Gate oxide</span>`;
+}
+
+const f2 = x => x.toFixed(2);
+function update(){
+  const d = DEV[type], n = type === "n";
+  const I = current(type, vgs, vds), r = region(vgs, vds), st = stageOf(vgs, vds);
+  const ov = vgs - d.Vth, k = 2*d.K;
+
+  $("sub-top").textContent = `${d.name} · ${n ? "Vth = +1.0 V" : "Vtp = −1.0 V"} · body tied to source`;
+  $("st-num").textContent = `${st+1}/5`;
+  $("st-name").textContent = STAGES[st] + (st === 3 ? " (triode)" : "");
+  $("st-sub").textContent = SUB[type][st];
+  stepBtns.forEach((b,i) => b.classList.toggle("on", i === st));
+
+  $("lab-g").textContent = n ? "Gate–source VGS" : "Gate–source VGS";
+  $("lab-d").textContent = n ? "Drain–source VDS" : "Drain–source VDS";
+  $("lab-i").textContent = n ? "Drain current ID" : "Source→drain ISD";
+  $("ro-g").textContent = (n ? "" : (vgs > 0.004 ? "−" : "")) + f2(vgs) + " V";
+  $("ro-d").textContent = (n ? "" : (vds > 0.004 ? "−" : "")) + f2(vds) + " V";
+  $("ro-i").textContent = f2(I) + " mA";
+  $("sl-g-name").textContent = n ? "Gate voltage VGS" : "Gate below source, VSG";
+  $("sl-d-name").textContent = n ? "Drain voltage VDS" : "Drain below source, VSD";
+
+  const reg = $("region");
+  reg.className = "region" + (r === "tri" ? " on" : r === "sat" ? " on sat" : "");
+  reg.querySelector("span").textContent = {cut:"Cutoff", tri:"Triode (linear)", sat:"Saturation"}[r];
+
+  // equations
+  const G = n ? "VGS" : "VSG", D = n ? "VDS" : "VSD", Vt = n ? "Vth" : "|Vtp|", Id = n ? "ID" : "ISD";
+  const rows = [
+    {key:"cut", name:"Cutoff", cond:`${G} < ${Vt}`, f:`${Id} = 0`,
+     sub:`${f2(vgs)} V < ${f2(d.Vth)} V, so ${Id} = 0 mA`},
+    {key:"tri", name:"Triode", cond:`${D} < ${G} − ${Vt}`, f:`${Id} = k[(${G} − ${Vt})·${D} − ${D}²/2]`,
+     sub:`= ${f2(k)}·[${f2(ov)}·${f2(vds)} − ${f2(vds)}²/2] = ${f2(I)} mA`},
+    {key:"sat", name:"Saturation", cond:`${D} ≥ ${G} − ${Vt}`, f:`${Id} = ½k(${G} − ${Vt})²·[1 + λ(${D} − VOV)]`,
+     sub:`= ½·${f2(k)}·${f2(ov)}²·[1 + ${d.lam}·${f2(vds-ov)}] = ${f2(I)} mA`}
+  ];
+  $("eq").innerHTML = rows.map(row => `<div class="eqrow${row.key===r?" act":""}">
+      <span class="name">${row.name}</span><span class="f">${row.f}<br><span style="opacity:.75">when ${row.cond}</span></span>
+      ${row.key===r ? `<span class="sub">${row.sub}</span>` : ""}
+    </div>`).join("");
+  $("consts").textContent = `k = ${d.mu}·Cox·W/L = ${f2(k)} mA/V²   ${Vt} = ${f2(d.Vth)} V   λ = ${d.lam} V⁻¹   VOV = ${G} − ${Vt} = ${f2(Math.max(ov,0))} V`;
+
+  $("explain").textContent = EXPLAIN[type][st];
+  $("flow").innerHTML = I > 1e-3
+    ? `<span>${d.carriers}: <b>source → drain</b></span><span>conventional current: <b>${n ? "drain → source" : "source → drain"}</b></span>`
+    : `<span>net flow: <b>none</b></span>`;
+
+  drawPlots(I, r);
+}
+
+/* ---------- plots ---------- */
+function drawPlots(I, r){
+  const d = DEV[type], n = type === "n";
+  const yMax = n ? 4 : 1.6, yStep = n ? 1 : 0.4;
+  // output
+  {
+    const m = {l:34, r:10, t:12, b:30}, w = 300, h = 220;
+    const X = v => m.l + v/4*(w-m.l-m.r), Y = i => h-m.b - Math.min(i,yMax)/yMax*(h-m.t-m.b);
+    let s = "";
+    for (let i=0;i<=yMax+1e-9;i+=yStep) s += `<line x1="${m.l}" x2="${w-m.r}" y1="${Y(i)}" y2="${Y(i)}" stroke="var(--line)" stroke-width="1"/><text x="${m.l-6}" y="${Y(i)+3}" text-anchor="end">${+i.toFixed(1)}</text>`;
+    for (let v=0; v<=4; v++) s += `<text x="${X(v)}" y="${h-m.b+14}" text-anchor="middle">${v}</text>`;
+    s += `<text x="${(m.l+w-m.r)/2}" y="${h-2}" text-anchor="middle">${n ? "VDS" : "VSD"} (V)</text>`;
+    s += `<text x="${m.l}" y="${m.t-2}" text-anchor="start">${n ? "ID" : "|ISD|"} (mA)</text>`;
+    // boundary
+    let bp = ""; for (let ov=0; ov<=3.01; ov+=0.1) bp += (bp?"L":"M") + X(ov) + " " + Y(d.K*ov*ov);
+    s += `<path d="${bp}" fill="none" stroke="var(--muted)" stroke-dasharray="3 3" stroke-width="1"/>`;
+    s += `<text x="${X(0.55)}" y="${Y(yMax*0.86)}">triode</text><text x="${X(2.9)}" y="${Y(yMax*0.06)+0}" text-anchor="middle">saturation</text>`;
+    const curve = (g) => { let p=""; for (let v=0; v<=4.001; v+=0.05) p += (p?"L":"M") + X(v).toFixed(1) + " " + Y(current(type,g,v)).toFixed(1); return p; };
+    [1.5,2,2.5,3,3.5,4].forEach(g => {
+      s += `<path d="${curve(g)}" fill="none" stroke="var(--muted)" stroke-opacity=".55" stroke-width="1"/>`;
+      s += `<text x="${w-m.r+2}" y="${Y(current(type,g,4))+3}" font-size="8">${g}</text>`;
+    });
+    if (vgs > d.Vth) s += `<path d="${curve(vgs)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+    s += `<line x1="${m.l}" x2="${m.l}" y1="${m.t}" y2="${h-m.b}" stroke="var(--muted)"/><line x1="${m.l}" x2="${w-m.r}" y1="${h-m.b}" y2="${h-m.b}" stroke="var(--muted)"/>`;
+    s += `<circle cx="${X(vds)}" cy="${Y(I)}" r="5.5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>`;
+    $("out").innerHTML = s;
+  }
+  // transfer
+  {
+    const m = {l:30, r:8, t:12, b:30}, w = 220, h = 220;
+    const X = v => m.l + v/4*(w-m.l-m.r), Y = i => h-m.b - Math.min(i,yMax)/yMax*(h-m.t-m.b);
+    let s = "";
+    for (let i=0;i<=yMax+1e-9;i+=yStep) s += `<line x1="${m.l}" x2="${w-m.r}" y1="${Y(i)}" y2="${Y(i)}" stroke="var(--line)"/><text x="${m.l-5}" y="${Y(i)+3}" text-anchor="end">${+i.toFixed(1)}</text>`;
+    for (let v=0; v<=4; v++) s += `<text x="${X(v)}" y="${h-m.b+14}" text-anchor="middle">${v}</text>`;
+    s += `<text x="${(m.l+w-m.r)/2}" y="${h-2}" text-anchor="middle">${n ? "VGS" : "VSG"} (V)</text>`;
+    s += `<line x1="${X(d.Vth)}" x2="${X(d.Vth)}" y1="${m.t}" y2="${h-m.b}" stroke="var(--muted)" stroke-dasharray="3 3"/><text x="${X(d.Vth)+4}" y="${m.t+10}">${n ? "Vth" : "|Vtp|"}</text>`;
+    let p=""; for (let g=0; g<=4.001; g+=0.05) p += (p?"L":"M") + X(g).toFixed(1) + " " + Y(current(type,g,vds)).toFixed(1);
+    s += `<path d="${p}" fill="none" stroke="var(--accent)" stroke-width="2"/>`;
+    s += `<text x="${m.l+4}" y="${m.t+24}">at ${n ? "VDS" : "VSD"} = ${f2(vds)} V</text>`;
+    s += `<line x1="${m.l}" x2="${m.l}" y1="${m.t}" y2="${h-m.b}" stroke="var(--muted)"/><line x1="${m.l}" x2="${w-m.r}" y1="${h-m.b}" y2="${h-m.b}" stroke="var(--muted)"/>`;
+    s += `<circle cx="${X(vgs)}" cy="${Y(I)}" r="5.5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>`;
+    $("tr").innerHTML = s;
+  }
+}
+
+resize(); buildLegend(); update();
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
