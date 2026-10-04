@@ -147,6 +147,8 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
 
     <div class="stepper" id="stepper">
       <button class="play" id="play">▶ Play tour</button>
+      <button id="sw-vds">⇆ Sweep VDS</button>
+      <button id="sw-vgs">⇆ Sweep VGS</button>
     </div>
 
     <section class="device">
@@ -178,7 +180,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
       </section>
 
       <section class="card">
-        <p class="eyebrow">I–V characteristics</p>
+        <p class="eyebrow">I–V characteristics <span id="sw-hint" style="text-transform:none;letter-spacing:0;color:var(--accent)"></span></p>
         <div class="plots">
           <div class="plot"><svg id="out" viewBox="0 0 300 220" role="img" aria-label="Output characteristic, drain current versus drain voltage"></svg></div>
           <div class="plot"><svg id="tr" viewBox="0 0 220 220" role="img" aria-label="Transfer characteristic, drain current versus gate voltage"></svg></div>
@@ -634,9 +636,36 @@ const stepBtns = STAGES.map((s,i) => {
   $("stepper").insertBefore(b, $("play"));
   return b;
 });
-let anim = null, tour = null;
-function goTo([g, dd]){ anim = {g0:vgs, d0:vds, g1:g, d1:dd, t:0}; }
+let anim = null, tour = null, msweep = null, trail = [];
+function goTo([g, dd]){ stopMSweep(); anim = {g0:vgs, d0:vds, g1:g, d1:dd, t:0}; }
+const swName = v => (type === "n" ? {vds:"VDS", vgs:"VGS"} : {vds:"VSD", vgs:"VSG"})[v];
+function swLabels(){
+  ["vds","vgs"].forEach(v => {
+    const b = $("sw-"+v), on = msweep && msweep.v === v;
+    b.textContent = on ? `❚❚ Stop ${swName(v)} sweep` : `⇆ Sweep ${swName(v)}`;
+    b.classList.toggle("on", !!on);
+  });
+}
+function stopMSweep(){ if (!msweep) return; msweep = null; swLabels(); }
+function startMSweep(v){
+  if (msweep && msweep.v === v){ stopMSweep(); updateMos(); return; }
+  stopTour(); anim = null;
+  // pick a fixed bias that makes the sweep interesting
+  if (v === "vds" && vgs < 1.6){ vgs = 2.5; $("vgs").value = vgs; }
+  if (v === "vgs" && vds < 0.1){ vds = 2; $("vds").value = vds; }
+  const cur = v === "vds" ? vds : vgs;
+  msweep = {v, t: cur/4*6}; trail = [];
+  swLabels();
+}
+$("sw-vds").addEventListener("click", () => startMSweep("vds"));
+$("sw-vgs").addEventListener("click", () => startMSweep("vgs"));
 function tourTick(dt){
+  if (msweep){
+    msweep.t = (msweep.t + dt*(reduce ? 0.5 : 1)) % 12;
+    const val = (msweep.t < 6 ? msweep.t/6 : 2 - msweep.t/6)*4;
+    if (msweep.v === "vds"){ vds = val; $("vds").value = vds; } else { vgs = val; $("vgs").value = vgs; }
+    updateMos();
+  }
   if (anim){
     anim.t = Math.min(1, anim.t + dt/(reduce ? 0.01 : 0.9));
     const e = anim.t < .5 ? 2*anim.t*anim.t : 1 - Math.pow(-2*anim.t+2, 2)/2;
@@ -653,18 +682,18 @@ function tourTick(dt){
     }
   }
 }
-function stopTour(){ tour = null; $("play").textContent = "▶ Play tour"; }
+function stopTour(){ tour = null; swLabels(); $("play").textContent = "▶ Play tour"; }
 $("play").addEventListener("click", () => {
   if (tour){ stopTour(); return; }
-  tour = {i:0, t:0}; goTo(PRESETS[0]); $("play").textContent = "❚❚ Pause tour";
+  stopMSweep(); tour = {i:0, t:0}; goTo(PRESETS[0]); $("play").textContent = "❚❚ Pause tour";
 });
-$("vgs").addEventListener("input", e => { stopTour(); anim = null; vgs = +e.target.value; updateMos(); });
-$("vds").addEventListener("input", e => { stopTour(); anim = null; vds = +e.target.value; updateMos(); });
+$("vgs").addEventListener("input", e => { stopTour(); stopMSweep(); anim = null; vgs = +e.target.value; updateMos(); });
+$("vds").addEventListener("input", e => { stopTour(); stopMSweep(); anim = null; vds = +e.target.value; updateMos(); });
 
 function setType(t){
   type = t;
   $("bt-n").setAttribute("aria-pressed", t === "n"); $("bt-p").setAttribute("aria-pressed", t === "p");
-  chp = []; buildLegend(); updateMos();
+  chp = []; trail = []; buildLegend(); swLabels(); updateMos();
 }
 $("bt-n").addEventListener("click", () => setType("n"));
 $("bt-p").addEventListener("click", () => setType("p"));
@@ -763,6 +792,8 @@ function updateMos(){
     `<span>With channel effects: <b>${f2(I)} mA</b></span>` +
     (longI > 1e-4 ? `<span class="delta">${pct >= 0 ? "+" : ""}${pct.toFixed(0)}% from effects</span>` : "");
 
+  $("sw-hint").textContent = msweep ? (msweep.v === "vds" ? `· tracing ${swName("vds")} at ${swName("vgs")} = ${f2(vgs)} V` : `· tracing ${swName("vgs")} at ${swName("vds")} = ${f2(vds)} V`) : "";
+  if (msweep){ trail.push({g:vgs, d:vds, I}); if (trail.length > 260) trail.shift(); }
   drawMosPlots(r);
 }
 
@@ -804,6 +835,8 @@ function drawMosPlots(r){
       }
       s += `<path d="${path(xs, v => solve(type,vgs,v,fx).I, A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
     }
+    if (msweep && msweep.v === "vds" && trail.length > 1)
+      s += `<path d="${trail.map((q,i) => (i?"L":"M") + A.X(q.d).toFixed(1) + " " + A.Y(q.I).toFixed(1)).join("")}" fill="none" stroke="var(--accent)" stroke-width="7" stroke-opacity=".28" stroke-linecap="round" stroke-linejoin="round"/>`;
     s += A.frame + `<circle cx="${A.X(vds)}" cy="${A.Y(r.I)}" r="5.5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>`;
     $("out").innerHTML = s;
   }
@@ -813,6 +846,8 @@ function drawMosPlots(r){
     s += `<line x1="${A.X(r.Vth)}" x2="${A.X(r.Vth)}" y1="14" y2="190" stroke="var(--muted)" stroke-dasharray="3 3"/><text x="${A.X(r.Vth)+4}" y="26">${n ? "Vth" : "|Vtp|"} = ${f2(r.Vth)}</text>`;
     s += `<path d="${path(xs, g => solve(type,g,vds,fx).I, A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2"/>`;
     s += `<text x="${A.l||36}" y="40">at ${n ? "VDS" : "VSD"} = ${f2(vds)} V</text>`;
+    if (msweep && msweep.v === "vgs" && trail.length > 1)
+      s += `<path d="${trail.map((q,i) => (i?"L":"M") + A.X(q.g).toFixed(1) + " " + A.Y(q.I).toFixed(1)).join("")}" fill="none" stroke="var(--accent)" stroke-width="7" stroke-opacity=".28" stroke-linecap="round" stroke-linejoin="round"/>`;
     s += A.frame + `<circle cx="${A.X(vgs)}" cy="${A.Y(r.I)}" r="5.5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>`;
     $("tr").innerHTML = s;
   }

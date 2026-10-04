@@ -8,6 +8,7 @@ Interactive animation of how MOS transistors work, for learners.
 - NMOS / PMOS toggle
 - 5 stages: Off → Depletion → Inversion → Linear (triode) → Saturation, with a guided tour
 - VGS / VDS sliders, live current equation with substituted numbers
+- Sweep mode: sweep VDS (at fixed VGS) or VGS (at fixed VDS) and watch the operating point trace the I–V curve
 - Output (ID–VDS) and transfer (ID–VGS) plots
 - **Channel effects:** channel length L, body bias, and toggles for channel-length modulation, body effect, DIBL and velocity saturation, compared against the ideal model
 
