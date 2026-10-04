@@ -4,10 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MOSFET Carrier Flow</title>
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
-/* Layout: lab-instrument console. Stage header, live cross-section, then controls + equation + I–V plots in a two-column bench. */
+/* Layout: lab-instrument console. Tabs for a single transistor and a CMOS inverter; each has a live canvas, then a two-column bench of controls/equations and plots. */
 :root{
   --bg:#0b0f15; --panel:#121821; --panel2:#18202b; --line:#253041; --fg:#e7edf5; --muted:#8693a6;
   --accent:#f2b434; --accent-ink:#1a1305;
@@ -33,14 +34,18 @@
   color-scheme:light;
 }
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.55;margin:0}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.55;transition:background .25s,color .25s}
+[hidden]{display:none!important}
 .wrap{max-width:1120px;margin:0 auto;padding-inline:16px;padding-block:20px 48px;display:grid;gap:18px}
 .top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
 .top h1{font-family:var(--f-display);font-weight:700;font-size:1.35rem;margin:0;letter-spacing:-.01em}
 .top h1 small{display:block;font-family:var(--f-mono);font-weight:400;font-size:.75rem;color:var(--muted);letter-spacing:.02em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .seg{display:inline-flex;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:3px;gap:3px}
-.seg button{font:600 .85rem var(--f-mono);color:var(--muted);background:transparent;border:0;border-radius:7px;padding:7px 16px;cursor:pointer}
-.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.seg button{font:600 .85rem var(--f-mono);color:var(--muted);background:transparent;border:0;border-radius:7px;padding:7px 14px;cursor:pointer}
+.seg button[aria-pressed="true"],.seg button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink)}
+.iconbtn{font:600 .85rem var(--f-mono);color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 12px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
 button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 .stagehead{display:grid;justify-items:center;gap:4px;text-align:center}
@@ -50,9 +55,9 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline
 .stagehead p{margin:0;color:var(--muted)}
 
 .stepper{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center}
-.stepper button{font:500 .8rem var(--f-mono);color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer}
+.stepper button,.chipbtn{font:500 .8rem var(--f-mono);color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer}
 .stepper button.on{border-color:var(--accent);color:var(--accent)}
-.stepper .play{background:var(--fg);color:var(--bg);border-color:var(--fg);font-weight:600}
+.play{background:var(--fg)!important;color:var(--bg)!important;border-color:var(--fg)!important;font-weight:600!important}
 
 .device{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;display:grid;gap:10px}
 .device canvas{width:100%;display:block}
@@ -63,6 +68,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline
 .bench{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:18px}
 @media (max-width:820px){.bench{grid-template-columns:minmax(0,1fr)}}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:14px;min-width:0;align-content:start}
+.sub-card{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;gap:10px;min-width:0}
 .eyebrow{font:600 .7rem var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0}
 
 .readouts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
@@ -71,9 +77,10 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline
 .ro b{font:600 clamp(1.15rem,3.4vw,1.6rem) var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
 .ro.id b{color:var(--accent)}
 .slider{display:grid;gap:4px}
-.slider .lab{display:flex;justify-content:space-between;font-size:.85rem}
+.slider .lab{display:flex;justify-content:space-between;gap:8px;font-size:.85rem}
 .slider .lab span:last-child{font-family:var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums}
 input[type=range]{width:100%;accent-color:var(--accent);height:24px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
 .region{display:inline-flex;align-items:center;gap:8px;font:600 .8rem var(--f-mono);padding:4px 10px;border-radius:999px;border:1px solid var(--line);justify-self:start}
 .region i{width:8px;height:8px;border-radius:50%;background:var(--muted)}
 .region.on i{background:var(--channel)}
@@ -82,8 +89,8 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
 .eq{display:grid;gap:8px}
 .eqrow{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:4px 12px;padding:10px 12px;border-radius:10px;border:1px solid transparent;color:var(--muted);font-size:.88rem}
 .eqrow .name{font-weight:600}
-.eqrow .f{font-family:var(--f-mono);font-size:.86rem;overflow-x:auto}
-.eqrow .sub{grid-column:2;font-family:var(--f-mono);font-size:.86rem;color:var(--fg)}
+.eqrow .f{font-family:var(--f-mono);font-size:.84rem;overflow-x:auto}
+.eqrow .sub{grid-column:2;font-family:var(--f-mono);font-size:.84rem;color:var(--fg);overflow-x:auto}
 .eqrow.act{border-color:var(--accent);background:var(--panel2);color:var(--fg)}
 .eqrow.act .name{color:var(--accent)}
 @media (max-width:480px){.eqrow{grid-template-columns:minmax(0,1fr)}.eqrow .sub{grid-column:1}}
@@ -96,243 +103,311 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
 .plot svg text{font-family:var(--f-mono);font-size:10px;fill:var(--muted)}
 
 .explain p{margin:0;max-width:68ch}
-.explain .flow{display:flex;flex-wrap:wrap;gap:8px 20px;font:.82rem var(--f-mono);color:var(--muted)}
-.explain .flow b{color:var(--fg);font-weight:600}
+.flow{display:flex;flex-wrap:wrap;gap:8px 20px;font:.82rem var(--f-mono);color:var(--muted)}
+.flow b{color:var(--fg);font-weight:600}
+
+/* channel effects */
+.fx-top{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;align-items:end}
+.fx-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}
+.fx{display:grid;gap:6px;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--panel2);min-width:0}
+.fx.off{opacity:.55}
+.fx label.t{display:flex;align-items:center;gap:8px;font-weight:600;cursor:pointer}
+.fx input[type=checkbox]{accent-color:var(--accent);width:16px;height:16px}
+.fx .fm{font:.8rem var(--f-mono);color:var(--muted);overflow-x:auto}
+.fx .val{font:600 .9rem var(--f-mono);color:var(--accent);font-variant-numeric:tabular-nums}
+.fx p{margin:0;font-size:.84rem;color:var(--muted)}
+.cmp{display:flex;flex-wrap:wrap;gap:8px 24px;font:.9rem var(--f-mono)}
+.cmp b{font-weight:600;font-variant-numeric:tabular-nums}
+.cmp .delta{color:var(--accent)}
 </style>
 </head>
 <body>
-
 <div class="wrap">
   <header class="top">
     <h1>MOSFET Carrier Flow<small id="sub-top">N-channel · Vth = +1.0 V · body tied to source</small></h1>
-    <div class="seg" role="group" aria-label="Transistor type">
-      <button id="bt-n" aria-pressed="true">NMOS</button>
-      <button id="bt-p" aria-pressed="false">PMOS</button>
+    <div class="tools">
+      <div class="seg" role="tablist" aria-label="View">
+        <button role="tab" id="tab-btn-mos" aria-selected="true" aria-controls="tab-mos">Transistor</button>
+        <button role="tab" id="tab-btn-inv" aria-selected="false" aria-controls="tab-inv">CMOS inverter</button>
+      </div>
+      <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
+        <button id="bt-n" aria-pressed="true">NMOS</button>
+        <button id="bt-p" aria-pressed="false">PMOS</button>
+      </div>
+      <button class="iconbtn" id="theme" aria-label="Switch colour theme"><span id="theme-ic">☀</span><span id="theme-lab">Light</span></button>
     </div>
   </header>
 
-  <div class="stagehead">
-    <div class="row"><span class="pill" id="st-num">2/5</span><h2 id="st-name">Depletion</h2></div>
-    <p id="st-sub">Gate repels holes · still off</p>
-  </div>
+  <!-- ===================== TRANSISTOR TAB ===================== -->
+  <section id="tab-mos" role="tabpanel" aria-labelledby="tab-btn-mos" style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="st-num">2/5</span><h2 id="st-name">Depletion</h2></div>
+      <p id="st-sub">Gate repels holes · still off</p>
+    </div>
 
-  <div class="stepper" id="stepper">
-    <button class="play" id="play">▶ Play tour</button>
-  </div>
+    <div class="stepper" id="stepper">
+      <button class="play" id="play">▶ Play tour</button>
+    </div>
 
-  <section class="device">
-    <canvas id="cv" aria-label="Animated cross-section of the transistor showing carriers"></canvas>
-    <div class="legend" id="legend"></div>
+    <section class="device">
+      <canvas id="cv" aria-label="Animated cross-section of the transistor showing carriers"></canvas>
+      <div class="legend" id="legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Bias</p>
+        <div class="readouts">
+          <div class="ro"><label id="lab-g">Gate–source VGS</label><b id="ro-g">0.70 V</b></div>
+          <div class="ro"><label id="lab-d">Drain–source VDS</label><b id="ro-d">0.00 V</b></div>
+          <div class="ro id"><label id="lab-i">Drain current ID</label><b id="ro-i">0.00 mA</b></div>
+        </div>
+        <div class="slider">
+          <div class="lab"><span id="sl-g-name">Gate voltage VGS</span><span>0 – 4 V</span></div>
+          <input id="vgs" type="range" min="0" max="4" step="0.01" value="0.7">
+        </div>
+        <div class="slider">
+          <div class="lab"><span id="sl-d-name">Drain voltage VDS</span><span>0 – 4 V</span></div>
+          <input id="vds" type="range" min="0" max="4" step="0.01" value="0">
+        </div>
+        <span class="region" id="region"><i></i><span>Cutoff</span></span>
+
+        <p class="eyebrow">Current equation</p>
+        <div class="eq" id="eq"></div>
+        <p class="consts" id="consts"></p>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">I–V characteristics</p>
+        <div class="plots">
+          <div class="plot"><svg id="out" viewBox="0 0 300 220" role="img" aria-label="Output characteristic, drain current versus drain voltage"></svg></div>
+          <div class="plot"><svg id="tr" viewBox="0 0 220 220" role="img" aria-label="Transfer characteristic, drain current versus gate voltage"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">What the carriers are doing</p>
+          <p id="explain"></p>
+          <div class="flow" id="flow"></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="card" aria-labelledby="fx-h">
+      <p class="eyebrow" id="fx-h">Channel effects</p>
+      <div class="fx-top">
+        <div class="slider">
+          <div class="lab"><span>Channel length L</span><span id="len-v">1.00 µm</span></div>
+          <input id="len" type="range" min="0.25" max="1" step="0.05" value="1">
+        </div>
+        <div class="slider">
+          <div class="lab"><span id="vsb-name">Body reverse bias VSB</span><span id="vsb-v">0.00 V</span></div>
+          <input id="vsb" type="range" min="0" max="3" step="0.05" value="0">
+        </div>
+        <div class="chips">
+          <button class="chipbtn" id="fx-long">Long channel</button>
+          <button class="chipbtn" id="fx-short">Short channel</button>
+          <button class="chipbtn" id="fx-ideal">Ideal (all off)</button>
+        </div>
+      </div>
+      <div class="cmp" id="cmp"></div>
+      <div class="fx-list">
+        <div class="fx" id="fxc-clm">
+          <label class="t"><input type="checkbox" id="fx-clm" checked> Channel-length modulation</label>
+          <div class="fm">λ = λ₀ · (1 µm / L)</div>
+          <div class="val" id="fxv-clm"></div>
+          <p>In saturation the pinch-off point creeps toward the source as VDS rises. The channel gets shorter, so ID keeps rising a little instead of staying flat.</p>
+        </div>
+        <div class="fx" id="fxc-body">
+          <label class="t"><input type="checkbox" id="fx-body" checked> Body effect</label>
+          <div class="fm">ΔVth = γ(√(2φF + VSB) − √2φF)</div>
+          <div class="val" id="fxv-body"></div>
+          <p>Reverse-biasing the body widens the depletion layer under the gate. The gate must pull harder to invert the surface, so Vth rises.</p>
+        </div>
+        <div class="fx" id="fxc-dibl">
+          <label class="t"><input type="checkbox" id="fx-dibl" checked> DIBL</label>
+          <div class="fm">ΔVth = −η · VDS,  η ∝ 1/L²</div>
+          <div class="val" id="fxv-dibl"></div>
+          <p>Drain-induced barrier lowering: in a short channel the drain's field reaches the source and lowers its barrier, so Vth drops as VDS rises.</p>
+        </div>
+        <div class="fx" id="fxc-vsat">
+          <label class="t"><input type="checkbox" id="fx-vsat" checked> Velocity saturation</label>
+          <div class="fm">VDSsat = VOV·EcL / (VOV + EcL)</div>
+          <div class="val" id="fxv-vsat"></div>
+          <p>Carriers have a top speed. In a short channel the field is strong enough to reach it, so current saturates early (VDSsat &lt; VOV) without a full pinch-off.</p>
+        </div>
+      </div>
+    </section>
   </section>
 
-  <div class="bench">
-    <section class="card">
-      <p class="eyebrow">Bias</p>
-      <div class="readouts">
-        <div class="ro"><label id="lab-g">Gate–source VGS</label><b id="ro-g">0.70 V</b></div>
-        <div class="ro"><label id="lab-d">Drain–source VDS</label><b id="ro-d">0.00 V</b></div>
-        <div class="ro id"><label id="lab-i">Drain current ID</label><b id="ro-i">0.00 mA</b></div>
-      </div>
-      <div class="slider">
-        <div class="lab"><span id="sl-g-name">Gate voltage VGS</span><span>0 – 4 V</span></div>
-        <input id="vgs" type="range" min="0" max="4" step="0.01" value="0.7">
-      </div>
-      <div class="slider">
-        <div class="lab"><span id="sl-d-name">Drain voltage VDS</span><span>0 – 4 V</span></div>
-        <input id="vds" type="range" min="0" max="4" step="0.01" value="0">
-      </div>
-      <span class="region" id="region"><i></i><span>Cutoff</span></span>
+  <!-- ===================== INVERTER TAB ===================== -->
+  <section id="tab-inv" role="tabpanel" aria-labelledby="tab-btn-inv" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="iv-letter">C</span><h2 id="iv-name">Switching point</h2></div>
+      <p id="iv-sub">Both transistors saturated</p>
+    </div>
+    <div class="stepper" id="iv-stepper">
+      <button class="play" id="iv-play">▶ Sweep Vin</button>
+    </div>
 
-      <p class="eyebrow">Current equation</p>
-      <div class="eq" id="eq"></div>
-      <p class="consts" id="consts"></p>
+    <section class="device">
+      <canvas id="cvi" aria-label="Animated CMOS inverter: schematic and both transistor cross-sections"></canvas>
+      <div class="legend">
+        <span><span class="sw" style="background:var(--electron)"></span> Electron</span>
+        <span><span class="sw" style="border:2px solid var(--hole)"></span> Hole</span>
+        <span><span class="sw" style="background:var(--channel);border-radius:3px;opacity:.6"></span> Channel</span>
+        <span><span class="sw" style="background:var(--deplete);border:1px solid var(--line);border-radius:3px"></span> Depletion</span>
+        <span><span class="sw" style="background:var(--accent)"></span> Current VDD → GND</span>
+      </div>
     </section>
 
-    <section class="card">
-      <p class="eyebrow">I–V characteristics</p>
-      <div class="plots">
-        <div class="plot"><svg id="out" viewBox="0 0 300 220" role="img" aria-label="Output characteristic, drain current versus drain voltage"></svg></div>
-        <div class="plot"><svg id="tr" viewBox="0 0 220 220" role="img" aria-label="Transfer characteristic, drain current versus gate voltage"></svg></div>
-      </div>
-      <div class="explain card" style="padding:14px;background:var(--panel2);border-color:var(--line)">
-        <p class="eyebrow">What the carriers are doing</p>
-        <p id="explain"></p>
-        <div class="flow" id="flow"></div>
-      </div>
-    </section>
-  </div>
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Input</p>
+        <div class="readouts">
+          <div class="ro"><label>Input Vin</label><b id="iv-ro-in">1.40 V</b></div>
+          <div class="ro"><label>Output Vout</label><b id="iv-ro-out">3.30 V</b></div>
+          <div class="ro id"><label>Through current</label><b id="iv-ro-i">0.00 mA</b></div>
+        </div>
+        <div class="slider">
+          <div class="lab"><span>Input voltage Vin</span><span>0 – 3.3 V</span></div>
+          <input id="vin" type="range" min="0" max="3.3" step="0.01" value="1.4">
+        </div>
+        <div class="slider">
+          <div class="lab"><span>PMOS width ÷ NMOS width</span><span id="ratio-v">1.0×</span></div>
+          <input id="ratio" type="range" min="1" max="4" step="0.1" value="1">
+        </div>
+        <div class="chips">
+          <span class="region" id="iv-reg-p"><i></i><span>PMOS</span></span>
+          <span class="region" id="iv-reg-n"><i></i><span>NMOS</span></span>
+          <button class="chipbtn" id="iv-balance">Balance (Wp = 2.5 Wn)</button>
+        </div>
+
+        <p class="eyebrow">Both transistors carry the same current</p>
+        <div class="eq" id="iv-eq"></div>
+        <p class="consts" id="iv-consts"></p>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Transfer curve and supply current</p>
+        <div class="plots">
+          <div class="plot"><svg id="vtc" viewBox="0 0 300 230" role="img" aria-label="Voltage transfer curve, Vout versus Vin"></svg></div>
+          <div class="plot"><svg id="isc" viewBox="0 0 220 230" role="img" aria-label="Supply current versus Vin"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">What is happening</p>
+          <p id="iv-explain"></p>
+          <p id="iv-note" style="color:var(--muted);font-size:.86rem"></p>
+        </div>
+      </section>
+    </div>
+  </section>
 </div>
 
 <script>
 (() => {
-const DEV = {
-  n:{ name:"N-channel", Vth:1.0, K:0.40, lam:0.02, carrier:"electron", carriers:"electrons", maj:"hole", majs:"holes",
-      sd:"n+", body:"p-type body", ionSign:-1, mu:"μn" },
-  p:{ name:"P-channel", Vth:1.0, K:0.16, lam:0.03, carrier:"hole", carriers:"holes", maj:"electron", majs:"electrons",
-      sd:"p+", body:"n-type body", ionSign:1, mu:"μp" }
-};
-const STAGES = ["Off","Depletion","Inversion","Linear","Saturation"];
-const PRESETS = [[0,2],[0.7,0],[2.5,0],[2.5,0.6],[2.5,3]];
-const SUB = {
-  n:["Gate at 0 V · no channel","Gate repels holes · still off","Electron channel forms · no current yet","Electrons drift source → drain","Channel pinches off · current saturates"],
-  p:["Gate at source potential · no channel","Gate repels electrons · still off","Hole channel forms · no current yet","Holes drift source → drain","Channel pinches off · current saturates"]
-};
-const EXPLAIN = {
-  n:[
-   "With VGS = 0 the gate does nothing. The p-type body is full of holes right up to the oxide, and the two n+ regions are separated by back-to-back PN junctions. Even with voltage on the drain, no electrons can cross, so ID = 0.",
-   "A small positive gate voltage pushes holes away from the surface. Left behind are fixed, negatively charged acceptor ions that cannot move. This depletion layer carries no current. VGS is still below Vth, so the transistor stays off.",
-   "Once VGS passes Vth, the surface pulls in enough electrons from the n+ source and drain to form a thin n-type layer: the channel. The surface has been inverted from p to n. With VDS = 0 there is no field along the channel, so electrons only jiggle in place.",
-   "A small VDS tilts the potential along the channel and electrons drift from source to drain. Conventional current flows the other way, drain to source. The channel thins toward the drain, because the gate-to-channel voltage there is only VGS − VDS. ID rises almost linearly with VDS, like a resistor set by the gate.",
-   "When VDS ≥ VGS − Vth, the gate-to-channel voltage at the drain end falls to Vth and the channel pinches off. Electrons reach the pinch-off point and the strong field of the drain depletion region sweeps them across. Raising VDS mostly widens that region, so ID levels off near ½k(VGS − Vth)²."
-  ],
-  p:[
-   "With VSG = 0 the n-type body is full of free electrons right up to the oxide. The p+ source and drain are isolated by PN junctions, so no holes can cross and ID = 0.",
-   "Pulling the gate a little below the source pushes electrons away from the surface. Left behind are fixed, positively charged donor ions. The depletion layer carries no current, and VSG is still below |Vtp|, so the device is off.",
-   "Once VSG passes |Vtp|, holes gather under the oxide and form a p-type channel. The surface has been inverted from n to p. With VSD = 0 the holes have no reason to move.",
-   "With the drain below the source, holes drift from source to drain. Holes are positive, so conventional current also flows source to drain, the opposite of an NMOS. Holes are slower than electrons (μp ≈ 0.4 μn), so the same voltages give less current.",
-   "When VSD ≥ VSG − |Vtp|, the channel pinches off at the drain end. Holes reach the pinch-off point and are swept across the drain depletion region, so the current levels off near ½k(VSG − |Vtp|)²."
-  ]
-};
-
-let type = "n";
-let vgs = 0.7, vds = 0;
 const $ = id => document.getElementById(id);
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const f2 = x => x.toFixed(2);
+const rnd = (a,b) => a + Math.random()*(b-a);
+const clamp = (x,a,b) => Math.max(a, Math.min(b, x));
+const VDD = 3.3;
 
-/* ---------- physics ---------- */
-function current(t, g, d){
-  const p = DEV[t], ov = g - p.Vth;
-  if (ov <= 0) return 0;
-  if (d < ov) return 2*p.K*(ov*d - d*d/2);
-  return p.K*ov*ov*(1 + p.lam*(d - ov));
+/* ================= device model ================= */
+const DEV = {
+  n:{ name:"N-channel", Vth:1.0, K:0.40, lam:0.04, Ec:8,  carrier:"electron", carriers:"electrons", sd:"n+", body:"p-type body", ionSign:-1, mu:"μn" },
+  p:{ name:"P-channel", Vth:1.0, K:0.16, lam:0.05, Ec:20, carrier:"hole", carriers:"holes", sd:"p+", body:"n-type body", ionSign:1, mu:"μp" }
+};
+const GAMMA = 0.5, PHI2 = 0.7;
+const fx = {L:1, vsb:0, clm:true, body:true, dibl:true, vsat:true};
+const IDEAL = {L:1, vsb:0, clm:false, body:false, dibl:false, vsat:false};
+
+function solve(t, g, d, F, w=1){
+  const p = DEV[t], Lr = 1/F.L;
+  const k = 2*p.K*Lr*w;
+  const dVb = F.body ? GAMMA*(Math.sqrt(PHI2+F.vsb) - Math.sqrt(PHI2)) : 0;
+  const eta = F.dibl ? 0.01*Lr*Lr : 0;
+  const Vth = p.Vth + dVb - eta*d;
+  const lam = F.clm ? p.lam*Lr : 0;
+  const EcL = F.vsat ? p.Ec*F.L : Infinity;
+  const ov = g - Vth;
+  let vdsat = 0, I = 0, reg = "cut";
+  if (ov > 0){
+    vdsat = isFinite(EcL) ? ov*EcL/(ov+EcL) : ov;
+    const f = v => k*(ov*v - v*v/2)/(1 + v/EcL);
+    if (d < vdsat){ I = f(d); reg = "tri"; }
+    else { I = f(vdsat)*(1 + lam*(d - vdsat)); reg = "sat"; }
+  }
+  return {k, Vth, dVb, eta, lam, EcL, ov, vdsat, I, reg};
 }
-function region(g, d){
-  const ov = g - DEV[type].Vth;
-  if (ov <= 0) return "cut";
-  return d < ov ? "tri" : "sat";
-}
-function stageOf(g, d){
-  const Vth = DEV[type].Vth;
-  if (g < 0.3) return 0;
-  if (g < Vth) return 1;
-  if (d < 0.05) return 2;
-  if (d < g - Vth) return 3;
-  return 4;
-}
-// channel state along normalized position u (0 = source edge, 1 = drain edge)
-function chan(){
-  const ov = vgs - DEV[type].Vth, inv = ov > 0;
-  const veff = Math.min(vds, Math.max(ov,0));
-  const uP = inv && vds >= ov ? Math.max(0.72, 1 - 0.07*(vds - ov)) : 1;
+
+// channel shape along u (0 = source edge, 1 = drain edge)
+function makeChan(r, vds){
+  const ov = r.ov, inv = ov > 0;
+  const veff = Math.min(vds, r.vdsat);
+  const sat = inv && vds >= r.vdsat;
+  const pinch = sat && (ov - r.vdsat) < 0.05;
+  const uP = pinch ? Math.max(0.62, 1 - 1.6*r.lam*(vds - r.vdsat)) : 1;
   const Q = u => {
-    if (!inv || u >= uP) return 0;
-    const uu = Math.max(0, u)/uP;
+    if (!inv) return 0;
+    if (u >= uP) return pinch ? 0 : Math.max(ov - veff, 0);
+    const uu = Math.max(0,u)/uP;
     return Math.sqrt(Math.max(0, ov*ov - uu*(ov*ov - (ov-veff)*(ov-veff))));
   };
   const V = u => {
     if (!inv) return 0;
     if (u < uP) return ov - Q(u);
-    return ov + (u - uP)/(1 - uP + 1e-9)*(vds - ov);
+    return r.vdsat + (u-uP)/(1-uP+1e-9)*(vds - r.vdsat);
   };
-  return {ov, inv, uP, Q, V};
+  return {ov, inv, uP, pinch, velsat: sat && !pinch, Q, V};
 }
 
-/* ---------- canvas geometry (logical units) ---------- */
-const W = 1000, H = 450, SURF = 196, BODY_B = 438;
-const CH0 = 320, CH1 = 680, L = CH1 - CH0;
-const SRC = {x0:46, x1:CH0, y0:SURF, y1:272}, DRN = {x0:CH1, x1:954, y0:SURF, y1:272};
-const cv = $("cv"), ctx = cv.getContext("2d");
-let scale = 1, dpr = 1;
-
-function resize(){
-  const w = cv.clientWidth || cv.parentElement.clientWidth;
-  scale = w / W; dpr = window.devicePixelRatio || 1;
-  cv.style.height = (H*scale) + "px";
-  cv.width = Math.round(w*dpr); cv.height = Math.round(H*scale*dpr);
-}
-new ResizeObserver(resize).observe(cv.parentElement);
-
+/* ================= theme ================= */
+const root = document.documentElement;
+const isDark = () => { const t = root.getAttribute("data-theme"); return t ? t === "dark" : !matchMedia("(prefers-color-scheme: light)").matches; };
+function themeLabel(){ const d = isDark(); $("theme-ic").textContent = d ? "☀" : "☾"; $("theme-lab").textContent = d ? "Light" : "Dark"; }
+$("theme").addEventListener("click", () => {
+  const next = isDark() ? "light" : "dark";
+  root.setAttribute("data-theme", next);
+  try { localStorage.setItem("theme", next); } catch(e){}
+  themeLabel();
+});
 let C = {};
 function readColors(){
-  const cs = getComputedStyle(document.documentElement);
-  ["bg","panel","line","fg","muted","accent","electron","hole","channel","oxide","metal","si","nplus","pplus","deplete","ion"]
+  const cs = getComputedStyle(root);
+  ["bg","panel","panel2","line","fg","muted","accent","electron","hole","channel","oxide","metal","si","nplus","pplus","deplete","ion"]
     .forEach(k => C[k] = cs.getPropertyValue("--"+k).trim());
 }
-readColors();
-matchMedia("(prefers-color-scheme: dark)").addEventListener("change", readColors);
-new MutationObserver(readColors).observe(document.documentElement, {attributes:true, attributeFilter:["data-theme"]});
+readColors(); themeLabel();
+matchMedia("(prefers-color-scheme: light)").addEventListener("change", () => { readColors(); themeLabel(); });
+new MutationObserver(readColors).observe(root, {attributes:true, attributeFilter:["data-theme"]});
 
-const rnd = (a,b) => a + Math.random()*(b-a);
-
-/* majority carriers in the body */
-const maj = [];
-for (let i=0; maj.length<130 && i<5000; i++){
-  const x = rnd(26, 974), y = rnd(SURF+6, BODY_B-8);
-  const inBox = b => x > b.x0-20 && x < b.x1+20 && y < b.y1+20;
-  if (inBox(SRC) || inBox(DRN)) continue;
-  maj.push({hx:x, hy:y, x, y, off:rnd(4,22), ph:rnd(0,6.28), w:rnd(1.5,3)});
+/* ================= canvas helpers ================= */
+function setupCanvas(cv, W, H){
+  const o = {cv, ctx:cv.getContext("2d"), W, H, scale:1, dpr:1};
+  o.resize = () => {
+    const w = cv.clientWidth; if (!w) return;
+    o.scale = w/W; o.dpr = window.devicePixelRatio || 1;
+    cv.style.height = (H*o.scale) + "px";
+    const pw = Math.round(w*o.dpr), ph = Math.round(H*o.scale*o.dpr);
+    if (cv.width !== pw) cv.width = pw;
+    if (cv.height !== ph) cv.height = ph;
+  };
+  new ResizeObserver(o.resize).observe(cv.parentElement);
+  return o;
 }
-/* carriers sitting in source/drain wells */
-const wells = [];
-[SRC, DRN].forEach(b => { for (let i=0;i<30;i++) wells.push({x:rnd(b.x0+10,b.x1-10), y:rnd(b.y0+8,b.y1-8), ph:rnd(0,6.28), w:rnd(1.5,3)}); });
-/* fixed-ion grid */
-const ions = [];
-for (let x=34; x<970; x+=20) for (let y=SURF+9; y<BODY_B-6; y+=17) ions.push({x: x + ((y/17)%2 ? 6 : 0), y});
-/* channel carriers */
-let chp = [];
-
-function depthAt(x, ch){
-  if (x < CH0-4 || x > CH1+4) return 0;
-  const Vth = DEV[type].Vth;
-  const base = 72*Math.sqrt(Math.min(Math.max(vgs,0), Vth)/Vth);
-  if (!ch.inv) return base;
-  return base*Math.sqrt(1 + 0.32*ch.V((x-CH0)/L));
-}
-const chThick = (x, ch) => { const q = ch.Q((x-CH0)/L); return q > 0 ? 2 + 22*Math.min(q,3)/3 : 0; };
-const haloS = () => 12;
-const haloD = () => 12 + 15*Math.sqrt(vds);
-
-function inDepletion(x, y, ch){
-  if (x > CH0 && x < CH1){
-    const d = depthAt(x, ch);
-    if (y > SURF + chThick(x,ch) + 3 && y < SURF + d) return true;
-  }
-  const inHalo = (b, h) => x > b.x0-h && x < b.x1+h && y < b.y1+h && !(x > b.x0 && x < b.x1 && y < b.y1);
-  return inHalo(SRC, haloS()) || inHalo(DRN, haloD());
-}
-
-let flowMemo = 0;
-function stepChannel(dt, ch, I){
-  // target number of channel carriers ~ total inversion charge
-  let mean = 0; for (let k=0;k<40;k++) mean += ch.Q((k+0.5)/40); mean /= 40;
-  const target = Math.round(30*mean);
-  let add = Math.min(3, target - chp.length);
-  while (add-- > 0){
-    // place new carriers where charge already is (sampled by Q)
-    let u, tries = 0;
-    do { u = Math.random(); tries++; } while (tries < 20 && Math.random()*Math.max(ch.ov,0.01) > ch.Q(u));
-    chp.push({u, f:Math.random(), ph:rnd(0,6.28), w:rnd(1.5,3), fade:0});
-  }
-  if (chp.length > target){ for (let k=0;k<3 && chp.length>target;k++) chp.splice(Math.floor(Math.random()*chp.length),1); }
-
-  for (const p of chp){
-    p.fade = Math.min(1, p.fade + dt*3);
-    if (I > 1e-4){
-      let v;
-      if (p.u < 0) v = 70;
-      else if (p.u >= ch.uP) v = 460;
-      else v = Math.min(520, 60*I/Math.max(ch.Q(p.u), 0.06));
-      p.u += v*dt/L;
-      if (p.u > 1.1){ p.u = -0.05 - Math.random()*0.04; p.f = Math.random(); }
-    }
-  }
-}
-
+let ctx, S = 1;
+const fs = px => Math.max(px, Math.min(30, 11/S));
+function begin(o){ ctx = o.ctx; S = o.scale; ctx.setTransform(o.dpr*S,0,0,o.dpr*S,0,0); ctx.clearRect(0,0,o.W,o.H); }
 function sign(x, y, r, s, color){
   ctx.strokeStyle = color; ctx.lineWidth = 1.4;
   ctx.beginPath(); ctx.moveTo(x-r, y); ctx.lineTo(x+r, y);
   if (s > 0){ ctx.moveTo(x, y-r); ctx.lineTo(x, y+r); }
   ctx.stroke();
+}
+function dot(x, y, col, isHole, a=1, r=3.6){
+  ctx.globalAlpha = a;
+  if (isHole){ ctx.strokeStyle = col; ctx.lineWidth = 1.8; ctx.beginPath(); ctx.arc(x, y, r+0.2, 0, 6.283); ctx.stroke(); }
+  else { ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill(); }
+  ctx.globalAlpha = 1;
 }
 function arrow(x0, x1, y, color, label, alpha){
   ctx.globalAlpha = alpha; ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = 2.5;
@@ -343,44 +418,130 @@ function arrow(x0, x1, y, color, label, alpha){
   ctx.fillText(label, (x0+x1)/2, y-6);
   ctx.globalAlpha = 1;
 }
-const fs = px => Math.max(px, Math.min(30, 11/scale));
+const mono = (w, px) => `${w} ${fs(px)}px "IBM Plex Mono", monospace`;
+const sans = (w, px) => `${w} ${fs(px)}px "IBM Plex Sans", sans-serif`;
 
-let last = performance.now(), T = 0;
-function frame(now){
-  const dt = Math.min(0.05, (now-last)/1000); last = now; T += dt;
-  tourTick(dt);
-  const ch = chan(), I = current(type, vgs, vds), d = DEV[type];
+// move channel particles; shared by both tabs
+function stepParticles(list, ch, I, dt, Lpx, density, speedK){
+  let mean = 0; for (let k=0;k<40;k++) mean += ch.Q((k+0.5)/40); mean /= 40;
+  const target = Math.round(density*mean);
+  let add = Math.min(3, target - list.length);
+  while (add-- > 0){
+    let u, tries = 0;
+    do { u = Math.random(); tries++; } while (tries < 20 && Math.random()*Math.max(ch.ov,0.01) > ch.Q(u));
+    list.push({u, f:Math.random(), ph:rnd(0,6.28), w:rnd(1.5,3), fade:0});
+  }
+  for (let k=0; k<3 && list.length>target; k++) list.splice(Math.floor(Math.random()*list.length),1);
+  for (const p of list){
+    p.fade = Math.min(1, p.fade + dt*3);
+    if (I > 1e-4){
+      let v;
+      if (p.u < 0) v = 70;
+      else if (ch.pinch && p.u >= ch.uP) v = 460;
+      else v = Math.min(520, speedK*I/Math.max(ch.Q(Math.min(p.u,0.999)), 0.06));
+      p.u += v*dt/Lpx;
+      if (p.u > 1.1){ p.u = -0.05 - Math.random()*0.04; p.f = Math.random(); }
+    }
+  }
+}
+
+/* =========================================================
+   TAB 1 — single transistor
+   ========================================================= */
+const STAGES = ["Off","Depletion","Inversion","Linear","Saturation"];
+const PRESETS = [[0,2],[0.7,0],[2.5,0],[2.5,0.6],[2.5,3]];
+const SUB = {
+  n:["Gate at 0 V · no channel","Gate repels holes · still off","Electron channel forms · no current yet","Electrons drift source → drain","Channel saturates · current levels off"],
+  p:["Gate at source potential · no channel","Gate repels electrons · still off","Hole channel forms · no current yet","Holes drift source → drain","Channel saturates · current levels off"]
+};
+const EXPLAIN = {
+  n:[
+   "With VGS = 0 the gate does nothing. The p-type body is full of holes right up to the oxide, and the two n+ regions are separated by back-to-back PN junctions. Even with voltage on the drain, no electrons can cross, so ID = 0.",
+   "A small positive gate voltage pushes holes away from the surface. Left behind are fixed, negatively charged acceptor ions that cannot move. This depletion layer carries no current. VGS is still below Vth, so the transistor stays off.",
+   "Once VGS passes Vth, the surface pulls in enough electrons from the n+ source and drain to form a thin n-type layer: the channel. The surface has been inverted from p to n. With VDS = 0 there is no field along the channel, so electrons only jiggle in place.",
+   "A small VDS tilts the potential along the channel and electrons drift from source to drain. Conventional current flows the other way, drain to source. The channel thins toward the drain, because the gate-to-channel voltage there is only VGS − VDS. ID rises almost linearly with VDS, like a resistor set by the gate.",
+   "When VDS ≥ VDSsat the channel at the drain end can carry no more. In a long channel it pinches off and the drain depletion field sweeps electrons across. In a short channel the electrons hit their top speed first (velocity saturation). Either way, raising VDS mostly widens the drain region, so ID levels off."
+  ],
+  p:[
+   "With VSG = 0 the n-type body is full of free electrons right up to the oxide. The p+ source and drain are isolated by PN junctions, so no holes can cross and ID = 0.",
+   "Pulling the gate a little below the source pushes electrons away from the surface. Left behind are fixed, positively charged donor ions. The depletion layer carries no current, and VSG is still below |Vtp|, so the device is off.",
+   "Once VSG passes |Vtp|, holes gather under the oxide and form a p-type channel. The surface has been inverted from n to p. With VSD = 0 the holes have no reason to move.",
+   "With the drain below the source, holes drift from source to drain. Holes are positive, so conventional current also flows source to drain, the opposite of an NMOS. Holes are slower than electrons (μp ≈ 0.4 μn), so the same voltages give less current.",
+   "When VSD ≥ VSDsat the channel at the drain end can carry no more: it pinches off, or the holes reach their top speed. Holes are swept across the drain depletion region and the current levels off."
+  ]
+};
+
+let type = "n", vgs = 0.7, vds = 0;
+const M = setupCanvas($("cv"), 1000, 450);
+const SURF = 196, BODY_B = 438;
+let CH0, CH1, Lpx, SRC, DRN, wells = [];
+function setGeom(){
+  Lpx = Math.round(130 + 230*fx.L);
+  CH0 = 500 - Lpx/2; CH1 = 500 + Lpx/2;
+  SRC = {x0:46, x1:CH0, y0:SURF, y1:272}; DRN = {x0:CH1, x1:954, y0:SURF, y1:272};
+  wells = [];
+  [SRC, DRN].forEach(b => { const n = Math.round((b.x1-b.x0)/9); for (let i=0;i<n;i++) wells.push({x:rnd(b.x0+10,b.x1-10), y:rnd(b.y0+8,b.y1-8), ph:rnd(0,6.28), w:rnd(1.5,3)}); });
+}
+setGeom();
+const maj = [];
+for (let i=0; maj.length<130 && i<5000; i++){
+  const x = rnd(26, 974), y = rnd(SURF+6, BODY_B-8);
+  if ((x < 320 || x > 680) && y < 292) continue;
+  maj.push({hx:x, hy:y, x, y, off:rnd(4,22), ph:rnd(0,6.28), w:rnd(1.5,3)});
+}
+const ions = [];
+for (let x=34; x<970; x+=20) for (let y=SURF+9; y<BODY_B-6; y+=17) ions.push({x: x + ((y/17)%2 ? 6 : 0), y});
+let chp = [];
+
+const bodyFac = () => Math.min(1.9, Math.sqrt((PHI2 + fx.vsb)/PHI2));
+function depthAt(x, ch, r){
+  if (x < CH0-4 || x > CH1+4) return 0;
+  const vt = Math.max(r.Vth, 0.2);
+  const base = 66*Math.sqrt(clamp(vgs/vt, 0, 1))*bodyFac();
+  if (!ch.inv) return base;
+  return base*Math.sqrt(1 + 0.3*ch.V((x-CH0)/Lpx));
+}
+const chThick = (x, ch) => { const q = ch.Q((x-CH0)/Lpx); return q > 0 ? 2 + 22*Math.min(q,3)/3 : 0; };
+const haloS = () => 12 + 6*(bodyFac()-1);
+const haloD = () => 12 + 15*Math.sqrt(vds) + 6*(bodyFac()-1);
+
+function inDepletion(x, y, ch, r){
+  if (x > CH0 && x < CH1){
+    const d = depthAt(x, ch, r);
+    if (y > SURF + chThick(x,ch) + 3 && y < SURF + d) return true;
+  }
+  const inHalo = (b, h) => x > b.x0-h && x < b.x1+h && y < b.y1+h && !(x > b.x0 && x < b.x1 && y < b.y1);
+  return inHalo(SRC, haloS()) || inHalo(DRN, haloD());
+}
+
+function drawMos(dt, T){
+  begin(M);
+  const r = solve(type, vgs, vds, fx), ch = makeChan(r, vds), I = r.I, d = DEV[type];
   const carrierCol = type === "n" ? C.electron : C.hole;
   const majCol = type === "n" ? C.hole : C.electron;
-  const wellFill = type === "n" ? C.nplus : C.pplus;
+  const carrierIsHole = type === "p";
   const jit = reduce ? 0 : 1.4;
 
-  ctx.setTransform(dpr*scale,0,0,dpr*scale,0,0);
-  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle = C.si; ctx.fillRect(16, SURF, 968, BODY_B-SURF);
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(16.5, SURF, 967, BODY_B-SURF);
 
-  // body
-  ctx.fillStyle = C.si; ctx.fillRect(16, SURF, W-32, BODY_B-SURF);
-  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(16.5, SURF, W-33, BODY_B-SURF);
-
-  // depletion: under gate + junction halos
   ctx.fillStyle = C.deplete;
   const hs = haloS(), hd = haloD();
   ctx.fillRect(SRC.x0-hs, SURF, (SRC.x1-SRC.x0)+2*hs, (SRC.y1-SURF)+hs);
   ctx.fillRect(DRN.x0-hd, SURF, (DRN.x1-DRN.x0)+hd, (DRN.y1-SURF)+hd);
   ctx.beginPath(); ctx.moveTo(CH0, SURF);
-  for (let x=CH0; x<=CH1; x+=6) ctx.lineTo(x, SURF + depthAt(x, ch));
+  for (let x=CH0; x<=CH1; x+=6) ctx.lineTo(x, SURF + depthAt(x, ch, r));
   ctx.lineTo(CH1, SURF); ctx.closePath(); ctx.fill();
 
-  // fixed ions
   ctx.globalAlpha = 0.9;
-  for (const o of ions) if (inDepletion(o.x, o.y, ch)){
+  for (const o of ions) if (inDepletion(o.x, o.y, ch, r)){
     ctx.strokeStyle = C.ion; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.arc(o.x, o.y, 4.2, 0, 6.283); ctx.stroke();
     sign(o.x, o.y, 2.2, d.ionSign, C.ion);
   }
   ctx.globalAlpha = 1;
 
-  // source / drain wells
+  const wellFill = type === "n" ? C.nplus : C.pplus;
   [SRC, DRN].forEach(b => {
     ctx.fillStyle = C.bg; ctx.fillRect(b.x0, b.y0, b.x1-b.x0, b.y1-b.y0);
     ctx.fillStyle = wellFill; ctx.fillRect(b.x0, b.y0, b.x1-b.x0, b.y1-b.y0);
@@ -388,34 +549,28 @@ function frame(now){
     ctx.strokeRect(b.x0+.75, b.y0+.75, b.x1-b.x0-1.5, b.y1-b.y0-1.5); ctx.globalAlpha = 1;
   });
 
-  // channel band
   if (ch.inv){
     ctx.fillStyle = C.channel; ctx.globalAlpha = .32;
     ctx.beginPath(); ctx.moveTo(CH0-2, SURF);
     for (let x=CH0; x<=CH1; x+=4) ctx.lineTo(x, SURF + chThick(x, ch));
     ctx.lineTo(CH1+2, SURF); ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1;
-    if (ch.uP < 1){
-      const xp = CH0 + ch.uP*L;
+    const tag = ch.pinch ? "pinch-off" : ch.velsat ? "velocity-saturated" : "";
+    if (tag){
+      const xp = ch.pinch ? CH0 + ch.uP*Lpx : CH1 - 4;
       ctx.setLineDash([4,4]); ctx.strokeStyle = C.accent; ctx.lineWidth = 1.5;
       ctx.beginPath(); ctx.moveTo(xp, SURF-2); ctx.lineTo(xp, SURF+38); ctx.stroke(); ctx.setLineDash([]);
-      ctx.fillStyle = C.accent; ctx.font = `600 ${fs(11)}px "IBM Plex Mono", monospace`;
-      ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText("pinch-off", xp, SURF+40);
+      ctx.fillStyle = C.accent; ctx.font = mono(600, 11);
+      ctx.textAlign = ch.pinch ? "center" : "right"; ctx.textBaseline = "top"; ctx.fillText(tag, xp, SURF+40);
+      if (ch.pinch && fx.clm && ch.uP < 0.995){
+        ctx.fillStyle = C.muted; ctx.font = mono(500, 10);
+        ctx.fillText(`ΔL = ${((1-ch.uP)*fx.L).toFixed(2)} µm`, xp, SURF+40+fs(13));
+      }
     }
   }
 
-  // carrier dots helpers
-  const dot = (x, y, col, isHole, a=1) => {
-    ctx.globalAlpha = a;
-    if (isHole){ ctx.strokeStyle = col; ctx.lineWidth = 1.8; ctx.beginPath(); ctx.arc(x, y, 3.8, 0, 6.283); ctx.stroke(); }
-    else { ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x, y, 3.6, 0, 6.283); ctx.fill(); }
-    ctx.globalAlpha = 1;
-  };
-  const carrierIsHole = type === "p";
-
-  // majority carriers: pushed out of depletion regions
   for (const m of maj){
     let tx = m.hx, ty = m.hy;
-    if (tx > CH0-6 && tx < CH1+6){ const dd = depthAt(tx, ch); if (ty < SURF + dd + m.off*0.6) ty = SURF + dd + m.off*0.6; }
+    if (tx > CH0-6 && tx < CH1+6){ const dd = depthAt(tx, ch, r); if (ty < SURF + dd + m.off*0.6) ty = SURF + dd + m.off*0.6; }
     if (tx > DRN.x0-hd-6 && ty < DRN.y1+hd+6) ty = DRN.y1 + hd + m.off*0.5;
     if (tx < SRC.x1+hs+6 && ty < SRC.y1+hs+6) ty = SRC.y1 + hs + m.off*0.5;
     ty = Math.min(ty, BODY_B-6);
@@ -423,82 +578,71 @@ function frame(now){
     m.x += (tx-m.x)*k; m.y += (ty-m.y)*k;
     dot(m.x + Math.sin(T*m.w+m.ph)*jit, m.y + Math.cos(T*m.w*1.3+m.ph)*jit, majCol, !carrierIsHole);
   }
-  // well carriers
   for (const w of wells) dot(w.x + Math.sin(T*w.w+w.ph)*jit, w.y + Math.cos(T*w.w*1.2+w.ph)*jit, carrierCol, carrierIsHole);
 
-  // channel carriers
-  stepChannel(dt, ch, I);
+  stepParticles(chp, ch, I, dt, Lpx, 30, 60);
   for (const p of chp){
-    const x = CH0 + p.u*L;
+    const x = CH0 + p.u*Lpx;
     let y;
     if (p.u < 0) y = SURF + 4 + p.f*18;
-    else if (p.u >= ch.uP){ const k = (p.u-ch.uP)/(1.1-ch.uP); y = SURF + 4 + k*30*p.f + 2; }
+    else if (ch.pinch && p.u >= ch.uP){ const k = (p.u-ch.uP)/(1.1-ch.uP); y = SURF + 6 + k*30*p.f; }
+    else if (p.u > 1) y = SURF + 4 + p.f*16;
     else y = SURF + 2 + p.f*Math.max(chThick(x, ch)-3, 1);
     const moving = I > 1e-4;
     dot(x + (moving ? 0 : Math.sin(T*p.w+p.ph)*jit), y + Math.cos(T*p.w+p.ph)*jit*0.6, carrierCol, carrierIsHole, p.fade);
   }
 
-  // oxide + gate
-  ctx.fillStyle = C.oxide; ctx.fillRect(CH0-24, SURF-14, L+48, 14);
-  ctx.fillStyle = C.metal; ctx.fillRect(CH0-24, SURF-56, L+48, 42);
-  const nq = Math.min(16, Math.round(vgs*4));
-  for (let i=0;i<nq;i++){
-    const x = CH0 - 10 + (i+0.5)*(L+20)/nq;
-    sign(x, SURF-22, 4, type === "n" ? 1 : -1, C.bg);
-  }
+  ctx.fillStyle = C.oxide; ctx.fillRect(CH0-24, SURF-14, Lpx+48, 14);
+  ctx.fillStyle = C.metal; ctx.fillRect(CH0-24, SURF-56, Lpx+48, 42);
+  const nq = Math.min(Math.round(Lpx/22), Math.round(vgs*4));
+  for (let i=0;i<nq;i++) sign(CH0 - 10 + (i+0.5)*(Lpx+20)/nq, SURF-22, 4, type === "n" ? 1 : -1, C.bg);
 
-  // terminals
   const term = (x, yTop, name, val) => {
     ctx.strokeStyle = C.muted; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(x, 62); ctx.lineTo(x, yTop); ctx.stroke();
     ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
-    ctx.fillStyle = C.muted; ctx.font = `500 ${fs(13)}px "IBM Plex Sans", sans-serif`; ctx.fillText(name, x, 24);
-    ctx.fillStyle = C.fg; ctx.font = `600 ${fs(15)}px "IBM Plex Mono", monospace`; ctx.fillText(val, x, 50);
+    ctx.fillStyle = C.muted; ctx.font = sans(500, 13); ctx.fillText(name, x, 24);
+    ctx.fillStyle = C.fg; ctx.font = mono(600, 15); ctx.fillText(val, x, 50);
   };
   const sgn = type === "n" ? 1 : -1;
-  term((SRC.x0+SRC.x1)/2 - 20, SURF, "Source", "0.0 V");
+  term(Math.min((SRC.x0+SRC.x1)/2 - 20, 200), SURF, "Source", "0.0 V");
   term(500, SURF-56, "Gate", (sgn*vgs).toFixed(2) + " V");
-  term((DRN.x0+DRN.x1)/2 + 20, SURF, "Drain", (sgn*vds).toFixed(2) + " V");
+  term(Math.max((DRN.x0+DRN.x1)/2 + 20, 800), SURF, "Drain", (sgn*vds).toFixed(2) + " V");
 
-  // region labels
-  ctx.font = `600 ${fs(13)}px "IBM Plex Mono", monospace`; ctx.textBaseline = "middle"; ctx.fillStyle = C.fg;
+  ctx.font = mono(600, 13); ctx.textBaseline = "middle"; ctx.fillStyle = C.fg;
   ctx.textAlign = "left"; ctx.fillText(d.sd + " source", SRC.x0+12, SRC.y1-18);
   ctx.textAlign = "right"; ctx.fillText(d.sd + " drain", DRN.x1-12, DRN.y1-18);
-  ctx.textAlign = "left"; ctx.fillStyle = C.muted; ctx.font = `500 ${fs(12)}px "IBM Plex Mono", monospace`;
+  ctx.textAlign = "left"; ctx.fillStyle = C.muted; ctx.font = mono(500, 12);
   ctx.fillText(d.body, 28, BODY_B-14);
+  ctx.textAlign = "right";
+  ctx.fillText(`Body ${fx.vsb > 0.004 ? (type === "n" ? "−" : "+") : ""}${f2(fx.vsb)} V · L = ${f2(fx.L)} µm`, 972, BODY_B-14);
 
-  // flow arrows
   if (I > 1e-3){
-    const a = Math.min(1, 0.35 + I/0.6);
-    const yA = SURF + 112;
-    arrow(CH0+30, CH1-30, yA, carrierCol, `${d.carrier} flow  S → D`, a);
-    if (type === "n") arrow(CH1-30, CH0+30, yA+44, C.accent, "conventional current  D → S", a);
-    else arrow(CH0+30, CH1-30, yA+44, C.accent, "conventional current  S → D", a);
+    const a = Math.min(1, 0.35 + I/0.6), yA = SURF + 112;
+    const x0 = Math.min(CH0+30, 440), x1 = Math.max(CH1-30, 560);
+    arrow(x0, x1, yA, carrierCol, `${d.carrier} flow  S → D`, a);
+    if (type === "n") arrow(x1, x0, yA+44, C.accent, "conventional current  D → S", a);
+    else arrow(x0, x1, yA+44, C.accent, "conventional current  S → D", a);
   }
-
-  requestAnimationFrame(frame);
 }
 
-/* ---------- UI ---------- */
-const stepper = $("stepper");
+/* ---- transistor UI ---- */
 const stepBtns = STAGES.map((s,i) => {
   const b = document.createElement("button");
   b.textContent = `${i+1} ${s}`;
   b.addEventListener("click", () => { stopTour(); goTo(PRESETS[i]); });
-  stepper.insertBefore(b, $("play"));
+  $("stepper").insertBefore(b, $("play"));
   return b;
 });
-
-let anim = null;
+let anim = null, tour = null;
 function goTo([g, dd]){ anim = {g0:vgs, d0:vds, g1:g, d1:dd, t:0}; }
-let tour = null;
 function tourTick(dt){
   if (anim){
     anim.t = Math.min(1, anim.t + dt/(reduce ? 0.01 : 0.9));
     const e = anim.t < .5 ? 2*anim.t*anim.t : 1 - Math.pow(-2*anim.t+2, 2)/2;
     vgs = anim.g0 + (anim.g1-anim.g0)*e; vds = anim.d0 + (anim.d1-anim.d0)*e;
     if (anim.t >= 1) anim = null;
-    syncInputs(); update();
+    $("vgs").value = vgs; $("vds").value = vds; updateMos();
   }
   if (tour){
     tour.t += dt;
@@ -514,23 +658,31 @@ $("play").addEventListener("click", () => {
   if (tour){ stopTour(); return; }
   tour = {i:0, t:0}; goTo(PRESETS[0]); $("play").textContent = "❚❚ Pause tour";
 });
-
-function syncInputs(){ $("vgs").value = vgs; $("vds").value = vds; }
-$("vgs").addEventListener("input", e => { stopTour(); anim = null; vgs = +e.target.value; update(); });
-$("vds").addEventListener("input", e => { stopTour(); anim = null; vds = +e.target.value; update(); });
+$("vgs").addEventListener("input", e => { stopTour(); anim = null; vgs = +e.target.value; updateMos(); });
+$("vds").addEventListener("input", e => { stopTour(); anim = null; vds = +e.target.value; updateMos(); });
 
 function setType(t){
   type = t;
   $("bt-n").setAttribute("aria-pressed", t === "n"); $("bt-p").setAttribute("aria-pressed", t === "p");
-  chp = [];
-  buildLegend(); update();
+  chp = []; buildLegend(); updateMos();
 }
 $("bt-n").addEventListener("click", () => setType("n"));
 $("bt-p").addEventListener("click", () => setType("p"));
 
+function syncFxInputs(){
+  $("len").value = fx.L; $("vsb").value = fx.vsb;
+  ["clm","body","dibl","vsat"].forEach(k => $("fx-"+k).checked = fx[k]);
+}
+$("len").addEventListener("input", e => { fx.L = +e.target.value; setGeom(); updateMos(); });
+$("vsb").addEventListener("input", e => { fx.vsb = +e.target.value; updateMos(); });
+["clm","body","dibl","vsat"].forEach(k => $("fx-"+k).addEventListener("change", e => { fx[k] = e.target.checked; updateMos(); }));
+$("fx-long").addEventListener("click", () => { Object.assign(fx, {L:1, clm:true, body:true, dibl:true, vsat:true}); setGeom(); syncFxInputs(); updateMos(); });
+$("fx-short").addEventListener("click", () => { Object.assign(fx, {L:0.25, clm:true, body:true, dibl:true, vsat:true}); setGeom(); syncFxInputs(); updateMos(); });
+$("fx-ideal").addEventListener("click", () => { Object.assign(fx, {clm:false, body:false, dibl:false, vsat:false}); syncFxInputs(); updateMos(); });
+
 function buildLegend(){
   const n = type === "n";
-  const ring = c => `<span class="sw" style="border:2px solid var(--${c});width:11px;height:11px"></span>`;
+  const ring = c => `<span class="sw" style="border:2px solid var(--${c})"></span>`;
   const fill = c => `<span class="sw" style="background:var(--${c})"></span>`;
   $("legend").innerHTML =
     `<span>${n ? ring("hole") : fill("electron")} ${n ? "Hole (majority in body)" : "Electron (majority in body)"}</span>` +
@@ -541,101 +693,452 @@ function buildLegend(){
     `<span><span class="sw" style="background:var(--oxide);border-radius:3px"></span> Gate oxide</span>`;
 }
 
-const f2 = x => x.toFixed(2);
-function update(){
-  const d = DEV[type], n = type === "n";
-  const I = current(type, vgs, vds), r = region(vgs, vds), st = stageOf(vgs, vds);
-  const ov = vgs - d.Vth, k = 2*d.K;
+function stageOf(r){
+  if (r.ov <= 0) return vgs < 0.3 ? 0 : 1;
+  if (vds < 0.05) return 2;
+  return r.reg === "tri" ? 3 : 4;
+}
 
-  $("sub-top").textContent = `${d.name} · ${n ? "Vth = +1.0 V" : "Vtp = −1.0 V"} · body tied to source`;
+function updateMos(){
+  const d = DEV[type], n = type === "n";
+  const r = solve(type, vgs, vds, fx), I = r.I, st = stageOf(r);
+  const G = n ? "VGS" : "VSG", D = n ? "VDS" : "VSD", Vt = n ? "Vth" : "|Vtp|", Id = n ? "ID" : "ISD";
+
+  $("sub-top").textContent = `${d.name} · ${n ? "Vth₀ = +1.0 V" : "Vtp₀ = −1.0 V"} · L = ${f2(fx.L)} µm`;
   $("st-num").textContent = `${st+1}/5`;
   $("st-name").textContent = STAGES[st] + (st === 3 ? " (triode)" : "");
   $("st-sub").textContent = SUB[type][st];
   stepBtns.forEach((b,i) => b.classList.toggle("on", i === st));
 
-  $("lab-g").textContent = n ? "Gate–source VGS" : "Gate–source VGS";
-  $("lab-d").textContent = n ? "Drain–source VDS" : "Drain–source VDS";
   $("lab-i").textContent = n ? "Drain current ID" : "Source→drain ISD";
   $("ro-g").textContent = (n ? "" : (vgs > 0.004 ? "−" : "")) + f2(vgs) + " V";
   $("ro-d").textContent = (n ? "" : (vds > 0.004 ? "−" : "")) + f2(vds) + " V";
   $("ro-i").textContent = f2(I) + " mA";
   $("sl-g-name").textContent = n ? "Gate voltage VGS" : "Gate below source, VSG";
   $("sl-d-name").textContent = n ? "Drain voltage VDS" : "Drain below source, VSD";
+  $("vsb-name").textContent = n ? "Body reverse bias VSB" : "Body reverse bias VBS";
 
   const reg = $("region");
-  reg.className = "region" + (r === "tri" ? " on" : r === "sat" ? " on sat" : "");
-  reg.querySelector("span").textContent = {cut:"Cutoff", tri:"Triode (linear)", sat:"Saturation"}[r];
+  reg.className = "region" + (r.reg === "tri" ? " on" : r.reg === "sat" ? " on sat" : "");
+  reg.querySelector("span").textContent = {cut:"Cutoff", tri:"Triode (linear)", sat:"Saturation"}[r.reg];
 
-  // equations
-  const G = n ? "VGS" : "VSG", D = n ? "VDS" : "VSD", Vt = n ? "Vth" : "|Vtp|", Id = n ? "ID" : "ISD";
+  const vs = isFinite(r.EcL), k = r.k, ov = r.ov;
+  const lamS = r.lam.toFixed(3);
+  const isat = r.reg === "sat" ? I/(1 + r.lam*(vds - r.vdsat)) : 0;
   const rows = [
-    {key:"cut", name:"Cutoff", cond:`${G} < ${Vt}`, f:`${Id} = 0`,
-     sub:`${f2(vgs)} V < ${f2(d.Vth)} V, so ${Id} = 0 mA`},
-    {key:"tri", name:"Triode", cond:`${D} < ${G} − ${Vt}`, f:`${Id} = k[(${G} − ${Vt})·${D} − ${D}²/2]`,
-     sub:`= ${f2(k)}·[${f2(ov)}·${f2(vds)} − ${f2(vds)}²/2] = ${f2(I)} mA`},
-    {key:"sat", name:"Saturation", cond:`${D} ≥ ${G} − ${Vt}`, f:`${Id} = ½k(${G} − ${Vt})²·[1 + λ(${D} − VOV)]`,
-     sub:`= ½·${f2(k)}·${f2(ov)}²·[1 + ${d.lam}·${f2(vds-ov)}] = ${f2(I)} mA`}
+    {key:"cut", name:"Cutoff", f:`${Id} = 0`, cond:`${G} < ${Vt}`,
+     sub:`${f2(vgs)} V < ${f2(r.Vth)} V, so ${Id} = 0 mA`},
+    {key:"tri", name:"Triode", f:`${Id} = k[(${G} − ${Vt})·${D} − ${D}²/2]` + (vs ? ` / (1 + ${D}/EcL)` : ""), cond:`${D} < ${D}sat`,
+     sub:`= ${f2(k)}·[${f2(ov)}·${f2(vds)} − ${f2(vds)}²/2]` + (vs ? ` / (1 + ${f2(vds)}/${f2(r.EcL)})` : "") + ` = ${f2(I)} mA`},
+    {key:"sat", name:"Saturation", cond:`${D} ≥ ${D}sat`,
+     f: vs ? `${Id} = ${Id}(${D}sat)·[1 + λ(${D} − ${D}sat)]` : `${Id} = ½k(${G} − ${Vt})²·[1 + λ(${D} − ${D}sat)]`,
+     sub: vs ? `= ${f2(isat)}·[1 + ${lamS}·${f2(vds - r.vdsat)}] = ${f2(I)} mA`
+             : `= ½·${f2(k)}·${f2(ov)}²·[1 + ${lamS}·${f2(vds - r.vdsat)}] = ${f2(I)} mA`}
   ];
-  $("eq").innerHTML = rows.map(row => `<div class="eqrow${row.key===r?" act":""}">
+  $("eq").innerHTML = rows.map(row => `<div class="eqrow${row.key===r.reg?" act":""}">
       <span class="name">${row.name}</span><span class="f">${row.f}<br><span style="opacity:.75">when ${row.cond}</span></span>
-      ${row.key===r ? `<span class="sub">${row.sub}</span>` : ""}
+      ${row.key===r.reg ? `<span class="sub">${row.sub}</span>` : ""}
     </div>`).join("");
-  $("consts").textContent = `k = ${d.mu}·Cox·W/L = ${f2(k)} mA/V²   ${Vt} = ${f2(d.Vth)} V   λ = ${d.lam} V⁻¹   VOV = ${G} − ${Vt} = ${f2(Math.max(ov,0))} V`;
+  $("consts").textContent = `k = ${d.mu}·Cox·W/L = ${f2(k)} mA/V²   ${Vt},eff = ${f2(r.Vth)} V   λ = ${lamS} V⁻¹   VOV = ${f2(Math.max(ov,0))} V   ${D}sat = ${f2(r.vdsat)} V`;
 
   $("explain").textContent = EXPLAIN[type][st];
   $("flow").innerHTML = I > 1e-3
     ? `<span>${d.carriers}: <b>source → drain</b></span><span>conventional current: <b>${n ? "drain → source" : "source → drain"}</b></span>`
     : `<span>net flow: <b>none</b></span>`;
 
-  drawPlots(I, r);
+  // channel effects panel
+  const id0 = solve(type, vgs, vds, IDEAL).I;
+  const longI = solve(type, vgs, vds, {...IDEAL, L:fx.L}).I;
+  $("len-v").textContent = f2(fx.L) + " µm";
+  $("vsb-v").textContent = f2(fx.vsb) + " V";
+  $("fxv-clm").textContent = fx.clm ? `λ = ${lamS} V⁻¹` + (r.reg === "sat" ? `  →  ×${(1 + r.lam*(vds-r.vdsat)).toFixed(3)}` : "") : "off";
+  $("fxv-body").textContent = fx.body ? `ΔVth = +${f2(r.dVb)} V  (γ = 0.5 V½, 2φF = 0.7 V)` : "off";
+  $("fxv-dibl").textContent = fx.dibl ? `η = ${r.eta.toFixed(3)}  →  ΔVth = −${f2(r.eta*vds)} V` : "off";
+  $("fxv-vsat").textContent = fx.vsat ? (ov > 0 ? `EcL = ${f2(r.EcL)} V  →  ${D}sat = ${f2(r.vdsat)} V (vs ${f2(ov)} V)` : `EcL = ${f2(r.EcL)} V`) : "off";
+  ["clm","body","dibl","vsat"].forEach(k2 => $("fxc-"+k2).classList.toggle("off", !fx[k2]));
+  const pct = longI > 1e-4 ? ((I/longI - 1)*100) : 0;
+  $("cmp").innerHTML =
+    `<span>Ideal, L = 1 µm: <b>${f2(id0)} mA</b></span>` +
+    `<span>Ideal, L = ${f2(fx.L)} µm: <b>${f2(longI)} mA</b></span>` +
+    `<span>With channel effects: <b>${f2(I)} mA</b></span>` +
+    (longI > 1e-4 ? `<span class="delta">${pct >= 0 ? "+" : ""}${pct.toFixed(0)}% from effects</span>` : "");
+
+  drawMosPlots(r);
 }
 
-/* ---------- plots ---------- */
-function drawPlots(I, r){
-  const d = DEV[type], n = type === "n";
-  const yMax = n ? 4 : 1.6, yStep = n ? 1 : 0.4;
-  // output
+function niceStep(x){ const m = Math.pow(10, Math.floor(Math.log10(x))), q = x/m; return (q<=1?1:q<=2?2:q<=2.5?2.5:q<=5?5:10)*m; }
+function axes(W, H, m, xMax, yMax, yStep, xLab, yLab){
+  const X = v => m.l + v/xMax*(W-m.l-m.r), Y = i => H-m.b - Math.min(i,yMax)/yMax*(H-m.t-m.b);
+  let s = "";
+  for (let i=0;i<=yMax+1e-9;i+=yStep) s += `<line x1="${m.l}" x2="${W-m.r}" y1="${Y(i)}" y2="${Y(i)}" stroke="var(--line)"/><text x="${m.l-5}" y="${Y(i)+3}" text-anchor="end">${+i.toFixed(2)}</text>`;
+  for (let v=0; v<=xMax+1e-9; v+= (xMax > 3.5 ? 1 : 1)) s += `<text x="${X(v)}" y="${H-m.b+14}" text-anchor="middle">${v}</text>`;
+  s += `<text x="${(m.l+W-m.r)/2}" y="${H-2}" text-anchor="middle">${xLab}</text><text x="${m.l}" y="${m.t-3}">${yLab}</text>`;
+  const frame = `<line x1="${m.l}" x2="${m.l}" y1="${m.t}" y2="${H-m.b}" stroke="var(--muted)"/><line x1="${m.l}" x2="${W-m.r}" y1="${H-m.b}" y2="${H-m.b}" stroke="var(--muted)"/>`;
+  return {X, Y, s, frame};
+}
+const path = (xs, fn, X, Y) => xs.map((x,i) => (i?"L":"M") + X(x).toFixed(1) + " " + Y(fn(x)).toFixed(1)).join("");
+const range = (a, b, n) => Array.from({length:n+1}, (_,i) => a + (b-a)*i/n);
+
+function drawMosPlots(r){
+  const n = type === "n";
+  const fam = [1.5,2,2.5,3,3.5,4];
+  const idealCur = solve(type, vgs, 4, {...IDEAL, L:fx.L}).I;
+  const peak = Math.max(solve(type, 4, 4, fx).I, vgs > 1 ? idealCur : 0, 0.5);
+  const step = niceStep(peak/4), yMax = Math.ceil(peak/step)*step;
+  const xs = range(0, 4, 80);
   {
-    const m = {l:34, r:10, t:12, b:30}, w = 300, h = 220;
-    const X = v => m.l + v/4*(w-m.l-m.r), Y = i => h-m.b - Math.min(i,yMax)/yMax*(h-m.t-m.b);
-    let s = "";
-    for (let i=0;i<=yMax+1e-9;i+=yStep) s += `<line x1="${m.l}" x2="${w-m.r}" y1="${Y(i)}" y2="${Y(i)}" stroke="var(--line)" stroke-width="1"/><text x="${m.l-6}" y="${Y(i)+3}" text-anchor="end">${+i.toFixed(1)}</text>`;
-    for (let v=0; v<=4; v++) s += `<text x="${X(v)}" y="${h-m.b+14}" text-anchor="middle">${v}</text>`;
-    s += `<text x="${(m.l+w-m.r)/2}" y="${h-2}" text-anchor="middle">${n ? "VDS" : "VSD"} (V)</text>`;
-    s += `<text x="${m.l}" y="${m.t-2}" text-anchor="start">${n ? "ID" : "|ISD|"} (mA)</text>`;
-    // boundary
-    let bp = ""; for (let ov=0; ov<=3.01; ov+=0.1) bp += (bp?"L":"M") + X(ov) + " " + Y(d.K*ov*ov);
-    s += `<path d="${bp}" fill="none" stroke="var(--muted)" stroke-dasharray="3 3" stroke-width="1"/>`;
-    s += `<text x="${X(0.55)}" y="${Y(yMax*0.86)}">triode</text><text x="${X(2.9)}" y="${Y(yMax*0.06)+0}" text-anchor="middle">saturation</text>`;
-    const curve = (g) => { let p=""; for (let v=0; v<=4.001; v+=0.05) p += (p?"L":"M") + X(v).toFixed(1) + " " + Y(current(type,g,v)).toFixed(1); return p; };
-    [1.5,2,2.5,3,3.5,4].forEach(g => {
-      s += `<path d="${curve(g)}" fill="none" stroke="var(--muted)" stroke-opacity=".55" stroke-width="1"/>`;
-      s += `<text x="${w-m.r+2}" y="${Y(current(type,g,4))+3}" font-size="8">${g}</text>`;
+    const A = axes(300, 220, {l:36,r:16,t:14,b:30}, 4, yMax, step, `${n ? "VDS" : "VSD"} (V)`, `${n ? "ID" : "|ISD|"} (mA)`);
+    let s = A.s;
+    let bp = ""; range(1.02, 4, 40).forEach((g,i) => { const r0 = solve(type, g, 0, fx); const r1 = solve(type, g, r0.vdsat, fx); if (r1.ov > 0) bp += (bp?"L":"M") + A.X(r1.vdsat).toFixed(1) + " " + A.Y(r1.I).toFixed(1); });
+    s += `<path d="${bp}" fill="none" stroke="var(--muted)" stroke-dasharray="3 3"/>`;
+    s += `<text x="${A.X(0.15)}" y="${A.Y(yMax*0.88)}">triode</text><text x="${A.X(3.0)}" y="${A.Y(yMax*0.04)}" text-anchor="middle">saturation</text>`;
+    fam.forEach(g => {
+      s += `<path d="${path(xs, v => solve(type,g,v,fx).I, A.X, A.Y)}" fill="none" stroke="var(--muted)" stroke-opacity=".5"/>`;
+      s += `<text x="${A.X(4)+3}" y="${A.Y(solve(type,g,4,fx).I)+3}" font-size="8">${g}</text>`;
     });
-    if (vgs > d.Vth) s += `<path d="${curve(vgs)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
-    s += `<line x1="${m.l}" x2="${m.l}" y1="${m.t}" y2="${h-m.b}" stroke="var(--muted)"/><line x1="${m.l}" x2="${w-m.r}" y1="${h-m.b}" y2="${h-m.b}" stroke="var(--muted)"/>`;
-    s += `<circle cx="${X(vds)}" cy="${Y(I)}" r="5.5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>`;
+    if (r.ov > 0 || vgs > 1){
+      const anyFx = fx.clm || fx.body || fx.dibl || fx.vsat;
+      if (anyFx && vgs > 1){
+        s += `<path d="${path(xs, v => solve(type,vgs,v,{...IDEAL, L:fx.L}).I, A.X, A.Y)}" fill="none" stroke="var(--fg)" stroke-opacity=".6" stroke-dasharray="5 4" stroke-width="1.4"/>`;
+        s += `<text x="${A.X(3.95)}" y="${A.Y(idealCur)-5}" text-anchor="end" style="fill:var(--fg)">ideal</text>`;
+      }
+      s += `<path d="${path(xs, v => solve(type,vgs,v,fx).I, A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+    }
+    s += A.frame + `<circle cx="${A.X(vds)}" cy="${A.Y(r.I)}" r="5.5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>`;
     $("out").innerHTML = s;
   }
-  // transfer
   {
-    const m = {l:30, r:8, t:12, b:30}, w = 220, h = 220;
-    const X = v => m.l + v/4*(w-m.l-m.r), Y = i => h-m.b - Math.min(i,yMax)/yMax*(h-m.t-m.b);
-    let s = "";
-    for (let i=0;i<=yMax+1e-9;i+=yStep) s += `<line x1="${m.l}" x2="${w-m.r}" y1="${Y(i)}" y2="${Y(i)}" stroke="var(--line)"/><text x="${m.l-5}" y="${Y(i)+3}" text-anchor="end">${+i.toFixed(1)}</text>`;
-    for (let v=0; v<=4; v++) s += `<text x="${X(v)}" y="${h-m.b+14}" text-anchor="middle">${v}</text>`;
-    s += `<text x="${(m.l+w-m.r)/2}" y="${h-2}" text-anchor="middle">${n ? "VGS" : "VSG"} (V)</text>`;
-    s += `<line x1="${X(d.Vth)}" x2="${X(d.Vth)}" y1="${m.t}" y2="${h-m.b}" stroke="var(--muted)" stroke-dasharray="3 3"/><text x="${X(d.Vth)+4}" y="${m.t+10}">${n ? "Vth" : "|Vtp|"}</text>`;
-    let p=""; for (let g=0; g<=4.001; g+=0.05) p += (p?"L":"M") + X(g).toFixed(1) + " " + Y(current(type,g,vds)).toFixed(1);
-    s += `<path d="${p}" fill="none" stroke="var(--accent)" stroke-width="2"/>`;
-    s += `<text x="${m.l+4}" y="${m.t+24}">at ${n ? "VDS" : "VSD"} = ${f2(vds)} V</text>`;
-    s += `<line x1="${m.l}" x2="${m.l}" y1="${m.t}" y2="${h-m.b}" stroke="var(--muted)"/><line x1="${m.l}" x2="${w-m.r}" y1="${h-m.b}" y2="${h-m.b}" stroke="var(--muted)"/>`;
-    s += `<circle cx="${X(vgs)}" cy="${Y(I)}" r="5.5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>`;
+    const A = axes(220, 220, {l:32,r:8,t:14,b:30}, 4, yMax, step, `${n ? "VGS" : "VSG"} (V)`, "");
+    let s = A.s;
+    s += `<line x1="${A.X(r.Vth)}" x2="${A.X(r.Vth)}" y1="14" y2="190" stroke="var(--muted)" stroke-dasharray="3 3"/><text x="${A.X(r.Vth)+4}" y="26">${n ? "Vth" : "|Vtp|"} = ${f2(r.Vth)}</text>`;
+    s += `<path d="${path(xs, g => solve(type,g,vds,fx).I, A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2"/>`;
+    s += `<text x="${A.l||36}" y="40">at ${n ? "VDS" : "VSD"} = ${f2(vds)} V</text>`;
+    s += A.frame + `<circle cx="${A.X(vgs)}" cy="${A.Y(r.I)}" r="5.5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>`;
     $("tr").innerHTML = s;
   }
 }
 
-resize(); buildLegend(); update();
+/* =========================================================
+   TAB 2 — CMOS inverter
+   ========================================================= */
+const FXI = {L:1, vsb:0, clm:true, body:false, dibl:false, vsat:false};
+let vin = 1.4, ratio = 1, sweep = null;
+const IVC = setupCanvas($("cvi"), 1000, 500);
+
+function invAt(x){
+  const f = vo => solve("n", x, vo, FXI).I - solve("p", VDD-x, VDD-vo, FXI, ratio).I;
+  let lo = 0, hi = VDD;
+  for (let i=0;i<46;i++){ const mid = (lo+hi)/2; if (f(mid) > 0) hi = mid; else lo = mid; }
+  const vo = (lo+hi)/2;
+  const rn = solve("n", x, vo, FXI), rp = solve("p", VDD-x, VDD-vo, FXI, ratio);
+  return {vo, rn, rp, I:(rn.I + rp.I)/2};
+}
+function letter(s){
+  const n = s.rn.reg, p = s.rp.reg;
+  if (n === "cut") return "A";
+  if (p === "cut") return "E";
+  if (n === "sat" && p === "tri") return "B";
+  if (n === "tri" && p === "sat") return "D";
+  return "C";
+}
+const INV = {
+  A:{name:"Output high", sub:"NMOS off · PMOS on (linear)",
+     text:"Vin is below the NMOS threshold, so the NMOS is off. The PMOS sees a large VSG and is fully on, connecting the output to VDD. The PMOS channel is full of holes, but with VSD ≈ 0 they barely move, so almost no current flows."},
+  B:{name:"Output starting to fall", sub:"NMOS saturated · PMOS linear",
+     text:"Vin has passed Vtn. A thin electron channel forms in the NMOS and it starts pulling the output down. The NMOS is in saturation (its VDS is large), while the PMOS is still linear. A small current now flows from VDD to ground."},
+  C:{name:"Switching point", sub:"Both transistors saturated",
+     text:"Both transistors are in saturation and fight with equal current. Because saturated currents barely depend on VDS, a tiny change in Vin swings Vout by a lot. This is the steep part of the curve, the switching threshold VM, and where the through-current peaks."},
+  D:{name:"Output nearly low", sub:"NMOS linear · PMOS saturated",
+     text:"The NMOS is now strongly on and linear, holding Vout close to ground. The PMOS is weakening and saturated, so the current is falling again."},
+  E:{name:"Output low", sub:"NMOS on (linear) · PMOS off",
+     text:"Vin is above VDD − |Vtp|, so the PMOS is off and the NMOS connects the output to ground. The NMOS channel is full of electrons but VDS ≈ 0, so no current flows. A CMOS inverter draws current only while switching."}
+};
+
+let vtcCache = null;
+function buildVTC(){
+  const xs = range(0, VDD, 132);
+  vtcCache = xs.map(x => { const s = invAt(x); return {x, vo:s.vo, I:s.I, L:letter(s)}; });
+  let lo = 0, hi = VDD;
+  for (let i=0;i<40;i++){ const m = (lo+hi)/2; if (invAt(m).vo > VDD/2) lo = m; else hi = m; }
+  vtcCache.VM = (lo+hi)/2;
+}
+
+// mini cross-section state
+function mkMini(t){
+  const maj = [];
+  for (let i=0; maj.length<46 && i<2000; i++){
+    const x = rnd(18, 522), y = rnd(96, 206);
+    if ((x < 176 || x > 364) && y < 138) continue;
+    maj.push({hx:x, hy:y, x, y, off:rnd(3,14), ph:rnd(0,6.28), w:rnd(1.5,3)});
+  }
+  const wl = [];
+  [[24,168],[372,516]].forEach(([a,b]) => { for (let i=0;i<16;i++) wl.push({x:rnd(a+8,b-8), y:rnd(88,124), ph:rnd(0,6.28), w:rnd(1.5,3)}); });
+  return {t, maj, wl, chp:[]};
+}
+const miniP = mkMini("p"), miniN = mkMini("n");
+
+function drawMini(m, ox, oy, vg, vd, r, dt, T, lab){
+  const t = m.t, ch = makeChan(r, vd);
+  const carrierCol = t === "n" ? C.electron : C.hole, majCol = t === "n" ? C.hole : C.electron, isHole = t === "p";
+  const X = x => ox + x, Y = y => oy + y;
+  const SUR = 80, G0 = 170, G1 = 370, LP = 200, jit = reduce ? 0 : 1.2;
+  const th = u => { const q = ch.Q(u); return q > 0 ? 2 + 16*Math.min(q,2.3)/2.3 : 0; };
+  const dep = u => 40*Math.sqrt(clamp(vg/r.Vth, 0, 1))*(ch.inv ? Math.sqrt(1 + 0.3*ch.V(u)) : 1);
+
+  ctx.fillStyle = C.panel2; ctx.fillRect(X(0), Y(0), 540, 220);
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(X(0.5), Y(0.5), 539, 219);
+  // header
+  ctx.textBaseline = "middle"; ctx.textAlign = "left"; ctx.fillStyle = C.fg; ctx.font = mono(700, 13);
+  ctx.fillText(lab.title, X(12), Y(16));
+  ctx.textAlign = "right"; ctx.font = mono(600, 12);
+  ctx.fillStyle = r.reg === "cut" ? C.muted : r.reg === "sat" ? C.accent : C.channel;
+  ctx.fillText({cut:"off", tri:"linear", sat:"saturation"}[r.reg], X(528), Y(16));
+
+  ctx.fillStyle = C.si; ctx.fillRect(X(10), Y(SUR), 520, 134);
+  // depletion
+  ctx.fillStyle = C.deplete;
+  ctx.beginPath(); ctx.moveTo(X(G0), Y(SUR));
+  for (let x=G0; x<=G1; x+=8) ctx.lineTo(X(x), Y(SUR + dep((x-G0)/LP)));
+  ctx.lineTo(X(G1), Y(SUR)); ctx.closePath(); ctx.fill();
+  const hd = 8 + 8*Math.sqrt(vd);
+  ctx.fillRect(X(372-hd), Y(SUR), 144+hd, 48+hd); ctx.fillRect(X(16), Y(SUR), 160, 56);
+  // wells
+  const wf = t === "n" ? C.nplus : C.pplus;
+  [[24,168],[372,516]].forEach(([a,b]) => {
+    ctx.fillStyle = C.bg; ctx.fillRect(X(a), Y(SUR), b-a, 48);
+    ctx.fillStyle = wf; ctx.fillRect(X(a), Y(SUR), b-a, 48);
+    ctx.strokeStyle = carrierCol; ctx.globalAlpha = .5; ctx.lineWidth = 1.2; ctx.strokeRect(X(a)+.6, Y(SUR)+.6, b-a-1.2, 46.8); ctx.globalAlpha = 1;
+  });
+  // channel band
+  if (ch.inv){
+    ctx.fillStyle = C.channel; ctx.globalAlpha = .34;
+    ctx.beginPath(); ctx.moveTo(X(G0-2), Y(SUR));
+    for (let x=G0; x<=G1; x+=4) ctx.lineTo(X(x), Y(SUR + th((x-G0)/LP)));
+    ctx.lineTo(X(G1+2), Y(SUR)); ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1;
+    if (ch.pinch){
+      const xp = X(G0 + ch.uP*LP);
+      ctx.setLineDash([3,3]); ctx.strokeStyle = C.accent; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.moveTo(xp, Y(SUR)); ctx.lineTo(xp, Y(SUR+30)); ctx.stroke(); ctx.setLineDash([]);
+    }
+  }
+  // majority carriers
+  for (const q of m.maj){
+    let tx = q.hx, ty = q.hy;
+    if (tx > G0-4 && tx < G1+4){ const dd = dep((tx-G0)/LP); if (ty < SUR + dd + q.off) ty = SUR + dd + q.off; }
+    if (tx > 372-hd-4 && ty < SUR+48+hd+4) ty = SUR + 48 + hd + q.off*0.6;
+    ty = Math.min(ty, 208);
+    const k = Math.min(1, dt*3.5); q.x += (tx-q.x)*k; q.y += (ty-q.y)*k;
+    dot(X(q.x + Math.sin(T*q.w+q.ph)*jit), Y(q.y + Math.cos(T*q.w+q.ph)*jit), majCol, !isHole, 1, 3);
+  }
+  for (const w of m.wl) dot(X(w.x + Math.sin(T*w.w+w.ph)*jit), Y(w.y + Math.cos(T*w.w+w.ph)*jit), carrierCol, isHole, 1, 3);
+  // channel carriers
+  stepParticles(m.chp, ch, r.I, dt, LP, 20, 320);
+  for (const p of m.chp){
+    const x = G0 + p.u*LP;
+    let y;
+    if (p.u < 0 || p.u > 1) y = SUR + 4 + p.f*14;
+    else if (ch.pinch && p.u >= ch.uP) y = SUR + 4 + p.f*10;
+    else y = SUR + 2 + p.f*Math.max(th(p.u)-3, 1);
+    const moving = r.I > 1e-4;
+    dot(X(x + (moving ? 0 : Math.sin(T*p.w+p.ph)*jit)), Y(y), carrierCol, isHole, p.fade, 3);
+  }
+  // gate stack
+  ctx.fillStyle = C.oxide; ctx.fillRect(X(G0-14), Y(SUR-8), LP+28, 8);
+  ctx.fillStyle = C.metal; ctx.fillRect(X(G0-14), Y(SUR-34), LP+28, 26);
+  const nq = Math.round(clamp(vg,0,VDD)*3);
+  for (let i=0;i<nq;i++) sign(X(G0-4 + (i+0.5)*(LP+8)/nq), Y(SUR-21), 3.5, t === "n" ? 1 : -1, C.bg);
+  // terminal labels
+  ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.font = mono(500, 11); ctx.fillStyle = C.muted;
+  ctx.fillText(lab.s, X(96), Y(SUR-18));
+  ctx.fillText(lab.d, X(444), Y(SUR-18));
+  ctx.fillText(lab.g, X(270), Y(SUR-46));
+  ctx.globalAlpha = .85; ctx.fillStyle = C.panel2; ctx.fillRect(X(10), Y(190), 520, 20); ctx.globalAlpha = 1;
+  ctx.fillStyle = C.muted; ctx.textAlign = "left"; ctx.fillText(`${lab.v}`, X(14), Y(200));
+  if (r.I > 1e-3){
+    ctx.textAlign = "right"; ctx.fillStyle = C.accent; ctx.font = mono(600, 11);
+    ctx.fillText(`${t === "n" ? "electrons" : "holes"} S → D · ${f2(r.I)} mA`, X(528), Y(200));
+  }
+}
+
+let curPath = null, curOff = 0;
+function polyline(pts){
+  const seg = []; let tot = 0;
+  for (let i=1;i<pts.length;i++){ const [a,b] = [pts[i-1], pts[i]]; const l = Math.hypot(b[0]-a[0], b[1]-a[1]); seg.push({a, b, l, s:tot}); tot += l; }
+  return {pts, seg, tot, at(d){ for (const s of seg) if (d <= s.s + s.l){ const k = (d-s.s)/s.l; return [s.a[0]+(s.b[0]-s.a[0])*k, s.a[1]+(s.b[1]-s.a[1])*k]; } return pts[pts.length-1]; }};
+}
+curPath = polyline([[300,60],[300,118],[270,118],[270,182],[300,182],[300,288],[270,288],[270,352],[300,352],[300,436]]);
+
+function drawInv(dt, T){
+  begin(IVC);
+  const s = invAt(vin), vout = s.vo;
+  // ---- schematic ----
+  ctx.lineCap = "round";
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 2.2;
+  const line = pts => { ctx.beginPath(); pts.forEach(([x,y],i) => i ? ctx.lineTo(x,y) : ctx.moveTo(x,y)); ctx.stroke(); };
+  line([[230,60],[370,60]]);
+  line([[300,60],[300,118],[276,118]]); line([[276,182],[300,182],[300,288],[276,288]]); line([[276,352],[300,352],[300,436]]);
+  line([[270,436],[330,436]]); line([[280,446],[320,446]]); line([[290,456],[310,456]]);
+  // channel bars
+  ctx.lineWidth = 4;
+  ctx.strokeStyle = s.rp.reg === "cut" ? C.muted : C.hole; line([[270,108],[270,192]]);
+  ctx.strokeStyle = s.rn.reg === "cut" ? C.muted : C.electron; line([[270,278],[270,362]]);
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 3; line([[256,118],[256,182]]); line([[256,288],[256,352]]);
+  ctx.lineWidth = 2; ctx.strokeStyle = C.fg; ctx.beginPath(); ctx.arc(248, 150, 6, 0, 6.283); ctx.stroke();
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 2.2;
+  line([[242,150],[170,150],[170,320],[256,320]]); line([[70,235],[170,235]]);
+  line([[300,235],[400,235]]);
+  ctx.fillStyle = C.fg; [[170,235],[300,235]].forEach(([x,y]) => { ctx.beginPath(); ctx.arc(x,y,4.5,0,6.283); ctx.fill(); });
+  // labels
+  ctx.textBaseline = "alphabetic"; ctx.textAlign = "center"; ctx.fillStyle = C.fg; ctx.font = mono(600, 13);
+  ctx.fillText(`VDD = ${VDD} V`, 300, 48);
+  ctx.textAlign = "left"; ctx.fillText(`Vin = ${f2(vin)} V`, 40, 222);
+  ctx.textAlign = "right"; ctx.fillStyle = C.accent; ctx.fillText(`Vout = ${f2(vout)} V`, 410, 222);
+  ctx.fillStyle = C.muted; ctx.font = mono(500, 12); ctx.textAlign = "center";
+  ctx.fillText("PMOS", 208, 140); ctx.fillText("NMOS", 208, 310);
+  ctx.textAlign = "left"; ctx.fillText(`S`, 306, 112); ctx.fillText(`D`, 306, 196); ctx.fillText(`D`, 306, 282); ctx.fillText(`S`, 306, 366);
+  ctx.fillText("GND", 336, 452);
+  // current dots
+  const I = s.I, a = Math.min(1, I/0.01);
+  if (!reduce) curOff = (curOff + dt*Math.min(260, 1800*I)) % 24;
+  if (a > 0.02){
+    ctx.fillStyle = C.accent;
+    for (let d = curOff; d < curPath.tot; d += 24){ const [x,y] = curPath.at(d); ctx.globalAlpha = a; ctx.beginPath(); ctx.arc(x, y, 3.4, 0, 6.283); ctx.fill(); }
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = C.accent; ctx.font = mono(600, 12); ctx.textAlign = "left";
+    ctx.fillText(`I = ${f2(I)} mA ↓`, 316, 262);
+  }
+  // ---- cross-sections ----
+  drawMini(miniP, 446, 16, VDD - vin, VDD - vout, s.rp, dt, T,
+    {title:"PMOS · pull-up", s:`S = VDD ${VDD} V`, d:`D = Vout ${f2(vout)} V`, g:`G = Vin ${f2(vin)} V`, v:`VSG ${f2(VDD-vin)} V · VSD ${f2(VDD-vout)} V`});
+  drawMini(miniN, 446, 264, vin, vout, s.rn, dt, T,
+    {title:"NMOS · pull-down", s:"S = GND 0 V", d:`D = Vout ${f2(vout)} V`, g:`G = Vin ${f2(vin)} V`, v:`VGS ${f2(vin)} V · VDS ${f2(vout)} V`});
+}
+
+function eqLine(name, t, r, vg, vd){
+  const Id = t === "n" ? "ID,n" : "ISD,p";
+  const G = t === "n" ? "VGS" : "VSG", D = t === "n" ? "VDS" : "VSD";
+  if (r.reg === "cut") return {name, f:`${Id} = 0`, sub:`${G} = ${f2(vg)} V < ${f2(r.Vth)} V → off`};
+  if (r.reg === "tri") return {name, f:`${Id} = k[(${G} − Vt)·${D} − ${D}²/2]`, sub:`= ${f2(r.k)}·[${f2(r.ov)}·${f2(vd)} − ${f2(vd)}²/2] = ${r.I.toFixed(3)} mA`};
+  return {name, f:`${Id} = ½k(${G} − Vt)²·[1 + λ(${D} − VOV)]`, sub:`= ½·${f2(r.k)}·${f2(r.ov)}²·[1 + ${r.lam}·${f2(vd - r.vdsat)}] = ${r.I.toFixed(3)} mA`};
+}
+const regTxt = {cut:"off", tri:"linear", sat:"saturation"};
+function setChip(el, label, reg){
+  el.className = "region" + (reg === "tri" ? " on" : reg === "sat" ? " on sat" : "");
+  el.querySelector("span").textContent = `${label}: ${regTxt[reg]}`;
+}
+
+function updateInv(){
+  if (!vtcCache) buildVTC();
+  const s = invAt(vin), L = letter(s), info = INV[L];
+  $("iv-letter").textContent = L; $("iv-name").textContent = info.name; $("iv-sub").textContent = info.sub;
+  $("iv-ro-in").textContent = f2(vin) + " V"; $("iv-ro-out").textContent = f2(s.vo) + " V";
+  $("iv-ro-i").textContent = s.I.toFixed(3) + " mA";
+  $("ratio-v").textContent = ratio.toFixed(1) + "×";
+  setChip($("iv-reg-p"), "PMOS", s.rp.reg); setChip($("iv-reg-n"), "NMOS", s.rn.reg);
+  ivStepBtns.forEach(b => b.classList.toggle("on", b.dataset.l === L));
+
+  const rows = [eqLine("PMOS", "p", s.rp, VDD-vin, VDD-s.vo), eqLine("NMOS", "n", s.rn, vin, s.vo)];
+  $("iv-eq").innerHTML = rows.map(r => `<div class="eqrow act"><span class="name">${r.name}</span><span class="f">${r.f}</span><span class="sub">${r.sub}</span></div>`).join("");
+  const kn = 2*DEV.n.K, kp = 2*DEV.p.K*ratio, rr = Math.sqrt(kp/kn);
+  const vmIdeal = (1 + rr*(VDD - 1))/(1 + rr);
+  $("iv-consts").innerHTML = `kn = ${f2(kn)} mA/V², kp = ${f2(kp)} mA/V²<br>VM = (Vtn + √(kp/kn)·(VDD − |Vtp|)) / (1 + √(kp/kn)) = (1 + ${f2(rr)}·${f2(VDD-1)}) / ${f2(1+rr)} = ${f2(vmIdeal)} V`;
+  $("iv-explain").textContent = info.text;
+  $("iv-note").textContent = ratio < 2.2
+    ? `With these widths the PMOS is weaker (holes are slower, kp < kn), so VM = ${f2(vtcCache.VM)} V sits below VDD/2 = ${f2(VDD/2)} V. Make the PMOS about 2.5× wider to centre it.`
+    : `With the PMOS ${ratio.toFixed(1)}× wider, kp is close to kn and VM = ${f2(vtcCache.VM)} V sits near VDD/2 = ${f2(VDD/2)} V, giving equal noise margins.`;
+  drawInvPlots(s);
+}
+
+function drawInvPlots(s){
+  const data = vtcCache;
+  {
+    const A = axes(300, 230, {l:30,r:10,t:36,b:30}, VDD, VDD, 1, "Vin (V)", "Vout (V)");
+    let bands = "", start = 0;
+    for (let i=1;i<=data.length;i++){
+      if (i === data.length || data[i].L !== data[start].L){
+        const x0 = A.X(data[start].x), x1 = A.X(data[Math.min(i, data.length-1)].x);
+        const odd = "ABCDE".indexOf(data[start].L) % 2;
+        bands += `<rect x="${x0}" y="36" width="${Math.max(x1-x0,0)}" height="164" fill="var(--panel2)" fill-opacity="${odd ? 0 : 1}"/>`;
+        if (x1 - x0 > 4) bands += `<text x="${(x0+x1)/2}" y="12" text-anchor="middle" style="fill:var(--fg);font-weight:600">${data[start].L}</text>`;
+        start = i;
+      }
+    }
+    let p = bands + A.s;
+    p += `<line x1="${A.X(0)}" y1="${A.Y(0)}" x2="${A.X(VDD)}" y2="${A.Y(VDD)}" stroke="var(--muted)" stroke-dasharray="2 4"/>`;
+    p += `<line x1="${A.X(data.VM)}" x2="${A.X(data.VM)}" y1="36" y2="200" stroke="var(--accent)" stroke-dasharray="3 3" stroke-opacity=".7"/>`;
+    p += `<text x="${A.X(data.VM)+4}" y="${A.Y(VDD*0.62)}" style="fill:var(--accent)">VM ${f2(data.VM)}</text>`;
+    p += `<path d="${data.map((d,i) => (i?"L":"M") + A.X(d.x).toFixed(1) + " " + A.Y(d.vo).toFixed(1)).join("")}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+    p += A.frame + `<circle cx="${A.X(vin)}" cy="${A.Y(s.vo)}" r="5.5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>`;
+    $("vtc").innerHTML = p;
+  }
+  {
+    const peak = Math.max(...data.map(d => d.I), 0.01);
+    const step = niceStep(peak/4), yMax = Math.ceil(peak/step)*step;
+    const A = axes(220, 230, {l:36,r:8,t:22,b:30}, VDD, yMax, step, "Vin (V)", "I (mA)");
+    let p = A.s;
+    p += `<path d="${data.map((d,i) => (i?"L":"M") + A.X(d.x).toFixed(1) + " " + A.Y(d.I).toFixed(1)).join("")}" fill="none" stroke="var(--accent)" stroke-width="2"/>`;
+    p += A.frame + `<circle cx="${A.X(vin)}" cy="${A.Y(s.I)}" r="5.5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>`;
+    $("isc").innerHTML = p;
+  }
+}
+
+const IV_PRESETS = {A:0.5, B:1.25, C:null, D:2.05, E:2.8};
+const ivStepBtns = "ABCDE".split("").map(L => {
+  const b = document.createElement("button");
+  b.dataset.l = L; b.textContent = `${L} ${INV[L].name}`;
+  b.addEventListener("click", () => { stopSweep(); ivGo(L === "C" ? vtcCache.VM : IV_PRESETS[L]); });
+  $("iv-stepper").insertBefore(b, $("iv-play"));
+  return b;
+});
+let ivAnim = null;
+function ivGo(v){ ivAnim = {a:vin, b:v, t:0}; }
+function stopSweep(){ sweep = null; $("iv-play").textContent = "▶ Sweep Vin"; }
+$("iv-play").addEventListener("click", () => {
+  if (sweep){ stopSweep(); return; }
+  sweep = {t: vin/VDD*7}; $("iv-play").textContent = "❚❚ Pause sweep";
+});
+function invTick(dt){
+  if (ivAnim){
+    ivAnim.t = Math.min(1, ivAnim.t + dt/(reduce ? 0.01 : 0.8));
+    const e = ivAnim.t < .5 ? 2*ivAnim.t*ivAnim.t : 1 - Math.pow(-2*ivAnim.t+2, 2)/2;
+    vin = ivAnim.a + (ivAnim.b - ivAnim.a)*e;
+    if (ivAnim.t >= 1) ivAnim = null;
+    $("vin").value = vin; updateInv();
+  }
+  if (sweep){
+    sweep.t = (sweep.t + dt) % 14;
+    const ph = sweep.t < 7 ? sweep.t/7 : 2 - sweep.t/7;
+    vin = ph*VDD; $("vin").value = vin; updateInv();
+  }
+}
+$("vin").addEventListener("input", e => { stopSweep(); ivAnim = null; vin = +e.target.value; updateInv(); });
+$("ratio").addEventListener("input", e => { ratio = +e.target.value; vtcCache = null; updateInv(); });
+$("iv-balance").addEventListener("click", () => { ratio = 2.5; $("ratio").value = 2.5; vtcCache = null; updateInv(); });
+
+/* ================= tabs + loop ================= */
+let tab = "mos";
+function showTab(t){
+  tab = t;
+  $("tab-mos").hidden = t !== "mos"; $("tab-inv").hidden = t !== "inv";
+  $("tab-btn-mos").setAttribute("aria-selected", t === "mos"); $("tab-btn-inv").setAttribute("aria-selected", t === "inv");
+  $("seg-type").hidden = t !== "mos";
+  $("sub-top").textContent = t === "inv" ? `CMOS inverter · VDD = ${VDD} V · Vtn = +1.0 V, Vtp = −1.0 V` : $("sub-top").textContent;
+  try { history.replaceState(null, "", t === "inv" ? "#inverter" : "#transistor"); } catch(e){}
+  if (t === "mos"){ M.resize(); updateMos(); } else { IVC.resize(); updateInv(); }
+}
+$("tab-btn-mos").addEventListener("click", () => showTab("mos"));
+$("tab-btn-inv").addEventListener("click", () => showTab("inv"));
+
+let last = performance.now(), T = 0;
+function frame(now){
+  const dt = Math.min(0.05, (now-last)/1000); last = now; T += dt;
+  if (tab === "mos"){ tourTick(dt); if (M.cv.clientWidth) drawMos(dt, T); }
+  else { invTick(dt); if (IVC.cv.clientWidth) drawInv(dt, T); }
+  requestAnimationFrame(frame);
+}
+
+buildLegend(); updateMos();
+showTab(location.hash === "#inverter" ? "inv" : "mos");
 requestAnimationFrame(frame);
 })();
 </script>
