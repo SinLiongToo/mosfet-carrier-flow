@@ -28,6 +28,11 @@ Circuits where a source is *not* tied to its body, with the body effect switchab
 
 Each shows the schematic, cross-sections of the affected transistor vs a reference, the response with/without body effect, and Vth vs VSB.
 
+## Current mirror tab (`#current-mirror`)
+- **Basic mirror** – diode-connected M1 sets VGS, M2 copies Iref × W2/W1; live cross-sections of both, Iout vs Vout with compliance, output resistance 1/(λ·Iout), channel length, ΔVth mismatch
+- **Cascode mirror** – four transistors, node X held still: Rout ≈ gm·ro² vs basic, and the extra headroom it costs
+- **Current DAC** – one reference driving 1×/2×/4×/8× branches of unit transistors with random Vth (seeded "new chip"), common-centroid layout view, staircase, INL / DNL
+
 ## Power tab (`#power`) – how a chip's supply voltage is set
 - **LDO** – error amplifier drives a pass PMOS (live cross-section): Vout = Vref·(1 + R1/R2); animated load-step transient on a scope, dropout and efficiency ≈ Vout/Vin
 - **Buck (DC-DC)** – high-side PMOS / low-side NMOS switching (live cross-sections), Vout = D·Vin, PWM ramp/SW/iL/ripple waveforms, efficiency vs load

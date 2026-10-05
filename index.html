@@ -1617,7 +1617,192 @@ window.I18N_ZH = {
 "RX only #° (merged), MIMO #° (merged); targets #° apart": "僅 RX #°（合併），MIMO #°（合併）；目標相距 #°",
 "RX only #° (merged), MIMO #° (resolved); targets #° apart": "僅 RX #°（合併），MIMO #°（可分辨）；目標相距 #°",
 "RX only #° (resolved), MIMO #° (merged); targets #° apart": "僅 RX #°（可分辨），MIMO #°（合併）；目標相距 #°",
-"RX only #° (resolved), MIMO #° (resolved); targets #° apart": "僅 RX #°（可分辨），MIMO #°（可分辨）；目標相距 #°"
+"RX only #° (resolved), MIMO #° (resolved); targets #° apart": "僅 RX #°（可分辨），MIMO #°（可分辨）；目標相距 #°",
+"Current mirror": "電流鏡",
+"Basic current mirror": "基本電流鏡",
+"Current mirror view": "電流鏡檢視",
+"Basic mirror": "基本電流鏡",
+"Cascode mirror": "疊接電流鏡",
+"Current DAC": "電流式 DAC",
+"The reference current forced into the diode-connected transistor M#. The mirror copies it.": "強制灌入二極體接法電晶體 M# 的參考電流，電流鏡會複製它。",
+"Reference current Iref": "參考電流 Iref",
+"Width of the output transistor M# divided by the width of M#. The output current scales with it.": "輸出電晶體 M# 的寬度除以 M# 的寬度，輸出電流隨之等比例縮放。",
+"Width ratio W#/W#": "寬度比 W#/W#",
+"Voltage at the output node, set by whatever circuit the mirror feeds. An ideal current source would not care.": "輸出節點的電壓，由電流鏡所驅動的電路決定。理想電流源不受它影響。",
+"Output voltage Vout": "輸出電壓 Vout",
+"Channel length of all mirror transistors. Longer L means less channel-length modulation and a higher output resistance.": "所有電流鏡電晶體的通道長度。L 越長，通道長度調變越小、輸出電阻越高。",
+"Threshold-voltage difference of M# against M#, as from random dopant fluctuation. A few mV is typical.": "M# 相對於 M# 的臨界電壓差，例如來自隨機摻雜擾動。典型為幾 mV。",
+"Mismatch ΔVth (M#)": "失配 ΔVth（M#）",
+"The #-bit digital input. Each # bit switches its branch of #, #, # or # unit transistors onto the output.": "# 位元數位輸入。每個為 # 的位元把它那條由 #、#、# 或 # 個單位電晶體組成的支路接到輸出。",
+"Digital code": "數位碼",
+"Standard deviation of the random Vth offset of each unit transistor. Larger devices match better (Pelgrom: σ ∝ #/√(W·L)).": "每個單位電晶體隨機 Vth 偏移的標準差。元件越大匹配越好（Pelgrom：σ ∝ #/√(W·L)）。",
+"Mismatch σ(Vth)": "失配 σ(Vth)",
+"New chip (new random offsets)": "換一顆晶片（新的隨機偏移）",
+"Output characteristics": "輸出特性",
+"Output current versus output voltage, or DAC transfer": "輸出電流對輸出電壓，或 DAC 轉換曲線",
+"Output resistance or DAC linearity": "輸出電阻或 DAC 線性度",
+"Explain the terms: current mirror, diode connection, output resistance, compliance, cascode, matching": "名詞解釋：電流鏡、二極體接法、輸出電阻、輸出擺幅限制、疊接、匹配",
+"How a current mirror copies a current": "電流鏡如何複製電流",
+"M# is <b>diode-connected</b>: its gate is tied to its drain. Force Iref into it and it settles at exactly the VGS that carries Iref.": "M# 為<b>二極體接法</b>：閘極接到汲極。灌入 Iref 後，它會穩定在恰好能流過 Iref 的 VGS。",
+"M# shares that gate voltage and the same source (ground). Same VGS, same Vth, same size → the <b>same current</b>.": "M# 共用這個閘極電壓與相同的源極（地）。VGS 相同、Vth 相同、尺寸相同 → <b>電流相同</b>。",
+"Make M# wider and it carries more: <b>Iout = (W#/W#)·Iref</b>. This is how one reference feeds many bias currents on a chip.": "把 M# 做寬，電流就變大：<b>Iout = (W#/W#)·Iref</b>。晶片上就是這樣用一個參考產生許多偏壓電流。",
+"It only works while M# stays in <b>saturation</b> (Vout ≥ VGS − Vth). Below that it falls into triode and the current drops.": "只有在 M# 維持<b>飽和</b>（Vout ≥ VGS − Vth）時才成立。低於此值它會進入三極管區，電流下降。",
+"In saturation the current still rises a little with Vout (<b>channel-length modulation</b>), so the mirror is not a perfect current source: its output resistance is ro = #/(λ·Iout).": "在飽和區電流仍會隨 Vout 略微上升（<b>通道長度調變</b>），所以電流鏡不是完美電流源：其輸出電阻為 ro = #/(λ·Iout)。",
+"Mirror types": "電流鏡種類",
+"Type": "類型",
+"Output resistance": "輸出電阻",
+"Minimum Vout": "最低 Vout",
+"Notes": "說明",
+"Basic (# transistors)": "基本（# 顆電晶體）",
+"Simple; output current depends on Vout": "簡單；輸出電流會隨 Vout 變化",
+"Cascode (# transistors)": "疊接（# 顆電晶體）",
+"Very stiff, but needs more headroom": "非常穩定，但需要更多電壓餘裕",
+"Wide-swing cascode": "寬擺幅疊接",
+"Extra bias to win back headroom": "額外偏壓以取回電壓餘裕",
+"Wilson": "Wilson 電流鏡",
+"Feedback version, # or # transistors": "回授式，# 或 # 顆電晶體",
+"A circuit that copies a reference current to one or more outputs, scaled by transistor size.": "把參考電流複製到一個或多個輸出的電路，依電晶體尺寸縮放。",
+"Diode-connected": "二極體接法",
+"Gate tied to drain: VDS = VGS, so the transistor is always in saturation and behaves like a resistor of about #/gm.": "閘極接汲極：VDS = VGS，所以電晶體永遠處於飽和，表現得像約 #/gm 的電阻。",
+"Mirror ratio": "鏡像比",
+"Iout/Iref = (W#/L#)/(W#/L#). Ratios are made from whole unit transistors for good matching.": "Iout/Iref = (W#/L#)/(W#/L#)。比例用整數個單位電晶體組成以獲得良好匹配。",
+"ΔVout/ΔIout. Infinite for an ideal current source; ro for a single transistor.": "ΔVout/ΔIout。理想電流源為無限大；單顆電晶體為 ro。",
+"Channel-length modulation, about λ#/L. Long transistors have smaller λ and higher ro.": "通道長度調變，約 λ#/L。長電晶體的 λ 較小、ro 較高。",
+"Compliance (headroom)": "輸出擺幅限制（電壓餘裕）",
+"Lowest output voltage at which the mirror still delivers its current.": "電流鏡仍能提供電流的最低輸出電壓。",
+"Overdrive VGS − Vth. Small Vov saves headroom but makes the current more sensitive to Vth mismatch.": "過驅動電壓 VGS − Vth。Vov 小可節省電壓餘裕，但電流對 Vth 失配更敏感。",
+"Cascode": "疊接",
+"A second transistor stacked on the output that holds the bottom one's VDS constant, multiplying the output resistance by gm·ro.": "疊在輸出上的第二顆電晶體，使下方電晶體的 VDS 保持不變，把輸出電阻乘上 gm·ro。",
+"Random differences between \"identical\" transistors: ΔI/I ≈ −#·ΔVth/Vov in saturation.": "「相同」電晶體之間的隨機差異：飽和時 ΔI/I ≈ −#·ΔVth/Vov。",
+"Pelgrom's law": "Pelgrom 定律",
+"σ(ΔVth) = AVT/√(W·L): bigger transistors match better.": "σ(ΔVth) = AVT/√(W·L)：電晶體越大匹配越好。",
+"Common centroid": "共質心佈局",
+"Layout that interleaves the unit transistors so gradients across the chip cancel.": "把單位電晶體交錯排列的佈局，讓晶片上的梯度互相抵消。",
+"Integral and differential non-linearity of a DAC, in LSB: how far each output, and each step, is from ideal.": "DAC 的積分與微分非線性（以 LSB 計）：每個輸出值與每一階偏離理想多少。",
+"Current mirrors · VDD = # V · Vth = # V · copy one reference current to many outputs": "電流鏡 · VDD = # V · Vth = # V · 把一個參考電流複製到許多輸出",
+"A diode-connected transistor sets VGS; a second transistor copies its current": "二極體接法電晶體設定 VGS；第二顆電晶體複製其電流",
+"Analog chips need many bias currents, but only one accurate reference. The current mirror copies it. M# has its gate tied to its drain (diode-connected): the reference current flows in and M# settles at exactly the gate voltage that carries it. M# shares that gate voltage and its source, so as long as both are the same kind of transistor in saturation, M# carries the same current, scaled by the width ratio W#/W#. Two things spoil the copy. First, channel-length modulation: M#'s current grows slowly with its drain voltage, so the output is not a perfect current source but has an output resistance ro = #/(λ·Iout); longer transistors (bigger L) have smaller λ and copy better. Second, mismatch: a few mV of random Vth difference shifts the current by about #·ΔVth/Vov, so precise mirrors use large devices and a generous overdrive. The mirror also needs headroom: below Vout ≈ Vov, M# leaves saturation and the current collapses.": "類比晶片需要許多偏壓電流，但只有一個精確的參考。電流鏡負責複製它。M# 的閘極接到汲極（二極體接法）：參考電流流入後，M# 穩定在恰好能流過該電流的閘極電壓。M# 共用這個閘極電壓與源極，只要兩者是同類電晶體且都在飽和區，M# 就流過相同的電流，並依寬度比 W#/W# 縮放。有兩件事會破壞複製。第一是通道長度調變：M# 的電流會隨汲極電壓緩慢上升，所以輸出不是完美電流源，而有輸出電阻 ro = #/(λ·Iout)；較長的電晶體（L 較大）λ 較小，複製更準。第二是失配：幾 mV 的隨機 Vth 差會讓電流偏移約 #·ΔVth/Vov，所以精密電流鏡使用大尺寸元件與足夠的過驅動電壓。電流鏡也需要電壓餘裕：Vout 低於約 Vov 時，M# 離開飽和，電流崩落。",
+"Reference current": "參考電流",
+"Copied (output) current": "複製（輸出）電流",
+"Wires": "導線",
+"Shared gate-to-source voltage set by the diode-connected M#.": "由二極體接法 M# 設定的共用閘源電壓。",
+"Current copied into the output by M# (or the cascode stack).": "由 M#（或疊接堆疊）複製到輸出的電流。",
+"Output current": "輸出電流",
+"Difference from the ideal current (W#/W#)·Iref.": "與理想電流 (W#/W#)·Iref 的差異。",
+"Copy error": "複製誤差",
+"ΔVout/ΔIout at the present output voltage. Higher means a better current source.": "目前輸出電壓下的 ΔVout/ΔIout。越高代表越好的電流源。",
+"VGS needed to carry Iref in the diode-connected M#.": "二極體接法 M# 流過 Iref 所需的 VGS。",
+"Square law": "平方律",
+"= # + # = # V for # µA": "{3} µA 時 = {0} + {1} = {2} V",
+"Same VGS in M# and M#: the currents scale with W and differ only by channel-length modulation.": "M# 與 M# 的 VGS 相同：電流依 W 縮放，只差在通道長度調變。",
+"Mirror": "鏡像",
+"Small-signal resistance of M# in saturation.": "M# 在飽和區的小訊號電阻。",
+"Output resistance ro": "輸出電阻 ro",
+"Lowest output voltage where the output transistor stays in saturation.": "輸出電晶體仍維持飽和的最低輸出電壓。",
+"Compliance": "輸出擺幅限制",
+"Vov = # V; now # V → saturated": "Vov = # V；目前 # V → 飽和",
+"Vov = # V; now # V → triode": "Vov = # V；目前 # V → 三極管區",
+"Current error caused by a Vth difference between M# and M#.": "M# 與 M# 之間 Vth 差異造成的電流誤差。",
+"Output current for different channel lengths (same Iref):": "不同通道長度的輸出電流（相同 Iref）：",
+"Iout at # V": "# V 時的 Iout",
+"Change": "變化",
+"Rout (basic)": "Rout（基本）",
+"Rout (cascode)": "Rout（疊接）",
+"min Vout": "最低 Vout",
+"- - ideal (W#/W#)·Iref": "- - 理想 (W#/W#)·Iref",
+"Rout (log kΩ)": "Rout（log kΩ）",
+"ideal # µA · error # %": "理想 # µA · 誤差 # %",
+"ideal # µA · error -# %": "理想 # µA · 誤差 -# %",
+"M# in saturation: Vout ≥ Vov = # V": "M# 在飽和區：Vout ≥ Vov = # V",
+"M# in triode: Vout < Vov = # V, the copy fails": "M# 在三極管區：Vout < Vov = # V，複製失敗",
+"diode connection: gate tied to drain, so M# sets VGS for Iref": "二極體接法：閘極接汲極，所以 M# 為 Iref 設定 VGS",
+"M# shares VGS → copies the current (× W#/W#)": "M# 共用 VGS → 複製電流（× W#/W#）",
+"M# · reference, diode-connected (VDS = VGS)": "M# · 參考，二極體接法（VDS = VGS）",
+"M# · output (VDS = Vout)": "M# · 輸出（VDS = Vout）",
+"M# · output (VDS = Vout) · ΔVth -# mV": "M# · 輸出（VDS = Vout） · ΔVth -# mV",
+"M# · output (VDS = Vout) · ΔVth +# mV": "M# · 輸出（VDS = Vout） · ΔVth +# mV",
+"VDS # V · Vth # V · saturation": "VDS # V · Vth # V · 飽和區",
+"VDS # V · Vth # V · triode": "VDS # V · Vth # V · 三極管區",
+"VDS -# V · Vth # V · triode": "VDS -# V · Vth # V · 三極管區",
+"VDS # V · Vth # V · off": "VDS # V · Vth # V · 截止",
+"Cascode current mirror": "疊接電流鏡",
+"A stacked transistor shields the copy from the output voltage": "疊上的電晶體讓複製不受輸出電壓影響",
+"The cascode mirror stacks a second transistor on top of each side. M# and M# are biased at twice VGS, so node X under M# sits at about one VGS, the same as M#'s drain. When Vout moves, M# takes up almost the whole change and node X barely moves, so M# keeps the same VDS as M# and copies the reference much more exactly. The output resistance rises from ro to about gm·ro², tens to hundreds of times higher, which is why cascodes are used for precise current sources and high-gain amplifiers. The price is headroom: both output transistors must stay in saturation, so Vout must stay above about #·VGS − Vth instead of just Vov. Wide-swing cascodes bias M#'s gate lower to win part of that back.": "疊接電流鏡在兩側各疊上第二顆電晶體。M# 與 M# 偏壓在兩倍 VGS，所以 M# 下方的節點 X 約在一個 VGS，與 M# 的汲極相同。當 Vout 變動時，M# 幾乎吸收全部變化，節點 X 幾乎不動，所以 M# 與 M# 保持相同的 VDS，複製參考電流更準確。輸出電阻從 ro 提升到約 gm·ro²，高出數十到數百倍，這就是疊接用於精密電流源與高增益放大器的原因。代價是電壓餘裕：兩顆輸出電晶體都必須維持飽和，所以 Vout 必須高於約 #·VGS − Vth，而不只是 Vov。寬擺幅疊接把 M# 的閘極偏壓降低，取回一部分餘裕。",
+"Gate voltage of M# and M#: two stacked VGS drops.": "M# 與 M# 的閘極電壓：兩個疊加的 VGS 壓降。",
+"Cascode bias VB": "疊接偏壓 VB",
+"Output voltage needed to keep both output transistors in saturation.": "讓兩顆輸出電晶體都維持飽和所需的輸出電壓。",
+"Node X is held still, so M# copies the reference with almost no CLM error.": "節點 X 被固定住，所以 M# 複製參考電流時幾乎沒有通道長度調變誤差。",
+"VB = #·VGS → VX ≈ VGS (same VDS as M#)": "VB = #·VGS → VX ≈ VGS（與 M# 的 VDS 相同）",
+"The cascode multiplies the output resistance by about gm·ro.": "疊接把輸出電阻乘上約 gm·ro。",
+"Rout gain": "Rout 倍增",
+"Rout ≈ gm# · ro# · ro# (basic: ro#)": "Rout ≈ gm# · ro# · ro#（基本：ro#）",
+"Price of the cascode: a higher minimum output voltage.": "疊接的代價：更高的最低輸出電壓。",
+"Headroom": "電壓餘裕",
+"Vout ≥ VB − Vth = #·VGS − Vth (basic: Vov)": "Vout ≥ VB − Vth = #·VGS − Vth（基本：Vov）",
+"# V vs # V for the basic mirror": "# V，基本電流鏡為 # V",
+"— cascode": "— 疊接",
+"- - basic": "- - 基本",
+"out of headroom: Vout < #·VGS − Vth = # V": "電壓餘裕不足：Vout < #·VGS − Vth = # V",
+"M# holds node X almost still, so M#'s VDS (and its current)": "M# 讓節點 X 幾乎不動，所以 M# 的 VDS（及其電流）",
+"barely changes when Vout moves: Rout ≈ gm·ro²": "在 Vout 變動時幾乎不變：Rout ≈ gm·ro²",
+"M# · cascode (absorbs the change in Vout)": "M# · 疊接管（吸收 Vout 的變化）",
+"M# · copies Iref (VDS = VX, held almost constant)": "M# · 複製 Iref（VDS = VX，幾乎固定）",
+"both output transistors saturated (Vout ≥ # V)": "兩顆輸出電晶體皆飽和（Vout ≥ # V）",
+"Binary-weighted current DAC": "二進位加權電流式 DAC",
+"One reference, branches of #, #, # and # unit transistors, switched by the digital code": "一個參考，由 #、#、#、# 個單位電晶體組成的支路，由數位碼切換",
+"A current-steering DAC is a current mirror with many outputs. One reference transistor sets the gate voltage for # identical unit transistors, grouped into branches of #, #, # and #. Each bit of the code switches its branch onto the output, so Iout = code × Iunit. Because every branch is built from whole unit transistors, the ratios are exact on paper; in silicon each unit has a slightly different Vth, so each branch current is a little off. The result shows up as non-linearity: INL is how far each output level is from the ideal straight line, DNL how far each step is from one LSB. The worst step is usually # → #, where the #× branch replaces all the others. Designers fight mismatch with bigger unit transistors (Pelgrom's law: σ ∝ #/√(W·L)), common-centroid layouts that cancel gradients, and calibration.": "電流導引式 DAC 就是有許多輸出的電流鏡。一顆參考電晶體為 # 顆相同的單位電晶體設定閘極電壓，這些單位分成 #、#、#、# 個一組的支路。數位碼的每個位元把對應支路接到輸出，所以 Iout = 數位碼 × Iunit。由於每條支路都由整數個單位電晶體組成，比例在紙上是精確的；但在矽晶上每個單位的 Vth 都略有不同，所以每條支路的電流都會稍微偏差。結果表現為非線性：INL 是每個輸出值偏離理想直線多少，DNL 是每一階偏離一個 LSB 多少。最差的一階通常是 # → #，此時 #× 支路取代其他所有支路。設計者用更大的單位電晶體（Pelgrom 定律：σ ∝ #/√(W·L)）、可抵消梯度的共質心佈局，以及校準來對抗失配。",
+"Unit with lower Vth (more current)": "Vth 較低的單位（電流較大）",
+"Unit with higher Vth (less current)": "Vth 較高的單位（電流較小）",
+"Switched on by the code": "被數位碼開啟",
+"#-bit digital input of the DAC.": "DAC 的 # 位元數位輸入。",
+"Code": "數位碼",
+"Largest deviation of any output level from the ideal line, in LSB.": "任一輸出值偏離理想直線的最大量（LSB）。",
+"INL max": "最大 INL",
+"Largest step error, in LSB. Above # LSB the DAC is not monotonic.": "最大的階誤差（LSB）。超過 # LSB 時 DAC 不再單調。",
+"DNL max": "最大 DNL",
+"Iout is the sum of the switched branch currents.": "Iout 是被開啟支路電流的總和。",
+"code # → # µA (LSB = # µA)": "數位碼 # → # µA（LSB = # µA）",
+"Random current error of one unit transistor.": "單一單位電晶體的隨機電流誤差。",
+"Unit mismatch": "單位失配",
+"= # · # mV / # V = # % per unit": "= # · # mV / # V = 每單位 # %",
+"How the branch errors show up as INL and DNL.": "支路誤差如何表現為 INL 與 DNL。",
+"Linearity": "線性度",
+"worst DNL at code # (the # → # step is the classic one)": "最差 DNL 在數位碼 #（# → # 是典型的一階）",
+"Branch currents of this chip:": "這顆晶片的支路電流：",
+"Branch": "支路",
+"Units": "單位數",
+"Ideal": "理想",
+"Error": "誤差",
+"code": "數位碼",
+"— measured": "— 量測",
+"- - ideal line": "- - 理想直線",
+"code # = #b → Iout = # × Iunit ≈ # µA (ideal # µA)": "數位碼 # = #b → Iout = # × Iunit ≈ # µA（理想 # µA）",
+"gate line shared by all branches: every unit transistor copies Iref": "所有支路共用閘極線：每個單位電晶體都複製 Iref",
+"# unit transistors (layout)": "# 個單位電晶體（佈局）",
+"colour = random ΔVth of each unit": "顏色 = 每個單位的隨機 ΔVth",
+"orange frame = switched on by the code": "橘框 = 被數位碼開啟",
+"each #× unit is identical; branches are": "每個 #× 單位都相同；支路由",
+"built from whole units and interleaved": "整數個單位組成並交錯排列",
+"(common centroid) so gradients cancel": "（共質心），使梯度互相抵消",
+"INL max # LSB · DNL max # LSB": "最大 INL # LSB · 最大 DNL # LSB",
+"cascode # kΩ vs basic # kΩ → ×#": "疊接 # kΩ，基本 # kΩ → ×#",
+"cascode # kΩ vs basic # kΩ → ×∞": "疊接 # kΩ，基本 # kΩ → ×∞",
+"cascode # kΩ vs basic # MΩ → ×#": "疊接 # kΩ，基本 # MΩ → ×#",
+"cascode # kΩ vs basic # MΩ → ×∞": "疊接 # kΩ，基本 # MΩ → ×∞",
+"cascode # kΩ vs basic > # MΩ → ×#": "疊接 # kΩ，基本 > # MΩ → ×#",
+"cascode # kΩ vs basic > # MΩ → ×∞": "疊接 # kΩ，基本 > # MΩ → ×∞",
+"cascode # MΩ vs basic # kΩ → ×#": "疊接 # MΩ，基本 # kΩ → ×#",
+"cascode # MΩ vs basic # kΩ → ×∞": "疊接 # MΩ，基本 # kΩ → ×∞",
+"cascode # MΩ vs basic # MΩ → ×#": "疊接 # MΩ，基本 # MΩ → ×#",
+"cascode # MΩ vs basic # MΩ → ×∞": "疊接 # MΩ，基本 # MΩ → ×∞",
+"cascode # MΩ vs basic > # MΩ → ×#": "疊接 # MΩ，基本 > # MΩ → ×#",
+"cascode # MΩ vs basic > # MΩ → ×∞": "疊接 # MΩ，基本 > # MΩ → ×∞",
+"cascode > # MΩ vs basic # kΩ → ×#": "疊接 > # MΩ，基本 # kΩ → ×#",
+"cascode > # MΩ vs basic # kΩ → ×∞": "疊接 > # MΩ，基本 # kΩ → ×∞",
+"cascode > # MΩ vs basic # MΩ → ×#": "疊接 > # MΩ，基本 # MΩ → ×#",
+"cascode > # MΩ vs basic # MΩ → ×∞": "疊接 > # MΩ，基本 # MΩ → ×∞",
+"cascode > # MΩ vs basic > # MΩ → ×#": "疊接 > # MΩ，基本 > # MΩ → ×#",
+"cascode > # MΩ vs basic > # MΩ → ×∞": "疊接 > # MΩ，基本 > # MΩ → ×∞"
 };
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
@@ -1940,6 +2125,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-mos" aria-selected="true" aria-controls="tab-mos">Transistor</button>
         <button role="tab" id="tab-btn-inv" aria-selected="false" aria-controls="tab-inv">CMOS inverter</button>
         <button role="tab" id="tab-btn-body" aria-selected="false" aria-controls="tab-body">Body effect</button>
+        <button role="tab" id="tab-btn-cm" aria-selected="false" aria-controls="tab-cm">Current mirror</button>
         <button role="tab" id="tab-btn-pw" aria-selected="false" aria-controls="tab-pw">Power (LDO · PMIC)</button>
         <button role="tab" id="tab-btn-rd" aria-selected="false" aria-controls="tab-rd">77 GHz radar</button>
         <button role="tab" id="tab-btn-rf" aria-selected="false" aria-controls="tab-rf">RF passives</button>
@@ -3025,6 +3211,123 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Angular resolution</dt><dd>Smallest angle between two targets that still shows two peaks, about 2/Nv radians for λ/2 spacing.</dd>
               <dt>Cascaded radar</dt><dd>Several radar chips (e.g. 4 × 3TX/4RX) sharing one clock (LO) to act as one big MIMO radar: an "imaging radar".</dd>
               <dt>Corner radar</dt><dd>Short-range radar at a car corner, wide field of view, for blind spot, lane change and cross traffic.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== CURRENT MIRROR TAB ===================== -->
+  <section id="tab-cm" role="tabpanel" aria-labelledby="tab-btn-cm" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="cm-pill">CM</span><h2 id="cm-name">Basic current mirror</h2></div>
+      <p id="cm-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="cm-view" role="group" aria-label="Current mirror view" style="flex-wrap:wrap">
+        <button data-v="basic" aria-pressed="true">Basic mirror</button>
+        <button data-v="casc" aria-pressed="false">Cascode mirror</button>
+        <button data-v="dac" aria-pressed="false">Current DAC</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvc" aria-label="Animated current mirror: schematic and transistor cross-sections"></canvas>
+      <div class="legend" id="cm-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="cm-ro"></div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="The reference current forced into the diode-connected transistor M1. The mirror copies it.">Reference current Iref</span><span id="cm-iref-v"></span></div>
+          <input id="cm-iref" type="range" min="0.02" max="0.8" step="0.01" value="0.2">
+        </div>
+        <div class="slider" id="cm-ratio-row">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Width of the output transistor M2 divided by the width of M1. The output current scales with it.">Width ratio W2/W1</span><span id="cm-ratio-v"></span></div>
+          <input id="cm-ratio" type="range" min="0.5" max="8" step="0.5" value="1">
+        </div>
+        <div class="slider" id="cm-vout-row">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Voltage at the output node, set by whatever circuit the mirror feeds. An ideal current source would not care.">Output voltage Vout</span><span id="cm-vout-v"></span></div>
+          <input id="cm-vout" type="range" min="0" max="3.3" step="0.01" value="1.6">
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Channel length of all mirror transistors. Longer L means less channel-length modulation and a higher output resistance.">Channel length L</span><span id="cm-L-v"></span></div>
+          <input id="cm-L" type="range" min="0.25" max="2" step="0.05" value="1">
+        </div>
+        <div class="slider" id="cm-dvt-row">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Threshold-voltage difference of M2 against M1, as from random dopant fluctuation. A few mV is typical.">Mismatch ΔVth (M2)</span><span id="cm-dvt-v"></span></div>
+          <input id="cm-dvt" type="range" min="-30" max="30" step="1" value="0">
+        </div>
+        <div id="cm-c-dac" hidden style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="The 4-bit digital input. Each 1 bit switches its branch of 1, 2, 4 or 8 unit transistors onto the output.">Digital code</span><span id="cm-code-v"></span></div>
+            <input id="cm-code" type="range" min="0" max="15" step="1" value="9">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Standard deviation of the random Vth offset of each unit transistor. Larger devices match better (Pelgrom: σ ∝ 1/√(W·L)).">Mismatch σ(Vth)</span><span id="cm-sig-v"></span></div>
+            <input id="cm-sig" type="range" min="0" max="20" step="0.5" value="6">
+          </div>
+          <div class="chips"><button class="chipbtn" id="cm-seed">New chip (new random offsets)</button></div>
+        </div>
+        <label class="chk"><input type="checkbox" id="cm-clm" checked> Channel-length modulation</label>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="cm-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Output characteristics</p>
+        <div class="plots">
+          <div class="plot"><svg id="cm-p1" viewBox="0 0 300 230" role="img" aria-label="Output current versus output voltage, or DAC transfer"></svg></div>
+          <div class="plot"><svg id="cm-p2" viewBox="0 0 220 230" role="img" aria-label="Output resistance or DAC linearity"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="cm-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: current mirror, diode connection, output resistance, compliance, cascode, matching</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>How a current mirror copies a current</h3>
+            <ol>
+              <li>M1 is <b>diode-connected</b>: its gate is tied to its drain. Force Iref into it and it settles at exactly the VGS that carries Iref.</li>
+              <li>M2 shares that gate voltage and the same source (ground). Same VGS, same Vth, same size → the <b>same current</b>.</li>
+              <li>Make M2 wider and it carries more: <b>Iout = (W2/W1)·Iref</b>. This is how one reference feeds many bias currents on a chip.</li>
+              <li>It only works while M2 stays in <b>saturation</b> (Vout ≥ VGS − Vth). Below that it falls into triode and the current drops.</li>
+              <li>In saturation the current still rises a little with Vout (<b>channel-length modulation</b>), so the mirror is not a perfect current source: its output resistance is ro = 1/(λ·Iout).</li>
+            </ol>
+            <p id="cm-g-head">With your current settings:</p>
+            <div class="tbl" id="cm-g-live"></div>
+            <h3>Mirror types</h3>
+            <div class="tbl"><table>
+              <tr><th>Type</th><th>Output resistance</th><th>Minimum Vout</th><th>Notes</th></tr>
+              <tr><td>Basic (2 transistors)</td><td>ro</td><td>Vov ≈ 0.2–0.5 V</td><td>Simple; output current depends on Vout</td></tr>
+              <tr><td>Cascode (4 transistors)</td><td>≈ gm·ro²</td><td>2·VGS − Vth</td><td>Very stiff, but needs more headroom</td></tr>
+              <tr><td>Wide-swing cascode</td><td>≈ gm·ro²</td><td>2·Vov</td><td>Extra bias to win back headroom</td></tr>
+              <tr><td>Wilson</td><td>≈ gm·ro²/2</td><td>VGS + Vov</td><td>Feedback version, 3 or 4 transistors</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>Current mirror</dt><dd>A circuit that copies a reference current to one or more outputs, scaled by transistor size.</dd>
+              <dt>Diode-connected</dt><dd>Gate tied to drain: VDS = VGS, so the transistor is always in saturation and behaves like a resistor of about 1/gm.</dd>
+              <dt>Mirror ratio</dt><dd>Iout/Iref = (W2/L2)/(W1/L1). Ratios are made from whole unit transistors for good matching.</dd>
+              <dt>Output resistance</dt><dd>ΔVout/ΔIout. Infinite for an ideal current source; ro for a single transistor.</dd>
+              <dt>λ (CLM)</dt><dd>Channel-length modulation, about λ0/L. Long transistors have smaller λ and higher ro.</dd>
+              <dt>Compliance (headroom)</dt><dd>Lowest output voltage at which the mirror still delivers its current.</dd>
+              <dt>Vov</dt><dd>Overdrive VGS − Vth. Small Vov saves headroom but makes the current more sensitive to Vth mismatch.</dd>
+              <dt>Cascode</dt><dd>A second transistor stacked on the output that holds the bottom one's VDS constant, multiplying the output resistance by gm·ro.</dd>
+              <dt>Mismatch</dt><dd>Random differences between "identical" transistors: ΔI/I ≈ −2·ΔVth/Vov in saturation.</dd>
+              <dt>Pelgrom's law</dt><dd>σ(ΔVth) = AVT/√(W·L): bigger transistors match better.</dd>
+              <dt>Common centroid</dt><dd>Layout that interleaves the unit transistors so gradients across the chip cancel.</dd>
+              <dt>INL / DNL</dt><dd>Integral and differential non-linearity of a DAC, in LSB: how far each output, and each step, is from ideal.</dd>
             </dl>
           </div>
         </div>
@@ -6706,25 +7009,299 @@ document.querySelectorAll("#mi-car-cfg button").forEach(b => b.addEventListener(
 $("mi-sw-auto").addEventListener("change", e => { MI.sw.auto = e.target.checked; if (!e.target.checked){ MI.sw.t = +swTarget().toFixed(1); $("mi-sw-t").value = MI.sw.t; } updateMI(); });
 
 
+
+/* =========================================================
+   TAB 8 — current mirrors: basic, cascode, binary-weighted current DAC
+   ========================================================= */
+const CMC = setupCanvas($("cvc"), 1000, 488);
+const CM = {view:"basic", t:0, iref:0.2, ratio:1, vout:1.6, L:1, dvt:0, clm:true, code:9, sig:6, seed:1};
+const CM_W = 2;                                            // unit transistor width (relative)
+const cmF = () => ({L: CM.L, vsb:0, clm: CM.clm, body:false, dibl:false, vsat:false});
+// VGS of a diode-connected NMOS carrying I (mA)
+function cmVgs(I, F, w){ let lo = 0, hi = 4; for (let i=0;i<40;i++){ const m = (lo + hi)/2; if (solve("n", m, m, F, w).I < I) lo = m; else hi = m; } return (lo + hi)/2; }
+const cmRout = (fn, v) => { const d = 0.04, di = fn(v + d) - fn(v - d); return di > 1e-9 ? 2*d/di : Infinity; };     // kΩ (V/mA)
+const cmFmtR = r => !isFinite(r) || r > 1e5 ? "> 100 MΩ" : r >= 1000 ? (r/1000).toFixed(2) + " MΩ" : r.toFixed(1) + " kΩ";
+
+function cmBasic(vout = CM.vout){
+  const F = cmF(), vgs = cmVgs(CM.iref, F, CM_W), r1 = solve("n", vgs, vgs, F, CM_W);
+  const g2 = vgs - CM.dvt/1000, r2 = solve("n", g2, vout, F, CM_W*CM.ratio);
+  return {F, vgs, r1, r2, iout: r2.I, ideal: CM.ratio*CM.iref, vmin: r2.vdsat};
+}
+function cmCasc(vout = CM.vout){
+  const F = cmF(), vgs = cmVgs(CM.iref, F, CM_W), vb = 2*vgs;              // M3 stacked on M1: gate of M3/M4 at 2·VGS
+  let lo = 0, hi = Math.max(vout, 1e-6);
+  for (let i=0;i<50;i++){ const vx = (lo + hi)/2, d = solve("n", vgs, vx, F, CM_W).I - solve("n", vb - vx, vout - vx, F, CM_W).I; if (d < 0) lo = vx; else hi = vx; }
+  const vx = (lo + hi)/2, r2 = solve("n", vgs, vx, F, CM_W), r4 = solve("n", vb - vx, vout - vx, F, CM_W);
+  return {F, vgs, vb, vx, r2, r4, iout: r2.I, vmin: vb - (solve("n", vgs, vgs, F, CM_W).Vth)};
+}
+// DAC: 15 unit transistors (branches of 1, 2, 4, 8) with random Vth offsets
+function cmRand(seed){ let a = seed*2654435761 >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ t >>> 15, t | 1); t ^= t + Math.imul(t ^ t >>> 7, t | 61); return ((t ^ t >>> 14) >>> 0)/4294967296; }; }
+function cmUnits(){
+  const r = cmRand(CM.seed), out = [];
+  for (let i=0;i<15;i++){ const u = Math.max(r(), 1e-9), v = r(); out.push(Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)); }
+  return out;                                              // standard normal values; × σ gives ΔVth
+}
+const CM_BR = [[0], [1, 2], [3, 4, 5, 6], [7, 8, 9, 10, 11, 12, 13, 14]];     // unit indices of the 1×, 2×, 4×, 8× branches
+function cmDac(){
+  const F = cmF(), vgs = cmVgs(CM.iref, F, CM_W), z = cmUnits(), vo = 1.6;
+  const unitI = z.map(n => solve("n", vgs - n*CM.sig/1000, vo, F, CM_W).I);
+  const brI = CM_BR.map(ix => ix.reduce((s, i) => s + unitI[i], 0));
+  const codeI = Array.from({length:16}, (_, c) => brI.reduce((s, b, k) => s + (c >> k & 1 ? b : 0), 0));
+  const lsb = codeI[15]/15, inl = codeI.map((v, c) => (v - c*lsb)/lsb), dnl = codeI.map((v, c) => c ? (v - codeI[c-1])/lsb - 1 : 0);
+  return {F, vgs, z, unitI, brI, codeI, lsb, inl, dnl, vov: vgs - solve("n", vgs, vgs, F, CM_W).Vth};
+}
+
+/* ---------------- drawing ---------------- */
+const cmMini = [mkMini("n"), mkMini("n")];
+// NMOS symbol mirrored left-right (gate on the right); labels drawn separately
+function symbR(x, yc, o){ ctx.save(); ctx.translate(2*x, 0); ctx.scale(-1, 1); symb("n", x, yc, {on:o.on}); ctx.restore(); }
+function cmLab(name, r, vg, vd){ return {title:name, s:"S", d:"D", g:`G (VGS ${f2(vg)} V)`, v:`VDS ${f2(vd)} V · Vth ${f2(r.Vth)} V · ${r.reg === "sat" ? "saturation" : r.reg === "tri" ? "triode" : "off"}`, bf:1}; }
+let cmOff = 0;
+function vsrc(x, y, label){ ctx.strokeStyle = C.muted; ctx.lineWidth = 2.2; ctx.beginPath(); ctx.arc(x, y, 18, 0, 6.283); ctx.stroke(); txt("+", x, y - 7, {al:"center", col:C.fg, w:700, px:12}); txt("−", x, y + 8, {al:"center", col:C.fg, w:700, px:12}); if (label) txt(label, x + 24, y, {px:11, col:C.fg, w:600}); }
+function drawCMbasic(dt, T){
+  const B = cmBasic(), on1 = B.r1.reg !== "cut", on2 = B.r2.reg !== "cut";
+  ctx.fillStyle = C.panel2; ctx.fillRect(8, 8, 430, 472);
+  wire([[60, 40],[410, 40]]); txt(`VDD ${VDD} V`, 410, 26, {al:"right", col:C.fg, w:600});
+  wire([[140, 40],[140, 92]]); isrc(140, 112, ""); txt(`Iref ${(CM.iref*1000).toFixed(0)} µA`, 102, 112, {al:"right", col:C.accent, w:700, px:12});
+  wire([[140, 132],[140, 200]]);
+  symbR(170, 250, {on:on1}); symb("n", 290, 250, {on:on2});
+  wire([[140, 180],[205, 180],[205, 250]]); ndot(205, 250); ndot(140, 180);
+  wire([[140, 300],[140, 330],[320, 330]]); wire([[320, 300],[320, 330]]); gnd(230, 330); wire([[230, 330],[230, 330]]);
+  txt("M1", 112, 250, {al:"right", col:C.fg, w:700, px:13}); txt("M2", 346, 250, {col:C.fg, w:700, px:13});
+  txt(`W1`, 112, 268, {al:"right", px:10}); txt(`W2 = ${CM.ratio}·W1`, 346, 268, {px:10});
+  txt(`VGS ${f2(B.vgs)} V`, 236, 236, {al:"center", col:C.accent, w:600, px:11});
+  wire([[205, 250],[232, 250]]);
+  wire([[320, 200],[320, 140]]); ndot(320, 140); vsrc(380, 110, ""); txt(`Vout ${f2(CM.vout)} V`, 430, 156, {al:"right", px:11, col:C.fg, w:600}); wire([[320, 140],[380, 140],[380, 128]]); wire([[380, 92],[380, 40]]);
+  txt(`Iout ${(B.iout*1000).toFixed(1)} µA`, 300, 166, {al:"right", col:C.electron, w:700, px:12});
+  txt(`ideal ${(B.ideal*1000).toFixed(1)} µA · error ${((B.iout/B.ideal - 1)*100).toFixed(2)} %`, 22, 380, {px:11, col:C.fg, w:600});
+  txt(B.r2.reg === "sat" ? `M2 in saturation: Vout ≥ Vov = ${f2(B.vmin)} V` : `M2 in triode: Vout < Vov = ${f2(B.vmin)} V, the copy fails`, 22, 398, {px:11, col: B.r2.reg === "sat" ? C.electron : C.hole, w:600});
+  txt("diode connection: gate tied to drain, so M1 sets VGS for Iref", 22, 420, {px:10});
+  txt("M2 shares VGS → copies the current (× W2/W1)", 22, 436, {px:10});
+  cmOff += dt*60;
+  flowDots(polyline([[140, 40],[140, 300]]), cmOff, Math.min(1, CM.iref*4), C.accent);
+  flowDots(polyline([[380, 40],[380, 140],[320, 140],[320, 300]]), cmOff, Math.min(1, B.iout*4), C.electron);
+  drawMini(cmMini[0], 446, 16, B.vgs, B.vgs, B.r1, dt, T, cmLab("M1 · reference, diode-connected (VDS = VGS)", B.r1, B.vgs, B.vgs));
+  drawMini(cmMini[1], 446, 256, B.vgs - CM.dvt/1000, CM.vout, B.r2, dt, T, cmLab(`M2 · output (VDS = Vout)${CM.dvt ? ` · ΔVth ${CM.dvt > 0 ? "+" : ""}${CM.dvt} mV` : ""}`, B.r2, B.vgs - CM.dvt/1000, CM.vout));
+}
+function drawCMcasc(dt, T){
+  const K = cmCasc(), on = r => r.reg !== "cut", F = K.F, r1 = solve("n", K.vgs, K.vgs, F, CM_W), r3 = solve("n", K.vgs, K.vgs, F, CM_W);
+  ctx.fillStyle = C.panel2; ctx.fillRect(8, 8, 430, 472);
+  wire([[60, 30],[410, 30]]); txt(`VDD ${VDD} V`, 410, 18, {al:"right", col:C.fg, w:600});
+  wire([[140, 30],[140, 62]]); isrc(140, 82, ""); txt(`Iref ${(CM.iref*1000).toFixed(0)} µA`, 102, 82, {al:"right", col:C.accent, w:700, px:12});
+  wire([[140, 102],[140, 140]]);
+  symbR(170, 190, {on:on(r3)}); symb("n", 290, 190, {on:on(K.r4)});
+  symbR(170, 300, {on:on(r1)}); symb("n", 290, 300, {on:on(K.r2)});
+  wire([[140, 120],[205, 120],[205, 190]]); ndot(205, 190); ndot(140, 120);
+  wire([[140, 240],[140, 250]]); wire([[140, 245],[205, 245],[205, 300]]); ndot(205, 300); ndot(140, 245);
+  wire([[320, 240],[320, 250]]); ndot(320, 245); txt(`X ${f2(K.vx)} V`, 330, 245, {col:C.accent, w:700, px:11});
+  wire([[140, 350],[140, 372],[320, 372]]); wire([[320, 350],[320, 372]]); gnd(230, 372);
+  txt("M3", 112, 190, {al:"right", col:C.fg, w:700, px:13}); txt("M4", 346, 190, {col:C.fg, w:700, px:13});
+  txt("M1", 112, 300, {al:"right", col:C.fg, w:700, px:13}); txt("M2", 346, 300, {col:C.fg, w:700, px:13});
+  txt(`VB ${f2(K.vb)} V`, 236, 176, {al:"center", col:C.accent, w:600, px:11}); txt(`VGS ${f2(K.vgs)} V`, 236, 286, {al:"center", col:C.accent, w:600, px:11});
+  wire([[205, 190],[232, 190]]); wire([[205, 300],[232, 300]]);
+  wire([[320, 140],[320, 104]]); ndot(320, 104); vsrc(380, 76, ""); txt(`Vout ${f2(CM.vout)} V`, 430, 120, {al:"right", px:11, col:C.fg, w:600}); wire([[320, 104],[380, 104],[380, 94]]); wire([[380, 58],[380, 30]]);
+  txt(`Iout ${(K.iout*1000).toFixed(2)} µA`, 300, 124, {al:"right", col:C.electron, w:700, px:12});
+  const ok = K.r4.reg === "sat" && K.r2.reg === "sat";
+  txt(ok ? `both output transistors saturated (Vout ≥ ${f2(K.vmin)} V)` : `out of headroom: Vout < 2·VGS − Vth = ${f2(K.vmin)} V`, 22, 410, {px:11, col: ok ? C.electron : C.hole, w:600});
+  txt("M4 holds node X almost still, so M2's VDS (and its current)", 22, 430, {px:10});
+  txt("barely changes when Vout moves: Rout ≈ gm·ro²", 22, 446, {px:10});
+  cmOff += dt*60;
+  flowDots(polyline([[140, 30],[140, 350]]), cmOff, Math.min(1, CM.iref*4), C.accent);
+  flowDots(polyline([[380, 30],[380, 104],[320, 104],[320, 350]]), cmOff, Math.min(1, K.iout*4), C.electron);
+  drawMini(cmMini[0], 446, 16, K.vb - K.vx, CM.vout - K.vx, K.r4, dt, T, cmLab("M4 · cascode (absorbs the change in Vout)", K.r4, K.vb - K.vx, CM.vout - K.vx));
+  drawMini(cmMini[1], 446, 256, K.vgs, K.vx, K.r2, dt, T, cmLab("M2 · copies Iref (VDS = VX, held almost constant)", K.r2, K.vgs, K.vx));
+}
+function drawCMdac(dt, T){
+  const Dd = cmDac(), code = CM.code;
+  ctx.fillStyle = C.panel2; ctx.fillRect(8, 8, 600, 472);
+  wire([[30, 40],[590, 40]]); txt(`VDD ${VDD} V`, 590, 26, {al:"right", col:C.fg, w:600});
+  // output summing line
+  wire([[150, 110],[560, 110]]); ndot(560, 110); txt(`Iout ${(Dd.codeI[code]*1000).toFixed(1)} µA`, 552, 92, {al:"right", col:C.electron, w:700, px:12});
+  wire([[560, 110],[560, 64]]); vsrc(560, 52, "");
+  // reference
+  wire([[70, 40],[70, 132]]); isrc(70, 152, ""); txt("Iref", 44, 152, {al:"right", col:C.accent, w:700, px:11}); wire([[70, 172],[70, 250]]);
+  symbR(100, 300, {on:true}); wire([[70, 230],[134, 230],[134, 300]]); ndot(134, 300);
+  wire([[134, 230],[442, 230]]);                                       // shared gate bus (crosses the drain wires, no junction)
+  wire([[70, 350],[70, 380],[540, 380]]); gnd(300, 380);
+  txt("M0", 46, 300, {al:"right", col:C.fg, w:700, px:12}); txt("1×", 46, 316, {al:"right", px:10});
+  [1, 2, 4, 8].forEach((m, k) => {
+    const x = 200 + k*100, onb = code >> k & 1;
+    symb("n", x, 300, {on: !!onb}); ctx.strokeStyle = C.muted; wire([[x - 58, 230],[x - 58, 300]]); ndot(x - 58, 230);
+    wire([[x + 30, 350],[x + 30, 380]]);
+    wire([[x + 30, 250],[x + 30, 200]]);
+    // switch
+    ctx.strokeStyle = onb ? C.accent : C.muted; ctx.lineWidth = 2.6; pl(onb ? [[x + 30, 200],[x + 30, 140]] : [[x + 30, 200],[x + 50, 148]]);
+    ndot(x + 30, 200); ndot(x + 30, 140); wire([[x + 30, 140],[x + 30, 110]]);
+    txt(`${m}×`, x + 40, 318, {px:11, col:C.fg, w:700});
+    txt(`b${k} = ${onb}`, x + 38, 170, {px:10, col: onb ? C.accent : C.muted, w:600});
+    txt(`${(Dd.brI[k]*1000).toFixed(1)} µA`, x + 30, 412, {al:"center", px:10, col: onb ? C.electron : C.muted, w:600});
+    if (onb){ cmOff += 0; flowDots(polyline([[x + 30, 110],[x + 30, 350]]), cmOff + k*7, Math.min(1, Dd.brI[k]*2), C.electron); }
+  });
+  cmOff += dt*60;
+  flowDots(polyline([[70, 40],[70, 350]]), cmOff, Math.min(1, CM.iref*4), C.accent);
+  txt(`code ${code} = ${code.toString(2).padStart(4, "0")}b → Iout = ${code} × Iunit ≈ ${(Dd.codeI[code]*1000).toFixed(1)} µA (ideal ${(code*CM.iref*1000).toFixed(1)} µA)`, 22, 440, {px:11, col:C.fg, w:600});
+  txt("gate line shared by all branches: every unit transistor copies Iref", 22, 458, {px:10});
+  // unit cell array (layout view) coloured by mismatch
+  panel(620, 8, 372, 472, "15 unit transistors (layout)");
+  const pos = [[2,1], [1,1],[3,1], [0,0],[4,0],[0,2],[4,2], [1,0],[2,0],[3,0],[1,2],[2,2],[3,2],[0,1],[4,1]];   // a rough common-centroid placement
+  const owner = i => i === 0 ? 0 : i < 3 ? 1 : i < 7 ? 2 : 3;
+  Dd.z.forEach((n, i) => {
+    const [cx, cy] = pos[i], x = 650 + cx*64, y = 70 + cy*86, b = owner(i), act = code >> b & 1, dv = n*CM.sig;
+    ctx.fillStyle = dv >= 0 ? C.hole : C.electron; ctx.globalAlpha = Math.min(0.85, 0.12 + Math.abs(dv)/25); ctx.fillRect(x, y, 56, 70); ctx.globalAlpha = 1;
+    ctx.strokeStyle = act ? C.accent : C.line; ctx.lineWidth = act ? 3 : 1; ctx.strokeRect(x + .5, y + .5, 55, 69);
+    txt(`${[1,2,4,8][b]}×`, x + 28, y + 22, {al:"center", px:12, col:C.fg, w:700});
+    txt(`${dv >= 0 ? "+" : ""}${dv.toFixed(1)} mV`, x + 28, y + 46, {al:"center", px:10, col:C.fg});
+  });
+  txt("colour = random ΔVth of each unit", 636, 352, {px:10, col:C.fg});
+  txt("orange frame = switched on by the code", 636, 368, {px:10, col:C.accent});
+  txt("each 1× unit is identical; branches are", 636, 392, {px:10}); txt("built from whole units and interleaved", 636, 406, {px:10}); txt("(common centroid) so gradients cancel", 636, 420, {px:10});
+  txt(`INL max ${Math.max(...Dd.inl.map(Math.abs)).toFixed(2)} LSB · DNL max ${Math.max(...Dd.dnl.map(Math.abs)).toFixed(2)} LSB`, 636, 450, {px:11, col:C.fg, w:600});
+}
+function drawCM(dt, T){ begin(CMC); ({basic: drawCMbasic, casc: drawCMcasc, dac: drawCMdac})[CM.view](dt, T); }
+function cmTick(dt){ CM.t += dt; }
+
+/* ---------------- DOM ---------------- */
+const CMINFO = {
+  basic:{pill:"CM", name:"Basic current mirror", sub:"A diode-connected transistor sets VGS; a second transistor copies its current",
+    text:"Analog chips need many bias currents, but only one accurate reference. The current mirror copies it. M1 has its gate tied to its drain (diode-connected): the reference current flows in and M1 settles at exactly the gate voltage that carries it. M2 shares that gate voltage and its source, so as long as both are the same kind of transistor in saturation, M2 carries the same current, scaled by the width ratio W2/W1. Two things spoil the copy. First, channel-length modulation: M2's current grows slowly with its drain voltage, so the output is not a perfect current source but has an output resistance ro = 1/(λ·Iout); longer transistors (bigger L) have smaller λ and copy better. Second, mismatch: a few mV of random Vth difference shifts the current by about 2·ΔVth/Vov, so precise mirrors use large devices and a generous overdrive. The mirror also needs headroom: below Vout ≈ Vov, M2 leaves saturation and the current collapses."},
+  casc:{pill:"CAS", name:"Cascode current mirror", sub:"A stacked transistor shields the copy from the output voltage",
+    text:"The cascode mirror stacks a second transistor on top of each side. M3 and M4 are biased at twice VGS, so node X under M4 sits at about one VGS, the same as M1's drain. When Vout moves, M4 takes up almost the whole change and node X barely moves, so M2 keeps the same VDS as M1 and copies the reference much more exactly. The output resistance rises from ro to about gm·ro², tens to hundreds of times higher, which is why cascodes are used for precise current sources and high-gain amplifiers. The price is headroom: both output transistors must stay in saturation, so Vout must stay above about 2·VGS − Vth instead of just Vov. Wide-swing cascodes bias M4's gate lower to win part of that back."},
+  dac:{pill:"DAC", name:"Binary-weighted current DAC", sub:"One reference, branches of 1, 2, 4 and 8 unit transistors, switched by the digital code",
+    text:"A current-steering DAC is a current mirror with many outputs. One reference transistor sets the gate voltage for 15 identical unit transistors, grouped into branches of 1, 2, 4 and 8. Each bit of the code switches its branch onto the output, so Iout = code × Iunit. Because every branch is built from whole unit transistors, the ratios are exact on paper; in silicon each unit has a slightly different Vth, so each branch current is a little off. The result shows up as non-linearity: INL is how far each output level is from the ideal straight line, DNL how far each step is from one LSB. The worst step is usually 7 → 8, where the 8× branch replaces all the others. Designers fight mismatch with bigger unit transistors (Pelgrom's law: σ ∝ 1/√(W·L)), common-centroid layouts that cancel gradients, and calibration."}
+};
+Object.assign(TIP, {
+  "Gate voltage VGS":"Shared gate-to-source voltage set by the diode-connected M1.",
+  "Output current":"Current copied into the output by M2 (or the cascode stack).",
+  "Copy error":"Difference from the ideal current (W2/W1)·Iref.",
+  "Output resistance":"ΔVout/ΔIout at the present output voltage. Higher means a better current source.",
+  "Mirror":"Same VGS in M1 and M2: the currents scale with W and differ only by channel-length modulation.",
+  "Square law":"VGS needed to carry Iref in the diode-connected M1.",
+  "Output resistance ro":"Small-signal resistance of M2 in saturation.",
+  "Compliance":"Lowest output voltage where the output transistor stays in saturation.",
+  "Mismatch":"Current error caused by a Vth difference between M1 and M2.",
+  "Cascode bias VB":"Gate voltage of M3 and M4: two stacked VGS drops.",
+  "Minimum Vout":"Output voltage needed to keep both output transistors in saturation.",
+  "Cascode":"Node X is held still, so M2 copies the reference with almost no CLM error.",
+  "Rout gain":"The cascode multiplies the output resistance by about gm·ro.",
+  "Headroom":"Price of the cascode: a higher minimum output voltage.",
+  "Code":"4-bit digital input of the DAC.",
+  "INL max":"Largest deviation of any output level from the ideal line, in LSB.",
+  "DNL max":"Largest step error, in LSB. Above 1 LSB the DAC is not monotonic.",
+  "DAC":"Iout is the sum of the switched branch currents.",
+  "Unit mismatch":"Random current error of one unit transistor.",
+  "Linearity":"How the branch errors show up as INL and DNL."
+});
+const CMLEG = {
+  basic:[["accent","Reference current"],["electron","Copied (output) current"],["muted","Wires"]],
+  casc:[["accent","Reference current"],["electron","Output current"],["muted","Wires"]],
+  dac:[["electron","Unit with lower Vth (more current)"],["hole","Unit with higher Vth (less current)"],["accent","Switched on by the code"]]
+};
+let cmGlossKey = "";
+function updateCM(){
+  const v = CM.view, info = CMINFO[v];
+  $("cm-pill").textContent = info.pill; $("cm-name").textContent = info.name; $("cm-sub").textContent = info.sub; $("cm-explain").textContent = info.text;
+  document.querySelectorAll("#cm-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  $("cm-ratio-row").hidden = v !== "basic"; $("cm-dvt-row").hidden = v !== "basic"; $("cm-vout-row").hidden = v === "dac"; $("cm-c-dac").hidden = v !== "dac";
+  $("cm-iref-v").textContent = `${(CM.iref*1000).toFixed(0)} µA`; $("cm-ratio-v").textContent = `${CM.ratio} : 1`; $("cm-vout-v").textContent = `${f2(CM.vout)} V`;
+  $("cm-L-v").textContent = `${CM.L.toFixed(2)} µm`; $("cm-dvt-v").textContent = `${CM.dvt > 0 ? "+" : ""}${CM.dvt} mV`;
+  $("cm-code-v").textContent = `${CM.code} (${CM.code.toString(2).padStart(4, "0")}b)`; $("cm-sig-v").textContent = `${CM.sig.toFixed(1)} mV`;
+  setHTML("cm-legend", CMLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  const ro = [], rows = [], lam = CM.clm ? 0.04/CM.L : 0;
+  if (v === "basic"){
+    const B = cmBasic(), R = cmRout(x => cmBasic(x).iout, CM.vout), vov = B.vgs - B.r1.Vth;
+    ro.push(["Gate voltage VGS", f2(B.vgs) + " V"], ["Output current", (B.iout*1000).toFixed(1) + " µA"], ["Copy error", ((B.iout/B.ideal - 1)*100).toFixed(2) + " %"], ["Output resistance", cmFmtR(R)]);
+    rows.push({name:"Square law", f:"VGS = Vth + √(2·Iref / k1),  k1 = μCox·W1/L", sub:`= ${f2(B.r1.Vth)} + ${f2(vov)} = ${f2(B.vgs)} V for ${(CM.iref*1000).toFixed(0)} µA`});
+    rows.push({name:"Mirror", f:"Iout / Iref = (W2/W1) · (1 + λ·Vout) / (1 + λ·VGS)", sub:`= ${CM.ratio} · (1 + ${lam.toFixed(3)}·${f2(CM.vout)}) / (1 + ${lam.toFixed(3)}·${f2(B.vgs)}) → ${(B.iout*1000).toFixed(2)} µA`});
+    rows.push({name:"Output resistance ro", f:"ro = 1 / (λ·Iout),  λ ≈ 0.04 V⁻¹ · (1 µm / L)", sub: lam ? `= 1 / (${lam.toFixed(3)} · ${(B.iout).toFixed(3)} mA) = ${cmFmtR(1/(lam*B.iout))}` : "CLM off → ideal current source"});
+    rows.push({name:"Compliance", f:"Vout ≥ VGS − Vth = Vov", sub:`Vov = ${f2(B.vmin)} V; now ${f2(CM.vout)} V → ${B.r2.reg === "sat" ? "saturated" : "triode"}`});
+    rows.push({name:"Mismatch", f:"ΔI / I ≈ −2·ΔVth / Vov", sub:`ΔVth = ${CM.dvt} mV, Vov = ${f2(vov)} V → ≈ ${(-2*CM.dvt/1000/vov*100).toFixed(2)} %`});
+  } else if (v === "casc"){
+    const K = cmCasc(), R = cmRout(x => cmCasc(x).iout, CM.vout), Rb = cmRout(x => { const F = cmF(); return solve("n", K.vgs, x, F, CM_W).I; }, CM.vout);
+    ro.push(["Cascode bias VB", f2(K.vb) + " V"], ["Output current", (K.iout*1000).toFixed(2) + " µA"], ["Output resistance", cmFmtR(R)], ["Minimum Vout", f2(K.vmin) + " V"]);
+    rows.push({name:"Cascode", f:"VB = 2·VGS → VX ≈ VGS (same VDS as M1)", sub:`VB = ${f2(K.vb)} V, VX = ${f2(K.vx)} V, M1 VDS = ${f2(K.vgs)} V`});
+    rows.push({name:"Rout gain", f:"Rout ≈ gm4 · ro4 · ro2  (basic: ro2)", sub:`cascode ${cmFmtR(R)} vs basic ${cmFmtR(Rb)} → ×${isFinite(R/Rb) ? (R/Rb).toFixed(0) : "∞"}`});
+    rows.push({name:"Headroom", f:"Vout ≥ VB − Vth = 2·VGS − Vth  (basic: Vov)", sub:`${f2(K.vmin)} V vs ${f2(K.vgs - solve("n", K.vgs, K.vgs, cmF(), CM_W).Vth)} V for the basic mirror`});
+  } else {
+    const Dd = cmDac(), im = Math.max(...Dd.inl.map(Math.abs)), dm = Math.max(...Dd.dnl.map(Math.abs));
+    ro.push(["Code", `${CM.code}`], ["Output current", (Dd.codeI[CM.code]*1000).toFixed(1) + " µA"], ["INL max", im.toFixed(2) + " LSB"], ["DNL max", dm.toFixed(2) + " LSB"]);
+    rows.push({name:"DAC", f:"Iout = Σ bk · 2^k · Iunit,  k = 0 … 3", sub:`code ${CM.code} → ${(Dd.codeI[CM.code]*1000).toFixed(2)} µA (LSB = ${(Dd.lsb*1000).toFixed(2)} µA)`});
+    rows.push({name:"Unit mismatch", f:"σ(I)/I ≈ 2·σ(Vth) / Vov", sub:`= 2 · ${CM.sig.toFixed(1)} mV / ${f2(Dd.vov)} V = ${(2*CM.sig/1000/Dd.vov*100).toFixed(2)} % per unit`});
+    rows.push({name:"Linearity", f:"INL(k) = (I(k) − k·LSB)/LSB,  DNL(k) = (I(k) − I(k−1))/LSB − 1", sub:`worst DNL at code ${Dd.dnl.reduce((bi, x, i, a) => Math.abs(x) > Math.abs(a[bi]) ? i : bi, 1)} (the 7 → 8 step is the classic one)`});
+  }
+  renderRo($("cm-ro"), ro); renderEq($("cm-eq"), rows);
+  updateCMGloss(); drawCMPlots();
+}
+function updateCMGloss(){
+  const key = JSON.stringify(CM) .replace(/"t":[^,]*,/, ""); if (key === cmGlossKey) return; cmGlossKey = key;
+  let h = "", t = "";
+  if (CM.view === "dac"){ const Dd = cmDac(); h = "Branch currents of this chip:";
+    t = `<table><tr><th>Branch</th><th>Units</th><th>Current</th><th>Ideal</th><th>Error</th></tr>` + [1, 2, 4, 8].map((m, k) => `<tr><td>b${k}</td><td>${m}</td><td>${(Dd.brI[k]*1000).toFixed(2)} µA</td><td>${(m*Dd.lsb*1000).toFixed(2)} µA</td><td>${((Dd.brI[k]/(m*Dd.lsb) - 1)*100).toFixed(2)} %</td></tr>`).join("") + `</table>`; }
+  else { h = "Output current for different channel lengths (same Iref):";
+    const save = CM.L;
+    t = `<table><tr><th>L (µm)</th><th>Iout at 1 V</th><th>Iout at 3 V</th><th>Change</th><th>Rout (${CM.view === "casc" ? "cascode" : "basic"})</th></tr>` + [0.25, 0.5, 1, 2].map(L => { CM.L = L; const f = x => (CM.view === "casc" ? cmCasc(x) : cmBasic(x)).iout, a = f(1), b = f(3); return `<tr${Math.abs(L - save) < 1e-9 ? ' style="font-weight:700"' : ""}><td>${L}</td><td>${(a*1000).toFixed(2)} µA</td><td>${(b*1000).toFixed(2)} µA</td><td>${((b/a - 1)*100).toFixed(2)} %</td><td>${cmFmtR(cmRout(f, 2))}</td></tr>`; }).join("") + `</table>`;
+    CM.L = save; }
+  $("cm-g-head").textContent = h; $("cm-g-live").innerHTML = t;
+}
+function drawCMPlots(){
+  const v = CM.view; let a = "", b = "";
+  if (v === "dac"){
+    const Dd = cmDac(), ym = Math.max(...Dd.codeI)*1000*1.1, st = niceStep(ym/5);
+    const A = axesR(300, 230, {l:38,r:10,t:28,b:30}, 0, 15, 0, Math.ceil(ym/st)*st, 3, st, "code", "Iout (µA)");
+    let path = ""; Dd.codeI.forEach((I, c) => { const y = A.Y(I*1000); path += (c ? `L${A.X(c - 0.5)} ${y}` : `M${A.X(0)} ${y}`) + `L${A.X(Math.min(15, c + 0.5))} ${y}`; });
+    a = A.s + `<line x1="${A.X(0)}" y1="${A.Y(0)}" x2="${A.X(15)}" y2="${A.Y(15*Dd.lsb*1000)}" stroke="var(--muted)" stroke-dasharray="3 3"/><path d="${path}" fill="none" stroke="var(--electron)" stroke-width="2"/>`;
+    a += A.frame + dotSvg(A.X(CM.code), A.Y(Dd.codeI[CM.code]*1000)) + `<text x="44" y="12" style="fill:var(--electron)">— measured</text><text x="120" y="12">- - ideal line</text>`;
+    const lim = Math.max(0.5, ...Dd.inl.map(Math.abs), ...Dd.dnl.map(Math.abs)), ls = niceStep(lim/2), yl = Math.ceil(lim/ls)*ls;
+    const B = axesR(220, 230, {l:32,r:8,t:28,b:30}, -0.5, 15.5, -yl, yl, 5, ls, "code", "LSB");
+    b = B.s; for (let c=0;c<16;c++){ const w = (B.X(1) - B.X(0))*0.38, x = B.X(c); b += `<rect x="${x - w}" y="${Math.min(B.Y(0), B.Y(Dd.inl[c]))}" width="${w}" height="${Math.abs(B.Y(Dd.inl[c]) - B.Y(0))}" fill="var(--accent)"/><rect x="${x}" y="${Math.min(B.Y(0), B.Y(Dd.dnl[c]))}" width="${w}" height="${Math.abs(B.Y(Dd.dnl[c]) - B.Y(0))}" fill="var(--hole)"/>`; }
+    b += B.frame + `<text x="36" y="12" style="fill:var(--accent)">■ INL</text><text x="80" y="12" style="fill:var(--hole)">■ DNL</text>`;
+  } else {
+    const fb = x => cmBasic(x).iout*1000, fc = x => cmCasc(x).iout*1000, vg = range(0, 3.3, 165);
+    const cur = v === "casc" ? fc : fb, ys = vg.map(cur), ym = Math.max(...ys, v === "basic" ? CM.ratio*CM.iref*1000 : 0)*1.15, st = niceStep(ym/5);
+    const A = axesR(300, 230, {l:38,r:10,t:28,b:30}, 0, 3.3, 0, Math.ceil(ym/st)*st, 0.5, st, "Vout (V)", "Iout (µA)");
+    a = A.s;
+    if (v === "casc") a += `<path d="${pathOf(vg.map(x => [x, fb(x)]), A.X, A.Y)}" fill="none" stroke="var(--muted)" stroke-dasharray="4 3" stroke-width="1.6"/>`;
+    else a += `<line x1="${A.X(0)}" x2="${A.X(3.3)}" y1="${A.Y(CM.ratio*CM.iref*1000)}" y2="${A.Y(CM.ratio*CM.iref*1000)}" stroke="var(--muted)" stroke-dasharray="3 3"/>`;
+    a += `<path d="${pathOf(vg.map((x, i) => [x, ys[i]]), A.X, A.Y)}" fill="none" stroke="var(--electron)" stroke-width="2.2"/>`;
+    const vmin = v === "casc" ? cmCasc().vmin : cmBasic().vmin;
+    a += `<line x1="${A.X(vmin)}" x2="${A.X(vmin)}" y1="28" y2="200" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${A.X(vmin) + 3}" y="40" style="fill:var(--hole)">min Vout</text>`;
+    a += A.frame + dotSvg(A.X(CM.vout), A.Y(cur(CM.vout)));
+    a += v === "casc" ? `<text x="44" y="12" style="fill:var(--electron)">— cascode</text><text x="112" y="12" style="fill:var(--muted)">- - basic</text>` : `<text x="44" y="12" style="fill:var(--electron)">— Iout</text><text x="90" y="12">- - ideal (W2/W1)·Iref</text>`;
+    // output resistance vs Vout (log)
+    const rg = range(0.1, 3.2, 62), lg = r => Math.log10(clamp(r, 0.1, 1e6));
+    const rb = rg.map(x => [x, lg(cmRout(y => fb(y)/1000, x))]), rc = rg.map(x => [x, lg(cmRout(y => fc(y)/1000, x))]);
+    const B = axesR(220, 230, {l:32,r:8,t:28,b:30}, 0, 3.3, -1, 6, 1, 1, "Vout (V)", "Rout (log kΩ)");
+    b = B.s + `<path d="${pathOf(rb, B.X, B.Y)}" fill="none" stroke="var(--muted)" stroke-width="1.8"${v === "casc" ? ' stroke-dasharray="4 3"' : ""}/>`;
+    if (v === "casc") b += `<path d="${pathOf(rc, B.X, B.Y)}" fill="none" stroke="var(--electron)" stroke-width="2.2"/>`;
+    b += B.frame + `<text x="36" y="12" style="fill:var(--fg)">1 = 10 kΩ, 3 = 1 MΩ</text>`;
+  }
+  $("cm-p1").innerHTML = a; $("cm-p2").innerHTML = b;
+}
+document.querySelectorAll("#cm-view button").forEach(b => b.addEventListener("click", () => { CM.view = b.dataset.v; updateCM(); }));
+[["cm-iref","iref"],["cm-ratio","ratio"],["cm-vout","vout"],["cm-L","L"],["cm-dvt","dvt"],["cm-code","code"],["cm-sig","sig"]].forEach(([id, k]) => $(id).addEventListener("input", e => { CM[k] = +e.target.value; updateCM(); }));
+$("cm-clm").addEventListener("change", e => { CM.clm = e.target.checked; updateCM(); });
+$("cm-seed").addEventListener("click", () => { CM.seed++; updateCM(); });
+
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror"};
 function showTab(t){
   zoomClose();
   tab = t;
-  ["mos","inv","body","pw","rd","rf","mi"].forEach(k => { $("tab-"+k).hidden = t !== k; $("tab-btn-"+k).setAttribute("aria-selected", t === k); });
+  ["mos","inv","body","cm","pw","rd","rf","mi"].forEach(k => { $("tab-"+k).hidden = t !== k; $("tab-btn-"+k).setAttribute("aria-selected", t === k); });
   $("seg-type").hidden = t !== "mos";
   try { history.replaceState(null, "", HASH[t]); } catch(e){}
   if (t === "mos"){ M.resize(); updateMos(); }
   else if (t === "inv"){ $("sub-top").textContent = `CMOS inverter · VDD = ${VDD} V · Vtn = +1.0 V, Vtp = −1.0 V`; IVC.resize(); updateInv(); }
   else if (t === "rd"){ $("sub-top").textContent = "77 GHz automotive radar · fractional-N PLL · FMCW chirp"; RC.resize(); updateRadar(); }
+  else if (t === "cm"){ $("sub-top").textContent = `Current mirrors · VDD = ${VDD} V · Vth = 1.0 V · copy one reference current to many outputs`; CMC.resize(); updateCM(); }
   else if (t === "mi"){ $("sub-top").textContent = "MIMO and beams · phased arrays, beam switching, virtual arrays, car radar layouts"; MIC.resize(); updateMI(); }
   else if (t === "rf"){ $("sub-top").textContent = "RF passives · S-parameters, coupler, balun, antenna, waveguide modes"; RFC.resize(); updateRF(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
-["mos","inv","body","pw","rd","rf","mi"].forEach(k => $("tab-btn-"+k).addEventListener("click", () => showTab(k)));
+["mos","inv","body","cm","pw","rd","rf","mi"].forEach(k => $("tab-btn-"+k).addEventListener("click", () => showTab(k)));
 
 let last = performance.now(), T = 0;
 function frame(now){
@@ -6732,6 +7309,7 @@ function frame(now){
   if (tab === "mos"){ tourTick(dt); if (M.cv.clientWidth) drawMos(dt, T); }
   else if (tab === "inv"){ invTick(dt); if (IVC.cv.clientWidth) drawInv(dt, T); }
   else if (tab === "rd"){ if (!SIM) radarRecalc(); radarTickAll(dt); if (RC.cv.clientWidth) drawRadar(dt, T); }
+  else if (tab === "cm"){ cmTick(dt); if (CMC.cv.clientWidth) drawCM(dt, T); }
   else if (tab === "mi"){ miTick(dt); if (MIC.cv.clientWidth) drawMI(dt, T); }
   else if (tab === "rf"){ rfTick(dt); if (RFC.cv.clientWidth) drawRF(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
@@ -6785,7 +7363,7 @@ addEventListener("keydown", e => { if (e.key === "Escape") zoomClose(); });
 addEventListener("resize", zoomSize);
 
 buildLegend(); updateMos();
-showTab(location.hash === "#inverter" ? "inv" : location.hash === "#body-effect" ? "body" : location.hash === "#power" ? "pw" : location.hash === "#radar" ? "rd" : location.hash === "#rf-passives" ? "rf" : location.hash === "#mimo" ? "mi" : "mos");
+showTab(location.hash === "#inverter" ? "inv" : location.hash === "#body-effect" ? "body" : location.hash === "#power" ? "pw" : location.hash === "#radar" ? "rd" : location.hash === "#rf-passives" ? "rf" : location.hash === "#mimo" ? "mi" : location.hash === "#current-mirror" ? "cm" : "mos");
 requestAnimationFrame(frame);
 })();
 </script>
