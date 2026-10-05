@@ -119,6 +119,32 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
 .cmp{display:flex;flex-wrap:wrap;gap:8px 24px;font:.9rem var(--f-mono)}
 .cmp b{font-weight:600;font-variant-numeric:tabular-nums}
 .cmp .delta{color:var(--accent)}
+/* hover / tap explanations */
+.wrap{overflow-x:clip}
+.term{border-bottom:1px dotted currentColor;cursor:help;position:relative;outline:none}
+.term:hover::after,.term:focus::after{content:attr(data-tip);position:absolute;left:0;top:100%;margin-top:6px;z-index:30;width:max-content;max-width:min(270px,72vw);white-space:normal;background:var(--fg);color:var(--bg);font:400 .78rem/1.45 var(--f-body);padding:8px 10px;border-radius:8px;text-transform:none;letter-spacing:0;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.term:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+/* glossary */
+.gloss summary{cursor:pointer;font:600 .95rem var(--f-body);list-style:none;display:flex;align-items:center;gap:10px}
+.gloss summary::-webkit-details-marker{display:none}
+.gloss summary::before{content:"▸";color:var(--accent);transition:transform .2s}
+.gloss[open] summary::before{transform:rotate(90deg)}
+.gloss-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:22px;margin-top:14px}
+@media (max-width:820px){.gloss-grid{grid-template-columns:minmax(0,1fr)}}
+.gloss h3{font:700 1rem var(--f-display);margin:0 0 6px;color:var(--fg)}
+.gloss p,.gloss li{font-size:.9rem;max-width:68ch}
+.gloss p{margin:0 0 10px}
+.gloss ol{margin:0 0 10px;padding-left:20px;display:grid;gap:4px}
+.gloss .tbl{overflow-x:auto;margin:4px 0 14px}
+.gloss table{border-collapse:collapse;font:.82rem var(--f-mono);min-width:100%}
+.gloss th,.gloss td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+.gloss th{color:var(--muted);font-weight:600}
+.gloss td.ok{color:var(--channel);font-weight:600}
+.gloss td.bad{color:var(--hole);font-weight:600}
+.gloss dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;margin:0 0 14px;font-size:.88rem}
+.gloss dt{font:600 .84rem var(--f-mono);color:var(--accent)}
+.gloss dd{margin:0;color:var(--fg)}
+.gloss .note{border-left:3px solid var(--accent);padding:8px 12px;background:var(--panel2);border-radius:0 8px 8px 0;font-size:.88rem;margin:0 0 12px}
 .chk{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;cursor:pointer}
 .chk input{accent-color:var(--accent);width:16px;height:16px}
 .readouts.four{grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -582,6 +608,69 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         </div>
       </section>
     </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: Rmax, beat frequency, “no peak”, PLL words</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>How the radar turns distance into a tone</h3>
+            <ol>
+              <li>The radar sends a <b>chirp</b>: a signal whose frequency rises steadily, e.g. 76 → 77 GHz in 40 µs.</li>
+              <li>The echo comes back a little later, so at every moment it is at a slightly lower frequency than what is being sent.</li>
+              <li>Mixing the echo with the transmit signal leaves the difference: a tone called the <b>beat frequency fb</b>. The farther the target, the longer the delay and the higher the tone: fb = 2·R·S / c.</li>
+              <li>The receiver filter and ADC only pass tones up to the <b>IF bandwidth</b> (20 MHz here). The distance whose tone just reaches that limit is <b>Rmax</b>.</li>
+            </ol>
+            <p>With your current settings:</p>
+            <div class="tbl" id="rd-g-live"></div>
+
+            <h3>What “no peak” means</h3>
+            <p class="note">No peak means <b>the radar cannot detect that target with the current chirp settings</b>. The car is still there, but its tone is above the receiver bandwidth, so it is filtered out before the FFT ever sees it. It is not a fault: it is the limit of that chirp design.</p>
+
+            <h3>Why a larger bandwidth B shortens Rmax</h3>
+            <p>Sweeping more bandwidth in the same time makes the chirp steeper, so every target’s tone is higher and the 20 MHz limit is reached at a shorter distance. Same 60 m car:</p>
+            <div class="tbl" id="rd-g-trade"></div>
+            <p>This is the basic trade-off: <b>large B</b> gives fine detail (ΔR = c/2B, 3.75 cm at 4 GHz) but a <b>steep chirp</b> gives short reach. Real ADAS radars switch between modes:</p>
+            <div class="tbl"><table>
+              <tr><th>Mode</th><th>Typical chirp</th><th>Reach</th><th>Detail</th><th>Use</th></tr>
+              <tr><td>Long range</td><td>B ≈ 0.3–1 GHz, long Tc</td><td>≈ 200–250 m</td><td>15–50 cm</td><td>Highway, adaptive cruise</td></tr>
+              <tr><td>Medium range</td><td>B ≈ 1–2 GHz</td><td>≈ 60–100 m</td><td>7–15 cm</td><td>City traffic, cut-in</td></tr>
+              <tr><td>Short range</td><td>B up to 4 GHz</td><td>≈ 20–30 m</td><td>≈ 4 cm</td><td>Parking, blind spot</td></tr>
+            </table></div>
+            <p class="note">Rmax in this demo is only the limit set by the receiver bandwidth. A real radar has a second limit: echo strength falls roughly as 1/R⁴, so a far or small target (a pedestrian instead of a truck) can be too weak to rise above the noise. That limit is not modelled here.</p>
+          </div>
+          <div>
+            <h3>FMCW terms</h3>
+            <dl>
+              <dt>Chirp</dt><dd>A signal whose frequency rises linearly with time.</dd>
+              <dt>B</dt><dd>Chirp bandwidth: how far the frequency sweeps (e.g. 1 GHz).</dd>
+              <dt>Tc</dt><dd>Chirp duration: how long one sweep lasts.</dd>
+              <dt>S</dt><dd>Slope, S = B/Tc: how fast it sweeps (MHz per µs).</dd>
+              <dt>τ</dt><dd>Round-trip delay, τ = 2R/c (400 ns for 60 m).</dd>
+              <dt>fb / IF</dt><dd>Beat (intermediate) frequency after the mixer, fb = S·τ. It encodes distance.</dd>
+              <dt>IF bandwidth</dt><dd>Highest beat frequency the filter and ADC pass (20 MHz here).</dd>
+              <dt>Rmax</dt><dd>Farthest distance whose tone fits in the IF bandwidth: fIF,max·c/(2S).</dd>
+              <dt>FFT peak</dt><dd>The FFT finds which tones are present. Each peak is one target; its position gives the distance.</dd>
+              <dt>ΔR</dt><dd>Range resolution, c/2B: two targets closer than this merge into one peak.</dd>
+              <dt>Doppler</dt><dd>A moving target shifts the echo phase a little from chirp to chirp; that rate gives its speed (fd = 2v/λ).</dd>
+              <dt>λ</dt><dd>Wavelength, about 3.9 mm at 77 GHz.</dd>
+            </dl>
+            <h3>PLL / synthesizer terms</h3>
+            <dl>
+              <dt>XO / fref</dt><dd>Crystal oscillator: a very stable, low-frequency reference (e.g. 50 MHz).</dd>
+              <dt>VCO</dt><dd>Voltage-controlled oscillator: its frequency follows the tuning voltage Vtune.</dd>
+              <dt>Varactor</dt><dd>A MOS capacitor whose capacitance changes with voltage (accumulation = high C, depletion = low C). It tunes the VCO.</dd>
+              <dt>÷N</dt><dd>Divider: brings the VCO down to fref so it can be compared. Fractional N allows any frequency, not just multiples of fref.</dd>
+              <dt>ΣΔ</dt><dd>Sigma-delta modulator: switches the divider between N and N+1 so the average equals the fractional N.</dd>
+              <dt>PFD / CP / LF</dt><dd>Phase-frequency detector, charge pump and loop filter: measure the phase error and turn it into a smooth Vtune.</dd>
+              <dt>Loop BW</dt><dd>How fast the loop reacts. Wider tracks the chirp better and cleans VCO noise; narrower filters reference and ΣΔ noise.</dd>
+              <dt>Phase noise</dt><dd>Random jitter of the carrier phase, in dBc/Hz at an offset frequency. It raises the noise floor around every FFT peak.</dd>
+              <dt>×4</dt><dd>Frequency multiplier: 19–20 GHz VCO → 76–81 GHz output (phase noise rises by 20·log4 = 12 dB).</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
   </section>
 </div>
 
@@ -2443,6 +2532,43 @@ const RDINFO = {
     text:"The radar transmits the chirp and mixes the echo with the signal it is transmitting at that moment. The echo is a delayed copy, so during the ramp the two differ by a constant beat frequency fb = S·τ = 2RS/c. An FFT of the IF signal turns each target into a peak whose position gives its range. Two targets are resolved only if they are more than c/(2B) apart, so the full 4 GHz of the 77–81 GHz band gives 3.75 cm. A moving target adds a Doppler shift 2v/λ, which is measured as the phase change of the peak from one chirp to the next."}
 };
 
+const TIPS = {
+  "TX frequency":"The frequency the antenna is sending right now. It is 4 × the VCO frequency.",
+  "Divide ratio N":"How many VCO cycles the divider counts per reference cycle. fRF = 4·N·fref, so changing N moves the output frequency.",
+  "Vtune":"The tuning voltage from the loop filter to the VCO varactor. Higher Vtune → lower capacitance → higher frequency.",
+  "RMS phase error":"Total phase jitter of the carrier, integrated from 10 kHz to 100 MHz offset. Smaller is cleaner.",
+  "Chirp slope":"S = B/Tc: how fast the frequency sweeps. A steeper chirp makes every target's beat tone higher.",
+  "Beat freq fb":"The tone left after mixing echo and transmit signal. Its frequency is proportional to the target distance.",
+  "Range resolution":"ΔR = c/2B. Two targets closer than this show up as a single peak.",
+  "Max range":"Rmax: the farthest distance whose beat tone still fits in the 20 MHz IF bandwidth. Targets beyond it are filtered out and not detected.",
+  "Output":"The synthesizer output: 4 × N × fref.",
+  "VCO tank":"An inductor and capacitors set the VCO frequency; the varactor part of the capacitance is tuned by Vtune.",
+  "Chirp":"The ramp generator raises N steadily; the PLL follows, so the output frequency rises linearly.",
+  "In-band noise":"Noise from the reference, PFD and charge pump inside the loop bandwidth, scaled up by the large multiplication factor.",
+  "Loop BW":"The loop bandwidth sets how fast the PLL follows the chirp and which noise source dominates.",
+  "Slope":"How many MHz the chirp sweeps per µs.",
+  "Beat":"Beat frequency: delay τ = 2R/c times the slope S.",
+  "Resolution":"How close two targets can be and still appear as separate peaks.",
+  "Doppler":"A moving target changes the echo phase from chirp to chirp; the rate gives its speed."
+};
+const tip = l => TIPS[l] ? `<span class="term" tabindex="0" data-tip="${TIPS[l]}">${l}</span>` : l;
+let glossKey = "";
+function updateGlossary(F){
+  const key = [CH.B, CH.Tc, CH.R1].join("|");
+  if (key === glossKey) return; glossKey = key;
+  const rmaxOf = (B, Tc) => FIFMAX*1e6*CLIGHT/(2*B*1e9/(Tc*1e-6));
+  const dists = [...new Set([15, 30, 60, 120, 200, Math.round(CH.R1)])].sort((a,b) => a-b);
+  let t = `<table><tr><th>Target distance</th><th>Delay τ</th><th>Beat tone fb</th><th>Detected?</th></tr>`;
+  dists.forEach(R => { const fb = F.S*2*R/CLIGHT/1e6, ok = fb <= FIFMAX + 1e-6;
+    t += `<tr${R === Math.round(CH.R1) ? ' style="font-weight:700"' : ""}><td>${R} m${R === Math.round(CH.R1) ? " (target 1)" : ""}</td><td>${(2*R/CLIGHT*1e9).toFixed(0)} ns</td><td>${fb.toFixed(1)} MHz</td><td class="${ok ? "ok" : "bad"}">${ok ? "yes, peak" : "no peak (> 20 MHz)"}</td></tr>`; });
+  t += `</table>`;
+  $("rd-g-live").innerHTML = `<p style="margin:0 0 6px">B = ${CH.B.toFixed(2)} GHz, Tc = ${CH.Tc.toFixed(0)} µs → S = ${(F.S/1e12).toFixed(1)} MHz/µs, <b>Rmax = ${F.Rmax.toFixed(0)} m</b>, ΔR = ${(F.dR*100).toFixed(1)} cm</p>` + t;
+  const cases = [[1, 40], [4, 40], [4, 100], [CH.B, CH.Tc]];
+  let u = `<table><tr><th>Setting</th><th>Slope S</th><th>Tone for 60 m</th><th>Rmax</th><th>Detail ΔR</th><th>60 m car</th></tr>`;
+  cases.forEach(([B, Tc], i) => { const S = B*1e3/Tc, fb = S*2*60/CLIGHT*1e6, rm = rmaxOf(B, Tc), ok = fb <= FIFMAX + 1e-6;
+    u += `<tr><td>${i === 3 ? "<b>yours</b>: " : ""}B = ${B.toFixed(2)} GHz, Tc = ${Tc.toFixed(0)} µs</td><td>${S.toFixed(1)} MHz/µs</td><td>${fb.toFixed(1)} MHz</td><td>${rm.toFixed(0)} m</td><td>${(15/B).toFixed(1)} cm</td><td class="${ok ? "ok" : "bad"}">${ok ? "peak visible" : "no peak"}</td></tr>`; });
+  $("rd-g-trade").innerHTML = u + `</table>`;
+}
 function updateRadar(){
   if (!SIM) radarRecalc();
   const info = RDINFO[rdView];
@@ -2474,8 +2600,14 @@ function updateRadar(){
     rows.push({name:"Max range", f:"Rmax = fIF,max · c / (2S)", sub:`= ${FIFMAX} MHz · c / (2S) = ${F.Rmax.toFixed(0)} m` + (CH.R1 > F.Rmax ? `  → target 1 is out of range (fb = ${(t1.fb/1e6).toFixed(1)} MHz)` : "  → target 1 in range")});
     rows.push({name:"Doppler", f:"fd = 2v/λ,   Δφ = 4π·v·Tc/λ per chirp", sub:`λ = ${(F.lam*1000).toFixed(2)} mm, fd = ${(t1.fd/1e3).toFixed(1)} kHz, Δv = ${F.dv.toFixed(2)} m/s (${NCH} chirps)`});
   }
-  $("rd-ro").innerHTML = ro.map(([l,v],i) => `<div class="ro${i>=2?" id":""}"><label>${l}</label><b>${v}</b></div>`).join("");
-  $("rd-eq").innerHTML = rows.map(r => `<div class="eqrow act"><span class="name">${r.name}</span><span class="f">${r.f}</span><span class="sub">${r.sub}</span></div>`).join("");
+  // rebuild only when the labels change, so an open tooltip (hover / tap focus) survives the live updates
+  const roEl = $("rd-ro"), roKey = ro.map(r => r[0]).join("|");
+  if (roEl.dataset.k !== roKey){ roEl.innerHTML = ro.map(([l,v],i) => `<div class="ro${i>=2?" id":""}"><label>${tip(l)}</label><b>${v}</b></div>`).join(""); roEl.dataset.k = roKey; }
+  else roEl.querySelectorAll("b").forEach((b,i) => { if (b.textContent !== ro[i][1]) b.textContent = ro[i][1]; });
+  const eqEl = $("rd-eq"), eqKey = rows.map(r => r.name).join("|");
+  if (eqEl.dataset.k !== eqKey){ eqEl.innerHTML = rows.map(r => `<div class="eqrow act"><span class="name">${tip(r.name)}</span><span class="f">${r.f}</span><span class="sub">${r.sub}</span></div>`).join(""); eqEl.dataset.k = eqKey; }
+  else eqEl.querySelectorAll(".eqrow").forEach((d,i) => { const f = d.querySelector(".f"), sb = d.querySelector(".sub"); if (f.innerHTML !== rows[i].f) f.innerHTML = rows[i].f; if (sb.innerHTML !== rows[i].sub) sb.innerHTML = rows[i].sub; });
+  updateGlossary(F);
   drawRadarPlots(F);
 }
 
@@ -2520,7 +2652,7 @@ function drawRadarPlots(F){
     if (out.length){
       const q = out[0];
       a += `<rect x="44" y="60" width="244" height="62" rx="6" fill="var(--panel2)" stroke="var(--hole)"/>`;
-      a += `<text x="166" y="78" text-anchor="middle" style="fill:var(--hole);font-weight:600">No peak: target beyond Rmax = ${F.Rmax.toFixed(0)} m</text>`;
+      a += `<text x="166" y="78" text-anchor="middle" style="fill:var(--hole);font-weight:600">Not detected: target beyond Rmax = ${F.Rmax.toFixed(0)} m</text>`;
       a += `<text x="166" y="94" text-anchor="middle" style="fill:var(--fg)">fb = ${(q.fb/1e6).toFixed(1)} MHz > ${FIFMAX} MHz IF bandwidth → filtered</text>`;
       a += `<text x="166" y="110" text-anchor="middle" style="fill:var(--fg)">Fix: longer Tc (Tc ≥ ${Math.ceil(2*q.R*CH.B*1e9/(CLIGHT*FIFMAX*1e6)*1e6)} µs) or smaller B</text>`;
     }
