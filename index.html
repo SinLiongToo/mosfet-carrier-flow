@@ -1195,7 +1195,43 @@ window.I18N_ZH = {
 "at # GHz: |S#| = -# dB, ∠ -#°": "# GHz 處：|S#| = -# dB，∠ -#°",
 "at # GHz: |S#| = -# dB, ∠ #°": "# GHz 處：|S#| = -# dB，∠ #°",
 "at # GHz: |S#| = # dB, ∠ -#°": "# GHz 處：|S#| = # dB，∠ -#°",
-"at # GHz: |S#| = # dB, ∠ #°": "# GHz 處：|S#| = # dB，∠ #°"
+"at # GHz: |S#| = # dB, ∠ #°": "# GHz 處：|S#| = # dB，∠ #°",
+"Realization": "實現方式",
+"Lumped LC": "集總 LC",
+"Transmission line": "傳輸線",
+"Stepped-impedance filter": "步階阻抗濾波器",
+"A low-pass filter made only of line sections: short, narrow high-Z lines act like series inductors and short, wide low-Z lines like shunt capacitors.": "只用傳輸線段做成的低通濾波器：短而窄的高阻抗線相當於串聯電感，短而寬的低阻抗線相當於並聯電容。",
+"Richards' transformation": "理查茲轉換",
+"A short-circuited stub of length λ/# at fc has jX = jZs·tan(βl), which behaves like an inductor; an open stub behaves like a capacitor.": "在 fc 時長 λ/# 的短路殘段，其 jX = jZs·tan(βl)，表現得像電感；開路殘段則像電容。",
+"Spurious passband": "寄生通帶",
+"Line lengths repeat every half wavelength, so a transmission-line filter's response comes back at higher frequencies.": "傳輸線長度每半波長重複一次，所以傳輸線濾波器的響應會在更高頻率再次出現。",
+"Transmission-line filters": "傳輸線濾波器",
+"Short line sections and stubs take the place of the inductors and capacitors": "用短傳輸線段與殘段取代電感與電容",
+"Above a few GHz, discrete inductors and capacitors become lossy and hard to make accurately, so filters are printed as microstrip lines. A line much shorter than a wavelength behaves like a lumped part: a narrow, high-impedance line acts like a series inductor (βl = g·Z#/Zh) and a wide, low-impedance line like a shunt capacitor (βl = g·Zl/Z#). Putting them in a row gives the stepped-impedance low-pass filter. For the high-pass, Richards' transformation turns each shunt inductor into a short-circuited stub λ/# long at fc, whose reactance Zs·tan(βl) rises with frequency like an inductor's; the series capacitors are realised as gaps in the line. The price is that lines are only approximations of L and C: the edge is a little softer than the lumped filter's, and because a line looks the same every half wavelength, the response repeats. The low-pass opens a spurious passband at higher frequency, and the high-pass stubs become half-wave shorts at #·fc and cut a notch. Real designs add extra stubs or lowpass sections to push these spurious responses away.": "在幾 GHz 以上，分離式電感與電容損耗變大且難以精準製作，所以濾波器改用微帶線印製。比波長短很多的傳輸線表現得像集總元件：窄的高阻抗線相當於串聯電感（βl = g·Z#/Zh），寬的低阻抗線相當於並聯電容（βl = g·Zl/Z#）。把它們排成一列就是步階阻抗低通濾波器。高通則利用理查茲轉換，把每個並聯電感換成在 fc 時長 λ/# 的短路殘段，其電抗 Zs·tan(βl) 像電感一樣隨頻率上升；串聯電容則用傳輸線上的間隙實現。代價是傳輸線只是 L 與 C 的近似：邊緣比集總濾波器稍緩，而且傳輸線每半波長看起來都一樣，所以響應會重複。低通會在更高頻率出現寄生通帶，高通的殘段則在 #·fc 變成半波長短路而形成陷波。實際設計會再加殘段或低通段，把這些寄生響應推遠。",
+"lines: lossless": "傳輸線：無損",
+"Stepped Z": "步階阻抗",
+"Periodic": "週期性",
+"a line looks the same every λ/#: the response repeats": "傳輸線每 λ/# 看起來都一樣：響應會重複",
+"spurious passband from ≈ # GHz": "約從 # GHz 起出現寄生通帶",
+"low-Z line": "低阻抗線",
+"high-Z line": "高阻抗線",
+"narrow # Ω lines ≈ series L · wide # Ω lines ≈ shunt C": "窄的 # Ω 線 ≈ 串聯 L · 寬的 # Ω 線 ≈ 並聯 C",
+"line lengths repeat: a spurious passband near # GHz": "線長重複：約 # GHz 出現寄生通帶",
+"Lost (lines are lossless here)": "損耗（此處傳輸線無損）",
+"no spurious response in range": "範圍內沒有寄生響應",
+"lines repeat every λ/#, so the response comes back at higher frequency": "傳輸線每 λ/# 重複，所以響應會在更高頻率再出現",
+"Richards": "理查茲",
+"shunt L → short stub, Zs = ωc·L = Z# / g, length λ/# at fc": "並聯 L → 短路殘段，Zs = ωc·L = Z# / g，在 fc 時長 λ/#",
+"notch at #·fc = # GHz (stubs λ/# long)": "陷波在 #·fc = # GHz（殘段長 λ/#）",
+"short-circuited stub": "短路殘段",
+"L#: stub": "L#：殘段",
+"C#: gap": "C#：間隙",
+"⊗ = via to ground: short-circuited λ/# stubs ≈ shunt L (Richards) · series gap capacitors": "⊗ = 接地貫孔：短路 λ/# 殘段 ≈ 並聯 L（理查茲） · 串聯間隙電容",
+"the stubs become λ/# shorts at #·fc = # GHz: a notch": "殘段在 {1}·fc = {2} GHz 變成 λ/{0} 短路：形成陷波",
+"Low-pass stepped-impedance microstrip · Butterworth · N = #": "低通步階阻抗微帶線 · 巴特沃斯 · N = #",
+"Low-pass stepped-impedance microstrip · Chebyshev # dB · N = #": "低通步階阻抗微帶線 · 切比雪夫 # dB · N = #",
+"High-pass stub microstrip · Butterworth · N = #": "高通殘段微帶線 · 巴特沃斯 · N = #",
+"High-pass stub microstrip · Chebyshev # dB · N = #": "高通殘段微帶線 · 切比雪夫 # dB · N = #"
 };
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
@@ -2324,6 +2360,9 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
             <div class="seg" id="rf-fl-resp" role="group" aria-label="Filter response">
               <button data-r="bw">Butterworth</button><button data-r="ch">Chebyshev 0.5 dB</button>
             </div>
+            <div class="seg" id="rf-fl-real" role="group" aria-label="Realization">
+              <button data-x="lc">Lumped LC</button><button data-x="tl">Transmission line</button>
+            </div>
             <div class="seg" id="rf-fl-n" role="group" aria-label="Filter order">
               <button data-n="1">N = 1</button><button data-n="3">3</button><button data-n="5">5</button><button data-n="7">7</button>
             </div>
@@ -2412,6 +2451,9 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Low-pass / high-pass</dt><dd>A filter that passes frequencies below / above its cutoff and blocks the rest. A lossless LC filter blocks by reflecting the power back, not by burning it.</dd>
               <dt>Filter order N</dt><dd>Number of L and C elements. Each one adds 20 dB per decade (6 dB per octave) to the slope outside the passband.</dd>
               <dt>Butterworth / Chebyshev</dt><dd>Butterworth is maximally flat in the passband; Chebyshev allows a small ripple (0.5 dB here) in exchange for a steeper edge.</dd>
+              <dt>Stepped-impedance filter</dt><dd>A low-pass filter made only of line sections: short, narrow high-Z lines act like series inductors and short, wide low-Z lines like shunt capacitors.</dd>
+              <dt>Richards' transformation</dt><dd>A short-circuited stub of length λ/8 at fc has jX = jZs·tan(βl), which behaves like an inductor; an open stub behaves like a capacitor.</dd>
+              <dt>Spurious passband</dt><dd>Line lengths repeat every half wavelength, so a transmission-line filter's response comes back at higher frequencies.</dd>
               <dt>Group delay</dt><dd>How long the signal envelope takes to pass, −dφ/dω. It peaks near the cutoff, where the filter rings most.</dd>
               <dt>Cutoff fc</dt><dd>Lowest frequency at which a waveguide mode propagates. Below it the field dies out (evanescent).</dd>
               <dt>Dominant mode</dt><dd>The mode with the lowest cutoff, TE10 in a rectangular guide.</dd>
@@ -4518,7 +4560,8 @@ const RF = {view:"sp", t:0,
   bl:{rl:100, tol:0, f:2.4},
   an:{L:59, f:2.4},
   wg:{mode:"TE10", show:"E", f:10}};
-RF.fl = {type:"lp", resp:"bw", n:5, fc:2, f:1, q:300};
+RF.fl = {type:"lp", resp:"bw", n:5, fc:2, f:1, q:300, real:"lc"};
+const FL_ZH = 120, FL_ZL = 20, FL_EEFF = 3;              // stepped-impedance line impedances, microstrip εeff
 
 // complex numbers
 const cz = (re, im=0) => ({re, im});
@@ -5050,14 +5093,29 @@ function flDesign(P = RF.fl){
   const wc = 2*Math.PI*P.fc*1e9, g = flProto(P.n, P.resp);
   return g.map((gk, i) => {
     const shunt = i % 2 === 0;
+    if (P.real === "tl"){
+      // low-pass: stepped impedance (series L → high-Z line, shunt C → low-Z line), lengths at fc
+      if (P.type === "lp") return shunt ? {shunt, part:"C", tl:"line", Z: FL_ZL, th: gk*FL_ZL/Z0, g:gk, val: gk/(Z0*wc)} : {shunt, part:"L", tl:"line", Z: FL_ZH, th: gk*Z0/FL_ZH, g:gk, val: gk*Z0/wc};
+      // high-pass: shunt L → short-circuited λ/8 stub (Richards), series C stays a gap capacitor
+      return shunt ? {shunt, part:"L", tl:"stub", Z: Z0/gk, th: Math.PI/4, g:gk, val: Z0/(wc*gk)} : {shunt, part:"C", val: 1/(Z0*wc*gk), g:gk};
+    }
     if (P.type === "lp") return shunt ? {shunt, part:"C", val: gk/(Z0*wc), g:gk} : {shunt, part:"L", val: gk*Z0/wc, g:gk};
     return shunt ? {shunt, part:"L", val: Z0/(wc*gk), g:gk} : {shunt, part:"C", val: 1/(Z0*wc*gk), g:gk};
   });
 }
 function flCalc(f, P = RF.fl, els = flDesign(P)){
-  const w = 2*Math.PI*f*1e9, lossy = P.q < 300;
+  const w = 2*Math.PI*f*1e9, lossy = P.q < 300 && P.real !== "tl";
   let A = cz(1), B = cz(0), Cc = cz(0), D = cz(1);
   for (const e of els){
+    if (e.tl === "line"){                                  // multiply by the ABCD matrix of a lossless line
+      const th = e.th*f/P.fc, c = Math.cos(th), sn = Math.sin(th), b = cz(0, e.Z*sn), cc = cz(0, sn/e.Z);
+      [A, B, Cc, D] = [zadd(zsc(A, c), zmul(B, cc)), zadd(zmul(A, b), zsc(B, c)), zadd(zsc(Cc, c), zmul(D, cc)), zadd(zmul(Cc, b), zsc(D, c))];
+      continue;
+    }
+    if (e.tl === "stub"){                                  // shunt short-circuited stub: Y = 1 / (j·Zs·tan βl)
+      const t = Math.tan(e.th*f/P.fc), y = cz(0, -1/(e.Z*(Math.abs(t) < 1e-9 ? 1e-9 : t)));
+      A = zadd(A, zmul(B, y)); Cc = zadd(Cc, zmul(D, y)); continue;
+    }
     const zL = cz(lossy ? w*e.val/P.q : 0, w*e.val), z = e.part === "L" ? zL : cz(0, -1/(w*e.val));
     if (e.shunt){ const y = zdiv(cz(1), z); A = zadd(A, zmul(B, y)); Cc = zadd(Cc, zmul(D, y)); }
     else { B = zadd(B, zmul(A, z)); D = zadd(D, zmul(Cc, z)); }
@@ -5070,14 +5128,75 @@ function flDelay(f, P = RF.fl, els = flDesign(P)){
   let dp = p2 - p1; while (dp > Math.PI) dp -= 2*Math.PI; while (dp < -Math.PI) dp += 2*Math.PI;
   return -dp/(2*Math.PI*2*d);                                   // ns
 }
-const flVal = e => e.part === "L" ? `${(e.val*1e9).toFixed(2)} nH` : `${(e.val*1e12).toFixed(2)} pF`;
+const flLam = f => C0/(f*1e9*Math.sqrt(FL_EEFF))*1000;              // guided wavelength in mm
+const flVal = e => e.tl ? `${e.Z.toFixed(0)} Ω, ${deg(e.th).toFixed(0)}° = ${(e.th/(2*Math.PI)*flLam(RF.fl.fc)).toFixed(1)} mm` : e.part === "L" ? `${(e.val*1e9).toFixed(2)} nH` : `${(e.val*1e12).toFixed(2)} pF`;
+const flXmax = P => P.real === "tl" ? Math.min(24, Math.max(6, 6*P.fc)) : 6;
+// first spurious response of the line version: a passband (LP) or a notch (HP) that the lumped filter does not have
+function flSpur(P = RF.fl, els = flDesign(P)){
+  if (P.real !== "tl") return null;
+  if (P.type === "hp") return {f: 4*P.fc, kind:"notch"};               // λ/8 stubs become λ/2 shorts at 4·fc
+  let stop = false;
+  for (let f = 1.2*P.fc; f < 8*P.fc; f += P.fc/200){
+    const t = dB(zabs(flCalc(f, P, els).s21));
+    if (t < -20) stop = true; else if (stop && t > -3) return {f, kind:"passband"};
+  }
+  return null;
+}
 let flOff = 0;
+const stripW = Z => clamp(14*Math.pow(50/Z, 1.3), 3, 56);
+function drawFLtl(dt, P, els, t){
+  const yr = 90, x0 = 106, x1 = 894, feed = 36;
+  ctx.fillStyle = C.metal;
+  if (P.type === "lp"){
+    const tot = els.reduce((a, e) => a + deg(e.th), 0), k = Math.min(4, (x1 - x0 - 2*feed)/tot);
+    let x = x0 + (x1 - x0 - tot*k)/2;
+    ctx.globalAlpha = .6; ctx.fillRect(x0, yr - 7, x - x0, 14);
+    els.forEach((e, i) => {
+      const L = deg(e.th)*k, w = stripW(e.Z);
+      ctx.fillRect(x, yr - w/2, L, w);
+      ctx.globalAlpha = 1;
+      txt(`${e.part === "L" ? "Zh" : "Zl"} ${i + 1}`, x + L/2, i % 2 ? yr - 42 : yr + 42, {al:"center", px:11, col:C.fg, w:700});
+      txt(`${deg(e.th).toFixed(0)}° · ${(e.th/(2*Math.PI)*flLam(P.fc)).toFixed(1)} mm`, x + L/2, i % 2 ? yr - 28 : yr + 56, {al:"center", px:10, col:C.accent});
+      ctx.globalAlpha = .6; ctx.fillStyle = C.metal; x += L;
+    });
+    ctx.fillRect(x, yr - 7, x1 - x, 14); ctx.globalAlpha = 1;
+    txt(`narrow ${FL_ZH} Ω lines ≈ series L · wide ${FL_ZL} Ω lines ≈ shunt C`, 22, 206, {px:11, col:C.fg});
+  } else {
+    const dx = (x1 - x0)/(els.length + 1);
+    let xw = x0;
+    els.forEach((e, i) => {
+      const xc = x0 + dx*(i + 1);
+      ctx.globalAlpha = .6; ctx.fillStyle = C.metal;
+      if (e.shunt){
+        ctx.fillRect(xw, yr - 7, xc - xw, 14); xw = xc;
+        const w = stripW(e.Z); ctx.fillRect(xc - w/2, yr + 7, w, 92); ctx.globalAlpha = 1;
+        ctx.strokeStyle = C.fg; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.arc(xc, yr + 106, 7, 0, 6.283); ctx.stroke(); pl([[xc - 5, yr + 101],[xc + 5, yr + 111]]); pl([[xc + 5, yr + 101],[xc - 5, yr + 111]]);
+        txt(`L${i + 1}: stub`, xc + w/2 + 8, yr + 30, {px:11, col:C.fg, w:700});
+        txt(`${e.Z.toFixed(0)} Ω · λ/8`, xc + w/2 + 8, yr + 46, {px:10, col:C.accent});
+        txt(`${(flLam(P.fc)/8).toFixed(1)} mm`, xc + w/2 + 8, yr + 60, {px:10, col:C.accent});
+      } else {
+        ctx.fillRect(xw, yr - 7, xc - 4 - xw, 14); ctx.fillRect(xc + 4, yr - 7, 0.01, 14);
+        ctx.globalAlpha = 1; ctx.fillStyle = C.accent; ctx.fillRect(xc - 4, yr - 9, 2, 18); ctx.fillRect(xc + 2, yr - 9, 2, 18);
+        xw = xc + 4;
+        txt(`C${i + 1}: gap`, xc, yr - 34, {al:"center", px:11, col:C.fg, w:700}); txt(`${(e.val*1e12).toFixed(2)} pF`, xc, yr - 20, {al:"center", px:10, col:C.accent});
+      }
+    });
+    ctx.globalAlpha = .6; ctx.fillStyle = C.metal; ctx.fillRect(xw, yr - 7, x1 - xw, 14); ctx.globalAlpha = 1;
+    txt("⊗ = via to ground: short-circuited λ/8 stubs ≈ shunt L (Richards) · series gap capacitors", 22, 220, {px:10, col:C.fg});
+  }
+  flOff += dt*70;
+  flowDots(polyline([[x0, yr],[x1, yr]]), flOff, 0.85*t, C.accent);
+  const sp = flSpur(P, els);
+  txt(sp ? (sp.kind === "notch" ? `the stubs become λ/2 shorts at 4·fc = ${sp.f.toFixed(1)} GHz: a notch` : `line lengths repeat: a spurious passband near ${sp.f.toFixed(1)} GHz`) : "lines repeat every λ/2, so the response comes back at higher frequency", 22, 238, {px:10, col:C.hole});
+}
 function drawFL(dt, T){
   const P = RF.fl, els = flDesign(P), S = flCalc(P.f, P, els), ph = RF.t, t = zabs(S.s21), g = zabs(S.s11);
   ctx.fillStyle = C.panel2; ctx.fillRect(10, 10, 980, 240);
-  txt(`${P.type === "lp" ? "Low-pass" : "High-pass"} LC ladder · ${P.resp === "bw" ? "Butterworth" : "Chebyshev 0.5 dB"} · N = ${P.n}`, 22, 26, {col:C.fg, w:700, px:13});
+  const tl = P.real === "tl";
+  txt(`${P.type === "lp" ? "Low-pass" : "High-pass"} ${tl ? (P.type === "lp" ? "stepped-impedance microstrip" : "stub microstrip") : "LC ladder"} · ${P.resp === "bw" ? "Butterworth" : "Chebyshev 0.5 dB"} · N = ${P.n}`, 22, 26, {col:C.fg, w:700, px:13});
   portBox(20, 60, 86, 60, "Port 1", "50 Ω source", C.accent);
   portBox(894, 60, 86, 60, "Port 2", "50 Ω load", C.electron);
+  if (tl) drawFLtl(dt, P, els, t); else {
   const yr = 90, x0 = 106, x1 = 894, dx = (x1 - x0)/(els.length + 1);
   let xw = x0;
   els.forEach((e, i) => {
@@ -5100,6 +5219,7 @@ function drawFL(dt, T){
   flowDots(polyline([[x0, yr - 10],[x1, yr - 10]]), flOff, 0.85*t, C.accent);
   txt(`prototype g: ${els.map(e => e.g.toFixed(3)).join(", ")}`, 22, 222, {px:10});
   txt(P.type === "lp" ? "low-pass: series L block high f, shunt C short it to ground" : "high-pass: series C block low f, shunt L short it to ground", 22, 238, {px:10, col:C.fg});
+  }
   // in / out waveforms
   const oy = 262, h = 216, w = 600;
   panel(10, oy, w, h, `Input and output at f = ${P.f.toFixed(2)} GHz`);
@@ -5114,7 +5234,7 @@ function drawFL(dt, T){
   const bx = 620, bw = 370;
   panel(bx, oy, bw, h, "Where the power goes");
   const lost = Math.max(0, 1 - t*t - g*g);
-  [["Transmitted |S21|²", t*t, C.electron], ["Reflected |S11|²", g*g, C.hole], ["Lost in the inductors", lost, C.accent]].forEach(([lab, v, col], i) => {
+  [["Transmitted |S21|²", t*t, C.electron], ["Reflected |S11|²", g*g, C.hole], [P.real === "tl" ? "Lost (lines are lossless here)" : "Lost in the inductors", lost, C.accent]].forEach(([lab, v, col], i) => {
     const y = oy + 50 + i*52;
     txt(lab, bx + 14, y, {col:C.fg, px:11, w:600});
     ctx.fillStyle = C.line; ctx.fillRect(bx + 14, y + 10, bw - 100, 14);
@@ -5131,6 +5251,7 @@ function drawRF(dt, T){
 function rfTick(dt){ RF.t += dt*(reduce ? 1.2 : 3.2); }
 
 /* ---------------- DOM ---------------- */
+const RF_TL_TEXT = "Above a few GHz, discrete inductors and capacitors become lossy and hard to make accurately, so filters are printed as microstrip lines. A line much shorter than a wavelength behaves like a lumped part: a narrow, high-impedance line acts like a series inductor (βl = g·Z0/Zh) and a wide, low-impedance line like a shunt capacitor (βl = g·Zl/Z0). Putting them in a row gives the stepped-impedance low-pass filter. For the high-pass, Richards' transformation turns each shunt inductor into a short-circuited stub λ/8 long at fc, whose reactance Zs·tan(βl) rises with frequency like an inductor's; the series capacitors are realised as gaps in the line. The price is that lines are only approximations of L and C: the edge is a little softer than the lumped filter's, and because a line looks the same every half wavelength, the response repeats. The low-pass opens a spurious passband at higher frequency, and the high-pass stubs become half-wave shorts at 4·fc and cut a notch. Real designs add extra stubs or lowpass sections to push these spurious responses away.";
 const RFINFO = {
   sp:{pill:"S", name:"S-parameters of a two-port", sub:"Waves in, waves out: reflection S11 and transmission S21",
     text:"S-parameters describe a component by the waves it sends back and passes on when it is fed from 50 Ω lines. Here the component is a short line section with its own impedance Zl. Where Zl differs from 50 Ω, part of the incident wave a1 is reflected (b1 = S11·a1) and the rest goes through to port 2 (b2 = S21·a1). The reflections from the two ends of the section add up with a phase set by its length θ, so S11 changes with frequency. When θ = 180° the two reflections cancel and the section becomes invisible; when θ = 90° (a quarter wave) the section transforms impedance: Zin = Zl²/50. The incident and reflected waves form a standing wave on the input line, and its peak-to-valley ratio is the VSWR. The line is lossless, so every bit of power is either reflected or transmitted: |S11|² + |S21|² = 1."},
@@ -5204,7 +5325,10 @@ function rfSlider(id, txt){ $(id + "-v").textContent = txt; }
 let rfGlossKey = "";
 function updateRF(){
   const v = RF.view, info = RFINFO[v];
-  $("rf-pill").textContent = info.pill; $("rf-name").textContent = info.name; $("rf-sub").textContent = info.sub; $("rf-explain").textContent = info.text;
+  const tlf = v === "fl" && RF.fl.real === "tl";
+  $("rf-pill").textContent = tlf ? "TL" : info.pill; $("rf-name").textContent = tlf ? "Transmission-line filters" : info.name;
+  $("rf-sub").textContent = tlf ? "Short line sections and stubs take the place of the inductors and capacitors" : info.sub;
+  $("rf-explain").textContent = tlf ? RF_TL_TEXT : info.text;
   document.querySelectorAll("#rf-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
   ["sp","cp","bl","an","wg","fl"].forEach(k => $("rf-c-" + k).hidden = k !== v);
   setHTML("rf-legend", RFLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
@@ -5249,12 +5373,21 @@ function updateRF(){
     document.querySelectorAll("#rf-fl-type button").forEach(b => b.setAttribute("aria-pressed", b.dataset.t === P.type));
     document.querySelectorAll("#rf-fl-resp button").forEach(b => b.setAttribute("aria-pressed", b.dataset.r === P.resp));
     document.querySelectorAll("#rf-fl-n button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.n === P.n));
+    document.querySelectorAll("#rf-fl-real button").forEach(b => b.setAttribute("aria-pressed", b.dataset.x === P.real));
+    const xm = flXmax(P); if (+$("rf-fl-f").max !== xm){ $("rf-fl-f").max = xm; if (P.f > xm){ P.f = xm; } $("rf-fl-f").value = P.f; }
+    $("rf-fl-q").disabled = P.real === "tl";
+    if (P.real === "tl") rfSlider("rf-fl-q", "lines: lossless");
     const s11d = dB(zabs(S.s11));
     ro.push(["|S21| at f", dB(zabs(S.s21)).toFixed(2) + " dB"], ["|S11| at f", s11d < -60 ? "< −60 dB" : s11d.toFixed(1) + " dB"], ["Rejection", (-dB(zabs(R.s21))).toFixed(1) + " dB"], ["Group delay", flDelay(P.f, P, els).toFixed(2) + " ns"]);
     rows.push({name:"Prototype", f: P.resp === "bw" ? "gk = 2·sin((2k − 1)π / 2N)" : "Chebyshev 0.5 dB table (odd N: equal 50 Ω ends)", sub:`N = ${P.n}: g = ${els.map(e => e.g.toFixed(3)).join(", ")}`});
-    rows.push({name:"Scaling", f: P.type === "lp" ? "C = g / (Z0·ωc),  L = g·Z0 / ωc" : "L = Z0 / (ωc·g),  C = 1 / (Z0·ωc·g)", sub: els.map((e, i) => `${e.part}${i + 1} = ${flVal(e)}`).join(", ")});
+    if (P.real === "tl") rows.push(P.type === "lp"
+      ? {name:"Stepped Z", f:`βl(L) = g·Z0 / Zh,  βl(C) = g·Zl / Z0,  Zh = ${FL_ZH} Ω, Zl = ${FL_ZL} Ω`, sub: els.map((e, i) => `${e.part}${i + 1}: ${deg(e.th).toFixed(0)}°`).join(", ") + ` (λg = ${flLam(P.fc).toFixed(1)} mm at fc, εeff = ${FL_EEFF})`}
+      : {name:"Richards", f:"shunt L → short stub, Zs = ωc·L = Z0 / g, length λ/8 at fc", sub: els.map((e, i) => e.tl ? `L${i + 1}: Zs = ${e.Z.toFixed(1)} Ω` : `C${i + 1} = ${(e.val*1e12).toFixed(2)} pF`).join(", ")});
+    else rows.push({name:"Scaling", f: P.type === "lp" ? "C = g / (Z0·ωc),  L = g·Z0 / ωc" : "L = Z0 / (ωc·g),  C = 1 / (Z0·ωc·g)", sub: els.map((e, i) => `${e.part}${i + 1} = ${flVal(e)}`).join(", ")});
     rows.push({name:"Response", f:"S21 = 2 / (A + B/Z0 + C·Z0 + D)  (cascade of ABCD matrices)", sub:`at ${P.f.toFixed(2)} GHz: |S21| = ${dB(zabs(S.s21)).toFixed(2)} dB, ∠ ${deg(zarg(S.s21)).toFixed(0)}°`});
-    rows.push({name:"Slope", f:"≈ 20·N dB per decade outside the passband", sub:`${(20*P.n).toFixed(0)} dB/decade; at ${fs.toFixed(2)} GHz: ${(-dB(zabs(R.s21))).toFixed(1)} dB`});
+    const sp = flSpur(P, els);
+    if (P.real === "tl") rows.push({name:"Periodic", f:"a line looks the same every λ/2: the response repeats", sub: sp ? (sp.kind === "notch" ? `notch at 4·fc = ${sp.f.toFixed(2)} GHz (stubs λ/2 long)` : `spurious passband from ≈ ${sp.f.toFixed(2)} GHz`) : "no spurious response in range"});
+    else rows.push({name:"Slope", f:"≈ 20·N dB per decade outside the passband", sub:`${(20*P.n).toFixed(0)} dB/decade; at ${fs.toFixed(2)} GHz: ${(-dB(zabs(R.s21))).toFixed(1)} dB`});
   } else {
     const P = RF.wg, W = wgCalc(P.f, P.mode);
     rfSlider("rf-wg-f", `${P.f.toFixed(2)} GHz`);
@@ -5289,7 +5422,7 @@ function updateRFGloss(){
     const lam = C0/(RF.an.f*1e9)*1000;
     t = `<table><tr><th>L / λ</th><th>L (mm)</th><th>Zin (Ω)</th><th>Directivity</th><th>|S11| (50 Ω)</th></tr>` + [0.25, 0.47, 0.5, 1.25, 1.5, RF.an.L/lam].map(r => { const A = anCalc(RF.an.f, r*lam); return `<tr${Math.abs(r - RF.an.L/lam) < 1e-9 ? ' style="font-weight:700"' : ""}><td>${r.toFixed(2)}</td><td>${(r*lam).toFixed(1)}</td><td>${zstr(A.zin, 0)}</td><td>${(10*Math.log10(A.D)).toFixed(2)} dBi</td><td>${dB(zabs(A.s11)).toFixed(1)} dB</td></tr>`; }).join("") + `</table>`; }
   else if (v === "fl"){ h = "Element values of this filter:"; const els = flDesign();
-    t = `<table><tr><th>Element</th><th>Placement</th><th>g</th><th>Value</th></tr>` + els.map((e, i) => `<tr><td>${e.part}${i + 1}</td><td>${e.shunt ? "shunt to ground" : "series"}</td><td>${e.g.toFixed(4)}</td><td>${flVal(e)}</td></tr>`).join("") + `</table>`; }
+    t = `<table><tr><th>Element</th><th>Placement</th><th>g</th><th>Value</th></tr>` + els.map((e, i) => `<tr><td>${e.part}${i + 1}</td><td>${e.tl === "line" ? (e.part === "L" ? "high-Z line" : "low-Z line") : e.tl === "stub" ? "short-circuited stub" : e.shunt ? "shunt to ground" : "series"}</td><td>${e.g.toFixed(4)}</td><td>${flVal(e)}</td></tr>`).join("") + `</table>`; }
   else { h = `Modes of WR-90 at ${RF.wg.f.toFixed(2)} GHz:`;
     t = `<table><tr><th>Mode</th><th>fc (GHz)</th><th>Propagates?</th><th>λg (mm)</th></tr>` + WG_MODES.map(md => { const W = wgCalc(RF.wg.f, md); return `<tr${md === RF.wg.mode ? ' style="font-weight:700"' : ""}><td>${md}</td><td>${W.fc.toFixed(2)}</td><td class="${W.prop ? "ok" : "bad"}">${W.prop ? "yes" : "no"}</td><td>${W.prop ? W.lamg.toFixed(1) : "—"}</td></tr>`; }).join("") + `</table>`; }
   $("rf-g-head").textContent = h;
@@ -5371,16 +5504,16 @@ function drawRFPlots(){
     b += `<line x1="${cx}" x2="${cx}" y1="${cy-14}" y2="${cy+14}" stroke="var(--fg)" stroke-width="3"/>`;
     b += `<text x="${cx + R*2/3 + 2}" y="${cy - 3}" style="font-size:8px">−10</text><text x="${cx + R/3 + 2}" y="${cy - 3}" style="font-size:8px">−20</text><text x="8" y="226">- - half-wave dipole for comparison</text>`;
   } else if (v === "fl"){
-    const P = RF.fl, els = flDesign(P), A = axesR(300, 230, {l:34,r:10,t:28,b:30}, 0, 6, -60, 0, 1, 10, "f (GHz)", "dB"), fg = range(0.05, 6, 300);
+    const P = RF.fl, els = flDesign(P), xm = flXmax(P), xs = niceStep(xm/6), A = axesR(300, 230, {l:34,r:10,t:28,b:30}, 0, xm, -60, 0, xs, 10, "f (GHz)", "dB"), fg = range(0.05, xm, 400);
     const pts = fg.map(f => { const S = flCalc(f, P, els); return [f, dB(zabs(S.s21)), dB(zabs(S.s11))]; });
-    a = A.s + `<rect x="${P.type === "lp" ? A.X(0) : A.X(P.fc)}" y="28" width="${P.type === "lp" ? A.X(P.fc) - A.X(0) : A.X(6) - A.X(P.fc)}" height="172" fill="var(--electron)" fill-opacity=".07"/>`;
+    a = A.s + `<rect x="${P.type === "lp" ? A.X(0) : A.X(P.fc)}" y="28" width="${P.type === "lp" ? A.X(P.fc) - A.X(0) : A.X(xm) - A.X(P.fc)}" height="172" fill="var(--electron)" fill-opacity=".07"/>`;
     a += `<path d="${pathOf(pts.map(q => [q[0], q[2]]), A.X, A.Y)}" fill="none" stroke="var(--hole)" stroke-width="1.6"/><path d="${pathOf(pts.map(q => [q[0], q[1]]), A.X, A.Y)}" fill="none" stroke="var(--electron)" stroke-width="2.2"/>`;
     a += `<line x1="${A.X(P.fc)}" x2="${A.X(P.fc)}" y1="28" y2="200" stroke="var(--muted)" stroke-dasharray="3 3"/><text x="${A.X(P.fc) + 3}" y="${A.Y(-56)}">fc</text>`;
     a += `<text x="40" y="12" style="fill:var(--electron)">— |S21|</text><text x="96" y="12" style="fill:var(--hole)">— |S11|</text><text x="150" y="12">shaded = passband</text>`;
     const S = flCalc(P.f, P, els);
     a += A.frame + dotSvg(A.X(P.f), A.Y(dB(zabs(S.s21))));
-    const dl = fg.map(f => [f, flDelay(f, P, els)]), dm = Math.max(0.5, ...dl.map(q => q[1])), st = niceStep(dm/4), ym = Math.ceil(dm/st)*st;
-    const B = axesR(220, 230, {l:32,r:8,t:28,b:30}, 0, 6, 0, ym, 1, st, "f (GHz)", "group delay (ns)");
+    const dl = fg.map(f => [f, clamp(flDelay(f, P, els), 0, 50)]), dm = Math.max(0.5, ...dl.map(q => q[1])), st = niceStep(dm/4), ym = Math.ceil(dm/st)*st;
+    const B = axesR(220, 230, {l:32,r:8,t:28,b:30}, 0, xm, 0, ym, xs, st, "f (GHz)", "group delay (ns)");
     b = B.s + `<path d="${pathOf(dl, B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2"/><line x1="${B.X(P.fc)}" x2="${B.X(P.fc)}" y1="28" y2="200" stroke="var(--muted)" stroke-dasharray="3 3"/>`;
     b += B.frame + dotSvg(B.X(P.f), B.Y(flDelay(P.f, P, els)));
   } else {
@@ -5418,6 +5551,7 @@ document.querySelectorAll("#rf-wg-show button").forEach(b => b.addEventListener(
 document.querySelectorAll("#rf-fl-type button").forEach(b => b.addEventListener("click", () => { RF.fl.type = b.dataset.t; updateRF(); }));
 document.querySelectorAll("#rf-fl-resp button").forEach(b => b.addEventListener("click", () => { RF.fl.resp = b.dataset.r; updateRF(); }));
 document.querySelectorAll("#rf-fl-n button").forEach(b => b.addEventListener("click", () => { RF.fl.n = +b.dataset.n; updateRF(); }));
+document.querySelectorAll("#rf-fl-real button").forEach(b => b.addEventListener("click", () => { RF.fl.real = b.dataset.x; updateRF(); }));
 [["rf-fl-fc","fc"],["rf-fl-f","f"],["rf-fl-q","q"]].forEach(([id, k]) => $(id).addEventListener("input", e => { RF.fl[k] = +e.target.value; updateRF(); }));
 
 
