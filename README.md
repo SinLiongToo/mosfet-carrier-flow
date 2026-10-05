@@ -40,3 +40,5 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 Every tab has hover/tap explanations on its readouts and equations, plus an **Explain the terms** panel: a step-by-step walkthrough, live tables computed from the current settings, and a glossary.
 
 Light / dark theme toggle (follows the system by default).
+
+English / 繁體中文 toggle (globe button in the header, remembered per browser). Translations live in `i18n-zh.js`; `i18n.js` swaps the page text, tooltips and canvas labels, so equations and numbers stay live.
