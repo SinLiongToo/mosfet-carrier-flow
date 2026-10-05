@@ -1076,11 +1076,13 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
 .plot svg{width:100%;height:auto;display:block;overflow:visible}
 .plot svg text{font-family:var(--f-mono);font-size:10px;fill:var(--muted)}
 .wrap,section[role=tabpanel]{grid-template-columns:minmax(0,1fr)}
-.plot{position:relative}
+.plot,.device{position:relative}
 .zoombtn{position:absolute;top:0;right:0;z-index:2;width:28px;height:28px;display:grid;place-items:center;padding:0;color:var(--muted);background:var(--panel2);border:1px solid var(--line);border-radius:7px;cursor:pointer;opacity:.85}
 .zoombtn:hover,.zoombtn:focus-visible{color:var(--accent);border-color:var(--accent);opacity:1}
-.plot.zoomed{position:fixed;z-index:101;left:50%;top:50%;transform:translate(-50%,-50%);max-width:none;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 18px 14px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.device .zoombtn{top:8px;right:8px}
+.plot.zoomed,.device.zoomed{position:fixed;z-index:101;left:50%;top:50%;transform:translate(-50%,-50%);max-width:none;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 18px 14px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
 .plot.zoomed .zoombtn{top:8px;right:8px}
+.device.zoomed{padding:12px;max-height:96vh;overflow:auto}
 .zoom-back{position:fixed;inset:0;z-index:100;background:rgba(5,8,12,.6)}
 
 .explain p{margin:0;max-width:68ch}
@@ -3962,14 +3964,16 @@ function frame(now){
 }
 
 /* ================= plot zoom ================= */
-// each plot gets a button that lifts it into a large overlay; it is the same live SVG, so it keeps updating
+// every plot and every animated canvas gets a button that lifts it into a large overlay; it is the same
+// live SVG / canvas (the canvas re-sizes itself through its ResizeObserver), so it keeps updating
 const ZOOM_IN = `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6"/></svg>`;
 const ZOOM_OUT = `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>`;
 let zoomed = null;
 function zoomSize(){
   if (!zoomed) return;
-  const vb = zoomed.plot.querySelector("svg").viewBox.baseVal, r = vb.width/vb.height;
-  zoomed.plot.style.width = Math.min(innerWidth*0.94, (innerHeight*0.9 - 36)*r + 36) + "px";
+  const {plot, r} = zoomed, media = plot.querySelector("svg, canvas");
+  const padX = plot.offsetWidth - media.clientWidth, padY = plot.offsetHeight - media.clientHeight;
+  plot.style.width = Math.max(200, Math.min(innerWidth*0.94, (innerHeight*0.92 - padY)*r + padX)) + "px";
 }
 function zoomClose(){
   if (!zoomed) return;
@@ -3983,6 +3987,7 @@ function zoomOpen(plot, btn){
   zoomClose();
   const ph = document.createElement("div");
   ph.style.height = plot.offsetHeight + "px";
+  const media = plot.querySelector("svg, canvas"), r = media.clientWidth / media.clientHeight;
   plot.replaceWith(ph);
   const back = document.createElement("div");
   back.className = "zoom-back";
@@ -3990,10 +3995,10 @@ function zoomOpen(plot, btn){
   document.body.append(back, plot);
   plot.classList.add("zoomed");
   btn.innerHTML = ZOOM_OUT; btn.setAttribute("aria-label", "Close zoom"); btn.title = "Close zoom";
-  zoomed = {plot, ph, back, btn};
-  zoomSize();
+  zoomed = {plot, ph, back, btn, r};
+  zoomSize(); zoomSize();             // second pass: padding and legend height at the new width
 }
-document.querySelectorAll(".plot").forEach(plot => {
+document.querySelectorAll(".plot, .device").forEach(plot => {
   const btn = document.createElement("button");
   btn.type = "button"; btn.className = "zoombtn"; btn.innerHTML = ZOOM_IN;
   btn.setAttribute("aria-label", "Zoom in plot"); btn.title = "Zoom in plot";
