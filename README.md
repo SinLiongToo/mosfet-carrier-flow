@@ -37,4 +37,6 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **PLL synthesizer** – XO → PFD → CP → LF → VCO (19–20 GHz) → ×4 → 76–81 GHz; ramp generator + ΣΔ change the fractional divide ratio N to make the chirp; MOS-varactor cross-section with C–V and f–V curves; chirp tracking error and phase-noise budget (ref/CP, ΣΔ, VCO) vs loop bandwidth, fref and ΣΔ order
 - **FMCW radar** – TX chirp and delayed echo, beat frequency fb = 2RS/c, IF signal, FFT range spectrum (two-target resolution), ΔR = c/2B, Rmax, Doppler
 
+Every tab has hover/tap explanations on its readouts and equations, plus an **Explain the terms** panel: a step-by-step walkthrough, live tables computed from the current settings, and a glossary.
+
 Light / dark theme toggle (follows the system by default).

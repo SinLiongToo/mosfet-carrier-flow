@@ -137,7 +137,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
 .gloss ol{margin:0 0 10px;padding-left:20px;display:grid;gap:4px}
 .gloss .tbl{overflow-x:auto;margin:4px 0 14px}
 .gloss table{border-collapse:collapse;font:.82rem var(--f-mono);min-width:100%}
-.gloss th,.gloss td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+.gloss th,.gloss td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
 .gloss th{color:var(--muted);font-weight:600}
 .gloss td.ok{color:var(--channel);font-weight:600}
 .gloss td.bad{color:var(--hole);font-weight:600}
@@ -194,9 +194,9 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
       <section class="card">
         <p class="eyebrow">Bias</p>
         <div class="readouts">
-          <div class="ro"><label id="lab-g">Gate–source VGS</label><b id="ro-g">0.70 V</b></div>
-          <div class="ro"><label id="lab-d">Drain–source VDS</label><b id="ro-d">0.00 V</b></div>
-          <div class="ro id"><label id="lab-i">Drain current ID</label><b id="ro-i">0.00 mA</b></div>
+          <div class="ro"><label id="lab-g" class="term" tabindex="0" data-tip="Gate-to-source voltage. It controls how many carriers gather under the gate. Above Vth a channel forms.">Gate–source VGS</label><b id="ro-g">0.70 V</b></div>
+          <div class="ro"><label id="lab-d" class="term" tabindex="0" data-tip="Drain-to-source voltage. It tilts the potential along the channel and pushes carriers from source to drain.">Drain–source VDS</label><b id="ro-d">0.00 V</b></div>
+          <div class="ro id"><label id="lab-i" class="term" tabindex="0" data-tip="Current through the channel. Zero in cutoff, rises with VDS in triode, and levels off in saturation.">Drain current ID</label><b id="ro-i">0.00 mA</b></div>
         </div>
         <div class="slider">
           <div class="lab"><span id="sl-g-name">Gate voltage VGS</span><span>0 – 4 V</span></div>
@@ -231,11 +231,11 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
       <p class="eyebrow" id="fx-h">Channel effects</p>
       <div class="fx-top">
         <div class="slider">
-          <div class="lab"><span>Channel length L</span><span id="len-v">1.00 µm</span></div>
+          <div class="lab"><span class="term" tabindex="0" data-tip="Distance from source to drain under the gate. Shorter L gives more current and speed, but brings short-channel effects (CLM, DIBL, velocity saturation).">Channel length L</span><span id="len-v">1.00 µm</span></div>
           <input id="len" type="range" min="0.25" max="1" step="0.05" value="1">
         </div>
         <div class="slider">
-          <div class="lab"><span id="vsb-name">Body reverse bias VSB</span><span id="vsb-v">0.00 V</span></div>
+          <div class="lab"><span id="vsb-name" class="term" tabindex="0" data-tip="Voltage between source and body. A reverse bias widens the depletion layer and raises Vth (body effect).">Body reverse bias VSB</span><span id="vsb-v">0.00 V</span></div>
           <input id="vsb" type="range" min="0" max="3" step="0.05" value="0">
         </div>
         <div class="chips">
@@ -272,6 +272,60 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         </div>
       </div>
     </section>
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: channel, Vth, triode, saturation, short-channel effects</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>How a MOSFET turns on, step by step</h3>
+            <ol>
+              <li><b>Off:</b> with no gate voltage the body’s majority carriers (holes in an NMOS) sit right under the oxide. The source and drain are separated by two back-to-back PN junctions, so nothing flows.</li>
+              <li><b>Depletion:</b> a small positive gate voltage pushes the holes away. Fixed, charged dopant ions are left behind. They cannot move, so there is still no current.</li>
+              <li><b>Inversion:</b> above the threshold voltage Vth, the gate pulls in enough electrons to form a thin n-type layer under the oxide: the <b>channel</b>. It now connects source and drain.</li>
+              <li><b>Linear (triode):</b> a small VDS makes electrons drift through the channel. The device behaves like a resistor whose value the gate sets.</li>
+              <li><b>Saturation:</b> once VDS ≥ VGS − Vth, the channel pinches off at the drain end. Extra VDS mostly drops across the drain depletion region, so the current levels off.</li>
+            </ol>
+            <p>Conditions with your current settings:</p>
+            <div class="tbl" id="g-mos-live"></div>
+            <h3>Why the current stops growing in saturation</h3>
+            <p class="note">The gate-to-channel voltage at the drain end is VGS − VDS. When that falls to Vth, the drain end of the channel can hold no more carriers: it pinches off. Carriers that reach the pinch-off point are swept across the strong field of the drain depletion region, so the current is set by how many carriers the channel can supply, ½k(VGS − Vth)², not by VDS.</p>
+            <h3>NMOS vs PMOS</h3>
+            <div class="tbl"><table>
+              <tr><th></th><th>NMOS</th><th>PMOS</th></tr>
+              <tr><td>Channel carrier</td><td>electrons</td><td>holes</td></tr>
+              <tr><td>Body doping</td><td>p-type</td><td>n-type (n-well)</td></tr>
+              <tr><td>Turns on when</td><td>gate above source by Vth</td><td>gate below source by |Vtp|</td></tr>
+              <tr><td>Current direction</td><td>drain → source</td><td>source → drain</td></tr>
+              <tr><td>Mobility</td><td>μn ≈ 2.5× μp (faster)</td><td>μp (slower, so made wider)</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Device terms</h3>
+            <dl>
+              <dt>Source / Drain</dt><dd>Heavily doped regions (n+ or p+) where carriers enter and leave the channel.</dd>
+              <dt>Gate</dt><dd>Electrode on top of a thin oxide. Its voltage attracts or repels carriers below it; no DC current flows into it.</dd>
+              <dt>Body</dt><dd>The substrate or well the transistor sits in. Usually tied to the source.</dd>
+              <dt>Oxide</dt><dd>Thin insulating SiO₂ (or high-k) layer between gate and silicon.</dd>
+              <dt>Majority carrier</dt><dd>The carrier the body is doped with: holes in p-type, electrons in n-type.</dd>
+              <dt>Depletion region</dt><dd>A zone emptied of mobile carriers, leaving fixed ions.</dd>
+              <dt>Fixed ion</dt><dd>An ionised dopant atom locked in the crystal: acceptors are −, donors are +.</dd>
+              <dt>Inversion</dt><dd>The surface switches type (p → n for NMOS) because the gate attracted enough minority carriers.</dd>
+              <dt>Vth</dt><dd>Threshold voltage: the VGS where inversion starts and a channel forms.</dd>
+              <dt>VOV</dt><dd>Overdrive, VGS − Vth: how far above threshold the gate is.</dd>
+              <dt>k = μCox·W/L</dt><dd>Transconductance parameter: mobility × oxide capacitance × width/length. Sets how much current the device gives.</dd>
+              <dt>Pinch-off</dt><dd>The point where the channel thickness reaches zero at the drain end.</dd>
+            </dl>
+            <h3>Short-channel effects</h3>
+            <dl>
+              <dt>CLM (λ)</dt><dd>Channel-length modulation: the pinch-off point moves toward the source as VDS rises, so ID still grows a little in saturation.</dd>
+              <dt>DIBL</dt><dd>Drain-induced barrier lowering: in a short channel the drain field lowers the source barrier, so Vth drops as VDS rises.</dd>
+              <dt>Velocity saturation</dt><dd>Carriers have a top speed (~10⁷ cm/s). Short channels reach it, so current saturates early and grows only linearly with VGS.</dd>
+              <dt>Body effect</dt><dd>Reverse body bias widens depletion and raises Vth. See the Body effect tab.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
   </section>
 
   <!-- ===================== INVERTER TAB ===================== -->
@@ -299,16 +353,16 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
       <section class="card">
         <p class="eyebrow">Input</p>
         <div class="readouts">
-          <div class="ro"><label>Input Vin</label><b id="iv-ro-in">1.40 V</b></div>
-          <div class="ro"><label>Output Vout</label><b id="iv-ro-out">3.30 V</b></div>
-          <div class="ro id"><label>Through current</label><b id="iv-ro-i">0.00 mA</b></div>
+          <div class="ro"><label class="term" tabindex="0" data-tip="Voltage on both gates. Low input turns the PMOS on and the NMOS off, and the other way round.">Input Vin</label><b id="iv-ro-in">1.40 V</b></div>
+          <div class="ro"><label class="term" tabindex="0" data-tip="The shared drain node. It is pulled to VDD by the PMOS or to ground by the NMOS: the logical inverse of the input.">Output Vout</label><b id="iv-ro-out">3.30 V</b></div>
+          <div class="ro id"><label class="term" tabindex="0" data-tip="Current flowing straight from VDD to ground through both transistors. It is only non-zero while the input is switching.">Through current</label><b id="iv-ro-i">0.00 mA</b></div>
         </div>
         <div class="slider">
           <div class="lab"><span>Input voltage Vin</span><span>0 – 3.3 V</span></div>
           <input id="vin" type="range" min="0" max="3.3" step="0.01" value="1.4">
         </div>
         <div class="slider">
-          <div class="lab"><span>PMOS width ÷ NMOS width</span><span id="ratio-v">1.0×</span></div>
+          <div class="lab"><span class="term" tabindex="0" data-tip="Holes move about 2.5× slower than electrons, so the PMOS is usually made wider to match the NMOS strength and centre the switching point.">PMOS width ÷ NMOS width</span><span id="ratio-v">1.0×</span></div>
           <input id="ratio" type="range" min="1" max="4" step="0.1" value="1">
         </div>
         <div class="chips">
@@ -349,6 +403,48 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         </div>
       </section>
     </div>
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: VTC, switching point, regions A–E, power</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>How a CMOS inverter works</h3>
+            <ol>
+              <li>The PMOS connects the output to VDD, the NMOS connects it to ground. Both gates share the input.</li>
+              <li><b>Input low:</b> the NMOS is off and the PMOS is on, so the output is pulled up to VDD (logic 1).</li>
+              <li><b>Input high:</b> the PMOS is off and the NMOS is on, so the output is pulled down to 0 V (logic 0).</li>
+              <li>Only one transistor is on in each steady state, so almost no current flows. Current flows only briefly while switching, when both are partly on.</li>
+            </ol>
+            <h3>The five regions of the transfer curve</h3>
+            <div class="tbl" id="g-inv-live"></div>
+            <p class="note">The switching point VM is where Vout = VDD/2. It sits where the NMOS and PMOS are equally strong. Holes are slower than electrons, so with equal widths the PMOS loses and VM moves below VDD/2. Making the PMOS about 2.5× wider balances them and gives equal noise margins for 0 and 1.</p>
+            <h3>Where the power goes</h3>
+            <p>Static power is almost zero. Dynamic power is spent charging and discharging the load capacitance each time the output switches: P = α·C·VDD²·f. That is why lowering VDD (see DVFS in the Power tab) saves so much energy.</p>
+          </div>
+          <div>
+            <h3>Inverter terms</h3>
+            <dl>
+              <dt>VTC</dt><dd>Voltage transfer curve: Vout plotted against Vin.</dd>
+              <dt>VM</dt><dd>Switching threshold: the input where Vout = Vin = VDD/2.</dd>
+              <dt>Noise margin</dt><dd>How much noise an input can carry and still be read correctly (NML for logic 0, NMH for logic 1).</dd>
+              <dt>Pull-up / pull-down</dt><dd>The PMOS pulls the output up to VDD; the NMOS pulls it down to ground.</dd>
+              <dt>Through current</dt><dd>Also called short-circuit current: flows from VDD to ground only while both transistors are partly on.</dd>
+              <dt>Wp/Wn</dt><dd>Width ratio. A wider PMOS compensates for slower holes.</dd>
+              <dt>kn, kp</dt><dd>Strength of each transistor: μCox·W/L.</dd>
+              <dt>Rail-to-rail</dt><dd>The output swings all the way from 0 V to VDD.</dd>
+              <dt>Gain region</dt><dd>Region C, where both devices are saturated and a small Vin change gives a large Vout change.</dd>
+              <dt>Dynamic power</dt><dd>α·C·VDD²·f: energy spent charging the output capacitance every switching event.</dd>
+            </dl>
+            <h3>Channel effects here</h3>
+            <dl>
+              <dt>Short L</dt><dd>Both transistors get stronger, so the through-current peak grows.</dd>
+              <dt>CLM / DIBL</dt><dd>The saturated current keeps rising with VDS, so the curve is less steep (lower gain) in region C.</dd>
+              <dt>No body effect</dt><dd>Each source is tied to its body (NMOS to ground, PMOS to VDD), so VSB = 0.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
   </section>
 
   <!-- ===================== BODY EFFECT TAB ===================== -->
@@ -381,10 +477,10 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
       <section class="card">
         <p class="eyebrow">Controls</p>
         <div class="readouts four">
-          <div class="ro"><label>Input</label><b id="bd-ro-in">0 V</b></div>
-          <div class="ro"><label>Output</label><b id="bd-ro-out">0 V</b></div>
-          <div class="ro id"><label id="bd-lab-vsb">VSB (highlighted)</label><b id="bd-ro-vsb">0 V</b></div>
-          <div class="ro id"><label id="bd-lab-vt">Vth (highlighted)</label><b id="bd-ro-vt">1 V</b></div>
+          <div class="ro"><label class="term" tabindex="0" data-tip="The voltage applied to the circuit input selected by the slider.">Input</label><b id="bd-ro-in">0 V</b></div>
+          <div class="ro"><label class="term" tabindex="0" data-tip="The resulting output node voltage of the selected circuit.">Output</label><b id="bd-ro-out">0 V</b></div>
+          <div class="ro id"><label id="bd-lab-vsb" class="term" tabindex="0" data-tip="Source-to-body voltage of the highlighted transistor (VBS for a PMOS). Anything above 0 V raises its threshold.">VSB (highlighted)</label><b id="bd-ro-vsb">0 V</b></div>
+          <div class="ro id"><label id="bd-lab-vt" class="term" tabindex="0" data-tip="Threshold voltage of the highlighted transistor, including the body-effect increase. Without body effect it would be 1.00 V.">Vth (highlighted)</label><b id="bd-ro-vt">1 V</b></div>
         </div>
         <div class="slider">
           <div class="lab"><span id="bd-vin-name">Input</span><span id="bd-vin-v">0 V</span></div>
@@ -399,13 +495,13 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
           <button class="chipbtn" id="bd-recharge">▶ Charge again from 0 V</button>
         </div>
         <div class="slider" id="bd-ib-w" hidden>
-          <div class="lab"><span>Bias current Ib</span><span id="bd-ib-v">0.20 mA</span></div>
+          <div class="lab"><span class="term" tabindex="0" data-tip="The constant current the load sinks from the follower. More current needs a larger overdrive VOV, so Vout sits lower.">Bias current Ib</span><span id="bd-ib-v">0.20 mA</span></div>
           <input id="bd-ib" type="range" min="0.05" max="0.6" step="0.01" value="0.2">
         </div>
         <div class="sub-card">
           <label class="chk" style="font-weight:600"><input type="checkbox" id="bd-body" checked> Body effect on</label>
           <div class="slider">
-            <div class="lab"><span>Body-effect coefficient γ</span><span id="bd-gamma-v">0.50 V½</span></div>
+            <div class="lab"><span class="term" tabindex="0" data-tip="Gamma sets how strongly VSB raises Vth. It grows with substrate doping and with oxide thickness (γ = √(2qεNA)/Cox); typical 0.3–0.8 V½.">Body-effect coefficient γ</span><span id="bd-gamma-v">0.50 V½</span></div>
             <input id="bd-gamma" type="range" min="0" max="1" step="0.05" value="0.5">
           </div>
         </div>
@@ -425,6 +521,48 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         </div>
       </section>
     </div>
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: body effect, VSB, γ, stacks, weak 1</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>What the body effect is</h3>
+            <ol>
+              <li>Every MOSFET has a fourth terminal, the <b>body</b> (substrate or well). In digital circuits it is tied to ground (NMOS) or VDD (PMOS).</li>
+              <li>If the source rises above the body, the source-body junction is reverse-biased by <b>VSB</b>.</li>
+              <li>That reverse bias widens the depletion layer under the gate, so it holds more fixed charge.</li>
+              <li>The gate must now overcome that extra charge before it can form a channel, so the <b>threshold voltage rises</b>: Vth = Vth0 + γ(√(2φF + VSB) − √2φF).</li>
+            </ol>
+            <p>Right now:</p>
+            <div class="tbl" id="g-body-live"></div>
+            <h3>How designers live with it</h3>
+            <ul style="margin:0 0 10px;padding-left:20px;display:grid;gap:4px;font-size:.9rem">
+              <li>In a NAND/NOR stack, put the latest-arriving (critical) input on the transistor closest to the output, so the slow-to-settle middle node is already charged.</li>
+              <li>Keep stacks short (2–3 transistors) and size the stacked devices wider.</li>
+              <li>Use a transmission gate (NMOS + PMOS) instead of a single pass transistor, so a full 0 and 1 are passed.</li>
+              <li>In analog circuits, put the transistor in its own well (or a deep n-well / triple-well process) and tie body to source, which removes the effect.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>Body / bulk</dt><dd>The silicon the transistor is built in: p-substrate for NMOS, n-well for PMOS.</dd>
+              <dt>VSB / VBS</dt><dd>Source-to-body voltage (NMOS) or body-to-source voltage (PMOS). Positive means reverse bias.</dd>
+              <dt>γ (gamma)</dt><dd>Body-effect coefficient, √(2qεNA)/Cox. Higher doping or thicker oxide gives a bigger γ.</dd>
+              <dt>2φF</dt><dd>Surface potential at strong inversion, about 0.6–0.8 V depending on doping.</dd>
+              <dt>Stack</dt><dd>Transistors in series. Only the bottom one has its source on the rail.</dd>
+              <dt>Node X / Y</dt><dd>The internal node between two stacked transistors. Its voltage is the VSB of the upper device.</dd>
+              <dt>Weak 1</dt><dd>An NMOS can only pass up to VDD − Vth(raised): about 1.9 V instead of 3.3 V here.</dd>
+              <dt>Transmission gate</dt><dd>NMOS and PMOS in parallel: the PMOS passes the high level the NMOS cannot.</dd>
+              <dt>Source follower</dt><dd>Amplifier whose output (source) follows its input (gate) one VGS lower.</dd>
+              <dt>gm, gmb</dt><dd>Gate and body transconductance. gmb = η·gm acts against gm in a follower.</dd>
+              <dt>η</dt><dd>γ / (2√(2φF + VSB)): body-effect factor, usually 0.1–0.3.</dd>
+              <dt>Level shift</dt><dd>The DC drop Vin − Vout of a follower: Vth + VOV.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
   </section>
 
   <!-- ===================== POWER TAB ===================== -->
@@ -518,6 +656,61 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         </div>
       </section>
     </div>
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: LDO, dropout, buck, duty cycle, PMIC, DVFS</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>Two ways to make a lower voltage</h3>
+            <div class="tbl"><table>
+              <tr><th></th><th>LDO (linear)</th><th>Buck (switching)</th></tr>
+              <tr><td>How</td><td>A PMOS acts as a variable resistor and drops the extra voltage</td><td>Switches chop Vin; an L–C filter averages it to D·Vin</td></tr>
+              <tr><td>Efficiency</td><td>≈ Vout/Vin (poor for a big drop)</td><td>≈ 85–95 %, almost independent of the drop</td></tr>
+              <tr><td>Output noise</td><td>Very clean, rejects input ripple</td><td>Switching ripple at f and its harmonics</td></tr>
+              <tr><td>Size / cost</td><td>Tiny, no inductor</td><td>Needs an inductor and larger capacitors</td></tr>
+              <tr><td>Typical use</td><td>Small drops, quiet rails for RF / analog / PLL</td><td>Large drops and high currents: CPU, memory, I/O</td></tr>
+            </table></div>
+            <p>With your current settings:</p>
+            <div class="tbl" id="g-pw-live"></div>
+            <h3>How the output voltage is changed (modulated)</h3>
+            <ol>
+              <li><b>LDO:</b> Vout = Vref·(1 + R1/R2). Change the divider ratio or the reference voltage.</li>
+              <li><b>Buck:</b> Vout ≈ D·Vin. The controller changes the duty cycle D: the PWM comparator keeps the high side on until the ramp crosses the error-amplifier output.</li>
+              <li><b>PMIC:</b> the processor writes a VSEL code over I²C/SPMI. A DAC turns the code into a new reference, and the regulator’s loop moves the output there at a controlled slew rate.</li>
+            </ol>
+            <p class="note">Why it matters: a processor’s dynamic power is P = α·C·V²·f. Dropping the core from 1.05 V to 0.60 V at idle cuts that power by about 3×, which is the whole point of DVFS.</p>
+          </div>
+          <div>
+            <h3>LDO terms</h3>
+            <dl>
+              <dt>LDO</dt><dd>Low-dropout linear regulator: works with Vin only slightly above Vout.</dd>
+              <dt>Pass device</dt><dd>The large PMOS between input and output that carries the load current.</dd>
+              <dt>Error amplifier</dt><dd>Compares the divided output (FB) with Vref and drives the pass-device gate.</dd>
+              <dt>Vref</dt><dd>A precise internal reference voltage (0.8 V here), often from a bandgap circuit.</dd>
+              <dt>Dropout</dt><dd>Minimum Vin − Vout for regulation. Below it the output just follows Vin.</dd>
+              <dt>Load / line regulation</dt><dd>How much Vout changes when the load current / input voltage changes.</dd>
+              <dt>PSRR</dt><dd>Power-supply rejection: how well input ripple is kept out of the output.</dd>
+              <dt>Load transient</dt><dd>The dip or overshoot of Vout when the load current jumps, before the loop catches up.</dd>
+            </dl>
+            <h3>Switching and PMIC terms</h3>
+            <dl>
+              <dt>Buck</dt><dd>Step-down switching converter.</dd>
+              <dt>Duty cycle D</dt><dd>Fraction of the period the high-side switch is on.</dd>
+              <dt>PWM</dt><dd>Pulse-width modulation: the control method that sets D.</dd>
+              <dt>SW node</dt><dd>The switch node between the two transistors; a square wave between Vin and 0 V.</dd>
+              <dt>High / low side</dt><dd>The switch to Vin (PMOS here) and the switch to ground (NMOS here).</dd>
+              <dt>ΔiL</dt><dd>Inductor ripple current: (Vin − Vout)·D/(f·L).</dd>
+              <dt>CCM / DCM</dt><dd>Continuous / discontinuous conduction: whether the inductor current stays above zero.</dd>
+              <dt>PMIC</dt><dd>Power-management IC: several regulators, references and control logic in one chip.</dd>
+              <dt>Rail</dt><dd>One supply output (e.g. CPU core, I/O, analog).</dd>
+              <dt>DVFS</dt><dd>Dynamic voltage and frequency scaling: lower V and f when the load is light.</dd>
+              <dt>VSEL</dt><dd>Register that selects the output voltage of a regulator.</dd>
+              <dt>Slew rate</dt><dd>Speed of a voltage change, e.g. 10 mV/µs.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
   </section>
 
   <!-- ===================== RADAR TAB ===================== -->
@@ -682,6 +875,54 @@ const f2 = x => x.toFixed(2);
 const rnd = (a,b) => a + Math.random()*(b-a);
 const clamp = (x,a,b) => Math.max(a, Math.min(b, x));
 const VDD = 3.3;
+/* ---- shared hover/tap explanations ---- */
+const TIP = {
+  "Cutoff":"VGS is below Vth: no channel, so no current flows (ignoring tiny leakage).",
+  "Triode":"Also called linear region. The channel reaches from source to drain and acts like a gate-controlled resistor: ID grows with VDS.",
+  "Saturation":"VDS is large enough that the channel pinches off (or carriers hit top speed) at the drain end, so ID barely grows with VDS.",
+  "PMOS":"Pull-up transistor between VDD and the output. Conducts with holes when the input is low.",
+  "NMOS":"Pull-down transistor between the output and ground. Conducts with electrons when the input is high.",
+  "Threshold":"Vth of the highlighted transistor including the body effect: Vth0 plus the increase caused by VSB.",
+  "Series":"Two transistors in a stack carry the same current, which fixes the voltage of the node between them.",
+  "Switching":"VM: the input voltage at which Vout = VDD/2. The body effect weakens one device and moves VM.",
+  "Final level":"Where the output stops rising: the pass transistor turns off when its VGS falls to its (raised) Vth.",
+  "Follower output":"The source follows the gate one VGS lower. The body effect makes that drop larger as Vout rises.",
+  "Gain":"Small-signal Vout/Vin. The body acts like a second gate (gmb) working against the input, so gain stays below 1.",
+  "Vout":"Regulated output voltage delivered to the load.",
+  "Load":"Current drawn by the circuit being powered.",
+  "Pass VSG":"Source-gate voltage of the pass PMOS, set by the error amplifier. Bigger VSG = lower resistance.",
+  "Efficiency":"Power delivered to the load divided by power taken from the input.",
+  "Set-point":"The target output voltage, chosen by Vref and the R1/R2 divider (or a VSEL register).",
+  "Regulation":"The feedback loop moves the gate until the divided output equals Vref.",
+  "Dropout":"Minimum Vin − Vout the LDO needs. Below it the PMOS is fully on and can no longer regulate.",
+  "Heat":"The LDO burns (Vin − Vout) × I as heat in the pass transistor.",
+  "Duty cycle":"Fraction of each switching period the high-side switch is on. Vout ≈ D·Vin.",
+  "Duty cycle D":"Fraction of each switching period the high-side switch is on. Vout ≈ D·Vin.",
+  "Ripple":"The small triangle in the inductor current and the resulting small wobble on Vout every switching period.",
+  "Ripple ΔiL":"Peak-to-peak inductor current ripple. Bigger L or higher frequency makes it smaller.",
+  "VSEL code":"Register value the processor writes to the PMIC to choose the rail voltage.",
+  "VSEL":"Voltage-select register in the PMIC. Each code step changes the output by a fixed amount (6.25 mV here).",
+  "Slew":"How fast the rail is allowed to move to a new voltage, to avoid current surges and overshoot.",
+  "Battery":"Total current drawn from the battery = all input power / battery voltage.",
+  "Battery current":"Total current drawn from the battery = all input power / battery voltage.",
+  "Why a buck":"Compares the buck with what an LDO would achieve for the same core rail.",
+  "Vcore":"Supply voltage of the CPU core, changed on the fly by DVFS.",
+  "Overall η":"Total power delivered to all rails divided by power taken from the battery."
+};
+const tip = l => TIP[l] ? `<span class="term" tabindex="0" data-tip="${TIP[l]}">${l}</span>` : l;
+// rebuild rows only when their labels change, so an open tooltip survives live updates
+function renderRo(el, ro){
+  const key = ro.map(r => r[0]).join("|");
+  if (el.dataset.k !== key){ el.innerHTML = ro.map(([l,v],i) => `<div class="ro${i>=2?" id":""}"><label>${tip(l)}</label><b>${v}</b></div>`).join(""); el.dataset.k = key; }
+  else el.querySelectorAll("b").forEach((b,i) => { if (b.textContent !== ro[i][1]) b.textContent = ro[i][1]; });
+}
+function renderEq(el, rows){
+  const key = rows.map(r => r.name).join("|");
+  if (el.dataset.k !== key){ el.innerHTML = rows.map(r => `<div class="eqrow act"><span class="name">${tip(r.name)}</span><span class="f">${r.f}</span><span class="sub">${r.sub}</span></div>`).join(""); el.dataset.k = key; }
+  else el.querySelectorAll(".eqrow").forEach((d,i) => { const f = d.querySelector(".f"), sb = d.querySelector(".sub"); if (f.innerHTML !== rows[i].f) f.innerHTML = rows[i].f; if (sb.innerHTML !== rows[i].sub) sb.innerHTML = rows[i].sub; });
+}
+function setHTML(id, html){ const e = document.getElementById(id); if (e && e.__h !== html){ e.innerHTML = html; e.__h = html; } }
+const ck = ok => `<td class="${ok ? "ok" : "bad"}">${ok ? "yes" : "no"}</td>`;
 
 /* ================= device model ================= */
 const DEV = {
@@ -1135,7 +1376,7 @@ function updateMos(){
              : `= ½·${f2(k)}·${f2(ov)}²·[1 + ${lamS}·${f2(vds - r.vdsat)}] = ${f2(I)} mA`}
   ];
   $("eq").innerHTML = rows.map(row => `<div class="eqrow${row.key===r.reg?" act":""}">
-      <span class="name">${row.name}</span><span class="f">${row.f}<br><span style="opacity:.75">when ${row.cond}</span></span>
+      <span class="name">${tip(row.name)}</span><span class="f">${row.f}<br><span style="opacity:.75">when ${row.cond}</span></span>
       ${row.key===r.reg ? `<span class="sub">${row.sub}</span>` : ""}
     </div>`).join("");
   $("consts").textContent = `k = ${d.mu}·Cox·W/L = ${f2(k)} mA/V²   ${Vt},eff = ${f2(r.Vth)} V   λ = ${lamS} V⁻¹   VOV = ${f2(Math.max(ov,0))} V   ${D}sat = ${f2(r.vdsat)} V`;
@@ -1165,6 +1406,15 @@ function updateMos(){
   $("sw-hint").textContent = msweep ? (msweep.v === "vds" ? `· tracing ${swName("vds")} at ${swName("vgs")} = ${f2(vgs)} V` : `· tracing ${swName("vgs")} at ${swName("vds")} = ${f2(vds)} V`) : "";
   if (msweep){ trail.push({g:vgs, d:vds, I}); if (trail.length > 260) trail.shift(); }
   drawMosPlots(r);
+  {
+    const G2 = n ? "VGS" : "VSG", D2 = n ? "VDS" : "VSD", V2 = n ? "Vth" : "|Vtp|";
+    const inv = r.ov > 0, lin = inv && vds < r.vdsat, sat = inv && !lin;
+    setHTML("g-mos-live", `<table><tr><th>Question</th><th>Test</th><th>Now</th><th>?</th></tr>
+      <tr><td>Is there a channel?</td><td>${G2} > ${V2}</td><td>${f2(vgs)} V vs ${f2(r.Vth)} V</td>${ck(inv)}</tr>
+      <tr><td>Linear (triode)?</td><td>${D2} < ${D2}sat</td><td>${f2(vds)} V vs ${f2(r.vdsat)} V</td>${ck(lin)}</tr>
+      <tr><td>Saturated?</td><td>${D2} ≥ ${D2}sat</td><td>${f2(vds)} V vs ${f2(r.vdsat)} V</td>${ck(sat)}</tr>
+      <tr><td colspan="3">So the region is <b>${{cut:"cutoff", tri:"triode (linear)", sat:"saturation"}[r.reg]}</b> and ${n ? "ID" : "ISD"} =</td><td><b>${f2(r.I)} mA</b></td></tr></table>`);
+  }
 }
 
 function niceStep(x){ const m = Math.pow(10, Math.floor(Math.log10(x))), q = x/m; return (q<=1?1:q<=2?2:q<=2.5?2.5:q<=5?5:10)*m; }
@@ -1449,7 +1699,7 @@ function updateInv(){
   ivStepBtns.forEach(b => b.classList.toggle("on", b.dataset.l === L));
 
   const rows = [eqLine("PMOS", "p", s.rp, VDD-vin, VDD-s.vo), eqLine("NMOS", "n", s.rn, vin, s.vo)];
-  $("iv-eq").innerHTML = rows.map(r => `<div class="eqrow act"><span class="name">${r.name}</span><span class="f">${r.f}</span><span class="sub">${r.sub}</span></div>`).join("");
+  renderEq($("iv-eq"), rows);
   const kn = 2*DEV.n.K, kp = 2*DEV.p.K*ratio, rr = Math.sqrt(kp/kn);
   const vmIdeal = (1 + rr*(VDD - 1))/(1 + rr);
   $("iv-consts").innerHTML = `kn = ${f2(kn)} mA/V², kp = ${f2(kp)} mA/V²<br>VM = (Vtn + √(kp/kn)·(VDD − |Vtp|)) / (1 + √(kp/kn)) = (1 + ${f2(rr)}·${f2(VDD-1)}) / ${f2(1+rr)} = ${f2(vmIdeal)} V`;
@@ -1458,6 +1708,12 @@ function updateInv(){
     ? `With these widths the PMOS is weaker (holes are slower, kp < kn), so VM = ${f2(vtcCache.VM)} V sits below VDD/2 = ${f2(VDD/2)} V. Make the PMOS about 2.5× wider to centre it.`
     : `With the PMOS ${ratio.toFixed(1)}× wider, kp is close to kn and VM = ${f2(vtcCache.VM)} V sits near VDD/2 = ${f2(VDD/2)} V, giving equal noise margins.`;
   drawInvPlots(s);
+  {
+    const R = [["A","off","linear","≈ VDD","≈ 0"],["B","saturation","linear","falling","rising"],["C","saturation","saturation","= VM, steepest","peak"],["D","linear","saturation","near 0","falling"],["E","linear","off","≈ 0 V","≈ 0"]];
+    setHTML("g-inv-live", `<table><tr><th>Region</th><th>NMOS</th><th>PMOS</th><th>Vout</th><th>Current</th></tr>` +
+      R.map(q => `<tr${q[0] === L ? ' style="font-weight:700;color:var(--accent)"' : ""}><td>${q[0]}${q[0] === L ? " ← now" : ""}</td><td>${q[1]}</td><td>${q[2]}</td><td>${q[3]}</td><td>${q[4]}</td></tr>`).join("") +
+      `</table><p style="margin:6px 0 0">Now: Vin = ${f2(vin)} V, Vout = ${f2(s.vo)} V, VM = ${f2(vtcCache.VM)} V with Wp/Wn = ${ratio.toFixed(1)}.</p>`);
+  }
 }
 
 function drawInvPlots(s){
@@ -1797,11 +2053,17 @@ function updateBody(){
       : {name:"Final level", f:"Charging stops when VDD − Vout = Vth(VSB = Vout)", sub:`→ Vout = ${f2(c.lvOn)} V  (${f2(c.lvOff)} V without body effect)`});
   } else {
     const eta = BF.body ? BF.gamma/(2*Math.sqrt(PHI2 + st.vo)) : 0;
-    rows.push({name:"Output", f:"Vout = Vin − Vth(VSB = Vout) − VOV", sub:`= ${f2(BF.vin)} − ${f2(st.hot.r.Vth)} − ${f2(Math.max(st.hot.r.ov,0))} = ${f2(st.vo)} V`});
+    rows.push({name:"Follower output", f:"Vout = Vin − Vth(VSB = Vout) − VOV", sub:`= ${f2(BF.vin)} − ${f2(st.hot.r.Vth)} − ${f2(Math.max(st.hot.r.ov,0))} = ${f2(st.vo)} V`});
     rows.push({name:"Gain", f:"Av = gm/(gm + gmb) = 1/(1 + η),  η = γ / (2√(2φF + VSB))", sub:`η = ${eta.toFixed(3)} → Av = ${(1/(1+eta)).toFixed(3)}`});
   }
-  $("bd-eq").innerHTML = rows.map(r => `<div class="eqrow act"><span class="name">${r.name}</span><span class="f">${r.f}</span><span class="sub">${r.sub}</span></div>`).join("");
+  renderEq($("bd-eq"), rows);
   drawBodyPlots(st);
+  {
+    const Rw = [["inverter","—","VSB = 0 (sources on the rails)","no"],["nand","top NMOS","VSB = VX","yes"],["nor","lower PMOS","VBS = VDD − VY","yes"],["pass","pass NMOS","VSB = Vout","yes"],["sf","follower NMOS","VSB = Vout","yes"]];
+    const nm = {inverter:"CMOS inverter", nand:"NAND2", nor:"NOR2", pass:"Pass transistor", sf:"Source follower"};
+    setHTML("g-body-live", `<table><tr><th>Circuit</th><th>Affected device</th><th>Why</th><th>Body effect?</th><th>Now</th></tr>` +
+      Rw.map(q => `<tr${q[0] === BF.circ ? ' style="font-weight:700;color:var(--accent)"' : ""}><td>${nm[q[0]]}</td><td>${q[1]}</td><td>${q[2]}</td><td class="${q[3] === "yes" ? "bad" : "ok"}">${q[3]}</td><td>${q[0] === BF.circ ? `VSB ${f2(st.hot.vsb)} V → Vth ${f2(st.hot.r.Vth)} V (+${f2(st.hot.r.dVb)})` : ""}</td></tr>`).join("") + `</table>`);
+  }
 }
 
 function drawBodyPlots(st){
@@ -2190,9 +2452,19 @@ function updatePower(){
     rows.push({name:"Battery", f:"Ibat = Σ Pin / Vbat", sub:`= ${(P.pin*1000).toFixed(0)} mW / ${f2(PM.vbat)} V = ${f2(P.ibat)} A`});
     rows.push({name:"Why a buck", f:"Core from an LDO instead: η = Vcore / Vbat", sub:`= ${(P.coreLdoEta*100).toFixed(0)} %  vs  buck ${(P.b2.eta*100).toFixed(0)} %`});
   }
-  $("pw-ro").innerHTML = ro.map(([l,v],i) => `<div class="ro${i>=2?" id":""}"><label>${l}</label><b>${v}</b></div>`).join("");
-  $("pw-eq").innerHTML = rows.map(r => `<div class="eqrow act"><span class="name">${r.name}</span><span class="f">${r.f}</span><span class="sub">${r.sub}</span></div>`).join("");
+  renderRo($("pw-ro"), ro);
+  renderEq($("pw-eq"), rows);
   drawPowerPlots();
+  {
+    let h = "";
+    if (pwView === "ldo"){ const eta = LDO.vo*LDO.il/(LDO.vin*(LDO.il + 0.05));
+      h = `<table><tr><th>LDO now</th><th>Value</th></tr><tr><td>Voltage dropped in the PMOS</td><td>${f2(LDO.vin - LDO.vo)} V</td></tr><tr><td>Heat in the PMOS</td><td>${((LDO.vin - LDO.vo)*LDO.il).toFixed(0)} mW</td></tr><tr><td>Efficiency ≈ Vout/Vin</td><td>${(eta*100).toFixed(0)} %</td></tr><tr><td>Dropout needed at ${LDO.iheavy.toFixed(0)} mA</td><td>${(ldoDropout(LDO.iheavy)*1000).toFixed(0)} mV</td></tr></table>`; }
+    else if (pwView === "buck"){ const c = buckCalc(BK.vin, BK.vset, BK.il, BK.f);
+      h = `<table><tr><th>Buck now</th><th>Value</th></tr><tr><td>Duty cycle D = Vout/Vin</td><td>${(c.D*100).toFixed(1)} %</td></tr><tr><td>Efficiency</td><td>${(c.eta*100).toFixed(1)} %</td></tr><tr><td>An LDO would give</td><td>${(BK.vset/BK.vin*100).toFixed(0)} %</td></tr><tr><td>Inductor ripple / output ripple</td><td>${(c.di*1000).toFixed(0)} mA / ${(c.dv*1000).toFixed(1)} mV</td></tr></table>`; }
+    else { const P = pmicCalc();
+      h = `<table><tr><th>PMIC now</th><th>Value</th></tr><tr><td>CPU mode / core voltage</td><td>${MODES[PM.mode].name} / ${f3(PM.vcore)} V</td></tr><tr><td>VSEL code</td><td>0x${vselCode(PM.target).toString(16).toUpperCase().padStart(2,"0")}</td></tr><tr><td>Battery current</td><td>${f2(P.ibat)} A</td></tr><tr><td>Overall efficiency</td><td>${(P.eta*100).toFixed(0)} %</td></tr></table>`; }
+    setHTML("g-pw-live", h);
+  }
 }
 
 function drawPowerPlots(){
@@ -2532,7 +2804,7 @@ const RDINFO = {
     text:"The radar transmits the chirp and mixes the echo with the signal it is transmitting at that moment. The echo is a delayed copy, so during the ramp the two differ by a constant beat frequency fb = S·τ = 2RS/c. An FFT of the IF signal turns each target into a peak whose position gives its range. Two targets are resolved only if they are more than c/(2B) apart, so the full 4 GHz of the 77–81 GHz band gives 3.75 cm. A moving target adds a Doppler shift 2v/λ, which is measured as the phase change of the peak from one chirp to the next."}
 };
 
-const TIPS = {
+Object.assign(TIP, {
   "TX frequency":"The frequency the antenna is sending right now. It is 4 × the VCO frequency.",
   "Divide ratio N":"How many VCO cycles the divider counts per reference cycle. fRF = 4·N·fref, so changing N moves the output frequency.",
   "Vtune":"The tuning voltage from the loop filter to the VCO varactor. Higher Vtune → lower capacitance → higher frequency.",
@@ -2550,8 +2822,7 @@ const TIPS = {
   "Beat":"Beat frequency: delay τ = 2R/c times the slope S.",
   "Resolution":"How close two targets can be and still appear as separate peaks.",
   "Doppler":"A moving target changes the echo phase from chirp to chirp; the rate gives its speed."
-};
-const tip = l => TIPS[l] ? `<span class="term" tabindex="0" data-tip="${TIPS[l]}">${l}</span>` : l;
+});
 let glossKey = "";
 function updateGlossary(F){
   const key = [CH.B, CH.Tc, CH.R1].join("|");
@@ -2601,12 +2872,8 @@ function updateRadar(){
     rows.push({name:"Doppler", f:"fd = 2v/λ,   Δφ = 4π·v·Tc/λ per chirp", sub:`λ = ${(F.lam*1000).toFixed(2)} mm, fd = ${(t1.fd/1e3).toFixed(1)} kHz, Δv = ${F.dv.toFixed(2)} m/s (${NCH} chirps)`});
   }
   // rebuild only when the labels change, so an open tooltip (hover / tap focus) survives the live updates
-  const roEl = $("rd-ro"), roKey = ro.map(r => r[0]).join("|");
-  if (roEl.dataset.k !== roKey){ roEl.innerHTML = ro.map(([l,v],i) => `<div class="ro${i>=2?" id":""}"><label>${tip(l)}</label><b>${v}</b></div>`).join(""); roEl.dataset.k = roKey; }
-  else roEl.querySelectorAll("b").forEach((b,i) => { if (b.textContent !== ro[i][1]) b.textContent = ro[i][1]; });
-  const eqEl = $("rd-eq"), eqKey = rows.map(r => r.name).join("|");
-  if (eqEl.dataset.k !== eqKey){ eqEl.innerHTML = rows.map(r => `<div class="eqrow act"><span class="name">${tip(r.name)}</span><span class="f">${r.f}</span><span class="sub">${r.sub}</span></div>`).join(""); eqEl.dataset.k = eqKey; }
-  else eqEl.querySelectorAll(".eqrow").forEach((d,i) => { const f = d.querySelector(".f"), sb = d.querySelector(".sub"); if (f.innerHTML !== rows[i].f) f.innerHTML = rows[i].f; if (sb.innerHTML !== rows[i].sub) sb.innerHTML = rows[i].sub; });
+  renderRo($("rd-ro"), ro);
+  renderEq($("rd-eq"), rows);
   updateGlossary(F);
   drawRadarPlots(F);
 }
