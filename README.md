@@ -41,4 +41,4 @@ Every tab has hover/tap explanations on its readouts and equations, plus an **Ex
 
 Light / dark theme toggle (follows the system by default).
 
-English / 繁體中文 toggle (globe button in the header, remembered per browser). Translations live in `i18n-zh.js`; `i18n.js` swaps the page text, tooltips and canvas labels, so equations and numbers stay live.
+English / 繁體中文 toggle (globe button in the header, remembered per browser). The `I18N_ZH` table and the small switcher in the head of `index.html` swap the page text, tooltips and canvas labels, so equations and numbers stay live.
