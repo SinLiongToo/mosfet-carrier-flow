@@ -824,6 +824,7 @@ window.I18N_ZH = {
 "PMOS keeps conducting when the NMOS gives up": "NMOS 關閉後 PMOS 仍持續導通",
 "→ Vout reaches Vin = # V": "→ Vout 達到 Vin = # V"
 };
+window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列"};
 </script>
 <script>
@@ -1074,6 +1075,13 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
 .plot{display:grid;gap:4px;min-width:0}
 .plot svg{width:100%;height:auto;display:block;overflow:visible}
 .plot svg text{font-family:var(--f-mono);font-size:10px;fill:var(--muted)}
+.wrap,section[role=tabpanel]{grid-template-columns:minmax(0,1fr)}
+.plot{position:relative}
+.zoombtn{position:absolute;top:0;right:0;z-index:2;width:28px;height:28px;display:grid;place-items:center;padding:0;color:var(--muted);background:var(--panel2);border:1px solid var(--line);border-radius:7px;cursor:pointer;opacity:.85}
+.zoombtn:hover,.zoombtn:focus-visible{color:var(--accent);border-color:var(--accent);opacity:1}
+.plot.zoomed{position:fixed;z-index:101;left:50%;top:50%;transform:translate(-50%,-50%);max-width:none;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 18px 14px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.plot.zoomed .zoombtn{top:8px;right:8px}
+.zoom-back{position:fixed;inset:0;z-index:100;background:rgba(5,8,12,.6)}
 
 .explain p{margin:0;max-width:68ch}
 .flow{display:flex;flex-wrap:wrap;gap:8px 20px;font:.82rem var(--f-mono);color:var(--muted)}
@@ -3929,6 +3937,7 @@ let tab = "mos";
 let bdInit = false;
 const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar"};
 function showTab(t){
+  zoomClose();
   tab = t;
   ["mos","inv","body","pw","rd"].forEach(k => { $("tab-"+k).hidden = t !== k; $("tab-btn-"+k).setAttribute("aria-selected", t === k); });
   $("seg-type").hidden = t !== "mos";
@@ -3951,6 +3960,48 @@ function frame(now){
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
 }
+
+/* ================= plot zoom ================= */
+// each plot gets a button that lifts it into a large overlay; it is the same live SVG, so it keeps updating
+const ZOOM_IN = `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6"/></svg>`;
+const ZOOM_OUT = `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>`;
+let zoomed = null;
+function zoomSize(){
+  if (!zoomed) return;
+  const vb = zoomed.plot.querySelector("svg").viewBox.baseVal, r = vb.width/vb.height;
+  zoomed.plot.style.width = Math.min(innerWidth*0.94, (innerHeight*0.9 - 36)*r + 36) + "px";
+}
+function zoomClose(){
+  if (!zoomed) return;
+  const {plot, ph, back, btn} = zoomed;
+  plot.classList.remove("zoomed"); plot.style.width = "";
+  ph.replaceWith(plot); back.remove();
+  btn.innerHTML = ZOOM_IN; btn.setAttribute("aria-label", "Zoom in plot"); btn.title = "Zoom in plot";
+  zoomed = null; btn.focus();
+}
+function zoomOpen(plot, btn){
+  zoomClose();
+  const ph = document.createElement("div");
+  ph.style.height = plot.offsetHeight + "px";
+  plot.replaceWith(ph);
+  const back = document.createElement("div");
+  back.className = "zoom-back";
+  back.addEventListener("click", zoomClose);
+  document.body.append(back, plot);
+  plot.classList.add("zoomed");
+  btn.innerHTML = ZOOM_OUT; btn.setAttribute("aria-label", "Close zoom"); btn.title = "Close zoom";
+  zoomed = {plot, ph, back, btn};
+  zoomSize();
+}
+document.querySelectorAll(".plot").forEach(plot => {
+  const btn = document.createElement("button");
+  btn.type = "button"; btn.className = "zoombtn"; btn.innerHTML = ZOOM_IN;
+  btn.setAttribute("aria-label", "Zoom in plot"); btn.title = "Zoom in plot";
+  btn.addEventListener("click", () => zoomed && zoomed.plot === plot ? zoomClose() : zoomOpen(plot, btn));
+  plot.append(btn);
+});
+addEventListener("keydown", e => { if (e.key === "Escape") zoomClose(); });
+addEventListener("resize", zoomSize);
 
 buildLegend(); updateMos();
 showTab(location.hash === "#inverter" ? "inv" : location.hash === "#body-effect" ? "body" : location.hash === "#power" ? "pw" : location.hash === "#radar" ? "rd" : "mos");
