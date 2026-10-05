@@ -16,5 +16,16 @@ Interactive animation of how MOS transistors work, for learners.
 - Schematic with animated supply current, plus live PMOS and NMOS cross-sections
 - Vin slider / sweep, PMOS:NMOS width ratio
 - Voltage transfer curve with operating regions A–E and switching point VM, supply-current plot
+- Channel effects (L, CLM, DIBL, velocity saturation) with the ideal curve dashed for comparison
+- No body effect: each source sits at its body's voltage (VSB = 0)
+
+## Body effect tab (`#body-effect`)
+Circuits where a source is *not* tied to its body, with the body effect switchable and an adjustable γ:
+- **NAND2** – top NMOS of the stack sits on node X (VSB = VX)
+- **NOR2** – lower PMOS of the stack sits on node Y (VBS = VDD − VY)
+- **Pass transistor** – animated charging of CL to a weak 1 = VDD − Vth(Vout); optional transmission gate
+- **Source follower** – level shift grows with Vin, gain Av = 1/(1 + η)
+
+Each shows the schematic, cross-sections of the affected transistor vs a reference, the response with/without body effect, and Vth vs VSB.
 
 Light / dark theme toggle (follows the system by default).

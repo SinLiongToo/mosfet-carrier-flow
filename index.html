@@ -119,6 +119,10 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
 .cmp{display:flex;flex-wrap:wrap;gap:8px 24px;font:.9rem var(--f-mono)}
 .cmp b{font-weight:600;font-variant-numeric:tabular-nums}
 .cmp .delta{color:var(--accent)}
+.chk{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;cursor:pointer}
+.chk input{accent-color:var(--accent);width:16px;height:16px}
+.readouts.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:560px){.readouts.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -129,6 +133,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
       <div class="seg" role="tablist" aria-label="View">
         <button role="tab" id="tab-btn-mos" aria-selected="true" aria-controls="tab-mos">Transistor</button>
         <button role="tab" id="tab-btn-inv" aria-selected="false" aria-controls="tab-inv">CMOS inverter</button>
+        <button role="tab" id="tab-btn-body" aria-selected="false" aria-controls="tab-body">Body effect</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -283,6 +288,20 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
           <button class="chipbtn" id="iv-balance">Balance (Wp = 2.5 Wn)</button>
         </div>
 
+        <div class="sub-card">
+          <p class="eyebrow">Channel effects</p>
+          <div class="slider">
+            <div class="lab"><span>Channel length L (both transistors)</span><span id="iv-len-v">1.00 µm</span></div>
+            <input id="iv-len" type="range" min="0.25" max="1" step="0.05" value="1">
+          </div>
+          <div class="chips">
+            <label class="chk"><input type="checkbox" id="iv-clm" checked> Channel-length modulation</label>
+            <label class="chk"><input type="checkbox" id="iv-dibl"> DIBL</label>
+            <label class="chk"><input type="checkbox" id="iv-vsat"> Velocity saturation</label>
+          </div>
+          <p class="consts">No body effect here: each source sits at its body's voltage (NMOS source = GND = substrate, PMOS source = VDD = n-well), so VSB = 0. See the Body effect tab for circuits where it matters.</p>
+        </div>
+
         <p class="eyebrow">Both transistors carry the same current</p>
         <div class="eq" id="iv-eq"></div>
         <p class="consts" id="iv-consts"></p>
@@ -298,6 +317,82 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
           <p class="eyebrow">What is happening</p>
           <p id="iv-explain"></p>
           <p id="iv-note" style="color:var(--muted);font-size:.86rem"></p>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ===================== BODY EFFECT TAB ===================== -->
+  <section id="tab-body" role="tabpanel" aria-labelledby="tab-btn-body" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="bd-pill">NAND2</span><h2 id="bd-name">Stacked NMOS</h2></div>
+      <p id="bd-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="bd-circ" role="group" aria-label="Circuit" style="flex-wrap:wrap">
+        <button data-c="nand" aria-pressed="true">NAND2</button>
+        <button data-c="nor" aria-pressed="false">NOR2</button>
+        <button data-c="pass" aria-pressed="false">Pass transistor</button>
+        <button data-c="sf" aria-pressed="false">Source follower</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvb" aria-label="Animated circuit with body effect: schematic and cross-sections of the affected transistor and a reference"></canvas>
+      <div class="legend">
+        <span><span class="sw" style="background:var(--electron)"></span> Electron</span>
+        <span><span class="sw" style="border:2px solid var(--hole)"></span> Hole</span>
+        <span><span class="sw" style="background:var(--channel);border-radius:3px;opacity:.6"></span> Channel</span>
+        <span><span class="sw" style="background:var(--deplete);border:1px solid var(--line);border-radius:3px"></span> Depletion (deeper with VSB)</span>
+        <span><span class="sw" style="background:var(--accent);opacity:.35;border-radius:3px"></span> Transistor with body effect</span>
+      </div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four">
+          <div class="ro"><label>Input</label><b id="bd-ro-in">0 V</b></div>
+          <div class="ro"><label>Output</label><b id="bd-ro-out">0 V</b></div>
+          <div class="ro id"><label id="bd-lab-vsb">VSB (highlighted)</label><b id="bd-ro-vsb">0 V</b></div>
+          <div class="ro id"><label id="bd-lab-vt">Vth (highlighted)</label><b id="bd-ro-vt">1 V</b></div>
+        </div>
+        <div class="slider">
+          <div class="lab"><span id="bd-vin-name">Input</span><span id="bd-vin-v">0 V</span></div>
+          <input id="bd-vin" type="range" min="0" max="3.3" step="0.01" value="1.7">
+        </div>
+        <div class="seg" id="bd-sw" role="group" aria-label="Which input switches" style="flex-wrap:wrap">
+          <button data-s="A" aria-pressed="true">A switches</button>
+          <button data-s="B" aria-pressed="false">B switches</button>
+        </div>
+        <div class="chips" id="bd-pass-w" hidden>
+          <label class="chk"><input type="checkbox" id="bd-tg"> Add PMOS in parallel (transmission gate)</label>
+          <button class="chipbtn" id="bd-recharge">▶ Charge again from 0 V</button>
+        </div>
+        <div class="slider" id="bd-ib-w" hidden>
+          <div class="lab"><span>Bias current Ib</span><span id="bd-ib-v">0.20 mA</span></div>
+          <input id="bd-ib" type="range" min="0.05" max="0.6" step="0.01" value="0.2">
+        </div>
+        <div class="sub-card">
+          <label class="chk" style="font-weight:600"><input type="checkbox" id="bd-body" checked> Body effect on</label>
+          <div class="slider">
+            <div class="lab"><span>Body-effect coefficient γ</span><span id="bd-gamma-v">0.50 V½</span></div>
+            <input id="bd-gamma" type="range" min="0" max="1" step="0.05" value="0.5">
+          </div>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="bd-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Response and threshold shift</p>
+        <div class="plots">
+          <div class="plot"><svg id="bd-p1" viewBox="0 0 300 230" role="img" aria-label="Circuit response with and without body effect"></svg></div>
+          <div class="plot"><svg id="bd-p2" viewBox="0 0 220 230" role="img" aria-label="Threshold voltage versus source-body voltage"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">Why the body effect appears here</p>
+          <p id="bd-explain"></p>
         </div>
       </section>
     </div>
@@ -322,10 +417,10 @@ const GAMMA = 0.5, PHI2 = 0.7;
 const fx = {L:1, vsb:0, clm:true, body:true, dibl:true, vsat:true};
 const IDEAL = {L:1, vsb:0, clm:false, body:false, dibl:false, vsat:false};
 
-function solve(t, g, d, F, w=1){
+function solve(t, g, d, F, w=1, vsb=F.vsb){
   const p = DEV[t], Lr = 1/F.L;
   const k = 2*p.K*Lr*w;
-  const dVb = F.body ? GAMMA*(Math.sqrt(PHI2+F.vsb) - Math.sqrt(PHI2)) : 0;
+  const dVb = F.body ? (F.gamma ?? GAMMA)*(Math.sqrt(PHI2+Math.max(vsb,0)) - Math.sqrt(PHI2)) : 0;
   const eta = F.dibl ? 0.01*Lr*Lr : 0;
   const Vth = p.Vth + dVb - eta*d;
   const lam = F.clm ? p.lam*Lr : 0;
@@ -798,14 +893,14 @@ function updateMos(){
 }
 
 function niceStep(x){ const m = Math.pow(10, Math.floor(Math.log10(x))), q = x/m; return (q<=1?1:q<=2?2:q<=2.5?2.5:q<=5?5:10)*m; }
-function axes(W, H, m, xMax, yMax, yStep, xLab, yLab){
+function axes(W, H, m, xMax, yMax, yStep, xLab, yLab, xStep=1){
   const X = v => m.l + v/xMax*(W-m.l-m.r), Y = i => H-m.b - Math.min(i,yMax)/yMax*(H-m.t-m.b);
   let s = "";
   for (let i=0;i<=yMax+1e-9;i+=yStep) s += `<line x1="${m.l}" x2="${W-m.r}" y1="${Y(i)}" y2="${Y(i)}" stroke="var(--line)"/><text x="${m.l-5}" y="${Y(i)+3}" text-anchor="end">${+i.toFixed(2)}</text>`;
-  for (let v=0; v<=xMax+1e-9; v+= (xMax > 3.5 ? 1 : 1)) s += `<text x="${X(v)}" y="${H-m.b+14}" text-anchor="middle">${v}</text>`;
+  for (let v=0; v<=xMax+1e-9; v+=xStep) s += `<text x="${X(v)}" y="${H-m.b+14}" text-anchor="middle">${v}</text>`;
   s += `<text x="${(m.l+W-m.r)/2}" y="${H-2}" text-anchor="middle">${xLab}</text><text x="${m.l}" y="${m.t-3}">${yLab}</text>`;
   const frame = `<line x1="${m.l}" x2="${m.l}" y1="${m.t}" y2="${H-m.b}" stroke="var(--muted)"/><line x1="${m.l}" x2="${W-m.r}" y1="${H-m.b}" y2="${H-m.b}" stroke="var(--muted)"/>`;
-  return {X, Y, s, frame};
+  return {X, Y, s, frame, l:m.l};
 }
 const path = (xs, fn, X, Y) => xs.map((x,i) => (i?"L":"M") + X(x).toFixed(1) + " " + Y(fn(x)).toFixed(1)).join("");
 const range = (a, b, n) => Array.from({length:n+1}, (_,i) => a + (b-a)*i/n);
@@ -857,15 +952,16 @@ function drawMosPlots(r){
    TAB 2 — CMOS inverter
    ========================================================= */
 const FXI = {L:1, vsb:0, clm:true, body:false, dibl:false, vsat:false};
+const FXI0 = {L:1, vsb:0, clm:false, body:false, dibl:false, vsat:false};
 let vin = 1.4, ratio = 1, sweep = null;
 const IVC = setupCanvas($("cvi"), 1000, 500);
 
-function invAt(x){
-  const f = vo => solve("n", x, vo, FXI).I - solve("p", VDD-x, VDD-vo, FXI, ratio).I;
+function invAt(x, F=FXI){
+  const f = vo => solve("n", x, vo, F).I - solve("p", VDD-x, VDD-vo, F, ratio).I;
   let lo = 0, hi = VDD;
   for (let i=0;i<46;i++){ const mid = (lo+hi)/2; if (f(mid) > 0) hi = mid; else lo = mid; }
   const vo = (lo+hi)/2;
-  const rn = solve("n", x, vo, FXI), rp = solve("p", VDD-x, VDD-vo, FXI, ratio);
+  const rn = solve("n", x, vo, F), rp = solve("p", VDD-x, VDD-vo, F, ratio);
   return {vo, rn, rp, I:(rn.I + rp.I)/2};
 }
 function letter(s){
@@ -896,6 +992,8 @@ function buildVTC(){
   let lo = 0, hi = VDD;
   for (let i=0;i<40;i++){ const m = (lo+hi)/2; if (invAt(m).vo > VDD/2) lo = m; else hi = m; }
   vtcCache.VM = (lo+hi)/2;
+  const anyFx = FXI.clm || FXI.dibl || FXI.vsat || FXI.L < 1;
+  vtcCache.ideal = anyFx ? xs.map(x => { const q = invAt(x, FXI0); return {x, vo:q.vo, I:q.I}; }) : null;
 }
 
 // mini cross-section state
@@ -918,7 +1016,7 @@ function drawMini(m, ox, oy, vg, vd, r, dt, T, lab){
   const X = x => ox + x, Y = y => oy + y;
   const SUR = 80, G0 = 170, G1 = 370, LP = 200, jit = reduce ? 0 : 1.2;
   const th = u => { const q = ch.Q(u); return q > 0 ? 2 + 16*Math.min(q,2.3)/2.3 : 0; };
-  const dep = u => 40*Math.sqrt(clamp(vg/r.Vth, 0, 1))*(ch.inv ? Math.sqrt(1 + 0.3*ch.V(u)) : 1);
+  const dep = u => 40*Math.sqrt(clamp(vg/r.Vth, 0, 1))*(ch.inv ? Math.sqrt(1 + 0.3*ch.V(u)) : 1)*(lab.bf || 1);
 
   ctx.fillStyle = C.panel2; ctx.fillRect(X(0), Y(0), 540, 220);
   ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(X(0.5), Y(0.5), 539, 219);
@@ -1053,8 +1151,11 @@ function eqLine(name, t, r, vg, vd){
   const Id = t === "n" ? "ID,n" : "ISD,p";
   const G = t === "n" ? "VGS" : "VSG", D = t === "n" ? "VDS" : "VSD";
   if (r.reg === "cut") return {name, f:`${Id} = 0`, sub:`${G} = ${f2(vg)} V < ${f2(r.Vth)} V → off`};
-  if (r.reg === "tri") return {name, f:`${Id} = k[(${G} − Vt)·${D} − ${D}²/2]`, sub:`= ${f2(r.k)}·[${f2(r.ov)}·${f2(vd)} − ${f2(vd)}²/2] = ${r.I.toFixed(3)} mA`};
-  return {name, f:`${Id} = ½k(${G} − Vt)²·[1 + λ(${D} − VOV)]`, sub:`= ½·${f2(r.k)}·${f2(r.ov)}²·[1 + ${r.lam}·${f2(vd - r.vdsat)}] = ${r.I.toFixed(3)} mA`};
+  const vs = isFinite(r.EcL), lam = r.lam.toFixed(3);
+  if (r.reg === "tri") return {name, f:`${Id} = k[(${G} − Vt)·${D} − ${D}²/2]` + (vs ? ` / (1 + ${D}/EcL)` : ""),
+    sub:`= ${f2(r.k)}·[${f2(r.ov)}·${f2(vd)} − ${f2(vd)}²/2]` + (vs ? ` / (1 + ${f2(vd)}/${f2(r.EcL)})` : "") + ` = ${r.I.toFixed(3)} mA`};
+  if (vs) return {name, f:`${Id} = ${Id}(${D}sat)·[1 + λ(${D} − ${D}sat)]`, sub:`= ${(r.I/(1 + r.lam*(vd - r.vdsat))).toFixed(3)}·[1 + ${lam}·${f2(vd - r.vdsat)}] = ${r.I.toFixed(3)} mA`};
+  return {name, f:`${Id} = ½k(${G} − Vt)²·[1 + λ(${D} − VOV)]`, sub:`= ½·${f2(r.k)}·${f2(r.ov)}²·[1 + ${lam}·${f2(vd - r.vdsat)}] = ${r.I.toFixed(3)} mA`};
 }
 const regTxt = {cut:"off", tri:"linear", sat:"saturation"};
 function setChip(el, label, reg){
@@ -1102,15 +1203,17 @@ function drawInvPlots(s){
     p += `<line x1="${A.X(0)}" y1="${A.Y(0)}" x2="${A.X(VDD)}" y2="${A.Y(VDD)}" stroke="var(--muted)" stroke-dasharray="2 4"/>`;
     p += `<line x1="${A.X(data.VM)}" x2="${A.X(data.VM)}" y1="36" y2="200" stroke="var(--accent)" stroke-dasharray="3 3" stroke-opacity=".7"/>`;
     p += `<text x="${A.X(data.VM)+4}" y="${A.Y(VDD*0.62)}" style="fill:var(--accent)">VM ${f2(data.VM)}</text>`;
+    if (data.ideal) p += `<path d="${data.ideal.map((d,i) => (i?"L":"M") + A.X(d.x).toFixed(1) + " " + A.Y(d.vo).toFixed(1)).join("")}" fill="none" stroke="var(--fg)" stroke-opacity=".6" stroke-dasharray="5 4" stroke-width="1.4"/><text x="${A.X(VDD)}" y="30" text-anchor="end" style="fill:var(--fg)">- - ideal, L = 1 µm</text>`;
     p += `<path d="${data.map((d,i) => (i?"L":"M") + A.X(d.x).toFixed(1) + " " + A.Y(d.vo).toFixed(1)).join("")}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
     p += A.frame + `<circle cx="${A.X(vin)}" cy="${A.Y(s.vo)}" r="5.5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>`;
     $("vtc").innerHTML = p;
   }
   {
-    const peak = Math.max(...data.map(d => d.I), 0.01);
+    const peak = Math.max(...data.map(d => d.I), ...(data.ideal ? data.ideal.map(d => d.I) : []), 0.01);
     const step = niceStep(peak/4), yMax = Math.ceil(peak/step)*step;
     const A = axes(220, 230, {l:36,r:8,t:22,b:30}, VDD, yMax, step, "Vin (V)", "I (mA)");
     let p = A.s;
+    if (data.ideal) p += `<path d="${data.ideal.map((d,i) => (i?"L":"M") + A.X(d.x).toFixed(1) + " " + A.Y(d.I).toFixed(1)).join("")}" fill="none" stroke="var(--fg)" stroke-opacity=".6" stroke-dasharray="5 4" stroke-width="1.4"/>`;
     p += `<path d="${data.map((d,i) => (i?"L":"M") + A.X(d.x).toFixed(1) + " " + A.Y(d.I).toFixed(1)).join("")}" fill="none" stroke="var(--accent)" stroke-width="2"/>`;
     p += A.frame + `<circle cx="${A.X(vin)}" cy="${A.Y(s.I)}" r="5.5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>`;
     $("isc").innerHTML = p;
@@ -1149,31 +1252,365 @@ function invTick(dt){
 $("vin").addEventListener("input", e => { stopSweep(); ivAnim = null; vin = +e.target.value; updateInv(); });
 $("ratio").addEventListener("input", e => { ratio = +e.target.value; vtcCache = null; updateInv(); });
 $("iv-balance").addEventListener("click", () => { ratio = 2.5; $("ratio").value = 2.5; vtcCache = null; updateInv(); });
+$("iv-len").addEventListener("input", e => { FXI.L = +e.target.value; $("iv-len-v").textContent = f2(FXI.L) + " µm"; vtcCache = null; updateInv(); });
+["clm","dibl","vsat"].forEach(k => $("iv-"+k).addEventListener("change", e => { FXI[k] = e.target.checked; vtcCache = null; updateInv(); }));
+
+/* =========================================================
+   TAB 3 — body effect circuits
+   ========================================================= */
+const BF = {circ:"nand", vin:1.7, sw:"B", tg:false, ib:0.2, body:true, gamma:0.5};
+const FBon  = () => ({L:1, vsb:0, clm:true, body:BF.body, dibl:false, vsat:false, gamma:BF.gamma});
+const FBoff = () => ({L:1, vsb:0, clm:true, body:false,   dibl:false, vsat:false, gamma:BF.gamma});
+const vthOf = (t, vsb, F) => solve(t, 0, 0, F, 1, vsb).Vth;
+const bfac = vsb => BF.body ? Math.min(1.9, Math.sqrt((PHI2 + Math.max(vsb,0))/PHI2)) : 1;
+const BC = setupCanvas($("cvb"), 1000, 488);
+const W_NAND = {n:2, p:2.5}, W_NOR = {n:1, p:5};
+
+// 2-input NAND: PMOS in parallel, NMOS A (top, next to output) over NMOS B (bottom, on GND)
+function nandAt(v, F){
+  const gA = BF.sw === "A" ? v : VDD, gB = BF.sw === "B" ? v : VDD;
+  const pd = vo => {
+    let lo = 0, hi = vo;
+    for (let i=0;i<28;i++){
+      const x = (lo+hi)/2;
+      const it = solve("n", gA-x, vo-x, F, W_NAND.n, x).I, ib = solve("n", gB, x, F, W_NAND.n, 0).I;
+      if (ib > it) hi = x; else lo = x;
+    }
+    const x = (lo+hi)/2; return {I:solve("n", gB, x, F, W_NAND.n, 0).I, x};
+  };
+  const pu = vo => solve("p", VDD-gA, VDD-vo, F, W_NAND.p).I + solve("p", VDD-gB, VDD-vo, F, W_NAND.p).I;
+  let lo = 0, hi = VDD;
+  for (let i=0;i<28;i++){ const m = (lo+hi)/2; if (pd(m).I > pu(m)) hi = m; else lo = m; }
+  const vo = (lo+hi)/2, r = pd(vo);
+  return {vo, node:r.x, I:r.I, gA, gB,
+    hot:{t:"n", vg:gA-r.x, vd:vo-r.x, vsb:r.x, r:solve("n", gA-r.x, vo-r.x, F, W_NAND.n, r.x)},
+    ref:{t:"n", vg:gB, vd:r.x, vsb:0, r:solve("n", gB, r.x, F, W_NAND.n, 0)}};
+}
+// 2-input NOR: NMOS in parallel, PMOS A (top, on VDD) over PMOS B (bottom, next to output)
+function norAt(v, F){
+  const gA = BF.sw === "A" ? v : 0, gB = BF.sw === "B" ? v : 0;
+  const pu = vo => {
+    let lo = vo, hi = VDD;
+    for (let i=0;i<28;i++){
+      const y = (lo+hi)/2;
+      const it = solve("p", VDD-gA, VDD-y, F, W_NOR.p, 0).I, ib = solve("p", y-gB, y-vo, F, W_NOR.p, VDD-y).I;
+      if (ib > it) hi = y; else lo = y;
+    }
+    const y = (lo+hi)/2; return {I:solve("p", VDD-gA, VDD-y, F, W_NOR.p, 0).I, y};
+  };
+  const pd = vo => solve("n", gA, vo, F, W_NOR.n).I + solve("n", gB, vo, F, W_NOR.n).I;
+  let lo = 0, hi = VDD;
+  for (let i=0;i<28;i++){ const m = (lo+hi)/2; if (pd(m) > pu(m).I) hi = m; else lo = m; }
+  const vo = (lo+hi)/2, r = pu(vo);
+  return {vo, node:r.y, I:r.I, gA, gB,
+    hot:{t:"p", vg:r.y-gB, vd:r.y-vo, vsb:VDD-r.y, r:solve("p", r.y-gB, r.y-vo, F, W_NOR.p, VDD-r.y)},
+    ref:{t:"p", vg:VDD-gA, vd:VDD-r.y, vsb:0, r:solve("p", VDD-gA, VDD-r.y, F, W_NOR.p, 0)}};
+}
+// pass transistor: NMOS gate at VDD, optional PMOS (gate 0 V) in parallel; CL = 50 fF
+function passI(v, vi, F){
+  const hi = Math.max(vi, v), lo = Math.min(vi, v), sg = vi >= v ? 1 : -1;
+  const In = solve("n", VDD-lo, hi-lo, F, 1, lo).I;
+  const Ip = BF.tg ? solve("p", hi, hi-lo, F, 2.5, VDD-hi).I : 0;
+  return sg*(In + Ip);
+}
+function passTrans(vi, F){
+  const pts = []; let v = 0; const dtp = 0.002;
+  for (let i=0;i<=750;i++){ if (i % 5 === 0) pts.push({x:i*dtp, y:v}); v = clamp(v + 20*passI(v, vi, F)*dtp, 0, VDD); }
+  return pts;
+}
+function passLevel(vi, F){
+  if (BF.tg) return vi;
+  let lo = 0, hi = VDD;
+  for (let i=0;i<34;i++){ const m = (lo+hi)/2; if (VDD - m - vthOf("n", m, F) > 0) lo = m; else hi = m; }
+  return Math.min(vi, (lo+hi)/2);
+}
+// source follower: NMOS drain at VDD, gate = Vin, source = Vout, current-source load Ib
+function sfAt(v, F){
+  const I = vo => solve("n", v-vo, VDD-vo, F, 1, vo).I;
+  if (I(0) < BF.ib) return 0;
+  let lo = 0, hi = Math.max(v, 0);
+  for (let i=0;i<34;i++){ const m = (lo+hi)/2; if (I(m) > BF.ib) lo = m; else hi = m; }
+  return (lo+hi)/2;
+}
+function vmOf(fn, F){ let lo = 0, hi = VDD; for (let i=0;i<22;i++){ const m = (lo+hi)/2; if (fn(m, F).vo > VDD/2) lo = m; else hi = m; } return (lo+hi)/2; }
+
+let bdCache = {key:null};
+const pst = {t:0};
+function bodyCurves(){
+  const key = JSON.stringify([BF.circ, BF.sw, BF.tg, BF.ib, BF.body, BF.gamma, BF.circ === "pass" ? BF.vin : 0]);
+  if (bdCache.key === key) return bdCache;
+  const on = FBon(), off = FBoff(), xs = range(0, VDD, 66), c = {key};
+  if (BF.circ === "nand" || BF.circ === "nor"){
+    const fn = BF.circ === "nand" ? nandAt : norAt;
+    c.on = xs.map(x => ({x, y:fn(x, on).vo})); c.off = xs.map(x => ({x, y:fn(x, off).vo}));
+    c.vmOn = vmOf(fn, on); c.vmOff = vmOf(fn, off);
+  } else if (BF.circ === "pass"){
+    c.on = passTrans(BF.vin, on); c.off = passTrans(BF.vin, off);
+    c.lvOn = passLevel(BF.vin, on); c.lvOff = passLevel(BF.vin, off);
+    pst.t = 0;
+  } else {
+    c.on = xs.map(x => ({x, y:sfAt(x, on)})); c.off = xs.map(x => ({x, y:sfAt(x, off)}));
+  }
+  bdCache = c; return c;
+}
+const interp = (pts, x) => { const i = clamp(Math.floor(x/0.01), 0, pts.length-2), k = clamp((x - pts[i].x)/0.01, 0, 1); return pts[i].y + (pts[i+1].y - pts[i].y)*k; };
+
+function bodyState(){
+  const on = FBon(), off = FBoff(), c = bodyCurves();
+  if (BF.circ === "nand") return {...nandAt(BF.vin, on), c};
+  if (BF.circ === "nor")  return {...norAt(BF.vin, on), c};
+  if (BF.circ === "pass"){
+    const v = interp(c.on, pst.t), hi = Math.max(BF.vin, v), lo = Math.min(BF.vin, v);
+    const r = solve("n", VDD-lo, hi-lo, on, 1, lo), r0 = solve("n", VDD-lo, hi-lo, off, 1, 0);
+    return {vo:v, node:null, I:Math.abs(passI(v, BF.vin, on)), c,
+      hot:{t:"n", vg:VDD-lo, vd:hi-lo, vsb:lo, r}, ref:{t:"n", vg:VDD-lo, vd:hi-lo, vsb:0, r:r0}};
+  }
+  const vo = sfAt(BF.vin, on);
+  const r = solve("n", BF.vin-vo, VDD-vo, on, 1, vo), r0 = solve("n", BF.vin-vo, VDD-vo, off, 1, 0);
+  return {vo, node:null, I:r.I, c, hot:{t:"n", vg:BF.vin-vo, vd:VDD-vo, vsb:vo, r}, ref:{t:"n", vg:BF.vin-vo, vd:VDD-vo, vsb:0, r:r0}};
+}
+
+const CIRC = {
+  nand:{pill:"NAND2", name:"Stacked NMOS", sub:"The top NMOS has its source on node X, above ground",
+    text:"In a 2-input NAND the two NMOS transistors are in series. The bottom one has its source on ground, but the top one has its source on the middle node X, which sits above ground while current flows. Its body is still at ground, so VSB = VX > 0 and its threshold rises. The top transistor is weaker, the pull-down is slower, and the switching point moves. Turn the body effect off to compare.",
+    hotT:"NMOS A · top of stack (VSB = VX)", refT:"NMOS B · bottom of stack (VSB = 0)"},
+  nor:{pill:"NOR2", name:"Stacked PMOS", sub:"The lower PMOS has its source on node Y, below VDD",
+    text:"In a 2-input NOR the two PMOS transistors are in series. The top one has its source on VDD, but the lower one has its source on node Y, which sits below VDD while current flows. Its body (the n-well) is still at VDD, so VBS = VDD − VY > 0 and |Vtp| rises. This weakens the PMOS stack, which is already slow because holes are slower than electrons.",
+    hotT:"PMOS B · bottom of stack (VBS = VDD − VY)", refT:"PMOS A · top of stack (VBS = 0)"},
+  pass:{pill:"PASS", name:"Pass transistor", sub:"Passes a strong 0 but a weak 1",
+    text:"An NMOS pass transistor with its gate at VDD passes a 0 perfectly but not a 1. As CL charges, VGS = VDD − Vout shrinks and VSB = Vout grows, which raises Vth. Charging stops when VDD − Vout = Vth(Vout), a weak 1 well below VDD. Add the PMOS in parallel (a transmission gate) and the output reaches the full input voltage.",
+    hotT:"Pass NMOS (VSB = Vout)", refT:"Same bias, body tied to source (no body effect)"},
+  sf:{pill:"SF", name:"Source follower", sub:"Output follows the input, one rising Vth lower",
+    text:"In a source follower the output follows the input one VGS lower: Vout = Vin − Vth − VOV. The source moves with the output while the body stays at ground, so Vth increases as Vout rises. The level shift grows with Vin and the small-signal gain drops below 1: Av = gm/(gm + gmb) = 1/(1 + η).",
+    hotT:"Follower NMOS (VSB = Vout)", refT:"Same bias, body tied to source (no body effect)"}
+};
+
+/* ---- schematic drawing ---- */
+const pl = pts => { ctx.beginPath(); pts.forEach(([x,y],i) => i ? ctx.lineTo(x,y) : ctx.moveTo(x,y)); ctx.stroke(); };
+function gnd(x, y){ ctx.strokeStyle = C.muted; ctx.lineWidth = 2.2; pl([[x-22,y],[x+22,y]]); pl([[x-14,y+8],[x+14,y+8]]); pl([[x-6,y+16],[x+6,y+16]]); }
+function ndot(x, y){ ctx.fillStyle = C.fg; ctx.beginPath(); ctx.arc(x, y, 4.5, 0, 6.283); ctx.fill(); }
+function txt(s, x, y, o={}){
+  ctx.font = (o.sans ? sans : mono)(o.w || 500, o.px || 12); ctx.fillStyle = o.col || C.muted;
+  ctx.textAlign = o.al || "left"; ctx.textBaseline = "middle"; ctx.fillText(s, x, y);
+}
+// transistor symbol: channel bar at x, terminals at (x+30, yc-50) and (x+30, yc+50)
+function symb(t, x, yc, o){
+  if (o.hl){ ctx.fillStyle = C.accent; ctx.globalAlpha = .13; ctx.fillRect(x-66, yc-46, 158, 92); ctx.globalAlpha = 1; }
+  ctx.lineCap = "round";
+  ctx.strokeStyle = o.on ? (t === "n" ? C.electron : C.hole) : C.muted; ctx.lineWidth = 4; pl([[x,yc-34],[x,yc+34]]);
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 3; pl([[x-14,yc-26],[x-14,yc+26]]);
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 2.2;
+  pl([[x,yc-26],[x+30,yc-26],[x+30,yc-50]]); pl([[x,yc+26],[x+30,yc+26],[x+30,yc+50]]);
+  if (t === "p"){ ctx.strokeStyle = C.fg; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x-21, yc, 6, 0, 6.283); ctx.stroke(); ctx.strokeStyle = C.muted; ctx.lineWidth = 2.2; pl([[x-27,yc],[x-58,yc]]); }
+  else pl([[x-14,yc],[x-58,yc]]);
+  if (o.g) txt(o.g, x-62, yc, {al:"right", col:C.fg, w:600, px:12});
+  if (o.body) txt(o.body, x+36, yc, {px:10, col:o.hl ? C.accent : C.muted, w:o.hl ? 600 : 500});
+}
+
+function drawBodySchem(st){
+  ctx.lineCap = "round"; ctx.strokeStyle = C.muted; ctx.lineWidth = 2.2;
+  const on = r => r.reg !== "cut", hlN = BF.body;
+  if (BF.circ === "nand"){
+    pl([[140,50],[380,50]]); txt(`VDD ${VDD} V`, 380, 34, {al:"right", col:C.fg, w:600});
+    const pA = solve("p", VDD-st.gA, VDD-st.vo, FBon(), W_NAND.p), pB = solve("p", VDD-st.gB, VDD-st.vo, FBon(), W_NAND.p);
+    symb("p", 150, 125, {on:on(pA), g:"A", body:"body=VDD"});
+    symb("p", 320, 125, {on:on(pB), g:"B", body:"body=VDD"});
+    ctx.strokeStyle = C.muted; ctx.lineWidth = 2.2;
+    pl([[180,75],[180,50]]); pl([[350,75],[350,50]]); pl([[180,175],[180,205]]); pl([[350,175],[350,205]]);
+    pl([[180,205],[410,205]]);
+    symb("n", 240, 270, {on:on(st.hot.r), g:"A", body:"body=GND", hl:hlN});
+    symb("n", 240, 370, {on:on(st.ref.r), g:"B", body:"body=GND"});
+    ctx.strokeStyle = C.muted; ctx.lineWidth = 2.2; pl([[270,220],[270,205]]); pl([[270,420],[270,440]]); gnd(270, 440);
+    ndot(270, 205); ndot(270, 320);
+    txt(`X = ${f2(st.node)} V`, 186, 320, {al:"right", col:C.accent, w:600});
+    txt(`Vout = ${f2(st.vo)} V`, 410, 190, {al:"right", col:C.accent, w:600});
+  } else if (BF.circ === "nor"){
+    pl([[200,50],[340,50]]); txt(`VDD ${VDD} V`, 340, 34, {al:"right", col:C.fg, w:600});
+    symb("p", 240, 100, {on:on(st.ref.r), g:"A", body:"body=VDD"});
+    symb("p", 240, 200, {on:on(st.hot.r), g:"B", body:"body=VDD", hl:hlN});
+    const nA = solve("n", st.gA, st.vo, FBon(), W_NOR.n), nB = solve("n", st.gB, st.vo, FBon(), W_NOR.n);
+    symb("n", 150, 330, {on:on(nA), g:"A", body:"body=GND"});
+    symb("n", 320, 330, {on:on(nB), g:"B", body:"body=GND"});
+    ctx.strokeStyle = C.muted; ctx.lineWidth = 2.2;
+    pl([[270,250],[270,265]]); pl([[180,265],[410,265]]); pl([[180,280],[180,265]]); pl([[350,280],[350,265]]);
+    pl([[180,380],[180,410]]); pl([[350,380],[350,410]]); pl([[180,410],[350,410]]); gnd(265, 410);
+    ndot(270, 150); ndot(270, 265);
+    txt(`Y = ${f2(st.node)} V`, 186, 150, {al:"right", col:C.accent, w:600});
+    txt(`Vout = ${f2(st.vo)} V`, 410, 250, {al:"right", col:C.accent, w:600});
+  } else if (BF.circ === "pass"){
+    txt(`Vin = ${f2(BF.vin)} V`, 250, 74, {al:"center", col:C.fg, w:600});
+    ndot(250, 92); pl([[250,92],[250,180]]);
+    symb("n", 220, 230, {on:on(st.hot.r), g:"G = VDD", body:"body=GND", hl:hlN});
+    ctx.strokeStyle = C.muted; ctx.lineWidth = 2.2; pl([[250,280],[250,345]]); pl([[250,320],[420,320]]);
+    ctx.lineWidth = 3; pl([[226,345],[274,345]]); pl([[226,356],[274,356]]); ctx.lineWidth = 2.2; pl([[250,356],[250,384]]); gnd(250, 384);
+    txt("CL 50 fF", 284, 351, {});
+    ndot(250, 320);
+    if (BF.tg){
+      const hi = Math.max(BF.vin, st.vo), lo = Math.min(BF.vin, st.vo);
+      const rp = solve("p", hi, hi-lo, FBon(), 2.5, VDD-hi);
+      symb("p", 390, 230, {on:on(rp), body:""});
+      ctx.strokeStyle = C.muted; ctx.lineWidth = 2.2; pl([[420,180],[420,150],[250,150]]); pl([[420,280],[420,300],[250,300]]);
+      txt("G = 0 V", 362, 214, {al:"center", col:C.fg, w:600, px:11});
+      txt("body=VDD", 426, 330, {px:10});
+    }
+    txt(`Vout = ${f2(st.vo)} V`, 420, 336, {al:"right", col:C.accent, w:600});
+    txt(`t = ${f2(pst.t)} ns`, 40, 420, {col:C.fg, w:600});
+  } else {
+    pl([[180,60],[320,60]]); txt(`VDD ${VDD} V`, 320, 44, {al:"right", col:C.fg, w:600});
+    symb("n", 220, 180, {on:on(st.hot.r), g:`Vin ${f2(BF.vin)} V`, body:"body=GND", hl:hlN});
+    ctx.strokeStyle = C.muted; ctx.lineWidth = 2.2;
+    pl([[250,130],[250,60]]); pl([[250,230],[250,300]]); pl([[250,260],[420,260]]); pl([[250,350],[250,390]]); gnd(250, 390);
+    ctx.beginPath(); ctx.arc(250, 325, 25, 0, 6.283); ctx.stroke();
+    pl([[250,312],[250,340]]); pl([[242,331],[250,340],[258,331]]);
+    txt(`Ib = ${f2(BF.ib)} mA`, 284, 325, {});
+    ndot(250, 260);
+    txt(`Vout = ${f2(st.vo)} V`, 420, 246, {al:"right", col:C.accent, w:600});
+  }
+}
+
+const minis = {nand:[mkMini("n"), mkMini("n")], nor:[mkMini("p"), mkMini("p")], pass:[mkMini("n"), mkMini("n")], sf:[mkMini("n"), mkMini("n")]};
+function miniLab(dev, title, isHot){
+  const p = dev.t === "p";
+  const vt = `${p ? "|Vtp|" : "Vth"} ${f2(dev.r.Vth)} V`;
+  return {title, s:"S", d:"D", g:`G (${p ? "VSG" : "VGS"} ${f2(dev.vg)} V)`,
+    v:`${p ? "VBS" : "VSB"} ${f2(dev.vsb)} V · ${vt}${isHot && BF.body && dev.vsb > 0.01 ? ` (+${f2(dev.r.dVb)})` : ""}`,
+    bf: isHot ? bfac(dev.vsb) : 1};
+}
+let bstate = null;
+function drawBody(dt, T){
+  begin(BC);
+  const st = bstate || bodyState();
+  drawBodySchem(st);
+  const info = CIRC[BF.circ], mm = minis[BF.circ];
+  drawMini(mm[0], 446, 16, st.hot.vg, st.hot.vd, st.hot.r, dt, T, miniLab(st.hot, info.hotT, true));
+  drawMini(mm[1], 446, 256, st.ref.vg, st.ref.vd, st.ref.r, dt, T, miniLab(st.ref, info.refT, false));
+}
+
+function updateBody(){
+  const st = bodyState(), c = st.c, info = CIRC[BF.circ], p = BF.circ === "nor";
+  bstate = st;
+  $("bd-pill").textContent = info.pill; $("bd-name").textContent = info.name; $("bd-sub").textContent = info.sub;
+  document.querySelectorAll("#bd-circ button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === BF.circ));
+  document.querySelectorAll("#bd-sw button").forEach(b => b.setAttribute("aria-pressed", b.dataset.s === BF.sw));
+  $("bd-sw").hidden = !(BF.circ === "nand" || BF.circ === "nor");
+  $("bd-pass-w").hidden = BF.circ !== "pass"; $("bd-ib-w").hidden = BF.circ !== "sf";
+  const swA = $("bd-sw").children[0], swB = $("bd-sw").children[1];
+  swA.textContent = BF.circ === "nand" ? "A switches (top, next to output)" : "A switches (top, next to VDD)";
+  swB.textContent = BF.circ === "nand" ? "B switches (bottom, next to GND)" : "B switches (bottom, next to output)";
+  $("bd-vin-name").textContent = {nand:`Input ${BF.sw} (other input held at VDD)`, nor:`Input ${BF.sw} (other input held at 0 V)`, pass:"Data input Vin (gate at VDD)", sf:"Gate input Vin"}[BF.circ];
+  $("bd-vin-v").textContent = f2(BF.vin) + " V";
+  $("bd-gamma-v").textContent = BF.gamma.toFixed(2) + " V½";
+  $("bd-ib-v").textContent = f2(BF.ib) + " mA";
+  $("bd-ro-in").textContent = f2(BF.vin) + " V"; $("bd-ro-out").textContent = f2(st.vo) + " V";
+  $("bd-lab-vsb").textContent = p ? "VBS (highlighted)" : "VSB (highlighted)";
+  $("bd-lab-vt").textContent = p ? "|Vtp| (highlighted)" : "Vth (highlighted)";
+  $("bd-ro-vsb").textContent = f2(st.hot.vsb) + " V"; $("bd-ro-vt").textContent = f2(st.hot.r.Vth) + " V";
+  $("bd-explain").textContent = info.text;
+
+  const vs = f2(st.hot.vsb), Vt = p ? "|Vtp|" : "Vth", SB = p ? "VBS" : "VSB";
+  const rows = [{name:"Threshold", f:`${Vt} = ${Vt}₀ + γ(√(2φF + ${SB}) − √2φF)`,
+    sub: BF.body ? `= 1.00 + ${f2(BF.gamma)}·(√(0.70 + ${vs}) − √0.70) = ${f2(st.hot.r.Vth)} V` : `body effect off → ${Vt} = 1.00 V`}];
+  if (BF.circ === "nand"){
+    rows.push({name:"Series", f:"I = I_A(VGS = A − VX, VSB = VX) = I_B(VGS = B, VDS = VX)", sub:`VX = ${f2(st.node)} V → I = ${st.I.toFixed(3)} mA`});
+    rows.push({name:"Switching", f:"VM: Vout = VDD/2", sub:`VM = ${f2(c.vmOn)} V with body effect, ${f2(c.vmOff)} V without`});
+  } else if (BF.circ === "nor"){
+    rows.push({name:"Series", f:"I = I_A(VSG = VDD − A, VSD = VDD − VY) = I_B(VSG = VY − B, VBS = VDD − VY)", sub:`VY = ${f2(st.node)} V → I = ${st.I.toFixed(3)} mA`});
+    rows.push({name:"Switching", f:"VM: Vout = VDD/2", sub:`VM = ${f2(c.vmOn)} V with body effect, ${f2(c.vmOff)} V without`});
+  } else if (BF.circ === "pass"){
+    rows.push(BF.tg
+      ? {name:"Final level", f:"PMOS keeps conducting when the NMOS gives up", sub:`→ Vout reaches Vin = ${f2(BF.vin)} V`}
+      : {name:"Final level", f:"Charging stops when VDD − Vout = Vth(VSB = Vout)", sub:`→ Vout = ${f2(c.lvOn)} V  (${f2(c.lvOff)} V without body effect)`});
+  } else {
+    const eta = BF.body ? BF.gamma/(2*Math.sqrt(PHI2 + st.vo)) : 0;
+    rows.push({name:"Output", f:"Vout = Vin − Vth(VSB = Vout) − VOV", sub:`= ${f2(BF.vin)} − ${f2(st.hot.r.Vth)} − ${f2(Math.max(st.hot.r.ov,0))} = ${f2(st.vo)} V`});
+    rows.push({name:"Gain", f:"Av = gm/(gm + gmb) = 1/(1 + η),  η = γ / (2√(2φF + VSB))", sub:`η = ${eta.toFixed(3)} → Av = ${(1/(1+eta)).toFixed(3)}`});
+  }
+  $("bd-eq").innerHTML = rows.map(r => `<div class="eqrow act"><span class="name">${r.name}</span><span class="f">${r.f}</span><span class="sub">${r.sub}</span></div>`).join("");
+  drawBodyPlots(st);
+}
+
+function drawBodyPlots(st){
+  const c = st.c, lp = (pts, A) => pts.map((q,i) => (i?"L":"M") + A.X(q.x).toFixed(1) + " " + A.Y(q.y).toFixed(1)).join("");
+  const offStyle = `fill="none" stroke="var(--fg)" stroke-opacity=".6" stroke-dasharray="5 4" stroke-width="1.4"`;
+  const onStyle = `fill="none" stroke="var(--accent)" stroke-width="2.2"`;
+  const key = `<text x="40" y="12" style="fill:var(--accent)">— with body effect</text><text x="170" y="12" style="fill:var(--fg)">- - without</text>`;
+  let s;
+  if (BF.circ === "pass"){
+    const A = axes(300, 230, {l:30,r:10,t:30,b:30}, 1.5, VDD, 1, "time (ns)", "Vout (V)", 0.5);
+    s = A.s + key;
+    s += `<line x1="${A.X(0)}" x2="${A.X(1.5)}" y1="${A.Y(BF.vin)}" y2="${A.Y(BF.vin)}" stroke="var(--muted)" stroke-dasharray="2 4"/><text x="${A.X(1.48)}" y="${A.Y(BF.vin)-4}" text-anchor="end">Vin</text>`;
+    s += `<path d="${lp(c.off, A)}" ${offStyle}/><path d="${lp(c.on, A)}" ${onStyle}/>`;
+    if (!BF.tg) s += `<text x="${A.X(0.75)}" y="${A.Y(c.lvOn)+14}" style="fill:var(--accent)">weak 1 = ${f2(c.lvOn)} V</text>`;
+    s += A.frame + `<circle cx="${A.X(pst.t)}" cy="${A.Y(st.vo)}" r="5.5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>`;
+  } else {
+    const A = axes(300, 230, {l:30,r:10,t:30,b:30}, VDD, VDD, 1, BF.circ === "sf" ? "Vin (V)" : `input ${BF.sw} (V)`, "Vout (V)");
+    s = A.s + key;
+    if (BF.circ === "sf") s += `<line x1="${A.X(0)}" y1="${A.Y(0)}" x2="${A.X(VDD)}" y2="${A.Y(VDD)}" stroke="var(--muted)" stroke-dasharray="2 4"/><text x="${A.X(2.2)}" y="${A.Y(2.45)}">Vout = Vin</text>`;
+    s += `<path d="${lp(c.off, A)}" ${offStyle}/><path d="${lp(c.on, A)}" ${onStyle}/>`;
+    if (c.vmOn != null){
+      s += `<line x1="${A.X(c.vmOn)}" x2="${A.X(c.vmOn)}" y1="30" y2="200" stroke="var(--accent)" stroke-dasharray="3 3" stroke-opacity=".7"/>`;
+      s += `<text x="${A.X(c.vmOn)+4}" y="${A.Y(VDD*0.7)}" style="fill:var(--accent)">VM ${f2(c.vmOn)}</text>`;
+    }
+    s += A.frame + `<circle cx="${A.X(BF.vin)}" cy="${A.Y(st.vo)}" r="5.5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>`;
+  }
+  $("bd-p1").innerHTML = s;
+  // Vth vs VSB
+  const p = BF.circ === "nor", F = FBon();
+  const A = axes(220, 230, {l:30,r:8,t:30,b:30}, VDD, 2.5, 0.5, p ? "VBS (V)" : "VSB (V)", p ? "|Vtp| (V)" : "Vth (V)");
+  let q = A.s;
+  q += `<line x1="${A.X(0)}" x2="${A.X(VDD)}" y1="${A.Y(1)}" y2="${A.Y(1)}" stroke="var(--muted)" stroke-dasharray="3 3"/><text x="${A.X(VDD)}" y="${A.Y(1)+12}" text-anchor="end">${p ? "|Vtp|₀" : "Vth₀"} = 1.00</text>`;
+  q += `<path d="${range(0, VDD, 40).map((v,i) => (i?"L":"M") + A.X(v).toFixed(1) + " " + A.Y(vthOf(p ? "p" : "n", v, F)).toFixed(1)).join("")}" ${onStyle}/>`;
+  q += A.frame + `<circle cx="${A.X(st.hot.vsb)}" cy="${A.Y(st.hot.r.Vth)}" r="5.5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>`;
+  $("bd-p2").innerHTML = q;
+}
+
+function bodyTick(dt){
+  if (BF.circ === "pass" && pst.t < 1.5){ pst.t = Math.min(1.5, pst.t + dt*(reduce ? 3 : 0.5)); updateBody(); }
+}
+function setCirc(cname, keepSw){
+  BF.circ = cname; bdCache = {key:null};
+  if (!keepSw){ if (cname === "nand") BF.sw = "B"; else if (cname === "nor") BF.sw = "A"; }
+  if (cname === "pass") BF.vin = VDD; else if (cname === "sf") BF.vin = 2.5;
+  else { BF.vin = 0; const c = bodyCurves(); BF.vin = Math.round(c.vmOn*100)/100; }
+  $("bd-vin").value = BF.vin; pst.t = 0; updateBody();
+}
+document.querySelectorAll("#bd-circ button").forEach(b => b.addEventListener("click", () => setCirc(b.dataset.c)));
+document.querySelectorAll("#bd-sw button").forEach(b => b.addEventListener("click", () => { BF.sw = b.dataset.s; setCirc(BF.circ, true); }));
+$("bd-vin").addEventListener("input", e => { BF.vin = +e.target.value; updateBody(); });
+$("bd-body").addEventListener("change", e => { BF.body = e.target.checked; updateBody(); });
+$("bd-gamma").addEventListener("input", e => { BF.gamma = +e.target.value; updateBody(); });
+$("bd-ib").addEventListener("input", e => { BF.ib = +e.target.value; updateBody(); });
+$("bd-tg").addEventListener("change", e => { BF.tg = e.target.checked; updateBody(); });
+$("bd-recharge").addEventListener("click", () => { pst.t = 0; updateBody(); });
+
+
 
 /* ================= tabs + loop ================= */
 let tab = "mos";
+let bdInit = false;
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect"};
 function showTab(t){
   tab = t;
-  $("tab-mos").hidden = t !== "mos"; $("tab-inv").hidden = t !== "inv";
-  $("tab-btn-mos").setAttribute("aria-selected", t === "mos"); $("tab-btn-inv").setAttribute("aria-selected", t === "inv");
+  ["mos","inv","body"].forEach(k => { $("tab-"+k).hidden = t !== k; $("tab-btn-"+k).setAttribute("aria-selected", t === k); });
   $("seg-type").hidden = t !== "mos";
-  $("sub-top").textContent = t === "inv" ? `CMOS inverter · VDD = ${VDD} V · Vtn = +1.0 V, Vtp = −1.0 V` : $("sub-top").textContent;
-  try { history.replaceState(null, "", t === "inv" ? "#inverter" : "#transistor"); } catch(e){}
-  if (t === "mos"){ M.resize(); updateMos(); } else { IVC.resize(); updateInv(); }
+  try { history.replaceState(null, "", HASH[t]); } catch(e){}
+  if (t === "mos"){ M.resize(); updateMos(); }
+  else if (t === "inv"){ $("sub-top").textContent = `CMOS inverter · VDD = ${VDD} V · Vtn = +1.0 V, Vtp = −1.0 V`; IVC.resize(); updateInv(); }
+  else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
-$("tab-btn-mos").addEventListener("click", () => showTab("mos"));
-$("tab-btn-inv").addEventListener("click", () => showTab("inv"));
+["mos","inv","body"].forEach(k => $("tab-btn-"+k).addEventListener("click", () => showTab(k)));
 
 let last = performance.now(), T = 0;
 function frame(now){
   const dt = Math.min(0.05, (now-last)/1000); last = now; T += dt;
   if (tab === "mos"){ tourTick(dt); if (M.cv.clientWidth) drawMos(dt, T); }
-  else { invTick(dt); if (IVC.cv.clientWidth) drawInv(dt, T); }
+  else if (tab === "inv"){ invTick(dt); if (IVC.cv.clientWidth) drawInv(dt, T); }
+  else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
 }
 
 buildLegend(); updateMos();
-showTab(location.hash === "#inverter" ? "inv" : "mos");
+showTab(location.hash === "#inverter" ? "inv" : location.hash === "#body-effect" ? "body" : "mos");
 requestAnimationFrame(frame);
 })();
 </script>
