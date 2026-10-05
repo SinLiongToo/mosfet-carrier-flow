@@ -37,8 +37,17 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **PLL synthesizer** – XO → PFD → CP → LF → VCO (19–20 GHz) → ×4 → 76–81 GHz; ramp generator + ΣΔ change the fractional divide ratio N to make the chirp; MOS-varactor cross-section with C–V and f–V curves; chirp tracking error and phase-noise budget (ref/CP, ΣΔ, VCO) vs loop bandwidth, fref and ΣΔ order
 - **FMCW radar** – TX chirp and delayed echo, beat frequency fb = 2RS/c, IF signal, FFT range spectrum (two-target resolution), ΔR = c/2B, Rmax, Doppler
 
+## RF passives tab (`#rf-passives`)
+- **S-parameters** – a line section (Zl, θ) between two 50 Ω ports: animated incident / reflected / transmitted waves, standing wave and VSWR, power balance, |S11| and |S21| vs frequency, Smith chart
+- **Coupler** – coupled-line directional coupler: four ports with live dB values, backward coupled wave, even / odd-mode cross-sections (Z0e, Z0o), 90° between through and coupled, response vs frequency and output phasors
+- **Balun** – LC lattice balun (single-ended → differential): V+ / V− waveforms and phasors, amplitude and phase balance, common mode, match vs load and capacitor error
+- **Antenna** – centre-fed dipole: current standing wave, radiating wavefronts, E-plane pattern, induced-EMF input impedance, directivity, S11 vs frequency
+- **Waveguide TE / TM** – WR-90 with TE10, TE20, TE01, TE11, TM11, TM21: cross-section E / H fields, side view (propagating or evanescent), ray picture, cutoff, λg, vp / vg, dispersion and mode chart
+
 Every tab has hover/tap explanations on its readouts and equations, plus an **Explain the terms** panel: a step-by-step walkthrough, live tables computed from the current settings, and a glossary.
 
 Light / dark theme toggle (follows the system by default).
+
+Every plot and animation has a zoom button in its top-right corner.
 
 English / 繁體中文 toggle (globe button in the header, remembered per browser). The `I18N_ZH` table and the small switcher in the head of `index.html` swap the page text, tooltips and canvas labels, so equations and numbers stay live.

@@ -822,7 +822,305 @@ window.I18N_ZH = {
 "S = Vin": "S = Vin",
 "❚❚ Pause sweep": "❚❚ 暫停掃描",
 "PMOS keeps conducting when the NMOS gives up": "NMOS 關閉後 PMOS 仍持續導通",
-"→ Vout reaches Vin = # V": "→ Vout 達到 Vin = # V"
+"→ Vout reaches Vin = # V": "→ Vout 達到 Vin = # V",
+"RF passives": "RF 被動元件",
+"RF passives · S-parameters, coupler, balun, antenna, waveguide modes": "RF 被動元件 · S 參數、耦合器、巴倫、天線、波導模態",
+"fc = c/# · √((m/a)² + (n/b)²) for TEmn and TMmn.": "TEmn 與 TMmn 的 fc = c/# · √((m/a)² + (n/b)²)。",
+"S-parameters": "S 參數",
+"RF view": "RF 檢視",
+"Coupler": "耦合器",
+"Balun": "巴倫",
+"Antenna": "天線",
+"Waveguide TE / TM": "波導 TE / TM",
+"Characteristic impedance of the middle line section. A narrow strip has a high impedance, a wide strip a low one. Anything other than # Ω causes reflections.": "中間傳輸線段的特性阻抗。窄的導帶阻抗高，寬的導帶阻抗低。只要不是 # Ω 就會產生反射。",
+"Line impedance Zl": "線段阻抗 Zl",
+"Electrical length of the line section at # GHz. #° is a quarter wavelength.": "線段在 # GHz 時的電氣長度。#° 為四分之一波長。",
+"Line length θ at # GHz": "# GHz 時的線段長度 θ",
+"Frequency f": "頻率 f",
+"How much of the input power goes to the coupled port, in dB. # dB splits the power in half; # dB takes # %. Tighter coupling needs a smaller gap between the lines.": "輸入功率有多少到達耦合埠（dB）。# dB 為功率對半分；# dB 取出 # %。耦合越強，兩線間距需越小。",
+"Coupling C": "耦合量 C",
+"How much weaker the isolated port is than the coupled port. Real couplers reach #–# dB.": "隔離埠比耦合埠弱多少。實際耦合器可達 #–# dB。",
+"Directivity D": "方向性 D",
+"Differential load between the two outputs, e.g. the input of a differential LNA or a dipole antenna.": "兩個輸出之間的差動負載，例如差動 LNA 的輸入或偶極天線。",
+"Differential load RL": "差動負載 RL",
+"Error of both capacitors from their design value, as from process variation. It moves the frequency where the two outputs are equal.": "兩顆電容偏離設計值的誤差（例如製程變異）。它會移動兩輸出相等的頻率。",
+"Capacitor error": "電容誤差",
+"Total tip-to-tip length of the dipole. A half-wave dipole for # GHz is about # mm.": "偶極天線端到端的總長度。# GHz 的半波偶極約 # mm。",
+"Dipole length L": "偶極長度 L",
+"Waveguide mode": "波導模態",
+"Field shown": "顯示的場",
+"E field": "E 場",
+"H field": "H 場",
+"Response and S-parameters": "響應與 S 參數",
+"Response versus frequency": "響應對頻率",
+"Smith chart, phasors, radiation pattern or mode chart": "史密斯圖、相量、輻射場型或模態圖",
+"Explain the terms: S-parameters, Smith chart, coupler, balun, antenna, TE / TM modes": "名詞解釋：S 參數、史密斯圖、耦合器、巴倫、天線、TE / TM 模態",
+"How to read S-parameters": "如何讀 S 參數",
+"Each port of a component is fed from a line with a reference impedance <b>Z#</b>, usually # Ω. Power travels in as a wave <b>a</b> and comes back out as a wave <b>b</b>.": "元件的每個埠都由參考阻抗為 <b>Z#</b>（通常 # Ω）的傳輸線饋入。功率以入射波 <b>a</b> 進入，以出射波 <b>b</b> 離開。",
+"<b>Sij</b> is the wave leaving port i when only port j is driven: S# is the reflection at port #, S# the transmission from port # to port #.": "<b>Sij</b> 是只驅動埠 j 時從埠 i 出來的波：S# 是埠 # 的反射，S# 是從埠 # 到埠 # 的傳輸。",
+"They are complex numbers: the magnitude (usually in dB) says how much comes out, the angle says how much it is delayed.": "它們是複數：大小（通常用 dB）表示出來多少，角度表示延遲多少。",
+"A passive, lossless component keeps the power: |S#|² + |S#|² + … = # for each driven port. Whatever is not reflected or passed on is turned into heat or radiated.": "被動且無損的元件保持功率守恆：對每個被驅動的埠，|S#|² + |S#|² + … = #。沒有被反射或傳過去的部分，就變成熱或被輻射出去。",
+"Return loss, VSWR and mismatch": "回波損耗、VSWR 與失配",
+"Return loss": "回波損耗",
+"Power reflected": "反射功率",
+"A common target is |S#| below −# dB across the band: only # % of the power is reflected.": "常見目標是整個頻帶內 |S#| 低於 −# dB：只有 # % 的功率被反射。",
+"TE, TM and TEM": "TE、TM 與 TEM",
+"In a <b>TE</b> mode the electric field is purely transverse (Ez = #) and the magnetic field has a component along the guide. In a <b>TM</b> mode it is the other way round (Hz = #). A <b>TEM</b> wave has neither Ez nor Hz; it needs two conductors (coax, microstrip, a pair of wires) and has no cutoff. A hollow metal pipe has only one conductor, so it carries only TE and TM modes, and each mode propagates only above its cutoff frequency.": "在 <b>TE</b> 模態中電場完全是橫向的（Ez = #），磁場則有沿波導方向的分量。<b>TM</b> 模態則相反（Hz = #）。<b>TEM</b> 波既沒有 Ez 也沒有 Hz；它需要兩個導體（同軸線、微帶線、雙絞線），而且沒有截止頻率。中空金屬管只有一個導體，所以只能傳 TE 與 TM 模態，且每個模態只在高於其截止頻率時才能傳播。",
+"Network terms": "網路名詞",
+"Reference (characteristic) impedance of the ports, # Ω here.": "各埠的參考（特性）阻抗，這裡為 # Ω。",
+"Reflection coefficient: (Z − Z#)/(Z + Z#). # means matched, # means everything bounces back.": "反射係數：(Z − Z#)/(Z + Z#)。# 代表匹配，# 代表全部反射回來。",
+"−#·log|S#|. Bigger is better.": "−#·log|S#|。越大越好。",
+"Insertion loss": "插入損耗",
+"−#·log|S#|: how much weaker the signal is after passing through.": "−#·log|S#|：訊號通過後變弱多少。",
+"Ratio of the maximum to the minimum of the standing wave, (# + |Γ|)/(# − |Γ|).": "駐波最大值與最小值之比，(# + |Γ|)/(# − |Γ|)。",
+"Smith chart": "史密斯圖",
+"A map of Γ. The centre is a perfect match; circles are constant resistance, arcs constant reactance.": "Γ 的地圖。中心為完美匹配；圓為等電阻，弧為等電抗。",
+"λ/# transformer": "λ/# 阻抗轉換器",
+"A quarter-wave line of Zl = √(Z#·Z#) matches Z# to Z#.": "Zl = √(Z#·Z#) 的四分之一波長線可把 Z# 匹配到 Z#。",
+"Component terms": "元件名詞",
+"Directional coupler": "定向耦合器",
+"Four-port that taps a fixed fraction of a wave travelling one way, e.g. to measure the forward power of a PA.": "從單一方向傳播的波中取出固定比例的四埠元件，例如用來量測 PA 的前向功率。",
+"Coupling / isolation": "耦合 / 隔離",
+"Coupling: input to coupled port. Isolation: input to the port that should get nothing.": "耦合：輸入到耦合埠。隔離：輸入到理應收不到東西的埠。",
+"Directivity": "方向性",
+"Isolation minus coupling: how well the coupler tells forward from reflected waves.": "隔離度減去耦合量：耦合器區分前向波與反射波的能力。",
+"Even / odd mode": "偶模 / 奇模",
+"The two ways a pair of coupled lines can be driven (in phase / opposite). Their impedances Z#e and Z#o set the coupling.": "一對耦合線的兩種驅動方式（同相 / 反相）。其阻抗 Z#e 與 Z#o 決定耦合量。",
+"Hybrid": "混合耦合器",
+"A # dB coupler: two equal outputs, #° (quadrature) or #° apart.": "# dB 耦合器：兩個相等的輸出，相差 #°（正交）或 #°。",
+"BALanced–UNbalanced: turns a single-ended signal into two equal, opposite (differential) signals and back.": "平衡–不平衡轉換器（BALanced–UNbalanced）：把單端訊號轉成兩個大小相等、方向相反的（差動）訊號，反之亦然。",
+"Amplitude / phase imbalance": "振幅 / 相位不平衡",
+"How far the two balun outputs are from equal size and exactly #° apart.": "巴倫兩個輸出偏離「大小相等、恰好相差 #°」的程度。",
+"Common-mode rejection: differential output compared with the leftover in-phase part.": "共模抑制：差動輸出與殘留同相成分的比值。",
+"Dipole": "偶極天線",
+"Two straight wires fed in the middle. Resonant when about half a wavelength long.": "從中間饋電的兩根直導線。長度約半波長時諧振。",
+"Radiation resistance": "輻射電阻",
+"The part of the antenna's input resistance that stands for power radiated away (# Ω for a half-wave dipole).": "天線輸入電阻中代表輻射出去之功率的部分（半波偶極為 # Ω）。",
+"Directivity (dBi)": "方向性 (dBi)",
+"How much stronger the antenna radiates in its best direction than an ideal isotropic antenna.": "天線在最強方向的輻射比理想等向性天線強多少。",
+"E-plane pattern": "E 平面場型",
+"Radiation versus angle in the plane that contains the dipole; nulls are along the wire.": "在包含偶極的平面上輻射隨角度的變化；沿導線方向為零點。",
+"Cutoff fc": "截止頻率 fc",
+"Lowest frequency at which a waveguide mode propagates. Below it the field dies out (evanescent).": "波導模態能傳播的最低頻率。低於它場會衰減消失（消逝波）。",
+"Dominant mode": "主模",
+"The mode with the lowest cutoff, TE# in a rectangular guide.": "截止頻率最低的模態，矩形波導中為 TE#。",
+"Guide wavelength, phase velocity (faster than light) and group velocity (the speed of energy, slower than light).": "波導波長、相速度（比光快）與群速度（能量的速度，比光慢）。",
+"S-parameters of a two-port": "二埠網路的 S 參數",
+"Waves in, waves out: reflection S# and transmission S#": "波進、波出：反射 S# 與傳輸 S#",
+"S-parameters describe a component by the waves it sends back and passes on when it is fed from # Ω lines. Here the component is a short line section with its own impedance Zl. Where Zl differs from # Ω, part of the incident wave a# is reflected (b# = S#·a#) and the rest goes through to port # (b# = S#·a#). The reflections from the two ends of the section add up with a phase set by its length θ, so S# changes with frequency. When θ = #° the two reflections cancel and the section becomes invisible; when θ = #° (a quarter wave) the section transforms impedance: Zin = Zl²/#. The incident and reflected waves form a standing wave on the input line, and its peak-to-valley ratio is the VSWR. The line is lossless, so every bit of power is either reflected or transmitted: |S#|² + |S#|² = #.": "S 參數用元件在 # Ω 傳輸線饋入時「反射回來」與「傳過去」的波來描述它。這裡的元件是一段有自己阻抗 Zl 的短傳輸線。當 Zl 不等於 # Ω，入射波 a# 的一部分被反射（b# = S#·a#），其餘傳到埠 #（b# = S#·a#）。線段兩端的反射以由長度 θ 決定的相位相加，所以 S# 隨頻率改變。當 θ = #° 時兩個反射互相抵消，線段彷彿不存在；當 θ = #°（四分之一波長）時線段會轉換阻抗：Zin = Zl²/#。入射波與反射波在輸入線上形成駐波，其峰谷比就是 VSWR。這條線無損耗，所以所有功率不是被反射就是被傳輸：|S#|² + |S#|² = #。",
+"Incident wave a#": "入射波 a#",
+"Reflected wave b#": "反射波 b#",
+"Transmitted wave b#": "傳輸波 b#",
+"Total voltage": "總電壓",
+"Reflection at port # in dB. −# dB means # % of the power comes back; −# dB means # %.": "埠 # 的反射（dB）。−# dB 代表 # % 的功率反射回來；−# dB 代表 # %。",
+"Transmission from port # to port # in dB. # dB means everything gets through.": "從埠 # 到埠 # 的傳輸（dB）。# dB 代表全部通過。",
+"Voltage standing-wave ratio on the input line: Vmax/Vmin = (# + |S#|)/(# − |S#|). # is a perfect match.": "輸入線上的電壓駐波比：Vmax/Vmin = (# + |S#|)/(# − |S#|)。# 為完美匹配。",
+"Impedance seen looking into port # with port # terminated in # Ω.": "埠 {1} 接 {2} Ω 負載時，從埠 {0} 看進去的阻抗。",
+"Impedance transformation of a line section of impedance Zl and electrical length θ, ending in # Ω.": "阻抗為 Zl、電氣長度為 θ、末端接 # Ω 的線段所做的阻抗轉換。",
+"Line": "傳輸線",
+"How much of the incident wave bounces back from the input.": "入射波有多少從輸入端反射回來。",
+"Reflection": "反射",
+"What is not reflected is transmitted, because the line has no loss.": "因為傳輸線無損耗，沒被反射的就被傳輸。",
+"Transmission": "傳輸",
+"|S#|² = # − |S#|² (lossless)": "|S#|² = # − |S#|²（無損）",
+"Return loss and VSWR are two other ways to say how large the reflection is.": "回波損耗與 VSWR 是描述反射大小的另外兩種方式。",
+"Mismatch": "失配",
+"S-matrix of the line section now (it is symmetric and reciprocal):": "目前線段的 S 矩陣（對稱且互易）：",
+"from port #": "從埠 #",
+"to port #": "到埠 #",
+"Smith chart of S#, #–# GHz": "S# 的史密斯圖，#–# GHz",
+"match": "匹配",
+"Two-port: a line section between two # Ω ports": "二埠網路：兩個 # Ω 埠之間的一段傳輸線",
+"Port #": "埠 #",
+"# Ω source": "# Ω 訊號源",
+"# Ω load": "# Ω 負載",
+"# Ω line": "# Ω 傳輸線",
+"a# incident →": "a# 入射 →",
+"← b# = S#·a# (|S#| = #)": "← b# = S#·a#（|S#| = #）",
+"b# = S#·a# → (|S#| = #)": "b# = S#·a# →（|S#| = #）",
+"— total voltage": "— 總電壓",
+"Standing wave |V| along the line": "沿線的駐波 |V|",
+"|V| = # (matched)": "|V| = #（匹配）",
+"port # side: Vmax/Vmin = VSWR = #": "埠 # 側：Vmax/Vmin = VSWR = #",
+"line section": "線段",
+"port # side: no standing wave (matched load)": "埠 # 側：沒有駐波（匹配負載）",
+"Incident": "入射",
+"Reflected |S#|²": "反射 |S#|²",
+"Transmitted |S#|²": "傳輸 |S#|²",
+"lossless: |S#|² + |S#|² = # %": "無損：|S#|² + |S#|² = # %",
+"Two coupled lines tap a fixed fraction of a wave travelling one way": "兩條耦合線從單向傳播的波中取出固定比例",
+"Two parallel lines a quarter wavelength long share part of their electric and magnetic fields. A wave going from port # to port # induces a wave on the second line that runs backwards, toward port # (the coupled port), while almost nothing reaches port # (isolated). The coupling is set by the gap: the even-mode (in-phase) and odd-mode (opposite) impedances Z#e and Z#o differ more when the lines are closer. Coupling is strongest when the lines are λ/# long and falls off on either side, and the coupled wave is always #° ahead of the through wave. Because a wave travelling the other way couples to port # instead, a coupler can separate forward and reflected power, which is how a transmitter measures its output and its antenna match.": "兩條長四分之一波長的平行線共享部分電場與磁場。從埠 # 往埠 # 的波，會在第二條線上感應出往回走、朝向埠 #（耦合埠）的波，而埠 #（隔離埠）幾乎收不到。耦合量由間距決定：兩線越近，偶模（同相）與奇模（反相）阻抗 Z#e 與 Z#o 差異越大。線長為 λ/# 時耦合最強，兩側逐漸下降，且耦合波永遠領先直通波 #°。由於反方向的波會耦合到埠 #，耦合器能分開前向與反射功率，發射機就是這樣量測輸出功率與天線匹配。",
+"Main line: input → through": "主線：輸入 → 直通",
+"Coupled wave (backward)": "耦合波（反向）",
+"Isolated port leak": "隔離埠洩漏",
+"Microstrip lines": "微帶線",
+"Power at the coupled port # relative to the input. −# dB means # % of the power is tapped off.": "耦合埠 # 相對於輸入的功率。−# dB 代表取出 # % 的功率。",
+"Coupling": "耦合",
+"Power left on the main line at port #: what is not coupled.": "留在主線、到達埠 # 的功率：沒被耦合走的部分。",
+"Through": "直通",
+"Power that leaks to port #, which ideally gets nothing.": "洩漏到埠 # 的功率；理想上應為零。",
+"Isolation": "隔離",
+"Phase of the coupled wave relative to the through wave: #° for a coupled-line coupler.": "耦合波相對於直通波的相位：耦合線耦合器為 #°。",
+"Phase": "相位",
+"Coupled lines are analysed as the sum of an in-phase (even) and an opposite (odd) drive. Their impedances set the coupling.": "耦合線可分解為同相（偶模）與反相（奇模）驅動的和。兩者的阻抗決定耦合量。",
+"Even / odd": "偶模 / 奇模",
+"The coupled section is λ/# long at # GHz, where the coupling is strongest.": "耦合段在 {1} GHz 時長 λ/{0}，此時耦合最強。",
+"Quarter wave": "四分之一波長",
+"How much weaker the isolated port is than the coupled port, in dB.": "隔離埠比耦合埠弱多少（dB）。",
+"D = Isolation − Coupling (in dB)": "D = 隔離 − 耦合（dB）",
+"Where the input power at port # goes now:": "目前埠 # 的輸入功率去了哪裡：",
+"Port": "埠",
+"S-parameter": "S 參數",
+"Power": "功率",
+"# Through": "# 直通",
+"# Coupled": "# 耦合",
+"# Isolated": "# 隔離",
+"— through": "— 直通",
+"— coupled": "— 耦合",
+"— isolated": "— 隔離",
+"Output phasors (input = #∠#°)": "輸出相量（輸入 = #∠#°）",
+"Coupled-line directional coupler (top view)": "耦合線定向耦合器（俯視圖）",
+"coupled section: λ/# at # GHz": "耦合段：{1} GHz 時為 λ/{0}",
+"gap ↕ (C = # dB)": "間距 ↕（C = # dB）",
+"# Input # dB": "# 輸入 # dB",
+"# Through -# dB": "# 直通 -# dB",
+"# Coupled -# dB": "# 耦合 -# dB",
+"# Isolated -# dB": "# 隔離 -# dB",
+"coupled waves drawn ×#": "耦合波放大 ×# 繪製",
+"Cross-section: even and odd mode": "截面：偶模與奇模",
+"even (in phase)": "偶模（同相）",
+"odd (opposite)": "奇模（反相）",
+"Port waveforms (# periods)": "各埠波形（# 個週期）",
+"- - input — through — coupled ×# — isolated": "- - 輸入 — 直通 — 耦合 ×# — 隔離",
+"- - input — through — coupled — isolated": "- - 輸入 — 直通 — 耦合 — 隔離",
+"coupled leads through by #°": "耦合波領先直通波 #°",
+"coupled leads through by -#°": "耦合波領先直通波 -#°",
+"Balun: single-ended to differential": "巴倫：單端轉差動",
+"A low-pass and a high-pass L-section give −#° and +#°: outputs #° apart": "低通與高通 L 型網路分別給出 −#° 與 +#°：輸出相差 #°",
+"A balun turns a signal referred to ground into two equal signals of opposite sign. The lattice balun does it with four parts: a low-pass L-section (series L, shunt C) delays the signal by #°, a high-pass L-section (series C, shunt L) advances it by #°, so the two outputs are always #° apart. Their amplitudes are equal only at the design frequency f# = #/(#π√(LC)), where the L and C values also transform # Ω to the # Ω differential load. Away from f# one output grows and the other shrinks, so a common-mode part appears. Baluns feed dipole antennas (which need balanced currents on both arms) and connect single-ended antennas to differential LNAs, mixers and PAs on a chip.": "巴倫把以地為參考的訊號轉成兩個大小相等、符號相反的訊號。格狀巴倫用四個元件完成：低通 L 型網路（串聯 L、並聯 C）把訊號延遲 #°，高通 L 型網路（串聯 C、並聯 L）把訊號超前 #°，所以兩個輸出永遠相差 #°。兩者振幅只在設計頻率 f# = #/(#π√(LC)) 相等，此時 L 與 C 也把 # Ω 轉換成 # Ω 的差動負載。離開 f# 時一個輸出變大、另一個變小，因此出現共模成分。巴倫用來饋入偶極天線（兩臂需要平衡電流），也用來把單端天線接到晶片上的差動 LNA、混頻器與 PA。",
+"V+ (low-pass branch)": "V+（低通支路）",
+"V− (high-pass branch)": "V−（高通支路）",
+"Common mode": "共模",
+"Difference in size between V+ and V−, in dB. # dB at the design frequency.": "V+ 與 V− 的大小差異（dB）。設計頻率時為 # dB。",
+"Amplitude imbalance": "振幅不平衡",
+"Angle between V+ and V−. An ideal balun gives exactly #°.": "V+ 與 V− 之間的夾角。理想巴倫恰為 #°。",
+"Phase difference": "相位差",
+"Differential output compared with the common-mode (in-phase) leftover. Higher is better.": "差動輸出與共模（同相）殘留的比值。越高越好。",
+"L and C chosen so that each branch shifts the phase by #° and transforms # Ω to the load at f#.": "L 與 C 的選擇使每條支路在 f# 時相移 #°，並把 # Ω 轉換到負載。",
+"Design": "設計",
+"The two branches have opposite phase at every frequency, but equal gain only at f#.": "兩條支路在每個頻率都相位相反，但只有在 f# 時增益相等。",
+"Balance": "平衡",
+"low-pass −#°, high-pass +#° → V+ / V− = −# only at f#": "低通 −#°，高通 +#° → 只有在 f# 時 V+ / V− = −#",
+"The average of the two outputs. It is zero for a perfect balun.": "兩個輸出的平均。完美巴倫為零。",
+"Reflection at the input. The lattice balun stays matched as long as RL equals its design value.": "輸入端的反射。只要 RL 等於設計值，格狀巴倫就保持匹配。",
+"Match": "匹配",
+"< −# dB with RL = # Ω": "< −# dB（RL = # Ω）",
+"-# dB with RL = # Ω": "-# dB（RL = # Ω）",
+"Balance across frequency with your settings:": "依目前設定，各頻率的平衡情形：",
+"Imbalance": "不平衡",
+"−# dB = equal split": "−# dB = 平均分配",
+"Output phasors (input = # V)": "輸出相量（輸入 = # V）",
+"LC lattice balun": "LC 格狀巴倫",
+"low-pass: −#°": "低通：−#°",
+"high-pass: +#°": "高通：+#°",
+"RL = # Ω differential": "RL = # Ω 差動",
+"Waveforms (# periods)": "波形（# 個週期）",
+"- - input (node A) — V+ — V− — common mode": "- - 輸入（節點 A） — V+ — V− — 共模",
+"|V+| = # V, |V−| = # V, phase #°": "|V+| = # V，|V−| = # V，相位 #°",
+"common mode # V": "共模 # V",
+"Why a balun?": "為什麼需要巴倫？",
+"Radio": "射頻收發器",
+"single-ended": "單端",
+"dipole": "偶極",
+"a dipole needs a balanced (equal and opposite) feed": "偶極天線需要平衡（大小相等、方向相反）的饋電",
+"differential circuits reject supply and substrate noise": "差動電路能抑制電源與基板雜訊",
+"Dipole antenna": "偶極天線",
+"A standing wave of current on two wires radiates into free space": "兩根導線上的電流駐波向自由空間輻射",
+"A dipole is two straight wires fed in the middle. The current must be zero at the open tips, so it forms a standing wave along the wire. When the total length is close to half a wavelength (about # λ, slightly shorter because of the wire thickness) the antenna is resonant: the reactance is near zero and the input resistance is about #–# Ω, close to # Ω, so |S#| is low. A shorter dipole is capacitive and hard to match; a full-wave dipole has a current minimum at the feed and a very high impedance. Each piece of current radiates most broadside to the wire and nothing along it, so the pattern is a doughnut with nulls along the axis and a directivity of # dBi for a half-wave dipole. Longer dipoles have several current humps with opposite signs, which narrows the main beam and adds side lobes.": "偶極天線是從中間饋電的兩根直導線。開路端點的電流必須為零，所以沿導線形成駐波。總長接近半波長時（約 # λ，因導線粗細而略短）天線諧振：電抗接近零，輸入電阻約 #–# Ω，接近 # Ω，所以 |S#| 很低。較短的偶極呈電容性，難以匹配；全波偶極在饋點是電流最小值，阻抗非常高。每一小段電流都在垂直導線方向輻射最強、沿導線方向不輻射，所以場型像甜甜圈，沿軸向為零點，半波偶極的方向性為 # dBi。更長的偶極有多個正負相反的電流峰，使主波束變窄並出現旁瓣。",
+"Current · wavefront crest": "電流 · 波前波峰",
+"Wavefront trough": "波前波谷",
+"Dipole wire": "偶極導線",
+"# GHz (λ = # mm)": "# GHz（λ = # mm）",
+"Dipole length in wavelengths. Resonance is near # λ.": "以波長為單位的偶極長度。諧振約在 # λ。",
+"Length": "長度",
+"Peak radiation compared with an isotropic antenna. # dBi for a half-wave dipole.": "最大輻射相對於等向性天線。半波偶極為 # dBi。",
+"Reflection when the dipole is fed from a # Ω line (through an ideal balun).": "偶極由 # Ω 傳輸線（經理想巴倫）饋電時的反射。",
+"The length where the input reactance crosses zero.": "輸入電抗為零時的長度。",
+"Resonance": "諧振",
+"for # GHz: # mm (now # mm)": "# GHz 時：# mm（目前 # mm）",
+"Input impedance at the feed, from the induced-EMF method for a thin wire (radius # mm).": "饋點的輸入阻抗，由細導線（半徑 # mm）的感應電動勢法計算。",
+"Impedance": "阻抗",
+"Zin = (Rr + jXm) / sin²(kL/#) (induced EMF, thin wire)": "Zin = (Rr + jXm) / sin²(kL/#)（感應電動勢法，細導線）",
+"Relative field strength versus angle from the wire axis.": "相對場強隨與導線軸夾角的變化。",
+"Pattern": "場型",
+"nulls along the wire (θ = #°, #°), D# = # = # dBi": "沿導線方向為零點（θ = #°、#°），D# = # = # dBi",
+"Dipoles of different length at # GHz:": "# GHz 時不同長度的偶極：",
+"S# of a # mm dipole, # Ω feed": "# mm 偶極的 S#，# Ω 饋電",
+"E-plane pattern (dB)": "E 平面場型 (dB)",
+"- - half-wave dipole for comparison": "- - 半波偶極（比較用）",
+"feed (through a balun)": "饋電（經過巴倫）",
+"current I(z)": "電流 I(z)",
+"wavefronts: brightness = radiation in that direction": "波前：亮度 = 該方向的輻射強度",
+"Current along the dipole": "沿偶極的電流",
+"feed": "饋點",
+"one current hump: maximum at the feed": "一個電流峰：最大值在饋點",
+"Length vs wavelength": "長度與波長比較",
+"λ = # mm at # GHz": "{1} GHz 時 λ = {0} mm",
+"resonant: X ≈ #, R ≈ #–# Ω": "諧振：X ≈ #，R ≈ #–# Ω",
+"too short: capacitive (X < #)": "太短：電容性（X < #）",
+"hump grows past the feed: feed current falls": "電流峰越過饋點：饋點電流下降",
+"too long: inductive (X > #)": "太長：電感性（X > #）",
+"near a full wave: very high impedance": "接近全波長：阻抗非常高",
+"several humps with opposite signs → side lobes": "多個正負相反的電流峰 → 旁瓣",
+"longer than λ: several current humps": "比 λ 長：多個電流峰",
+"Rectangular waveguide: TE and TM modes": "矩形波導：TE 與 TM 模態",
+"A hollow metal pipe only carries field patterns that fit between its walls": "中空金屬管只能傳遞剛好容納在管壁之間的場分布",
+"Inside a metal pipe the tangential electric field must be zero on the walls, so only certain standing patterns across the cross-section are allowed. Each pattern is a mode, named TEmn or TMmn by the number of half-waves across the wide side a (m) and the narrow side b (n). In a TE mode the electric field lies entirely in the cross-section (Ez = #); in a TM mode the magnetic field does (Hz = #). A mode only propagates above its cutoff frequency fc = c/#·√((m/a)² + (n/b)²); below it the field dies out exponentially. TE# has the lowest cutoff (# GHz in WR-#), so between # and # GHz it is the only mode, which is why X-band guides are used at #–# GHz. The wave can be pictured as two plane waves zig-zagging between the side walls: near cutoff they bounce almost straight across, so energy moves along the guide slowly (group velocity vg) while the pattern of crests sweeps along faster than light (phase velocity vp), with vp·vg = c².": "在金屬管內，管壁上的切向電場必須為零，所以截面上只允許某些駐波分布。每種分布就是一個模態，依寬邊 a 上的半波數（m）與窄邊 b 上的半波數（n）稱為 TEmn 或 TMmn。TE 模態的電場完全位於截面內（Ez = {0}）；TM 模態則是磁場位於截面內（Hz = {1}）。模態只在高於截止頻率 fc = c/{2}·√((m/a)² + (n/b)²) 時傳播；低於它場會指數衰減。TE{3} 的截止頻率最低（WR-{5} 為 {4} GHz），所以在 {6} 到 {7} GHz 之間它是唯一的模態，這就是 X 頻段波導用在 {8}–{9} GHz 的原因。波可以想像成兩道在側壁間鋸齒狀反彈的平面波：接近截止時它們幾乎垂直來回反彈，所以能量沿波導前進得很慢（群速度 vg），而波峰的圖樣卻以超光速掃過（相速度 vp），且 vp·vg = c²。",
+"E field / + side view": "E 場 / 側視圖 +",
+"Longitudinal field +": "縱向場 +",
+"Longitudinal field −": "縱向場 −",
+"Lowest frequency at which this mode propagates.": "此模態能傳播的最低頻率。",
+"Distance between field crests along the guide; longer than the free-space wavelength.": "沿波導方向場波峰之間的距離；比自由空間波長長。",
+"Guide wavelength λg": "波導波長 λg",
+"Speed at which energy travels along the guide, as a fraction of c.": "能量沿波導前進的速度，以 c 的比例表示。",
+"Group velocity": "群速度",
+"Ratio of transverse E to transverse H for this mode.": "此模態橫向 E 與橫向 H 的比值。",
+"Wave impedance": "波阻抗",
+"β = k·√(# − (fc/f)²) above cutoff; the field decays with α = k·√((fc/f)² − #) below it.": "高於截止時 β = k·√(# − (fc/f)²)；低於截止時場以 α = k·√((fc/f)² − #) 衰減。",
+"Propagation": "傳播",
+"Phase velocity vp = c/√(# − (fc/f)²) is above c; group velocity vg = c·√(# − (fc/f)²) is below; vp·vg = c².": "相速度 vp = c/√(# − (fc/f)²) 大於 c；群速度 vg = c·√(# − (fc/f)²) 小於 c；vp·vg = c²。",
+"Velocities": "速度",
+"Z_TE = η/√(# − (fc/f)²), Z_TM = η·√(# − (fc/f)²), with η = # Ω.": "Z_TE = η/√(# − (fc/f)²)，Z_TM = η·√(# − (fc/f)²)，其中 η = # Ω。",
+"Wave Z": "波阻抗",
+"Modes of WR-# at # GHz:": "WR-# 在 # GHz 時的模態：",
+"Propagates?": "能傳播？",
+"— other modes - - light (TEM)": "— 其他模態 - - 光線 (TEM)",
+"Mode chart (bar = propagates)": "模態圖（橫條 = 可傳播）",
+"Cross-section of the guide · TE#": "波導截面 · TE#",
+"Cross-section of the guide · TM#": "波導截面 · TM#",
+"arrows: E (transverse) · colour: Hz (along the guide)": "箭頭：E（橫向） · 顏色：Hz（沿波導）",
+"arrows: E (transverse) · colour: Ez (along the guide)": "箭頭：E（橫向） · 顏色：Ez（沿波導）",
+"arrows: H (transverse) · colour: Ez (along the guide)": "箭頭：H（橫向） · 顏色：Ez（沿波導）",
+"arrows: H (transverse) · colour: Hz (along the guide)": "箭頭：H（橫向） · 顏色：Hz（沿波導）",
+"TE: Ez = #, E lies in the cross-section": "TE：Ez = #，E 位於截面內",
+"TM: Hz = #, H lies in the cross-section": "TM：Hz = #，H 位於截面內",
+"Side view along the guide (cut at y = # b)": "沿波導的側視圖（切在 y = # b）",
+"colour: Ey (+ / −)": "顏色：Ey（+ / −）",
+"colour: Ex (+ / −)": "顏色：Ex（+ / −）",
+"propagates: # GHz > fc = # GHz": "可傳播：# GHz > fc = # GHz",
+"Ray picture: two bouncing plane waves": "射線圖：兩道反彈的平面波",
+"angle to the axis #° · energy moves at vg = # c": "與軸夾角 #° · 能量以 vg = # c 前進",
+"Field components of this mode": "此模態的場分量",
+"m = # half-waves across a, n = # across b": "a 方向 m = # 個半波，b 方向 n = # 個",
+"A hollow pipe has one conductor, so no TEM mode:": "中空管只有一個導體，所以沒有 TEM 模態：",
+"only TE and TM, each above its own cutoff.": "只有 TE 與 TM，各自在其截止頻率以上傳播。",
+"α = k·√((fc/f)² − #) (evanescent)": "α = k·√((fc/f)² − #)（消逝波）",
+"no propagation below cutoff": "低於截止頻率不傳播",
+"imaginary below cutoff (no power flow)": "低於截止時為虛數（沒有功率流動）",
+"below cutoff (fc = # GHz): the field only decays, e^(−αz)": "低於截止（fc = # GHz）：場只會衰減，e^(−αz)",
+"below cutoff the rays would bounce straight across (#°):": "低於截止時射線只能垂直來回反彈（#°）：",
+"nothing moves along the guide": "沒有東西沿波導前進",
+"z → # … # mm": "z → # … # mm"
 };
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列"};
@@ -1016,6 +1314,7 @@ body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15
 .top h1 small{display:block;font-family:var(--f-mono);font-weight:400;font-size:.75rem;color:var(--muted);letter-spacing:.02em}
 .tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .seg{display:inline-flex;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:3px;gap:3px}
+.seg[role=tablist]{flex-wrap:wrap;max-width:100%}
 .seg button{font:600 .85rem var(--f-mono);color:var(--muted);background:transparent;border:0;border-radius:7px;padding:7px 14px;cursor:pointer}
 .seg button[aria-pressed="true"],.seg button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink)}
 :lang(zh) .seg button{word-break:keep-all}
@@ -1146,6 +1445,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-body" aria-selected="false" aria-controls="tab-body">Body effect</button>
         <button role="tab" id="tab-btn-pw" aria-selected="false" aria-controls="tab-pw">Power (LDO · PMIC)</button>
         <button role="tab" id="tab-btn-rd" aria-selected="false" aria-controls="tab-rd">77 GHz radar</button>
+        <button role="tab" id="tab-btn-rf" aria-selected="false" aria-controls="tab-rf">RF passives</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -1843,6 +2143,174 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Loop BW</dt><dd>How fast the loop reacts. Wider tracks the chirp better and cleans VCO noise; narrower filters reference and ΣΔ noise.</dd>
               <dt>Phase noise</dt><dd>Random jitter of the carrier phase, in dBc/Hz at an offset frequency. It raises the noise floor around every FFT peak.</dd>
               <dt>×4</dt><dd>Frequency multiplier: 19–20 GHz VCO → 76–81 GHz output (phase noise rises by 20·log4 = 12 dB).</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== RF PASSIVES TAB ===================== -->
+  <section id="tab-rf" role="tabpanel" aria-labelledby="tab-btn-rf" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="rf-pill">S</span><h2 id="rf-name">S-parameters</h2></div>
+      <p id="rf-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="rf-view" role="group" aria-label="RF view" style="flex-wrap:wrap">
+        <button data-v="sp" aria-pressed="true">S-parameters</button>
+        <button data-v="cp" aria-pressed="false">Coupler</button>
+        <button data-v="bl" aria-pressed="false">Balun</button>
+        <button data-v="an" aria-pressed="false">Antenna</button>
+        <button data-v="wg" aria-pressed="false">Waveguide TE / TM</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvf" aria-label="Animated RF passive component: waves, fields and ports"></canvas>
+      <div class="legend" id="rf-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="rf-ro"></div>
+        <div id="rf-c-sp" style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Characteristic impedance of the middle line section. A narrow strip has a high impedance, a wide strip a low one. Anything other than 50 Ω causes reflections.">Line impedance Zl</span><span id="rf-sp-z-v"></span></div>
+            <input id="rf-sp-z" type="range" min="20" max="150" step="1" value="100">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Electrical length of the line section at 2.4 GHz. 90° is a quarter wavelength.">Line length θ at 2.4 GHz</span><span id="rf-sp-len-v"></span></div>
+            <input id="rf-sp-len" type="range" min="10" max="180" step="1" value="90">
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Frequency f</span><span id="rf-sp-f-v"></span></div>
+            <input id="rf-sp-f" type="range" min="0.5" max="6" step="0.01" value="2.4">
+          </div>
+        </div>
+        <div id="rf-c-cp" hidden style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="How much of the input power goes to the coupled port, in dB. 3 dB splits the power in half; 20 dB takes 1 %. Tighter coupling needs a smaller gap between the lines.">Coupling C</span><span id="rf-cp-c-v"></span></div>
+            <input id="rf-cp-c" type="range" min="3" max="20" step="0.5" value="10">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="How much weaker the isolated port is than the coupled port. Real couplers reach 20–30 dB.">Directivity D</span><span id="rf-cp-d-v"></span></div>
+            <input id="rf-cp-d" type="range" min="10" max="40" step="1" value="25">
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Frequency f</span><span id="rf-cp-f-v"></span></div>
+            <input id="rf-cp-f" type="range" min="0.5" max="6" step="0.01" value="2.4">
+          </div>
+        </div>
+        <div id="rf-c-bl" hidden style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Differential load between the two outputs, e.g. the input of a differential LNA or a dipole antenna.">Differential load RL</span><span id="rf-bl-rl-v"></span></div>
+            <input id="rf-bl-rl" type="range" min="50" max="200" step="1" value="100">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Error of both capacitors from their design value, as from process variation. It moves the frequency where the two outputs are equal.">Capacitor error</span><span id="rf-bl-tol-v"></span></div>
+            <input id="rf-bl-tol" type="range" min="-30" max="30" step="1" value="0">
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Frequency f</span><span id="rf-bl-f-v"></span></div>
+            <input id="rf-bl-f" type="range" min="0.5" max="6" step="0.01" value="2.4">
+          </div>
+        </div>
+        <div id="rf-c-an" hidden style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Total tip-to-tip length of the dipole. A half-wave dipole for 2.4 GHz is about 59 mm.">Dipole length L</span><span id="rf-an-L-v"></span></div>
+            <input id="rf-an-L" type="range" min="10" max="150" step="0.5" value="59">
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Frequency f</span><span id="rf-an-f-v"></span></div>
+            <input id="rf-an-f" type="range" min="0.5" max="6" step="0.01" value="2.4">
+          </div>
+        </div>
+        <div id="rf-c-wg" hidden style="display:grid;gap:12px">
+          <div class="chips">
+            <div class="seg" id="rf-wg-mode" role="group" aria-label="Waveguide mode" style="flex-wrap:wrap">
+              <button data-m="TE10">TE10</button><button data-m="TE20">TE20</button><button data-m="TE01">TE01</button><button data-m="TE11">TE11</button><button data-m="TM11">TM11</button><button data-m="TM21">TM21</button>
+            </div>
+            <div class="seg" id="rf-wg-show" role="group" aria-label="Field shown">
+              <button data-s="E">E field</button><button data-s="H">H field</button>
+            </div>
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Frequency f</span><span id="rf-wg-f-v"></span></div>
+            <input id="rf-wg-f" type="range" min="4" max="25" step="0.05" value="10">
+          </div>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="rf-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Response and S-parameters</p>
+        <div class="plots">
+          <div class="plot"><svg id="rf-p1" viewBox="0 0 300 230" role="img" aria-label="Response versus frequency"></svg></div>
+          <div class="plot"><svg id="rf-p2" viewBox="0 0 220 230" role="img" aria-label="Smith chart, phasors, radiation pattern or mode chart"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="rf-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: S-parameters, Smith chart, coupler, balun, antenna, TE / TM modes</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>How to read S-parameters</h3>
+            <ol>
+              <li>Each port of a component is fed from a line with a reference impedance <b>Z0</b>, usually 50 Ω. Power travels in as a wave <b>a</b> and comes back out as a wave <b>b</b>.</li>
+              <li><b>Sij</b> is the wave leaving port i when only port j is driven: S11 is the reflection at port 1, S21 the transmission from port 1 to port 2.</li>
+              <li>They are complex numbers: the magnitude (usually in dB) says how much comes out, the angle says how much it is delayed.</li>
+              <li>A passive, lossless component keeps the power: |S11|² + |S21|² + … = 1 for each driven port. Whatever is not reflected or passed on is turned into heat or radiated.</li>
+            </ol>
+            <p id="rf-g-head">With your current settings:</p>
+            <div class="tbl" id="rf-g-live"></div>
+            <h3>Return loss, VSWR and mismatch</h3>
+            <div class="tbl"><table>
+              <tr><th>|S11|</th><th>Return loss</th><th>VSWR</th><th>Power reflected</th></tr>
+              <tr><td>−6 dB</td><td>6 dB</td><td>3.0</td><td>25 %</td></tr>
+              <tr><td>−10 dB</td><td>10 dB</td><td>1.92</td><td>10 %</td></tr>
+              <tr><td>−15 dB</td><td>15 dB</td><td>1.43</td><td>3.2 %</td></tr>
+              <tr><td>−20 dB</td><td>20 dB</td><td>1.22</td><td>1 %</td></tr>
+            </table></div>
+            <p class="note">A common target is |S11| below −10 dB across the band: only 10 % of the power is reflected.</p>
+            <h3>TE, TM and TEM</h3>
+            <p class="note">In a <b>TE</b> mode the electric field is purely transverse (Ez = 0) and the magnetic field has a component along the guide. In a <b>TM</b> mode it is the other way round (Hz = 0). A <b>TEM</b> wave has neither Ez nor Hz; it needs two conductors (coax, microstrip, a pair of wires) and has no cutoff. A hollow metal pipe has only one conductor, so it carries only TE and TM modes, and each mode propagates only above its cutoff frequency.</p>
+          </div>
+          <div>
+            <h3>Network terms</h3>
+            <dl>
+              <dt>Z0</dt><dd>Reference (characteristic) impedance of the ports, 50 Ω here.</dd>
+              <dt>Γ = S11</dt><dd>Reflection coefficient: (Z − Z0)/(Z + Z0). 0 means matched, 1 means everything bounces back.</dd>
+              <dt>Return loss</dt><dd>−20·log|S11|. Bigger is better.</dd>
+              <dt>Insertion loss</dt><dd>−20·log|S21|: how much weaker the signal is after passing through.</dd>
+              <dt>VSWR</dt><dd>Ratio of the maximum to the minimum of the standing wave, (1 + |Γ|)/(1 − |Γ|).</dd>
+              <dt>Smith chart</dt><dd>A map of Γ. The centre is a perfect match; circles are constant resistance, arcs constant reactance.</dd>
+              <dt>λ/4 transformer</dt><dd>A quarter-wave line of Zl = √(Z1·Z2) matches Z1 to Z2.</dd>
+            </dl>
+            <h3>Component terms</h3>
+            <dl>
+              <dt>Directional coupler</dt><dd>Four-port that taps a fixed fraction of a wave travelling one way, e.g. to measure the forward power of a PA.</dd>
+              <dt>Coupling / isolation</dt><dd>Coupling: input to coupled port. Isolation: input to the port that should get nothing.</dd>
+              <dt>Directivity</dt><dd>Isolation minus coupling: how well the coupler tells forward from reflected waves.</dd>
+              <dt>Even / odd mode</dt><dd>The two ways a pair of coupled lines can be driven (in phase / opposite). Their impedances Z0e and Z0o set the coupling.</dd>
+              <dt>Hybrid</dt><dd>A 3 dB coupler: two equal outputs, 90° (quadrature) or 180° apart.</dd>
+              <dt>Balun</dt><dd>BALanced–UNbalanced: turns a single-ended signal into two equal, opposite (differential) signals and back.</dd>
+              <dt>Amplitude / phase imbalance</dt><dd>How far the two balun outputs are from equal size and exactly 180° apart.</dd>
+              <dt>CMRR</dt><dd>Common-mode rejection: differential output compared with the leftover in-phase part.</dd>
+              <dt>Dipole</dt><dd>Two straight wires fed in the middle. Resonant when about half a wavelength long.</dd>
+              <dt>Radiation resistance</dt><dd>The part of the antenna's input resistance that stands for power radiated away (73 Ω for a half-wave dipole).</dd>
+              <dt>Directivity (dBi)</dt><dd>How much stronger the antenna radiates in its best direction than an ideal isotropic antenna.</dd>
+              <dt>E-plane pattern</dt><dd>Radiation versus angle in the plane that contains the dipole; nulls are along the wire.</dd>
+              <dt>Cutoff fc</dt><dd>Lowest frequency at which a waveguide mode propagates. Below it the field dies out (evanescent).</dd>
+              <dt>Dominant mode</dt><dd>The mode with the lowest cutoff, TE10 in a rectangular guide.</dd>
+              <dt>λg, vp, vg</dt><dd>Guide wavelength, phase velocity (faster than light) and group velocity (the speed of energy, slower than light).</dd>
             </dl>
           </div>
         </div>
@@ -3934,23 +4402,807 @@ $("rd-dR2").addEventListener("input", e => { CH.dR2 = +e.target.value; updateRad
 $("rd-bw").value = sliderFromBw(CH.bw);
 
 
+/* =========================================================
+   TAB 6 — RF passives: S-parameters, coupler, balun, antenna, waveguide TE / TM
+   ========================================================= */
+const RFC = setupCanvas($("cvf"), 1000, 488);
+const C0 = 3e8, Z0 = 50, F0 = 2.4, ETA = 376.73;
+const RF = {view:"sp", t:0,
+  sp:{zl:100, len:90, f:2.4},
+  cp:{c:10, dir:25, f:2.4},
+  bl:{rl:100, tol:0, f:2.4},
+  an:{L:59, f:2.4},
+  wg:{mode:"TE10", show:"E", f:10}};
+
+// complex numbers
+const cz = (re, im=0) => ({re, im});
+const zadd = (a, b) => cz(a.re + b.re, a.im + b.im), zsub = (a, b) => cz(a.re - b.re, a.im - b.im);
+const zmul = (a, b) => cz(a.re*b.re - a.im*b.im, a.re*b.im + a.im*b.re);
+const zdiv = (a, b) => { const d = b.re*b.re + b.im*b.im; return cz((a.re*b.re + a.im*b.im)/d, (a.im*b.re - a.re*b.im)/d); };
+const zsc = (a, k) => cz(a.re*k, a.im*k), zpol = (r, ph) => cz(r*Math.cos(ph), r*Math.sin(ph));
+const zabs = a => Math.hypot(a.re, a.im), zarg = a => Math.atan2(a.im, a.re);
+const dB = x => 20*Math.log10(Math.max(x, 1e-6));
+const deg = r => r*180/Math.PI;
+const wrap180 = d => ((d % 360) + 540) % 360 - 180;
+const zstr = (z, d=1) => `${z.re.toFixed(d)} ${z.im < 0 ? "−" : "+"} j${Math.abs(z.im).toFixed(d)}`;
+
+// ---- S-parameters of a lossless line section (Zl, θ) between two Z0 ports, from its ABCD matrix
+function spCalc(f, P = RF.sp){
+  const th = P.len*Math.PI/180*f/F0, cs = Math.cos(th), sn = Math.sin(th);
+  const A = cz(cs), B = cz(0, P.zl*sn/Z0), Cc = cz(0, sn*Z0/P.zl), D = cz(cs);
+  const den = zadd(zadd(A, B), zadd(Cc, D));
+  const s11 = zdiv(zsub(zadd(A, B), zadd(Cc, D)), den), s21 = zdiv(cz(2), den);
+  const zin = zsc(zdiv(zadd(cz(1), s11), zsub(cz(1), s11)), Z0);
+  const g = zabs(s11);
+  return {th, s11, s21, zin, vswr: (1 + g)/Math.max(1 - g, 1e-6)};
+}
+
+// ---- ideal coupled-line (backward-wave) coupler, quarter-wave at F0; isolation set by the directivity
+function cpCalc(f, P = RF.cp){
+  const c = 10**(-P.c/20), s = Math.sqrt(1 - c*c), th = Math.PI/2*f/F0;
+  const den = cz(s*Math.cos(th), Math.sin(th));
+  const s21 = zdiv(cz(s), den), s31 = zdiv(cz(0, c*Math.sin(th)), den);
+  const s41 = zsc(zmul(s31, zpol(1, -th)), 10**(-P.dir/20));
+  return {th, c, s21, s31, s41, z0e: Z0*Math.sqrt((1 + c)/(1 - c)), z0o: Z0*Math.sqrt((1 - c)/(1 + c))};
+}
+
+// ---- LC lattice balun: node analysis (nodes A, P = V+, N = V−), 2 V source behind Z0
+function solve3(Y, I){
+  const a = Y.map((r, i) => [...r, I[i]]);
+  for (let i=0;i<3;i++){
+    let p = i; for (let j=i+1;j<3;j++) if (zabs(a[j][i]) > zabs(a[p][i])) p = j;
+    [a[i], a[p]] = [a[p], a[i]];
+    for (let j=i+1;j<3;j++){ const k = zdiv(a[j][i], a[i][i]); for (let c=i;c<4;c++) a[j][c] = zsub(a[j][c], zmul(k, a[i][c])); }
+  }
+  const x = [];
+  for (let i=2;i>=0;i--){ let s = a[i][3]; for (let c=i+1;c<3;c++) s = zsub(s, zmul(a[i][c], x[c])); x[i] = zdiv(s, a[i][i]); }
+  return x;
+}
+const BL_RD = 100;
+function blCalc(f, P = RF.bl){
+  const w0 = 2*Math.PI*F0*1e9, w = 2*Math.PI*f*1e9, R = Math.sqrt(Z0*BL_RD);      // designed for 50 Ω → 100 Ω at F0
+  const L = R/w0, Cap = 1/(w0*R)*(1 + P.tol/100);
+  // load = two RL/2 halves from V+ and V− to a grounded centre tap (differential RL)
+  const yL = cz(0, -1/(w*L)), yC = cz(0, w*Cap), gS = cz(1/Z0), gH = cz(2/P.rl), neg = z => zsc(z, -1);
+  const Y = [[zadd(gS, zadd(yL, yC)), neg(yL), neg(yC)],
+             [neg(yL), zadd(yL, zadd(yC, gH)), cz(0)],
+             [neg(yC), cz(0), zadd(yC, zadd(yL, gH))]];
+  const [va, vp, vn] = solve3(Y, [cz(2/Z0), cz(0), cz(0)]);
+  const k = Math.sqrt(Z0/(P.rl/2));
+  const vd = zsub(vp, vn), vcm = zsc(zadd(vp, vn), 0.5);
+  return {L, Cap, va, vp, vn, vd, vcm, s11: zsub(va, cz(1)), s21: zsc(vp, k), s31: zsc(vn, k),
+    ampImb: dB(zabs(vp)/zabs(vn)), phDiff: Math.abs(wrap180(deg(zarg(vp) - zarg(vn)))), cmrr: dB(zabs(vd)/Math.max(zabs(vcm), 1e-9))};
+}
+
+// ---- centre-fed thin dipole: induced-EMF impedance and far-field pattern
+function SiCi(x){
+  const n = 400, h = x/n; let si = 0, cm = 0;
+  for (let i=0;i<=n;i++){ const t = Math.max(i*h, 1e-12), w = (i === 0 || i === n) ? 1 : (i % 2 ? 4 : 2); si += w*Math.sin(t)/t; cm += w*(Math.cos(t) - 1)/t; }
+  return {si: si*h/3, ci: 0.5772156649 + Math.log(x) + cm*h/3};
+}
+const anCache = new Map();
+function anCalc(f, Lmm){
+  const key = f.toFixed(3) + "|" + Lmm.toFixed(2);
+  if (anCache.has(key)) return anCache.get(key);
+  const lam = C0/(f*1e9)*1000, k = 2*Math.PI/lam, kl = k*Lmm, a = 0.5, g = 0.5772156649;
+  const A = SiCi(kl), B = SiCi(2*kl), Cs = SiCi(2*k*a*a/Lmm);
+  const Rr = 60*(g + Math.log(kl) - A.ci + 0.5*Math.sin(kl)*(B.si - 2*A.si) + 0.5*Math.cos(kl)*(g + Math.log(kl/2) + B.ci - 2*A.ci));
+  const Xm = 30*(2*A.si + Math.cos(kl)*(2*A.si - B.si) - Math.sin(kl)*(2*A.ci - B.ci - Cs.ci));
+  const s2 = Math.max(Math.sin(kl/2)**2, 1e-4);
+  const zin = cz(Rr/s2, Xm/s2);
+  const F = th => { const s = Math.sin(th); return Math.abs(s) < 1e-6 ? 0 : (Math.cos(kl/2*Math.cos(th)) - Math.cos(kl/2))/s; };
+  let Q = 0, Fm = 0; const n = 360;
+  for (let i=1;i<n;i++){ const th = Math.PI*i/n, v = F(th); Q += v*v*Math.sin(th)*Math.PI/n; Fm = Math.max(Fm, Math.abs(v)); }
+  const s11 = zdiv(zsub(zin, cz(Z0)), zadd(zin, cz(Z0)));
+  const r = {lam, kl, Lw: Lmm/lam, Rr, Xm, zin, F, Fm, D: 2*Fm*Fm/Math.max(Q, 1e-12), s11};
+  if (anCache.size > 3000) anCache.clear();
+  anCache.set(key, r);
+  return r;
+}
+
+// ---- rectangular waveguide WR-90 (a × b in mm)
+const WG_A = 22.86, WG_B = 10.16;
+const WG_MODES = ["TE10","TE20","TE01","TE11","TM11","TM21"];
+const wgMN = md => ({te: md[1] === "E", m: +md[2], n: +md[3]});
+const wgFc = md => { const {m, n} = wgMN(md); return C0/2*Math.sqrt((m/(WG_A/1000))**2 + (n/(WG_B/1000))**2)/1e9; };
+function wgCalc(f, md){
+  const fc = wgFc(md), {te} = wgMN(md), k = 2*Math.PI*f*1e9/C0, r = fc/f, prop = r < 1, q = Math.sqrt(Math.abs(1 - r*r));
+  return {fc, te, prop, k, q, beta: prop ? k*q : 0, alpha: prop ? 0 : k*q,
+    lamg: prop ? C0/(f*1e9)/q*1000 : Infinity, vp: prop ? 1/q : Infinity, vg: prop ? q : 0, Z: prop ? (te ? ETA/q : ETA*q) : NaN};
+}
+// transverse fields and the longitudinal one (Hz for TE, Ez for TM), unnormalised; x in [0, a], y in [0, b] (mm)
+function wgField(md, x, y){
+  const {te, m, n} = wgMN(md), kx = m*Math.PI/WG_A, ky = n*Math.PI/WG_B;
+  const cx = Math.cos(kx*x), sx = Math.sin(kx*x), cy = Math.cos(ky*y), sy = Math.sin(ky*y);
+  if (te) return {ex: ky*cx*sy, ey: -kx*sx*cy, hx: kx*sx*cy, hy: ky*cx*sy, lz: cx*cy};
+  return {ex: kx*cx*sy, ey: ky*sx*cy, hx: -ky*sx*cy, hy: kx*cx*sy, lz: sx*sy};
+}
+const wgMax = {};
+function wgNorm(md){
+  if (wgMax[md]) return wgMax[md];
+  let e = 0, h = 0;
+  for (let i=0;i<=40;i++) for (let j=0;j<=20;j++){ const F = wgField(md, WG_A*i/40, WG_B*j/20); e = Math.max(e, Math.hypot(F.ex, F.ey)); h = Math.max(h, Math.hypot(F.hx, F.hy)); }
+  return (wgMax[md] = {e, h});
+}
+
+/* ---------------- drawing helpers ---------------- */
+function rfArrow(x0, y0, x1, y1, col, w=1.6, head=5){
+  const L = Math.hypot(x1-x0, y1-y0); if (L < 1.5) return;
+  const ux = (x1-x0)/L, uy = (y1-y0)/L;
+  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = w;
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
+  const h = Math.min(head, L*0.6);
+  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x1 - ux*h - uy*h*0.6, y1 - uy*h + ux*h*0.6); ctx.lineTo(x1 - ux*h + uy*h*0.6, y1 - uy*h - ux*h*0.6); ctx.closePath(); ctx.fill();
+}
+function coilH(x0, x1, y, label){
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x0, y);
+  const n = 4, w = (x1 - x0)/n;
+  for (let i=0;i<n;i++) ctx.arc(x0 + w*(i+0.5), y, w/2, Math.PI, 0, false);
+  ctx.stroke();
+  if (label) txt(label, (x0+x1)/2, y-20, {al:"center", px:11, col:C.fg});
+}
+function coilV(x, y0, y1, label){
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y0);
+  const n = 4, h = (y1 - y0)/n;
+  for (let i=0;i<n;i++) ctx.arc(x, y0 + h*(i+0.5), h/2, -Math.PI/2, Math.PI/2, false);
+  ctx.stroke();
+  if (label) txt(label, x+14, (y0+y1)/2, {px:11, col:C.fg});
+}
+function capH(x0, x1, y, label){
+  const xm = (x0+x1)/2;
+  wire([[x0,y],[xm-5,y]]); wire([[xm+5,y],[x1,y]]);
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 3; pl([[xm-5,y-14],[xm-5,y+14]]); pl([[xm+5,y-14],[xm+5,y+14]]);
+  if (label) txt(label, xm, y-24, {al:"center", px:11, col:C.fg});
+}
+function capV2(x, y0, y1, label){
+  const ym = (y0+y1)/2;
+  wire([[x,y0],[x,ym-5]]); wire([[x,ym+5],[x,y1]]);
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 3; pl([[x-14,ym-5],[x+14,ym-5]]); pl([[x-14,ym+5],[x+14,ym+5]]);
+  if (label) txt(label, x+20, ym, {px:11, col:C.fg});
+}
+function resV(x, y0, y1, label){
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y0);
+  const n = 6, h = (y1-y0)/n;
+  for (let i=0;i<n;i++) ctx.lineTo(x + (i%2 ? -7 : 7), y0 + h*(i+0.5));
+  ctx.lineTo(x, y1); ctx.stroke();
+  if (label) txt(label, x+14, (y0+y1)/2, {px:11, col:C.fg});
+}
+// wave drawn along a path of x samples: yOf(x) gives the baseline, vOf(x) the signal in [-1, 1]
+function rfWave(x0, x1, yOf, vOf, amp, col, w, dash){
+  ctx.strokeStyle = col; ctx.lineWidth = w; if (dash) ctx.setLineDash(dash);
+  ctx.beginPath();
+  for (let x = x0; x <= x1 + 0.01; x += 3){ const y = yOf(x) - amp*vOf(x); x === x0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); }
+  ctx.stroke(); ctx.setLineDash([]);
+}
+function portBox(x, y, w, h, t1, t2, col){
+  ctx.fillStyle = C.panel; ctx.fillRect(x, y, w, h);
+  ctx.strokeStyle = col || C.fg; ctx.lineWidth = 1.4; ctx.strokeRect(x+.5, y+.5, w-1, h-1);
+  txt(t1, x+w/2, y+h/2-8, {al:"center", col:C.fg, w:700, px:12});
+  if (t2) txt(t2, x+w/2, y+h/2+9, {al:"center", px:10});
+}
+const reVt = (z, ph) => z.re*Math.cos(ph) - z.im*Math.sin(ph);            // Re{z·e^{jωt}}
+
+/* ---------------- S-parameter view ---------------- */
+const SP_LPX0 = 560;                       // one wavelength on screen at 2.4 GHz
+function spLayout(){
+  const P = RF.sp, Ld = P.len/360*SP_LPX0, xa = 500 - Ld/2, xb = 500 + Ld/2;
+  return {xa, xb, x0: 110, x1: 890, beta: 2*Math.PI*P.f/(F0*SP_LPX0)};
+}
+// complex line voltage at screen x, for a1 = 1
+function spV(x, S, Lt){
+  const {xa, xb, beta} = Lt;
+  if (x <= xa){ const d = xa - x; return zadd(zpol(1, beta*d), zmul(S.s11, zpol(1, -beta*d))); }
+  if (x >= xb) return zmul(S.s21, zpol(1, -beta*(x - xb)));
+  const e = xb - x, v2 = S.s21, i2 = zsc(S.s21, 1/Z0);
+  return zadd(zsc(v2, Math.cos(beta*e)), zmul(cz(0, RF.sp.zl*Math.sin(beta*e)), i2));
+}
+function drawSP(dt, T){
+  const P = RF.sp, S = spCalc(P.f), Lt = spLayout(), ph = RF.t, yc = 132, amp = 30;
+  const g = zabs(S.s11), t = zabs(S.s21);
+  // substrate and strips
+  ctx.fillStyle = C.panel2; ctx.fillRect(10, 10, 980, 228);
+  txt("Two-port: a line section between two 50 Ω ports", 22, 26, {col:C.fg, w:700, px:13});
+  const wd = clamp(14*Math.pow(50/P.zl, 1.3), 4, 46);
+  ctx.fillStyle = C.metal; ctx.globalAlpha = .55;
+  ctx.fillRect(Lt.x0, yc-7, Lt.xa - Lt.x0, 14); ctx.fillRect(Lt.xb, yc-7, Lt.x1 - Lt.xb, 14);
+  ctx.fillRect(Lt.xa, yc - wd/2, Lt.xb - Lt.xa, wd); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 1; ctx.setLineDash([3,3]);
+  pl([[Lt.xa, 46],[Lt.xa, 214]]); pl([[Lt.xb, 46],[Lt.xb, 214]]); ctx.setLineDash([]);
+  portBox(20, yc-30, 86, 60, "Port 1", "50 Ω source", C.accent);
+  portBox(894, yc-30, 86, 60, "Port 2", "50 Ω load", C.electron);
+  txt(`Zl = ${P.zl.toFixed(0)} Ω · θ = ${deg(S.th).toFixed(0)}°`, 500, 214, {al:"center", col:C.fg, w:600, px:12});
+  txt("50 Ω line", (Lt.x0 + Lt.xa)/2, 214, {al:"center", px:10}); txt("50 Ω line", (Lt.xb + Lt.x1)/2, 214, {al:"center", px:10});
+  // standing-wave envelope on port 1 side
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.setLineDash([2,3]);
+  [1, -1].forEach(sg => { ctx.beginPath(); for (let x = Lt.x0; x <= Lt.xa; x += 3){ const y = yc - sg*amp*zabs(spV(x, S, Lt)); x === Lt.x0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); } ctx.stroke(); });
+  ctx.setLineDash([]);
+  // incident and reflected on the input line, total everywhere, transmitted on the output line
+  const yOf = () => yc;
+  rfWave(Lt.x0, Lt.xa, yOf, x => Math.cos(ph + Lt.beta*(Lt.xa - x)), amp, C.accent, 1.4, [5,4]);
+  rfWave(Lt.x0, Lt.xa, yOf, x => reVt(zmul(S.s11, zpol(1, -Lt.beta*(Lt.xa - x))), ph), amp, C.hole, 1.6, [5,4]);
+  rfWave(Lt.x0, Lt.xb, yOf, x => reVt(spV(x, S, Lt), ph), amp, C.fg, 2.2);
+  rfWave(Lt.xb, Lt.x1, yOf, x => reVt(spV(x, S, Lt), ph), amp, C.electron, 2.4);
+  txt("a1 incident →", Lt.x0 + 4, 60, {col:C.accent, w:600, px:11});
+  txt(`← b1 = S11·a1 (|S11| = ${g.toFixed(2)})`, Lt.x0 + 4, 76, {col:C.hole, w:600, px:11});
+  txt(`b2 = S21·a1 → (|S21| = ${t.toFixed(2)})`, Lt.x1 - 4, 60, {al:"right", col:C.electron, w:600, px:11});
+  txt("— total voltage", Lt.x0 + 4, 190, {col:C.fg, px:10});
+  // standing wave panel
+  const ox = 10, oy = 250, w = 600, h = 228;
+  panel(ox, oy, w, h, "Standing wave |V| along the line");
+  const X = x => ox + 20 + (x - Lt.x0)/(Lt.x1 - Lt.x0)*(w - 40), Y = v => oy + 196 - v*70;
+  ctx.fillStyle = C.accent; ctx.globalAlpha = .08; ctx.fillRect(X(Lt.xa), oy+30, X(Lt.xb) - X(Lt.xa), 170); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; pl([[X(Lt.x0), Y(0)],[X(Lt.x1), Y(0)]]); ctx.setLineDash([3,3]); pl([[X(Lt.x0), Y(1)],[X(Lt.x1), Y(1)]]); ctx.setLineDash([]);
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2.2; ctx.beginPath();
+  for (let x = Lt.x0; x <= Lt.x1; x += 3){ const y = Y(zabs(spV(x, S, Lt))); x === Lt.x0 ? ctx.moveTo(X(x), y) : ctx.lineTo(X(x), y); }
+  ctx.stroke();
+  txt("|V| = 1 (matched)", X(Lt.x1), Y(1) - 8, {al:"right", px:10});
+  txt(`port 1 side: Vmax/Vmin = VSWR = ${S.vswr > 99 ? "> 99" : S.vswr.toFixed(2)}`, ox + 20, oy + 40, {col:C.fg, px:11, w:600});
+  txt("line section", (X(Lt.xa) + X(Lt.xb))/2, oy + 214, {al:"center", px:10});
+  txt("port 2 side: no standing wave (matched load)", ox + w - 20, oy + 58, {al:"right", px:10});
+  // power balance
+  const bx = 620, bw = 370;
+  panel(bx, oy, bw, h, "Where the power goes");
+  const bars = [["Incident", 1, C.accent], ["Reflected |S11|²", g*g, C.hole], ["Transmitted |S21|²", t*t, C.electron]];
+  bars.forEach(([lab, v, col], i) => {
+    const y = oy + 50 + i*52;
+    txt(lab, bx + 14, y, {col:C.fg, px:11, w:600});
+    ctx.fillStyle = C.line; ctx.fillRect(bx + 14, y + 10, bw - 100, 14);
+    ctx.fillStyle = col; ctx.fillRect(bx + 14, y + 10, (bw - 100)*v, 14);
+    txt(`${(v*100).toFixed(1)} %`, bx + bw - 14, y + 17, {al:"right", col:C.fg, px:12, w:700});
+  });
+  txt("lossless: |S11|² + |S21|² = 100 %", bx + 14, oy + h - 14, {px:10});
+}
+
+/* ---------------- coupler view ---------------- */
+function drawCP(dt, T){
+  const P = RF.cp, S = cpCalc(P.f), ph = RF.t, ym = 92, gap = 12 + (P.c - 3)*2.4, yk = ym + 14 + gap, ylow = 214;
+  const xs = 300, xe = 700, beta = 2*Math.PI*P.f/(F0*1600);
+  const m = clamp(0.45/Math.max(zabs(S.s31), 1e-3), 1, 6);
+  ctx.fillStyle = C.panel2; ctx.fillRect(10, 10, 980, 240);
+  txt("Coupled-line directional coupler (top view)", 22, 26, {col:C.fg, w:700, px:13});
+  // strips
+  const yCoup = x => x < xs - 60 ? ylow : x < xs ? ylow + (yk - ylow)*(x - (xs - 60))/60 : x <= xe ? yk : x < xe + 60 ? yk + (ylow - yk)*(x - xe)/60 : ylow;
+  ctx.fillStyle = C.metal; ctx.globalAlpha = .55; ctx.fillRect(60, ym-7, 880, 14); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.metal; ctx.globalAlpha = .55; ctx.lineWidth = 14; ctx.lineCap = "butt"; ctx.beginPath();
+  for (let x = 60; x <= 940; x += 4){ const y = yCoup(x); x === 60 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); } ctx.stroke(); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 1; ctx.setLineDash([3,3]); pl([[xs, 40],[xs, 236]]); pl([[xe, 40],[xe, 236]]); ctx.setLineDash([]);
+  txt("coupled section: λ/4 at 2.4 GHz", (xs + xe)/2, 48, {al:"center", px:10});
+  txt(`gap ↕ (C = ${P.c.toFixed(1)} dB)`, xe + 70, (ym + yk)/2, {px:10});
+  // waves: forward on the main line, backward on the coupled line growing toward port 3
+  const fw = x => Math.cos(ph - beta*(x - 60));
+  rfWave(60, xs, () => ym, fw, 24, C.accent, 2.2);
+  rfWave(xs, 940, () => ym, x => { const a = x >= xe ? zabs(S.s21) : 1 - (1 - zabs(S.s21))*(x - xs)/(xe - xs); return a*Math.cos(ph - beta*(x - 60) - (x >= xe ? 0 : 0)); }, 24, C.accent, 2.2);
+  const cAmp = x => x <= xs ? 1 : x >= xe ? 0 : (xe - x)/(xe - xs);
+  rfWave(60, xe, yCoup, x => zabs(S.s31)*m*cAmp(x)*Math.cos(ph + beta*(x - 60) + Math.PI/2), 24, C.electron, 2.2);
+  rfWave(xe, 940, yCoup, x => zabs(S.s41)*m*Math.cos(ph - beta*(x - 60)), 24, C.hole, 1.6);
+  // ports
+  const lab = (s, x, y, al, col) => txt(s, x, y, {al, col, w:600, px:11});
+  lab(`1 Input  0 dB`, 64, ym - 34, "left", C.accent);
+  lab(`2 Through  ${dB(zabs(S.s21)).toFixed(2)} dB`, 936, ym - 34, "right", C.accent);
+  lab(`3 Coupled  ${dB(zabs(S.s31)).toFixed(1)} dB`, 64, ylow + 30, "left", C.electron);
+  lab(`4 Isolated  ${dB(zabs(S.s41)).toFixed(1)} dB`, 936, ylow + 30, "right", C.hole);
+  if (m > 1.01) txt(`coupled waves drawn ×${m.toFixed(1)}`, 500, ylow + 30, {al:"center", px:10});
+  // even / odd mode cross-sections
+  const oy = 262, h = 216;
+  panel(10, oy, 470, h, "Cross-section: even and odd mode");
+  const cs = (cx, odd, z0, title) => {
+    const gy = oy + 168, sy = oy + 120, sw = 46, gp = 12 + (P.c - 3)*1.2;
+    ctx.fillStyle = C.si; ctx.fillRect(cx - 105, sy, 210, gy - sy);
+    ctx.fillStyle = C.metal; ctx.fillRect(cx - 110, gy, 220, 6);
+    const xl = cx - gp/2 - sw, xr = cx + gp/2;
+    ctx.fillStyle = C.accent; ctx.fillRect(xl, sy - 7, sw, 7);
+    ctx.fillStyle = odd ? C.electron : C.accent; ctx.fillRect(xr, sy - 7, sw, 7);
+    const a = 0.35 + 0.65*Math.abs(Math.cos(ph));
+    ctx.globalAlpha = a;
+    // field lines to ground
+    [xl + sw/2, xr + sw/2].forEach((x0, i) => {
+      for (let k=-2;k<=2;k++){ const xx = x0 + k*9; rfArrow(xx, sy + 2, xx + k*6, gy - 2, C.accent, 1.2, 4); }
+    });
+    if (odd){ for (let k=0;k<3;k++){ ctx.strokeStyle = C.hole; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.ellipse(cx, sy - 4, gp/2 + 6 + k*9, 8 + k*9, 0, Math.PI, 2*Math.PI); ctx.stroke(); } }
+    else { ctx.strokeStyle = C.muted; ctx.setLineDash([3,3]); pl([[cx, sy - 40],[cx, gy]]); ctx.setLineDash([]); }
+    ctx.globalAlpha = 1;
+    txt(odd ? "+   −" : "+   +", cx, sy - 20, {al:"center", col:C.fg, w:700, px:12});
+    txt(title, cx, oy + 40, {al:"center", col:C.fg, w:600, px:12});
+    txt(z0, cx, oy + 196, {al:"center", col:C.accent, w:600, px:11});
+  };
+  cs(125, false, `Z0e = ${S.z0e.toFixed(1)} Ω`, "even (in phase)");
+  cs(365, true, `Z0o = ${S.z0o.toFixed(1)} Ω`, "odd (opposite)");
+  // port waveforms
+  const wx = 490, ww = 500;
+  panel(wx, oy, ww, h, "Port waveforms (2 periods)");
+  const tx = i => wx + 20 + i/400*(ww - 40), yW = oy + 118;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; pl([[wx + 20, yW],[wx + ww - 20, yW]]);
+  const tr = (z, sc, col, wdt, dash) => { ctx.strokeStyle = col; ctx.lineWidth = wdt; if (dash) ctx.setLineDash(dash); ctx.beginPath(); for (let i=0;i<=400;i++){ const p = ph - i/400*4*Math.PI, y = yW - 70*sc*reVt(z, p); i ? ctx.lineTo(tx(i), y) : ctx.moveTo(tx(i), y); } ctx.stroke(); ctx.setLineDash([]); };
+  tr(cz(1), 1, C.muted, 1.2, [4,3]);
+  tr(S.s21, 1, C.accent, 2.2);
+  tr(S.s31, m, C.electron, 2.2);
+  tr(S.s41, m, C.hole, 1.4);
+  const dph = wrap180(deg(zarg(S.s31) - zarg(S.s21)));
+  txt(`- - input   — through   — coupled${m > 1.01 ? ` ×${m.toFixed(1)}` : ""}   — isolated`, wx + 20, oy + 40, {px:10, col:C.fg});
+  txt(`coupled leads through by ${dph.toFixed(0)}°`, wx + 20, oy + h - 14, {px:11, col:C.electron, w:600});
+}
+
+/* ---------------- balun view ---------------- */
+const blPaths = {lp: polyline([[170,110],[170,70],[380,70],[470,70]]), hp: polyline([[170,110],[170,250],[380,250],[470,250]])};
+let blOff = 0;
+function drawBL(dt, T){
+  const P = RF.bl, B = blCalc(P.f), ph = RF.t;
+  ctx.fillStyle = C.panel2; ctx.fillRect(10, 10, 540, 300);
+  txt("LC lattice balun", 22, 26, {col:C.fg, w:700, px:13});
+  // source + Rs
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 2.2; ctx.beginPath(); ctx.arc(60, 262, 18, 0, 6.283); ctx.stroke();
+  ctx.beginPath(); for (let i=0;i<=20;i++){ const x = 48 + i*1.2, y = 262 - 7*Math.sin(i/20*2*Math.PI); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); } ctx.stroke();
+  gnd(60, 290); wire([[60,280],[60,290]]);
+  wire([[60,244],[60,226]]); resV(60, 226, 160, "Rs 50 Ω"); wire([[60,160],[60,110],[170,110]]);
+  ndot(170, 110); txt("A", 158, 98, {col:C.fg, w:700, px:12});
+  // low-pass branch: L then C to ground
+  wire([[170,110],[170,70],[220,70]]); coilH(220, 320, 70, `L ${(B.L*1e9).toFixed(2)} nH`); wire([[320,70],[470,70]]);
+  ndot(380, 70); capV2(380, 70, 150, `C ${(B.Cap*1e12).toFixed(2)} pF`); gnd(380, 150);
+  // high-pass branch: C then L to ground
+  wire([[170,110],[170,250],[220,250]]); capH(220, 320, 250, `C ${(B.Cap*1e12).toFixed(2)} pF`); wire([[320,250],[470,250]]);
+  ndot(380, 250); coilV(380, 250, 300, "L"); gnd(380, 300);
+  // load halves
+  resV(470, 90, 150, `RL/2`); wire([[470,70],[470,90]]); resV(470, 170, 230, `RL/2`); wire([[470,230],[470,250]]);
+  wire([[470,150],[470,170]]); wire([[470,160],[510,160],[510,172]]); gnd(510, 172);
+  ndot(470, 70); ndot(470, 250);
+  txt("V+", 486, 60, {col:C.accent, w:700, px:13}); txt("V−", 486, 262, {col:C.electron, w:700, px:13});
+  txt("low-pass: −90°", 270, 100, {al:"center", col:C.accent, px:11, w:600});
+  txt("high-pass: +90°", 270, 290, {al:"center", col:C.electron, px:11, w:600});
+  txt(`RL = ${P.rl.toFixed(0)} Ω differential`, 270, 180, {al:"center", px:10});
+  blOff += dt*60;
+  flowDots(blPaths.lp, blOff, 0.7*zabs(B.vp), C.accent);
+  flowDots(blPaths.hp, blOff, 0.7*zabs(B.vn), C.electron);
+  // scope
+  const ox = 560, oy = 10, w = 430, h = 300;
+  panel(ox, oy, w, h, "Waveforms (2 periods)");
+  const X = i => ox + 16 + i/400*(w - 32), yW = oy + 150;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; pl([[ox + 16, yW],[ox + w - 16, yW]]);
+  const tr = (z, col, wdt, dash) => { ctx.strokeStyle = col; ctx.lineWidth = wdt; if (dash) ctx.setLineDash(dash); ctx.beginPath(); for (let i=0;i<=400;i++){ const y = yW - 90*reVt(z, ph - i/400*4*Math.PI); i ? ctx.lineTo(X(i), y) : ctx.moveTo(X(i), y); } ctx.stroke(); ctx.setLineDash([]); };
+  tr(B.va, C.muted, 1.2, [4,3]);
+  tr(B.vp, C.accent, 2.2); tr(B.vn, C.electron, 2.2); tr(B.vcm, C.hole, 1.8);
+  txt("- - input (node A)   — V+   — V−   — common mode", ox + 16, oy + 40, {px:10, col:C.fg});
+  txt(`|V+| = ${zabs(B.vp).toFixed(2)} V, |V−| = ${zabs(B.vn).toFixed(2)} V, phase ${B.phDiff.toFixed(1)}°`, ox + 16, oy + h - 30, {px:11, col:C.fg, w:600});
+  txt(`common mode ${zabs(B.vcm).toFixed(3)} V`, ox + 16, oy + h - 14, {px:11, col:C.hole, w:600});
+  // why a balun
+  const by = 322, bh = 156;
+  panel(10, by, 980, bh, "Why a balun?");
+  // left example: single-ended radio → balun → dipole
+  portBox(30, by + 50, 110, 56, "Radio", "single-ended", C.fg);
+  wire([[140, by + 78],[200, by + 78]]); portBox(200, by + 52, 80, 52, "Balun", "", C.accent);
+  // dipole: the balun drives the two arms with equal and opposite currents
+  wire([[280, by + 66],[352, by + 66],[352, by + 72]]); wire([[280, by + 90],[352, by + 90],[352, by + 84]]);
+  ctx.strokeStyle = C.metal; ctx.lineWidth = 5; pl([[352, by + 24],[352, by + 72]]); pl([[352, by + 84],[352, by + 132]]);
+  const a1 = Math.cos(ph);
+  rfArrow(368, by + 48 + 16*a1, 368, by + 48 - 16*a1, C.accent, 1.8); rfArrow(368, by + 108 + 16*a1, 368, by + 108 - 16*a1, C.accent, 1.8);
+  txt("dipole", 380, by + 78, {px:10, col:C.fg});
+  txt("a dipole needs a balanced (equal and opposite) feed", 230, by + 136, {al:"center", px:11, col:C.fg});
+  // right example: antenna → balun → differential LNA
+  portBox(560, by + 50, 110, 56, "Antenna", "single-ended", C.fg);
+  wire([[670, by + 78],[720, by + 78]]); portBox(720, by + 52, 80, 52, "Balun", "", C.accent);
+  wire([[800, by + 66],[860, by + 66]]); wire([[800, by + 90],[860, by + 90]]);
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(860, by + 48); ctx.lineTo(860, by + 108); ctx.lineTo(940, by + 78); ctx.closePath(); ctx.stroke();
+  txt("LNA", 868, by + 78, {px:10, col:C.fg});
+  txt("differential circuits reject supply and substrate noise", 760, by + 136, {al:"center", px:11, col:C.fg});
+}
+
+/* ---------------- antenna view ---------------- */
+function drawAN(dt, T){
+  const P = RF.an, A = anCalc(P.f, P.L), ph = RF.t, cx = 330, cy = 244, lpx = 140;
+  const Lpx = Math.min(A.Lw*lpx, 440), half = Lpx/2;
+  ctx.save(); ctx.beginPath(); ctx.rect(10, 10, 640, 468); ctx.clip();
+  ctx.fillStyle = C.panel2; ctx.fillRect(10, 10, 640, 468);
+  // radiated wavefronts: crest / trough rings weighted by the pattern
+  const fr = ((ph/(2*Math.PI)) % 1 + 1) % 1;
+  for (let n=0;n<9;n++){
+    const rr = (fr + n/2)*lpx, crest = n % 2 === 0;           // crest and trough every half wavelength, moving outward
+    if (rr < half + 12 || rr > 380) continue;
+    for (let a = 0; a < 360; a += 3){
+      const th = a*Math.PI/180, F = A.F(th)/A.Fm, al = Math.min(1, Math.abs(F))*(1 - rr/440);
+      if (al < 0.03) continue;
+      ctx.strokeStyle = ((F >= 0) === crest) ? C.accent : C.electron; ctx.globalAlpha = al; ctx.lineWidth = 2.2;
+      ctx.beginPath(); ctx.arc(cx, cy, rr, th - Math.PI/2 - 0.01, th - Math.PI/2 + 3.2*Math.PI/180); ctx.stroke();
+    }
+  }
+  ctx.globalAlpha = 1;
+  // dipole and its current
+  ctx.strokeStyle = C.metal; ctx.lineWidth = 6; ctx.lineCap = "round";
+  pl([[cx, cy - half],[cx, cy - 5]]); pl([[cx, cy + 5],[cx, cy + half]]); ctx.lineCap = "butt";
+  const k = 2*Math.PI/lpx, Iz = z => Math.sin(k*(half - Math.abs(z)));
+  let Im = 0; for (let z = -half; z <= half; z += 2) Im = Math.max(Im, Math.abs(Iz(z)));
+  ctx.fillStyle = C.accent; ctx.globalAlpha = .28; ctx.beginPath(); ctx.moveTo(cx + 6, cy - half);
+  for (let z = -half; z <= half; z += 2) ctx.lineTo(cx + 6 + 34*Iz(z)/Math.max(Im, 1e-6), cy + z);
+  ctx.lineTo(cx + 6, cy + half); ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1;
+  const c = Math.cos(ph);
+  for (let z = -half + 8; z <= half - 8; z += 16){ if (Math.abs(z) < 8) continue; const v = Iz(z)/Math.max(Im, 1e-6)*c; rfArrow(cx - 14, cy + z, cx - 14, cy + z - 12*v, C.accent, 1.8, 4); }
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(cx, cy, 6, 0, 6.283); ctx.stroke();
+  wire([[cx - 6, cy],[40, cy]]); txt("feed (through a balun)", 44, cy - 12, {px:10});
+  txt(`L = ${P.L.toFixed(1)} mm = ${A.Lw.toFixed(2)} λ`, cx + 48, cy - half - 12 < 24 ? 30 : cy - half - 12, {col:C.fg, w:600, px:12});
+  txt("current I(z)", cx + 46, cy + 20, {col:C.accent, px:10, w:600});
+  txt("wavefronts: brightness = radiation in that direction", 22, 468, {px:10});
+  ctx.restore();
+  // current distribution plot
+  const ox = 660, w = 330;
+  panel(ox, 10, w, 230, "Current along the dipole");
+  const zx = u => ox + 20 + (u + 0.5)*(w - 40);
+  let Imx = 0; for (let i=0;i<=200;i++) Imx = Math.max(Imx, Math.abs(Math.sin(A.kl*(0.5 - Math.abs(-0.5 + i/200)))));
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; pl([[ox + 20, 120],[ox + w - 20, 120]]);
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2.2; ctx.beginPath();
+  for (let i=0;i<=200;i++){ const u = -0.5 + i/200, y = 120 - 70*Math.sin(A.kl*(0.5 - Math.abs(u)))/Math.max(Imx, 1e-6); i ? ctx.lineTo(zx(u), y) : ctx.moveTo(zx(u), y); }
+  ctx.stroke();
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1; ctx.setLineDash([3,3]); pl([[zx(0), 44],[zx(0), 196]]); ctx.setLineDash([]);
+  txt("−L/2", zx(-0.5), 204, {al:"center", px:10}); txt("feed", zx(0), 204, {al:"center", px:10}); txt("+L/2", zx(0.5), 204, {al:"center", px:10});
+  txt(A.Lw < 0.55 ? "one current hump: maximum at the feed" : A.Lw < 1.05 ? "hump grows past the feed: feed current falls" : "several humps with opposite signs → side lobes", ox + 14, 222, {px:10, col:C.fg});
+  // size vs wavelength
+  panel(ox, 250, w, 228, "Length vs wavelength");
+  const sx = v => ox + 20 + v/3*(w - 40);
+  [["λ", 1, C.muted], ["λ/2", 0.5, C.muted], ["L", Math.min(A.Lw, 3), C.accent]].forEach(([s, v, col], i) => {
+    const y = 300 + i*40; ctx.fillStyle = col; ctx.globalAlpha = i === 2 ? 1 : .5; ctx.fillRect(sx(0), y, sx(v) - sx(0), 12); ctx.globalAlpha = 1;
+    txt(s, sx(v) + 6, y + 6, {col:C.fg, px:11, w:600});
+  });
+  txt(`λ = ${A.lam.toFixed(1)} mm at ${P.f.toFixed(2)} GHz`, ox + 14, 430, {col:C.fg, px:11});
+  txt(`Zin = ${zstr(A.zin)} Ω`, ox + 14, 448, {col:C.accent, px:11, w:600});
+  txt(Math.abs(A.Lw - 0.47) < 0.03 ? "resonant: X ≈ 0, R ≈ 60–73 Ω" : A.Lw < 0.47 ? "too short: capacitive (X < 0)" : A.Lw < 0.9 ? "too long: inductive (X > 0)" : A.Lw < 1.1 ? "near a full wave: very high impedance" : "longer than λ: several current humps", ox + 14, 466, {px:10});
+}
+
+/* ---------------- waveguide view ---------------- */
+function drawWG(dt, T){
+  const P = RF.wg, md = P.mode, W = wgCalc(P.f, md), N = wgNorm(md), ph = RF.t, {te, m, n} = wgMN(md);
+  // cross-section
+  panel(10, 10, 470, 262, `Cross-section of the guide · ${md}`);
+  const gw = 360, gx = 10 + (470 - gw)/2, gy = 56, gh = gw*WG_B/WG_A;
+  ctx.fillStyle = C.metal; ctx.fillRect(gx - 6, gy - 6, gw + 12, gh + 12); ctx.fillStyle = C.panel; ctx.fillRect(gx, gy, gw, gh);
+  const nx = 43, ny = 19, lzA = Math.sin(ph);
+  for (let i=0;i<nx;i++) for (let j=0;j<ny;j++){
+    const F = wgField(md, WG_A*(i + 0.5)/nx, WG_B*(1 - (j + 0.5)/ny)), v = F.lz*lzA;
+    if (Math.abs(v) < 0.04) continue;
+    ctx.fillStyle = v > 0 ? C.oxide : C.channel; ctx.globalAlpha = Math.min(0.5, Math.abs(v)*0.5);
+    ctx.fillRect(gx + i*gw/nx, gy + j*gh/ny, gw/nx + .5, gh/ny + .5);
+  }
+  ctx.globalAlpha = 1;
+  const showE = P.show === "E", ca = Math.cos(ph);
+  for (let i=0;i<14;i++) for (let j=0;j<6;j++){
+    const x = WG_A*(i + 0.5)/14, y = WG_B*(j + 0.5)/6, F = wgField(md, x, y);
+    const vx = showE ? F.ex/N.e : F.hx/N.h, vy = showE ? F.ey/N.e : F.hy/N.h;
+    const px = gx + x/WG_A*gw, py = gy + (1 - y/WG_B)*gh, L = 13*ca;
+    rfArrow(px - vx*L, py + vy*L, px + vx*L, py - vy*L, showE ? C.accent : C.electron, 1.6, 4.5);
+  }
+  txt(`a = ${WG_A} mm`, gx + gw/2, gy + gh + 18, {al:"center", px:10});
+  txt(`b = ${WG_B}`, gx + gw + 4, gy - 14, {al:"right", px:10});
+  txt(`arrows: ${showE ? "E" : "H"} (transverse) · colour: ${te ? "Hz" : "Ez"} (along the guide)`, gx, gy + gh + 34, {px:10, col:C.fg});
+  txt(te ? "TE: Ez = 0, E lies in the cross-section" : "TM: Hz = 0, H lies in the cross-section", gx, gy + gh + 50, {px:11, col:C.accent, w:600});
+  // side view
+  const sx0 = 490, sw = 500;
+  panel(sx0, 10, sw, 262, "Side view along the guide (cut at y = 0.3 b)");
+  const zx = 515, zy = 60, zw = 450, zh = 150, Lz = 120;
+  ctx.fillStyle = C.metal; ctx.fillRect(zx - 4, zy - 6, zw + 8, 6); ctx.fillRect(zx - 4, zy + zh, zw + 8, 6);
+  ctx.fillStyle = C.panel; ctx.fillRect(zx, zy, zw, zh);
+  const y0 = 0.3*WG_B;
+  let useX = false; { let mx = 0, my = 0; for (let i=0;i<=20;i++){ const F = wgField(md, WG_A*i/20, y0); mx = Math.max(mx, Math.abs(F.ex)); my = Math.max(my, Math.abs(F.ey)); } useX = mx > my; }
+  const comp = x => { const F = wgField(md, x, y0); return (useX ? F.ex : F.ey)/N.e; };
+  const cols = 90, rows = 20, betaMm = W.beta/1000, alphaMm = W.alpha/1000;
+  for (let i=0;i<cols;i++){
+    const z = Lz*(i + 0.5)/cols, g = W.prop ? Math.cos(ph - betaMm*z) : Math.exp(-alphaMm*z)*Math.cos(ph);
+    for (let j=0;j<rows;j++){
+      const v = comp(WG_A*(j + 0.5)/rows)*g;
+      if (Math.abs(v) < 0.04) continue;
+      ctx.fillStyle = v > 0 ? C.accent : C.hole; ctx.globalAlpha = Math.min(0.85, Math.abs(v)*0.85);
+      ctx.fillRect(zx + i*zw/cols, zy + j*zh/rows, zw/cols + .5, zh/rows + .5);
+    }
+  }
+  ctx.globalAlpha = 1;
+  txt(`z → 0 … ${Lz} mm`, zx + zw, zy + zh + 20, {al:"right", px:10});
+  txt(`colour: ${useX ? "Ex" : "Ey"} (+ / −)`, zx, zy + zh + 20, {px:10});
+  if (W.prop){
+    if (W.lamg < Lz){ const x1 = zx + 20, x2 = x1 + W.lamg/Lz*zw; ctx.strokeStyle = C.fg; ctx.lineWidth = 1.4; pl([[x1, zy - 16],[x2, zy - 16]]); pl([[x1, zy - 21],[x1, zy - 11]]); pl([[x2, zy - 21],[x2, zy - 11]]); txt(`λg = ${W.lamg.toFixed(1)} mm`, x2 + 8, zy - 16, {px:11, col:C.fg, w:600}); }
+    txt(`propagates: ${P.f.toFixed(2)} GHz > fc = ${W.fc.toFixed(2)} GHz`, zx, zy + zh + 40, {px:11, col:C.accent, w:600});
+  } else {
+    txt(`below cutoff (fc = ${W.fc.toFixed(2)} GHz): the field only decays, e^(−αz)`, zx, zy + zh + 40, {px:11, col:C.hole, w:600});
+  }
+  // ray picture
+  panel(10, 284, 470, 194, "Ray picture: two bouncing plane waves");
+  const rx = 30, ry = 330, rw = 430, rh = 110;
+  ctx.fillStyle = C.metal; ctx.fillRect(rx, ry - 4, rw, 4); ctx.fillRect(rx, ry + rh, rw, 4);
+  if (W.prop){
+    const ang = Math.acos(W.q), dz = rh/Math.tan(ang);
+    ctx.save(); ctx.beginPath(); ctx.rect(rx, ry, rw, rh); ctx.clip();
+    ctx.strokeStyle = C.accent; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(rx, ry);
+    let z = 0, up = false; while (z < rw + dz){ z += dz; ctx.lineTo(rx + z, up ? ry : ry + rh); up = !up; } ctx.stroke();
+    const s = ((T*90) % ((rw/W.q) || 1)), along = s*W.q, cyc = along/dz, kq = Math.floor(cyc), fq = cyc - kq;
+    const yy = ry + (kq % 2 ? (1 - fq) : fq)*rh;
+    dot(rx + along, yy, C.accent, false, 1, 4.5);
+    ctx.restore();
+    dot(rx + along, ry + rh + 16, C.electron, false, 1, 4);
+    txt(`angle to the axis ${deg(ang).toFixed(0)}° · energy moves at vg = ${W.vg.toFixed(2)} c`, rx, ry + rh + 34, {px:11, col:C.fg});
+  } else {
+    ctx.strokeStyle = C.hole; ctx.lineWidth = 1.6; pl([[rx + 60, ry],[rx + 60, ry + rh]]);
+    txt("below cutoff the rays would bounce straight across (90°):", rx, ry + rh + 22, {px:11, col:C.hole});
+    txt("nothing moves along the guide", rx, ry + rh + 38, {px:11, col:C.hole});
+  }
+  // field components
+  panel(490, 284, 500, 194, "Field components of this mode");
+  const has = te ? {Ex: n > 0, Ey: m > 0, Ez: false, Hx: m > 0, Hy: n > 0, Hz: true} : {Ex: true, Ey: true, Ez: true, Hx: true, Hy: true, Hz: false};
+  Object.entries(has).forEach(([k2, v], i) => {
+    const x = 514 + (i % 3)*150, y = 330 + Math.floor(i/3)*34;
+    txt(`${k2} ${v ? "✓" : "= 0"}`, x, y, {col: v ? (k2[0] === "E" ? C.accent : C.electron) : C.muted, w:700, px:13});
+  });
+  txt(`m = ${m} half-waves across a, n = ${n} across b`, 514, 404, {px:11, col:C.fg});
+  txt("A hollow pipe has one conductor, so no TEM mode:", 514, 428, {px:10});
+  txt("only TE and TM, each above its own cutoff.", 514, 444, {px:10});
+}
+
+function drawRF(dt, T){
+  begin(RFC);
+  ({sp: drawSP, cp: drawCP, bl: drawBL, an: drawAN, wg: drawWG})[RF.view](dt, T);
+}
+function rfTick(dt){ RF.t += dt*(reduce ? 1.2 : 3.2); }
+
+/* ---------------- DOM ---------------- */
+const RFINFO = {
+  sp:{pill:"S", name:"S-parameters of a two-port", sub:"Waves in, waves out: reflection S11 and transmission S21",
+    text:"S-parameters describe a component by the waves it sends back and passes on when it is fed from 50 Ω lines. Here the component is a short line section with its own impedance Zl. Where Zl differs from 50 Ω, part of the incident wave a1 is reflected (b1 = S11·a1) and the rest goes through to port 2 (b2 = S21·a1). The reflections from the two ends of the section add up with a phase set by its length θ, so S11 changes with frequency. When θ = 180° the two reflections cancel and the section becomes invisible; when θ = 90° (a quarter wave) the section transforms impedance: Zin = Zl²/50. The incident and reflected waves form a standing wave on the input line, and its peak-to-valley ratio is the VSWR. The line is lossless, so every bit of power is either reflected or transmitted: |S11|² + |S21|² = 1."},
+  cp:{pill:"DC", name:"Directional coupler", sub:"Two coupled lines tap a fixed fraction of a wave travelling one way",
+    text:"Two parallel lines a quarter wavelength long share part of their electric and magnetic fields. A wave going from port 1 to port 2 induces a wave on the second line that runs backwards, toward port 3 (the coupled port), while almost nothing reaches port 4 (isolated). The coupling is set by the gap: the even-mode (in-phase) and odd-mode (opposite) impedances Z0e and Z0o differ more when the lines are closer. Coupling is strongest when the lines are λ/4 long and falls off on either side, and the coupled wave is always 90° ahead of the through wave. Because a wave travelling the other way couples to port 4 instead, a coupler can separate forward and reflected power, which is how a transmitter measures its output and its antenna match."},
+  bl:{pill:"BAL", name:"Balun: single-ended to differential", sub:"A low-pass and a high-pass L-section give −90° and +90°: outputs 180° apart",
+    text:"A balun turns a signal referred to ground into two equal signals of opposite sign. The lattice balun does it with four parts: a low-pass L-section (series L, shunt C) delays the signal by 90°, a high-pass L-section (series C, shunt L) advances it by 90°, so the two outputs are always 180° apart. Their amplitudes are equal only at the design frequency f0 = 1/(2π√(LC)), where the L and C values also transform 50 Ω to the 100 Ω differential load. Away from f0 one output grows and the other shrinks, so a common-mode part appears. Baluns feed dipole antennas (which need balanced currents on both arms) and connect single-ended antennas to differential LNAs, mixers and PAs on a chip."},
+  an:{pill:"ANT", name:"Dipole antenna", sub:"A standing wave of current on two wires radiates into free space",
+    text:"A dipole is two straight wires fed in the middle. The current must be zero at the open tips, so it forms a standing wave along the wire. When the total length is close to half a wavelength (about 0.47 λ, slightly shorter because of the wire thickness) the antenna is resonant: the reactance is near zero and the input resistance is about 60–73 Ω, close to 50 Ω, so |S11| is low. A shorter dipole is capacitive and hard to match; a full-wave dipole has a current minimum at the feed and a very high impedance. Each piece of current radiates most broadside to the wire and nothing along it, so the pattern is a doughnut with nulls along the axis and a directivity of 2.15 dBi for a half-wave dipole. Longer dipoles have several current humps with opposite signs, which narrows the main beam and adds side lobes."},
+  wg:{pill:"WG", name:"Rectangular waveguide: TE and TM modes", sub:"A hollow metal pipe only carries field patterns that fit between its walls",
+    text:"Inside a metal pipe the tangential electric field must be zero on the walls, so only certain standing patterns across the cross-section are allowed. Each pattern is a mode, named TEmn or TMmn by the number of half-waves across the wide side a (m) and the narrow side b (n). In a TE mode the electric field lies entirely in the cross-section (Ez = 0); in a TM mode the magnetic field does (Hz = 0). A mode only propagates above its cutoff frequency fc = c/2·√((m/a)² + (n/b)²); below it the field dies out exponentially. TE10 has the lowest cutoff (6.56 GHz in WR-90), so between 6.56 and 13.1 GHz it is the only mode, which is why X-band guides are used at 8–12 GHz. The wave can be pictured as two plane waves zig-zagging between the side walls: near cutoff they bounce almost straight across, so energy moves along the guide slowly (group velocity vg) while the pattern of crests sweeps along faster than light (phase velocity vp), with vp·vg = c²."}
+};
+Object.assign(TIP, {
+  "|S11|":"Reflection at port 1 in dB. −10 dB means 10 % of the power comes back; −20 dB means 1 %.",
+  "|S21|":"Transmission from port 1 to port 2 in dB. 0 dB means everything gets through.",
+  "VSWR":"Voltage standing-wave ratio on the input line: Vmax/Vmin = (1 + |S11|)/(1 − |S11|). 1 is a perfect match.",
+  "Zin":"Impedance seen looking into port 1 with port 2 terminated in 50 Ω.",
+  "Reflection":"How much of the incident wave bounces back from the input.",
+  "Line":"Impedance transformation of a line section of impedance Zl and electrical length θ, ending in 50 Ω.",
+  "Transmission":"What is not reflected is transmitted, because the line has no loss.",
+  "Mismatch":"Return loss and VSWR are two other ways to say how large the reflection is.",
+  "Coupling":"Power at the coupled port 3 relative to the input. −10 dB means 10 % of the power is tapped off.",
+  "Through":"Power left on the main line at port 2: what is not coupled.",
+  "Isolation":"Power that leaks to port 4, which ideally gets nothing.",
+  "Phase":"Phase of the coupled wave relative to the through wave: 90° for a coupled-line coupler.",
+  "Even / odd":"Coupled lines are analysed as the sum of an in-phase (even) and an opposite (odd) drive. Their impedances set the coupling.",
+  "Quarter wave":"The coupled section is λ/4 long at 2.4 GHz, where the coupling is strongest.",
+  "Directivity":"How much weaker the isolated port is than the coupled port, in dB.",
+  "Amplitude imbalance":"Difference in size between V+ and V−, in dB. 0 dB at the design frequency.",
+  "Phase difference":"Angle between V+ and V−. An ideal balun gives exactly 180°.",
+  "CMRR":"Differential output compared with the common-mode (in-phase) leftover. Higher is better.",
+  "Design":"L and C chosen so that each branch shifts the phase by 90° and transforms 50 Ω to the load at f0.",
+  "Balance":"The two branches have opposite phase at every frequency, but equal gain only at f0.",
+  "Common mode":"The average of the two outputs. It is zero for a perfect balun.",
+  "Match":"Reflection at the input. The lattice balun stays matched as long as RL equals its design value.",
+  "Length":"Dipole length in wavelengths. Resonance is near 0.47 λ.",
+  "Directivity (dBi)":"Peak radiation compared with an isotropic antenna. 2.15 dBi for a half-wave dipole.",
+  "S11 (50 Ω)":"Reflection when the dipole is fed from a 50 Ω line (through an ideal balun).",
+  "Pattern":"Relative field strength versus angle from the wire axis.",
+  "Resonance":"The length where the input reactance crosses zero.",
+  "Impedance":"Input impedance at the feed, from the induced-EMF method for a thin wire (radius 0.5 mm).",
+  "Cutoff fc":"Lowest frequency at which this mode propagates.",
+  "Guide wavelength λg":"Distance between field crests along the guide; longer than the free-space wavelength.",
+  "Group velocity":"Speed at which energy travels along the guide, as a fraction of c.",
+  "Wave impedance":"Ratio of transverse E to transverse H for this mode.",
+  "Cutoff":"fc = c/2 · √((m/a)² + (n/b)²) for TEmn and TMmn.",
+  "Propagation":"β = k·√(1 − (fc/f)²) above cutoff; the field decays with α = k·√((fc/f)² − 1) below it.",
+  "Velocities":"Phase velocity vp = c/√(1 − (fc/f)²) is above c; group velocity vg = c·√(1 − (fc/f)²) is below; vp·vg = c².",
+  "Wave Z":"Z_TE = η/√(1 − (fc/f)²), Z_TM = η·√(1 − (fc/f)²), with η = 377 Ω."
+});
+const RFLEG = {
+  sp:[["accent","Incident wave a1"],["hole","Reflected wave b1"],["electron","Transmitted wave b2"],["fg","Total voltage"]],
+  cp:[["accent","Main line: input → through"],["electron","Coupled wave (backward)"],["hole","Isolated port leak"],["metal","Microstrip lines"]],
+  bl:[["accent","V+ (low-pass branch)"],["electron","V− (high-pass branch)"],["hole","Common mode"],["muted","Input"]],
+  an:[["accent","Current · wavefront crest"],["electron","Wavefront trough"],["metal","Dipole wire"]],
+  wg:[["accent","E field / + side view"],["electron","H field"],["oxide","Longitudinal field +"],["channel","Longitudinal field −"]]
+};
+const rfSw = c => `<span><span class="sw" style="background:var(--${c})"></span> `;
+function rfSlider(id, txt){ $(id + "-v").textContent = txt; }
+let rfGlossKey = "";
+function updateRF(){
+  const v = RF.view, info = RFINFO[v];
+  $("rf-pill").textContent = info.pill; $("rf-name").textContent = info.name; $("rf-sub").textContent = info.sub; $("rf-explain").textContent = info.text;
+  document.querySelectorAll("#rf-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  ["sp","cp","bl","an","wg"].forEach(k => $("rf-c-" + k).hidden = k !== v);
+  setHTML("rf-legend", RFLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  const ro = [], rows = [];
+  if (v === "sp"){
+    const P = RF.sp, S = spCalc(P.f), g = zabs(S.s11);
+    rfSlider("rf-sp-z", `${P.zl.toFixed(0)} Ω`); rfSlider("rf-sp-len", `${P.len.toFixed(0)}° (${(P.len/360).toFixed(3)} λ)`); rfSlider("rf-sp-f", `${P.f.toFixed(2)} GHz`);
+    ro.push(["|S11|", dB(g).toFixed(1) + " dB"], ["|S21|", dB(zabs(S.s21)).toFixed(2) + " dB"], ["VSWR", S.vswr > 99 ? "> 99" : S.vswr.toFixed(2)], ["Zin", zstr(S.zin, 0) + " Ω"]);
+    rows.push({name:"Line", f:"Zin = Zl · (ZL + jZl·tanθ) / (Zl + jZL·tanθ),  ZL = 50 Ω", sub:`θ = ${deg(S.th).toFixed(1)}° at ${P.f.toFixed(2)} GHz → Zin = ${zstr(S.zin)} Ω`});
+    rows.push({name:"Reflection", f:"S11 = Γ = (Zin − Z0) / (Zin + Z0)", sub:`= ${g.toFixed(3)} ∠${deg(zarg(S.s11)).toFixed(0)}° → ${dB(g).toFixed(1)} dB`});
+    rows.push({name:"Transmission", f:"|S21|² = 1 − |S11|²  (lossless)", sub:`= 1 − ${(g*g).toFixed(3)} = ${(zabs(S.s21)**2).toFixed(3)} → ${dB(zabs(S.s21)).toFixed(2)} dB`});
+    rows.push({name:"Mismatch", f:"RL = −20·log|S11|,  VSWR = (1 + |S11|) / (1 − |S11|)", sub:`RL = ${(-dB(g)).toFixed(1)} dB, VSWR = ${S.vswr > 99 ? "> 99" : S.vswr.toFixed(2)}`});
+  } else if (v === "cp"){
+    const P = RF.cp, S = cpCalc(P.f);
+    rfSlider("rf-cp-c", `${P.c.toFixed(1)} dB`); rfSlider("rf-cp-d", `${P.dir.toFixed(0)} dB`); rfSlider("rf-cp-f", `${P.f.toFixed(2)} GHz`);
+    const dph = wrap180(deg(zarg(S.s31) - zarg(S.s21)));
+    ro.push(["Coupling", dB(zabs(S.s31)).toFixed(1) + " dB"], ["Through", dB(zabs(S.s21)).toFixed(2) + " dB"], ["Isolation", dB(zabs(S.s41)).toFixed(1) + " dB"], ["Phase", dph.toFixed(0) + "°"]);
+    rows.push({name:"Even / odd", f:"Z0e = Z0·√((1 + c)/(1 − c)),  Z0o = Z0·√((1 − c)/(1 + c))", sub:`c = ${S.c.toFixed(3)} → Z0e = ${S.z0e.toFixed(1)} Ω, Z0o = ${S.z0o.toFixed(1)} Ω (Z0e·Z0o = Z0²)`});
+    rows.push({name:"Quarter wave", f:"S31 = jc·sinθ / (√(1 − c²)·cosθ + j·sinθ),  θ = 90°·f/f0", sub:`θ = ${deg(S.th).toFixed(1)}° → |S31| = ${dB(zabs(S.s31)).toFixed(2)} dB`});
+    rows.push({name:"Through", f:"|S21|² = 1 − |S31|²", sub:`= ${(zabs(S.s21)**2).toFixed(3)} → ${dB(zabs(S.s21)).toFixed(2)} dB`});
+    rows.push({name:"Directivity", f:"D = Isolation − Coupling (in dB)", sub:`${(-dB(zabs(S.s41))).toFixed(1)} − ${(-dB(zabs(S.s31))).toFixed(1)} = ${P.dir.toFixed(0)} dB`});
+  } else if (v === "bl"){
+    const P = RF.bl, B = blCalc(P.f), cm = B.cmrr > 60 ? "> 60" : B.cmrr.toFixed(1);
+    rfSlider("rf-bl-rl", `${P.rl.toFixed(0)} Ω`); rfSlider("rf-bl-tol", `${P.tol > 0 ? "+" : ""}${P.tol.toFixed(0)} %`); rfSlider("rf-bl-f", `${P.f.toFixed(2)} GHz`);
+    ro.push(["Amplitude imbalance", B.ampImb.toFixed(2) + " dB"], ["Phase difference", B.phDiff.toFixed(1) + "°"], ["CMRR", cm + " dB"], ["|S11|", dB(zabs(B.s11)) < -60 ? "< −60 dB" : dB(zabs(B.s11)).toFixed(1) + " dB"]);
+    const f0 = 1/(2*Math.PI*Math.sqrt(B.L*B.Cap))/1e9;
+    rows.push({name:"Design", f:"L = √(Rs·RL) / ω0,  C = 1 / (ω0·√(Rs·RL)),  Rs = 50 Ω, RL = 100 Ω", sub:`L = ${(B.L*1e9).toFixed(2)} nH, C = ${(B.Cap*1e12).toFixed(3)} pF → f0 = ${f0.toFixed(2)} GHz`});
+    rows.push({name:"Balance", f:"low-pass −90°, high-pass +90° → V+ / V− = −1 only at f0", sub:`|V+|/|V−| = ${B.ampImb.toFixed(2)} dB, ∠ = ${B.phDiff.toFixed(1)}°`});
+    rows.push({name:"Common mode", f:"Vcm = (V+ + V−) / 2,  CMRR = 20·log|Vd / Vcm|", sub:`Vd = ${zabs(B.vd).toFixed(3)} V, Vcm = ${zabs(B.vcm).toFixed(3)} V → ${cm} dB`});
+    rows.push({name:"Match", f:"S11 = (Zin − 50) / (Zin + 50)", sub:`${dB(zabs(B.s11)) < -60 ? "< −60" : dB(zabs(B.s11)).toFixed(1)} dB with RL = ${P.rl.toFixed(0)} Ω`});
+  } else if (v === "an"){
+    const P = RF.an, A = anCalc(P.f, P.L);
+    rfSlider("rf-an-L", `${P.L.toFixed(1)} mm`); rfSlider("rf-an-f", `${P.f.toFixed(2)} GHz (λ = ${A.lam.toFixed(1)} mm)`);
+    ro.push(["Length", A.Lw.toFixed(3) + " λ"], ["Zin", zstr(A.zin, 0) + " Ω"], ["Directivity (dBi)", (10*Math.log10(A.D)).toFixed(2) + " dBi"], ["S11 (50 Ω)", dB(zabs(A.s11)).toFixed(1) + " dB"]);
+    rows.push({name:"Resonance", f:"L ≈ 0.47 λ = 0.47 · c / f", sub:`for ${P.f.toFixed(2)} GHz: ${(0.47*A.lam).toFixed(1)} mm (now ${P.L.toFixed(1)} mm)`});
+    rows.push({name:"Impedance", f:"Zin = (Rr + jXm) / sin²(kL/2)   (induced EMF, thin wire)", sub:`Rr = ${A.Rr.toFixed(1)} Ω, Xm = ${A.Xm.toFixed(1)} Ω → Zin = ${zstr(A.zin)} Ω`});
+    rows.push({name:"Pattern", f:"F(θ) = [cos(kL/2·cosθ) − cos(kL/2)] / sinθ", sub:`nulls along the wire (θ = 0°, 180°), D0 = ${A.D.toFixed(2)} = ${(10*Math.log10(A.D)).toFixed(2)} dBi`});
+    rows.push({name:"S11 (50 Ω)", f:"S11 = (Zin − 50) / (Zin + 50)", sub:`|S11| = ${zabs(A.s11).toFixed(3)} → ${dB(zabs(A.s11)).toFixed(1)} dB`});
+  } else {
+    const P = RF.wg, W = wgCalc(P.f, P.mode);
+    rfSlider("rf-wg-f", `${P.f.toFixed(2)} GHz`);
+    document.querySelectorAll("#rf-wg-mode button").forEach(b => b.setAttribute("aria-pressed", b.dataset.m === P.mode));
+    document.querySelectorAll("#rf-wg-show button").forEach(b => b.setAttribute("aria-pressed", b.dataset.s === P.show));
+    ro.push(["Cutoff fc", W.fc.toFixed(2) + " GHz"], ["Guide wavelength λg", W.prop ? W.lamg.toFixed(1) + " mm" : "—"], ["Group velocity", W.prop ? W.vg.toFixed(3) + " c" : "0"], ["Wave impedance", W.prop ? W.Z.toFixed(0) + " Ω" : "—"]);
+    const {m, n} = wgMN(P.mode);
+    rows.push({name:"Cutoff", f:"fc = c/2 · √((m/a)² + (n/b)²)", sub:`m = ${m}, n = ${n}, a = ${WG_A} mm, b = ${WG_B} mm → fc = ${W.fc.toFixed(2)} GHz`});
+    rows.push({name:"Propagation", f: W.prop ? "β = k·√(1 − (fc/f)²),  λg = λ / √(1 − (fc/f)²)" : "α = k·√((fc/f)² − 1)  (evanescent)",
+      sub: W.prop ? `β = ${W.beta.toFixed(0)} rad/m, λ = ${(C0/(P.f*1e9)*1000).toFixed(1)} mm → λg = ${W.lamg.toFixed(1)} mm` : `α = ${W.alpha.toFixed(0)} Np/m = ${(W.alpha*8.686/100).toFixed(1)} dB/cm`});
+    rows.push({name:"Velocities", f:"vp = c / √(1 − (fc/f)²),  vg = c·√(1 − (fc/f)²)", sub: W.prop ? `vp = ${W.vp.toFixed(3)} c, vg = ${W.vg.toFixed(3)} c, vp·vg = c²` : "no propagation below cutoff"});
+    rows.push({name:"Wave Z", f: W.te ? "Z_TE = η / √(1 − (fc/f)²)" : "Z_TM = η · √(1 − (fc/f)²)", sub: W.prop ? `= ${W.Z.toFixed(0)} Ω (η = 377 Ω)` : "imaginary below cutoff (no power flow)"});
+  }
+  renderRo($("rf-ro"), ro);
+  renderEq($("rf-eq"), rows);
+  updateRFGloss();
+  drawRFPlots();
+}
+
+function updateRFGloss(){
+  const v = RF.view, key = v + JSON.stringify(RF[v]);
+  if (key === rfGlossKey) return; rfGlossKey = key;
+  const fmt = z => `${zabs(z).toFixed(3)} ∠${deg(zarg(z)).toFixed(0)}° (${dB(zabs(z)).toFixed(1)} dB)`;
+  let h = "", t = "";
+  if (v === "sp"){ const S = spCalc(RF.sp.f); h = "S-matrix of the line section now (it is symmetric and reciprocal):";
+    t = `<table><tr><th></th><th>from port 1</th><th>from port 2</th></tr><tr><td>to port 1</td><td>S11 = ${fmt(S.s11)}</td><td>S12 = ${fmt(S.s21)}</td></tr><tr><td>to port 2</td><td>S21 = ${fmt(S.s21)}</td><td>S22 = ${fmt(S.s11)}</td></tr></table>`; }
+  else if (v === "cp"){ const S = cpCalc(RF.cp.f); h = "Where the input power at port 1 goes now:";
+    t = `<table><tr><th>Port</th><th>S-parameter</th><th>Power</th></tr><tr><td>2 Through</td><td>S21 = ${fmt(S.s21)}</td><td>${(zabs(S.s21)**2*100).toFixed(1)} %</td></tr><tr><td>3 Coupled</td><td>S31 = ${fmt(S.s31)}</td><td>${(zabs(S.s31)**2*100).toFixed(2)} %</td></tr><tr><td>4 Isolated</td><td>S41 = ${fmt(S.s41)}</td><td>${(zabs(S.s41)**2*100).toFixed(4)} %</td></tr></table>`; }
+  else if (v === "bl"){ h = "Balance across frequency with your settings:";
+    t = `<table><tr><th>f (GHz)</th><th>|S21|</th><th>|S31|</th><th>Imbalance</th><th>Phase</th></tr>` + [1.2, 1.8, 2.4, 3, 3.6, RF.bl.f].map(f => { const B = blCalc(f); return `<tr${f === RF.bl.f ? ' style="font-weight:700"' : ""}><td>${f.toFixed(2)}</td><td>${dB(zabs(B.s21)).toFixed(2)} dB</td><td>${dB(zabs(B.s31)).toFixed(2)} dB</td><td>${B.ampImb.toFixed(2)} dB</td><td>${B.phDiff.toFixed(1)}°</td></tr>`; }).join("") + `</table>`; }
+  else if (v === "an"){ h = `Dipoles of different length at ${RF.an.f.toFixed(2)} GHz:`;
+    const lam = C0/(RF.an.f*1e9)*1000;
+    t = `<table><tr><th>L / λ</th><th>L (mm)</th><th>Zin (Ω)</th><th>Directivity</th><th>|S11| (50 Ω)</th></tr>` + [0.25, 0.47, 0.5, 1.25, 1.5, RF.an.L/lam].map(r => { const A = anCalc(RF.an.f, r*lam); return `<tr${Math.abs(r - RF.an.L/lam) < 1e-9 ? ' style="font-weight:700"' : ""}><td>${r.toFixed(2)}</td><td>${(r*lam).toFixed(1)}</td><td>${zstr(A.zin, 0)}</td><td>${(10*Math.log10(A.D)).toFixed(2)} dBi</td><td>${dB(zabs(A.s11)).toFixed(1)} dB</td></tr>`; }).join("") + `</table>`; }
+  else { h = `Modes of WR-90 at ${RF.wg.f.toFixed(2)} GHz:`;
+    t = `<table><tr><th>Mode</th><th>fc (GHz)</th><th>Propagates?</th><th>λg (mm)</th></tr>` + WG_MODES.map(md => { const W = wgCalc(RF.wg.f, md); return `<tr${md === RF.wg.mode ? ' style="font-weight:700"' : ""}><td>${md}</td><td>${W.fc.toFixed(2)}</td><td class="${W.prop ? "ok" : "bad"}">${W.prop ? "yes" : "no"}</td><td>${W.prop ? W.lamg.toFixed(1) : "—"}</td></tr>`; }).join("") + `</table>`; }
+  $("rf-g-head").textContent = h;
+  $("rf-g-live").innerHTML = t;
+}
+
+/* ---------------- plots ---------------- */
+function svgPolar(cx, cy, R, rings){
+  let s = "";
+  rings.forEach(r => s += `<circle cx="${cx}" cy="${cy}" r="${r*R}" fill="none" stroke="var(--line)"/>`);
+  s += `<line x1="${cx-R}" x2="${cx+R}" y1="${cy}" y2="${cy}" stroke="var(--line)"/><line x1="${cx}" x2="${cx}" y1="${cy-R}" y2="${cy+R}" stroke="var(--line)"/>`;
+  return s;
+}
+const svgArrow = (x0, y0, x1, y1, col, w=2) => { const a = Math.atan2(y1-y0, x1-x0), h = 7; return `<line x1="${x0}" y1="${y0}" x2="${x1}" y2="${y1}" stroke="${col}" stroke-width="${w}"/><path d="M${x1} ${y1} L${x1 - h*Math.cos(a - 0.4)} ${y1 - h*Math.sin(a - 0.4)} L${x1 - h*Math.cos(a + 0.4)} ${y1 - h*Math.sin(a + 0.4)}Z" fill="${col}"/>`; };
+const fGrid = range(0.5, 6, 220);
+function smith(cx, cy, R){
+  let s = `<defs><clipPath id="rf-smc"><circle cx="${cx}" cy="${cy}" r="${R}"/></clipPath></defs><circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="var(--muted)"/>`;
+  s += `<g clip-path="url(#rf-smc)" fill="none" stroke="var(--line)">`;
+  [0.2, 0.5, 1, 2, 5].forEach(r => s += `<circle cx="${cx + R*r/(1+r)}" cy="${cy}" r="${R/(1+r)}"/>`);
+  [0.2, 0.5, 1, 2, 5].forEach(x => { s += `<circle cx="${cx + R}" cy="${cy - R/x}" r="${R/x}"/><circle cx="${cx + R}" cy="${cy + R/x}" r="${R/x}"/>`; });
+  s += `</g><line x1="${cx-R}" x2="${cx+R}" y1="${cy}" y2="${cy}" stroke="var(--line)"/>`;
+  [0.2, 0.5, 1, 2, 5].forEach(r => s += `<text x="${cx + R*(r-1)/(r+1)}" y="${cy - 3}" text-anchor="middle" style="font-size:8px">${r}</text>`);
+  return s;
+}
+function drawRFPlots(){
+  const v = RF.view; let a = "", b = "";
+  const key = `<text x="40" y="12" style="fill:var(--hole)">— |S11|</text><text x="96" y="12" style="fill:var(--electron)">— |S21|</text>`;
+  if (v === "sp"){
+    const A = axesR(300, 230, {l:34,r:10,t:28,b:30}, 0.5, 6, -40, 0, 1, 10, "f (GHz)", "dB");
+    const pts = fGrid.map(f => { const S = spCalc(f); return [f, dB(zabs(S.s11)), dB(zabs(S.s21))]; });
+    a = A.s + `<path d="${pathOf(pts.map(p => [p[0], p[1]]), A.X, A.Y)}" fill="none" stroke="var(--hole)" stroke-width="2"/><path d="${pathOf(pts.map(p => [p[0], p[2]]), A.X, A.Y)}" fill="none" stroke="var(--electron)" stroke-width="2"/>`;
+    a += `<line x1="${A.X(0.5)}" x2="${A.X(6)}" y1="${A.Y(-10)}" y2="${A.Y(-10)}" stroke="var(--muted)" stroke-dasharray="3 3"/><text x="${A.X(6)}" y="${A.Y(-10)-3}" text-anchor="end">−10 dB</text>`;
+    const S = spCalc(RF.sp.f);
+    a += key + A.frame + dotSvg(A.X(RF.sp.f), A.Y(dB(zabs(S.s11)))) + `<circle cx="${A.X(RF.sp.f)}" cy="${A.Y(dB(zabs(S.s21)))}" r="4" fill="var(--electron)"/>`;
+    const cx = 110, cy = 124, R = 90;
+    b = smith(cx, cy, R) + `<text x="8" y="12" style="fill:var(--fg)">Smith chart of S11, 0.5–6 GHz</text>`;
+    b += `<path d="${fGrid.map((f, i) => { const s = spCalc(f).s11; return (i ? "L" : "M") + (cx + R*s.re).toFixed(1) + " " + (cy - R*s.im).toFixed(1); }).join("")}" fill="none" stroke="var(--hole)" stroke-width="1.8"/>`;
+    b += dotSvg(cx + R*S.s11.re, cy - R*S.s11.im) + `<circle cx="${cx}" cy="${cy}" r="2.5" fill="var(--fg)"/><text x="${cx+4}" y="${cy+12}">match</text>`;
+  } else if (v === "cp"){
+    const A = axesR(300, 230, {l:34,r:10,t:28,b:30}, 0.5, 6, -50, 0, 1, 10, "f (GHz)", "dB");
+    const S = f => cpCalc(f);
+    const cur = (fn, col, w) => `<path d="${pathOf(fGrid.map(f => [f, dB(zabs(fn(S(f))))]), A.X, A.Y)}" fill="none" stroke="var(--${col})" stroke-width="${w}"/>`;
+    a = A.s + cur(s => s.s21, "accent", 2) + cur(s => s.s31, "electron", 2) + cur(s => s.s41, "hole", 1.6);
+    a += `<text x="40" y="12" style="fill:var(--accent)">— through</text><text x="100" y="12" style="fill:var(--electron)">— coupled</text><text x="162" y="12" style="fill:var(--hole)">— isolated</text>`;
+    const c = S(RF.cp.f);
+    a += A.frame + dotSvg(A.X(RF.cp.f), A.Y(dB(zabs(c.s31)))) + `<circle cx="${A.X(RF.cp.f)}" cy="${A.Y(dB(zabs(c.s21)))}" r="4" fill="var(--accent)"/><circle cx="${A.X(RF.cp.f)}" cy="${A.Y(dB(zabs(c.s41)))}" r="4" fill="var(--hole)"/>`;
+    const cx = 110, cy = 124, R = 88;
+    b = svgPolar(cx, cy, R, [0.5, 1]) + `<text x="8" y="12" style="fill:var(--fg)">Output phasors (input = 1∠0°)</text>`;
+    b += svgArrow(cx, cy, cx + R*c.s21.re, cy - R*c.s21.im, "var(--accent)", 2.4) + svgArrow(cx, cy, cx + R*c.s31.re, cy - R*c.s31.im, "var(--electron)", 2.4) + svgArrow(cx, cy, cx + R*c.s41.re, cy - R*c.s41.im, "var(--hole)", 1.6);
+    b += `<text x="${cx + R*c.s21.re + 4}" y="${cy - R*c.s21.im + 12}" style="fill:var(--accent)">S21</text><text x="${cx + R*c.s31.re + 4}" y="${cy - R*c.s31.im - 4}" style="fill:var(--electron)">S31</text>`;
+    b += `<text x="8" y="226">∠S31 − ∠S21 = ${wrap180(deg(zarg(c.s31) - zarg(c.s21))).toFixed(0)}°</text>`;
+  } else if (v === "bl"){
+    const A = axesR(300, 230, {l:34,r:10,t:28,b:30}, 0.5, 6, -30, 0, 1, 10, "f (GHz)", "dB");
+    const cur = (fn, col, w) => `<path d="${pathOf(fGrid.map(f => [f, dB(zabs(fn(blCalc(f))))]), A.X, A.Y)}" fill="none" stroke="var(--${col})" stroke-width="${w}"/>`;
+    a = A.s + cur(s => s.s21, "accent", 2) + cur(s => s.s31, "electron", 2) + cur(s => s.s11, "hole", 1.6);
+    a += `<line x1="${A.X(0.5)}" x2="${A.X(6)}" y1="${A.Y(-3.01)}" y2="${A.Y(-3.01)}" stroke="var(--muted)" stroke-dasharray="3 3"/><text x="${A.X(6)}" y="${A.Y(-3)-3}" text-anchor="end">−3 dB = equal split</text>`;
+    a += `<text x="36" y="12" style="fill:var(--accent)">— V+ |S21|</text><text x="112" y="12" style="fill:var(--electron)">— V− |S31|</text><text x="188" y="12" style="fill:var(--hole)">— |S11|</text>`;
+    const B = blCalc(RF.bl.f);
+    a += A.frame + `<circle cx="${A.X(RF.bl.f)}" cy="${A.Y(dB(zabs(B.s21)))}" r="4.5" fill="var(--accent)"/><circle cx="${A.X(RF.bl.f)}" cy="${A.Y(dB(zabs(B.s31)))}" r="4.5" fill="var(--electron)"/>`;
+    const cx = 110, cy = 124, R = 88, sc = R/Math.max(1, zabs(B.vp), zabs(B.vn));
+    b = svgPolar(cx, cy, R, [0.5, 1]) + `<text x="8" y="12" style="fill:var(--fg)">Output phasors (input = 1 V)</text>`;
+    b += svgArrow(cx, cy, cx + sc*B.vp.re, cy - sc*B.vp.im, "var(--accent)", 2.4) + svgArrow(cx, cy, cx + sc*B.vn.re, cy - sc*B.vn.im, "var(--electron)", 2.4);
+    if (zabs(B.vcm) > 0.01) b += svgArrow(cx, cy, cx + sc*B.vcm.re, cy - sc*B.vcm.im, "var(--hole)", 1.8);
+    b += `<text x="${cx + sc*B.vp.re + 4}" y="${cy - sc*B.vp.im}" style="fill:var(--accent)">V+</text><text x="${cx + sc*B.vn.re + 4}" y="${cy - sc*B.vn.im}" style="fill:var(--electron)">V−</text>`;
+    b += `<text x="8" y="226">∠ = ${B.phDiff.toFixed(1)}°, Vcm = ${zabs(B.vcm).toFixed(3)} V</text>`;
+  } else if (v === "an"){
+    const A = axesR(300, 230, {l:34,r:10,t:28,b:30}, 0.5, 6, -30, 0, 1, 10, "f (GHz)", "|S11| (dB)");
+    const pts = range(0.5, 6, 160).map(f => [f, dB(zabs(anCalc(f, RF.an.L).s11))]);
+    a = A.s + `<path d="${pathOf(pts, A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2"/>`;
+    a += `<line x1="${A.X(0.5)}" x2="${A.X(6)}" y1="${A.Y(-10)}" y2="${A.Y(-10)}" stroke="var(--muted)" stroke-dasharray="3 3"/><text x="${A.X(6)}" y="${A.Y(-10)-3}" text-anchor="end">−10 dB</text>`;
+    a += `<text x="40" y="12" style="fill:var(--accent)">S11 of a ${RF.an.L.toFixed(1)} mm dipole, 50 Ω feed</text>`;
+    const An = anCalc(RF.an.f, RF.an.L);
+    a += A.frame + dotSvg(A.X(RF.an.f), A.Y(dB(zabs(An.s11))));
+    const cx = 110, cy = 126, R = 86, rr = th => { const F = Math.abs(An.F(th))/An.Fm; return R*Math.max(0, 1 + Math.max(-30, 20*Math.log10(Math.max(F, 1e-6)))/30); };
+    const hw = anCalc(1, 0.5*300), rh = th => { const F = Math.abs(hw.F(th))/hw.Fm; return R*Math.max(0, 1 + Math.max(-30, 20*Math.log10(Math.max(F, 1e-6)))/30); };
+    b = svgPolar(cx, cy, R, [1/3, 2/3, 1]) + `<text x="8" y="12" style="fill:var(--fg)">E-plane pattern (dB)</text>`;
+    const poly = fn => range(0, 2*Math.PI, 240).map((th, i) => (i ? "L" : "M") + (cx + fn(th)*Math.sin(th)).toFixed(1) + " " + (cy - fn(th)*Math.cos(th)).toFixed(1)).join("") + "Z";
+    b += `<path d="${poly(rh)}" fill="none" stroke="var(--muted)" stroke-dasharray="3 3"/><path d="${poly(rr)}" fill="var(--accent)" fill-opacity=".15" stroke="var(--accent)" stroke-width="2"/>`;
+    b += `<line x1="${cx}" x2="${cx}" y1="${cy-14}" y2="${cy+14}" stroke="var(--fg)" stroke-width="3"/>`;
+    b += `<text x="${cx + R*2/3 + 2}" y="${cy - 3}" style="font-size:8px">−10</text><text x="${cx + R/3 + 2}" y="${cy - 3}" style="font-size:8px">−20</text><text x="8" y="226">- - half-wave dipole for comparison</text>`;
+  } else {
+    const A = axesR(300, 230, {l:34,r:10,t:28,b:30}, 0, 25, 0, 500, 5, 100, "f (GHz)", "β (rad/m)");
+    a = A.s + `<path d="${pathOf(range(0, 25, 50).map(f => [f, 2*Math.PI*f*1e9/C0]), A.X, A.Y)}" fill="none" stroke="var(--muted)" stroke-dasharray="3 3"/>`;
+    WG_MODES.forEach(md => {
+      const fc = wgFc(md), sel = md === RF.wg.mode;
+      const pts = range(fc, 25, 80).map(f => [f, wgCalc(f, md).beta]);
+      a += `<path d="${pathOf(pts, A.X, A.Y)}" fill="none" stroke="${sel ? "var(--accent)" : "var(--fg)"}" stroke-opacity="${sel ? 1 : .35}" stroke-width="${sel ? 2.4 : 1.2}"/>`;
+    });
+    const W = wgCalc(RF.wg.f, RF.wg.mode);
+    a += `<text x="40" y="12" style="fill:var(--accent)">— ${RF.wg.mode}</text><text x="96" y="12" style="fill:var(--fg)">— other modes   - - light (TEM)</text>`;
+    a += A.frame + dotSvg(A.X(RF.wg.f), A.Y(W.beta));
+    const B = axesR(220, 230, {l:40,r:8,t:28,b:30}, 0, 25, 0, 6, 5, 1, "f (GHz)", "");
+    b = `<text x="8" y="12" style="fill:var(--fg)">Mode chart (bar = propagates)</text>`;
+    for (let x = 0; x <= 25; x += 5) b += `<line x1="${B.X(x)}" x2="${B.X(x)}" y1="28" y2="200" stroke="var(--line)"/><text x="${B.X(x)}" y="214" text-anchor="middle">${x}</text>`;
+    b += `<text x="${(40 + 212)/2}" y="228" text-anchor="middle">f (GHz)</text>`;
+    WG_MODES.forEach((md, i) => {
+      const fc = wgFc(md), y = 44 + i*27, sel = md === RF.wg.mode;
+      b += `<text x="36" y="${y + 4}" text-anchor="end" style="fill:${sel ? "var(--accent)" : "var(--muted)"}">${md}</text>`;
+      b += `<line x1="${B.X(0)}" x2="${B.X(fc)}" y1="${y}" y2="${y}" stroke="var(--line)" stroke-width="6"/><line x1="${B.X(fc)}" x2="${B.X(25)}" y1="${y}" y2="${y}" stroke="${sel ? "var(--accent)" : "var(--fg)"}" stroke-opacity="${sel ? 1 : .45}" stroke-width="6"/>`;
+    });
+    b += `<line x1="${B.X(RF.wg.f)}" x2="${B.X(RF.wg.f)}" y1="28" y2="200" stroke="var(--hole)" stroke-width="1.6"/>`;
+  }
+  $("rf-p1").innerHTML = a; $("rf-p2").innerHTML = b;
+}
+
+/* ---------------- controls ---------------- */
+document.querySelectorAll("#rf-view button").forEach(b => b.addEventListener("click", () => { RF.view = b.dataset.v; updateRF(); }));
+[["rf-sp-z","sp","zl"],["rf-sp-len","sp","len"],["rf-sp-f","sp","f"],["rf-cp-c","cp","c"],["rf-cp-d","cp","dir"],["rf-cp-f","cp","f"],
+ ["rf-bl-rl","bl","rl"],["rf-bl-tol","bl","tol"],["rf-bl-f","bl","f"],["rf-an-L","an","L"],["rf-an-f","an","f"],["rf-wg-f","wg","f"]]
+  .forEach(([id, g, k]) => $(id).addEventListener("input", e => { RF[g][k] = +e.target.value; updateRF(); }));
+document.querySelectorAll("#rf-wg-mode button").forEach(b => b.addEventListener("click", () => { RF.wg.mode = b.dataset.m; updateRF(); }));
+document.querySelectorAll("#rf-wg-show button").forEach(b => b.addEventListener("click", () => { RF.wg.show = b.dataset.s; updateRF(); }));
+
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives"};
 function showTab(t){
   zoomClose();
   tab = t;
-  ["mos","inv","body","pw","rd"].forEach(k => { $("tab-"+k).hidden = t !== k; $("tab-btn-"+k).setAttribute("aria-selected", t === k); });
+  ["mos","inv","body","pw","rd","rf"].forEach(k => { $("tab-"+k).hidden = t !== k; $("tab-btn-"+k).setAttribute("aria-selected", t === k); });
   $("seg-type").hidden = t !== "mos";
   try { history.replaceState(null, "", HASH[t]); } catch(e){}
   if (t === "mos"){ M.resize(); updateMos(); }
   else if (t === "inv"){ $("sub-top").textContent = `CMOS inverter · VDD = ${VDD} V · Vtn = +1.0 V, Vtp = −1.0 V`; IVC.resize(); updateInv(); }
   else if (t === "rd"){ $("sub-top").textContent = "77 GHz automotive radar · fractional-N PLL · FMCW chirp"; RC.resize(); updateRadar(); }
+  else if (t === "rf"){ $("sub-top").textContent = "RF passives · S-parameters, coupler, balun, antenna, waveguide modes"; RFC.resize(); updateRF(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
-["mos","inv","body","pw","rd"].forEach(k => $("tab-btn-"+k).addEventListener("click", () => showTab(k)));
+["mos","inv","body","pw","rd","rf"].forEach(k => $("tab-btn-"+k).addEventListener("click", () => showTab(k)));
 
 let last = performance.now(), T = 0;
 function frame(now){
@@ -3958,6 +5210,7 @@ function frame(now){
   if (tab === "mos"){ tourTick(dt); if (M.cv.clientWidth) drawMos(dt, T); }
   else if (tab === "inv"){ invTick(dt); if (IVC.cv.clientWidth) drawInv(dt, T); }
   else if (tab === "rd"){ if (!SIM) radarRecalc(); radarTickAll(dt); if (RC.cv.clientWidth) drawRadar(dt, T); }
+  else if (tab === "rf"){ rfTick(dt); if (RFC.cv.clientWidth) drawRF(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
@@ -4009,7 +5262,7 @@ addEventListener("keydown", e => { if (e.key === "Escape") zoomClose(); });
 addEventListener("resize", zoomSize);
 
 buildLegend(); updateMos();
-showTab(location.hash === "#inverter" ? "inv" : location.hash === "#body-effect" ? "body" : location.hash === "#power" ? "pw" : location.hash === "#radar" ? "rd" : "mos");
+showTab(location.hash === "#inverter" ? "inv" : location.hash === "#body-effect" ? "body" : location.hash === "#power" ? "pw" : location.hash === "#radar" ? "rd" : location.hash === "#rf-passives" ? "rf" : "mos");
 requestAnimationFrame(frame);
 })();
 </script>
