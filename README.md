@@ -33,4 +33,8 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Buck (DC-DC)** – high-side PMOS / low-side NMOS switching (live cross-sections), Vout = D·Vin, PWM ramp/SW/iL/ripple waveforms, efficiency vs load
 - **PMIC + DVFS** – two bucks and an LDO in one chip; the CPU writes a VSEL code over I²C and the core rail slews to the new voltage; power breakdown per rail
 
+## 77 GHz radar tab (`#radar`) – frequency synthesizer for ADAS
+- **PLL synthesizer** – XO → PFD → CP → LF → VCO (19–20 GHz) → ×4 → 76–81 GHz; ramp generator + ΣΔ change the fractional divide ratio N to make the chirp; MOS-varactor cross-section with C–V and f–V curves; chirp tracking error and phase-noise budget (ref/CP, ΣΔ, VCO) vs loop bandwidth, fref and ΣΔ order
+- **FMCW radar** – TX chirp and delayed echo, beat frequency fb = 2RS/c, IF signal, FFT range spectrum (two-target resolution), ΔR = c/2B, Rmax, Doppler
+
 Light / dark theme toggle (follows the system by default).

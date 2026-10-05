@@ -122,7 +122,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
 .chk{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;cursor:pointer}
 .chk input{accent-color:var(--accent);width:16px;height:16px}
 .readouts.four{grid-template-columns:repeat(4,minmax(0,1fr))}
-.readouts.four .ro b{font-size:clamp(1rem,2.4vw,1.3rem)}
+.readouts.four .ro b{font-size:clamp(.95rem,2.1vw,1.2rem);white-space:normal;overflow-wrap:anywhere}
 @media (max-width:560px){.readouts.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
@@ -136,6 +136,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-inv" aria-selected="false" aria-controls="tab-inv">CMOS inverter</button>
         <button role="tab" id="tab-btn-body" aria-selected="false" aria-controls="tab-body">Body effect</button>
         <button role="tab" id="tab-btn-pw" aria-selected="false" aria-controls="tab-pw">Power (LDO · PMIC)</button>
+        <button role="tab" id="tab-btn-rd" aria-selected="false" aria-controls="tab-rd">77 GHz radar</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -488,6 +489,96 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <div class="sub-card explain">
           <p class="eyebrow">How it works</p>
           <p id="pw-explain"></p>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ===================== RADAR TAB ===================== -->
+  <section id="tab-rd" role="tabpanel" aria-labelledby="tab-btn-rd" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="rd-pill">PLL</span><h2 id="rd-name">Fractional-N chirp synthesizer</h2></div>
+      <p id="rd-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="rd-view" role="group" aria-label="Radar view" style="flex-wrap:wrap">
+        <button data-v="pll" aria-pressed="true">PLL synthesizer</button>
+        <button data-v="fmcw" aria-pressed="false">FMCW radar</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvr" aria-label="Animated 77 GHz radar: PLL loop, varactor cross-section, chirp and echo"></canvas>
+      <div class="legend">
+        <span><span class="sw" style="background:var(--accent)"></span> TX chirp / PLL output</span>
+        <span><span class="sw" style="background:var(--electron)"></span> Echo · electrons</span>
+        <span><span class="sw" style="background:var(--hole)"></span> Frequency error · target</span>
+        <span><span class="sw" style="background:var(--deplete);border:1px solid var(--line);border-radius:3px"></span> Depletion</span>
+      </div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="rd-ro"></div>
+        <div id="rd-c-pll" style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span>PLL loop bandwidth</span><span id="rd-bw-v"></span></div>
+            <input id="rd-bw" type="range" min="0" max="1" step="0.01" value="0.59">
+          </div>
+          <div class="chips">
+            <div class="seg" id="rd-fref" role="group" aria-label="Reference frequency">
+              <button data-f="25">fref 25 MHz</button><button data-f="50">50 MHz</button><button data-f="100">100 MHz</button>
+            </div>
+            <div class="seg" id="rd-ord" role="group" aria-label="Sigma-delta order">
+              <button data-o="1">ΣΔ 1st</button><button data-o="2">2nd</button><button data-o="3">3rd</button>
+            </div>
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Chirp bandwidth B</span><span id="rd-B1-v"></span></div>
+            <input id="rd-B1" type="range" min="0.2" max="4" step="0.05" value="1">
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Chirp duration Tc</span><span id="rd-Tc1-v"></span></div>
+            <input id="rd-Tc1" type="range" min="10" max="100" step="1" value="40">
+          </div>
+        </div>
+        <div id="rd-c-fm" hidden style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span>Chirp bandwidth B</span><span id="rd-B2-v"></span></div>
+            <input id="rd-B2" type="range" min="0.2" max="4" step="0.05" value="1">
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Chirp duration Tc</span><span id="rd-Tc2-v"></span></div>
+            <input id="rd-Tc2" type="range" min="10" max="100" step="1" value="40">
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Target 1 range</span><span id="rd-R1-v"></span></div>
+            <input id="rd-R1" type="range" min="2" max="250" step="0.5" value="60">
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Target 1 speed (− = approaching)</span><span id="rd-v1-v"></span></div>
+            <input id="rd-v1" type="range" min="-40" max="40" step="1" value="-15">
+          </div>
+          <label class="chk"><input type="checkbox" id="rd-t2"> Add a second target just behind target 1</label>
+          <div class="slider">
+            <div class="lab"><span>Spacing of target 2</span><span id="rd-dR2-v"></span></div>
+            <input id="rd-dR2" type="range" min="0.02" max="3" step="0.01" value="1">
+          </div>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="rd-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Spectrum and trade-offs</p>
+        <div class="plots">
+          <div class="plot"><svg id="rd-p1" viewBox="0 0 300 230" role="img" aria-label="Phase noise or IF spectrum"></svg></div>
+          <div class="plot"><svg id="rd-p2" viewBox="0 0 220 230" role="img" aria-label="Chirp error or range resolution"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="rd-explain"></p>
         </div>
       </section>
     </div>
@@ -2104,34 +2195,380 @@ ldoSettle();
 for (let i=0;i<50;i++) PM.hist.push({t:PM.t - (50-i)*0.5, v:PM.vcore});
 
 
+/* =========================================================
+   TAB 5 — 77 GHz FMCW radar: PLL synthesizer + chirp
+   ========================================================= */
+const RC = setupCanvas($("cvr"), 1000, 488);
+const CLIGHT = 3e8, TI = 10, TR = 4, FIFMAX = 20, NCH = 128;
+const CH = {f0:76, B:1, Tc:40, fref:50, bw:1, order:3, R1:60, v1:-15, t2:false, dR2:1.0};
+let rdView = "pll";
+// VCO tank with MOS varactor
+const LT = 0.2e-9, CFIX = 293e-15;
+const cvar = vt => 5e-15 + 55e-15*(1 - (1 + Math.tanh((vt - 1.5)/0.6))/2);
+const fvco = vt => 1/(2*Math.PI*Math.sqrt(LT*(CFIX + cvar(vt))))/1e9;            // GHz
+function vtuneFor(fg){ let lo = 0, hi = 3; for (let i=0;i<40;i++){ const m = (lo+hi)/2; if (fvco(m) < fg) lo = m; else hi = m; } return (lo+hi)/2; }
+const cycleP = () => TI + CH.Tc + TR;
+const uAt = t => { const B = CH.B*1000; if (t < TI) return 0; if (t < TI + CH.Tc) return B*(t - TI)/CH.Tc; return B*Math.max(0, 1 - (t - TI - CH.Tc)/TR); };  // MHz above f0
+
+// closed-loop type-II PLL (ζ = 0.707) driven by the commanded chirp, frequencies in MHz, time in µs
+let SIM = null;
+function pllSim(){
+  const P = cycleP(), wn = 2*Math.PI*CH.bw/2.06, z = 0.707, h = Math.min(0.002, 0.05/wn);
+  let y = 0, zi = 0, t = 0, next = P; const rec = [], step = P/600;
+  while (t < 2*P){
+    const e = uAt(t % P) - y;
+    y += (2*z*wn*e + zi)*h; zi += wn*wn*e*h; t += h;
+    if (t >= next && rec.length < 601){ rec.push({t: next - P, u: uAt(next - P), y}); next += step; }
+  }
+  let mx = 0, ss = 0, n = 0, settle = null;
+  rec.forEach(q => { if (q.t > TI && q.t < TI + CH.Tc){ const e = q.u - q.y; mx = Math.max(mx, Math.abs(e)); if (q.t > TI + 0.25*CH.Tc){ ss += e*e; n++; } } });
+  for (let i = rec.length-1; i >= 0; i--){ const q = rec[i]; if (q.t > TI && q.t < TI + CH.Tc && Math.abs(q.u - q.y) > 0.5){ settle = q.t - TI; break; } }
+  SIM = {rec, P, maxErr:mx, rmsErr: n ? Math.sqrt(ss/n) : 0, settle: settle == null ? 0 : settle};
+}
+const simAt = t => { const r = SIM.rec, i = clamp(Math.floor(t/SIM.P*600), 0, r.length-1); return r[i]; };
+
+// phase-noise budget at the 77 GHz output
+function pnBudget(){
+  const fp = CH.fref*1e6, Nrf = 77e9/fp, wn = 2*Math.PI*CH.bw*1e6/2.06, z = 0.707, m = CH.order;
+  const den = w => (wn*wn - w*w)**2 + (2*z*wn*w)**2;
+  const H2 = f => { const w = 2*Math.PI*f; return (wn**4 + (2*z*wn*w)**2)/den(w); };
+  const E2 = f => { const w = 2*Math.PI*f; return w**4/den(w); };
+  const XP = f => 1/(1 + (f/(4*CH.bw*1e6))**2)**2;        // two extra loop-filter poles at 4× BW
+  const Lin = -229 + 10*Math.log10(fp) + 20*Math.log10(Nrf);
+  const offs = Array.from({length:121}, (_,i) => Math.pow(10, 4 + 4*i/120));
+  const pts = offs.map(f => {
+    const ref = Lin + 10*Math.log10(H2(f)*XP(f));
+    const vco = -96 + 20*Math.log10(1e6/f) + 10*Math.log10(E2(f) + 1e-30);
+    const sdS = (2*Math.PI)**2/(12*fp)*Math.pow(2*Math.sin(Math.PI*Math.min(f, fp/2)/fp), 2*(m-1));
+    const sd = 10*Math.log10(sdS*H2(f)*XP(f) + 1e-30) + 20*Math.log10(4);
+    const tot = 10*Math.log10(10**(ref/10) + 10**(vco/10) + 10**(sd/10));
+    return {f, ref, vco, sd, tot};
+  });
+  let integ = 0;
+  for (let i=1;i<pts.length;i++) integ += 0.5*(10**(pts[i].tot/10) + 10**(pts[i-1].tot/10))*(pts[i].f - pts[i-1].f);
+  const at1M = pts.reduce((a,b) => Math.abs(Math.log10(b.f) - 6) < Math.abs(Math.log10(a.f) - 6) ? b : a);
+  return {pts, Lin, Nrf, rmsDeg: Math.sqrt(2*integ)*180/Math.PI, at1M:at1M.tot};
+}
+let PN = null;
+function radarRecalc(){ pllSim(); PN = pnBudget(); }
+
+// FMCW numbers
+function fmcw(){
+  const S = CH.B*1e9/(CH.Tc*1e-6), lam = CLIGHT/((CH.f0 + CH.B/2)*1e9);
+  const tgt = [{R:CH.R1, v:CH.v1}]; if (CH.t2) tgt.push({R:CH.R1 + CH.dR2, v:CH.v1});
+  tgt.forEach(q => { q.tau = 2*q.R/CLIGHT; q.fb = S*q.tau; q.fd = -2*q.v/lam; q.fif = q.fb + q.fd; });
+  return {S, lam, tgt, dR: CLIGHT/(2*CH.B*1e9), Rmax: FIFMAX*1e6*CLIGHT/(2*S), dv: lam/(2*NCH*CH.Tc*1e-6), vmax: lam/(4*CH.Tc*1e-6), dphi: 4*Math.PI*Math.abs(CH.v1)*CH.Tc*1e-6/lam};
+}
+
+/* ---------------- animation state ---------------- */
+const RS = {t:0, acc:0, frac:[], fracAcc:0, tick:0, packets:[], emit:0, phi:0};
+function radarTick(dt){
+  if (rdView === "pll"){
+    RS.t = (RS.t + dt*(reduce ? 2 : 8)) % SIM.P;
+    RS.tick += dt;
+    if (RS.tick > 0.16){
+      RS.tick = 0;
+      const q = simAt(RS.t), N = (CH.f0*1000 + q.y)/(4*CH.fref), Ni = Math.floor(N);
+      RS.fracAcc += N - Ni; let o = Ni; if (RS.fracAcc >= 1){ RS.fracAcc -= 1; o = Ni + 1; }
+      RS.frac.push(o); if (RS.frac.length > 9) RS.frac.shift();
+    }
+  } else {
+    RS.t = (RS.t + dt*0.35) % 2;
+    RS.emit += dt;
+    if (RS.emit > 0.16){ RS.emit = 0; RS.packets.push({t0:performance.now()/1000, ph:(RS.t % 1)}); }
+    const F = fmcw(); RS.phi += dt*F.dphi*(CH.v1 >= 0 ? -1 : 1)*1.5;
+  }
+}
+
+/* ---------------- drawing: PLL view ---------------- */
+function boxB(x, y, w, h, t1, t2, hl){
+  ctx.fillStyle = C.panel; ctx.fillRect(x, y, w, h);
+  ctx.strokeStyle = hl ? C.accent : C.fg; ctx.lineWidth = hl ? 2 : 1.4; ctx.strokeRect(x+.5, y+.5, w-1, h-1);
+  txt(t1, x+w/2, y + h/2 - (t2 ? 8 : 0), {al:"center", col:C.fg, w:700, px:12});
+  if (t2) txt(t2, x+w/2, y + h/2 + 10, {al:"center", col:C.accent, w:600, px:10});
+}
+const arrowHead = (x, y, dir) => { ctx.fillStyle = C.muted; ctx.beginPath(); const a = {r:[[-8,-5],[-8,5]], l:[[8,-5],[8,5]], u:[[-5,8],[5,8]], d:[[-5,-8],[5,-8]]}[dir]; ctx.moveTo(x, y); ctx.lineTo(x+a[0][0], y+a[0][1]); ctx.lineTo(x+a[1][0], y+a[1][1]); ctx.closePath(); ctx.fill(); };
+const loopPath = polyline([[100,80],[140,80],[210,80],[240,80],[300,80],[330,80],[400,80],[430,80],[520,80],[550,80],[550,330],[400,330],[300,330],[175,330],[175,105]]);
+let loopOff = 0;
+function drawPLL(dt, T){
+  const q = simAt(RS.t), fv = (CH.f0*1000 + q.y)/4000, vt = vtuneFor(fv), N = (CH.f0*1000 + q.y)/(4*CH.fref);
+  const err = q.u - q.y;
+  // blocks
+  boxB(16, 55, 84, 50, "XO", `${CH.fref} MHz`);
+  boxB(140, 55, 70, 50, "PFD", "");
+  boxB(240, 55, 60, 50, "CP", "");
+  boxB(330, 55, 70, 50, "LF", "");
+  boxB(430, 55, 90, 50, "VCO", `${fv.toFixed(3)} GHz`, true);
+  boxB(430, 150, 90, 44, "×4", "");
+  boxB(300, 308, 100, 44, "÷N", N.toFixed(3));
+  boxB(300, 388, 100, 44, `ΣΔ (MASH-${CH.order})`, "");
+  boxB(140, 388, 110, 44, "Ramp gen", `${(CH.B*1000/CH.Tc).toFixed(1)} MHz/µs`);
+  ["XO→","",""].forEach(()=>{});
+  wire([[100,80],[140,80]]); arrowHead(140, 80, "r");
+  wire([[210,80],[240,80]]); arrowHead(240, 80, "r");
+  wire([[300,80],[330,80]]); arrowHead(330, 80, "r");
+  wire([[400,80],[430,80]]); arrowHead(430, 80, "r");
+  wire([[520,80],[550,80],[550,330],[400,330]]); arrowHead(400, 330, "l");
+  wire([[300,330],[175,330],[175,105]]); arrowHead(175, 105, "u");
+  wire([[475,105],[475,150]]); arrowHead(475, 150, "d");
+  wire([[350,388],[350,352]]); arrowHead(350, 352, "u");
+  wire([[250,410],[300,410]]); arrowHead(300, 410, "r");
+  wire([[475,194],[475,236]]);
+  // antenna
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 2; pl([[475,236],[475,262]]); pl([[455,236],[475,262],[495,236]]);
+  txt(`TX ${(4*fv).toFixed(3)} GHz`, 505, 250, {col:C.accent, w:700, px:13});
+  txt(`Vtune ${f2(vt)} V`, 415, 46, {al:"right", col:C.accent, w:600, px:11});
+  txt(`fref ${CH.fref} MHz`, 120, 40, {al:"center", px:10});
+  txt(`fdiv = fVCO/N`, 236, 344, {al:"center", px:10});
+  txt(`chirp`, 195, 450, {al:"center", px:10});
+  txt("÷ sequence  " + RS.frac.join(" "), 300, 466, {px:11, col:C.fg});
+  // loop pulses
+  loopOff += dt*90;
+  flowDots(loopPath, loopOff, 0.6);
+  // varactor panel
+  const ox = 580, oy = 16, w = 410, h = 220;
+  panel(ox, oy, w, h, "MOS varactor in the VCO tank");
+  const vg = 1.5 - vt;                                    // gate (tank) relative to n-well (Vtune)
+  const sx = ox+14, sw = 230, surf = oy+92;
+  ctx.fillStyle = C.si; ctx.fillRect(sx, surf, sw, 110);
+  ctx.fillStyle = C.nplus; ctx.fillRect(sx, surf, sw, 110);
+  ctx.fillStyle = C.bg; ctx.fillRect(sx+6, surf, 40, 30); ctx.fillRect(sx+sw-46, surf, 40, 30);
+  ctx.fillStyle = C.nplus; ctx.fillRect(sx+6, surf, 40, 30); ctx.fillRect(sx+sw-46, surf, 40, 30);
+  const dep = vg < 0 ? 16 + 26*Math.sqrt(-vg) : 0, acc = vg > 0 ? 2 + 7*Math.min(vg, 1.5)/1.5 : 0;
+  if (dep > 0){ ctx.fillStyle = C.deplete; ctx.fillRect(sx+56, surf, sw-112, dep);
+    for (let x = sx+66; x < sx+sw-60; x += 18) for (let y = surf+9; y < surf+dep-4; y += 14){ ctx.strokeStyle = C.ion; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(x, y, 4, 0, 6.283); ctx.stroke(); sign(x, y, 2.2, 1, C.ion); } }
+  if (acc > 0){ ctx.fillStyle = C.channel; ctx.globalAlpha = .4; ctx.fillRect(sx+56, surf, sw-112, acc); ctx.globalAlpha = 1; }
+  for (let i=0;i<34;i++){ const x = sx + 8 + ((i*53) % (sw-16)), y = surf + 6 + ((i*37) % 100); if (x > sx+56 && x < sx+sw-56 && y < surf + dep + 3) continue; dot(x + Math.sin(T*2+i)*1, y + Math.cos(T*2.3+i), C.electron, false, 1, 2.6); }
+  if (acc > 0) for (let x = sx+60; x < sx+sw-58; x += 9) dot(x, surf + 2 + acc/2, C.electron, false, 1, 2.4);
+  ctx.fillStyle = C.oxide; ctx.fillRect(sx+52, surf-8, sw-104, 8);
+  ctx.fillStyle = C.metal; ctx.fillRect(sx+52, surf-30, sw-104, 22);
+  txt("gate = tank (1.5 V)", sx+sw/2, surf-42, {al:"center", px:10});
+  txt(`n-well = Vtune ${f2(vt)} V`, sx+sw/2, surf+122, {al:"center", px:10, col:C.fg});
+  txt(vg >= 0 ? "accumulation · C high" : "depletion · C low", sx+sw/2, oy+38, {al:"center", col:C.accent, w:600, px:11});
+  // C–V and f–V mini plot
+  const px0 = ox+262, px1 = ox+398, py0 = oy+44, py1 = oy+180;
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1; pl([[px0,py0],[px0,py1],[px1,py1]]);
+  const PX = v => px0 + v/3*(px1-px0), PYc = c => py1 - (c - 3e-15)/60e-15*(py1-py0), PYf = f => py1 - (f - 18.9)/1.8*(py1-py0);
+  ctx.strokeStyle = C.electron; ctx.lineWidth = 2; ctx.beginPath(); for (let v=0; v<=3.001; v+=0.05) v ? ctx.lineTo(PX(v), PYc(cvar(v))) : ctx.moveTo(PX(v), PYc(cvar(v))); ctx.stroke();
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2; ctx.beginPath(); for (let v=0; v<=3.001; v+=0.05) v ? ctx.lineTo(PX(v), PYf(fvco(v))) : ctx.moveTo(PX(v), PYf(fvco(v))); ctx.stroke();
+  ctx.fillStyle = C.electron; ctx.beginPath(); ctx.arc(PX(vt), PYc(cvar(vt)), 4, 0, 6.283); ctx.fill();
+  ctx.fillStyle = C.accent; ctx.beginPath(); ctx.arc(PX(vt), PYf(fvco(vt)), 4, 0, 6.283); ctx.fill();
+  txt(`Cvar ${(cvar(vt)*1e15).toFixed(1)} fF`, px0+4, py0-2, {col:C.electron, px:10, w:600});
+  txt(`fVCO`, px1, py0+10, {al:"right", col:C.accent, px:10, w:600});
+  txt("Vtune 0 → 3 V", (px0+px1)/2, py1+12, {al:"center", px:10});
+  // scope
+  const so = 256;
+  panel(ox, so, w, h, "Chirp at the antenna");
+  const X = t => ox+12 + t/SIM.P*(w-24), FY = u => so+150 - u/(CH.B*1000)*110, EY = e => so+196 - clamp(e/Math.max(SIM.maxErr, 1), -1, 1)*16;
+  ctx.fillStyle = C.accent; ctx.globalAlpha = .08; ctx.fillRect(X(TI), so+30, X(TI+CH.Tc)-X(TI), 182); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1.4; ctx.setLineDash([4,3]); ctx.beginPath(); SIM.rec.forEach((r,i) => i ? ctx.lineTo(X(r.t), FY(r.u)) : ctx.moveTo(X(r.t), FY(r.u))); ctx.stroke(); ctx.setLineDash([]);
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2.2; ctx.beginPath(); SIM.rec.forEach((r,i) => i ? ctx.lineTo(X(r.t), FY(r.y)) : ctx.moveTo(X(r.t), FY(r.y))); ctx.stroke();
+  ctx.strokeStyle = C.line; pl([[ox+12, so+180],[ox+w-12, so+180]]);
+  ctx.strokeStyle = C.hole; ctx.lineWidth = 1.6; ctx.beginPath(); SIM.rec.forEach((r,i) => i ? ctx.lineTo(X(r.t), EY(r.u - r.y)) : ctx.moveTo(X(r.t), EY(r.u - r.y))); ctx.stroke();
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.2; pl([[X(RS.t), so+28],[X(RS.t), so+214]]);
+  txt(`${(CH.f0 + CH.B).toFixed(2)} GHz`, ox+w-12, so+36, {al:"right", px:10}); txt(`${CH.f0.toFixed(2)} GHz`, ox+w-12, so+160, {al:"right", px:10});
+  txt("- - commanded   — PLL output", ox+14, so+36, {px:10, col:C.fg});
+  txt(`error (±${Math.max(SIM.maxErr,1).toFixed(1)} MHz)  now ${err.toFixed(2)} MHz`, ox+14, so+214, {px:10, col:C.hole});
+}
+
+/* ---------------- drawing: FMCW view ---------------- */
+function car(x, y, col, flip){
+  ctx.fillStyle = col; ctx.fillRect(x, y, 78, 22); ctx.fillRect(x + (flip ? 30 : 14), y-14, 34, 16);
+  ctx.fillStyle = C.fg; ctx.beginPath(); ctx.arc(x+16, y+24, 7, 0, 6.283); ctx.arc(x+62, y+24, 7, 0, 6.283); ctx.fill();
+}
+function drawFMCW(dt, T){
+  const F = fmcw(), now = performance.now()/1000;
+  // road scene
+  ctx.fillStyle = C.panel2; ctx.fillRect(10, 10, 980, 190);
+  ctx.strokeStyle = C.line; ctx.setLineDash([16,12]); pl([[10,150],[990,150]]); ctx.setLineDash([]);
+  const RX = R => 126 + clamp(R, 0, 250)/250*800;
+  car(40, 112, C.electron, false); ctx.fillStyle = C.accent; ctx.fillRect(118, 112, 8, 16);
+  txt("77 GHz radar", 80, 160, {al:"center", col:C.fg, w:600, px:11});
+  const xt = RX(CH.R1);
+  car(xt, 112, C.hole, true);
+  txt(`target 1 · ${CH.R1.toFixed(1)} m · ${CH.v1 > 0 ? "+" : ""}${CH.v1.toFixed(0)} m/s`, xt+39, 160, {al:"center", col:C.fg, w:600, px:11});
+  if (CH.t2){ const x2 = RX(CH.R1 + CH.dR2); car(x2, 60, C.hole, true); txt(`target 2 · +${CH.dR2.toFixed(2)} m`, x2+39, 46, {al:"center", col:C.fg, w:600, px:11}); }
+  // range ruler
+  for (let R=0; R<=250; R+=50){ txt(`${R} m`, RX(R), 188, {al:"center", px:10}); }
+  if (CH.R1 > F.Rmax){ txt(`beyond Rmax = ${F.Rmax.toFixed(0)} m: fb above the ${FIFMAX} MHz IF bandwidth`, 500, 26, {al:"center", col:C.hole, w:600, px:12}); }
+  // wave packets (slowed)
+  const vpx = 330;
+  RS.packets = RS.packets.filter(p => (now - p.t0)*vpx < 2*(xt - 126) + 10);
+  for (const p of RS.packets){
+    const d = (now - p.t0)*vpx, out = d < xt - 126;
+    const x = out ? 126 + d : xt - (d - (xt - 126)), y = out ? 108 : 132;
+    ctx.globalAlpha = out ? 1 : 0.6; dot(x, y, out ? C.accent : C.electron, false, 1, 2.2 + 2.5*p.ph); ctx.globalAlpha = 1;
+  }
+  txt("TX chirp →", 140, 92, {col:C.accent, px:10, w:600}); txt("← echo", 140, 142, {col:C.electron, px:10, w:600});
+  // f–t chart
+  const ox = 10, oy = 214, w = 560, h = 266;
+  panel(ox, oy, w, h, "Frequency vs time (TX and echo)");
+  const tau = F.tgt[0].tau*1e6, k = Math.max(1, 0.05*CH.Tc/Math.max(tau, 1e-6)), tv = tau*k;
+  const P = CH.Tc + 6, X = t => ox+50 + t/(2*P)*(w-70), FY = f => oy+232 - f/(CH.B*1000)*180;
+  const saw = t => { const tt = ((t % P) + P) % P; return tt < CH.Tc ? CH.B*1000*tt/CH.Tc : CH.B*1000*(1 - (tt - CH.Tc)/6); };
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; pl([[ox+50, oy+40],[ox+50, oy+232],[ox+w-20, oy+232]]);
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2.2; ctx.beginPath(); for (let t=0; t<=2*P; t+=P/200) t ? ctx.lineTo(X(t), FY(saw(t))) : ctx.moveTo(X(t), FY(saw(t))); ctx.stroke();
+  ctx.strokeStyle = C.electron; ctx.lineWidth = 2; ctx.beginPath(); for (let t=tv; t<=2*P; t+=P/200) t > tv ? ctx.lineTo(X(t), FY(saw(t - tv))) : ctx.moveTo(X(t), FY(saw(t - tv))); ctx.stroke();
+  const tm = 0.55*CH.Tc + tv, f1 = saw(tm), f2v = saw(tm - tv);
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.5; pl([[X(tm), FY(f1)],[X(tm), FY(f2v)]]);
+  txt(`fb = ${(F.tgt[0].fb/1e6).toFixed(2)} MHz`, X(tm)+8, (FY(f1)+FY(f2v))/2, {col:C.fg, w:700, px:12});
+  txt(`τ = 2R/c = ${(tau*1000).toFixed(1)} ns`, X(tv/2 + 2), oy+246, {px:10, col:C.electron});
+  txt(`${(CH.f0 + CH.B).toFixed(2)} GHz`, ox+46, oy+44, {al:"right", px:10}); txt(`${CH.f0.toFixed(2)}`, ox+46, oy+228, {al:"right", px:10});
+  txt(`delay drawn ×${k.toFixed(0)} so it is visible`, ox+w-14, oy+16, {al:"right", px:10});
+  const cx = X((RS.t)*P); ctx.strokeStyle = C.muted; ctx.lineWidth = 1; pl([[cx, oy+40],[cx, oy+232]]);
+  // IF signal
+  const ix = 590, iw = 400;
+  panel(ix, oy, iw, h, "IF (beat) signal after the mixer · 2 µs");
+  const amps = F.tgt.map(q => 1/Math.max(q.R, 5)**2), amax = amps.reduce((a,b) => a+b, 0);
+  const IY = v => oy+140 - v*80;
+  ctx.strokeStyle = C.line; pl([[ix+12, oy+140],[ix+iw-12, oy+140]]);
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 1.8; ctx.beginPath();
+  for (let i=0;i<=500;i++){
+    const t = i/500*2e-6; let v = 0;
+    F.tgt.forEach((q,j) => v += amps[j]*Math.cos(2*Math.PI*q.fif*t + RS.phi + j*0.7));
+    const x = ix+12 + i/500*(iw-24); i ? ctx.lineTo(x, IY(v/amax)) : ctx.moveTo(x, IY(v/amax));
+  }
+  ctx.stroke();
+  txt(`${(F.tgt[0].fif/1e6*2).toFixed(1)} cycles in 2 µs → fIF ≈ ${(F.tgt[0].fif/1e6).toFixed(2)} MHz`, ix+14, oy+240, {px:11, col:C.fg});
+  txt(`Doppler: phase turns ${(F.dphi*180/Math.PI).toFixed(0)}° from chirp to chirp`, ix+14, oy+256, {px:10});
+}
+
+function drawRadar(dt, T){ begin(RC); if (rdView === "pll") drawPLL(dt, T); else drawFMCW(dt, T); }
+
+/* ---------------- DOM ---------------- */
+const RDINFO = {
+  pll:{pill:"PLL", name:"Fractional-N chirp synthesizer", sub:"A 19–20 GHz VCO, locked to a crystal and multiplied ×4 to 76–81 GHz",
+    text:"A 77 GHz radar needs a clean carrier that sweeps in a straight line (a chirp). A stable oscillator directly at 77 GHz is hard to build, so the PLL runs a VCO near 19–20 GHz and a ×4 multiplier lifts it to 76–81 GHz. The loop compares the divided VCO with a crystal reference: phase-frequency detector → charge pump → loop filter → tuning voltage. The VCO frequency is set by an LC tank whose capacitor is a MOS varactor: raising Vtune pushes the gate toward depletion, the capacitance drops and the frequency rises. To chirp, a ramp generator raises the fractional divide ratio N a little every reference cycle, and a ΣΔ modulator dithers the divider between ⌊N⌋ and ⌊N⌋+1 so the average is exact. The loop drags the VCO along: fRF = 4·N·fref. The loop bandwidth is a trade-off: wider tracks the ramp faster and suppresses VCO noise, narrower filters reference and ΣΔ noise."},
+  fmcw:{pill:"FMCW", name:"FMCW radar: chirp to range", sub:"The echo is a delayed chirp; the delay becomes a beat frequency",
+    text:"The radar transmits the chirp and mixes the echo with the signal it is transmitting at that moment. The echo is a delayed copy, so during the ramp the two differ by a constant beat frequency fb = S·τ = 2RS/c. An FFT of the IF signal turns each target into a peak whose position gives its range. Two targets are resolved only if they are more than c/(2B) apart, so the full 4 GHz of the 77–81 GHz band gives 3.75 cm. A moving target adds a Doppler shift 2v/λ, which is measured as the phase change of the peak from one chirp to the next."}
+};
+
+function updateRadar(){
+  if (!SIM) radarRecalc();
+  const info = RDINFO[rdView];
+  $("rd-pill").textContent = info.pill; $("rd-name").textContent = info.name; $("rd-sub").textContent = info.sub; $("rd-explain").textContent = info.text;
+  document.querySelectorAll("#rd-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === rdView));
+  $("rd-c-pll").hidden = rdView !== "pll"; $("rd-c-fm").hidden = rdView !== "fmcw";
+  document.querySelectorAll("#rd-fref button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.f === CH.fref));
+  document.querySelectorAll("#rd-ord button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.o === CH.order));
+  ["rd-B1","rd-B2"].forEach(id => $(id+"-v").textContent = `${CH.B.toFixed(2)} GHz (${CH.f0}–${(CH.f0+CH.B).toFixed(2)} GHz)`);
+  ["rd-Tc1","rd-Tc2"].forEach(id => $(id+"-v").textContent = `${CH.Tc.toFixed(0)} µs`);
+  $("rd-bw-v").textContent = CH.bw >= 1 ? `${CH.bw.toFixed(2)} MHz` : `${(CH.bw*1000).toFixed(0)} kHz`;
+  $("rd-R1-v").textContent = `${CH.R1.toFixed(1)} m`; $("rd-v1-v").textContent = `${CH.v1 > 0 ? "+" : ""}${CH.v1.toFixed(0)} m/s`;
+  $("rd-dR2-v").textContent = `${(CH.dR2*100).toFixed(0)} cm behind target 1`;
+  const F = fmcw(), rows = [], ro = [];
+  if (rdView === "pll"){
+    const q = simAt(RS.t), N = (CH.f0*1000 + q.y)/(4*CH.fref), fv = (CH.f0*1000 + q.y)/4000, vt = vtuneFor(fv);
+    ro.push(["TX frequency", (4*fv).toFixed(3) + " GHz"], ["Divide ratio N", N.toFixed(3)], ["Vtune", f2(vt) + " V"], ["RMS phase error", PN.rmsDeg.toFixed(2) + "°"]);
+    rows.push({name:"Output", f:"fRF = 4 · N · fref", sub:`= 4 · ${N.toFixed(3)} · ${CH.fref} MHz = ${(4*fv).toFixed(3)} GHz`});
+    rows.push({name:"VCO tank", f:"fVCO = 1 / (2π√(L·(Cfix + Cvar(Vtune))))", sub:`L = 0.20 nH, Cfix = 293 fF, Cvar = ${(cvar(vt)*1e15).toFixed(1)} fF → ${fv.toFixed(3)} GHz`});
+    rows.push({name:"Chirp", f:"N(t) = N₀ + (S / 4fref)·t   (ΣΔ dithers ⌊N⌋, ⌊N⌋+1)", sub:`S = ${(CH.B*1000/CH.Tc).toFixed(1)} MHz/µs → N rises ${(CH.B*1000/CH.Tc/(4*CH.fref)).toFixed(4)} per µs`});
+    rows.push({name:"In-band noise", f:"L = FOM + 10·log(fPFD) + 20·log(fRF/fPFD),  FOM = −229 dBc/Hz", sub:`= −229 + ${(10*Math.log10(CH.fref*1e6)).toFixed(1)} + ${(20*Math.log10(PN.Nrf)).toFixed(1)} = ${PN.Lin.toFixed(1)} dBc/Hz`});
+    rows.push({name:"Loop BW", f:"wider: faster chirp tracking, less VCO noise · narrower: less ΣΔ / ref noise", sub:`settles in ${SIM.settle.toFixed(1)} µs, ramp error ${(SIM.rmsErr*1000).toFixed(0)} kHz rms, PN@1 MHz ${PN.at1M.toFixed(0)} dBc/Hz`});
+  } else {
+    const t1 = F.tgt[0];
+    ro.push(["Chirp slope", (F.S/1e12).toFixed(1) + " MHz/µs"], ["Beat freq fb", (t1.fb/1e6).toFixed(2) + " MHz"], ["Range resolution", (F.dR*100).toFixed(1) + " cm"], ["Max range", F.Rmax.toFixed(0) + " m"]);
+    rows.push({name:"Slope", f:"S = B / Tc", sub:`= ${CH.B.toFixed(2)} GHz / ${CH.Tc.toFixed(0)} µs = ${(F.S/1e12).toFixed(1)} MHz/µs`});
+    rows.push({name:"Beat", f:"fb = S · τ = 2·R·S / c", sub:`= 2 · ${CH.R1.toFixed(1)} m · ${(F.S/1e12).toFixed(1)} MHz/µs / c = ${(t1.fb/1e6).toFixed(3)} MHz`});
+    rows.push({name:"Resolution", f:"ΔR = c / (2B)", sub:`= 3·10⁸ / (2 · ${CH.B.toFixed(2)} GHz) = ${(F.dR*100).toFixed(1)} cm` + (CH.t2 ? (CH.dR2 >= F.dR ? "  → 2 targets resolved" : "  → 2 targets merge") : "")});
+    rows.push({name:"Max range", f:"Rmax = fIF,max · c / (2S)", sub:`= ${FIFMAX} MHz · c / (2S) = ${F.Rmax.toFixed(0)} m`});
+    rows.push({name:"Doppler", f:"fd = 2v/λ,   Δφ = 4π·v·Tc/λ per chirp", sub:`λ = ${(F.lam*1000).toFixed(2)} mm, fd = ${(t1.fd/1e3).toFixed(1)} kHz, Δv = ${F.dv.toFixed(2)} m/s (${NCH} chirps)`});
+  }
+  $("rd-ro").innerHTML = ro.map(([l,v],i) => `<div class="ro${i>=2?" id":""}"><label>${l}</label><b>${v}</b></div>`).join("");
+  $("rd-eq").innerHTML = rows.map(r => `<div class="eqrow act"><span class="name">${r.name}</span><span class="f">${r.f}</span><span class="sub">${r.sub}</span></div>`).join("");
+  drawRadarPlots(F);
+}
+
+function drawRadarPlots(F){
+  let a = "", b = "";
+  if (rdView === "pll"){
+    // phase noise (log x)
+    const W = 300, H = 230, m = {l:38, r:10, t:28, b:30}, lx = f => m.l + (Math.log10(f) - 4)/4*(W-m.l-m.r), ly = L => H-m.b - (clamp(L, -160, -60) + 160)/100*(H-m.t-m.b);
+    for (let L=-160; L<=-60; L+=20) a += `<line x1="${m.l}" x2="${W-m.r}" y1="${ly(L)}" y2="${ly(L)}" stroke="var(--line)"/><text x="${m.l-5}" y="${ly(L)+3}" text-anchor="end">${L}</text>`;
+    ["10k","100k","1M","10M","100M"].forEach((s,i) => a += `<text x="${lx(10**(4+i))}" y="${H-m.b+14}" text-anchor="middle">${s}</text>`);
+    a += `<text x="${(m.l+W-m.r)/2}" y="${H-2}" text-anchor="middle">offset (Hz)</text><text x="${m.l}" y="${m.t-4}">dBc/Hz at 77 GHz</text>`;
+    const pp = key => PN.pts.map((p,i) => (i?"L":"M") + lx(p.f).toFixed(1) + " " + ly(p[key]).toFixed(1)).join("");
+    a += `<line x1="${lx(CH.bw*1e6)}" x2="${lx(CH.bw*1e6)}" y1="${m.t}" y2="${H-m.b}" stroke="var(--muted)" stroke-dasharray="3 3"/><text x="${lx(CH.bw*1e6)+3}" y="${m.t+10}">loop BW</text>`;
+    a += `<path d="${pp("ref")}" fill="none" stroke="var(--fg)" stroke-opacity=".55" stroke-dasharray="4 3"/>`;
+    a += `<path d="${pp("sd")}" fill="none" stroke="var(--hole)" stroke-width="1.4"/>`;
+    a += `<path d="${pp("vco")}" fill="none" stroke="var(--electron)" stroke-width="1.4"/>`;
+    a += `<path d="${pp("tot")}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>`;
+    a += `<text x="40" y="10" style="fill:var(--accent)">total</text><text x="76" y="10" style="fill:var(--fg)">ref/CP</text><text x="122" y="10" style="fill:var(--hole)">ΣΔ</text><text x="146" y="10" style="fill:var(--electron)">VCO</text>`;
+    a += `<line x1="${m.l}" x2="${m.l}" y1="${m.t}" y2="${H-m.b}" stroke="var(--muted)"/><line x1="${m.l}" x2="${W-m.r}" y1="${H-m.b}" y2="${H-m.b}" stroke="var(--muted)"/>`;
+    // chirp tracking error
+    const em = Math.max(SIM.maxErr, 0.5), st = niceStep(em/2), yM = Math.ceil(em/st)*st;
+    const B = axesR(220, 230, {l:32,r:8,t:28,b:30}, 0, SIM.P, -yM, yM, Math.round(SIM.P/4/10)*10 || 10, st, "time in one chirp cycle (µs)", "f error (MHz)");
+    b = `<rect x="${B.X(TI)}" y="28" width="${B.X(TI+CH.Tc)-B.X(TI)}" height="172" fill="var(--accent)" fill-opacity=".08"/>` + B.s;
+    b += `<path d="${pathOf(SIM.rec.map(r => [r.t, r.u - r.y]), B.X, B.Y)}" fill="none" stroke="var(--hole)" stroke-width="1.8"/>`;
+    b += `<text x="${B.X(TI)+3}" y="40">ramp</text>`;
+    b += B.frame + dotSvg(B.X(RS.t), B.Y(simAt(RS.t).u - simAt(RS.t).y));
+  } else {
+    const Rmax = Math.min(250, Math.max(F.Rmax, 20)), R0 = Math.max(0, CH.R1 - 10), R1 = Math.min(Rmax, Math.max(CH.R1 + 10, 20));
+    const zoom = CH.t2;
+    const xa = zoom ? R0 : 0, xb = zoom ? R1 + (CH.dR2) : Rmax;
+    const A = axesR(300, 230, {l:34,r:10,t:28,b:30}, xa, xb, -60, 0, Math.max(1, niceStep((xb-xa)/4)), 20, "range (m) = fb · c / 2S", "IF spectrum (dB)");
+    const amps = F.tgt.map(q => 1/Math.max(q.R, 5)**2), am = Math.max(...amps);
+    const Wh = x => { const ax = Math.abs(x); if (ax < 1e-6) return 1; if (Math.abs(ax - 1) < 1e-6) return 0.5; return Math.abs(Math.sin(Math.PI*x)/(Math.PI*x)/(1 - x*x)); };
+    const pts = range(xa, xb, 500).map(R => { let s = 0; F.tgt.forEach((q,j) => { if (q.R <= F.Rmax) s += amps[j]/am*Wh((R - (q.fif*CLIGHT/(2*F.S)))/F.dR); }); return [R, Math.max(-60, 20*Math.log10(s + 1e-6))]; });
+    a = A.s + `<path d="${pathOf(pts, A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2"/>`;
+    a += `<text x="40" y="12" style="fill:var(--accent)">FFT of one chirp (Hann window)${zoom ? " · zoomed" : ""}</text>`;
+    a += A.frame;
+    const B = axesR(220, 230, {l:30,r:8,t:28,b:30}, 0, 4, 0, 80, 1, 20, "bandwidth B (GHz)", "ΔR (cm)");
+    b = B.s + `<path d="${pathOf(range(0.2, 4, 60).map(x => [x, 15/x]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+    b += `<text x="${B.X(1.6)}" y="${B.Y(40)}">ΔR = c / 2B</text>`;
+    b += B.frame + dotSvg(B.X(CH.B), B.Y(F.dR*100));
+  }
+  $("rd-p1").innerHTML = a; $("rd-p2").innerHTML = b;
+}
+
+let rdFrame = 0;
+function radarTickAll(dt){ radarTick(dt); if (++rdFrame % 4 === 0) updateRadar(); }
+const bwFromSlider = s => Math.pow(10, -1 + s*Math.log10(50));     // 0.1 – 5 MHz
+const sliderFromBw = bw => Math.log10(bw*10)/Math.log10(50);
+function rdSet(k, v){ CH[k] = v; if (k === "B"){ $("rd-B1").value = v; $("rd-B2").value = v; } if (k === "Tc"){ $("rd-Tc1").value = v; $("rd-Tc2").value = v; } radarRecalc(); RS.t = 0; updateRadar(); }
+document.querySelectorAll("#rd-view button").forEach(b => b.addEventListener("click", () => { rdView = b.dataset.v; RS.t = 0; RS.packets = []; updateRadar(); }));
+["rd-B1","rd-B2"].forEach(id => $(id).addEventListener("input", e => rdSet("B", +e.target.value)));
+["rd-Tc1","rd-Tc2"].forEach(id => $(id).addEventListener("input", e => rdSet("Tc", +e.target.value)));
+$("rd-bw").addEventListener("input", e => rdSet("bw", bwFromSlider(+e.target.value)));
+document.querySelectorAll("#rd-fref button").forEach(b => b.addEventListener("click", () => rdSet("fref", +b.dataset.f)));
+document.querySelectorAll("#rd-ord button").forEach(b => b.addEventListener("click", () => rdSet("order", +b.dataset.o)));
+$("rd-R1").addEventListener("input", e => { CH.R1 = +e.target.value; updateRadar(); });
+$("rd-v1").addEventListener("input", e => { CH.v1 = +e.target.value; updateRadar(); });
+$("rd-t2").addEventListener("change", e => { CH.t2 = e.target.checked; updateRadar(); });
+$("rd-dR2").addEventListener("input", e => { CH.dR2 = +e.target.value; updateRadar(); });
+$("rd-bw").value = sliderFromBw(CH.bw);
+
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar"};
 function showTab(t){
   tab = t;
-  ["mos","inv","body","pw"].forEach(k => { $("tab-"+k).hidden = t !== k; $("tab-btn-"+k).setAttribute("aria-selected", t === k); });
+  ["mos","inv","body","pw","rd"].forEach(k => { $("tab-"+k).hidden = t !== k; $("tab-btn-"+k).setAttribute("aria-selected", t === k); });
   $("seg-type").hidden = t !== "mos";
   try { history.replaceState(null, "", HASH[t]); } catch(e){}
   if (t === "mos"){ M.resize(); updateMos(); }
   else if (t === "inv"){ $("sub-top").textContent = `CMOS inverter · VDD = ${VDD} V · Vtn = +1.0 V, Vtp = −1.0 V`; IVC.resize(); updateInv(); }
+  else if (t === "rd"){ $("sub-top").textContent = "77 GHz automotive radar · fractional-N PLL · FMCW chirp"; RC.resize(); updateRadar(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
-["mos","inv","body","pw"].forEach(k => $("tab-btn-"+k).addEventListener("click", () => showTab(k)));
+["mos","inv","body","pw","rd"].forEach(k => $("tab-btn-"+k).addEventListener("click", () => showTab(k)));
 
 let last = performance.now(), T = 0;
 function frame(now){
   const dt = Math.min(0.05, (now-last)/1000); last = now; T += dt;
   if (tab === "mos"){ tourTick(dt); if (M.cv.clientWidth) drawMos(dt, T); }
   else if (tab === "inv"){ invTick(dt); if (IVC.cv.clientWidth) drawInv(dt, T); }
+  else if (tab === "rd"){ if (!SIM) radarRecalc(); radarTickAll(dt); if (RC.cv.clientWidth) drawRadar(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
 }
 
 buildLegend(); updateMos();
-showTab(location.hash === "#inverter" ? "inv" : location.hash === "#body-effect" ? "body" : location.hash === "#power" ? "pw" : "mos");
+showTab(location.hash === "#inverter" ? "inv" : location.hash === "#body-effect" ? "body" : location.hash === "#power" ? "pw" : location.hash === "#radar" ? "rd" : "mos");
 requestAnimationFrame(frame);
 })();
 </script>
