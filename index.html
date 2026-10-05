@@ -122,6 +122,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
 .chk{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;cursor:pointer}
 .chk input{accent-color:var(--accent);width:16px;height:16px}
 .readouts.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.readouts.four .ro b{font-size:clamp(1rem,2.4vw,1.3rem)}
 @media (max-width:560px){.readouts.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
@@ -134,6 +135,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-mos" aria-selected="true" aria-controls="tab-mos">Transistor</button>
         <button role="tab" id="tab-btn-inv" aria-selected="false" aria-controls="tab-inv">CMOS inverter</button>
         <button role="tab" id="tab-btn-body" aria-selected="false" aria-controls="tab-body">Body effect</button>
+        <button role="tab" id="tab-btn-pw" aria-selected="false" aria-controls="tab-pw">Power (LDO · PMIC)</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -393,6 +395,99 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <div class="sub-card explain">
           <p class="eyebrow">Why the body effect appears here</p>
           <p id="bd-explain"></p>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ===================== POWER TAB ===================== -->
+  <section id="tab-pw" role="tabpanel" aria-labelledby="tab-btn-pw" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="pw-pill">LDO</span><h2 id="pw-name">Low-dropout regulator</h2></div>
+      <p id="pw-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="pw-view" role="group" aria-label="Regulator" style="flex-wrap:wrap">
+        <button data-v="ldo" aria-pressed="true">LDO</button>
+        <button data-v="buck" aria-pressed="false">Buck (DC-DC)</button>
+        <button data-v="pmic" aria-pressed="false">PMIC + DVFS</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvp" aria-label="Animated regulator: schematic, transistor cross-sections and waveforms"></canvas>
+      <div class="legend">
+        <span><span class="sw" style="background:var(--electron)"></span> Electron</span>
+        <span><span class="sw" style="border:2px solid var(--hole)"></span> Hole</span>
+        <span><span class="sw" style="background:var(--channel);border-radius:3px;opacity:.6"></span> Channel</span>
+        <span><span class="sw" style="background:var(--accent)"></span> Current / power flow</span>
+      </div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="pw-ro"></div>
+        <div id="pw-c-ldo" style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span>Input voltage Vin</span><span id="pw-ldo-vin-v"></span></div>
+            <input id="pw-ldo-vin" type="range" min="1" max="5" step="0.01" value="3.3">
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Output set-point (Vref·(1 + R1/R2))</span><span id="pw-ldo-vset-v"></span></div>
+            <input id="pw-ldo-vset" type="range" min="0.8" max="3" step="0.025" value="1.8">
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Heavy load current</span><span id="pw-ldo-il-v"></span></div>
+            <input id="pw-ldo-il" type="range" min="10" max="200" step="1" value="150">
+          </div>
+          <label class="chk"><input type="checkbox" id="pw-ldo-auto" checked> Automatic load steps (10 mA ↔ heavy load every 8 µs)</label>
+        </div>
+        <div id="pw-c-buck" hidden style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span>Input voltage Vin</span><span id="pw-bk-vin-v"></span></div>
+            <input id="pw-bk-vin" type="range" min="2.5" max="5.5" step="0.01" value="3.7">
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Output set-point Vout</span><span id="pw-bk-vset-v"></span></div>
+            <input id="pw-bk-vset" type="range" min="0.6" max="3.3" step="0.025" value="1.2">
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Load current</span><span id="pw-bk-il-v"></span></div>
+            <input id="pw-bk-il" type="range" min="0.05" max="2" step="0.01" value="0.6">
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Switching frequency</span><span id="pw-bk-f-v"></span></div>
+            <input id="pw-bk-f" type="range" min="0.5" max="4" step="0.1" value="1">
+          </div>
+        </div>
+        <div id="pw-c-pmic" hidden style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span>Battery voltage</span><span id="pw-pm-bat-v"></span></div>
+            <input id="pw-pm-bat" type="range" min="3" max="4.4" step="0.01" value="3.8">
+          </div>
+          <div class="chips">
+            <div class="seg" id="pw-pm-mode" role="group" aria-label="CPU load">
+              <button data-m="idle" aria-pressed="false">Idle 0.60 V</button>
+              <button data-m="normal" aria-pressed="true">Normal 0.80 V</button>
+              <button data-m="turbo" aria-pressed="false">Turbo 1.05 V</button>
+            </div>
+            <button class="chipbtn" id="pw-pm-auto">▶ Auto DVFS demo</button>
+          </div>
+        </div>
+        <p class="eyebrow">How the voltage is set</p>
+        <div class="eq" id="pw-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Waveforms and efficiency</p>
+        <div class="plots">
+          <div class="plot"><svg id="pw-p1" viewBox="0 0 300 230" role="img" aria-label="Regulator response"></svg></div>
+          <div class="plot"><svg id="pw-p2" viewBox="0 0 220 230" role="img" aria-label="Efficiency or power breakdown"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="pw-explain"></p>
         </div>
       </section>
     </div>
@@ -1585,32 +1680,458 @@ $("bd-recharge").addEventListener("click", () => { pst.t = 0; updateBody(); });
 
 
 
+/* =========================================================
+   TAB 4 — power: LDO, buck converter, PMIC
+   ========================================================= */
+const PWC = setupCanvas($("cvp"), 1000, 488);
+const LF = {L:1, vsb:0, clm:true, body:false, dibl:false, vsat:false};
+const VREF = 0.8;
+const f3 = x => x.toFixed(3);
+let pwView = "ldo";
+
+function axesR(W, H, m, x0, x1, y0, y1, xStep, yStep, xLab, yLab){
+  const X = v => m.l + (v-x0)/(x1-x0)*(W-m.l-m.r), Y = v => H-m.b - (clamp(v,y0,y1)-y0)/(y1-y0)*(H-m.t-m.b);
+  let s = "";
+  for (let v=y0; v<=y1+1e-9; v+=yStep) s += `<line x1="${m.l}" x2="${W-m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)"/><text x="${m.l-5}" y="${Y(v)+3}" text-anchor="end">${+v.toFixed(2)}</text>`;
+  if (xLab) for (let v=x0; v<=x1+1e-9; v+=xStep) s += `<text x="${X(v)}" y="${H-m.b+14}" text-anchor="middle">${+v.toFixed(2)}</text>`;
+  s += `<text x="${(m.l+W-m.r)/2}" y="${H-2}" text-anchor="middle">${xLab}</text><text x="${m.l}" y="${m.t-6}">${yLab}</text>`;
+  const frame = `<line x1="${m.l}" x2="${m.l}" y1="${m.t}" y2="${H-m.b}" stroke="var(--muted)"/><line x1="${m.l}" x2="${W-m.r}" y1="${H-m.b}" y2="${H-m.b}" stroke="var(--muted)"/>`;
+  return {X, Y, s, frame};
+}
+const dotSvg = (x, y) => `<circle cx="${x}" cy="${y}" r="5.5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>`;
+const pathOf = (pts, X, Y) => pts.map((q,i) => (i?"L":"M") + X(q[0]).toFixed(1) + " " + Y(q[1]).toFixed(1)).join("");
+
+/* ---------------- LDO ---------------- */
+const LDO = {vin:3.3, vset:1.8, iheavy:150, auto:true, il:10, vo:1.8, vsg:0, integ:1.3, ip:0, t:0, hist:[], acc:0};
+const LDO_W = 1500, KP = 3, KI = 2.5, COUT = 1;          // pass PMOS width, PI gains (per µs), Cout in µF
+const ldoLoad = () => LDO.auto ? ((LDO.t % 16) < 8 ? 10 : LDO.iheavy) : LDO.iheavy;
+function ldoStep(h){
+  LDO.il = ldoLoad();
+  const e = LDO.vset - LDO.vo;
+  LDO.integ = clamp(LDO.integ + KI*e*h, 0, LDO.vin + 0.3);
+  LDO.vsg = clamp(KP*e + LDO.integ, 0, LDO.vin);
+  LDO.ip = solve("p", LDO.vsg, Math.max(LDO.vin - LDO.vo, 0), LF, LDO_W).I;
+  LDO.vo = clamp(LDO.vo + 1e-3*(LDO.ip - LDO.il)*h/COUT, 0, LDO.vin);
+  LDO.t += h;
+}
+function ldoSettle(){ for (let i=0;i<3000;i++) ldoStep(0.005); LDO.hist = []; }
+// DC: output at given Vin and load (dropout when the PMOS is fully on and still too weak)
+function ldoDC(vin, il){
+  const full = vd => solve("p", vin, vd, LF, LDO_W).I;
+  if (vin > LDO.vset && full(vin - LDO.vset) >= il) return LDO.vset;
+  let lo = 0, hi = vin;
+  for (let i=0;i<34;i++){ const m = (lo+hi)/2; if (full(vin - m) > il) lo = m; else hi = m; }
+  return (lo+hi)/2;
+}
+function ldoDropout(il){
+  let lo = 0, hi = 2;
+  for (let i=0;i<34;i++){ const m = (lo+hi)/2; if (solve("p", LDO.vset + m, m, LF, LDO_W).I >= il) hi = m; else lo = m; }
+  return (lo+hi)/2;
+}
+function ldoTick(dt){
+  const steps = Math.round(dt*(reduce ? 2 : 5)/0.005);
+  for (let i=0;i<steps;i++){
+    ldoStep(0.005);
+    if (++LDO.acc >= 10){ LDO.acc = 0; LDO.hist.push({vo:LDO.vo, il:LDO.il, vsg:LDO.vsg}); if (LDO.hist.length > 600) LDO.hist.shift(); }
+  }
+}
+
+/* ---------------- buck ---------------- */
+const BK = {vin:3.7, vset:1.2, il:0.6, f:1, L:2.2, C:10, rhs:0.08, rls:0.05, ph:0};
+function buckCalc(vin, vo, I, f){
+  const D = clamp((vo + I*BK.rls)/(vin - I*BK.rhs + I*BK.rls), 0.02, 0.98);
+  const di = (vin - vo)*D/(f*BK.L);                  // A  (V·µs/µH)
+  const dv = di/(8*f*BK.C);                          // V
+  const r = D*BK.rhs + (1-D)*BK.rls;
+  const pout = vo*I;
+  const pc = I*I*r + di*di/12*r;
+  const psw = vin*I*0.005*f + 0.004*vin*f + 0.0005*vin;   // switching + gate drive + quiescent (W)
+  return {D, di, dv, pout, loss:pc+psw, eta:pout/(pout+pc+psw), dcm: I < di/2};
+}
+const iLat = (ph, c) => {   // inductor current at phase 0..1
+  const p = ph % 1;
+  const v = p < c.D ? BK.il - c.di/2 + c.di*p/c.D : BK.il + c.di/2 - c.di*(p-c.D)/(1-c.D);
+  return Math.max(v, 0);
+};
+function buckTick(dt){ BK.ph = (BK.ph + dt*(reduce ? 0.15 : 0.5)) % 3; }
+
+/* ---------------- PMIC ---------------- */
+const MODES = {idle:{v:0.60, i:0.10, name:"Idle"}, normal:{v:0.80, i:0.60, name:"Normal"}, turbo:{v:1.05, i:1.80, name:"Turbo"}};
+const PM = {vbat:3.8, mode:"normal", vcore:0.8, target:0.8, t:0, acc:0, hist:[], auto:false, autoT:0, msg:"", flash:0};
+const vselCode = v => Math.round((v - 0.3)/0.00625);
+function setMode(m){
+  PM.mode = m; PM.target = MODES[m].v;
+  PM.msg = `I²C write  BUCK2_VSEL ← 0x${vselCode(PM.target).toString(16).toUpperCase().padStart(2,"0")}  (${f3(PM.target)} V)`;
+  PM.flash = 1;
+}
+function pmicTick(dt){
+  const us = dt*(reduce ? 5 : 20);
+  PM.t += us; PM.flash = Math.max(0, PM.flash - dt*0.8);
+  const step = 0.010*us;                                  // 10 mV/µs slew
+  PM.vcore += clamp(PM.target - PM.vcore, -step, step);
+  PM.acc += us;
+  while (PM.acc >= 0.5){ PM.acc -= 0.5; PM.hist.push({t:PM.t, v:PM.vcore}); if (PM.hist.length > 400) PM.hist.shift(); }
+  if (PM.auto){
+    PM.autoT += us;
+    if (PM.autoT > 50){ PM.autoT = 0; const seq = ["idle","normal","turbo","normal"]; setMode(seq[(seq.indexOf(PM.mode)+1) % seq.length]); }
+  }
+}
+function pmicCalc(){
+  const ldoI = 0.05, ioI = 0.30;
+  const ldoEta = (1.2*ldoI)/(1.8*(ldoI + 0.0001));
+  const b1 = buckCalc(PM.vbat, 1.8, ioI + ldoI, 2);
+  const b2 = buckCalc(PM.vbat, PM.vcore, MODES[PM.mode].i, 2);
+  const pin = (b1.pout + b1.loss) + (b2.pout + b2.loss);
+  const pout = 1.8*ioI + 1.2*ldoI + b2.pout;
+  return {b1, b2, ldoEta, ldoI, ioI, ldoLoss:(1.8-1.2)*ldoI, pin, pout, ibat:pin/PM.vbat, eta:pout/pin, coreLdoEta:PM.vcore/PM.vbat};
+}
+
+/* ---------------- drawing ---------------- */
+function wire(pts){ ctx.strokeStyle = C.muted; ctx.lineWidth = 2.2; ctx.lineCap = "round"; pl(pts); }
+function flowDots(path, off, alpha, col){
+  if (alpha < 0.02) return;
+  ctx.fillStyle = col || C.accent; ctx.globalAlpha = Math.min(1, alpha);
+  for (let d = off % 22; d < path.tot; d += 22){ const [x,y] = path.at(d); ctx.beginPath(); ctx.arc(x, y, 3.2, 0, 6.283); ctx.fill(); }
+  ctx.globalAlpha = 1;
+}
+function resistor(x, y0, y1, label){
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y0);
+  const n = 6, h = (y1-y0)/n;
+  for (let i=0;i<n;i++) ctx.lineTo(x + (i%2 ? -8 : 8), y0 + h*(i+0.5));
+  ctx.lineTo(x, y1); ctx.stroke();
+  txt(label, x+14, (y0+y1)/2, {});
+}
+function capV(x, y){ wire([[x,y-14],[x,y]]); ctx.lineWidth = 3; ctx.strokeStyle = C.muted; pl([[x-20,y],[x+20,y]]); pl([[x-20,y+10],[x+20,y+10]]); wire([[x,y+10],[x,y+28]]); gnd(x, y+28); }
+function isrc(x, y, label){
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 2.2; ctx.beginPath(); ctx.arc(x, y, 20, 0, 6.283); ctx.stroke();
+  pl([[x,y-11],[x,y+11]]); pl([[x-6,y+4],[x,y+11],[x+6,y+4]]);
+  if (label) txt(label, x+26, y, {});
+}
+function panel(ox, oy, w, h, title){
+  ctx.fillStyle = C.panel2; ctx.fillRect(ox, oy, w, h);
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(ox+.5, oy+.5, w-1, h-1);
+  txt(title, ox+12, oy+16, {col:C.fg, w:700, px:13});
+}
+
+const pwOff = {a:0, b:0, c:0, d:0, e:0, f:0};
+let ldoPath = polyline([[60,70],[230,70],[230,100],[230,200],[230,240],[410,240],[410,270]]);
+function drawLDO(dt, T){
+  // schematic
+  txt(`Vin ${f2(LDO.vin)} V`, 40, 52, {col:C.fg, w:600});
+  ndot(60, 70); wire([[60,70],[230,70],[230,100]]);
+  const r = solve("p", LDO.vsg, Math.max(LDO.vin - LDO.vo, 0), LF, LDO_W);
+  symb("p", 200, 150, {on:r.reg !== "cut", body:"body=Vin"});
+  wire([[230,200],[230,240],[430,240]]); ndot(230, 240);
+  txt(`Vout ${f3(LDO.vo)} V`, 430, 224, {al:"right", col:C.accent, w:600});
+  capV(330, 268); txt("Cout 1 µF", 330, 326, {al:"center", px:10});
+  wire([[410,240],[410,276]]); isrc(410, 296, ""); txt(`${LDO.il.toFixed(0)} mA`, 410, 364, {al:"center", col:C.fg, px:11, w:600}); wire([[410,316],[410,334]]); gnd(410, 334);
+  // divider
+  wire([[230,240],[230,262]]); resistor(230, 262, 312, "R1"); ndot(230, 320); wire([[230,312],[230,328]]); resistor(230, 328, 378, "R2"); wire([[230,378],[230,400]]); gnd(230, 400);
+  txt(`FB ${f3(LDO.vo*VREF/LDO.vset)} V`, 244, 320, {px:10, col:C.fg});
+  // error amp (pointing up), + = FB, − = Vref
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 2.2; ctx.beginPath(); ctx.moveTo(70, 300); ctx.lineTo(150, 300); ctx.lineTo(110, 240); ctx.closePath(); ctx.stroke();
+  txt("EA", 110, 282, {al:"center", col:C.fg, w:700, px:11});
+  txt("+", 132, 290, {al:"center", col:C.fg, w:700}); txt("−", 88, 290, {al:"center", col:C.fg, w:700});
+  wire([[110,240],[110,150],[142,150]]);
+  txt(`gate ${f2(LDO.vin - LDO.vsg)} V`, 104, 196, {al:"right", col:C.accent, px:11, w:600});
+  wire([[130,300],[130,320],[230,320]]);
+  wire([[90,300],[90,340]]); ctx.lineWidth = 3; ctx.strokeStyle = C.muted; pl([[76,340],[104,340]]); ctx.lineWidth = 2; pl([[82,348],[98,348]]);
+  wire([[90,348],[90,372]]); gnd(90, 372); txt(`Vref ${VREF} V`, 98, 360, {px:10});
+  txt(`VSG ${f2(LDO.vsg)} V`, 262, 136, {col:C.accent, w:600, px:11});
+  pwOff.a += dt*Math.min(240, LDO.ip*1.4);
+  flowDots(ldoPath, pwOff.a, LDO.ip/40);
+  if (LDO.vo < LDO.vset - 0.03 && LDO.vsg >= LDO.vin - 0.01) txt("DROPOUT", 40, 440, {col:C.hole, w:700, px:14});
+  // pass PMOS cross-section
+  drawMini(pwMinis.ldo, 446, 16, LDO.vsg, Math.max(LDO.vin - LDO.vo, 0), r, dt, T,
+    {title:"Pass PMOS · variable resistor", s:"S = Vin", d:"D = Vout", g:`G (VSG ${f2(LDO.vsg)} V)`, v:`VSD ${f2(LDO.vin - LDO.vo)} V · P = ${((LDO.vin-LDO.vo)*LDO.ip).toFixed(0)} mW`});
+  // oscilloscope
+  const ox = 446, oy = 256, w = 540, h = 220;
+  panel(ox, oy, w, h, "Oscilloscope · 5 µs/div");
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1;
+  for (let i=0;i<=6;i++){ const x = ox+10 + i*520/6; pl([[x, oy+28],[x, oy+h-8]]); }
+  const vmin = LDO.vset - 0.3, vmax = LDO.vset + 0.15, VY = v => oy+150 - (clamp(v,vmin,vmax)-vmin)/(vmax-vmin)*118;
+  const IY = i => oy+210 - clamp(i,0,200)/200*44;
+  ctx.setLineDash([4,4]); ctx.strokeStyle = C.muted; pl([[ox+10, VY(LDO.vset)],[ox+530, VY(LDO.vset)]]); ctx.setLineDash([]);
+  txt(`set-point ${f3(LDO.vset)} V`, ox+528, VY(LDO.vset)-8, {al:"right", px:10});
+  pl([[ox+10, oy+158],[ox+530, oy+158]]);
+  const H2 = LDO.hist, xs = i => ox+10 + i*520/600;
+  if (H2.length > 1){
+    ctx.strokeStyle = C.muted; ctx.lineWidth = 1.6; ctx.beginPath(); H2.forEach((q,i) => i ? ctx.lineTo(xs(i), IY(q.il)) : ctx.moveTo(xs(i), IY(q.il))); ctx.stroke();
+    ctx.strokeStyle = C.accent; ctx.lineWidth = 2.2; ctx.beginPath(); H2.forEach((q,i) => i ? ctx.lineTo(xs(i), VY(q.vo)) : ctx.moveTo(xs(i), VY(q.vo))); ctx.stroke();
+  }
+  txt("Vout", ox+14, oy+40, {col:C.accent, w:600, px:11}); txt(`${f3(vmax)} V`, ox+528, oy+36, {al:"right", px:10}); txt(`${f3(vmin)} V`, ox+528, oy+146, {al:"right", px:10});
+  txt("Iload 0–200 mA", ox+14, oy+170, {px:10});
+}
+
+let bkPathHS = polyline([[60,70],[230,70],[230,80],[230,180],[230,210],[330,210],[420,210],[420,243]]);
+let bkPathLS = polyline([[230,378],[230,340],[230,240],[230,210],[330,210],[420,210],[420,243]]);
+function drawBuck(dt, T){
+  const c = buckCalc(BK.vin, BK.vset, BK.il, BK.f), ph = BK.ph % 1, hsOn = ph < c.D, iL = iLat(BK.ph, c);
+  txt(`Vin ${f2(BK.vin)} V`, 40, 52, {col:C.fg, w:600});
+  ndot(60, 70); wire([[60,70],[230,70],[230,80]]);
+  const rH = solve("p", hsOn ? BK.vin : 0, hsOn ? iL*BK.rhs : BK.vin, LF, 20000);
+  const rL = solve("n", hsOn ? 0 : BK.vin, hsOn ? BK.vin : iL*BK.rls, LF, 20000);
+  symb("p", 200, 130, {on:hsOn, body:"high side", hl:hsOn});
+  symb("n", 200, 290, {on:!hsOn, body:"low side", hl:!hsOn});
+  wire([[230,180],[230,240]]); wire([[230,340],[230,360]]); gnd(230, 360);
+  ndot(230, 210);
+  const vsw = hsOn ? BK.vin - iL*BK.rhs : -iL*BK.rls;
+  txt(`SW ${f2(vsw)} V`, 222, 212, {al:"right", col:hsOn ? C.accent : C.fg, w:600, px:11});
+  // inductor
+  wire([[230,210],[262,210]]);
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 2.2; ctx.beginPath();
+  for (let i=0;i<4;i++) ctx.arc(270 + i*16, 210, 8, Math.PI, 0);
+  ctx.stroke(); wire([[318,210],[430,210]]);
+  txt(`L ${BK.L} µH`, 290, 192, {px:10, col:C.fg}); txt(`iL ${f2(iL)} A`, 290, 230, {px:10, col:C.accent, w:600});
+  ndot(350, 210); capV(350, 238); txt(`C ${BK.C} µF`, 350, 296, {al:"center", px:10});
+  wire([[420,210],[420,243]]); isrc(420, 263, ""); wire([[420,283],[420,300]]); gnd(420, 300);
+  txt(`Vout ${f3(BK.vset)} V`, 432, 172, {al:"right", col:C.accent, w:600});
+  txt(`${f2(BK.il)} A`, 420, 330, {al:"center", px:10, col:C.fg, w:600});
+  // PWM controller
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; ctx.strokeRect(36, 190, 80, 60);
+  txt("PWM", 76, 208, {al:"center", col:C.fg, w:700, px:12}); txt(`D ${(c.D*100).toFixed(0)}%`, 76, 230, {al:"center", col:C.accent, w:600, px:11});
+  wire([[116,200],[126,200],[126,130],[142,130]]); wire([[116,240],[126,240],[126,290],[142,290]]);
+  ctx.setLineDash([3,4]); wire([[430,210],[438,210],[438,30],[22,30],[22,220],[36,220]]); ctx.setLineDash([]);
+  txt("feedback", 230, 22, {al:"center", px:10});
+  pwOff.b += dt*Math.min(220, 70*iL);
+  flowDots(hsOn ? bkPathHS : bkPathLS, pwOff.b, 0.4 + iL);
+  txt(hsOn ? "high side ON: Vin → L → load" : "low side ON: GND → L → load", 40, 440, {col:C.accent, w:600, px:12});
+  // cross-sections
+  const rH2 = {...rH, I: hsOn ? iL*1000 : 0}, rL2 = {...rL, I: hsOn ? 0 : iL*1000};
+  drawMini(pwMinis.hs, 446, 16, hsOn ? BK.vin : 0, hsOn ? iL*BK.rhs : BK.vin, rH2, dt, T,
+    {title:"High-side PMOS", s:"S = Vin", d:"D = SW", g:`G (VSG ${hsOn ? f2(BK.vin) : "0.00"} V)`, v: hsOn ? "switch closed" : `blocking ${f2(BK.vin)} V`});
+  drawMini(pwMinis.ls, 446, 256, hsOn ? 0 : BK.vin, hsOn ? BK.vin : iL*BK.rls, rL2, dt, T,
+    {title:"Low-side NMOS", s:"S = GND", d:"D = SW", g:`G (VGS ${hsOn ? "0.00" : f2(BK.vin)} V)`, v: hsOn ? `blocking ${f2(BK.vin)} V` : "switch closed"});
+}
+
+function pmicPaths(){
+  return {
+    bat: polyline([[120,245],[200,245]]),
+    b1in: polyline([[200,245],[200,105],[260,105]]),
+    b2in: polyline([[200,245],[200,305],[260,305]]),
+    b1out: polyline([[430,105],[700,105]]),
+    ldo: polyline([[450,105],[450,200],[470,200]]),
+    ldoOut: polyline([[610,200],[700,200]]),
+    b2out: polyline([[430,305],[700,305]])
+  };
+}
+const PMP = pmicPaths();
+function block(x, y, w, h, title, sub, hl){
+  ctx.fillStyle = hl ? C.panel2 : C.panel; ctx.fillRect(x, y, w, h);
+  ctx.strokeStyle = hl ? C.accent : C.line; ctx.lineWidth = hl ? 2 : 1.2; ctx.strokeRect(x+.5, y+.5, w-1, h-1);
+  txt(title, x+w/2, y+h/2 - 10, {al:"center", col:C.fg, w:700, px:12});
+  txt(sub, x+w/2, y+h/2 + 11, {al:"center", col:C.accent, w:600, px:11});
+}
+function drawPMIC(dt){
+  const P = pmicCalc();
+  // battery
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 2; ctx.strokeRect(30, 200, 90, 90); ctx.fillStyle = C.fg; ctx.fillRect(62, 192, 26, 8);
+  txt("Battery", 75, 228, {al:"center", col:C.fg, w:700}); txt(`${f2(PM.vbat)} V`, 75, 250, {al:"center", col:C.accent, w:600});
+  txt(`${f2(P.ibat)} A`, 75, 272, {al:"center", px:11});
+  // PMIC outline
+  ctx.setLineDash([6,5]); ctx.strokeStyle = C.muted; ctx.lineWidth = 1.5; ctx.strokeRect(170, 40, 470, 420); ctx.setLineDash([]);
+  txt("PMIC", 182, 56, {col:C.fg, w:700, px:14});
+  ["bat","b1in","b2in","b1out","ldo","ldoOut","b2out"].forEach(k => wire(PMP[k].pts));
+  block(260, 70, 170, 70, "Buck 1 · 2 MHz", `D ${(P.b1.D*100).toFixed(0)}% · η ${(P.b1.eta*100).toFixed(0)}%`);
+  block(470, 170, 140, 60, "LDO 1", `η ${(P.ldoEta*100).toFixed(0)}%`);
+  block(260, 270, 170, 70, "Buck 2 · DVFS", `D ${(P.b2.D*100).toFixed(0)}% · η ${(P.b2.eta*100).toFixed(0)}%`, PM.flash > 0.05 || Math.abs(PM.vcore - PM.target) > 0.002);
+  ctx.fillStyle = C.panel; ctx.fillRect(190, 370, 160, 72); ctx.strokeStyle = C.line; ctx.lineWidth = 1.2; ctx.strokeRect(190.5, 370.5, 159, 71);
+  txt("Control logic", 270, 388, {al:"center", col:C.fg, w:700, px:12});
+  txt(`VSEL = 0x${vselCode(PM.target).toString(16).toUpperCase().padStart(2,"0")}`, 270, 408, {al:"center", col:C.accent, w:600, px:11});
+  txt("Vref DAC → Buck 2", 270, 426, {al:"center", px:10});
+  ctx.setLineDash([3,4]); wire([[330,370],[330,340]]); ctx.setLineDash([]);
+  // loads
+  const load = (y, t1, t2) => { ctx.fillStyle = C.panel2; ctx.fillRect(700, y, 270, 60); ctx.strokeStyle = C.line; ctx.lineWidth = 1.2; ctx.strokeRect(700.5, y+.5, 269, 59); txt(t1, 714, y+20, {col:C.fg, w:700, px:12}); txt(t2, 714, y+42, {col:C.accent, w:600, px:12}); };
+  load(75, "I/O rail", `1.800 V · ${f2(P.ioI)} A`);
+  load(170, "RF / analog (quiet)", `1.200 V · ${f2(P.ldoI)} A`);
+  load(275, `CPU core · ${MODES[PM.mode].name}`, `${f3(PM.vcore)} V · ${f2(MODES[PM.mode].i)} A`);
+  // I2C
+  ctx.setLineDash([2,4]); ctx.strokeStyle = PM.flash > 0.05 ? C.accent : C.muted; ctx.lineWidth = 2; pl([[835,335],[835,406],[350,406]]); ctx.setLineDash([]);
+  txt("I²C / SPMI", 600, 396, {al:"center", px:10});
+  if (PM.msg){ ctx.globalAlpha = 0.45 + 0.55*PM.flash; txt(PM.msg, 835, 430, {al:"center", col:C.accent, w:600, px:11}); ctx.globalAlpha = 1; }
+  // flows
+  const go = (k, I) => { pwOff[k] = (pwOff[k] || 0) + dt*Math.min(200, 40 + 90*I); flowDots(PMP[k], pwOff[k], 0.25 + I); };
+  go("bat", P.ibat); go("b1in", (P.b1.pout+P.b1.loss)/PM.vbat); go("b2in", (P.b2.pout+P.b2.loss)/PM.vbat);
+  go("b1out", P.ioI); go("ldo", P.ldoI*4); go("ldoOut", P.ldoI*4); go("b2out", MODES[PM.mode].i);
+}
+
+const pwMinis = {ldo:mkMini("p"), hs:mkMini("p"), ls:mkMini("n")};
+function drawPower(dt, T){
+  begin(PWC);
+  if (pwView === "ldo") drawLDO(dt, T);
+  else if (pwView === "buck") drawBuck(dt, T);
+  else drawPMIC(dt);
+}
+
+/* ---------------- DOM ---------------- */
+const PWINFO = {
+  ldo:{pill:"LDO", name:"Low-dropout regulator", sub:"A feedback loop turns one PMOS into a variable resistor",
+    text:"An LDO is a feedback loop around one large PMOS. The error amplifier compares a fraction of Vout (set by R1 and R2) with Vref and moves the PMOS gate. If Vout sags, the gate is pulled down, VSG grows and the channel conducts more. The PMOS acts as a variable resistor: it drops Vin − Vout and turns that into heat, so efficiency is about Vout/Vin. To change the output, change the divider or the reference. When Vin − Vout gets too small, the gate is already at 0 V, the PMOS is fully on, and the LDO drops out: Vout follows Vin."},
+  buck:{pill:"BUCK", name:"Buck converter (DC-DC)", sub:"Switching, not burning: Vout = D · Vin",
+    text:"A buck converter switches instead of burning voltage. The high-side PMOS connects the switch node to Vin for a fraction D of each period, then the low-side NMOS connects it to ground. The inductor and capacitor average this square wave, so Vout ≈ D·Vin. The controller modulates the voltage through the duty cycle: the PWM comparator keeps the high side on until the ramp crosses the control voltage from the error amplifier. The switches are either fully on or fully off, so little power is lost and efficiency stays near 90 % even when Vout is far below Vin."},
+  pmic:{pill:"PMIC", name:"Power-management IC", sub:"Several regulators and a register-controlled set-point in one chip",
+    text:"A PMIC packs several bucks and LDOs plus control logic into one chip. Bucks make the large, efficient rails. An LDO after a buck gives a quiet rail for analog and RF circuits. The processor changes its own core voltage on the fly (DVFS): it writes a new VSEL code over I²C or SPMI, the PMIC changes the reference of Buck 2, and the duty cycle slews the rail to the new level at a controlled rate. Dynamic power scales as C·V²·f, so a lower core voltage at idle saves a lot of energy."}
+};
+
+function updatePower(){
+  const info = PWINFO[pwView];
+  $("pw-pill").textContent = info.pill; $("pw-name").textContent = info.name; $("pw-sub").textContent = info.sub;
+  $("pw-explain").textContent = info.text;
+  document.querySelectorAll("#pw-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === pwView));
+  ["ldo","buck","pmic"].forEach(k => $("pw-c-"+k).hidden = k !== pwView);
+  const rows = [], ro = [];
+  if (pwView === "ldo"){
+    const R1 = 100*(LDO.vset/VREF - 1), code = Math.round((LDO.vset - VREF)/0.025);
+    const vdo = ldoDropout(LDO.iheavy), eta = LDO.vo*LDO.il/(LDO.vin*(LDO.il + 0.05));
+    $("pw-ldo-vin-v").textContent = f2(LDO.vin) + " V";
+    $("pw-ldo-vset-v").textContent = `${f3(LDO.vset)} V · VSEL 0x${code.toString(16).toUpperCase().padStart(2,"0")}`;
+    $("pw-ldo-il-v").textContent = LDO.iheavy.toFixed(0) + " mA";
+    ro.push(["Vout", f3(LDO.vo) + " V"], ["Load", LDO.il.toFixed(0) + " mA"], ["Pass VSG", f2(LDO.vsg) + " V"], ["Efficiency", (eta*100).toFixed(0) + " %"]);
+    rows.push({name:"Set-point", f:"Vout = Vref · (1 + R1/R2)", sub:`= ${VREF} · (1 + ${R1.toFixed(0)} k/100 k) = ${f3(LDO.vset)} V`});
+    rows.push({name:"Regulation", f:"EA moves the gate until FB = Vref", sub:`FB = ${f3(LDO.vo*VREF/LDO.vset)} V, gate = ${f2(LDO.vin - LDO.vsg)} V, I = ${LDO.ip.toFixed(0)} mA`});
+    rows.push({name:"Dropout", f:"Vin − Vout ≥ Vdo (PMOS fully on, VSG = Vin)", sub:`Vdo = ${(vdo*1000).toFixed(0)} mV at ${LDO.iheavy.toFixed(0)} mA → need Vin ≥ ${f2(LDO.vset + vdo)} V`});
+    rows.push({name:"Heat", f:"P = (Vin − Vout)·I,   η ≈ Vout/Vin", sub:`= ${f2(LDO.vin - LDO.vo)} V · ${LDO.il.toFixed(0)} mA = ${((LDO.vin - LDO.vo)*LDO.il).toFixed(0)} mW,  η = ${(eta*100).toFixed(0)} %`});
+  } else if (pwView === "buck"){
+    const c = buckCalc(BK.vin, BK.vset, BK.il, BK.f);
+    $("pw-bk-vin-v").textContent = f2(BK.vin) + " V"; $("pw-bk-vset-v").textContent = f3(BK.vset) + " V";
+    $("pw-bk-il-v").textContent = f2(BK.il) + " A"; $("pw-bk-f-v").textContent = BK.f.toFixed(1) + " MHz";
+    ro.push(["Duty cycle D", (c.D*100).toFixed(1) + " %"], ["Vout", f3(BK.vset) + " V"], ["Ripple ΔiL", (c.di*1000).toFixed(0) + " mA"], ["Efficiency", (c.eta*100).toFixed(1) + " %"]);
+    rows.push({name:"Duty cycle", f:"D = Vout / Vin  (+ small I·R correction)", sub:`= ${f3(BK.vset)} / ${f2(BK.vin)} → D = ${(c.D*100).toFixed(1)} %`});
+    rows.push({name:"Ripple", f:"ΔiL = (Vin − Vout)·D / (f·L),  ΔVout = ΔiL / (8·f·C)", sub:`ΔiL = ${(c.di*1000).toFixed(0)} mA,  ΔVout = ${(c.dv*1000).toFixed(1)} mV` + (c.dcm ? "  (light load: DCM)" : "")});
+    rows.push({name:"Efficiency", f:"η = Pout / (Pout + conduction + switching)", sub:`= ${(c.pout*1000).toFixed(0)} mW / ${((c.pout+c.loss)*1000).toFixed(0)} mW = ${(c.eta*100).toFixed(1)} %  (an LDO would give ${(BK.vset/BK.vin*100).toFixed(0)} %)`});
+  } else {
+    const P = pmicCalc();
+    $("pw-pm-bat-v").textContent = f2(PM.vbat) + " V";
+    document.querySelectorAll("#pw-pm-mode button").forEach(b => b.setAttribute("aria-pressed", b.dataset.m === PM.mode));
+    $("pw-pm-auto").textContent = PM.auto ? "❚❚ Stop DVFS demo" : "▶ Auto DVFS demo";
+    ro.push(["Vcore", f3(PM.vcore) + " V"], ["VSEL", "0x" + vselCode(PM.target).toString(16).toUpperCase().padStart(2,"0")], ["Battery current", f2(P.ibat) + " A"], ["Overall η", (P.eta*100).toFixed(0) + " %"]);
+    rows.push({name:"VSEL code", f:"V = 0.300 V + code × 6.25 mV", sub:`0x${vselCode(PM.target).toString(16).toUpperCase().padStart(2,"0")} = ${vselCode(PM.target)} → ${f3(PM.target)} V`});
+    rows.push({name:"Slew", f:"dV/dt = 10 mV/µs", sub:`now ${f3(PM.vcore)} V → target ${f3(PM.target)} V` + (Math.abs(PM.vcore-PM.target) > 0.002 ? `, ${(Math.abs(PM.target-PM.vcore)/0.01).toFixed(1)} µs left` : ", settled")});
+    rows.push({name:"Battery", f:"Ibat = Σ Pin / Vbat", sub:`= ${(P.pin*1000).toFixed(0)} mW / ${f2(PM.vbat)} V = ${f2(P.ibat)} A`});
+    rows.push({name:"Why a buck", f:"Core from an LDO instead: η = Vcore / Vbat", sub:`= ${(P.coreLdoEta*100).toFixed(0)} %  vs  buck ${(P.b2.eta*100).toFixed(0)} %`});
+  }
+  $("pw-ro").innerHTML = ro.map(([l,v],i) => `<div class="ro${i>=2?" id":""}"><label>${l}</label><b>${v}</b></div>`).join("");
+  $("pw-eq").innerHTML = rows.map(r => `<div class="eqrow act"><span class="name">${r.name}</span><span class="f">${r.f}</span><span class="sub">${r.sub}</span></div>`).join("");
+  drawPowerPlots();
+}
+
+function drawPowerPlots(){
+  let a = "", b = "";
+  const key = `<text x="40" y="12" style="fill:var(--accent)">— LDO</text><text x="100" y="12" style="fill:var(--fg)">- - buck</text>`;
+  if (pwView === "ldo"){
+    const A = axesR(300, 230, {l:34,r:10,t:28,b:30}, 0, 5, 0, 3.5, 1, 0.5, "Vin (V)", "Vout (V)");
+    const pts = range(0, 5, 100).map(v => [v, ldoDC(v, LDO.iheavy)]);
+    a = A.s + `<line x1="${A.X(0)}" y1="${A.Y(0)}" x2="${A.X(3.5)}" y2="${A.Y(3.5)}" stroke="var(--muted)" stroke-dasharray="2 4"/>`;
+    a += `<path d="${pathOf(pts, A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+    const vdo = ldoDropout(LDO.iheavy);
+    a += `<text x="${A.X(LDO.vset + vdo)+4}" y="${A.Y(LDO.vset)+14}">dropout ${f2(LDO.vset + vdo)} V</text>`;
+    a += `<text x="40" y="12" style="fill:var(--accent)">DC output at ${LDO.iheavy.toFixed(0)} mA</text>`;
+    a += A.frame + dotSvg(A.X(LDO.vin), A.Y(ldoDC(LDO.vin, LDO.iheavy)));
+    const B = axesR(220, 230, {l:30,r:8,t:28,b:30}, 1, 5, 0, 100, 1, 25, "Vin (V)", "η (%)");
+    b = B.s + key;
+    b += `<path d="${pathOf(range(1, 5, 60).map(v => [v, v > LDO.vset ? LDO.vset/v*100 : 98]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+    b += `<path d="${pathOf(range(Math.max(1, LDO.vset+0.3), 5, 40).map(v => [v, buckCalc(v, LDO.vset, LDO.iheavy/1000, 1).eta*100]), B.X, B.Y)}" fill="none" stroke="var(--fg)" stroke-opacity=".6" stroke-dasharray="5 4" stroke-width="1.4"/>`;
+    b += B.frame + dotSvg(B.X(LDO.vin), B.Y(LDO.vin > LDO.vset ? LDO.vset/LDO.vin*100 : 98));
+  } else if (pwView === "buck"){
+    const c = buckCalc(BK.vin, BK.vset, BK.il, BK.f);
+    // scope: 3 cycles, 4 lanes
+    const W = 300, x0 = 40, x1 = 292, X = t => x0 + t/3*(x1-x0);
+    const lane = (y, h, label) => `<text x="4" y="${y+h/2+3}">${label}</text><line x1="${x0}" x2="${x1}" y1="${y+h}" y2="${y+h}" stroke="var(--line)"/>`;
+    a = `<text x="40" y="10">3 switching periods (T = ${(1/BK.f).toFixed(2)} µs)</text>`;
+    for (let k=0;k<=3;k++) a += `<line x1="${X(k)}" x2="${X(k)}" y1="16" y2="214" stroke="var(--line)" stroke-dasharray="2 3"/>`;
+    a += lane(18, 42, "PWM") + lane(70, 34, "SW") + lane(114, 48, "iL") + lane(172, 42, "Vout");
+    const ts = range(0, 3, 300);
+    a += `<path d="${pathOf(ts.map(t => [t, t % 1]), X, v => 58 - v*38)}" fill="none" stroke="var(--muted)" stroke-width="1.2"/>`;
+    a += `<line x1="${x0}" x2="${x1}" y1="${58 - c.D*38}" y2="${58 - c.D*38}" stroke="var(--accent)" stroke-dasharray="4 3"/><text x="${x1}" y="${54 - c.D*38}" text-anchor="end" style="fill:var(--accent)">Vc → D ${(c.D*100).toFixed(0)}%</text>`;
+    a += `<path d="${pathOf(ts.map(t => [t, (t % 1) < c.D ? 1 : 0]), X, v => 102 - v*30)}" fill="none" stroke="var(--accent)" stroke-width="1.8"/>`;
+    const iMax = BK.il + c.di/2 + 0.05, iMin = Math.max(0, BK.il - c.di/2 - 0.05), IY = v => 160 - (v - iMin)/(iMax - iMin + 1e-9)*44;
+    a += `<line x1="${x0}" x2="${x1}" y1="${IY(BK.il)}" y2="${IY(BK.il)}" stroke="var(--muted)" stroke-dasharray="3 3"/>`;
+    a += `<path d="${pathOf(ts.map(t => [t, iLat(t, c)]), X, IY)}" fill="none" stroke="var(--accent)" stroke-width="1.8"/>`;
+    // Vout ripple ~ integral of (iL − Iload)
+    let acc = 0; const rip = ts.map(t => { acc += iLat(t, c) - BK.il; return acc; });
+    const rm = Math.min(...rip), rM = Math.max(...rip);
+    a += `<path d="${pathOf(ts.map((t,i) => [t, (rip[i]-rm)/(rM-rm+1e-12)]), X, v => 210 - v*34)}" fill="none" stroke="var(--accent)" stroke-width="1.8"/>`;
+    a += `<text x="${x1}" y="182" text-anchor="end">±${(c.dv*500).toFixed(1)} mV</text>`;
+    a += `<line x1="${X(BK.ph)}" x2="${X(BK.ph)}" y1="16" y2="214" stroke="var(--fg)" stroke-width="1.5"/>`;
+    const B = axesR(220, 230, {l:30,r:8,t:28,b:30}, 0, 2, 0, 100, 0.5, 25, "Iload (A)", "η (%)");
+    b = `<text x="40" y="12" style="fill:var(--accent)">— buck</text><text x="96" y="12" style="fill:var(--fg)">- - LDO</text>` + B.s;
+    b += `<line x1="${B.X(0)}" x2="${B.X(2)}" y1="${B.Y(BK.vset/BK.vin*100)}" y2="${B.Y(BK.vset/BK.vin*100)}" stroke="var(--fg)" stroke-opacity=".6" stroke-dasharray="5 4"/>`;
+    b += `<path d="${pathOf(range(0.02, 2, 80).map(i => [i, buckCalc(BK.vin, BK.vset, i, BK.f).eta*100]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+    b += B.frame + dotSvg(B.X(BK.il), B.Y(c.eta*100));
+  } else {
+    const P = pmicCalc(), t1 = PM.t, t0 = t1 - 200;
+    const A = axesR(300, 230, {l:34,r:10,t:28,b:30}, -200, 0, 0.5, 1.1, 50, 0.1, "time (µs, now = 0)", "Vcore (V)");
+    a = A.s;
+    Object.values(MODES).forEach(m => a += `<line x1="${A.X(-200)}" x2="${A.X(0)}" y1="${A.Y(m.v)}" y2="${A.Y(m.v)}" stroke="var(--muted)" stroke-dasharray="2 4"/><text x="${A.X(-198)}" y="${A.Y(m.v)-3}">${m.name}</text>`);
+    const pts = PM.hist.filter(q => q.t >= t0).map(q => [q.t - t1, q.v]);
+    if (pts.length > 1) a += `<path d="${pathOf(pts, A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+    a += A.frame + dotSvg(A.X(0), A.Y(PM.vcore));
+    // power bars
+    const rails = [["Buck 1", P.b1.pout, P.b1.loss], ["LDO 1", 1.2*P.ldoI, P.ldoLoss], ["Buck 2", P.b2.pout, P.b2.loss]];
+    const pMax = Math.max(...rails.map(r => r[1] + r[2]), 0.1), st = niceStep(pMax*1000/4), yM = Math.ceil(pMax*1000/st)*st;
+    const B = axesR(220, 230, {l:36,r:8,t:28,b:30}, 0, 3, 0, yM, 5, st, "", "mW");
+    b = B.s + `<text x="80" y="12" style="fill:var(--accent)">■ delivered</text><text x="150" y="12" style="fill:var(--hole)">■ lost</text>`;
+    rails.forEach(([n, po, pl2], i) => {
+      const x = B.X(i + 0.2), w = B.X(i + 0.8) - x;
+      b += `<rect x="${x}" y="${B.Y(po*1000)}" width="${w}" height="${B.Y(0) - B.Y(po*1000)}" fill="var(--accent)"/>`;
+      b += `<rect x="${x}" y="${B.Y((po+pl2)*1000)}" width="${w}" height="${B.Y(po*1000) - B.Y((po+pl2)*1000)}" fill="var(--hole)"/>`;
+      b += `<text x="${x + w/2}" y="${B.Y(0)+14}" text-anchor="middle">${n}</text>`;
+    });
+    b += B.frame;
+  }
+  $("pw-p1").innerHTML = a; $("pw-p2").innerHTML = b;
+}
+
+let pwFrame = 0;
+function powerTick(dt){
+  if (pwView === "ldo") ldoTick(dt); else if (pwView === "buck") buckTick(dt); else pmicTick(dt);
+  if (++pwFrame % 3 === 0) updatePower();
+}
+function setPwView(v){ pwView = v; if (v === "ldo") ldoSettle(); updatePower(); }
+document.querySelectorAll("#pw-view button").forEach(b => b.addEventListener("click", () => setPwView(b.dataset.v)));
+$("pw-ldo-vin").addEventListener("input", e => { LDO.vin = +e.target.value; updatePower(); });
+$("pw-ldo-vset").addEventListener("input", e => { LDO.vset = +e.target.value; updatePower(); });
+$("pw-ldo-il").addEventListener("input", e => { LDO.iheavy = +e.target.value; updatePower(); });
+$("pw-ldo-auto").addEventListener("change", e => { LDO.auto = e.target.checked; updatePower(); });
+$("pw-bk-vin").addEventListener("input", e => { BK.vin = +e.target.value; if (BK.vset > BK.vin - 0.1){ BK.vset = Math.round((BK.vin - 0.1)/0.025)*0.025; $("pw-bk-vset").value = BK.vset; } updatePower(); });
+$("pw-bk-vset").addEventListener("input", e => { BK.vset = Math.min(+e.target.value, BK.vin - 0.1); updatePower(); });
+$("pw-bk-il").addEventListener("input", e => { BK.il = +e.target.value; updatePower(); });
+$("pw-bk-f").addEventListener("input", e => { BK.f = +e.target.value; updatePower(); });
+$("pw-pm-bat").addEventListener("input", e => { PM.vbat = +e.target.value; updatePower(); });
+document.querySelectorAll("#pw-pm-mode button").forEach(b => b.addEventListener("click", () => { PM.auto = false; setMode(b.dataset.m); updatePower(); }));
+$("pw-pm-auto").addEventListener("click", () => { PM.auto = !PM.auto; PM.autoT = 50; updatePower(); });
+ldoSettle();
+for (let i=0;i<50;i++) PM.hist.push({t:PM.t - (50-i)*0.5, v:PM.vcore});
+
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power"};
 function showTab(t){
   tab = t;
-  ["mos","inv","body"].forEach(k => { $("tab-"+k).hidden = t !== k; $("tab-btn-"+k).setAttribute("aria-selected", t === k); });
+  ["mos","inv","body","pw"].forEach(k => { $("tab-"+k).hidden = t !== k; $("tab-btn-"+k).setAttribute("aria-selected", t === k); });
   $("seg-type").hidden = t !== "mos";
   try { history.replaceState(null, "", HASH[t]); } catch(e){}
   if (t === "mos"){ M.resize(); updateMos(); }
   else if (t === "inv"){ $("sub-top").textContent = `CMOS inverter · VDD = ${VDD} V · Vtn = +1.0 V, Vtp = −1.0 V`; IVC.resize(); updateInv(); }
+  else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
-["mos","inv","body"].forEach(k => $("tab-btn-"+k).addEventListener("click", () => showTab(k)));
+["mos","inv","body","pw"].forEach(k => $("tab-btn-"+k).addEventListener("click", () => showTab(k)));
 
 let last = performance.now(), T = 0;
 function frame(now){
   const dt = Math.min(0.05, (now-last)/1000); last = now; T += dt;
   if (tab === "mos"){ tourTick(dt); if (M.cv.clientWidth) drawMos(dt, T); }
   else if (tab === "inv"){ invTick(dt); if (IVC.cv.clientWidth) drawInv(dt, T); }
+  else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
 }
 
 buildLegend(); updateMos();
-showTab(location.hash === "#inverter" ? "inv" : location.hash === "#body-effect" ? "body" : "mos");
+showTab(location.hash === "#inverter" ? "inv" : location.hash === "#body-effect" ? "body" : location.hash === "#power" ? "pw" : "mos");
 requestAnimationFrame(frame);
 })();
 </script>
