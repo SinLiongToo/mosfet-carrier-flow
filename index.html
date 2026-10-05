@@ -1320,7 +1320,304 @@ window.I18N_ZH = {
 "stub #: # Ω (λ/# = # mm)": "殘段 #：# Ω（λ/# = # mm）",
 "stub #: # Ω, stub #: # Ω, stub #: # Ω (λ/# = # mm)": "殘段 #：# Ω，殘段 #：# Ω，殘段 #：# Ω（λ/# = # mm）",
 "stub #: # Ω, stub #: # Ω, stub #: # Ω, stub #: # Ω, stub #: # Ω (λ/# = # mm)": "殘段 #：# Ω，殘段 #：# Ω，殘段 #：# Ω，殘段 #：# Ω，殘段 #：# Ω（λ/# = # mm）",
-"stub #: # Ω, stub #: # Ω, stub #: # Ω, stub #: # Ω, stub #: # Ω, stub #: # Ω, stub #: # Ω (λ/# = # mm)": "殘段 #：# Ω，殘段 #：# Ω，殘段 #：# Ω，殘段 #：# Ω，殘段 #：# Ω，殘段 #：# Ω，殘段 #：# Ω（λ/# = # mm）"
+"stub #: # Ω, stub #: # Ω, stub #: # Ω, stub #: # Ω, stub #: # Ω, stub #: # Ω, stub #: # Ω (λ/# = # mm)": "殘段 #：# Ω，殘段 #：# Ω，殘段 #：# Ω，殘段 #：# Ω，殘段 #：# Ω，殘段 #：# Ω，殘段 #：# Ω（λ/# = # mm）",
+"MIMO & beams": "MIMO 與波束",
+"Phased-array beam steering": "相位陣列波束控制",
+"MIMO view": "MIMO 檢視",
+"Beam steering": "波束控制",
+"Beam switching": "波束切換",
+"MIMO virtual array": "MIMO 虛擬陣列",
+"Car: one module vs many": "車用：單一模組 vs 多模組",
+"Number of antenna elements in the line array. More elements give a narrower, stronger beam.": "線性陣列中的天線單元數。單元越多，波束越窄越強。",
+"Elements N": "單元數 N",
+"Distance between neighbouring elements in wavelengths. Above λ/# extra beams (grating lobes) can appear when steering.": "相鄰單元間距（以波長計）。大於 λ/# 時，掃描可能出現額外波束（柵瓣）。",
+"Element spacing d/λ": "單元間距 d/λ",
+"Direction of the main beam, measured from broadside (straight ahead of the array).": "主波束方向，從陣列正前方（側射方向）起算。",
+"Steering angle θ#": "掃描角 θ#",
+"Phase shifter resolution": "移相器解析度",
+"Continuous": "連續",
+"#-bit": "# 位元",
+"Amplitude taper": "振幅加權",
+"Uniform": "均勻",
+"Hann taper": "Hann 加權",
+"Array size": "陣列大小",
+"Number of fixed beams in the codebook. A Butler matrix with N ports gives N beams; more beams mean less loss between them but a longer sweep.": "碼本中的固定波束數。N 埠的 Butler 矩陣提供 N 個波束；波束越多，波束間損耗越小，但掃描越久。",
+"Beams in the codebook M": "碼本波束數 M",
+"Time spent listening on each beam during a sweep.": "掃描時在每個波束上停留聆聽的時間。",
+"Dwell time per beam": "每波束停留時間",
+"Car drives across the field of view": "車輛橫越視野",
+"Target angle": "目標角度",
+"Transmit antennas. They are spaced Nrx·λ/# apart so that each one shifts the receive array to a new place.": "發射天線。間距為 Nrx·λ/#，讓每支發射天線把接收陣列「移」到新位置。",
+"TX antennas": "TX 天線",
+"Receive antennas, spaced λ/#.": "接收天線，間距 λ/#。",
+"RX antennas": "RX 天線",
+"Angle between the two targets": "兩目標間夾角",
+"Direction of the target pair": "目標對的方向",
+"Radar configuration": "雷達配置",
+"# imaging module": "# 個成像模組",
+"# standard modules": "# 個標準模組",
+"Imaging + # corners": "成像 + # 個角雷達",
+"Lateral distance between two cars driving side by side ahead, at the range below.": "前方並排行駛兩車的橫向距離（在下方設定的距離處）。",
+"Spacing of the two cars ahead": "前方兩車間距",
+"Range to the two cars": "與兩車的距離",
+"Patterns and trade-offs": "場型與取捨",
+"Beam pattern, angle spectrum or coverage": "波束場型、角度頻譜或覆蓋範圍",
+"Element phases, switching loss, resolution or comparison": "單元相位、切換損耗、解析度或比較",
+"Explain the terms: phased array, beam switching, MIMO, virtual array, car radar layouts": "名詞解釋：相位陣列、波束切換、MIMO、虛擬陣列、車用雷達配置",
+"From one antenna to a steerable beam": "從單一天線到可控波束",
+"Every antenna element sends out the same wave. Far away the waves add up, and the result depends on the direction.": "每個天線單元發出相同的波。在遠處這些波相加，結果隨方向而不同。",
+"If all elements are in phase, the waves add best straight ahead (broadside): the <b>main beam</b>.": "若所有單元同相，波在正前方（側射方向）相加最強：這就是<b>主波束</b>。",
+"Delay each element a little more than its neighbour, by <b>Δφ = −k·d·sinθ#</b>, and the waves now line up in the direction θ#: the beam is <b>steered</b> without moving anything.": "讓每個單元比相鄰單元多延遲一點，<b>Δφ = −k·d·sinθ#</b>，波就會在 θ# 方向對齊：不需移動任何東西，波束就被<b>轉向</b>了。",
+"<b>Beam switching</b> picks one of a few fixed beams instead of setting any angle; <b>MIMO</b> uses several transmitters and receivers to build a much larger virtual array in software.": "<b>波束切換</b>是從幾個固定波束中挑一個，而不是任意設定角度；<b>MIMO</b> 則用多個發射器與接收器，在軟體中組成大得多的虛擬陣列。",
+"Steering vs switching vs MIMO": "波束控制 vs 波束切換 vs MIMO",
+"Phased array": "相位陣列",
+"Switched beams": "切換波束",
+"MIMO (digital)": "MIMO（數位）",
+"How the beam is formed": "波束如何形成",
+"Phase shifter on every element": "每個單元都有移相器",
+"Fixed network (Butler matrix) + switch": "固定網路（Butler 矩陣）+ 開關",
+"FFT over the virtual array after the ADC": "ADC 之後對虛擬陣列做 FFT",
+"Beam directions": "波束方向",
+"Any angle (set by bits)": "任意角度（由位元數決定）",
+"M fixed angles": "M 個固定角度",
+"All angles at once": "同時涵蓋所有角度",
+"Loss": "損耗",
+"Phase-shifter loss, quantisation lobes": "移相器損耗、量化旁瓣",
+"Crossover loss between beams": "波束間的交叉損耗",
+"None in the beam, but more data": "波束本身無損耗，但資料量較大",
+"Speed": "速度",
+"Fast (ns to µs per beam)": "快（每波束 ns 到 µs）",
+"Sweep time = M × dwell": "掃描時間 = M × 停留時間",
+"One frame sees every angle": "一個訊框就看到所有角度",
+"#G mmWave, satellite, military radar": "#G 毫米波、衛星、軍用雷達",
+"Low-cost # GHz links, simple radars": "低成本 # GHz 鏈路、簡易雷達",
+"# GHz car radar": "# GHz 車用雷達",
+"Array terms": "陣列名詞",
+"Array factor AF(θ)": "陣列因子 AF(θ)",
+"The sum of all element signals in direction θ, Σ wn·e^(j·n·k·d·sinθ). The beam pattern is |AF|².": "所有單元訊號在 θ 方向的總和，Σ wn·e^(j·n·k·d·sinθ)。波束場型為 |AF|²。",
+"Broadside / endfire": "側射 / 端射",
+"Broadside is straight out of the array (θ = #); endfire is along the array (θ = ±#°).": "側射是垂直於陣列向外（θ = #）；端射是沿著陣列方向（θ = ±#°）。",
+"Beamwidth (HPBW)": "波束寬度（HPBW）",
+"Angle between the −# dB points, about #·λ / (N·d·cosθ#) radians for a uniform array.": "兩個 −# dB 點之間的角度，均勻陣列約為 #·λ / (N·d·cosθ#) 弧度。",
+"Array gain": "陣列增益",
+"N elements add coherently: #·log N dB more than one element.": "N 個單元同調相加：比單一單元多 #·log N dB。",
+"Sidelobe": "旁瓣",
+"Smaller beams beside the main one (−# dB for uniform weights). A taper lowers them but widens the main beam.": "主波束旁較小的波束（均勻加權為 −# dB）。加權可降低旁瓣，但主波束變寬。",
+"Grating lobe": "柵瓣",
+"A second full-size beam that appears when d > λ / (# + |sinθ#|). Keep d ≤ λ/# to scan anywhere.": "當 d > λ / (# + |sinθ#|) 時出現的第二個同樣大的波束。保持 d ≤ λ/# 才能任意掃描。",
+"Phase quantisation": "相位量化",
+"A b-bit phase shifter only sets #^b phases; the rounding error raises sidelobes and shifts the beam slightly.": "b 位元移相器只能設定 #^b 種相位；捨入誤差會抬高旁瓣並使波束稍微偏移。",
+"Scan loss": "掃描損耗",
+"The beam gets wider and the element gain drops as θ# moves away from broadside.": "θ# 離側射方向越遠，波束越寬、單元增益越低。",
+"MIMO and car terms": "MIMO 與車用名詞",
+"Butler matrix": "Butler 矩陣",
+"A passive network of hybrids and fixed phase shifters: N inputs, N outputs, each input gives one fixed beam.": "由混合耦合器與固定移相器組成的被動網路：N 個輸入、N 個輸出，每個輸入對應一個固定波束。",
+"Crossover loss": "交叉損耗",
+"Gain lost when the target sits between two switched beams (about # dB for touching DFT beams).": "目標位於兩個切換波束之間時損失的增益（相鄰 DFT 波束約 # dB）。",
+"Virtual array": "虛擬陣列",
+"Every TX–RX pair acts as one element at position x_tx + x_rx, so Ntx × Nrx channels come from only Ntx + Nrx antennas.": "每個 TX–RX 組合相當於位於 x_tx + x_rx 的一個單元，所以只用 Ntx + Nrx 支天線就得到 Ntx × Nrx 個通道。",
+"Ways to separate the transmitters: one after another in time, or with different Doppler (phase) codes at the same time.": "區分各發射器的方式：依時間輪流發射，或同時以不同的都卜勒（相位）碼發射。",
+"Angular resolution": "角度解析度",
+"Smallest angle between two targets that still shows two peaks, about #/Nv radians for λ/# spacing.": "兩目標仍顯示為兩個峰值的最小夾角，λ/# 間距時約 #/Nv 弧度。",
+"Cascaded radar": "級聯雷達",
+"Several radar chips (e.g. # × #TX/#RX) sharing one clock (LO) to act as one big MIMO radar: an \"imaging radar\".": "多顆雷達晶片（例如 # × #TX/#RX）共用一個時脈（LO），合成一個大型 MIMO 雷達：即「成像雷達」。",
+"Corner radar": "角雷達",
+"Short-range radar at a car corner, wide field of view, for blind spot, lane change and cross traffic.": "裝在車角的短距離雷達，視野寬，用於盲點、變換車道與橫向來車偵測。",
+"MIMO and beams · phased arrays, beam switching, virtual arrays, car radar layouts": "MIMO 與波束 · 相位陣列、波束切換、虛擬陣列、車用雷達配置",
+"A small phase step from element to element tilts the combined wavefront": "單元間小小的相位差讓合成波前傾斜",
+"A phased array is a row of identical antennas fed with the same signal. In the far field their waves add, and they add best in the direction where they arrive in phase. With no phase shift that is straight ahead (broadside). Giving each element a phase that grows by Δφ = −k·d·sinθ# from one element to the next makes the wavefront leave tilted by θ#, so the beam is steered electronically, in nanoseconds, with nothing moving. N elements give #·log N dB of array gain and a beamwidth of about #·λ/(N·d·cosθ#): bigger arrays make narrower beams, and the beam widens as it is steered away from broadside. Keep the element spacing at λ/# or less: with wider spacing the phases repeat and a second, full-size beam (a grating lobe) appears. Real phase shifters only have a few bits; the rounding of the phases raises the sidelobes. A taper (smaller amplitude at the array edges) lowers the sidelobes at the cost of a wider beam.": "相位陣列是一排饋入相同訊號的相同天線。在遠場它們的波相加，而在同相抵達的方向相加最強。沒有相移時就是正前方（側射）。讓每個單元的相位依序增加 Δφ = −k·d·sinθ#，波前就會以 θ# 的角度傾斜離開，於是波束以電子方式轉向，只需奈秒，完全不用移動。N 個單元提供 #·log N dB 的陣列增益，波束寬度約為 #·λ/(N·d·cosθ#)：陣列越大波束越窄，而波束偏離側射方向時會變寬。單元間距應保持在 λ/# 以下：間距更大時相位會重複，出現第二個同樣大的波束（柵瓣）。實際的移相器只有幾個位元；相位捨入會抬高旁瓣。加權（陣列邊緣振幅較小）可降低旁瓣，但代價是波束變寬。",
+"Wave crest": "波峰",
+"Wave trough": "波谷",
+"Antenna element": "天線單元",
+"Steering direction": "掃描方向",
+"Angle between the −# dB points of the main beam.": "主波束兩個 −# dB 點之間的角度。",
+"Beamwidth": "波束寬度",
+"N elements add coherently: #·log N dB over a single element.": "N 個單元同調相加：比單一單元多 #·log N dB。",
+"Highest lobe outside the main beam, relative to the peak.": "主波束以外最高的波瓣，相對於峰值。",
+"Sidelobe level": "旁瓣電平",
+"Phase added from one element to the next to steer the beam.": "為了轉向波束，每個單元比前一個多加的相位。",
+"Phase step": "相位步階",
+"Phase step that tilts the wavefront to θ#.": "使波前傾斜到 θ# 的相位步階。",
+"Steering": "波束控制",
+"Approximate half-power beamwidth of a uniform line array.": "均勻線性陣列的近似半功率波束寬度。",
+"Beam shape": "波束形狀",
+"AF(θ) = Σ wn·e^(j·n·(k·d·sinθ + Δφ)), HPBW ≈ #·λ / (N·d·cosθ#)": "AF(θ) = Σ wn·e^(j·n·(k·d·sinθ + Δφ))，HPBW ≈ #·λ / (N·d·cosθ#)",
+"Condition for a second full-size beam to appear.": "出現第二個同樣大波束的條件。",
+"Grating lobes": "柵瓣",
+"none while d/λ < # / (# + |sinθ#|)": "當 d/λ < # / (# + |sinθ#|) 時沒有",
+"limit # λ, now # λ → no grating lobe": "上限 # λ，目前 # λ → 沒有柵瓣",
+"limit # λ, now # λ → grating lobe!": "上限 # λ，目前 # λ → 出現柵瓣！",
+"Phase-shifter rounding: #^b phase states.": "移相器捨入：#^b 種相位狀態。",
+"Quantisation": "量化",
+"continuous phase": "連續相位",
+"peak sidelobe -# dB (uniform ideal: −# dB)": "最高旁瓣 -# dB（均勻理想值：−# dB）",
+"Element phases now:": "目前各單元相位：",
+"Amplitude": "振幅",
+"angle θ (°)": "角度 θ (°)",
+"— array pattern |AF|²": "— 陣列場型 |AF|²",
+"element": "單元",
+"phase (°)": "相位 (°)",
+"phase shifter settings": "移相器設定",
+"bars under the elements = phase # … #°": "單元下方長條 = 相位 # … #°",
+"grating lobe: d is too large for this steering angle, a second beam appears": "柵瓣：對此掃描角而言 d 太大，出現第二個波束",
+"Beam switching with a fixed codebook": "以固定碼本做波束切換",
+"Pick the best of M fixed beams instead of steering to any angle": "從 M 個固定波束中挑最好的一個，而不是轉到任意角度",
+"Instead of a phase shifter on every element, a switched-beam system uses a fixed network such as a Butler matrix, which turns N inputs into N fixed beams (a codebook), or stores a small set of phase settings. The system sweeps through the beams, measures which one hears the target best, and uses that beam. It is cheap and simple, but a target that sits between two beams is received on the edge of the best one: this crossover loss is about # dB for N touching beams and drops when more beams are added. More beams cost a longer sweep (M × dwell time) before the system can follow a moving target, which is why #G and # GHz links do a coarse beam sweep first and then refine it.": "切換波束系統不在每個單元放移相器，而是用 Butler 矩陣這類固定網路，把 N 個輸入變成 N 個固定波束（碼本），或儲存少量相位設定。系統依序掃過各波束，量測哪一個收到目標最強，就使用那個波束。它便宜又簡單，但位於兩波束之間的目標只能用最佳波束的邊緣接收：N 個相鄰波束的交叉損耗約 # dB，增加波束數可降低。波束越多，系統要掃描越久（M × 停留時間）才能追上移動目標，所以 #G 與 # GHz 鏈路會先做粗略波束掃描，再細調。",
+"Selected beam": "選用波束",
+"Other beams in the codebook": "碼本中其他波束",
+"Target": "目標",
+"The codebook beam that receives the target best.": "接收目標最好的碼本波束。",
+"Gain lost compared with steering exactly to the target.": "與精確轉向目標相比損失的增益。",
+"Loss now": "目前損耗",
+"Largest loss over the field of view, when the target sits between two beams.": "視野內最大的損耗，發生在目標位於兩波束之間時。",
+"Worst crossover": "最差交叉損耗",
+"Time to try every beam once.": "每個波束各試一次所需的時間。",
+"Sweep time": "掃描時間",
+"Beam directions spread evenly in sinθ, like the outputs of a Butler matrix.": "波束方向在 sinθ 上均勻分布，如同 Butler 矩陣的輸出。",
+"Codebook": "碼本",
+"sinθm = −# + (#m − #)/M, m = # … M (Butler-matrix-like)": "sinθm = −# + (#m − #)/M，m = # … M（類 Butler 矩陣）",
+"Loss where two neighbouring beams cross.": "相鄰兩波束交叉處的損耗。",
+"Crossover": "交叉",
+"loss = −#·log( max over beams of |AF| )": "損耗 = −#·log( 各波束 |AF| 的最大值 )",
+"now # dB, worst # dB (≈ # dB when M = N)": "目前 # dB，最差 # dB（M = N 時 ≈ # dB）",
+"How fast the system can follow a moving target.": "系統追蹤移動目標的速度。",
+"Tracking": "追蹤",
+"sweep time = M × dwell": "掃描時間 = M × 停留時間",
+"# × # ms = # ms before the best beam is known": "# × # ms = # ms 後才知道最佳波束",
+"Crossover loss for different codebook sizes:": "不同碼本大小的交叉損耗：",
+"Beams M": "波束數 M",
+"Worst loss": "最差損耗",
+"all # beams · selected · target": "全部 # 個波束 · 選用 · 目標",
+"target angle (°)": "目標角度 (°)",
+"gain vs ideal (dB)": "相對理想的增益 (dB)",
+"— switched": "— 切換",
+"- - steered": "- - 連續控制",
+"radar / base station": "雷達 / 基地台",
+"gain lost vs perfect steering: # dB": "與完美控制相比損失：# dB",
+"sweep: # × # ms = # ms": "掃描：# × # ms = # ms",
+"MIMO radar: the virtual array": "MIMO 雷達：虛擬陣列",
+"Ntx transmitters × Nrx receivers act like an array of Ntx·Nrx elements": "Ntx 個發射器 × Nrx 個接收器，相當於 Ntx·Nrx 個單元的陣列",
+"In a MIMO radar every transmitter sends a signal the receivers can tell apart (one after another in time, TDM, or with different phase codes, DDM). The echo of TX i at RX j has a phase set by both antenna positions, so it is as if a single antenna sat at x_tx + x_rx. With RX spaced λ/# and TX spaced Nrx·λ/#, the Ntx·Nrx pairs fill a gap-free virtual array of Ntx·Nrx elements. The angle is found with an FFT across this virtual array, and the angular resolution improves to about #/(Ntx·Nrx) radians, for example # TX + # RX = # antennas behave like #, and # TX + # RX = # antennas behave like #. The price is processing and timing: the TX take turns, so a frame takes longer and the unambiguous Doppler range shrinks, and the data rate grows with the number of channels.": "在 MIMO 雷達中，每個發射器送出接收器能分辨的訊號（依時間輪流的 TDM，或用不同相位碼的 DDM）。TX i 在 RX j 收到的回波，其相位由兩支天線的位置共同決定，就像有一支天線位於 x_tx + x_rx。RX 間距 λ/#、TX 間距 Nrx·λ/# 時，Ntx·Nrx 個組合會填滿一個無間隙、Ntx·Nrx 個單元的虛擬陣列。對這個虛擬陣列做 FFT 求角度，角度解析度提升到約 #/(Ntx·Nrx) 弧度，例如 # TX + # RX = # 支天線相當於 # 個，# TX + # RX = # 支天線相當於 # 個。代價是處理與時序：TX 輪流發射，訊框變長、可量測的都卜勒範圍縮小，資料量也隨通道數增加。",
+"Active TX / its virtual elements": "發射中的 TX / 其虛擬單元",
+"Targets": "目標",
+"RX-only resolution": "僅 RX 的解析度",
+"Physical antennas needed: Ntx + Nrx.": "需要的實體天線：Ntx + Nrx。",
+"Antennas": "天線數",
+"Number of TX–RX pairs = elements of the virtual array.": "TX–RX 組合數 = 虛擬陣列單元數。",
+"Virtual channels": "虛擬通道",
+"Angular resolution using only the receive antennas.": "只用接收天線時的角度解析度。",
+"Resolution (RX only)": "解析度（僅 RX）",
+"Angular resolution with the full virtual array.": "使用完整虛擬陣列的角度解析度。",
+"Resolution (MIMO)": "解析度（MIMO）",
+"Each TX–RX pair behaves like one element at x_tx + x_rx.": "每個 TX–RX 組合相當於位於 x_tx + x_rx 的一個單元。",
+"# × # = # elements from # antennas, aperture # λ": "# × # = # 個單元，只用 # 支天線，孔徑 # λ",
+"Two targets are separated if they are further apart than about #/Nv radians.": "兩目標夾角大於約 #/Nv 弧度時可分辨。",
+"Δθ ≈ asin(# / Nv) (λ/# spacing)": "Δθ ≈ asin(# / Nv)（λ/# 間距）",
+"With time-division MIMO each angle snapshot needs Ntx chirps.": "分時 MIMO 每次角度量測需要 Ntx 個啁啾。",
+"TDM cost": "TDM 代價",
+"frame = Ntx chirps, vmax ÷ Ntx": "訊框 = Ntx 個啁啾，vmax ÷ Ntx",
+"# chirps per snapshot; data from # receivers sorted into # channels": "每次量測 # 個啁啾；# 個接收器的資料分成 # 個通道",
+"Typical radar chip combinations:": "典型雷達晶片組合：",
+"Setup": "配置",
+"Virtual": "虛擬",
+"# chip": "# 顆晶片",
+"# chips": "# 顆晶片",
+"# chips (imaging)": "# 顆晶片（成像）",
+"yours": "你的設定",
+"angle (°)": "角度 (°)",
+"— RX only (#)": "— 僅 RX（#）",
+"virtual channels Nv": "虛擬通道數 Nv",
+"resolution (°)": "解析度 (°)",
+"Physical array: # TX + # RX = # antennas": "實體陣列：# TX + # RX = # 支天線",
+"RX (λ/# apart)": "RX（間距 λ/#）",
+"TX (Nrx·λ/# = # λ apart) · now transmitting: TX#": "TX（間距 Nrx·λ/# = # λ） · 目前發射：TX#",
+"Virtual array: # × # = # elements at x_tx + x_rx": "虛擬陣列：# × # = # 個單元，位於 x_tx + x_rx",
+"virtual aperture # λ instead of # λ → #× finer angle": "虛擬孔徑 # λ 而非 # λ → 角度細 # 倍",
+"RX only (# ch): resolution #° → # blob": "僅 RX（# 通道）：解析度 #° → # 團",
+"RX only (# ch): resolution #° → # targets": "僅 RX（# 通道）：解析度 #° → # 個目標",
+"MIMO (# virtual ch): resolution #° → # targets": "MIMO（# 個虛擬通道）：解析度 #° → # 個目標",
+"MIMO (# virtual ch): resolution #° → # blob": "MIMO（# 個虛擬通道）：解析度 #° → # 團",
+"What MIMO costs": "MIMO 的代價",
+"antennas": "天線",
+"virtual channels": "虛擬通道",
+"TDM frame": "TDM 訊框",
+"# chirps per angle snapshot": "每次角度量測 # 個啁啾",
+"Doppler range": "都卜勒範圍",
+"ADC data": "ADC 資料",
+"# streams, # after sorting": "# 路資料，分類後 # 路",
+"TX take turns (TDM) or transmit at once with": "TX 輪流發射（TDM），或同時以",
+"different phase codes (DDM); RX sort them": "不同相位碼發射（DDM）；RX 將其分開，",
+"out and stack the channels in software.": "再在軟體中把通道堆疊起來。",
+"Car radar: one module vs many": "車用雷達：單一模組 vs 多模組",
+"Cascaded imaging radar against several standard radars around the car": "級聯成像雷達 vs 車身周圍多個標準雷達",
+"A car can see around itself with one big front radar or with several small ones. A cascaded imaging radar links four radar chips to one clock and acts as one MIMO radar with # TX × # RX = # virtual channels: about #° angular resolution, enough to separate two cars side by side at # m and to measure elevation, but it only looks forward. Standard radars use one chip each (# TX × # RX = # channels, about #° resolution); four of them at the corners and one in front give near #° coverage for blind spots, lane changes and cross traffic, but none of them can separate close objects far away. More modules also mean more housings, connectors and cables, while one large module concentrates cost, data rate and heat in one place and has no backup if it fails. Many cars therefore combine both: an imaging radar in front plus corner radars.": "車輛可以用一個大型前雷達或多個小雷達來感知周圍。級聯成像雷達把四顆雷達晶片接到同一個時脈，作為一個 # TX × # RX = # 個虛擬通道的 MIMO 雷達：角度解析度約 #°，足以在 # m 處分辨並排的兩輛車並量測高度，但只看前方。標準雷達每個只用一顆晶片（# TX × # RX = # 個通道，解析度約 #°）；四個裝在車角、一個裝在前方，可提供接近 #° 的覆蓋，用於盲點、變換車道與橫向來車，但都無法分辨遠方相近的物體。模組越多，外殼、連接器與線材也越多；而單一大模組把成本、資料量與熱集中在一處，故障時也沒有備援。因此許多車兩者並用：前方一個成像雷達加上角雷達。",
+"Imaging radar": "成像雷達",
+"Standard front radar": "標準前雷達",
+"Two cars ahead": "前方兩車",
+"Share of the #° around the car seen by at least one radar.": "車身周圍 #° 中，至少被一個雷達看到的比例。",
+"Coverage": "覆蓋率",
+"Angular resolution of the front radar, from its virtual channels.": "前雷達的角度解析度，由其虛擬通道數決定。",
+"Front resolution": "前方解析度",
+"Number of radar transceiver chips in the car.": "車上雷達收發晶片的數量。",
+"Radar chips": "雷達晶片",
+"Rough index: chips plus housing, antenna board and cable per module.": "粗略指標：晶片數加上每個模組的外殼、天線板與線材。",
+"Relative cost": "相對成本",
+"Δθ ≈ asin(# / Nv), Nv = Ntx·Nrx of the front radar": "Δθ ≈ asin(# / Nv)，Nv = 前雷達的 Ntx·Nrx",
+"# × # = # → #° (# m wide at # m)": "{0} × {1} = {2} → {3}°（在 {5} m 處寬 {4} m）",
+"Angle between the two cars ahead as seen from the radar.": "從雷達看前方兩車之間的夾角。",
+"Separation": "間隔",
+"Δθ = atan(gap / R)": "Δθ = atan(間距 / R)",
+"# m at # m = #° → resolved": "{1} m 處相距 {0} m = {2}° → 可分辨",
+"# m at # m = #° → not resolved": "{1} m 處相距 {0} m = {2}° → 無法分辨",
+"# m at # m = #° → out of range": "{1} m 處相距 {0} m = {2}° → 超出範圍",
+"Coverage and cost of the chosen layout.": "所選配置的覆蓋與成本。",
+"Modules": "模組",
+"coverage = angles seen by any radar, cost ≈ chips + # per module": "覆蓋 = 任一雷達看得到的角度，成本 ≈ 晶片數 + 每模組 #",
+"The three layouts compared:": "三種配置比較：",
+"Layout": "配置",
+"Chips": "晶片",
+"Front res.": "前方解析度",
+"Cost": "成本",
+"# imaging": "# 個成像",
+"# standard": "# 個標準",
+"imaging + # corners": "成像 + # 個角雷達",
+"Coverage around the car (√range)": "車身周圍覆蓋範圍（√距離）",
+"This layout": "此配置",
+"coverage": "覆蓋",
+"front detail": "前方解析",
+"chips": "晶片",
+"modules": "模組",
+"cost": "成本",
+"two cars resolved": "兩車可分辨",
+"seen as one object": "視為一個物體",
+"beyond the front radar's range": "超出前雷達的距離",
+"# m apart at # m = #°; front resolution #° = # m wide there": "{1} m 處相距 {0} m = {2}°；前方解析度 {3}° = 在該處寬 {4} m",
+"Imaging radar in front + # corner radars": "前方成像雷達 + # 個角雷達",
+"#° coverage # % · # modules · # radar chips · # virtual channels in total": "#° 覆蓋 # % · # 個模組 · # 顆雷達晶片 · 共 # 個虛擬通道",
+"range drawn on a square-root scale": "距離以平方根尺度繪製",
+"One cascaded imaging radar (# chips, # TX × # RX)": "一個級聯成像雷達（# 顆晶片，# TX × # RX）",
+"Five standard radars (front + # corners, # TX × # RX each)": "五個標準雷達（前方 + # 個角，每個 # TX × # RX）",
+"Front imaging radar ±#° # m": "前方成像雷達 ±#° # m",
+"Front imaging radar ±#° # m · Corner radar ±#° # m · Corner radar ±#° # m · Corner radar ±#° # m · Corner radar ±#° # m": "前方成像雷達 ±#° # m · 角雷達 ±#° # m · 角雷達 ±#° # m · 角雷達 ±#° # m · 角雷達 ±#° # m",
+"Front radar ±#° # m · Corner radar ±#° # m · Corner radar ±#° # m · Corner radar ±#° # m · Corner radar ±#° # m": "前雷達 ±#° # m · 角雷達 ±#° # m · 角雷達 ±#° # m · 角雷達 ±#° # m · 角雷達 ±#° # m",
+"= −#° · # · sin -#° = -#° per element": "= −#° · # · sin -#° = 每單元 -#°",
+"≈ #° estimated, #° from the pattern; peak at -#°": "估計 ≈ #°，場型測得 #°；峰值在 -#°",
+"N = #, d = # λ, Δφ = -#° per element": "N = #，d = # λ，每單元 Δφ = -#°",
+"target at -#° → beam # of # (points at -#°)": "目標在 -#° → 第 # / # 個波束（指向 -#°）",
+"= −#° · # · sin -#° = #° per element": "= −#° · # · sin -#° = 每單元 #°",
+"target at -#° → beam # of # (points at #°)": "目標在 -#° → 第 # / # 個波束（指向 #°）",
+"= −#° · # · sin #° = -#° per element": "= −#° · # · sin #° = 每單元 -#°",
+"≈ #° estimated, #° from the pattern; peak at #°": "估計 ≈ #°，場型測得 #°；峰值在 #°",
+"N = #, d = # λ, Δφ = #° per element": "N = #，d = # λ，每單元 Δφ = #°",
+"target at #° → beam # of # (points at -#°)": "目標在 #° → 第 # / # 個波束（指向 -#°）",
+"= −#° · # · sin #° = #° per element": "= −#° · # · sin #° = 每單元 #°",
+"target at #° → beam # of # (points at #°)": "目標在 #° → 第 # / # 個波束（指向 #°）",
+"N = #, d = # λ, Δφ = -#° per element, #-bit phase shifters": "N = #，d = # λ，每單元 Δφ = -#°，# 位元移相器",
+"N = #, d = # λ, Δφ = #° per element, #-bit phase shifters": "N = #，d = # λ，每單元 Δφ = #°，# 位元移相器",
+"RX only #° (merged), MIMO #° (merged); targets #° apart": "僅 RX #°（合併），MIMO #°（合併）；目標相距 #°",
+"RX only #° (merged), MIMO #° (resolved); targets #° apart": "僅 RX #°（合併），MIMO #°（可分辨）；目標相距 #°",
+"RX only #° (resolved), MIMO #° (merged); targets #° apart": "僅 RX #°（可分辨），MIMO #°（合併）；目標相距 #°",
+"RX only #° (resolved), MIMO #° (resolved); targets #° apart": "僅 RX #°（可分辨），MIMO #°（可分辨）；目標相距 #°"
 };
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
@@ -1646,6 +1943,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-pw" aria-selected="false" aria-controls="tab-pw">Power (LDO · PMIC)</button>
         <button role="tab" id="tab-btn-rd" aria-selected="false" aria-controls="tab-rd">77 GHz radar</button>
         <button role="tab" id="tab-btn-rf" aria-selected="false" aria-controls="tab-rf">RF passives</button>
+        <button role="tab" id="tab-btn-mi" aria-selected="false" aria-controls="tab-mi">MIMO &amp; beams</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -2560,6 +2858,173 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Cutoff fc</dt><dd>Lowest frequency at which a waveguide mode propagates. Below it the field dies out (evanescent).</dd>
               <dt>Dominant mode</dt><dd>The mode with the lowest cutoff, TE10 in a rectangular guide.</dd>
               <dt>λg, vp, vg</dt><dd>Guide wavelength, phase velocity (faster than light) and group velocity (the speed of energy, slower than light).</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== MIMO & BEAMS TAB ===================== -->
+  <section id="tab-mi" role="tabpanel" aria-labelledby="tab-btn-mi" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="mi-pill">PA</span><h2 id="mi-name">Phased-array beam steering</h2></div>
+      <p id="mi-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="mi-view" role="group" aria-label="MIMO view" style="flex-wrap:wrap">
+        <button data-v="st" aria-pressed="true">Beam steering</button>
+        <button data-v="sw" aria-pressed="false">Beam switching</button>
+        <button data-v="vm" aria-pressed="false">MIMO virtual array</button>
+        <button data-v="car" aria-pressed="false">Car: one module vs many</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvm" aria-label="Animated antenna array, beams and car radar coverage"></canvas>
+      <div class="legend" id="mi-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="mi-ro"></div>
+        <div id="mi-c-st" style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Number of antenna elements in the line array. More elements give a narrower, stronger beam.">Elements N</span><span id="mi-st-n-v"></span></div>
+            <input id="mi-st-n" type="range" min="2" max="32" step="1" value="8">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Distance between neighbouring elements in wavelengths. Above λ/2 extra beams (grating lobes) can appear when steering.">Element spacing d/λ</span><span id="mi-st-d-v"></span></div>
+            <input id="mi-st-d" type="range" min="0.25" max="1.5" step="0.01" value="0.5">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Direction of the main beam, measured from broadside (straight ahead of the array).">Steering angle θ0</span><span id="mi-st-a-v"></span></div>
+            <input id="mi-st-a" type="range" min="-70" max="70" step="1" value="25">
+          </div>
+          <div class="chips">
+            <div class="seg" id="mi-st-bits" role="group" aria-label="Phase shifter resolution">
+              <button data-b="0">Continuous</button><button data-b="4">4-bit</button><button data-b="3">3-bit</button><button data-b="2">2-bit</button><button data-b="1">1-bit</button>
+            </div>
+            <div class="seg" id="mi-st-win" role="group" aria-label="Amplitude taper">
+              <button data-w="u">Uniform</button><button data-w="h">Hann taper</button>
+            </div>
+          </div>
+        </div>
+        <div id="mi-c-sw" hidden style="display:grid;gap:12px">
+          <div class="chips">
+            <div class="seg" id="mi-sw-n" role="group" aria-label="Array size">
+              <button data-n="4">N = 4</button><button data-n="8">8</button><button data-n="16">16</button>
+            </div>
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Number of fixed beams in the codebook. A Butler matrix with N ports gives N beams; more beams mean less loss between them but a longer sweep.">Beams in the codebook M</span><span id="mi-sw-m-v"></span></div>
+            <input id="mi-sw-m" type="range" min="2" max="32" step="1" value="8">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Time spent listening on each beam during a sweep.">Dwell time per beam</span><span id="mi-sw-dw-v"></span></div>
+            <input id="mi-sw-dw" type="range" min="0.05" max="2" step="0.05" value="0.2">
+          </div>
+          <label class="chk"><input type="checkbox" id="mi-sw-auto" checked> Car drives across the field of view</label>
+          <div class="slider">
+            <div class="lab"><span>Target angle</span><span id="mi-sw-t-v"></span></div>
+            <input id="mi-sw-t" type="range" min="-70" max="70" step="0.5" value="10">
+          </div>
+        </div>
+        <div id="mi-c-vm" hidden style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Transmit antennas. They are spaced Nrx·λ/2 apart so that each one shifts the receive array to a new place.">TX antennas</span><span id="mi-vm-tx-v"></span></div>
+            <input id="mi-vm-tx" type="range" min="1" max="12" step="1" value="3">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Receive antennas, spaced λ/2.">RX antennas</span><span id="mi-vm-rx-v"></span></div>
+            <input id="mi-vm-rx" type="range" min="2" max="16" step="1" value="4">
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Angle between the two targets</span><span id="mi-vm-sep-v"></span></div>
+            <input id="mi-vm-sep" type="range" min="0.5" max="30" step="0.5" value="12">
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Direction of the target pair</span><span id="mi-vm-c-v"></span></div>
+            <input id="mi-vm-c" type="range" min="-40" max="40" step="1" value="0">
+          </div>
+        </div>
+        <div id="mi-c-car" hidden style="display:grid;gap:12px">
+          <div class="chips">
+            <div class="seg" id="mi-car-cfg" role="group" aria-label="Radar configuration" style="flex-wrap:wrap">
+              <button data-c="one">1 imaging module</button><button data-c="many">5 standard modules</button><button data-c="hyb">Imaging + 4 corners</button>
+            </div>
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Lateral distance between two cars driving side by side ahead, at the range below.">Spacing of the two cars ahead</span><span id="mi-car-gap-v"></span></div>
+            <input id="mi-car-gap" type="range" min="1" max="8" step="0.1" value="2">
+          </div>
+          <div class="slider">
+            <div class="lab"><span>Range to the two cars</span><span id="mi-car-r-v"></span></div>
+            <input id="mi-car-r" type="range" min="20" max="250" step="1" value="100">
+          </div>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="mi-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Patterns and trade-offs</p>
+        <div class="plots">
+          <div class="plot"><svg id="mi-p1" viewBox="0 0 300 230" role="img" aria-label="Beam pattern, angle spectrum or coverage"></svg></div>
+          <div class="plot"><svg id="mi-p2" viewBox="0 0 220 230" role="img" aria-label="Element phases, switching loss, resolution or comparison"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="mi-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: phased array, beam switching, MIMO, virtual array, car radar layouts</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>From one antenna to a steerable beam</h3>
+            <ol>
+              <li>Every antenna element sends out the same wave. Far away the waves add up, and the result depends on the direction.</li>
+              <li>If all elements are in phase, the waves add best straight ahead (broadside): the <b>main beam</b>.</li>
+              <li>Delay each element a little more than its neighbour, by <b>Δφ = −k·d·sinθ0</b>, and the waves now line up in the direction θ0: the beam is <b>steered</b> without moving anything.</li>
+              <li><b>Beam switching</b> picks one of a few fixed beams instead of setting any angle; <b>MIMO</b> uses several transmitters and receivers to build a much larger virtual array in software.</li>
+            </ol>
+            <p id="mi-g-head">With your current settings:</p>
+            <div class="tbl" id="mi-g-live"></div>
+            <h3>Steering vs switching vs MIMO</h3>
+            <div class="tbl"><table>
+              <tr><th></th><th>Phased array</th><th>Switched beams</th><th>MIMO (digital)</th></tr>
+              <tr><td>How the beam is formed</td><td>Phase shifter on every element</td><td>Fixed network (Butler matrix) + switch</td><td>FFT over the virtual array after the ADC</td></tr>
+              <tr><td>Beam directions</td><td>Any angle (set by bits)</td><td>M fixed angles</td><td>All angles at once</td></tr>
+              <tr><td>Loss</td><td>Phase-shifter loss, quantisation lobes</td><td>Crossover loss between beams</td><td>None in the beam, but more data</td></tr>
+              <tr><td>Speed</td><td>Fast (ns to µs per beam)</td><td>Sweep time = M × dwell</td><td>One frame sees every angle</td></tr>
+              <tr><td>Typical use</td><td>5G mmWave, satellite, military radar</td><td>Low-cost 60 GHz links, simple radars</td><td>77 GHz car radar</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Array terms</h3>
+            <dl>
+              <dt>Array factor AF(θ)</dt><dd>The sum of all element signals in direction θ, Σ wn·e^(j·n·k·d·sinθ). The beam pattern is |AF|².</dd>
+              <dt>Broadside / endfire</dt><dd>Broadside is straight out of the array (θ = 0); endfire is along the array (θ = ±90°).</dd>
+              <dt>Beamwidth (HPBW)</dt><dd>Angle between the −3 dB points, about 0.886·λ / (N·d·cosθ0) radians for a uniform array.</dd>
+              <dt>Array gain</dt><dd>N elements add coherently: 10·log N dB more than one element.</dd>
+              <dt>Sidelobe</dt><dd>Smaller beams beside the main one (−13 dB for uniform weights). A taper lowers them but widens the main beam.</dd>
+              <dt>Grating lobe</dt><dd>A second full-size beam that appears when d &gt; λ / (1 + |sinθ0|). Keep d ≤ λ/2 to scan anywhere.</dd>
+              <dt>Phase quantisation</dt><dd>A b-bit phase shifter only sets 2^b phases; the rounding error raises sidelobes and shifts the beam slightly.</dd>
+              <dt>Scan loss</dt><dd>The beam gets wider and the element gain drops as θ0 moves away from broadside.</dd>
+            </dl>
+            <h3>MIMO and car terms</h3>
+            <dl>
+              <dt>Butler matrix</dt><dd>A passive network of hybrids and fixed phase shifters: N inputs, N outputs, each input gives one fixed beam.</dd>
+              <dt>Crossover loss</dt><dd>Gain lost when the target sits between two switched beams (about 3.9 dB for touching DFT beams).</dd>
+              <dt>Virtual array</dt><dd>Every TX–RX pair acts as one element at position x_tx + x_rx, so Ntx × Nrx channels come from only Ntx + Nrx antennas.</dd>
+              <dt>TDM / DDM-MIMO</dt><dd>Ways to separate the transmitters: one after another in time, or with different Doppler (phase) codes at the same time.</dd>
+              <dt>Angular resolution</dt><dd>Smallest angle between two targets that still shows two peaks, about 2/Nv radians for λ/2 spacing.</dd>
+              <dt>Cascaded radar</dt><dd>Several radar chips (e.g. 4 × 3TX/4RX) sharing one clock (LO) to act as one big MIMO radar: an "imaging radar".</dd>
+              <dt>Corner radar</dt><dd>Short-range radar at a car corner, wide field of view, for blind spot, lane change and cross traffic.</dd>
             </dl>
           </div>
         </div>
@@ -5868,24 +6333,398 @@ document.querySelectorAll("#rf-fl-real button").forEach(b => b.addEventListener(
 [["rf-fl-fc","fc"],["rf-fl-f","f"],["rf-fl-q","q"],["rf-fl-bw","bw"],["rf-fl-qu","qu"]].forEach(([id, k]) => $(id).addEventListener("input", e => { RF.fl[k] = +e.target.value; updateRF(); }));
 
 
+
+/* =========================================================
+   TAB 7 — MIMO and beams: phased-array steering, beam switching, MIMO virtual array, car radar layouts
+   ========================================================= */
+const MIC = setupCanvas($("cvm"), 1000, 488);
+const MI = {view:"st", t:0,
+  st:{n:8, d:0.5, a:25, bits:0, win:"u"},
+  sw:{n:8, m:8, dw:0.2, auto:true, t:10},
+  vm:{tx:3, rx:4, sep:12, c:0},
+  car:{cfg:"hyb", gap:2, r:100}};
+const rad = d => d*Math.PI/180;
+
+// ---- phased array: element weights and array factor
+function stWeights(P = MI.st){
+  const n = P.n, kd = 2*Math.PI*P.d, step = -kd*Math.sin(rad(P.a)), lv = P.bits ? 2**P.bits : 0;
+  return Array.from({length:n}, (_, i) => {
+    let ph = step*i; ph = ((ph % (2*Math.PI)) + 2*Math.PI) % (2*Math.PI);
+    if (lv) ph = Math.round(ph/(2*Math.PI/lv))*(2*Math.PI/lv) % (2*Math.PI);
+    const a = P.win === "h" ? 0.5 - 0.5*Math.cos(2*Math.PI*(i + 1)/(n + 1)) : 1;
+    return {a, ph, w: zpol(a, ph)};
+  });
+}
+function arrayAF(th, ws, d){
+  const kd = 2*Math.PI*d, s = Math.sin(th); let re = 0, im = 0, sa = 0;
+  ws.forEach((e, i) => { const p = e.ph + kd*i*s; re += e.a*Math.cos(p); im += e.a*Math.sin(p); sa += e.a; });
+  return Math.hypot(re, im)/sa;
+}
+function stCalc(P = MI.st){
+  const ws = stWeights(P), th0 = rad(P.a), pts = [];
+  for (let i=0;i<=720;i++){ const t = rad(-90 + i/4); pts.push([-90 + i/4, arrayAF(t, ws, P.d)]); }
+  let pk = 0, pkA = 0; pts.forEach(([a, v]) => { if (v > pk){ pk = v; pkA = a; } });
+  // −3 dB beamwidth around the peak
+  const i0 = pts.findIndex(q => q[0] === pkA); let l = i0, r = i0;
+  while (l > 0 && pts[l][1] > pk/Math.SQRT2) l--; while (r < 720 && pts[r][1] > pk/Math.SQRT2) r++;
+  const bw = pts[r][0] - pts[l][0];
+  // highest lobe outside the main beam (first nulls)
+  let nl = l, nr = r; while (nl > 0 && pts[nl-1][1] < pts[nl][1]) nl--; while (nr < 720 && pts[nr+1][1] < pts[nr][1]) nr++;
+  let sl = 0; pts.forEach(([a, v], i) => { if (i < nl || i > nr) sl = Math.max(sl, v); });
+  const gl = P.d > 1/(1 + Math.abs(Math.sin(th0)));                        // grating-lobe condition
+  return {ws, pts, pk, pkA, bw, sll: dB(sl/pk), gl, gain: 10*Math.log10(P.n), step: -2*Math.PI*P.d*Math.sin(th0)};
+}
+// cached complex field of the array on a grid (recomputed only when the array changes)
+let stField = null, stKey = "";
+const ST_CELL = 8, ST_Y0 = 16, ST_Y1 = 420, ST_AY = 440;
+function stFieldCalc(P, ws){
+  const key = JSON.stringify(P); if (key === stKey) return stField; stKey = key;
+  const lp = Math.min(40, 820/Math.max(1, (P.n - 1)*P.d)), k = 2*Math.PI/lp, x0 = 500 - (P.n - 1)*P.d*lp/2;
+  const ex = ws.map((_, i) => x0 + i*P.d*lp), cols = Math.ceil(980/ST_CELL), rows = Math.ceil((ST_Y1 - ST_Y0)/ST_CELL), F = [];
+  let mx = 0;
+  for (let j=0;j<rows;j++) for (let i=0;i<cols;i++){
+    const x = 10 + (i + 0.5)*ST_CELL, y = ST_Y0 + (j + 0.5)*ST_CELL; let re = 0, im = 0;
+    ws.forEach((e, n) => { const r = Math.hypot(x - ex[n], ST_AY - y), p = e.ph - k*r, a = e.a/Math.sqrt(Math.max(r, 4)); re += a*Math.cos(p); im += a*Math.sin(p); });
+    const amp = Math.hypot(re, im); F.push([re, im]); if (y < ST_AY - 140) mx = Math.max(mx, amp);
+  }
+  return (stField = {F, cols, rows, mx, ex, lp});
+}
+function drawST(dt, T){
+  const P = MI.st, S = stCalc(P), Fd = stFieldCalc(P, S.ws), ph = MI.t, c = Math.cos(ph), s = Math.sin(ph);
+  ctx.fillStyle = C.panel2; ctx.fillRect(10, 10, 980, 468);
+  for (let j=0;j<Fd.rows;j++) for (let i=0;i<Fd.cols;i++){
+    const [re, im] = Fd.F[j*Fd.cols + i], v = (re*c - im*s)/Fd.mx;
+    if (Math.abs(v) < 0.08) continue;
+    ctx.fillStyle = v > 0 ? C.accent : C.electron; ctx.globalAlpha = Math.min(0.75, Math.abs(v)*0.6);
+    ctx.fillRect(10 + i*ST_CELL, ST_Y0 + j*ST_CELL, ST_CELL + .5, ST_CELL + .5);
+  }
+  ctx.globalAlpha = 1;
+  // beam direction(s)
+  const L = 360, dir = a => [500 + L*Math.sin(rad(a)), ST_AY - L*Math.cos(rad(a))];
+  ctx.setLineDash([6,5]); ctx.strokeStyle = C.fg; ctx.lineWidth = 1.4; pl([[500, ST_AY], dir(P.a)]); ctx.setLineDash([]);
+  txt(`θ0 = ${P.a}°`, dir(P.a)[0] + (P.a >= 0 ? 6 : -6), dir(P.a)[1] + 10, {al: P.a >= 0 ? "left" : "right", col:C.fg, w:700, px:12});
+  // elements and their phase
+  Fd.ex.forEach((x, i) => {
+    const e = S.ws[i];
+    ctx.fillStyle = C.metal; ctx.fillRect(x - 3, ST_AY - 8, 6, 16);
+    ctx.fillStyle = C.accent; ctx.globalAlpha = 0.4 + 0.6*e.a; ctx.fillRect(x - 3, ST_AY + 12, 6, 22*e.ph/(2*Math.PI) + 1); ctx.globalAlpha = 1;
+  });
+  txt("bars under the elements = phase 0 … 360°", 22, 470, {px:10});
+  txt(`N = ${P.n}, d = ${P.d.toFixed(2)} λ, Δφ = ${deg(S.step).toFixed(0)}° per element${P.bits ? `, ${P.bits}-bit phase shifters` : ""}`, 22, 26, {col:C.fg, w:700, px:13});
+  if (S.gl) txt("grating lobe: d is too large for this steering angle, a second beam appears", 978, 26, {al:"right", col:C.hole, w:600, px:11});
+}
+
+// ---- beam switching: DFT codebook (Butler-matrix-like) vs continuous steering
+function swBeams(P = MI.sw){
+  return Array.from({length:P.m}, (_, i) => { const u = -1 + (2*i + 1)/P.m, a = deg(Math.asin(clamp(u*0.94, -1, 1))); return {a, ws: stWeights({n:P.n, d:0.5, a, bits:0, win:"u"})}; });
+}
+function swGain(th, beams){ let best = 0, bi = 0; beams.forEach((b, i) => { const g = arrayAF(rad(th), b.ws, 0.5); if (g > best){ best = g; bi = i; } }); return {g: best, i: bi}; }
+function swTarget(){ const P = MI.sw; return P.auto ? 62*Math.sin(MI.t*0.12) : P.t; }
+function drawSW(dt, T){
+  const P = MI.sw, beams = swBeams(P), ta = swTarget(), sel = swGain(ta, beams), ox = 380, oy = 452, R = 400;
+  ctx.fillStyle = C.panel2; ctx.fillRect(10, 10, 740, 468);
+  // road
+  ctx.fillStyle = C.line; ctx.globalAlpha = .35; ctx.fillRect(10, 130, 740, 120); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.panel; ctx.setLineDash([18,14]); ctx.lineWidth = 2; pl([[10, 190],[750, 190]]); ctx.setLineDash([]);
+  // beams as lobes (linear pattern scaled to R)
+  beams.forEach((b, i) => {
+    const on = i === sel.i; ctx.beginPath();
+    for (let k=0;k<=180;k++){ const a = -90 + k, g = arrayAF(rad(a), b.ws, 0.5), r = R*g*g; const x = ox + r*Math.sin(rad(a)), y = oy - r*Math.cos(rad(a)); k ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
+    ctx.closePath(); ctx.fillStyle = on ? C.accent : C.electron; ctx.globalAlpha = on ? 0.35 : 0.06; ctx.fill(); ctx.globalAlpha = on ? 1 : 0.35; ctx.strokeStyle = on ? C.accent : C.electron; ctx.lineWidth = on ? 2 : 1; ctx.stroke(); ctx.globalAlpha = 1;
+  });
+  // target car on the road
+  const ty = 190, tx = ox + (oy - ty)*Math.tan(rad(ta));
+  if (tx > 20 && tx < 740){ ctx.fillStyle = C.hole; ctx.fillRect(tx - 22, ty - 12, 44, 24); ctx.fillStyle = C.fg; ctx.fillRect(tx - 14, ty - 8, 10, 16); }
+  ctx.setLineDash([3,4]); ctx.strokeStyle = C.hole; ctx.lineWidth = 1.2; pl([[ox, oy],[tx, ty]]); ctx.setLineDash([]);
+  // radar
+  ctx.fillStyle = C.fg; ctx.fillRect(ox - 30, oy, 60, 12); txt("radar / base station", ox, oy + 22, {al:"center", px:10});
+  txt(`target at ${ta.toFixed(1)}° → beam ${sel.i + 1} of ${P.m} (points at ${beams[sel.i].a.toFixed(1)}°)`, 22, 26, {col:C.fg, w:700, px:13});
+  txt(`gain lost vs perfect steering: ${(-dB(sel.g)).toFixed(2)} dB`, 22, 44, {col:C.accent, w:600, px:11});
+  // codebook / Butler matrix panel
+  panel(760, 10, 230, 468, "Codebook");
+  beams.forEach((b, i) => {
+    const y = 46 + i*(408/Math.max(P.m, 1)), h = Math.max(6, 408/P.m - 3), on = i === sel.i;
+    ctx.fillStyle = on ? C.accent : C.line; ctx.fillRect(774, y, 200*(0.5 + b.a/180), h);
+    if (P.m <= 16) txt(`${i + 1}: ${b.a.toFixed(1)}°`, 780, y + h/2, {px:10, col: C.fg, w: on ? 700 : 500});
+  });
+  txt(`sweep: ${P.m} × ${P.dw.toFixed(2)} ms = ${(P.m*P.dw).toFixed(2)} ms`, 774, 466, {px:10, col:C.fg});
+}
+
+// ---- MIMO virtual array
+function vmCalc(P = MI.vm){
+  const nv = P.tx*P.rx, t1 = rad(P.c - P.sep/2), t2 = rad(P.c + P.sep/2);
+  const spec = (N, th) => { let re = 0, im = 0; for (let p=0;p<N;p++){ const a = Math.PI*p*(Math.sin(t1) - Math.sin(th)), b = Math.PI*p*(Math.sin(t2) - Math.sin(th)) + 0.7; re += Math.cos(a) + Math.cos(b); im += Math.sin(a) + Math.sin(b); } return Math.hypot(re, im)/(2*N); };
+  const grid = range(-60, 60, 480);
+  const sr = grid.map(a => [a, spec(P.rx, rad(a))]), sv = grid.map(a => [a, spec(nv, rad(a))]);
+  const res = N => deg(Math.asin(Math.min(1, 2/N)));
+  // resolved if the spectrum dips by more than 3 dB between the two targets
+  const dip = sp => { const a1 = P.c - P.sep/2, a2 = P.c + P.sep/2, mid = sp.filter(q => q[0] > a1 && q[0] < a2); if (!mid.length) return false; const lo = Math.min(...mid.map(q => q[1])), hi = Math.min(...sp.filter(q => Math.abs(q[0] - a1) < 0.3 || Math.abs(q[0] - a2) < 0.3).map(q => q[1])); return hi > 0 && lo/hi < 0.707; };
+  return {nv, sr, sv, resRx: res(P.rx), resV: res(nv), okRx: dip(sr), okV: dip(sv)};
+}
+function drawVM(dt, T){
+  const P = MI.vm, V = vmCalc(P), nv = V.nv, ph = MI.t;
+  ctx.fillStyle = C.panel2; ctx.fillRect(10, 10, 660, 468);
+  txt(`Physical array: ${P.tx} TX + ${P.rx} RX = ${P.tx + P.rx} antennas`, 22, 26, {col:C.fg, w:700, px:13});
+  const span = Math.max(nv, (P.tx - 1)*P.rx + 1), sp = Math.min(30, 600/Math.max(span, 1)), x0 = 40;
+  const active = Math.floor(ph/2) % P.tx;                                  // TDM: one TX at a time
+  // RX row and TX row
+  for (let r=0;r<P.rx;r++){ const x = x0 + r*sp; ctx.fillStyle = C.electron; ctx.beginPath(); ctx.arc(x, 120, 6, 0, 6.283); ctx.fill(); }
+  txt("RX (λ/2 apart)", x0, 98, {px:10, col:C.electron, w:600});
+  for (let t=0;t<P.tx;t++){ const x = x0 + t*P.rx*sp, on = t === active; ctx.fillStyle = on ? C.accent : C.line; ctx.fillRect(x - 7, 62, 14, 14); if (on){ ctx.strokeStyle = C.accent; ctx.lineWidth = 1.5; for (let k=1;k<=3;k++){ ctx.globalAlpha = 1 - k*0.25; ctx.beginPath(); ctx.arc(x, 69, 6 + k*7 + (ph*8 % 7), Math.PI*1.1, Math.PI*1.9); ctx.stroke(); } ctx.globalAlpha = 1; } }
+  txt(`TX (Nrx·λ/2 = ${(P.rx/2).toFixed(1)} λ apart) · now transmitting: TX${active + 1}`, x0, 46, {px:10, col:C.accent, w:600});
+  // virtual array
+  txt(`Virtual array: ${P.tx} × ${P.rx} = ${nv} elements at x_tx + x_rx`, 22, 170, {col:C.fg, w:700, px:13});
+  for (let t=0;t<P.tx;t++) for (let r=0;r<P.rx;r++){
+    const x = x0 + (t*P.rx + r)*sp, on = t === active;
+    ctx.fillStyle = on ? C.accent : C.fg; ctx.globalAlpha = on ? 1 : 0.45; ctx.beginPath(); ctx.arc(x, 210, 5, 0, 6.283); ctx.fill(); ctx.globalAlpha = 1;
+  }
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 1.2; ctx.setLineDash([3,3]);
+  for (let r=0;r<P.rx;r++) pl([[x0 + r*sp, 128],[x0 + (active*P.rx + r)*sp, 202]]);
+  ctx.setLineDash([]);
+  txt(`virtual aperture ${(nv/2).toFixed(1)} λ instead of ${(P.rx/2).toFixed(1)} λ → ${nv/P.rx}× finer angle`, 22, 240, {px:11, col:C.fg});
+  // scene: two targets and what each array sees
+  const sx = 500, sy = 462, Rr = 170;
+  const ang = a => [sx + Rr*Math.sin(rad(a)), sy - Rr*Math.cos(rad(a))];
+  ctx.fillStyle = C.fg; ctx.fillRect(sx - 20, sy - 4, 40, 8);
+  [P.c - P.sep/2, P.c + P.sep/2].forEach(a => { const [x, y] = ang(a); ctx.strokeStyle = C.hole; ctx.setLineDash([3,4]); pl([[sx, sy],[x, y]]); ctx.setLineDash([]); ctx.fillStyle = C.hole; ctx.beginPath(); ctx.arc(x, y, 7, 0, 6.283); ctx.fill(); });
+  const fan = (w, col, al, lab, ok, yl) => { ctx.fillStyle = col; ctx.globalAlpha = al; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.arc(sx, sy, Rr + 20, rad(P.c - w/2) - Math.PI/2, rad(P.c + w/2) - Math.PI/2); ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1; txt(`${lab}: resolution ${w.toFixed(1)}° → ${ok ? "2 targets" : "1 blob"}`, 22, yl, {px:11, col: ok ? C.electron : C.hole, w:600}); };
+  fan(V.resRx, C.muted, 0.16, `RX only (${P.rx} ch)`, V.okRx, 268);
+  fan(V.resV, C.accent, 0.22, `MIMO (${nv} virtual ch)`, V.okV, 286);
+  // processing note
+  panel(680, 10, 310, 468, "What MIMO costs");
+  const rows = [["antennas", `${P.tx + P.rx}`], ["virtual channels", `${nv}`], ["TDM frame", `${P.tx} chirps per angle snapshot`], ["Doppler range", `÷ ${P.tx} (TDM)`], ["ADC data", `${P.rx} streams, ${nv} after sorting`]];
+  rows.forEach(([a, b], i) => { txt(a, 694, 50 + i*40, {px:11, col:C.fg, w:600}); txt(b, 694, 66 + i*40, {px:11, col:C.accent}); });
+  txt("TX take turns (TDM) or transmit at once with", 694, 270, {px:10}); txt("different phase codes (DDM); RX sort them", 694, 286, {px:10}); txt("out and stack the channels in software.", 694, 302, {px:10});
+}
+
+// ---- car layouts
+const CAR_MODS = {
+  img:{name:"Front imaging radar", chips:4, tx:12, rx:16, fov:60, range:300},
+  frt:{name:"Front radar", chips:1, tx:3, rx:4, fov:50, range:200},
+  cor:{name:"Corner radar", chips:1, tx:3, rx:4, fov:75, range:80}
+};
+const CAR_CFG = {
+  one:[["img", 0, 0]],
+  many:[["frt", 0, 0], ["cor", 45, 1], ["cor", -45, 1], ["cor", 135, 2], ["cor", -135, 2]],
+  hyb:[["img", 0, 0], ["cor", 45, 1], ["cor", -45, 1], ["cor", 135, 2], ["cor", -135, 2]]
+};
+function carCalc(P = MI.car){
+  const mods = CAR_CFG[P.cfg].map(([k, bore, pos]) => ({...CAR_MODS[k], key:k, bore, pos}));
+  const front = mods[0], nvF = front.tx*front.rx, resF = deg(Math.asin(Math.min(1, 2/nvF)));
+  const sepDeg = deg(Math.atan(P.gap/P.r)), rangeOK = P.r <= front.range;
+  let cov = 0; for (let a=0;a<360;a+=2){ const az = a > 180 ? a - 360 : a; if (mods.some(m => Math.abs(wrap180(az - m.bore)) <= m.fov)) cov++; }
+  const chips = mods.reduce((s, m) => s + m.chips, 0), vch = mods.reduce((s, m) => s + m.tx*m.rx, 0);
+  const cost = chips + 1.5*mods.length;                                     // rough: chips + per-module housing, antenna board, cable
+  return {mods, nvF, resF, sepDeg, resolved: rangeOK && sepDeg >= resF, rangeOK, cov: cov/180*100, chips, vch, cost, cellAt: P.r*rad(resF)};
+}
+function drawCAR(dt, T){
+  const P = MI.car, K = carCalc(P), cx = 500, cy = 300, rpx = R => 228*Math.sqrt(R/300);
+  ctx.fillStyle = C.panel2; ctx.fillRect(10, 10, 980, 468);
+  const mpos = [[0, -62], [26, -58], [26, 58]];
+  K.mods.forEach(m => {
+    const [px, py0] = m.pos === 0 ? mpos[0] : m.pos === 1 ? [Math.sign(m.bore)*26, -56] : [Math.sign(m.bore)*26, 56];
+    const x = cx + px, y = cy + py0, R = rpx(m.range), a0 = rad(m.bore - m.fov) - Math.PI/2, a1 = rad(m.bore + m.fov) - Math.PI/2;
+    ctx.fillStyle = m.key === "img" ? C.accent : m.key === "frt" ? C.electron : C.channel; ctx.globalAlpha = 0.16;
+    ctx.beginPath(); ctx.moveTo(x, y); ctx.arc(x, y, R, a0, a1); ctx.closePath(); ctx.fill(); ctx.globalAlpha = 0.6; ctx.strokeStyle = ctx.fillStyle; ctx.lineWidth = 1.2; ctx.stroke(); ctx.globalAlpha = 1;
+    ctx.fillStyle = C.fg; ctx.fillRect(x - 4, y - 4, 8, 8);
+  });
+  // ego car
+  ctx.fillStyle = C.fg; ctx.fillRect(cx - 24, cy - 60, 48, 120); ctx.fillStyle = C.panel2; ctx.fillRect(cx - 18, cy - 36, 36, 22); ctx.fillRect(cx - 18, cy + 24, 36, 16);
+  // two cars ahead
+  const yT = cy - 60 - rpx(P.r), half = Math.max(16, rpx(P.r)*Math.tan(rad(K.sepDeg/2)));          // drawn at least a car width apart
+  [-1, 1].forEach(sg => { ctx.fillStyle = C.hole; ctx.fillRect(cx + sg*half - 9, yT - 14, 18, 28); });
+  // the front sensor's resolution cell at that range
+  const cell = Math.max(2, rpx(P.r)*Math.tan(rad(K.resF/2)))*half/Math.max(1e-6, rpx(P.r)*Math.tan(rad(K.sepDeg/2)));   // same exaggeration as the cars
+  ctx.strokeStyle = K.resolved ? C.electron : C.hole; ctx.lineWidth = 1.6; ctx.setLineDash([4,3]); ctx.strokeRect(cx - cell, yT - 20, 2*cell, 40); ctx.setLineDash([]);
+  txt(K.rangeOK ? (K.resolved ? "two cars resolved" : "seen as one object") : "beyond the front radar's range", cx + Math.max(cell, half) + 14, yT, {col: K.resolved ? C.electron : C.hole, w:700, px:12});
+  txt(`${P.gap.toFixed(1)} m apart at ${P.r.toFixed(0)} m = ${K.sepDeg.toFixed(2)}°; front resolution ${K.resF.toFixed(2)}° = ${K.cellAt.toFixed(1)} m wide there`, 22, 470, {px:11, col:C.fg});
+  const lbl = {one:"One cascaded imaging radar (4 chips, 12 TX × 16 RX)", many:"Five standard radars (front + 4 corners, 3 TX × 4 RX each)", hyb:"Imaging radar in front + 4 corner radars"}[P.cfg];
+  txt(lbl, 22, 26, {col:C.fg, w:700, px:13});
+  txt(`360° coverage ${K.cov.toFixed(0)} % · ${K.mods.length} modules · ${K.chips} radar chips · ${K.vch} virtual channels in total`, 22, 44, {px:11, col:C.accent, w:600});
+  txt("range drawn on a square-root scale", 978, 26, {al:"right", px:10});
+}
+
+function drawMI(dt, T){ begin(MIC); ({st: drawST, sw: drawSW, vm: drawVM, car: drawCAR})[MI.view](dt, T); }
+function miTick(dt){ MI.t += dt*(reduce ? 1 : 3); if (MI.view === "sw" && MI.sw.auto && (++miFrame % 6 === 0)) updateMI(); }
+let miFrame = 0;
+
+/* ---------------- DOM ---------------- */
+const MIINFO = {
+  st:{pill:"PA", name:"Phased-array beam steering", sub:"A small phase step from element to element tilts the combined wavefront",
+    text:"A phased array is a row of identical antennas fed with the same signal. In the far field their waves add, and they add best in the direction where they arrive in phase. With no phase shift that is straight ahead (broadside). Giving each element a phase that grows by Δφ = −k·d·sinθ0 from one element to the next makes the wavefront leave tilted by θ0, so the beam is steered electronically, in nanoseconds, with nothing moving. N elements give 10·log N dB of array gain and a beamwidth of about 0.886·λ/(N·d·cosθ0): bigger arrays make narrower beams, and the beam widens as it is steered away from broadside. Keep the element spacing at λ/2 or less: with wider spacing the phases repeat and a second, full-size beam (a grating lobe) appears. Real phase shifters only have a few bits; the rounding of the phases raises the sidelobes. A taper (smaller amplitude at the array edges) lowers the sidelobes at the cost of a wider beam."},
+  sw:{pill:"SW", name:"Beam switching with a fixed codebook", sub:"Pick the best of M fixed beams instead of steering to any angle",
+    text:"Instead of a phase shifter on every element, a switched-beam system uses a fixed network such as a Butler matrix, which turns N inputs into N fixed beams (a codebook), or stores a small set of phase settings. The system sweeps through the beams, measures which one hears the target best, and uses that beam. It is cheap and simple, but a target that sits between two beams is received on the edge of the best one: this crossover loss is about 3.9 dB for N touching beams and drops when more beams are added. More beams cost a longer sweep (M × dwell time) before the system can follow a moving target, which is why 5G and 60 GHz links do a coarse beam sweep first and then refine it."},
+  vm:{pill:"MIMO", name:"MIMO radar: the virtual array", sub:"Ntx transmitters × Nrx receivers act like an array of Ntx·Nrx elements",
+    text:"In a MIMO radar every transmitter sends a signal the receivers can tell apart (one after another in time, TDM, or with different phase codes, DDM). The echo of TX i at RX j has a phase set by both antenna positions, so it is as if a single antenna sat at x_tx + x_rx. With RX spaced λ/2 and TX spaced Nrx·λ/2, the Ntx·Nrx pairs fill a gap-free virtual array of Ntx·Nrx elements. The angle is found with an FFT across this virtual array, and the angular resolution improves to about 2/(Ntx·Nrx) radians, for example 3 TX + 4 RX = 7 antennas behave like 12, and 12 TX + 16 RX = 28 antennas behave like 192. The price is processing and timing: the TX take turns, so a frame takes longer and the unambiguous Doppler range shrinks, and the data rate grows with the number of channels."},
+  car:{pill:"CAR", name:"Car radar: one module vs many", sub:"Cascaded imaging radar against several standard radars around the car",
+    text:"A car can see around itself with one big front radar or with several small ones. A cascaded imaging radar links four radar chips to one clock and acts as one MIMO radar with 12 TX × 16 RX = 192 virtual channels: about 0.6° angular resolution, enough to separate two cars side by side at 100 m and to measure elevation, but it only looks forward. Standard radars use one chip each (3 TX × 4 RX = 12 channels, about 10° resolution); four of them at the corners and one in front give near 360° coverage for blind spots, lane changes and cross traffic, but none of them can separate close objects far away. More modules also mean more housings, connectors and cables, while one large module concentrates cost, data rate and heat in one place and has no backup if it fails. Many cars therefore combine both: an imaging radar in front plus corner radars."}
+};
+Object.assign(TIP, {
+  "Beamwidth":"Angle between the −3 dB points of the main beam.",
+  "Array gain":"N elements add coherently: 10·log N dB over a single element.",
+  "Sidelobe level":"Highest lobe outside the main beam, relative to the peak.",
+  "Phase step":"Phase added from one element to the next to steer the beam.",
+  "Steering":"Phase step that tilts the wavefront to θ0.",
+  "Beam shape":"Approximate half-power beamwidth of a uniform line array.",
+  "Grating lobes":"Condition for a second full-size beam to appear.",
+  "Quantisation":"Phase-shifter rounding: 2^b phase states.",
+  "Selected beam":"The codebook beam that receives the target best.",
+  "Loss now":"Gain lost compared with steering exactly to the target.",
+  "Worst crossover":"Largest loss over the field of view, when the target sits between two beams.",
+  "Sweep time":"Time to try every beam once.",
+  "Codebook":"Beam directions spread evenly in sinθ, like the outputs of a Butler matrix.",
+  "Crossover":"Loss where two neighbouring beams cross.",
+  "Tracking":"How fast the system can follow a moving target.",
+  "Virtual channels":"Number of TX–RX pairs = elements of the virtual array.",
+  "Resolution (RX only)":"Angular resolution using only the receive antennas.",
+  "Resolution (MIMO)":"Angular resolution with the full virtual array.",
+  "Antennas":"Physical antennas needed: Ntx + Nrx.",
+  "Virtual array":"Each TX–RX pair behaves like one element at x_tx + x_rx.",
+  "Resolution":"Two targets are separated if they are further apart than about 2/Nv radians.",
+  "TDM cost":"With time-division MIMO each angle snapshot needs Ntx chirps.",
+  "Coverage":"Share of the 360° around the car seen by at least one radar.",
+  "Front resolution":"Angular resolution of the front radar, from its virtual channels.",
+  "Radar chips":"Number of radar transceiver chips in the car.",
+  "Relative cost":"Rough index: chips plus housing, antenna board and cable per module.",
+  "Separation":"Angle between the two cars ahead as seen from the radar.",
+  "Modules":"Coverage and cost of the chosen layout."
+});
+const MILEG = {
+  st:[["accent","Wave crest"],["electron","Wave trough"],["metal","Antenna element"],["fg","Steering direction"]],
+  sw:[["accent","Selected beam"],["electron","Other beams in the codebook"],["hole","Target"]],
+  vm:[["accent","Active TX / its virtual elements"],["electron","RX antennas"],["hole","Targets"],["muted","RX-only resolution"]],
+  car:[["accent","Imaging radar"],["electron","Standard front radar"],["channel","Corner radar"],["hole","Two cars ahead"]]
+};
+function updateMI(){
+  const v = MI.view, info = MIINFO[v];
+  $("mi-pill").textContent = info.pill; $("mi-name").textContent = info.name; $("mi-sub").textContent = info.sub; $("mi-explain").textContent = info.text;
+  document.querySelectorAll("#mi-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  ["st","sw","vm","car"].forEach(k => $("mi-c-" + k).hidden = k !== v);
+  setHTML("mi-legend", MILEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  const ro = [], rows = [];
+  if (v === "st"){
+    const P = MI.st, S = stCalc(P);
+    $("mi-st-n-v").textContent = P.n; $("mi-st-d-v").textContent = `${P.d.toFixed(2)} λ`; $("mi-st-a-v").textContent = `${P.a}°`;
+    document.querySelectorAll("#mi-st-bits button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.b === P.bits));
+    document.querySelectorAll("#mi-st-win button").forEach(b => b.setAttribute("aria-pressed", b.dataset.w === P.win));
+    ro.push(["Beamwidth", S.bw.toFixed(1) + "°"], ["Array gain", S.gain.toFixed(1) + " dB"], ["Sidelobe level", S.sll.toFixed(1) + " dB"], ["Phase step", deg(S.step).toFixed(1) + "°"]);
+    rows.push({name:"Steering", f:"Δφ = −k·d·sinθ0 = −2π·(d/λ)·sinθ0", sub:`= −360° · ${P.d.toFixed(2)} · sin ${P.a}° = ${deg(S.step).toFixed(1)}° per element`});
+    rows.push({name:"Beam shape", f:"AF(θ) = Σ wn·e^(j·n·(k·d·sinθ + Δφ)),  HPBW ≈ 0.886·λ / (N·d·cosθ0)", sub:`≈ ${deg(0.886/(P.n*P.d*Math.cos(rad(P.a)))).toFixed(1)}° estimated, ${S.bw.toFixed(1)}° from the pattern; peak at ${S.pkA.toFixed(1)}°`});
+    rows.push({name:"Grating lobes", f:"none while d/λ < 1 / (1 + |sinθ0|)", sub:`limit ${(1/(1 + Math.abs(Math.sin(rad(P.a))))).toFixed(2)} λ, now ${P.d.toFixed(2)} λ → ${S.gl ? "grating lobe!" : "no grating lobe"}`});
+    rows.push({name:"Quantisation", f: P.bits ? `${P.bits}-bit: ${2**P.bits} phase states, step ${(360/2**P.bits).toFixed(1)}°` : "continuous phase", sub:`peak sidelobe ${S.sll.toFixed(1)} dB (uniform ideal: −13.3 dB)`});
+  } else if (v === "sw"){
+    const P = MI.sw, beams = swBeams(P), ta = swTarget(), sel = swGain(ta, beams);
+    let worst = 0; for (let a = beams[0].a; a <= beams[P.m-1].a; a += 0.25) worst = Math.max(worst, -dB(swGain(a, beams).g));
+    $("mi-sw-m-v").textContent = P.m; $("mi-sw-dw-v").textContent = `${P.dw.toFixed(2)} ms`; $("mi-sw-t-v").textContent = `${ta.toFixed(1)}°`;
+    $("mi-sw-t").disabled = P.auto;
+    document.querySelectorAll("#mi-sw-n button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.n === P.n));
+    ro.push(["Selected beam", `${sel.i + 1} / ${P.m}`], ["Loss now", (-dB(sel.g)).toFixed(2) + " dB"], ["Worst crossover", worst.toFixed(2) + " dB"], ["Sweep time", (P.m*P.dw).toFixed(2) + " ms"]);
+    rows.push({name:"Codebook", f:"sinθm = −1 + (2m − 1)/M,  m = 1 … M  (Butler-matrix-like)", sub: beams.slice(0, 8).map(b => b.a.toFixed(1) + "°").join(", ") + (P.m > 8 ? " …" : "")});
+    rows.push({name:"Crossover", f:"loss = −20·log( max over beams of |AF| )", sub:`now ${(-dB(sel.g)).toFixed(2)} dB, worst ${worst.toFixed(2)} dB (≈ 3.9 dB when M = N)`});
+    rows.push({name:"Tracking", f:"sweep time = M × dwell", sub:`${P.m} × ${P.dw.toFixed(2)} ms = ${(P.m*P.dw).toFixed(2)} ms before the best beam is known`});
+  } else if (v === "vm"){
+    const P = MI.vm, V = vmCalc(P);
+    $("mi-vm-tx-v").textContent = P.tx; $("mi-vm-rx-v").textContent = P.rx; $("mi-vm-sep-v").textContent = `${P.sep.toFixed(1)}°`; $("mi-vm-c-v").textContent = `${P.c}°`;
+    ro.push(["Antennas", `${P.tx + P.rx}`], ["Virtual channels", `${V.nv}`], ["Resolution (RX only)", V.resRx.toFixed(1) + "°"], ["Resolution (MIMO)", V.resV.toFixed(1) + "°"]);
+    rows.push({name:"Virtual array", f:"x_virtual = x_tx + x_rx,  Nv = Ntx · Nrx", sub:`${P.tx} × ${P.rx} = ${V.nv} elements from ${P.tx + P.rx} antennas, aperture ${(V.nv/2).toFixed(1)} λ`});
+    rows.push({name:"Resolution", f:"Δθ ≈ asin(2 / Nv)  (λ/2 spacing)", sub:`RX only ${V.resRx.toFixed(1)}° (${V.okRx ? "resolved" : "merged"}), MIMO ${V.resV.toFixed(1)}° (${V.okV ? "resolved" : "merged"}); targets ${P.sep.toFixed(1)}° apart`});
+    rows.push({name:"TDM cost", f:"frame = Ntx chirps,  vmax ÷ Ntx", sub:`${P.tx} chirps per snapshot; data from ${P.rx} receivers sorted into ${V.nv} channels`});
+  } else {
+    const P = MI.car, K = carCalc(P);
+    $("mi-car-gap-v").textContent = `${P.gap.toFixed(1)} m`; $("mi-car-r-v").textContent = `${P.r.toFixed(0)} m`;
+    document.querySelectorAll("#mi-car-cfg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === P.cfg));
+    ro.push(["Coverage", K.cov.toFixed(0) + " %"], ["Front resolution", K.resF.toFixed(2) + "°"], ["Radar chips", `${K.chips}`], ["Relative cost", K.cost.toFixed(1)]);
+    rows.push({name:"Front resolution", f:"Δθ ≈ asin(2 / Nv),  Nv = Ntx·Nrx of the front radar", sub:`${K.mods[0].tx} × ${K.mods[0].rx} = ${K.nvF} → ${K.resF.toFixed(2)}° (${K.cellAt.toFixed(1)} m wide at ${P.r} m)`});
+    rows.push({name:"Separation", f:"Δθ = atan(gap / R)", sub:`${P.gap.toFixed(1)} m at ${P.r} m = ${K.sepDeg.toFixed(2)}° → ${K.resolved ? "resolved" : K.rangeOK ? "not resolved" : "out of range"}`});
+    rows.push({name:"Modules", f:"coverage = angles seen by any radar, cost ≈ chips + 1.5 per module", sub: K.mods.map(m => `${m.name} ±${m.fov}° ${m.range} m`).join(" · ")});
+  }
+  renderRo($("mi-ro"), ro); renderEq($("mi-eq"), rows);
+  updateMIGloss(); drawMIPlots();
+}
+let miGlossKey = "";
+function updateMIGloss(){
+  const v = MI.view, key = v + JSON.stringify(MI[v]); if (key === miGlossKey) return; miGlossKey = key;
+  let h = "", t = "";
+  if (v === "st"){ const S = stCalc(); h = "Element phases now:";
+    t = `<table><tr><th>Element</th><th>Amplitude</th><th>Phase</th></tr>` + S.ws.slice(0, 16).map((e, i) => `<tr><td>${i + 1}</td><td>${e.a.toFixed(2)}</td><td>${deg(e.ph).toFixed(1)}°</td></tr>`).join("") + (S.ws.length > 16 ? `<tr><td>…</td><td></td><td></td></tr>` : "") + `</table>`; }
+  else if (v === "sw"){ const P = MI.sw; h = "Crossover loss for different codebook sizes:";
+    t = `<table><tr><th>Beams M</th><th>Worst loss</th><th>Sweep time</th></tr>` + [...new Set([P.n/2, P.n, 2*P.n, 4*P.n, P.m])].filter(m => m >= 2 && m <= 32).sort((a, b) => a - b).map(m => { const bs = swBeams({...P, m}); let w = 0; for (let a = bs[0].a; a <= bs[m-1].a; a += 0.25) w = Math.max(w, -dB(swGain(a, bs).g)); return `<tr${m === P.m ? ' style="font-weight:700"' : ""}><td>${m}</td><td>${w.toFixed(2)} dB</td><td>${(m*P.dw).toFixed(2)} ms</td></tr>`; }).join("") + `</table>`; }
+  else if (v === "vm"){ h = "Typical radar chip combinations:";
+    t = `<table><tr><th>Setup</th><th>TX × RX</th><th>Virtual</th><th>Resolution</th></tr>` + [["1 chip", 3, 4], ["2 chips", 6, 8], ["4 chips (imaging)", 12, 16], ["yours", MI.vm.tx, MI.vm.rx]].map(([n, a, b]) => `<tr><td>${n}</td><td>${a} × ${b}</td><td>${a*b}</td><td>${deg(Math.asin(Math.min(1, 2/(a*b)))).toFixed(2)}°</td></tr>`).join("") + `</table>`; }
+  else { h = "The three layouts compared:";
+    t = `<table><tr><th>Layout</th><th>Modules</th><th>Chips</th><th>Coverage</th><th>Front res.</th><th>Cost</th></tr>` + ["one","many","hyb"].map(c => { const K = carCalc({...MI.car, cfg:c}); return `<tr${c === MI.car.cfg ? ' style="font-weight:700"' : ""}><td>${{one:"1 imaging", many:"5 standard", hyb:"imaging + 4 corners"}[c]}</td><td>${K.mods.length}</td><td>${K.chips}</td><td>${K.cov.toFixed(0)} %</td><td>${K.resF.toFixed(2)}°</td><td>${K.cost.toFixed(1)}</td></tr>`; }).join("") + `</table>`; }
+  $("mi-g-head").textContent = h; $("mi-g-live").innerHTML = t;
+}
+function drawMIPlots(){
+  const v = MI.view; let a = "", b = "";
+  if (v === "st"){
+    const P = MI.st, S = stCalc(P), A = axesR(300, 230, {l:34,r:10,t:28,b:30}, -90, 90, -40, 0, 30, 10, "angle θ (°)", "dB");
+    a = A.s + `<path d="${pathOf(S.pts.map(([x, y]) => [x, Math.max(-40, dB(y/S.pk))]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2"/>`;
+    a += `<line x1="${A.X(P.a)}" x2="${A.X(P.a)}" y1="28" y2="200" stroke="var(--fg)" stroke-dasharray="3 3"/><text x="40" y="12" style="fill:var(--accent)">— array pattern |AF|²</text>`;
+    a += A.frame + dotSvg(A.X(S.pkA), A.Y(0));
+    const B = axesR(220, 230, {l:32,r:8,t:28,b:30}, 0.5, P.n + 0.5, 0, 360, Math.max(1, Math.ceil(P.n/8)), 90, "element", "phase (°)");
+    b = B.s; const bw = Math.max(2, (B.X(1.5) - B.X(0.5))*0.7);
+    S.ws.forEach((e, i) => b += `<rect x="${B.X(i + 1) - bw/2}" y="${B.Y(deg(e.ph))}" width="${bw}" height="${B.Y(0) - B.Y(deg(e.ph))}" fill="var(--accent)" fill-opacity="${0.35 + 0.65*e.a}"/>`);
+    b += B.frame + `<text x="8" y="12" style="fill:var(--fg)">phase shifter settings</text>`;
+  } else if (v === "sw"){
+    const P = MI.sw, beams = swBeams(P), ta = swTarget(), sel = swGain(ta, beams), A = axesR(300, 230, {l:34,r:10,t:28,b:30}, -90, 90, -30, 0, 30, 10, "angle θ (°)", "dB"), ag = range(-90, 90, 360);
+    a = A.s; beams.forEach((bm, i) => a += `<path d="${pathOf(ag.map(x => [x, Math.max(-30, dB(arrayAF(rad(x), bm.ws, 0.5)))]), A.X, A.Y)}" fill="none" stroke="${i === sel.i ? "var(--accent)" : "var(--electron)"}" stroke-opacity="${i === sel.i ? 1 : 0.35}" stroke-width="${i === sel.i ? 2.2 : 1}"/>`);
+    a += `<line x1="${A.X(ta)}" x2="${A.X(ta)}" y1="28" y2="200" stroke="var(--hole)" stroke-width="1.6"/><text x="40" y="12" style="fill:var(--fg)">all ${P.m} beams · selected · target</text>` + A.frame;
+    const B = axesR(220, 230, {l:32,r:8,t:28,b:30}, -90, 90, -6, 0, 45, 1, "target angle (°)", "gain vs ideal (dB)");
+    b = B.s + `<path d="${pathOf(ag.map(x => [x, Math.max(-6, dB(swGain(x, beams).g))]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2"/><line x1="${B.X(-90)}" x2="${B.X(90)}" y1="${B.Y(0)}" y2="${B.Y(0)}" stroke="var(--electron)" stroke-dasharray="4 3"/>`;
+    b += B.frame + dotSvg(B.X(ta), B.Y(Math.max(-6, dB(sel.g)))) + `<text x="36" y="12" style="fill:var(--accent)">— switched</text><text x="100" y="12" style="fill:var(--electron)">- - steered</text>`;
+  } else if (v === "vm"){
+    const P = MI.vm, V = vmCalc(P), A = axesR(300, 230, {l:34,r:10,t:28,b:30}, -60, 60, -30, 0, 20, 10, "angle (°)", "dB");
+    a = A.s + `<path d="${pathOf(V.sr.map(([x, y]) => [x, Math.max(-30, dB(y))]), A.X, A.Y)}" fill="none" stroke="var(--muted)" stroke-width="1.6"/><path d="${pathOf(V.sv.map(([x, y]) => [x, Math.max(-30, dB(y))]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+    [P.c - P.sep/2, P.c + P.sep/2].forEach(x => a += `<line x1="${A.X(x)}" x2="${A.X(x)}" y1="28" y2="200" stroke="var(--hole)" stroke-dasharray="3 3"/>`);
+    a += `<text x="40" y="12" style="fill:var(--muted)">— RX only (${P.rx})</text><text x="130" y="12" style="fill:var(--accent)">— MIMO (${V.nv})</text>` + A.frame;
+    const B = axesR(220, 230, {l:32,r:8,t:28,b:30}, 0, 200, 0, 40, 50, 10, "virtual channels Nv", "resolution (°)"), ng = range(2, 200, 199);
+    b = B.s + `<path d="${pathOf(ng.map(n => [n, Math.min(40, deg(Math.asin(Math.min(1, 2/n))))]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2"/>`;
+    b += B.frame + `<circle cx="${B.X(P.rx)}" cy="${B.Y(Math.min(40, V.resRx))}" r="4.5" fill="var(--muted)"/>` + dotSvg(B.X(V.nv), B.Y(Math.min(40, V.resV)));
+  } else {
+    const K = carCalc(), cx = 110, cy = 124, R = 92, rr = Rm => R*Math.sqrt(Rm/300);
+    a = `<text x="8" y="12" style="fill:var(--fg)">Coverage around the car (√range)</text>` + svgPolar(cx + 40, cy, R, [Math.sqrt(30/300), Math.sqrt(100/300), 1]);
+    K.mods.forEach(m => { const col = m.key === "img" ? "var(--accent)" : m.key === "frt" ? "var(--electron)" : "var(--channel)"; const p0 = rad(m.bore - m.fov), p1 = rad(m.bore + m.fov), r = rr(m.range);
+      a += `<path d="M${cx + 40} ${cy} L${cx + 40 + r*Math.sin(p0)} ${cy - r*Math.cos(p0)} A${r} ${r} 0 ${2*m.fov > 180 ? 1 : 0} 1 ${cx + 40 + r*Math.sin(p1)} ${cy - r*Math.cos(p1)} Z" fill="${col}" fill-opacity=".22" stroke="${col}"/>`; });
+    a += `<rect x="${cx + 34}" y="${cy - 12}" width="12" height="24" fill="var(--fg)"/><text x="${cx + 40}" y="${cy - R - 4}" text-anchor="middle">300 m</text>`;
+    const items = [["coverage", K.cov/100, K.cov.toFixed(0) + " %"], ["front detail", Math.min(1, 1/K.resF), K.resF.toFixed(2) + "°"], ["chips", K.chips/8, `${K.chips}`], ["modules", K.mods.length/5, `${K.mods.length}`], ["cost", K.cost/14, K.cost.toFixed(1)]];
+    b = `<text x="8" y="12" style="fill:var(--fg)">This layout</text>`;
+    items.forEach(([l, f, s], i) => { const y = 34 + i*38; b += `<text x="8" y="${y}">${l}</text><rect x="8" y="${y + 6}" width="150" height="10" fill="var(--line)"/><rect x="8" y="${y + 6}" width="${150*clamp(f, 0, 1)}" height="10" fill="var(--accent)"/><text x="164" y="${y + 15}" style="fill:var(--fg)">${s}</text>`; });
+  }
+  $("mi-p1").innerHTML = a; $("mi-p2").innerHTML = b;
+}
+
+/* ---------------- controls ---------------- */
+document.querySelectorAll("#mi-view button").forEach(b => b.addEventListener("click", () => { MI.view = b.dataset.v; updateMI(); }));
+[["mi-st-n","st","n"],["mi-st-d","st","d"],["mi-st-a","st","a"],["mi-sw-m","sw","m"],["mi-sw-dw","sw","dw"],["mi-sw-t","sw","t"],
+ ["mi-vm-tx","vm","tx"],["mi-vm-rx","vm","rx"],["mi-vm-sep","vm","sep"],["mi-vm-c","vm","c"],["mi-car-gap","car","gap"],["mi-car-r","car","r"]]
+  .forEach(([id, g, k]) => $(id).addEventListener("input", e => { MI[g][k] = +e.target.value; updateMI(); }));
+document.querySelectorAll("#mi-st-bits button").forEach(b => b.addEventListener("click", () => { MI.st.bits = +b.dataset.b; updateMI(); }));
+document.querySelectorAll("#mi-st-win button").forEach(b => b.addEventListener("click", () => { MI.st.win = b.dataset.w; updateMI(); }));
+document.querySelectorAll("#mi-sw-n button").forEach(b => b.addEventListener("click", () => { MI.sw.n = +b.dataset.n; updateMI(); }));
+document.querySelectorAll("#mi-car-cfg button").forEach(b => b.addEventListener("click", () => { MI.car.cfg = b.dataset.c; updateMI(); }));
+$("mi-sw-auto").addEventListener("change", e => { MI.sw.auto = e.target.checked; if (!e.target.checked){ MI.sw.t = +swTarget().toFixed(1); $("mi-sw-t").value = MI.sw.t; } updateMI(); });
+
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo"};
 function showTab(t){
   zoomClose();
   tab = t;
-  ["mos","inv","body","pw","rd","rf"].forEach(k => { $("tab-"+k).hidden = t !== k; $("tab-btn-"+k).setAttribute("aria-selected", t === k); });
+  ["mos","inv","body","pw","rd","rf","mi"].forEach(k => { $("tab-"+k).hidden = t !== k; $("tab-btn-"+k).setAttribute("aria-selected", t === k); });
   $("seg-type").hidden = t !== "mos";
   try { history.replaceState(null, "", HASH[t]); } catch(e){}
   if (t === "mos"){ M.resize(); updateMos(); }
   else if (t === "inv"){ $("sub-top").textContent = `CMOS inverter · VDD = ${VDD} V · Vtn = +1.0 V, Vtp = −1.0 V`; IVC.resize(); updateInv(); }
   else if (t === "rd"){ $("sub-top").textContent = "77 GHz automotive radar · fractional-N PLL · FMCW chirp"; RC.resize(); updateRadar(); }
+  else if (t === "mi"){ $("sub-top").textContent = "MIMO and beams · phased arrays, beam switching, virtual arrays, car radar layouts"; MIC.resize(); updateMI(); }
   else if (t === "rf"){ $("sub-top").textContent = "RF passives · S-parameters, coupler, balun, antenna, waveguide modes"; RFC.resize(); updateRF(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
-["mos","inv","body","pw","rd","rf"].forEach(k => $("tab-btn-"+k).addEventListener("click", () => showTab(k)));
+["mos","inv","body","pw","rd","rf","mi"].forEach(k => $("tab-btn-"+k).addEventListener("click", () => showTab(k)));
 
 let last = performance.now(), T = 0;
 function frame(now){
@@ -5893,6 +6732,7 @@ function frame(now){
   if (tab === "mos"){ tourTick(dt); if (M.cv.clientWidth) drawMos(dt, T); }
   else if (tab === "inv"){ invTick(dt); if (IVC.cv.clientWidth) drawInv(dt, T); }
   else if (tab === "rd"){ if (!SIM) radarRecalc(); radarTickAll(dt); if (RC.cv.clientWidth) drawRadar(dt, T); }
+  else if (tab === "mi"){ miTick(dt); if (MIC.cv.clientWidth) drawMI(dt, T); }
   else if (tab === "rf"){ rfTick(dt); if (RFC.cv.clientWidth) drawRF(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
@@ -5945,7 +6785,7 @@ addEventListener("keydown", e => { if (e.key === "Escape") zoomClose(); });
 addEventListener("resize", zoomSize);
 
 buildLegend(); updateMos();
-showTab(location.hash === "#inverter" ? "inv" : location.hash === "#body-effect" ? "body" : location.hash === "#power" ? "pw" : location.hash === "#radar" ? "rd" : location.hash === "#rf-passives" ? "rf" : "mos");
+showTab(location.hash === "#inverter" ? "inv" : location.hash === "#body-effect" ? "body" : location.hash === "#power" ? "pw" : location.hash === "#radar" ? "rd" : location.hash === "#rf-passives" ? "rf" : location.hash === "#mimo" ? "mi" : "mos");
 requestAnimationFrame(frame);
 })();
 </script>

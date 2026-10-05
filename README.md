@@ -45,6 +45,12 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Waveguide TE / TM** – WR-90 with TE10, TE20, TE01, TE11, TM11, TM21: cross-section E / H fields, side view (propagating or evanescent), ray picture, cutoff, λg, vp / vg, dispersion and mode chart
 - **Filters** – LC ladder low-pass / high-pass, Butterworth or Chebyshev 0.5 dB, order 1–7: schematic with element values, input / output waveforms, power transmitted / reflected / lost, |S21| and |S11| vs frequency, group delay, inductor Q; **transmission-line** version: stepped-impedance microstrip low-pass and short-circuited λ/8 stub high-pass (Richards), with their spurious passband / notch; **cavity / waveguide** version: air-filled coaxial rod-and-disc low-pass and a TE10 waveguide high-pass (evanescent below cutoff); **band-pass** in all three: LC resonators, λ/4 short-circuited stubs, and a coupled-cavity filter (coupling-matrix model with k, Qe, unloaded Qu and the field in each cavity)
 
+## MIMO & beams tab (`#mimo`)
+- **Beam steering** – N-element phased array: live wavefront field, steering angle, element spacing (grating lobes), phase-shifter bits, Hann taper; beam pattern and element phases
+- **Beam switching** – fixed codebook (Butler-matrix-like) vs continuous steering with a car crossing the field of view: selected beam, crossover loss, sweep time
+- **MIMO virtual array** – Ntx × Nrx → virtual array (TDM animation), angle spectrum of two close targets with RX only vs MIMO, resolution vs channels
+- **Car: one module vs many** – cascaded imaging radar vs five standard radars vs imaging + corners: coverage, front resolution (two cars side by side), chips, modules, rough cost
+
 Every tab has hover/tap explanations on its readouts and equations, plus an **Explain the terms** panel: a step-by-step walkthrough, live tables computed from the current settings, and a glossary.
 
 Light / dark theme toggle (follows the system by default).
