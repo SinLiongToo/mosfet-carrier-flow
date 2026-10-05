@@ -1120,10 +1120,85 @@ window.I18N_ZH = {
 "below cutoff (fc = # GHz): the field only decays, e^(−αz)": "低於截止（fc = # GHz）：場只會衰減，e^(−αz)",
 "below cutoff the rays would bounce straight across (#°):": "低於截止時射線只能垂直來回反彈（#°）：",
 "nothing moves along the guide": "沒有東西沿波導前進",
-"z → # … # mm": "z → # … # mm"
+"z → # … # mm": "z → # … # mm",
+"Filters": "濾波器",
+"Filter type": "濾波器類型",
+"Low-pass": "低通",
+"High-pass": "高通",
+"Filter response": "濾波器響應",
+"Butterworth": "巴特沃斯",
+"Chebyshev # dB": "切比雪夫 # dB",
+"Filter order": "濾波器階數",
+"Edge of the passband: −# dB for Butterworth, the end of the # dB ripple band for Chebyshev.": "通帶邊緣：巴特沃斯為 −# dB 點，切比雪夫為 # dB 漣波帶的終點。",
+"Cutoff frequency fc": "截止頻率 fc",
+"The frequency of the test sine shown going in and coming out of the filter.": "畫面上進出濾波器的測試正弦波頻率。",
+"Test frequency f": "測試頻率 f",
+"Quality factor of the inductors: reactance divided by their series resistance. Low Q adds loss in the passband and rounds the corner. The right end is lossless.": "電感的品質因數：電抗除以其串聯電阻。Q 低會增加通帶損耗並使轉角變圓。最右端為無損。",
+"Inductor Q": "電感 Q 值",
+"Low-pass / high-pass": "低通 / 高通",
+"A filter that passes frequencies below / above its cutoff and blocks the rest. A lossless LC filter blocks by reflecting the power back, not by burning it.": "讓截止頻率以下 / 以上的頻率通過、阻擋其餘頻率的濾波器。無損 LC 濾波器是把功率反射回去來阻擋，而不是把它燒掉。",
+"Filter order N": "濾波器階數 N",
+"Number of L and C elements. Each one adds # dB per decade (# dB per octave) to the slope outside the passband.": "L 與 C 元件的數量。每多一個，通帶外的斜率就增加每十倍頻 # dB（每倍頻 # dB）。",
+"Butterworth / Chebyshev": "巴特沃斯 / 切比雪夫",
+"Butterworth is maximally flat in the passband; Chebyshev allows a small ripple (# dB here) in exchange for a steeper edge.": "巴特沃斯在通帶內最平坦；切比雪夫允許小漣波（這裡為 # dB），換取更陡的邊緣。",
+"Group delay": "群延遲",
+"How long the signal envelope takes to pass, −dφ/dω. It peaks near the cutoff, where the filter rings most.": "訊號包絡通過所需的時間，−dφ/dω。在截止頻率附近達到峰值，此處濾波器的振鈴最明顯。",
+"LC filters: low-pass and high-pass": "LC 濾波器：低通與高通",
+"Series and shunt reactances pass one side of the cutoff and reflect the other": "串聯與並聯電抗讓截止頻率一側通過、把另一側反射回去",
+"An LC ladder filter is built from a low-pass prototype: a list of normalised values g#…gN taken from a table (Butterworth for a maximally flat passband, Chebyshev for a steeper edge with a small ripple). Scaling by the # Ω system impedance and the cutoff frequency turns each g into a real capacitor or inductor. In the low-pass version the series inductors get a higher impedance as the frequency rises, while the shunt capacitors short the signal to ground, so high frequencies are stopped. The high-pass version swaps every L for a C and every C for an L, which flips the response. More elements (a higher order N) give a sharper edge: each one adds # dB per decade of attenuation. Because the parts are reactive, a stopped signal is not turned into heat: it is reflected back to the source, as the power bars show. Real inductors have a finite Q, which adds a little loss in the passband and rounds the corner. The phase shift through the filter changes fastest near the cutoff, so the group delay peaks there.": "LC 梯形濾波器由低通原型設計而來：從表中取得一組正規化值 g#…gN（巴特沃斯得到最平坦的通帶，切比雪夫以小漣波換取更陡的邊緣）。依 # Ω 系統阻抗與截止頻率縮放後，每個 g 就變成實際的電容或電感。在低通版本中，串聯電感的阻抗隨頻率上升而變大，並聯電容則把訊號短路到地，所以高頻被擋住。高通版本把每個 L 換成 C、每個 C 換成 L，響應因此翻轉。元件越多（階數 N 越高）邊緣越陡：每個元件增加每十倍頻 # dB 的衰減。由於元件都是電抗性的，被擋住的訊號不會變成熱，而是反射回訊號源，如功率長條所示。實際電感的 Q 值有限，會在通帶內增加少許損耗並使轉角變圓。通過濾波器的相移在截止頻率附近變化最快，所以群延遲在那裡達到峰值。",
+"Output (transmitted)": "輸出（傳輸）",
+"Reflected": "反射",
+"Signal flow": "訊號流",
+"lossless": "無損",
+"Transmission through the filter at the test frequency.": "測試頻率下通過濾波器的傳輸。",
+"|S#| at f": "f 處的 |S#|",
+"Reflection back to the source at the test frequency.": "測試頻率下反射回訊號源的量。",
+"Attenuation one octave into the stopband (#·fc for low-pass, fc/# for high-pass).": "進入阻帶一個倍頻處的衰減（低通為 #·fc，高通為 fc/#）。",
+"Rejection": "阻帶抑制",
+"Delay of the signal envelope, −dφ/dω, at the test frequency.": "測試頻率下訊號包絡的延遲，−dφ/dω。",
+"Normalised element values g#…gN of the low-pass prototype (# Ω, # rad/s).": "低通原型（# Ω、# rad/s）的正規化元件值 g#…gN。",
+"Prototype": "原型",
+"Turns each g into a real part for # Ω and the chosen cutoff.": "依 # Ω 與所選截止頻率，把每個 g 轉成實際元件。",
+"Scaling": "縮放",
+"Transmission computed from the ABCD matrices of the ladder.": "由梯形網路的 ABCD 矩陣計算出的傳輸。",
+"Response": "響應",
+"S# = # / (A + B/Z# + C·Z# + D) (cascade of ABCD matrices)": "S# = # / (A + B/Z# + C·Z# + D)（ABCD 矩陣串接）",
+"Far outside the passband the attenuation grows by #·N dB per decade.": "遠離通帶時，衰減以每十倍頻 #·N dB 增加。",
+"≈ #·N dB per decade outside the passband": "通帶外約每十倍頻 #·N dB",
+"# dB/decade; at # GHz: # dB": "{0} dB/十倍頻；{1} GHz 處：{2} dB",
+"Element values of this filter:": "此濾波器的元件值：",
+"Element": "元件",
+"Placement": "位置",
+"shunt to ground": "並聯到地",
+"series": "串聯",
+"shaded = passband": "陰影 = 通帶",
+"group delay (ns)": "群延遲 (ns)",
+"low-pass: series L block high f, shunt C short it to ground": "低通：串聯 L 擋住高頻，並聯 C 把高頻短路到地",
+"high-pass: series C block low f, shunt L short it to ground": "高通：串聯 C 擋住低頻，並聯 L 把低頻短路到地",
+"Input and output at f = # GHz": "f = # GHz 時的輸入與輸出",
+"- - input — output (port #) — reflected (port #)": "- - 輸入 — 輸出（埠 #） — 反射（埠 #）",
+"Lost in the inductors": "電感中的損耗",
+"an LC filter rejects by reflecting, not by absorbing": "LC 濾波器靠反射而不是吸收來阻擋",
+"Chebyshev # dB table (odd N: equal # Ω ends)": "切比雪夫 # dB 表（奇數 N：兩端皆為 # Ω）",
+"Low-pass LC ladder · Butterworth · N = #": "低通 LC 梯形濾波器 · 巴特沃斯 · N = #",
+"Low-pass LC ladder · Chebyshev # dB · N = #": "低通 LC 梯形濾波器 · 切比雪夫 # dB · N = #",
+"High-pass LC ladder · Butterworth · N = #": "高通 LC 梯形濾波器 · 巴特沃斯 · N = #",
+"High-pass LC ladder · Chebyshev # dB · N = #": "高通 LC 梯形濾波器 · 切比雪夫 # dB · N = #",
+"passband: |S#| = -# dB, phase -#°, delay # ns": "通帶：|S#| = -# dB，相位 -#°，延遲 # ns",
+"passband: |S#| = -# dB, phase #°, delay # ns": "通帶：|S#| = -# dB，相位 #°，延遲 # ns",
+"passband: |S#| = # dB, phase -#°, delay # ns": "通帶：|S#| = # dB，相位 -#°，延遲 # ns",
+"passband: |S#| = # dB, phase #°, delay # ns": "通帶：|S#| = # dB，相位 #°，延遲 # ns",
+"stopband: |S#| = -# dB, phase -#°, delay # ns": "阻帶：|S#| = -# dB，相位 -#°，延遲 # ns",
+"stopband: |S#| = -# dB, phase #°, delay # ns": "阻帶：|S#| = -# dB，相位 #°，延遲 # ns",
+"stopband: |S#| = # dB, phase -#°, delay # ns": "阻帶：|S#| = # dB，相位 -#°，延遲 # ns",
+"stopband: |S#| = # dB, phase #°, delay # ns": "阻帶：|S#| = # dB，相位 #°，延遲 # ns",
+"at # GHz: |S#| = -# dB, ∠ -#°": "# GHz 處：|S#| = -# dB，∠ -#°",
+"at # GHz: |S#| = -# dB, ∠ #°": "# GHz 處：|S#| = -# dB，∠ #°",
+"at # GHz: |S#| = # dB, ∠ -#°": "# GHz 處：|S#| = # dB，∠ -#°",
+"at # GHz: |S#| = # dB, ∠ #°": "# GHz 處：|S#| = # dB，∠ #°"
 };
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
-window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列"};
+window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
 <script>
 /* English ⇄ Traditional Chinese switch.
@@ -2162,6 +2237,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button data-v="bl" aria-pressed="false">Balun</button>
         <button data-v="an" aria-pressed="false">Antenna</button>
         <button data-v="wg" aria-pressed="false">Waveguide TE / TM</button>
+        <button data-v="fl" aria-pressed="false">Filters</button>
       </div>
     </div>
 
@@ -2240,6 +2316,31 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
             <input id="rf-wg-f" type="range" min="4" max="25" step="0.05" value="10">
           </div>
         </div>
+        <div id="rf-c-fl" hidden style="display:grid;gap:12px">
+          <div class="chips">
+            <div class="seg" id="rf-fl-type" role="group" aria-label="Filter type">
+              <button data-t="lp">Low-pass</button><button data-t="hp">High-pass</button>
+            </div>
+            <div class="seg" id="rf-fl-resp" role="group" aria-label="Filter response">
+              <button data-r="bw">Butterworth</button><button data-r="ch">Chebyshev 0.5 dB</button>
+            </div>
+            <div class="seg" id="rf-fl-n" role="group" aria-label="Filter order">
+              <button data-n="1">N = 1</button><button data-n="3">3</button><button data-n="5">5</button><button data-n="7">7</button>
+            </div>
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Edge of the passband: −3 dB for Butterworth, the end of the 0.5 dB ripple band for Chebyshev.">Cutoff frequency fc</span><span id="rf-fl-fc-v"></span></div>
+            <input id="rf-fl-fc" type="range" min="0.5" max="4" step="0.01" value="2">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="The frequency of the test sine shown going in and coming out of the filter.">Test frequency f</span><span id="rf-fl-f-v"></span></div>
+            <input id="rf-fl-f" type="range" min="0.1" max="6" step="0.01" value="1">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Quality factor of the inductors: reactance divided by their series resistance. Low Q adds loss in the passband and rounds the corner. The right end is lossless.">Inductor Q</span><span id="rf-fl-q-v"></span></div>
+            <input id="rf-fl-q" type="range" min="10" max="300" step="1" value="300">
+          </div>
+        </div>
         <p class="eyebrow">Equations</p>
         <div class="eq" id="rf-eq"></div>
       </section>
@@ -2308,6 +2409,10 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Radiation resistance</dt><dd>The part of the antenna's input resistance that stands for power radiated away (73 Ω for a half-wave dipole).</dd>
               <dt>Directivity (dBi)</dt><dd>How much stronger the antenna radiates in its best direction than an ideal isotropic antenna.</dd>
               <dt>E-plane pattern</dt><dd>Radiation versus angle in the plane that contains the dipole; nulls are along the wire.</dd>
+              <dt>Low-pass / high-pass</dt><dd>A filter that passes frequencies below / above its cutoff and blocks the rest. A lossless LC filter blocks by reflecting the power back, not by burning it.</dd>
+              <dt>Filter order N</dt><dd>Number of L and C elements. Each one adds 20 dB per decade (6 dB per octave) to the slope outside the passband.</dd>
+              <dt>Butterworth / Chebyshev</dt><dd>Butterworth is maximally flat in the passband; Chebyshev allows a small ripple (0.5 dB here) in exchange for a steeper edge.</dd>
+              <dt>Group delay</dt><dd>How long the signal envelope takes to pass, −dφ/dω. It peaks near the cutoff, where the filter rings most.</dd>
               <dt>Cutoff fc</dt><dd>Lowest frequency at which a waveguide mode propagates. Below it the field dies out (evanescent).</dd>
               <dt>Dominant mode</dt><dd>The mode with the lowest cutoff, TE10 in a rectangular guide.</dd>
               <dt>λg, vp, vg</dt><dd>Guide wavelength, phase velocity (faster than light) and group velocity (the speed of energy, slower than light).</dd>
@@ -4413,6 +4518,7 @@ const RF = {view:"sp", t:0,
   bl:{rl:100, tol:0, f:2.4},
   an:{L:59, f:2.4},
   wg:{mode:"TE10", show:"E", f:10}};
+RF.fl = {type:"lp", resp:"bw", n:5, fc:2, f:1, q:300};
 
 // complex numbers
 const cz = (re, im=0) => ({re, im});
@@ -4930,9 +5036,97 @@ function drawWG(dt, T){
   txt("only TE and TM, each above its own cutoff.", 514, 444, {px:10});
 }
 
+/* ---------------- filter view: LC ladder from the low-pass prototype ---------------- */
+function flProto(n, resp){
+  if (resp === "bw") return Array.from({length:n}, (_, i) => 2*Math.sin((2*i + 1)*Math.PI/(2*n)));
+  const b = Math.log(1/Math.tanh(0.5/17.37)), gm = Math.sinh(b/(2*n)), g = [];     // 0.5 dB ripple, odd n → equal terminations
+  const a = k => Math.sin((2*k - 1)*Math.PI/(2*n)), bb = k => gm*gm + Math.sin(k*Math.PI/n)**2;
+  g[0] = 2*a(1)/gm;
+  for (let k=2;k<=n;k++) g[k-1] = 4*a(k-1)*a(k)/(bb(k-1)*g[k-2]);
+  return g;
+}
+// element list: odd positions are shunt, even ones series (a Pi ladder that starts and ends with a shunt element)
+function flDesign(P = RF.fl){
+  const wc = 2*Math.PI*P.fc*1e9, g = flProto(P.n, P.resp);
+  return g.map((gk, i) => {
+    const shunt = i % 2 === 0;
+    if (P.type === "lp") return shunt ? {shunt, part:"C", val: gk/(Z0*wc), g:gk} : {shunt, part:"L", val: gk*Z0/wc, g:gk};
+    return shunt ? {shunt, part:"L", val: Z0/(wc*gk), g:gk} : {shunt, part:"C", val: 1/(Z0*wc*gk), g:gk};
+  });
+}
+function flCalc(f, P = RF.fl, els = flDesign(P)){
+  const w = 2*Math.PI*f*1e9, lossy = P.q < 300;
+  let A = cz(1), B = cz(0), Cc = cz(0), D = cz(1);
+  for (const e of els){
+    const zL = cz(lossy ? w*e.val/P.q : 0, w*e.val), z = e.part === "L" ? zL : cz(0, -1/(w*e.val));
+    if (e.shunt){ const y = zdiv(cz(1), z); A = zadd(A, zmul(B, y)); Cc = zadd(Cc, zmul(D, y)); }
+    else { B = zadd(B, zmul(A, z)); D = zadd(D, zmul(Cc, z)); }
+  }
+  const den = zadd(zadd(A, zsc(B, 1/Z0)), zadd(zsc(Cc, Z0), D));
+  return {s11: zdiv(zsub(zadd(A, zsc(B, 1/Z0)), zadd(zsc(Cc, Z0), D)), den), s21: zdiv(cz(2), den)};
+}
+function flDelay(f, P = RF.fl, els = flDesign(P)){
+  const d = 1e-4, p1 = zarg(flCalc(f - d, P, els).s21), p2 = zarg(flCalc(f + d, P, els).s21);
+  let dp = p2 - p1; while (dp > Math.PI) dp -= 2*Math.PI; while (dp < -Math.PI) dp += 2*Math.PI;
+  return -dp/(2*Math.PI*2*d);                                   // ns
+}
+const flVal = e => e.part === "L" ? `${(e.val*1e9).toFixed(2)} nH` : `${(e.val*1e12).toFixed(2)} pF`;
+let flOff = 0;
+function drawFL(dt, T){
+  const P = RF.fl, els = flDesign(P), S = flCalc(P.f, P, els), ph = RF.t, t = zabs(S.s21), g = zabs(S.s11);
+  ctx.fillStyle = C.panel2; ctx.fillRect(10, 10, 980, 240);
+  txt(`${P.type === "lp" ? "Low-pass" : "High-pass"} LC ladder · ${P.resp === "bw" ? "Butterworth" : "Chebyshev 0.5 dB"} · N = ${P.n}`, 22, 26, {col:C.fg, w:700, px:13});
+  portBox(20, 60, 86, 60, "Port 1", "50 Ω source", C.accent);
+  portBox(894, 60, 86, 60, "Port 2", "50 Ω load", C.electron);
+  const yr = 90, x0 = 106, x1 = 894, dx = (x1 - x0)/(els.length + 1);
+  let xw = x0;
+  els.forEach((e, i) => {
+    const xc = x0 + dx*(i + 1);
+    if (e.shunt){
+      wire([[xw, yr],[xc, yr]]); xw = xc; ndot(xc, yr);
+      wire([[xc, yr],[xc, 112]]);
+      if (e.part === "C") capV2(xc, 112, 172, ""); else { coilV(xc, 116, 168, ""); wire([[xc, 112],[xc, 116]]); wire([[xc, 168],[xc, 172]]); }
+      wire([[xc, 172],[xc, 186]]); gnd(xc, 186);
+      txt(`${e.part}${i + 1}`, xc + 16, 128, {px:11, col:C.fg, w:700}); txt(flVal(e), xc + 16, 144, {px:10, col:C.accent});
+    } else {
+      wire([[xw, yr],[xc - 34, yr]]);
+      if (e.part === "L") coilH(xc - 34, xc + 34, yr, ""); else capH(xc - 34, xc + 34, yr, "");
+      xw = xc + 34;
+      txt(`${e.part}${i + 1}`, xc, yr - 34, {al:"center", px:11, col:C.fg, w:700}); txt(flVal(e), xc, yr - 20, {al:"center", px:10, col:C.accent});
+    }
+  });
+  wire([[xw, yr],[x1, yr]]);
+  flOff += dt*70;
+  flowDots(polyline([[x0, yr - 10],[x1, yr - 10]]), flOff, 0.85*t, C.accent);
+  txt(`prototype g: ${els.map(e => e.g.toFixed(3)).join(", ")}`, 22, 222, {px:10});
+  txt(P.type === "lp" ? "low-pass: series L block high f, shunt C short it to ground" : "high-pass: series C block low f, shunt L short it to ground", 22, 238, {px:10, col:C.fg});
+  // in / out waveforms
+  const oy = 262, h = 216, w = 600;
+  panel(10, oy, w, h, `Input and output at f = ${P.f.toFixed(2)} GHz`);
+  const X = i => 30 + i/400*(w - 40), yW = oy + 122;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; pl([[30, yW],[w - 10, yW]]);
+  const tr = (z, col, wd, dash) => { ctx.strokeStyle = col; ctx.lineWidth = wd; if (dash) ctx.setLineDash(dash); ctx.beginPath(); for (let i=0;i<=400;i++){ const y = yW - 70*reVt(z, ph - i/400*4*Math.PI); i ? ctx.lineTo(X(i), y) : ctx.moveTo(X(i), y); } ctx.stroke(); ctx.setLineDash([]); };
+  tr(cz(1), C.muted, 1.4, [5,4]); tr(S.s21, C.electron, 2.4); tr(S.s11, C.hole, 1.6);
+  txt("- - input   — output (port 2)   — reflected (port 1)", 26, oy + 40, {px:10, col:C.fg});
+  const pass = P.type === "lp" ? P.f < P.fc : P.f > P.fc;
+  txt(`${pass ? "passband" : "stopband"}: |S21| = ${dB(t).toFixed(1)} dB, phase ${deg(zarg(S.s21)).toFixed(0)}°, delay ${flDelay(P.f, P, els).toFixed(2)} ns`, 26, oy + h - 14, {px:11, col: pass ? C.electron : C.hole, w:600});
+  // power balance
+  const bx = 620, bw = 370;
+  panel(bx, oy, bw, h, "Where the power goes");
+  const lost = Math.max(0, 1 - t*t - g*g);
+  [["Transmitted |S21|²", t*t, C.electron], ["Reflected |S11|²", g*g, C.hole], ["Lost in the inductors", lost, C.accent]].forEach(([lab, v, col], i) => {
+    const y = oy + 50 + i*52;
+    txt(lab, bx + 14, y, {col:C.fg, px:11, w:600});
+    ctx.fillStyle = C.line; ctx.fillRect(bx + 14, y + 10, bw - 100, 14);
+    ctx.fillStyle = col; ctx.fillRect(bx + 14, y + 10, (bw - 100)*v, 14);
+    txt(`${(v*100).toFixed(1)} %`, bx + bw - 14, y + 17, {al:"right", col:C.fg, px:12, w:700});
+  });
+  txt("an LC filter rejects by reflecting, not by absorbing", bx + 14, oy + h - 14, {px:10});
+}
+
 function drawRF(dt, T){
   begin(RFC);
-  ({sp: drawSP, cp: drawCP, bl: drawBL, an: drawAN, wg: drawWG})[RF.view](dt, T);
+  ({sp: drawSP, cp: drawCP, bl: drawBL, an: drawAN, wg: drawWG, fl: drawFL})[RF.view](dt, T);
 }
 function rfTick(dt){ RF.t += dt*(reduce ? 1.2 : 3.2); }
 
@@ -4946,6 +5140,8 @@ const RFINFO = {
     text:"A balun turns a signal referred to ground into two equal signals of opposite sign. The lattice balun does it with four parts: a low-pass L-section (series L, shunt C) delays the signal by 90°, a high-pass L-section (series C, shunt L) advances it by 90°, so the two outputs are always 180° apart. Their amplitudes are equal only at the design frequency f0 = 1/(2π√(LC)), where the L and C values also transform 50 Ω to the 100 Ω differential load. Away from f0 one output grows and the other shrinks, so a common-mode part appears. Baluns feed dipole antennas (which need balanced currents on both arms) and connect single-ended antennas to differential LNAs, mixers and PAs on a chip."},
   an:{pill:"ANT", name:"Dipole antenna", sub:"A standing wave of current on two wires radiates into free space",
     text:"A dipole is two straight wires fed in the middle. The current must be zero at the open tips, so it forms a standing wave along the wire. When the total length is close to half a wavelength (about 0.47 λ, slightly shorter because of the wire thickness) the antenna is resonant: the reactance is near zero and the input resistance is about 60–73 Ω, close to 50 Ω, so |S11| is low. A shorter dipole is capacitive and hard to match; a full-wave dipole has a current minimum at the feed and a very high impedance. Each piece of current radiates most broadside to the wire and nothing along it, so the pattern is a doughnut with nulls along the axis and a directivity of 2.15 dBi for a half-wave dipole. Longer dipoles have several current humps with opposite signs, which narrows the main beam and adds side lobes."},
+  fl:{pill:"LC", name:"LC filters: low-pass and high-pass", sub:"Series and shunt reactances pass one side of the cutoff and reflect the other",
+    text:"An LC ladder filter is built from a low-pass prototype: a list of normalised values g1…gN taken from a table (Butterworth for a maximally flat passband, Chebyshev for a steeper edge with a small ripple). Scaling by the 50 Ω system impedance and the cutoff frequency turns each g into a real capacitor or inductor. In the low-pass version the series inductors get a higher impedance as the frequency rises, while the shunt capacitors short the signal to ground, so high frequencies are stopped. The high-pass version swaps every L for a C and every C for an L, which flips the response. More elements (a higher order N) give a sharper edge: each one adds 20 dB per decade of attenuation. Because the parts are reactive, a stopped signal is not turned into heat: it is reflected back to the source, as the power bars show. Real inductors have a finite Q, which adds a little loss in the passband and rounds the corner. The phase shift through the filter changes fastest near the cutoff, so the group delay peaks there."},
   wg:{pill:"WG", name:"Rectangular waveguide: TE and TM modes", sub:"A hollow metal pipe only carries field patterns that fit between its walls",
     text:"Inside a metal pipe the tangential electric field must be zero on the walls, so only certain standing patterns across the cross-section are allowed. Each pattern is a mode, named TEmn or TMmn by the number of half-waves across the wide side a (m) and the narrow side b (n). In a TE mode the electric field lies entirely in the cross-section (Ez = 0); in a TM mode the magnetic field does (Hz = 0). A mode only propagates above its cutoff frequency fc = c/2·√((m/a)² + (n/b)²); below it the field dies out exponentially. TE10 has the lowest cutoff (6.56 GHz in WR-90), so between 6.56 and 13.1 GHz it is the only mode, which is why X-band guides are used at 8–12 GHz. The wave can be pictured as two plane waves zig-zagging between the side walls: near cutoff they bounce almost straight across, so energy moves along the guide slowly (group velocity vg) while the pattern of crests sweeps along faster than light (phase velocity vp), with vp·vg = c²."}
 };
@@ -4985,13 +5181,22 @@ Object.assign(TIP, {
   "Cutoff":"fc = c/2 · √((m/a)² + (n/b)²) for TEmn and TMmn.",
   "Propagation":"β = k·√(1 − (fc/f)²) above cutoff; the field decays with α = k·√((fc/f)² − 1) below it.",
   "Velocities":"Phase velocity vp = c/√(1 − (fc/f)²) is above c; group velocity vg = c·√(1 − (fc/f)²) is below; vp·vg = c².",
-  "Wave Z":"Z_TE = η/√(1 − (fc/f)²), Z_TM = η·√(1 − (fc/f)²), with η = 377 Ω."
+  "Wave Z":"Z_TE = η/√(1 − (fc/f)²), Z_TM = η·√(1 − (fc/f)²), with η = 377 Ω.",
+  "|S21| at f":"Transmission through the filter at the test frequency.",
+  "|S11| at f":"Reflection back to the source at the test frequency.",
+  "Rejection":"Attenuation one octave into the stopband (2·fc for low-pass, fc/2 for high-pass).",
+  "Group delay":"Delay of the signal envelope, −dφ/dω, at the test frequency.",
+  "Prototype":"Normalised element values g1…gN of the low-pass prototype (1 Ω, 1 rad/s).",
+  "Scaling":"Turns each g into a real part for 50 Ω and the chosen cutoff.",
+  "Response":"Transmission computed from the ABCD matrices of the ladder.",
+  "Slope":"Far outside the passband the attenuation grows by 20·N dB per decade."
 });
 const RFLEG = {
   sp:[["accent","Incident wave a1"],["hole","Reflected wave b1"],["electron","Transmitted wave b2"],["fg","Total voltage"]],
   cp:[["accent","Main line: input → through"],["electron","Coupled wave (backward)"],["hole","Isolated port leak"],["metal","Microstrip lines"]],
   bl:[["accent","V+ (low-pass branch)"],["electron","V− (high-pass branch)"],["hole","Common mode"],["muted","Input"]],
   an:[["accent","Current · wavefront crest"],["electron","Wavefront trough"],["metal","Dipole wire"]],
+  fl:[["electron","Output (transmitted)"],["hole","Reflected"],["muted","Input"],["accent","Signal flow"]],
   wg:[["accent","E field / + side view"],["electron","H field"],["oxide","Longitudinal field +"],["channel","Longitudinal field −"]]
 };
 const rfSw = c => `<span><span class="sw" style="background:var(--${c})"></span> `;
@@ -5001,7 +5206,7 @@ function updateRF(){
   const v = RF.view, info = RFINFO[v];
   $("rf-pill").textContent = info.pill; $("rf-name").textContent = info.name; $("rf-sub").textContent = info.sub; $("rf-explain").textContent = info.text;
   document.querySelectorAll("#rf-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
-  ["sp","cp","bl","an","wg"].forEach(k => $("rf-c-" + k).hidden = k !== v);
+  ["sp","cp","bl","an","wg","fl"].forEach(k => $("rf-c-" + k).hidden = k !== v);
   setHTML("rf-legend", RFLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
   const ro = [], rows = [];
   if (v === "sp"){
@@ -5038,6 +5243,18 @@ function updateRF(){
     rows.push({name:"Impedance", f:"Zin = (Rr + jXm) / sin²(kL/2)   (induced EMF, thin wire)", sub:`Rr = ${A.Rr.toFixed(1)} Ω, Xm = ${A.Xm.toFixed(1)} Ω → Zin = ${zstr(A.zin)} Ω`});
     rows.push({name:"Pattern", f:"F(θ) = [cos(kL/2·cosθ) − cos(kL/2)] / sinθ", sub:`nulls along the wire (θ = 0°, 180°), D0 = ${A.D.toFixed(2)} = ${(10*Math.log10(A.D)).toFixed(2)} dBi`});
     rows.push({name:"S11 (50 Ω)", f:"S11 = (Zin − 50) / (Zin + 50)", sub:`|S11| = ${zabs(A.s11).toFixed(3)} → ${dB(zabs(A.s11)).toFixed(1)} dB`});
+  } else if (v === "fl"){
+    const P = RF.fl, els = flDesign(P), S = flCalc(P.f, P, els), fs = P.type === "lp" ? 2*P.fc : P.fc/2, R = flCalc(fs, P, els);
+    rfSlider("rf-fl-fc", `${P.fc.toFixed(2)} GHz`); rfSlider("rf-fl-f", `${P.f.toFixed(2)} GHz`); rfSlider("rf-fl-q", P.q >= 300 ? "lossless" : P.q.toFixed(0));
+    document.querySelectorAll("#rf-fl-type button").forEach(b => b.setAttribute("aria-pressed", b.dataset.t === P.type));
+    document.querySelectorAll("#rf-fl-resp button").forEach(b => b.setAttribute("aria-pressed", b.dataset.r === P.resp));
+    document.querySelectorAll("#rf-fl-n button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.n === P.n));
+    const s11d = dB(zabs(S.s11));
+    ro.push(["|S21| at f", dB(zabs(S.s21)).toFixed(2) + " dB"], ["|S11| at f", s11d < -60 ? "< −60 dB" : s11d.toFixed(1) + " dB"], ["Rejection", (-dB(zabs(R.s21))).toFixed(1) + " dB"], ["Group delay", flDelay(P.f, P, els).toFixed(2) + " ns"]);
+    rows.push({name:"Prototype", f: P.resp === "bw" ? "gk = 2·sin((2k − 1)π / 2N)" : "Chebyshev 0.5 dB table (odd N: equal 50 Ω ends)", sub:`N = ${P.n}: g = ${els.map(e => e.g.toFixed(3)).join(", ")}`});
+    rows.push({name:"Scaling", f: P.type === "lp" ? "C = g / (Z0·ωc),  L = g·Z0 / ωc" : "L = Z0 / (ωc·g),  C = 1 / (Z0·ωc·g)", sub: els.map((e, i) => `${e.part}${i + 1} = ${flVal(e)}`).join(", ")});
+    rows.push({name:"Response", f:"S21 = 2 / (A + B/Z0 + C·Z0 + D)  (cascade of ABCD matrices)", sub:`at ${P.f.toFixed(2)} GHz: |S21| = ${dB(zabs(S.s21)).toFixed(2)} dB, ∠ ${deg(zarg(S.s21)).toFixed(0)}°`});
+    rows.push({name:"Slope", f:"≈ 20·N dB per decade outside the passband", sub:`${(20*P.n).toFixed(0)} dB/decade; at ${fs.toFixed(2)} GHz: ${(-dB(zabs(R.s21))).toFixed(1)} dB`});
   } else {
     const P = RF.wg, W = wgCalc(P.f, P.mode);
     rfSlider("rf-wg-f", `${P.f.toFixed(2)} GHz`);
@@ -5071,6 +5288,8 @@ function updateRFGloss(){
   else if (v === "an"){ h = `Dipoles of different length at ${RF.an.f.toFixed(2)} GHz:`;
     const lam = C0/(RF.an.f*1e9)*1000;
     t = `<table><tr><th>L / λ</th><th>L (mm)</th><th>Zin (Ω)</th><th>Directivity</th><th>|S11| (50 Ω)</th></tr>` + [0.25, 0.47, 0.5, 1.25, 1.5, RF.an.L/lam].map(r => { const A = anCalc(RF.an.f, r*lam); return `<tr${Math.abs(r - RF.an.L/lam) < 1e-9 ? ' style="font-weight:700"' : ""}><td>${r.toFixed(2)}</td><td>${(r*lam).toFixed(1)}</td><td>${zstr(A.zin, 0)}</td><td>${(10*Math.log10(A.D)).toFixed(2)} dBi</td><td>${dB(zabs(A.s11)).toFixed(1)} dB</td></tr>`; }).join("") + `</table>`; }
+  else if (v === "fl"){ h = "Element values of this filter:"; const els = flDesign();
+    t = `<table><tr><th>Element</th><th>Placement</th><th>g</th><th>Value</th></tr>` + els.map((e, i) => `<tr><td>${e.part}${i + 1}</td><td>${e.shunt ? "shunt to ground" : "series"}</td><td>${e.g.toFixed(4)}</td><td>${flVal(e)}</td></tr>`).join("") + `</table>`; }
   else { h = `Modes of WR-90 at ${RF.wg.f.toFixed(2)} GHz:`;
     t = `<table><tr><th>Mode</th><th>fc (GHz)</th><th>Propagates?</th><th>λg (mm)</th></tr>` + WG_MODES.map(md => { const W = wgCalc(RF.wg.f, md); return `<tr${md === RF.wg.mode ? ' style="font-weight:700"' : ""}><td>${md}</td><td>${W.fc.toFixed(2)}</td><td class="${W.prop ? "ok" : "bad"}">${W.prop ? "yes" : "no"}</td><td>${W.prop ? W.lamg.toFixed(1) : "—"}</td></tr>`; }).join("") + `</table>`; }
   $("rf-g-head").textContent = h;
@@ -5151,6 +5370,19 @@ function drawRFPlots(){
     b += `<path d="${poly(rh)}" fill="none" stroke="var(--muted)" stroke-dasharray="3 3"/><path d="${poly(rr)}" fill="var(--accent)" fill-opacity=".15" stroke="var(--accent)" stroke-width="2"/>`;
     b += `<line x1="${cx}" x2="${cx}" y1="${cy-14}" y2="${cy+14}" stroke="var(--fg)" stroke-width="3"/>`;
     b += `<text x="${cx + R*2/3 + 2}" y="${cy - 3}" style="font-size:8px">−10</text><text x="${cx + R/3 + 2}" y="${cy - 3}" style="font-size:8px">−20</text><text x="8" y="226">- - half-wave dipole for comparison</text>`;
+  } else if (v === "fl"){
+    const P = RF.fl, els = flDesign(P), A = axesR(300, 230, {l:34,r:10,t:28,b:30}, 0, 6, -60, 0, 1, 10, "f (GHz)", "dB"), fg = range(0.05, 6, 300);
+    const pts = fg.map(f => { const S = flCalc(f, P, els); return [f, dB(zabs(S.s21)), dB(zabs(S.s11))]; });
+    a = A.s + `<rect x="${P.type === "lp" ? A.X(0) : A.X(P.fc)}" y="28" width="${P.type === "lp" ? A.X(P.fc) - A.X(0) : A.X(6) - A.X(P.fc)}" height="172" fill="var(--electron)" fill-opacity=".07"/>`;
+    a += `<path d="${pathOf(pts.map(q => [q[0], q[2]]), A.X, A.Y)}" fill="none" stroke="var(--hole)" stroke-width="1.6"/><path d="${pathOf(pts.map(q => [q[0], q[1]]), A.X, A.Y)}" fill="none" stroke="var(--electron)" stroke-width="2.2"/>`;
+    a += `<line x1="${A.X(P.fc)}" x2="${A.X(P.fc)}" y1="28" y2="200" stroke="var(--muted)" stroke-dasharray="3 3"/><text x="${A.X(P.fc) + 3}" y="${A.Y(-56)}">fc</text>`;
+    a += `<text x="40" y="12" style="fill:var(--electron)">— |S21|</text><text x="96" y="12" style="fill:var(--hole)">— |S11|</text><text x="150" y="12">shaded = passband</text>`;
+    const S = flCalc(P.f, P, els);
+    a += A.frame + dotSvg(A.X(P.f), A.Y(dB(zabs(S.s21))));
+    const dl = fg.map(f => [f, flDelay(f, P, els)]), dm = Math.max(0.5, ...dl.map(q => q[1])), st = niceStep(dm/4), ym = Math.ceil(dm/st)*st;
+    const B = axesR(220, 230, {l:32,r:8,t:28,b:30}, 0, 6, 0, ym, 1, st, "f (GHz)", "group delay (ns)");
+    b = B.s + `<path d="${pathOf(dl, B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2"/><line x1="${B.X(P.fc)}" x2="${B.X(P.fc)}" y1="28" y2="200" stroke="var(--muted)" stroke-dasharray="3 3"/>`;
+    b += B.frame + dotSvg(B.X(P.f), B.Y(flDelay(P.f, P, els)));
   } else {
     const A = axesR(300, 230, {l:34,r:10,t:28,b:30}, 0, 25, 0, 500, 5, 100, "f (GHz)", "β (rad/m)");
     a = A.s + `<path d="${pathOf(range(0, 25, 50).map(f => [f, 2*Math.PI*f*1e9/C0]), A.X, A.Y)}" fill="none" stroke="var(--muted)" stroke-dasharray="3 3"/>`;
@@ -5183,6 +5415,10 @@ document.querySelectorAll("#rf-view button").forEach(b => b.addEventListener("cl
   .forEach(([id, g, k]) => $(id).addEventListener("input", e => { RF[g][k] = +e.target.value; updateRF(); }));
 document.querySelectorAll("#rf-wg-mode button").forEach(b => b.addEventListener("click", () => { RF.wg.mode = b.dataset.m; updateRF(); }));
 document.querySelectorAll("#rf-wg-show button").forEach(b => b.addEventListener("click", () => { RF.wg.show = b.dataset.s; updateRF(); }));
+document.querySelectorAll("#rf-fl-type button").forEach(b => b.addEventListener("click", () => { RF.fl.type = b.dataset.t; updateRF(); }));
+document.querySelectorAll("#rf-fl-resp button").forEach(b => b.addEventListener("click", () => { RF.fl.resp = b.dataset.r; updateRF(); }));
+document.querySelectorAll("#rf-fl-n button").forEach(b => b.addEventListener("click", () => { RF.fl.n = +b.dataset.n; updateRF(); }));
+[["rf-fl-fc","fc"],["rf-fl-f","f"],["rf-fl-q","q"]].forEach(([id, k]) => $(id).addEventListener("input", e => { RF.fl[k] = +e.target.value; updateRF(); }));
 
 
 /* ================= tabs + loop ================= */
