@@ -2471,7 +2471,7 @@ function updateRadar(){
     rows.push({name:"Slope", f:"S = B / Tc", sub:`= ${CH.B.toFixed(2)} GHz / ${CH.Tc.toFixed(0)} µs = ${(F.S/1e12).toFixed(1)} MHz/µs`});
     rows.push({name:"Beat", f:"fb = S · τ = 2·R·S / c", sub:`= 2 · ${CH.R1.toFixed(1)} m · ${(F.S/1e12).toFixed(1)} MHz/µs / c = ${(t1.fb/1e6).toFixed(3)} MHz`});
     rows.push({name:"Resolution", f:"ΔR = c / (2B)", sub:`= 3·10⁸ / (2 · ${CH.B.toFixed(2)} GHz) = ${(F.dR*100).toFixed(1)} cm` + (CH.t2 ? (CH.dR2 >= F.dR ? "  → 2 targets resolved" : "  → 2 targets merge") : "")});
-    rows.push({name:"Max range", f:"Rmax = fIF,max · c / (2S)", sub:`= ${FIFMAX} MHz · c / (2S) = ${F.Rmax.toFixed(0)} m`});
+    rows.push({name:"Max range", f:"Rmax = fIF,max · c / (2S)", sub:`= ${FIFMAX} MHz · c / (2S) = ${F.Rmax.toFixed(0)} m` + (CH.R1 > F.Rmax ? `  → target 1 is out of range (fb = ${(t1.fb/1e6).toFixed(1)} MHz)` : "  → target 1 in range")});
     rows.push({name:"Doppler", f:"fd = 2v/λ,   Δφ = 4π·v·Tc/λ per chirp", sub:`λ = ${(F.lam*1000).toFixed(2)} mm, fd = ${(t1.fd/1e3).toFixed(1)} kHz, Δv = ${F.dv.toFixed(2)} m/s (${NCH} chirps)`});
   }
   $("rd-ro").innerHTML = ro.map(([l,v],i) => `<div class="ro${i>=2?" id":""}"><label>${l}</label><b>${v}</b></div>`).join("");
@@ -2504,14 +2504,26 @@ function drawRadarPlots(F){
     b += B.frame + dotSvg(B.X(RS.t), B.Y(simAt(RS.t).u - simAt(RS.t).y));
   } else {
     const Rmax = Math.min(250, Math.max(F.Rmax, 20)), R0 = Math.max(0, CH.R1 - 10), R1 = Math.min(Rmax, Math.max(CH.R1 + 10, 20));
-    const zoom = CH.t2;
+    const out = F.tgt.filter(q => q.R > F.Rmax);
+    const zoom = CH.t2 && !out.length;
     const xa = zoom ? R0 : 0, xb = zoom ? R1 + (CH.dR2) : Rmax;
     const A = axesR(300, 230, {l:34,r:10,t:28,b:30}, xa, xb, -60, 0, Math.max(1, niceStep((xb-xa)/4)), 20, "range (m) = fb · c / 2S", "IF spectrum (dB)");
     const amps = F.tgt.map(q => 1/Math.max(q.R, 5)**2), am = Math.max(...amps);
     const Wh = x => { const ax = Math.abs(x); if (ax < 1e-6) return 1; if (Math.abs(ax - 1) < 1e-6) return 0.5; return Math.abs(Math.sin(Math.PI*x)/(Math.PI*x)/(1 - x*x)); };
-    const pts = range(xa, xb, 500).map(R => { let s = 0; F.tgt.forEach((q,j) => { if (q.R <= F.Rmax) s += amps[j]/am*Wh((R - (q.fif*CLIGHT/(2*F.S)))/F.dR); }); return [R, Math.max(-60, 20*Math.log10(s + 1e-6))]; });
+    // uniform grid plus dense points around every peak, so narrow peaks (large B) are never missed
+    let grid = range(xa, xb, 600);
+    F.tgt.forEach(q => { if (q.R <= F.Rmax){ const c = q.fif*CLIGHT/(2*F.S); for (let k=-40;k<=40;k++) grid.push(c + k*F.dR/10); } });
+    grid = grid.filter(R => R >= xa && R <= xb).sort((u,v) => u - v);
+    const pts = grid.map(R => { let s = 0; F.tgt.forEach((q,j) => { if (q.R <= F.Rmax) s += amps[j]/am*Wh((R - (q.fif*CLIGHT/(2*F.S)))/F.dR); }); return [R, Math.max(-60, 20*Math.log10(s + 1e-6))]; });
     a = A.s + `<path d="${pathOf(pts, A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2"/>`;
     a += `<text x="40" y="12" style="fill:var(--accent)">FFT of one chirp (Hann window)${zoom ? " · zoomed" : ""}</text>`;
+    if (out.length){
+      const q = out[0];
+      a += `<rect x="44" y="60" width="244" height="62" rx="6" fill="var(--panel2)" stroke="var(--hole)"/>`;
+      a += `<text x="166" y="78" text-anchor="middle" style="fill:var(--hole);font-weight:600">No peak: target beyond Rmax = ${F.Rmax.toFixed(0)} m</text>`;
+      a += `<text x="166" y="94" text-anchor="middle" style="fill:var(--fg)">fb = ${(q.fb/1e6).toFixed(1)} MHz > ${FIFMAX} MHz IF bandwidth → filtered</text>`;
+      a += `<text x="166" y="110" text-anchor="middle" style="fill:var(--fg)">Fix: longer Tc (Tc ≥ ${Math.ceil(2*q.R*CH.B*1e9/(CLIGHT*FIFMAX*1e6)*1e6)} µs) or smaller B</text>`;
+    }
     a += A.frame;
     const B = axesR(220, 230, {l:30,r:8,t:28,b:30}, 0, 4, 0, 80, 1, 20, "bandwidth B (GHz)", "ΔR (cm)");
     b = B.s + `<path d="${pathOf(range(0.2, 4, 60).map(x => [x, 15/x]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
