@@ -1231,7 +1231,41 @@ window.I18N_ZH = {
 "Low-pass stepped-impedance microstrip · Butterworth · N = #": "低通步階阻抗微帶線 · 巴特沃斯 · N = #",
 "Low-pass stepped-impedance microstrip · Chebyshev # dB · N = #": "低通步階阻抗微帶線 · 切比雪夫 # dB · N = #",
 "High-pass stub microstrip · Butterworth · N = #": "高通殘段微帶線 · 巴特沃斯 · N = #",
-"High-pass stub microstrip · Chebyshev # dB · N = #": "高通殘段微帶線 · 切比雪夫 # dB · N = #"
+"High-pass stub microstrip · Chebyshev # dB · N = #": "高通殘段微帶線 · 切比雪夫 # dB · N = #",
+"Cavity / waveguide": "腔體 / 波導",
+"Coaxial cavity low-pass": "同軸腔體低通",
+"A metal tube with a centre rod: thin rod sections (high Z) act as series L, wide discs (low Z) as shunt C. Air-filled, so very low loss and high power.": "金屬管中央有一根導桿：細桿段（高阻抗）相當於串聯 L，寬圓盤（低阻抗）相當於並聯 C。內部為空氣，所以損耗極低、可承受高功率。",
+"Waveguide high-pass": "波導高通",
+"A hollow guide passes nothing below the cutoff of its TE# mode, fc = c/#a. Below it the field decays as e^(−αz), so the guide itself is the filter.": "中空波導在其 TE# 模態截止頻率 fc = c/#a 以下什麼都傳不過去。低於截止時場以 e^(−αz) 衰減，所以波導本身就是濾波器。",
+"Cavity and waveguide filters": "腔體與波導濾波器",
+"Machined metal: a coaxial rod-and-disc low-pass and a waveguide high-pass": "金屬加工件：同軸桿盤式低通與波導高通",
+"When a filter must handle high power or very low loss (base stations, satellites, radar), it is machined from metal and filled with air. The low-pass version is a coaxial cavity: a centre rod inside a tube. Where the rod is thin, the coax has a high impedance (Z = #·ln(b/a)) and acts like a series inductor; where it carries a disc that nearly touches the tube, the impedance is low and the disc acts like a shunt capacitor. It is the same stepped-impedance idea as on a circuit board, but in air, so the parts are longer and the loss is tiny. The high-pass version needs no parts at all: a hollow waveguide cannot carry its TE# mode below the cutoff fc = c/#a, so choosing the broad wall a sets fc. Below cutoff the field decays as e^(−αz) along the guide, so a longer guide rejects more; above cutoff the wave travels, with a small ripple near fc because the guide's wave impedance only approaches # Ω well above cutoff. Higher modes such as TE# start to propagate above about #·fc, which limits the useful band. Real cavity filters are most often band-pass: a chain of coupled resonant cavities.": "當濾波器必須承受高功率或要求極低損耗（基地台、衛星、雷達）時，就用金屬加工並以空氣填充。低通版本是同軸腔體：管子中央有一根導桿。導桿細的地方同軸線阻抗高（Z = #·ln(b/a)），相當於串聯電感；導桿上裝有幾乎碰到管壁的圓盤處阻抗低，圓盤相當於並聯電容。這和電路板上的步階阻抗概念相同，只是在空氣中，所以元件較長、損耗極小。高通版本完全不需要元件：中空波導在其 TE# 模態截止頻率 fc = c/#a 以下無法傳遞，所以選定寬邊 a 就決定了 fc。低於截止時場沿波導以 e^(−αz) 衰減，波導越長抑制越多；高於截止時波可以傳播，但在 fc 附近有小漣波，因為波導的波阻抗要遠高於截止時才接近 # Ω。TE# 等高階模態約在 #·fc 以上開始傳播，限制了可用頻寬。實際的腔體濾波器大多是帶通：一串互相耦合的諧振腔。",
+"Coax steps": "同軸步階",
+"disc (low Z)": "圓盤（低阻抗）",
+"thin rod (high Z)": "細桿（高阻抗）",
+"disc #": "圓盤 #",
+"rod #": "細桿 #",
+"air-filled coax, Z = #·ln(b/a): thin rod # Ω ≈ series L, disc # Ω ≈ shunt C": "空氣同軸線，Z = #·ln(b/a)：細桿 # Ω ≈ 串聯 L，圓盤 # Ω ≈ 並聯 C",
+"Waveguide": "波導",
+"a = # mm for fc = # GHz (no prototype: the guide is the filter)": "fc = {1} GHz 時 a = {0} mm（不需原型：波導本身就是濾波器）",
+"Below cutoff": "低於截止",
+"α = kc·√(# − (f/fc)²), attenuation ≈ #·α·ℓ dB": "α = kc·√(# − (f/fc)²)，衰減 ≈ #·α·ℓ dB",
+"TE# line: Zw = Z#·k/β, θ = β·ℓ (cosh / sinh below cutoff)": "TE# 傳輸線：Zw = Z#·k/β，θ = β·ℓ（截止以下用 cosh / sinh）",
+"next mode TE#: cutoff #·fc": "下一個模態 TE#：截止於 #·fc",
+"single-mode band #–# GHz": "單模頻帶 #–# GHz",
+"waveguide section": "波導段",
+"probe": "探針",
+"broad wall a = # mm → TE# cutoff # GHz · length ℓ = # mm": "寬邊 a = # mm → TE# 截止 # GHz · 長度 ℓ = # mm",
+"# GHz > fc: the wave travels, λg = # mm": "# GHz > fc：波可傳播，λg = # mm",
+"above #·fc = # GHz the TE# mode can also propagate (not modelled)": "高於 #·fc = # GHz 時 TE# 模態也能傳播（未模擬）",
+"# GHz < fc: evanescent, field falls # dB over the guide": "# GHz < fc：消逝波，場在波導內衰減 # dB",
+"Low-pass coaxial cavity · Butterworth · N = #": "低通同軸腔體 · 巴特沃斯 · N = #",
+"Low-pass coaxial cavity · Chebyshev # dB · N = #": "低通同軸腔體 · 切比雪夫 # dB · N = #",
+"High-pass waveguide section · length #·λc/#": "高通波導段 · 長度 #·λc/#",
+"disc #: # mm (air, b/a = # and #)": "圓盤 #：# mm（空氣，b/a = # 與 #）",
+"disc #: # mm, rod #: # mm, disc #: # mm (air, b/a = # and #)": "圓盤 #：# mm，細桿 #：# mm，圓盤 #：# mm（空氣，b/a = # 與 #）",
+"disc #: # mm, rod #: # mm, disc #: # mm, rod #: # mm, disc #: # mm (air, b/a = # and #)": "圓盤 #：# mm，細桿 #：# mm，圓盤 #：# mm，細桿 #：# mm，圓盤 #：# mm（空氣，b/a = # 與 #）",
+"disc #: # mm, rod #: # mm, disc #: # mm, rod #: # mm, disc #: # mm, rod #: # mm, disc #: # mm (air, b/a = # and #)": "圓盤 #：# mm，細桿 #：# mm，圓盤 #：# mm，細桿 #：# mm，圓盤 #：# mm，細桿 #：# mm，圓盤 #：# mm（空氣，b/a = # 與 #）"
 };
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
@@ -2361,7 +2395,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <button data-r="bw">Butterworth</button><button data-r="ch">Chebyshev 0.5 dB</button>
             </div>
             <div class="seg" id="rf-fl-real" role="group" aria-label="Realization">
-              <button data-x="lc">Lumped LC</button><button data-x="tl">Transmission line</button>
+              <button data-x="lc">Lumped LC</button><button data-x="tl">Transmission line</button><button data-x="cav">Cavity / waveguide</button>
             </div>
             <div class="seg" id="rf-fl-n" role="group" aria-label="Filter order">
               <button data-n="1">N = 1</button><button data-n="3">3</button><button data-n="5">5</button><button data-n="7">7</button>
@@ -2453,6 +2487,8 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Butterworth / Chebyshev</dt><dd>Butterworth is maximally flat in the passband; Chebyshev allows a small ripple (0.5 dB here) in exchange for a steeper edge.</dd>
               <dt>Stepped-impedance filter</dt><dd>A low-pass filter made only of line sections: short, narrow high-Z lines act like series inductors and short, wide low-Z lines like shunt capacitors.</dd>
               <dt>Richards' transformation</dt><dd>A short-circuited stub of length λ/8 at fc has jX = jZs·tan(βl), which behaves like an inductor; an open stub behaves like a capacitor.</dd>
+              <dt>Coaxial cavity low-pass</dt><dd>A metal tube with a centre rod: thin rod sections (high Z) act as series L, wide discs (low Z) as shunt C. Air-filled, so very low loss and high power.</dd>
+              <dt>Waveguide high-pass</dt><dd>A hollow guide passes nothing below the cutoff of its TE10 mode, fc = c/2a. Below it the field decays as e^(−αz), so the guide itself is the filter.</dd>
               <dt>Spurious passband</dt><dd>Line lengths repeat every half wavelength, so a transmission-line filter's response comes back at higher frequencies.</dd>
               <dt>Group delay</dt><dd>How long the signal envelope takes to pass, −dφ/dω. It peaks near the cutoff, where the filter rings most.</dd>
               <dt>Cutoff fc</dt><dd>Lowest frequency at which a waveguide mode propagates. Below it the field dies out (evanescent).</dd>
@@ -4561,7 +4597,8 @@ const RF = {view:"sp", t:0,
   an:{L:59, f:2.4},
   wg:{mode:"TE10", show:"E", f:10}};
 RF.fl = {type:"lp", resp:"bw", n:5, fc:2, f:1, q:300, real:"lc"};
-const FL_ZH = 120, FL_ZL = 20, FL_EEFF = 3;              // stepped-impedance line impedances, microstrip εeff
+const FL_ZH = 120, FL_ZL = 20, FL_EEFF = 3;
+const FL_CZH = 100, FL_CZL = 15;                         // coaxial cavity low-pass: rod and disc impedances (air)              // stepped-impedance line impedances, microstrip εeff
 
 // complex numbers
 const cz = (re, im=0) => ({re, im});
@@ -5091,8 +5128,16 @@ function flProto(n, resp){
 // element list: odd positions are shunt, even ones series (a Pi ladder that starts and ends with a shunt element)
 function flDesign(P = RF.fl){
   const wc = 2*Math.PI*P.fc*1e9, g = flProto(P.n, P.resp);
+  if (P.real === "cav" && P.type === "hp"){             // waveguide high-pass: TE10 cutoff at fc, length N·λc/4
+    const a = C0/(2*P.fc*1e9)*1000;
+    return [{shunt:false, part:"WG", tl:"wg", a, len: P.n*2*a/4, g:NaN}];
+  }
   return g.map((gk, i) => {
     const shunt = i % 2 === 0;
+    if (P.real === "cav"){
+      // low-pass: coaxial stepped-impedance cavity (thin rod = L, disc = C, air); high-pass: one waveguide section
+      if (P.type === "lp") return shunt ? {shunt, part:"C", tl:"line", Z: FL_CZL, th: gk*FL_CZL/Z0, g:gk, val: gk/(Z0*wc)} : {shunt, part:"L", tl:"line", Z: FL_CZH, th: gk*Z0/FL_CZH, g:gk, val: gk*Z0/wc};
+    }
     if (P.real === "tl"){
       // low-pass: stepped impedance (series L → high-Z line, shunt C → low-Z line), lengths at fc
       if (P.type === "lp") return shunt ? {shunt, part:"C", tl:"line", Z: FL_ZL, th: gk*FL_ZL/Z0, g:gk, val: gk/(Z0*wc)} : {shunt, part:"L", tl:"line", Z: FL_ZH, th: gk*Z0/FL_ZH, g:gk, val: gk*Z0/wc};
@@ -5104,12 +5149,19 @@ function flDesign(P = RF.fl){
   });
 }
 function flCalc(f, P = RF.fl, els = flDesign(P)){
-  const w = 2*Math.PI*f*1e9, lossy = P.q < 300 && P.real !== "tl";
+  const w = 2*Math.PI*f*1e9, lossy = P.q < 300 && P.real === "lc";
   let A = cz(1), B = cz(0), Cc = cz(0), D = cz(1);
   for (const e of els){
     if (e.tl === "line"){                                  // multiply by the ABCD matrix of a lossless line
       const th = e.th*f/P.fc, c = Math.cos(th), sn = Math.sin(th), b = cz(0, e.Z*sn), cc = cz(0, sn/e.Z);
       [A, B, Cc, D] = [zadd(zsc(A, c), zmul(B, cc)), zadd(zmul(A, b), zsc(B, c)), zadd(zsc(Cc, c), zmul(D, cc)), zadd(zmul(Cc, b), zsc(D, c))];
+      continue;
+    }
+    if (e.tl === "wg"){                                    // TE10 section: Zw = Z0·k/β above cutoff, j·Z0·k/α below it
+      const k = 2*Math.PI*f*1e9/C0, kc = 2*Math.PI*P.fc*1e9/C0, L = e.len/1000; let a, b, cc, d;
+      if (k > kc*1.000001){ const be = Math.sqrt(k*k - kc*kc), Zw = Z0*k/be, th = be*L; a = cz(Math.cos(th)); b = cz(0, Zw*Math.sin(th)); cc = cz(0, Math.sin(th)/Zw); d = a; }
+      else { const al = Math.sqrt(Math.max(kc*kc - k*k, 1e-12)), X = Z0*k/al, x = Math.min(al*L, 60); a = cz(Math.cosh(x)); b = cz(0, X*Math.sinh(x)); cc = cz(0, -Math.sinh(x)/X); d = a; }
+      [A, B, Cc, D] = [zadd(zmul(A, a), zmul(B, cc)), zadd(zmul(A, b), zmul(B, d)), zadd(zmul(Cc, a), zmul(D, cc)), zadd(zmul(Cc, b), zmul(D, d))];
       continue;
     }
     if (e.tl === "stub"){                                  // shunt short-circuited stub: Y = 1 / (j·Zs·tan βl)
@@ -5128,13 +5180,13 @@ function flDelay(f, P = RF.fl, els = flDesign(P)){
   let dp = p2 - p1; while (dp > Math.PI) dp -= 2*Math.PI; while (dp < -Math.PI) dp += 2*Math.PI;
   return -dp/(2*Math.PI*2*d);                                   // ns
 }
-const flLam = f => C0/(f*1e9*Math.sqrt(FL_EEFF))*1000;              // guided wavelength in mm
-const flVal = e => e.tl ? `${e.Z.toFixed(0)} Ω, ${deg(e.th).toFixed(0)}° = ${(e.th/(2*Math.PI)*flLam(RF.fl.fc)).toFixed(1)} mm` : e.part === "L" ? `${(e.val*1e9).toFixed(2)} nH` : `${(e.val*1e12).toFixed(2)} pF`;
-const flXmax = P => P.real === "tl" ? Math.min(24, Math.max(6, 6*P.fc)) : 6;
+const flLam = f => C0/(f*1e9*Math.sqrt(RF.fl.real === "cav" ? 1 : FL_EEFF))*1000;     // wavelength in mm (microstrip or air)
+const flVal = e => e.tl === "wg" ? `a = ${e.a.toFixed(1)} mm, ℓ = ${e.len.toFixed(0)} mm` : e.tl ? `${e.Z.toFixed(0)} Ω, ${deg(e.th).toFixed(0)}° = ${(e.th/(2*Math.PI)*flLam(RF.fl.fc)).toFixed(1)} mm` : e.part === "L" ? `${(e.val*1e9).toFixed(2)} nH` : `${(e.val*1e12).toFixed(2)} pF`;
+const flXmax = P => P.real === "lc" ? 6 : P.real === "cav" && P.type === "hp" ? Math.min(24, Math.max(6, 4*P.fc)) : Math.min(24, Math.max(6, 6*P.fc));
 // first spurious response of the line version: a passband (LP) or a notch (HP) that the lumped filter does not have
 function flSpur(P = RF.fl, els = flDesign(P)){
-  if (P.real !== "tl") return null;
-  if (P.type === "hp") return {f: 4*P.fc, kind:"notch"};               // λ/8 stubs become λ/2 shorts at 4·fc
+  if (P.real === "lc") return null;
+  if (P.type === "hp") return P.real === "cav" ? {f: 2*P.fc, kind:"mode"} : {f: 4*P.fc, kind:"notch"};               // λ/8 stubs become λ/2 shorts at 4·fc
   let stop = false;
   for (let f = 1.2*P.fc; f < 8*P.fc; f += P.fc/200){
     const t = dB(zabs(flCalc(f, P, els).s21));
@@ -5144,6 +5196,51 @@ function flSpur(P = RF.fl, els = flDesign(P)){
 }
 let flOff = 0;
 const stripW = Z => clamp(14*Math.pow(50/Z, 1.3), 3, 56);
+function drawFLcav(dt, P, els, t){
+  const x0 = 106, x1 = 894;
+  if (P.type === "lp"){
+    const yc = 122;
+    // coaxial cavity, cut along its axis: outer tube, centre rod with discs
+    const tot = els.reduce((a, e) => a + deg(e.th), 0), k = Math.min(4, (x1 - x0 - 80)/tot), b = 48;
+    let x = x0 + (x1 - x0 - tot*k)/2;
+    ctx.fillStyle = C.metal; ctx.fillRect(x0, yc - b - 10, x1 - x0, 10); ctx.fillRect(x0, yc + b, x1 - x0, 10);
+    ctx.fillStyle = C.panel; ctx.fillRect(x0, yc - b, x1 - x0, 2*b);
+    const r50 = b*Math.exp(-Z0/60);
+    ctx.fillStyle = C.metal; ctx.fillRect(x0, yc - r50, x - x0, 2*r50);
+    els.forEach((e, i) => {
+      const L = deg(e.th)*k, r = b*Math.exp(-e.Z/60);
+      ctx.fillStyle = C.metal; ctx.fillRect(x, yc - r, L, 2*r);
+      const top = i % 2 === 0;
+      txt(`${e.part === "L" ? "rod" : "disc"} ${i + 1}`, x + L/2, top ? 46 : 192, {al:"center", px:11, col:C.fg, w:700});
+      txt(`${e.Z.toFixed(0)} Ω · ${(e.th/(2*Math.PI)*flLam(P.fc)).toFixed(1)} mm`, x + L/2, top ? 59 : 205, {al:"center", px:10, col:C.accent});
+      x += L;
+    });
+    ctx.fillStyle = C.metal; ctx.fillRect(x, yc - r50, x1 - x, 2*r50);
+    flOff += dt*70; flowDots(polyline([[x0, yc - b + 8],[x1, yc - b + 8]]), flOff, 0.85*t, C.accent);
+    txt(`air-filled coax, Z = 60·ln(b/a): thin rod ${FL_CZH} Ω ≈ series L, disc ${FL_CZL} Ω ≈ shunt C`, 22, 224, {px:10, col:C.fg});
+  } else {
+    // waveguide section between two coax-to-waveguide probe transitions; the field along it
+    const e = els[0], gx0 = 170, gx1 = 830, gy0 = 50, gy1 = 170, W = wgCalc(P.f, "TE10"), ph = RF.t;
+    const kc = 2*Math.PI*P.fc*1e9/C0, k = 2*Math.PI*P.f*1e9/C0, prop = k > kc, q = Math.sqrt(Math.abs(k*k - kc*kc))/1000;   // per mm
+    wire([[x0, 90],[gx0 + 20, 90],[gx0 + 20, 130]]); wire([[x1, 90],[gx1 - 20, 90],[gx1 - 20, 130]]);
+    ctx.fillStyle = C.metal; ctx.fillRect(gx0 - 8, gy0 - 8, gx1 - gx0 + 16, 8); ctx.fillRect(gx0 - 8, gy1, gx1 - gx0 + 16, 8); ctx.fillRect(gx0 - 8, gy0, 8, gy1 - gy0); ctx.fillRect(gx1, gy0, 8, gy1 - gy0);
+    ctx.fillStyle = C.panel; ctx.fillRect(gx0, gy0, gx1 - gx0, gy1 - gy0);
+    const n = 110, zs = gx0 + 30, ze = gx1 - 30;
+    for (let i=0;i<n;i++){
+      const z = i/(n - 1)*e.len, v = prop ? Math.cos(ph - q*z) : Math.exp(-q*z)*Math.cos(ph);
+      if (Math.abs(v) < 0.03) continue;
+      ctx.fillStyle = v > 0 ? C.accent : C.hole; ctx.globalAlpha = Math.min(0.8, Math.abs(v)*0.8);
+      ctx.fillRect(zs + i*(ze - zs)/n, gy0 + 8, (ze - zs)/n + .5, gy1 - gy0 - 16);
+    }
+    ctx.globalAlpha = 1;
+    ctx.strokeStyle = C.fg; ctx.lineWidth = 3; pl([[gx0 + 20, gy0 + 40],[gx0 + 20, 130]]); pl([[gx1 - 20, gy0 + 40],[gx1 - 20, 130]]);
+    txt("probe", gx0 + 26, gy0 + 34, {px:10, col:C.fg}); txt("probe", gx1 - 26, gy0 + 34, {al:"right", px:10, col:C.fg});
+    txt(`broad wall a = ${e.a.toFixed(1)} mm → TE10 cutoff ${P.fc.toFixed(2)} GHz · length ℓ = ${e.len.toFixed(0)} mm`, 22, 196, {px:11, col:C.fg, w:600});
+    txt(prop ? `${P.f.toFixed(2)} GHz > fc: the wave travels, λg = ${(2*Math.PI/q).toFixed(1)} mm` : `${P.f.toFixed(2)} GHz < fc: evanescent, field falls ${(8.686*q*e.len).toFixed(0)} dB over the guide`, 22, 212, {px:11, col: prop ? C.electron : C.hole, w:600});
+  }
+  const sp = flSpur(P, els);
+  txt(sp ? (sp.kind === "mode" ? `above 2·fc = ${sp.f.toFixed(1)} GHz the TE20 mode can also propagate (not modelled)` : `line lengths repeat: a spurious passband near ${sp.f.toFixed(1)} GHz`) : "lines repeat every λ/2, so the response comes back at higher frequency", 22, 238, {px:10, col:C.hole});
+}
 function drawFLtl(dt, P, els, t){
   const yr = 90, x0 = 106, x1 = 894, feed = 36;
   ctx.fillStyle = C.metal;
@@ -5192,11 +5289,12 @@ function drawFLtl(dt, P, els, t){
 function drawFL(dt, T){
   const P = RF.fl, els = flDesign(P), S = flCalc(P.f, P, els), ph = RF.t, t = zabs(S.s21), g = zabs(S.s11);
   ctx.fillStyle = C.panel2; ctx.fillRect(10, 10, 980, 240);
-  const tl = P.real === "tl";
-  txt(`${P.type === "lp" ? "Low-pass" : "High-pass"} ${tl ? (P.type === "lp" ? "stepped-impedance microstrip" : "stub microstrip") : "LC ladder"} · ${P.resp === "bw" ? "Butterworth" : "Chebyshev 0.5 dB"} · N = ${P.n}`, 22, 26, {col:C.fg, w:700, px:13});
+  const tl = P.real === "tl", cav = P.real === "cav";
+  const kind = cav ? (P.type === "lp" ? "coaxial cavity" : "waveguide") : tl ? (P.type === "lp" ? "stepped-impedance microstrip" : "stub microstrip") : "LC ladder";
+  txt(cav && P.type === "hp" ? `High-pass waveguide section · length ${P.n}·λc/4` : `${P.type === "lp" ? "Low-pass" : "High-pass"} ${kind} · ${P.resp === "bw" ? "Butterworth" : "Chebyshev 0.5 dB"} · N = ${P.n}`, 22, 26, {col:C.fg, w:700, px:13});
   portBox(20, 60, 86, 60, "Port 1", "50 Ω source", C.accent);
   portBox(894, 60, 86, 60, "Port 2", "50 Ω load", C.electron);
-  if (tl) drawFLtl(dt, P, els, t); else {
+  if (cav) drawFLcav(dt, P, els, t); else if (tl) drawFLtl(dt, P, els, t); else {
   const yr = 90, x0 = 106, x1 = 894, dx = (x1 - x0)/(els.length + 1);
   let xw = x0;
   els.forEach((e, i) => {
@@ -5234,7 +5332,7 @@ function drawFL(dt, T){
   const bx = 620, bw = 370;
   panel(bx, oy, bw, h, "Where the power goes");
   const lost = Math.max(0, 1 - t*t - g*g);
-  [["Transmitted |S21|²", t*t, C.electron], ["Reflected |S11|²", g*g, C.hole], [P.real === "tl" ? "Lost (lines are lossless here)" : "Lost in the inductors", lost, C.accent]].forEach(([lab, v, col], i) => {
+  [["Transmitted |S21|²", t*t, C.electron], ["Reflected |S11|²", g*g, C.hole], [P.real !== "lc" ? "Lost (lines are lossless here)" : "Lost in the inductors", lost, C.accent]].forEach(([lab, v, col], i) => {
     const y = oy + 50 + i*52;
     txt(lab, bx + 14, y, {col:C.fg, px:11, w:600});
     ctx.fillStyle = C.line; ctx.fillRect(bx + 14, y + 10, bw - 100, 14);
@@ -5251,6 +5349,7 @@ function drawRF(dt, T){
 function rfTick(dt){ RF.t += dt*(reduce ? 1.2 : 3.2); }
 
 /* ---------------- DOM ---------------- */
+const RF_CAV_TEXT = "When a filter must handle high power or very low loss (base stations, satellites, radar), it is machined from metal and filled with air. The low-pass version is a coaxial cavity: a centre rod inside a tube. Where the rod is thin, the coax has a high impedance (Z = 60·ln(b/a)) and acts like a series inductor; where it carries a disc that nearly touches the tube, the impedance is low and the disc acts like a shunt capacitor. It is the same stepped-impedance idea as on a circuit board, but in air, so the parts are longer and the loss is tiny. The high-pass version needs no parts at all: a hollow waveguide cannot carry its TE10 mode below the cutoff fc = c/2a, so choosing the broad wall a sets fc. Below cutoff the field decays as e^(−αz) along the guide, so a longer guide rejects more; above cutoff the wave travels, with a small ripple near fc because the guide's wave impedance only approaches 50 Ω well above cutoff. Higher modes such as TE20 start to propagate above about 2·fc, which limits the useful band. Real cavity filters are most often band-pass: a chain of coupled resonant cavities.";
 const RF_TL_TEXT = "Above a few GHz, discrete inductors and capacitors become lossy and hard to make accurately, so filters are printed as microstrip lines. A line much shorter than a wavelength behaves like a lumped part: a narrow, high-impedance line acts like a series inductor (βl = g·Z0/Zh) and a wide, low-impedance line like a shunt capacitor (βl = g·Zl/Z0). Putting them in a row gives the stepped-impedance low-pass filter. For the high-pass, Richards' transformation turns each shunt inductor into a short-circuited stub λ/8 long at fc, whose reactance Zs·tan(βl) rises with frequency like an inductor's; the series capacitors are realised as gaps in the line. The price is that lines are only approximations of L and C: the edge is a little softer than the lumped filter's, and because a line looks the same every half wavelength, the response repeats. The low-pass opens a spurious passband at higher frequency, and the high-pass stubs become half-wave shorts at 4·fc and cut a notch. Real designs add extra stubs or lowpass sections to push these spurious responses away.";
 const RFINFO = {
   sp:{pill:"S", name:"S-parameters of a two-port", sub:"Waves in, waves out: reflection S11 and transmission S21",
@@ -5325,10 +5424,11 @@ function rfSlider(id, txt){ $(id + "-v").textContent = txt; }
 let rfGlossKey = "";
 function updateRF(){
   const v = RF.view, info = RFINFO[v];
-  const tlf = v === "fl" && RF.fl.real === "tl";
-  $("rf-pill").textContent = tlf ? "TL" : info.pill; $("rf-name").textContent = tlf ? "Transmission-line filters" : info.name;
-  $("rf-sub").textContent = tlf ? "Short line sections and stubs take the place of the inductors and capacitors" : info.sub;
-  $("rf-explain").textContent = tlf ? RF_TL_TEXT : info.text;
+  const tlf = v === "fl" && RF.fl.real === "tl", cvf = v === "fl" && RF.fl.real === "cav";
+  $("rf-pill").textContent = tlf ? "TL" : cvf ? "CAV" : info.pill;
+  $("rf-name").textContent = tlf ? "Transmission-line filters" : cvf ? "Cavity and waveguide filters" : info.name;
+  $("rf-sub").textContent = tlf ? "Short line sections and stubs take the place of the inductors and capacitors" : cvf ? "Machined metal: a coaxial rod-and-disc low-pass and a waveguide high-pass" : info.sub;
+  $("rf-explain").textContent = tlf ? RF_TL_TEXT : cvf ? RF_CAV_TEXT : info.text;
   document.querySelectorAll("#rf-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
   ["sp","cp","bl","an","wg","fl"].forEach(k => $("rf-c-" + k).hidden = k !== v);
   setHTML("rf-legend", RFLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
@@ -5375,19 +5475,30 @@ function updateRF(){
     document.querySelectorAll("#rf-fl-n button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.n === P.n));
     document.querySelectorAll("#rf-fl-real button").forEach(b => b.setAttribute("aria-pressed", b.dataset.x === P.real));
     const xm = flXmax(P); if (+$("rf-fl-f").max !== xm){ $("rf-fl-f").max = xm; if (P.f > xm){ P.f = xm; } $("rf-fl-f").value = P.f; }
-    $("rf-fl-q").disabled = P.real === "tl";
-    if (P.real === "tl") rfSlider("rf-fl-q", "lines: lossless");
+    $("rf-fl-q").disabled = P.real !== "lc";
+    if (P.real !== "lc") rfSlider("rf-fl-q", "lines: lossless");
+    const wgHP = P.real === "cav" && P.type === "hp";
+    document.querySelectorAll("#rf-fl-resp button").forEach(b => b.disabled = wgHP);
     const s11d = dB(zabs(S.s11));
     ro.push(["|S21| at f", dB(zabs(S.s21)).toFixed(2) + " dB"], ["|S11| at f", s11d < -60 ? "< −60 dB" : s11d.toFixed(1) + " dB"], ["Rejection", (-dB(zabs(R.s21))).toFixed(1) + " dB"], ["Group delay", flDelay(P.f, P, els).toFixed(2) + " ns"]);
+    if (wgHP){
+      const e = els[0], kc = 2*Math.PI*P.fc*1e9/C0, kh = 2*Math.PI*fs*1e9/C0, al = Math.sqrt(kc*kc - kh*kh);
+      rows.push({name:"Waveguide", f:"fc = c / 2a  →  a = c / (2·fc)", sub:`a = ${e.a.toFixed(1)} mm for fc = ${P.fc.toFixed(2)} GHz (no prototype: the guide is the filter)`});
+      rows.push({name:"Below cutoff", f:"α = kc·√(1 − (f/fc)²),  attenuation ≈ 8.686·α·ℓ dB", sub:`at ${fs.toFixed(2)} GHz: α = ${al.toFixed(1)} Np/m, ℓ = ${e.len.toFixed(0)} mm → ≈ ${(8.686*al*e.len/1000).toFixed(1)} dB`});
+      rows.push({name:"Response", f:"TE10 line: Zw = Z0·k/β, θ = β·ℓ  (cosh / sinh below cutoff)", sub:`at ${P.f.toFixed(2)} GHz: |S21| = ${dB(zabs(S.s21)).toFixed(2)} dB`});
+      rows.push({name:"Periodic", f:"next mode TE20: cutoff 2·fc", sub:`single-mode band ${P.fc.toFixed(2)}–${(2*P.fc).toFixed(2)} GHz`});
+    } else {
     rows.push({name:"Prototype", f: P.resp === "bw" ? "gk = 2·sin((2k − 1)π / 2N)" : "Chebyshev 0.5 dB table (odd N: equal 50 Ω ends)", sub:`N = ${P.n}: g = ${els.map(e => e.g.toFixed(3)).join(", ")}`});
-    if (P.real === "tl") rows.push(P.type === "lp"
+    if (P.real === "cav") rows.push({name:"Coax steps", f:`Z = 60·ln(b/a),  βl(L) = g·Z0 / ${FL_CZH} Ω,  βl(C) = g·${FL_CZL} Ω / Z0`, sub: els.map((e, i) => `${e.part === "L" ? "rod" : "disc"} ${i + 1}: ${(e.th/(2*Math.PI)*flLam(P.fc)).toFixed(1)} mm`).join(", ") + ` (air, b/a = ${Math.exp(FL_CZH/60).toFixed(1)} and ${Math.exp(FL_CZL/60).toFixed(2)})`});
+    else if (P.real === "tl") rows.push(P.type === "lp"
       ? {name:"Stepped Z", f:`βl(L) = g·Z0 / Zh,  βl(C) = g·Zl / Z0,  Zh = ${FL_ZH} Ω, Zl = ${FL_ZL} Ω`, sub: els.map((e, i) => `${e.part}${i + 1}: ${deg(e.th).toFixed(0)}°`).join(", ") + ` (λg = ${flLam(P.fc).toFixed(1)} mm at fc, εeff = ${FL_EEFF})`}
       : {name:"Richards", f:"shunt L → short stub, Zs = ωc·L = Z0 / g, length λ/8 at fc", sub: els.map((e, i) => e.tl ? `L${i + 1}: Zs = ${e.Z.toFixed(1)} Ω` : `C${i + 1} = ${(e.val*1e12).toFixed(2)} pF`).join(", ")});
     else rows.push({name:"Scaling", f: P.type === "lp" ? "C = g / (Z0·ωc),  L = g·Z0 / ωc" : "L = Z0 / (ωc·g),  C = 1 / (Z0·ωc·g)", sub: els.map((e, i) => `${e.part}${i + 1} = ${flVal(e)}`).join(", ")});
     rows.push({name:"Response", f:"S21 = 2 / (A + B/Z0 + C·Z0 + D)  (cascade of ABCD matrices)", sub:`at ${P.f.toFixed(2)} GHz: |S21| = ${dB(zabs(S.s21)).toFixed(2)} dB, ∠ ${deg(zarg(S.s21)).toFixed(0)}°`});
     const sp = flSpur(P, els);
-    if (P.real === "tl") rows.push({name:"Periodic", f:"a line looks the same every λ/2: the response repeats", sub: sp ? (sp.kind === "notch" ? `notch at 4·fc = ${sp.f.toFixed(2)} GHz (stubs λ/2 long)` : `spurious passband from ≈ ${sp.f.toFixed(2)} GHz`) : "no spurious response in range"});
+    if (P.real !== "lc") rows.push({name:"Periodic", f:"a line looks the same every λ/2: the response repeats", sub: sp ? (sp.kind === "notch" ? `notch at 4·fc = ${sp.f.toFixed(2)} GHz (stubs λ/2 long)` : `spurious passband from ≈ ${sp.f.toFixed(2)} GHz`) : "no spurious response in range"});
     else rows.push({name:"Slope", f:"≈ 20·N dB per decade outside the passband", sub:`${(20*P.n).toFixed(0)} dB/decade; at ${fs.toFixed(2)} GHz: ${(-dB(zabs(R.s21))).toFixed(1)} dB`});
+    }
   } else {
     const P = RF.wg, W = wgCalc(P.f, P.mode);
     rfSlider("rf-wg-f", `${P.f.toFixed(2)} GHz`);
@@ -5422,7 +5533,7 @@ function updateRFGloss(){
     const lam = C0/(RF.an.f*1e9)*1000;
     t = `<table><tr><th>L / λ</th><th>L (mm)</th><th>Zin (Ω)</th><th>Directivity</th><th>|S11| (50 Ω)</th></tr>` + [0.25, 0.47, 0.5, 1.25, 1.5, RF.an.L/lam].map(r => { const A = anCalc(RF.an.f, r*lam); return `<tr${Math.abs(r - RF.an.L/lam) < 1e-9 ? ' style="font-weight:700"' : ""}><td>${r.toFixed(2)}</td><td>${(r*lam).toFixed(1)}</td><td>${zstr(A.zin, 0)}</td><td>${(10*Math.log10(A.D)).toFixed(2)} dBi</td><td>${dB(zabs(A.s11)).toFixed(1)} dB</td></tr>`; }).join("") + `</table>`; }
   else if (v === "fl"){ h = "Element values of this filter:"; const els = flDesign();
-    t = `<table><tr><th>Element</th><th>Placement</th><th>g</th><th>Value</th></tr>` + els.map((e, i) => `<tr><td>${e.part}${i + 1}</td><td>${e.tl === "line" ? (e.part === "L" ? "high-Z line" : "low-Z line") : e.tl === "stub" ? "short-circuited stub" : e.shunt ? "shunt to ground" : "series"}</td><td>${e.g.toFixed(4)}</td><td>${flVal(e)}</td></tr>`).join("") + `</table>`; }
+    t = `<table><tr><th>Element</th><th>Placement</th><th>g</th><th>Value</th></tr>` + els.map((e, i) => `<tr><td>${e.part}${i + 1}</td><td>${e.tl === "wg" ? "waveguide section" : e.tl === "line" ? (RF.fl.real === "cav" ? (e.part === "L" ? "thin rod (high Z)" : "disc (low Z)") : e.part === "L" ? "high-Z line" : "low-Z line") : e.tl === "stub" ? "short-circuited stub" : e.shunt ? "shunt to ground" : "series"}</td><td>${isNaN(e.g) ? "—" : e.g.toFixed(4)}</td><td>${flVal(e)}</td></tr>`).join("") + `</table>`; }
   else { h = `Modes of WR-90 at ${RF.wg.f.toFixed(2)} GHz:`;
     t = `<table><tr><th>Mode</th><th>fc (GHz)</th><th>Propagates?</th><th>λg (mm)</th></tr>` + WG_MODES.map(md => { const W = wgCalc(RF.wg.f, md); return `<tr${md === RF.wg.mode ? ' style="font-weight:700"' : ""}><td>${md}</td><td>${W.fc.toFixed(2)}</td><td class="${W.prop ? "ok" : "bad"}">${W.prop ? "yes" : "no"}</td><td>${W.prop ? W.lamg.toFixed(1) : "—"}</td></tr>`; }).join("") + `</table>`; }
   $("rf-g-head").textContent = h;
