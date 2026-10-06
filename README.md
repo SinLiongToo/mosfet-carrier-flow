@@ -89,6 +89,14 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 ## Process flow tab (`#process-flow`)
 - 15 animated steps from a bare wafer to a CMOS inverter (STI, wells, gate, LDD/spacers, source/drain, anneal, silicide, contacts, copper), implant depth profiles and junction depth, Deal-Grove oxidation
 
+## Packaging tab (`#packaging`)
+- **Wire bond** – back-grinding, dicing, die attach (epoxy, pick-and-place, cure), thermosonic ball/stitch wire bonding with capillary and free-air ball, molding, marking, singulation, final test
+- **Flip-chip (RDL + bumps)** – passivation, polyimide, RDL copper plating, UBM, Cu pillar + solder cap, flip and place, reflow, underfill
+- **Fan-out WLP (eWLB)** – dies on a carrier, compression molding, debond, fan-out RDL with antenna-in-package, solder balls, singulation
+- **Interconnects at 77 GHz** – bond-wire inductance vs bump: reactance, |S21| vs frequency, I/O count of edge pads vs area bumps
+
+Tabs are grouped into four topics (Devices · Circuits · Power & RF · Fab, package & reliability); the topic selector in the header shows that topic's tabs.
+
 Every tab has hover/tap explanations on its readouts and equations, plus an **Explain the terms** panel: a step-by-step walkthrough, live tables computed from the current settings, and a glossary.
 
 Light / dark theme toggle (follows the system by default).
