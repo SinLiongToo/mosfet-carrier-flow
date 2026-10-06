@@ -2856,6 +2856,166 @@ Object.assign(window.I18N_ZH, {
 "all of the tail current switched to one side": "尾電流全部切到一側",
 "the mirror copies I# to the right; Vout gets I# − I#": "電流鏡把 I# 複製到右邊；Vout 得到 I# − I#"
 });
+Object.assign(window.I18N_ZH, {
+"Latch-up & ESD": "閂鎖效應與 ESD",
+"CMOS latch-up": "CMOS 閂鎖效應",
+"Reliability view": "可靠度檢視",
+"Latch-up": "閂鎖效應",
+"ESD protection": "ESD 保護",
+"⚡ Inject trigger current": "⚡ 注入觸發電流",
+"Power cycle (reset)": "重新上電（重置）",
+"Size of the injected substrate current, e.g. from an I/O pin driven below ground.": "注入基板的電流大小，例如 I/O 腳位被拉到地電位以下時。",
+"Trigger current": "觸發電流",
+"Resistance from the NMOS area to the nearest substrate tap. More taps nearby = lower Rsub = harder to trigger.": "從 NMOS 區域到最近基板接點的電阻。附近接點越多，Rsub 越低，越難觸發。",
+"Substrate resistance Rsub": "基板電阻 Rsub",
+"Distance between the NMOS and the n-well. Wider spacing makes the parasitic lateral NPN weaker.": "NMOS 與 n 井之間的距離。間距越寬，寄生的橫向 NPN 越弱。",
+"NMOS–well spacing": "NMOS 與井的間距",
+"Guard rings around NMOS and PMOS": "在 NMOS 和 PMOS 周圍加保護環",
+"⚡ Zap the pin": "⚡ 對腳位放電",
+"Charging voltage of the human-body model. # kV is a common product requirement.": "人體放電模型的充電電壓。# kV 是常見的產品要求。",
+"HBM voltage": "HBM 電壓",
+"Voltage at which the gate oxide behind the pin breaks down permanently. Thin core oxides break at a few volts.": "腳位後方閘極氧化層永久崩潰的電壓。薄的核心氧化層幾伏就會崩潰。",
+"Oxide breakdown": "氧化層崩潰",
+"Diodes to VDD and VSS": "接到 VDD 與 VSS 的二極體",
+"Power clamp (VDD to VSS)": "電源鉗位（VDD 到 VSS）",
+"Thyristor snapback curve, or ESD current pulse": "閘流體驟回曲線，或 ESD 電流脈衝",
+"Loop gain versus spacing, or pin voltage versus ESD level": "迴路增益對間距，或腳位電壓對 ESD 等級",
+"Explain the terms: latch-up, parasitic thyristor, guard ring, ESD, HBM, clamp": "名詞解釋：閂鎖效應、寄生閘流體、保護環、ESD、HBM、鉗位",
+"How latch-up starts and holds": "閂鎖效應如何發生並維持",
+"Every CMOS inverter hides a <b>PNPN</b> stack: p+ (PMOS) → n-well → p-substrate → n+ (NMOS).": "每個 CMOS 反相器都藏著一個 <b>PNPN</b> 疊層：p+（PMOS）→ n 井 → p 基板 → n+（NMOS）。",
+"A disturbance injects current into the substrate; across Rsub it builds up # V.": "某個干擾把電流注入基板；在 Rsub 上建立 # V 的電壓。",
+"The parasitic <b>NPN</b> turns on and pulls current through the n-well resistance, which turns on the <b>PNP</b>.": "寄生的 <b>NPN</b> 導通，從 n 井電阻抽電流，使 <b>PNP</b> 導通。",
+"The PNP feeds the NPN's base: if βnpn·βpnp > #, the loop keeps itself on after the trigger is gone.": "PNP 又供電流給 NPN 的基極：若 βnpn·βpnp > #，觸發消失後迴路仍維持導通。",
+"The chip draws a large current until it is powered down, or burns.": "晶片會一直汲取大電流，直到斷電或燒毀。",
+"Your design:": "你的設計：",
+"The same junctions explain both pages: the PN-junction tab shows why a diode conducts at about # V, and the BJT tab shows the gain β that makes the parasitic loop dangerous.": "同樣的接面原理解釋這兩頁：PN 接面分頁說明二極體為什麼約在 # V 導通，BJT 分頁則說明讓寄生迴路變危險的增益 β。",
+"Latch-up terms": "閂鎖效應名詞",
+"Thyristor (SCR)": "閘流體（SCR）",
+"PNPN device that, once triggered, stays on until its current falls below the holding current.": "PNPN 元件，一旦觸發就保持導通，直到電流低於保持電流。",
+"Parasitic bipolar": "寄生雙極電晶體",
+"Unintended transistor formed by the wells and diffusions of CMOS.": "由 CMOS 的井與擴散區意外形成的電晶體。",
+"Well / substrate tap": "井／基板接點",
+"Contact that ties the well to VDD or the substrate to GND; more taps = lower resistance.": "把井接到 VDD 或把基板接到 GND 的接點；接點越多，電阻越低。",
+"Guard ring": "保護環",
+"Ring of tap diffusion around a device that collects stray carriers.": "圍繞元件的接點擴散環，用來收集游離載子。",
+"Holding voltage": "保持電壓",
+"Voltage the latched path settles at; if it is below VDD the latch persists.": "閂鎖路徑穩定時的電壓；若低於 VDD，閂鎖就會持續。",
+"ESD terms": "ESD 名詞",
+"Electrostatic discharge: a sudden current from a charged person, tool or device.": "靜電放電：帶電的人、工具或元件突然放出的電流。",
+"Human-body model (# pF, # kΩ) and charged-device model (the chip itself discharges, < # ns).": "人體放電模型（# pF、# kΩ）與帶電元件模型（晶片本身放電，< # ns）。",
+"Primary diodes": "主要保護二極體",
+"Diodes from each pin to VDD and VSS that steer ESD current to the rails.": "從每個腳位接到 VDD 與 VSS 的二極體，把 ESD 電流導到電源軌。",
+"Power clamp": "電源鉗位",
+"Large NMOS between the rails, turned on by the fast ESD edge through an RC timer.": "跨接在電源軌之間的大 NMOS，由 RC 計時電路偵測快速的 ESD 邊緣後導通。",
+"Permanent short through the gate oxide when the field exceeds about # MV/cm.": "電場超過約 # MV/cm 時，閘極氧化層永久短路。",
+"ESD window": "ESD 設計窗口",
+"The protection must turn on above the normal operating voltage but below the breakdown of what it protects.": "保護電路必須在高於正常工作電壓、但低於被保護元件崩潰電壓的範圍內導通。",
+"Reliability · parasitic thyristor latch-up and electrostatic discharge": "可靠度 · 寄生閘流體閂鎖與靜電放電",
+"A hidden thyristor in every CMOS chip, and how layout keeps it switched off": "每顆 CMOS 晶片中隱藏的閘流體，以及佈局如何讓它保持關閉",
+"Look at a CMOS inverter in cross-section and you find four layers in a row: the PMOS p+ source, the n-well, the p-substrate and the NMOS n+ source. That is a PNPN thyristor, two parasitic bipolar transistors connected so that each one's collector feeds the other's base. Normally nothing happens: the well and substrate are tied to VDD and GND through resistors Rwell and Rsub, and no junction is forward biased. But if something injects current into the substrate (an I/O pin swinging below ground, a radiation hit, a supply glitch), the voltage across Rsub can reach # V and turn the NPN on. Its collector current flows through Rwell, turns the PNP on, whose collector current feeds the NPN's base: positive feedback. If βnpn·βpnp > # the loop holds itself on, and a large current flows from VDD to GND even after the trigger is gone, until the chip overheats or the power is removed. Layout fights it with many substrate and well taps (low Rsub, Rwell), wider spacing between NMOS and the well (lower βnpn) and guard rings that collect stray carriers. SOI and deep-trench processes remove the path altogether.": "看 CMOS 反相器的剖面，你會發現連續四層：PMOS 的 p+ 源極、n 井、p 基板、NMOS 的 n+ 源極。這就是一個 PNPN 閘流體：兩個寄生雙極電晶體，彼此的集極供電給對方的基極。平常什麼事都沒有：井和基板經由電阻 Rwell 和 Rsub 接到 VDD 和 GND，沒有任何接面順偏。但如果有東西把電流注入基板（I/O 腳位擺盪到地電位以下、輻射擊中、電源突波），Rsub 上的電壓可能達到 # V，使 NPN 導通。它的集極電流流過 Rwell，使 PNP 導通，PNP 的集極電流又供給 NPN 的基極：正回授。若 βnpn·βpnp > #，迴路就自我維持，即使觸發消失，VDD 到 GND 仍有大電流，直到晶片過熱或斷電。佈局的對策是：大量的基板與井接點（降低 Rsub、Rwell）、加大 NMOS 與井的間距（降低 βnpn），以及收集游離載子的保護環。SOI 和深溝槽製程則能完全消除這條路徑。",
+"Latch current / parasitic transistor on": "閂鎖電流／寄生電晶體導通",
+"βnpn·βpnp: above # the parasitic thyristor can hold itself on.": "βnpn·βpnp：大於 # 時寄生閘流體能自我維持導通。",
+"Loop gain": "迴路增益",
+"Substrate current that makes Rsub drop # V and turns the NPN on.": "使 Rsub 壓降達 # V、讓 NPN 導通的基板電流。",
+"Trigger needed": "所需觸發電流",
+"Normal or latched.": "正常或已閂鎖。",
+"State": "狀態",
+"normal": "正常",
+"LATCHED": "已閂鎖",
+"Current from VDD to GND through the latched PNPN path.": "經由閂鎖的 PNPN 路徑從 VDD 流到 GND 的電流。",
+"Latch current": "閂鎖電流",
+"Two parasitic bipolar transistors in a positive-feedback loop.": "兩個寄生雙極電晶體形成正回授迴路。",
+"Thyristor": "閘流體",
+"latch-up possible if βnpn · βpnp > #": "若 βnpn · βpnp > # 就可能閂鎖",
+"# · # = # → possible": "# · # = # → 可能",
+"# · # = # → impossible": "# · # = # → 不可能",
+"I·Rsub ≥ # V forward-biases the NPN's base-emitter junction.": "I·Rsub ≥ # V 使 NPN 的基極－射極接面順偏。",
+"Trigger": "觸發",
+"Rsub = # Ω → needs # mA; injected # mA": "Rsub = # Ω → 需要 # mA；已注入 # mA",
+"Taps, spacing and guard rings lower β and Rsub.": "接點、間距和保護環可降低 β 與 Rsub。",
+"Prevention": "預防",
+"βnpn ∝ #/spacing, guard ring: β ×#, Rsub ÷#": "βnpn ∝ #/間距，保護環：β ×#，Rsub ÷#",
+"spacing # µm, guard rings off": "間距 # µm，保護環關",
+"spacing # µm, guard rings on": "間距 # µm，保護環開",
+"How layout choices change the risk (Rsub from your slider):": "佈局選擇如何改變風險（Rsub 取自你的滑桿）：",
+"Spacing": "間距",
+"Guard rings": "保護環",
+"Latch-up?": "會閂鎖？",
+"possible": "可能",
+"impossible": "不可能",
+"yes": "是",
+"no": "否",
+"VDD − GND (V)": "VDD − GND（V）",
+"trigger point": "觸發點",
+"holding: ≈ # V": "保持：≈ # V",
+"— PNPN snapback (latched if VDD > V_hold)": "— PNPN 驟回（VDD > V_hold 時閂鎖）",
+"NMOS–well spacing (µm)": "NMOS 與井間距（µm）",
+"— no guard ring": "— 無保護環",
+"— guard rings": "— 有保護環",
+"p-substrate": "p 基板",
+"n-well": "n 井",
+"p+ tap": "p+ 接點",
+"n+ tap": "n+ 接點",
+"guard rings": "保護環",
+"normal: loop gain β·β = # (> #: a trigger can latch it)": "正常：迴路增益 β·β = #（> #：觸發可能使它閂鎖）",
+"normal: loop gain β·β = # (< #: safe)": "正常：迴路增益 β·β = #（< #：安全）",
+"LATCHED: # mA from VDD to GND through the PNPN path; only removing power stops it": "已閂鎖：# mA 經 PNPN 路徑從 VDD 流到 GND；只有斷電才能停止",
+"trigger: # mA injected (needs # mA to turn the NPN on)": "觸發：注入 # mA（需要 # mA 才能使 NPN 導通）",
+"trigger: e.g. an I/O pin pulled below GND injects current into the substrate": "觸發：例如 I/O 腳位被拉到 GND 以下，把電流注入基板",
+"supply current (log scale, last # s)": "電源電流（對數刻度，最近 # 秒）",
+"Thousands of volts from a fingertip, steered around a gate oxide that breaks at a few volts": "指尖上的數千伏特，被導離只能承受幾伏的閘極氧化層",
+"Walking across a carpet charges a person to several kilovolts. Touching a pin discharges that in about a hundred nanoseconds as a current pulse of over an ampere: the human-body model (HBM) is # pF discharged through # kΩ. A modern gate oxide is a few nanometres thick and breaks down permanently at about #–# V. Without protection the charge piles onto the gate capacitance and destroys it at once. Every pin therefore has ESD protection: a diode to VDD and a diode to VSS turn on for positive and negative zaps and steer the current to a supply rail. A large NMOS power clamp between VDD and VSS, triggered by the fast edge through an RC network, then carries the current from VDD to VSS, so the pin voltage stays at a diode drop plus a few ohms times the current. The protection must be big enough to carry amperes for a microsecond, yet small enough not to load a high-speed or RF pin, which is especially hard at # GHz.": "走過地毯，人身上就會充到好幾千伏。碰觸腳位時，這些電荷在約一百奈秒內以超過一安培的電流脈衝放掉：人體放電模型（HBM）是 # pF 經由 # kΩ 放電。現代的閘極氧化層只有幾奈米厚，約 #–# V 就會永久崩潰。沒有保護時，電荷堆積在閘極電容上，立刻把它破壞。所以每個腳位都有 ESD 保護：接到 VDD 和 VSS 的二極體分別在正、負放電時導通，把電流導到電源軌。VDD 與 VSS 之間的大 NMOS 電源鉗位，由 RC 網路偵測快速邊緣而導通，再把電流從 VDD 帶到 VSS，於是腳位電壓只停在一個二極體壓降加上幾歐姆乘以電流。保護電路必須大到能承受安培級電流一微秒，又要小到不會拖累高速或 RF 腳位，這在 # GHz 特別困難。",
+"ESD current": "ESD 電流",
+"Peak of the human-body-model current pulse.": "人體放電模型電流脈衝的峰值。",
+"Peak current": "峰值電流",
+"Highest voltage the protected gate sees during the zap.": "放電期間被保護閘極承受的最高電壓。",
+"Peak pin voltage": "腳位峰值電壓",
+"Breakdown voltage of the gate oxide behind the pin.": "腳位後方閘極氧化層的崩潰電壓。",
+"Gate oxide": "閘極氧化層",
+"Survives or destroyed.": "存活或被破壞。",
+"Result": "結果",
+"survives": "存活",
+"destroyed": "被破壞",
+"Human-body model: # pF charged to V, discharged through # kΩ.": "人體放電模型：# pF 充到 V，經 # kΩ 放電。",
+"HBM pulse": "HBM 脈衝",
+"peak ≈ # V / # Ω = # A": "峰值 ≈ # V / # Ω = # A",
+"Energy stored in the body capacitance: ½·C·V².": "人體電容儲存的能量：½·C·V²。",
+"Energy": "能量",
+"Pin voltage = diode drop + current × (diode + clamp resistance).": "腳位電壓 = 二極體壓降 + 電流 ×（二極體 + 鉗位電阻）。",
+"Protected pin": "有保護的腳位",
+"The charge piles onto the gate capacitance: V = Q/Cg.": "電荷堆積在閘極電容上：V = Q/Cg。",
+"Unprotected pin": "沒有保護的腳位",
+"reaches # V → far above # V": "達到 # V → 遠高於 # V",
+"ESD test levels (qualification classes):": "ESD 測試等級（認證分級）：",
+"HBM class": "HBM 等級",
+"Voltage": "電壓",
+"Your protection": "你的保護",
+"time (µs)": "時間（µs）",
+"HBM current (A)": "HBM 電流（A）",
+"— human-body-model discharge": "— 人體放電模型放電",
+"HBM voltage (V)": "HBM 電壓（V）",
+"peak pin voltage (V)": "腳位峰值電壓（V）",
+"oxide limit": "氧化層極限",
+"human body": "人體",
+"I/O pad": "I/O 銲墊",
+"D# to VDD": "D# 接 VDD",
+"D# to VSS": "D# 接 VSS",
+"power": "電源",
+"clamp": "鉗位",
+"big NMOS": "大 NMOS",
+"gate oxide": "閘極氧化層",
+"breaks at # V": "# V 崩潰",
+"DESTROYED": "已損毀",
+"press “Zap” to discharge": "按「放電」開始",
+"current goes pad → D# → VDD → clamp → VSS: the pin stays at a few volts": "電流走 銲墊 → D# → VDD → 鉗位 → VSS：腳位只到幾伏",
+"D# dumps the charge on VDD, but nothing returns it to VSS: VDD rises": "D# 把電荷倒到 VDD，但沒有路徑回到 VSS：VDD 上升",
+"no protection: the charge piles up on the gate": "沒有保護：電荷堆積在閘極上",
+"t = # ns · I = # A · pin # V": "t = # ns · I = # A · 腳位 # V",
+"Pin voltage during the zap (first # µs)": "放電期間的腳位電壓（前 # µs）",
+"oxide breakdown": "氧化層崩潰",
+"time": "時間",
+"supply current": "電源電流"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -3188,6 +3348,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-rx" aria-selected="false" aria-controls="tab-rx">Radar receiver (LNA · mixer · ADC)</button>
         <button role="tab" id="tab-btn-bj" aria-selected="false" aria-controls="tab-bj">BJT & SiGe HBT</button>
         <button role="tab" id="tab-btn-an" aria-selected="false" aria-controls="tab-an">Analog (bandgap · op-amp)</button>
+        <button role="tab" id="tab-btn-re" aria-selected="false" aria-controls="tab-re">Latch-up & ESD</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -5169,6 +5330,117 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Miller compensation</dt><dd>Capacitor across the second stage that splits the poles and sets GBW.</dd>
               <dt>Slew rate</dt><dd>Fastest output change, Iss/Cc, when the input step fully switches the pair.</dd>
               <dt>Offset</dt><dd>Input voltage needed to make the output zero, caused by mismatch of the pair.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== LATCH-UP & ESD TAB ===================== -->
+  <section id="tab-re" role="tabpanel" aria-labelledby="tab-btn-re" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="re-pill">LU</span><h2 id="re-name">CMOS latch-up</h2></div>
+      <p id="re-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="re-view" role="group" aria-label="Reliability view" style="flex-wrap:wrap">
+        <button data-v="lu" aria-pressed="true">Latch-up</button>
+        <button data-v="esd" aria-pressed="false">ESD protection</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvre" aria-label="Animated CMOS cross-section with the parasitic thyristor, or an ESD zap into a protected pin"></canvas>
+      <div class="legend" id="re-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="re-ro"></div>
+        <div id="re-c-lu" style="display:grid;gap:12px">
+          <div class="chips">
+            <button class="chipbtn" id="re-trig">⚡ Inject trigger current</button>
+            <button class="chipbtn" id="re-reset">Power cycle (reset)</button>
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Size of the injected substrate current, e.g. from an I/O pin driven below ground.">Trigger current</span><span id="re-amp-v"></span></div>
+            <input id="re-amp" type="range" min="0.1" max="10" step="0.1" value="5">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Resistance from the NMOS area to the nearest substrate tap. More taps nearby = lower Rsub = harder to trigger.">Substrate resistance Rsub</span><span id="re-rsub-v"></span></div>
+            <input id="re-rsub" type="range" min="100" max="5000" step="50" value="1000">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Distance between the NMOS and the n-well. Wider spacing makes the parasitic lateral NPN weaker.">NMOS–well spacing</span><span id="re-spc-v"></span></div>
+            <input id="re-spc" type="range" min="0.5" max="10" step="0.5" value="3">
+          </div>
+          <label class="chk"><input type="checkbox" id="re-guard"> Guard rings around NMOS and PMOS</label>
+        </div>
+        <div id="re-c-esd" hidden style="display:grid;gap:12px">
+          <div class="chips"><button class="chipbtn" id="re-zap">⚡ Zap the pin</button></div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Charging voltage of the human-body model. 2 kV is a common product requirement.">HBM voltage</span><span id="re-vhbm-v"></span></div>
+            <input id="re-vhbm" type="range" min="250" max="8000" step="250" value="2000">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Voltage at which the gate oxide behind the pin breaks down permanently. Thin core oxides break at a few volts.">Oxide breakdown</span><span id="re-vbd-v"></span></div>
+            <input id="re-vbd" type="range" min="3" max="12" step="0.5" value="5">
+          </div>
+          <label class="chk"><input type="checkbox" id="re-diodes" checked> Diodes to VDD and VSS</label>
+          <label class="chk"><input type="checkbox" id="re-clamp" checked> Power clamp (VDD to VSS)</label>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="re-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Characteristics</p>
+        <div class="plots">
+          <div class="plot"><svg id="re-p1" viewBox="0 0 300 230" role="img" aria-label="Thyristor snapback curve, or ESD current pulse"></svg></div>
+          <div class="plot"><svg id="re-p2" viewBox="0 0 220 230" role="img" aria-label="Loop gain versus spacing, or pin voltage versus ESD level"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="re-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: latch-up, parasitic thyristor, guard ring, ESD, HBM, clamp</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>How latch-up starts and holds</h3>
+            <ol>
+              <li>Every CMOS inverter hides a <b>PNPN</b> stack: p+ (PMOS) → n-well → p-substrate → n+ (NMOS).</li>
+              <li>A disturbance injects current into the substrate; across Rsub it builds up 0.7 V.</li>
+              <li>The parasitic <b>NPN</b> turns on and pulls current through the n-well resistance, which turns on the <b>PNP</b>.</li>
+              <li>The PNP feeds the NPN's base: if βnpn·βpnp &gt; 1, the loop keeps itself on after the trigger is gone.</li>
+              <li>The chip draws a large current until it is powered down, or burns.</li>
+            </ol>
+            <p id="re-g-head">Your design:</p>
+            <div class="tbl" id="re-g-live"></div>
+            <p class="note">The same junctions explain both pages: the PN-junction tab shows why a diode conducts at about 0.7 V, and the BJT tab shows the gain β that makes the parasitic loop dangerous.</p>
+          </div>
+          <div>
+            <h3>Latch-up terms</h3>
+            <dl>
+              <dt>Thyristor (SCR)</dt><dd>PNPN device that, once triggered, stays on until its current falls below the holding current.</dd>
+              <dt>Parasitic bipolar</dt><dd>Unintended transistor formed by the wells and diffusions of CMOS.</dd>
+              <dt>Well / substrate tap</dt><dd>Contact that ties the well to VDD or the substrate to GND; more taps = lower resistance.</dd>
+              <dt>Guard ring</dt><dd>Ring of tap diffusion around a device that collects stray carriers.</dd>
+              <dt>Holding voltage</dt><dd>Voltage the latched path settles at; if it is below VDD the latch persists.</dd>
+            </dl>
+            <h3>ESD terms</h3>
+            <dl>
+              <dt>ESD</dt><dd>Electrostatic discharge: a sudden current from a charged person, tool or device.</dd>
+              <dt>HBM / CDM</dt><dd>Human-body model (100 pF, 1.5 kΩ) and charged-device model (the chip itself discharges, < 1 ns).</dd>
+              <dt>Primary diodes</dt><dd>Diodes from each pin to VDD and VSS that steer ESD current to the rails.</dd>
+              <dt>Power clamp</dt><dd>Large NMOS between the rails, turned on by the fast ESD edge through an RC timer.</dd>
+              <dt>Oxide breakdown</dt><dd>Permanent short through the gate oxide when the field exceeds about 10 MV/cm.</dd>
+              <dt>ESD window</dt><dd>The protection must turn on above the normal operating voltage but below the breakdown of what it protects.</dd>
             </dl>
           </div>
         </div>
@@ -10895,11 +11167,236 @@ $("an-best").addEventListener("click", () => { AN.K = Math.round(anKopt()*10)/10
 let anUpd = 0;
 function anTickAll(dt){ anTick(dt); if (AN.sweep && ++anUpd % 4 === 0) updateAN(); }
 
+/* =========================================================
+   TAB — reliability: CMOS latch-up and ESD protection
+   ========================================================= */
+const REC = setupCanvas($("cvre"), 1000, 488);
+const RE = {view:"lu", t:0,
+  rsub:1000, spc:3, guard:false, latched:false, trig:0, trigAmp:5, hist:[], lt:0,       // latch-up (trigger in mA)
+  vhbm:2000, diodes:true, clamp:true, vbd:5, et:-1, ehist:[], dmg:false};                 // ESD
+const RE_VDD = 1.8;
+// parasitic thyristor: NPN (n-well / p-sub / n+ source) and vertical PNP (p+ / n-well / p-sub)
+const reBn = () => (RE.guard ? 0.1 : 1)*30/RE.spc;                       // lateral NPN gain falls with spacing and guard rings
+const reBp = () => RE.guard ? 2 : 5;
+const reRsub = () => RE.guard ? RE.rsub/5 : RE.rsub;
+const reLoop = () => reBn()*reBp();
+const reItrig = () => 0.7/reRsub()*1000;                                 // mA needed to forward-bias the NPN base
+function reLatchI(){ return (RE_VDD - 1.0)/10*1000; }                   // mA through the latched PNPN (hold ≈ 1 V, 10 Ω path)
+
+/* ---------------- ESD (human-body model) ---------------- */
+const RE_RH = 1500, RE_CH = 100e-12, RE_TAU = RE_RH*RE_CH;                 // 1.5 kΩ, 100 pF → 150 ns
+const reIhbm = t => t < 0 ? 0 : (RE.vhbm/RE_RH)*(1 - Math.exp(-t/10e-9))*Math.exp(-t/RE_TAU);   // A
+function reVpin(t){
+  const I = reIhbm(t);
+  if (RE.diodes && RE.clamp) return 0.7 + I*(1.0 + 1.5);                // diode to VDD, RC-triggered clamp to VSS
+  if (RE.diodes) return 0.7 + I*1.0 + Math.min(I*40, 12);                // diode to VDD, rail rises until something breaks
+  const Cg = 2e-12, q = (RE.vhbm/RE_RH)*RE_TAU*(1 - Math.exp(-t/RE_TAU));   // charge piled on the gate node
+  return Math.min(q/Cg, RE.vhbm);
+}
+
+function reTick(dt){
+  RE.t += dt;
+  if (RE.view === "lu"){
+    RE.lt += dt;
+    if (RE.trig > 0){ RE.trig -= dt; if (!RE.latched && RE.trigAmp >= reItrig() && reLoop() > 1) RE.latched = true; }
+    const I = RE.latched ? reLatchI() : 0.02 + (RE.trig > 0 ? RE.trigAmp : 0);
+    RE.hist.push([RE.lt, I]); if (RE.hist.length > 600) RE.hist.shift();
+  } else if (RE.et >= 0){
+    RE.et += dt*(reduce ? 0.2 : 0.5);                                    // 1 s of animation ≈ 1 µs of event
+    const v = reVpin(RE.et*1e-6); if (v > RE.vbd) RE.dmg = true;
+    if (RE.et > 1){ RE.et = -1; }
+  }
+}
+
+/* ---------------- drawing: latch-up ---------------- */
+let reOff = 0;
+function drawLU(dt, T){
+  const L = RE.latched, loop = reLoop();
+  const y0 = 120, y1 = 400, sx0 = 20, sx1 = 980;
+  ctx.fillStyle = C.pplus; ctx.fillRect(sx0, y0, sx1 - sx0, y1 - y0);                       // p-substrate
+  ctx.fillStyle = C.nplus; ctx.fillRect(540, y0, 420, 190);                                  // n-well
+  txt("p-substrate", 60, 380, {col:C.hole, w:700, px:12}); txt("n-well", 940, 300, {al:"right", col:C.electron, w:700, px:12});
+  const box = (x, w, col, lab) => { ctx.fillStyle = col; ctx.globalAlpha = 0.85; ctx.fillRect(x, y0, w, 36); ctx.globalAlpha = 1; ctx.strokeStyle = C.line; ctx.strokeRect(x + .5, y0 + .5, w - 1, 35); txt(lab, x + w/2, y0 + 18, {al:"center", col:C.bg, w:700, px:11}); };
+  box(60, 70, C.hole, "p+ tap"); box(180, 70, C.electron, "n+ S"); box(330, 70, C.electron, "n+ D");
+  box(600, 70, C.hole, "p+ D"); box(750, 70, C.hole, "p+ S"); box(870, 70, C.electron, "n+ tap");
+  ctx.fillStyle = C.metal; ctx.fillRect(260, y0 - 22, 60, 20); ctx.fillRect(680, y0 - 22, 60, 20);
+  txt("GND", 155, 70, {al:"center", col:C.fg, w:700, px:12}); wire([[95, 80],[95, y0],[215, y0],[215, 80],[95, 80]]);
+  txt(`VDD ${RE_VDD} V`, 845, 70, {al:"center", col:C.fg, w:700, px:12}); wire([[785, 80],[785, y0],[905, y0],[905, 80],[785, 80]]);
+  txt("NMOS", 290, 92, {al:"center", col:C.fg, w:700, px:12}); txt("PMOS", 710, 92, {al:"center", col:C.fg, w:700, px:12});
+  if (RE.guard){ ctx.strokeStyle = C.channel; ctx.lineWidth = 4; ctx.setLineDash([6,4]); ctx.strokeRect(160, y0 - 2, 270, 44); ctx.strokeRect(580, y0 - 2, 270, 44); ctx.setLineDash([]); txt("guard rings", 500, y0 + 64, {al:"center", col:C.channel, w:700, px:11}); }
+  // parasitic transistors and resistors
+  const bjt = (x, y, lab, on) => { ctx.strokeStyle = on ? C.hole : C.fg; ctx.lineWidth = on ? 3 : 1.6; ctx.beginPath(); ctx.arc(x, y, 20, 0, 6.283); ctx.stroke(); txt(lab, x, y, {al:"center", col: on ? C.hole : C.fg, w:700, px:11}); };
+  const npnOn = L || (RE.trig > 0 && RE.trigAmp >= reItrig()), pnpOn = L;
+  bjt(400, 280, "NPN", npnOn); bjt(640, 240, "PNP", pnpOn);
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1.6; ctx.setLineDash([4,3]);
+  pl([[215, 156],[380, 280]]); pl([[420, 280],[560, 190],[620, 240]]); pl([[660, 240],[785, 156]]); pl([[640, 260],[640, 330],[95, 330],[95, 156]]); pl([[400, 300],[400, 330]]);
+  ctx.setLineDash([]);
+  resistor(120, 200, 300, "Rsub"); resistor(905, 170, 260, "Rwell");
+  txt(`Rsub = ${reRsub().toFixed(0)} Ω`, 140, 312, {px:11, col:C.fg, w:600}); txt(`β(npn) = ${reBn().toFixed(1)}`, 400, 320, {al:"center", px:11, col:C.fg, w:600}); txt(`β(pnp) = ${reBp()}`, 640, 210, {al:"center", px:11, col:C.fg, w:600});
+  // trigger injection and latch current
+  reOff += dt*120;
+  if (RE.trig > 0) flowDots(polyline([[330, 40],[365, y0],[365, 300],[120, 300],[95, y0]]), reOff, 1, C.accent);
+  if (L){ flowDots(polyline([[785, y0],[785, 160],[640, 240],[420, 280],[215, 160],[215, y0]]), reOff, 1, C.hole); const g = 0.25 + 0.15*Math.sin(T*6); ctx.fillStyle = C.hole; ctx.globalAlpha = g; ctx.fillRect(sx0, y0, sx1 - sx0, y1 - y0); ctx.globalAlpha = 1; }
+  txt(L ? `LATCHED: ${reLatchI().toFixed(0)} mA from VDD to GND through the PNPN path; only removing power stops it` : RE.trig > 0 ? `trigger: ${RE.trigAmp} mA injected (needs ${reItrig().toFixed(2)} mA to turn the NPN on)` : `normal: loop gain β·β = ${loop.toFixed(1)} ${loop > 1 ? "(> 1: a trigger can latch it)" : "(< 1: safe)"}`, 20, 30, {col: L ? C.hole : C.fg, w:700, px:13});
+  txt("trigger: e.g. an I/O pin pulled below GND injects current into the substrate", 20, 50, {px:10});
+  // supply current trace
+  const ox = 20, oy = 412, w = 960, hh = 70; ctx.fillStyle = C.panel2; ctx.fillRect(ox, oy, w, hh);
+  const t1 = RE.lt, t0 = t1 - 10, X = t => ox + 10 + (t - t0)/10*(w - 20), Y = I => oy + hh - 8 - Math.min(1, Math.log10(1 + I)/Math.log10(1 + reLatchI()))*(hh - 22);
+  ctx.strokeStyle = L ? C.hole : C.accent; ctx.lineWidth = 2; ctx.beginPath(); let f = true; RE.hist.forEach(([t, I]) => { if (t < t0) return; f ? ctx.moveTo(X(t), Y(I)) : ctx.lineTo(X(t), Y(I)); f = false; }); ctx.stroke();
+  txt("supply current (log scale, last 10 s)", ox + 10, oy + 12, {px:10, col:C.fg});
+}
+
+/* ---------------- drawing: ESD ---------------- */
+function drawESD(dt, T){
+  const t = Math.max(0, RE.et)*1e-6, I = reIhbm(t), vp = reVpin(t), active = RE.et >= 0;
+  ctx.fillStyle = C.panel2; ctx.fillRect(8, 8, 600, 472);
+  // HBM source: finger
+  ctx.fillStyle = C.hole; ctx.globalAlpha = 0.25; ctx.beginPath(); ctx.ellipse(70, 110, 40, 60, 0, 0, 6.283); ctx.fill(); ctx.globalAlpha = 1;
+  txt("human body", 70, 186, {al:"center", col:C.fg, w:700, px:11}); txt(`${RE.vhbm} V · 100 pF`, 70, 202, {al:"center", px:10});
+  if (active && t < 0.05e-6){ ctx.strokeStyle = C.accent; ctx.lineWidth = 3; pl([[110, 110],[130, 96],[124, 120],[150, 104]]); }
+  resistor(170, 90, 150, ""); txt("1.5 kΩ", 186, 126, {px:10});
+  wire([[110, 110],[170, 90]]); wire([[170, 150],[170, 220],[230, 220]]);
+  // pin pad
+  ctx.fillStyle = C.metal; ctx.fillRect(230, 205, 40, 30); txt("I/O pad", 250, 252, {al:"center", col:C.fg, w:700, px:11});
+  wire([[270, 220],[470, 220]]);
+  // rails
+  wire([[300, 60],[580, 60]]); txt("VDD", 586, 60, {col:C.fg, w:700, px:12}); wire([[300, 400],[580, 400]]); txt("VSS", 586, 400, {col:C.fg, w:700, px:12});
+  // diodes
+  const diode = (x, y0, y1, on) => { const ym = (y0 + y1)/2; wire([[x, y0],[x, ym - 10]]); wire([[x, ym + 10],[x, y1]]); ctx.fillStyle = on ? C.accent : C.fg; ctx.beginPath(); ctx.moveTo(x - 12, ym + 10); ctx.lineTo(x + 12, ym + 10); ctx.lineTo(x, ym - 10); ctx.closePath(); ctx.fill(); ctx.strokeStyle = on ? C.accent : C.fg; ctx.lineWidth = 2.4; pl([[x - 12, ym - 10],[x + 12, ym - 10]]); };
+  if (RE.diodes){ diode(330, 60, 220, active); diode(380, 220, 400, false); txt("D1 to VDD", 300, 140, {al:"right", px:10, col:C.fg}); txt("D2 to VSS", 400, 310, {px:10, col:C.fg}); }
+  if (RE.clamp){ ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; ctx.strokeRect(520, 180, 60, 110); txt("power", 550, 220, {al:"center", col:C.fg, w:700, px:11}); txt("clamp", 550, 236, {al:"center", col:C.fg, w:700, px:11}); txt("big NMOS", 550, 256, {al:"center", px:9}); wire([[550, 60],[550, 180]]); wire([[550, 290],[550, 400]]); }
+  // protected circuit: inverter gate
+  ctx.fillStyle = C.oxide; ctx.fillRect(470, 205, 6, 30); ctx.fillStyle = C.metal; ctx.fillRect(476, 200, 18, 40);
+  txt("gate oxide", 470, 266, {al:"center", col:C.oxide, w:700, px:10}); txt(`breaks at ${RE.vbd} V`, 470, 280, {al:"center", px:10});
+  if (RE.dmg){ ctx.strokeStyle = C.hole; ctx.lineWidth = 3; pl([[466, 200],[476, 212],[468, 222],[478, 236]]); txt("DESTROYED", 470, 186, {al:"center", col:C.hole, w:700, px:12}); }
+  // current path
+  reOff += dt*160;
+  if (active){
+    const path = RE.diodes && RE.clamp ? [[170, 150],[170, 220],[330, 220],[330, 60],[550, 60],[550, 400],[300, 400]] : RE.diodes ? [[170, 150],[170, 220],[330, 220],[330, 60],[580, 60]] : [[170, 150],[170, 220],[470, 220]];
+    flowDots(polyline(path), reOff, Math.min(1, I*3 + 0.2), C.accent);
+  }
+  txt(active ? `t = ${(t*1e9).toFixed(0)} ns · I = ${I.toFixed(2)} A · pin ${vp.toFixed(1)} V` : "press “Zap” to discharge", 20, 30, {col:C.fg, w:700, px:13});
+  txt(RE.diodes && RE.clamp ? "current goes pad → D1 → VDD → clamp → VSS: the pin stays at a few volts" : RE.diodes ? "D1 dumps the charge on VDD, but nothing returns it to VSS: VDD rises" : "no protection: the charge piles up on the gate", 20, 460, {col: RE.diodes && RE.clamp ? C.channel : C.hole, w:600, px:11});
+  // pin voltage scope
+  const ox = 620, oy = 8, w = 372, h = 472; panel(ox, oy, w, h, "Pin voltage during the zap (first 1 µs)");
+  const vmax = Math.max(RE.vbd*2, 12), X = tt => ox + 40 + tt/1e-6*(w - 60), Y = v => oy + 420 - Math.min(v, vmax)/vmax*360;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; for (let v = 0; v <= vmax; v += vmax/4){ pl([[ox + 40, Y(v)],[ox + w - 20, Y(v)]]); txt(`${v.toFixed(0)} V`, ox + 34, Y(v), {al:"right", px:10}); }
+  ctx.strokeStyle = C.hole; ctx.setLineDash([4,3]); pl([[ox + 40, Y(RE.vbd)],[ox + w - 20, Y(RE.vbd)]]); ctx.setLineDash([]); txt("oxide breakdown", ox + w - 22, Y(RE.vbd) - 8, {al:"right", col:C.hole, w:600, px:10});
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2.4; ctx.beginPath(); for (let i=0;i<=200;i++){ const tt = i/200*1e-6, v = reVpin(tt); i ? ctx.lineTo(X(tt), Y(v)) : ctx.moveTo(X(tt), Y(v)); } ctx.stroke();
+  if (active) dot(X(t), Y(vp), C.accent, false, 1, 5);
+  txt("time", ox + w/2, oy + 440, {al:"center", px:10});
+}
+function drawRE(dt, T){ begin(REC); if (RE.view === "lu") drawLU(dt, T); else drawESD(dt, T); }
+
+/* ---------------- DOM ---------------- */
+const REINFO = {
+  lu:{pill:"LU", name:"CMOS latch-up", sub:"A hidden thyristor in every CMOS chip, and how layout keeps it switched off",
+    text:"Look at a CMOS inverter in cross-section and you find four layers in a row: the PMOS p+ source, the n-well, the p-substrate and the NMOS n+ source. That is a PNPN thyristor, two parasitic bipolar transistors connected so that each one's collector feeds the other's base. Normally nothing happens: the well and substrate are tied to VDD and GND through resistors Rwell and Rsub, and no junction is forward biased. But if something injects current into the substrate (an I/O pin swinging below ground, a radiation hit, a supply glitch), the voltage across Rsub can reach 0.7 V and turn the NPN on. Its collector current flows through Rwell, turns the PNP on, whose collector current feeds the NPN's base: positive feedback. If βnpn·βpnp > 1 the loop holds itself on, and a large current flows from VDD to GND even after the trigger is gone, until the chip overheats or the power is removed. Layout fights it with many substrate and well taps (low Rsub, Rwell), wider spacing between NMOS and the well (lower βnpn) and guard rings that collect stray carriers. SOI and deep-trench processes remove the path altogether."},
+  esd:{pill:"ESD", name:"ESD protection", sub:"Thousands of volts from a fingertip, steered around a gate oxide that breaks at a few volts",
+    text:"Walking across a carpet charges a person to several kilovolts. Touching a pin discharges that in about a hundred nanoseconds as a current pulse of over an ampere: the human-body model (HBM) is 100 pF discharged through 1.5 kΩ. A modern gate oxide is a few nanometres thick and breaks down permanently at about 3–10 V. Without protection the charge piles onto the gate capacitance and destroys it at once. Every pin therefore has ESD protection: a diode to VDD and a diode to VSS turn on for positive and negative zaps and steer the current to a supply rail. A large NMOS power clamp between VDD and VSS, triggered by the fast edge through an RC network, then carries the current from VDD to VSS, so the pin voltage stays at a diode drop plus a few ohms times the current. The protection must be big enough to carry amperes for a microsecond, yet small enough not to load a high-speed or RF pin, which is especially hard at 77 GHz."}
+};
+Object.assign(TIP, {
+  "Loop gain":"βnpn·βpnp: above 1 the parasitic thyristor can hold itself on.",
+  "Trigger needed":"Substrate current that makes Rsub drop 0.7 V and turns the NPN on.",
+  "State":"Normal or latched.",
+  "Latch current":"Current from VDD to GND through the latched PNPN path.",
+  "Thyristor":"Two parasitic bipolar transistors in a positive-feedback loop.",
+  "Trigger":"I·Rsub ≥ 0.7 V forward-biases the NPN's base-emitter junction.",
+  "Prevention":"Taps, spacing and guard rings lower β and Rsub.",
+  "Peak current":"Peak of the human-body-model current pulse.",
+  "Peak pin voltage":"Highest voltage the protected gate sees during the zap.",
+  "Gate oxide":"Breakdown voltage of the gate oxide behind the pin.",
+  "Result":"Survives or destroyed.",
+  "HBM pulse":"Human-body model: 100 pF charged to V, discharged through 1.5 kΩ.",
+  "Protected pin":"Pin voltage = diode drop + current × (diode + clamp resistance).",
+  "Unprotected pin":"The charge piles onto the gate capacitance: V = Q/Cg.",
+  "Energy":"Energy stored in the body capacitance: ½·C·V²."
+});
+const RELEG = {
+  lu:[["accent","Trigger current"],["hole","Latch current / parasitic transistor on"],["channel","Guard ring"]],
+  esd:[["accent","ESD current"],["hole","Oxide breakdown"],["oxide","Gate oxide"]]
+};
+let reGlossKey = "";
+function updateRE(){
+  const v = RE.view, info = REINFO[v];
+  $("re-pill").textContent = info.pill; $("re-name").textContent = info.name; $("re-sub").textContent = info.sub; $("re-explain").textContent = info.text;
+  document.querySelectorAll("#re-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  $("re-c-lu").hidden = v !== "lu"; $("re-c-esd").hidden = v !== "esd";
+  $("re-rsub-v").textContent = `${RE.rsub} Ω`; $("re-spc-v").textContent = `${RE.spc} µm`; $("re-amp-v").textContent = `${RE.trigAmp} mA`;
+  $("re-vhbm-v").textContent = `${RE.vhbm} V`; $("re-vbd-v").textContent = `${RE.vbd} V`;
+  setHTML("re-legend", RELEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  const ro = [], rows = [];
+  if (v === "lu"){
+    ro.push(["Loop gain", reLoop().toFixed(1)], ["Trigger needed", `${reItrig().toFixed(2)} mA`], ["State", RE.latched ? "LATCHED" : "normal"], ["Latch current", RE.latched ? `${reLatchI().toFixed(0)} mA` : "—"]);
+    rows.push({name:"Thyristor", f:"latch-up possible if βnpn · βpnp > 1", sub:`${reBn().toFixed(1)} · ${reBp()} = ${reLoop().toFixed(1)} → ${reLoop() > 1 ? "possible" : "impossible"}`});
+    rows.push({name:"Trigger", f:"I_trigger · Rsub ≥ 0.7 V", sub:`Rsub = ${reRsub().toFixed(0)} Ω → needs ${reItrig().toFixed(2)} mA; injected ${RE.trigAmp} mA`});
+    rows.push({name:"Latch current", f:"I = (VDD − V_hold) / R_path", sub:`= (${RE_VDD} − 1.0) V / 10 Ω = ${reLatchI().toFixed(0)} mA`});
+    rows.push({name:"Prevention", f:"βnpn ∝ 1/spacing,  guard ring: β ×0.1, Rsub ÷5", sub:`spacing ${RE.spc} µm, guard rings ${RE.guard ? "on" : "off"}`});
+  } else {
+    const ipk = Math.max(...range(0, 1e-6, 200).map(reIhbm)), vpk = Math.max(...range(0, 1e-6, 200).map(reVpin));
+    ro.push(["Peak current", `${ipk.toFixed(2)} A`], ["Peak pin voltage", `${vpk.toFixed(1)} V`], ["Gate oxide", `${RE.vbd} V`], ["Result", vpk > RE.vbd ? "destroyed" : "survives"]);
+    rows.push({name:"HBM pulse", f:"I(t) ≈ (V/1.5 kΩ) · e^(−t/150 ns)", sub:`peak ≈ ${RE.vhbm} V / 1500 Ω = ${(RE.vhbm/1500).toFixed(2)} A`});
+    rows.push({name:"Energy", f:"E = ½·C·V²", sub:`= ½ · 100 pF · (${RE.vhbm} V)² = ${(0.5*100e-12*RE.vhbm**2*1e6).toFixed(0)} µJ`});
+    rows.push(RE.diodes && RE.clamp ? {name:"Protected pin", f:"Vpin ≈ VD + I·(RD + Rclamp)", sub:`= 0.7 + ${ipk.toFixed(2)} · 2.5 Ω = ${vpk.toFixed(1)} V`} : {name:"Unprotected pin", f:"Vpin = Q / Cg  (Cg ≈ 2 pF)", sub:`reaches ${vpk.toFixed(0)} V → far above ${RE.vbd} V`});
+  }
+  renderRo($("re-ro"), ro); renderEq($("re-eq"), rows);
+  updateREGloss(); drawREPlots();
+}
+function updateREGloss(){
+  const key = [RE.view, RE.rsub, RE.spc, RE.guard, RE.vhbm, RE.vbd, RE.diodes, RE.clamp].join("|"); if (key === reGlossKey) return; reGlossKey = key;
+  let h, t;
+  if (RE.view === "lu"){
+    h = "How layout choices change the risk (Rsub from your slider):";
+    const save = [RE.spc, RE.guard];
+    t = `<table><tr><th>Spacing</th><th>Guard rings</th><th>β·β</th><th>Trigger needed</th><th>Latch-up?</th></tr>` + [[1,false],[3,false],[10,false],[3,true]].map(([s, g]) => { RE.spc = s; RE.guard = g; const r = `<tr><td>${s} µm</td><td>${g ? "yes" : "no"}</td><td>${reLoop().toFixed(1)}</td><td>${reItrig().toFixed(2)} mA</td><td class="${reLoop() > 1 ? "bad" : "ok"}">${reLoop() > 1 ? "possible" : "impossible"}</td></tr>`; return r; }).join("") + `</table>`;
+    [RE.spc, RE.guard] = save;
+  } else {
+    h = "ESD test levels (qualification classes):";
+    t = `<table><tr><th>HBM class</th><th>Voltage</th><th>Peak current</th><th>Your protection</th></tr>` + [["1A","250–500 V",500],["1C","1–2 kV",2000],["2","2–4 kV",4000],["3A","4–8 kV",8000]].map(([c, r, vv]) => { const s = RE.vhbm; RE.vhbm = vv; const vpk = Math.max(...range(0, 1e-6, 120).map(reVpin)); RE.vhbm = s; return `<tr><td>${c}</td><td>${r}</td><td>${(vv/1500).toFixed(2)} A</td>${ck(vpk < RE.vbd)}</tr>`; }).join("") + `</table>`;
+  }
+  $("re-g-head").textContent = h; $("re-g-live").innerHTML = t;
+}
+function drawREPlots(){
+  let a = "", b = "";
+  if (RE.view === "lu"){
+    // thyristor I-V with snapback
+    const A = axesR(300, 230, {l:38,r:10,t:28,b:30}, 0, 12, 0, 100, 2, 25, "VDD − GND (V)", "current (mA)");
+    const vt = 8, hold = 1.0;
+    a = A.s + `<path d="M${A.X(0)} ${A.Y(0)} L${A.X(vt)} ${A.Y(1)} L${A.X(hold)} ${A.Y(8)} L${A.X(hold + 0.9)} ${A.Y(100)}" fill="none" stroke="var(--hole)" stroke-width="2.2"/>`;
+    a += `<line x1="${A.X(RE_VDD)}" x2="${A.X(RE_VDD)}" y1="28" y2="200" stroke="var(--accent)" stroke-dasharray="3 3"/><text x="${A.X(RE_VDD) + 3}" y="40" style="fill:var(--accent)">VDD ${RE_VDD} V</text>`;
+    a += `<text x="${A.X(vt) - 4}" y="${A.Y(6)}" text-anchor="end">trigger point</text><text x="${A.X(hold + 1)}" y="${A.Y(70)}">holding: ≈ ${hold} V</text>`;
+    a += A.frame + dotSvg(A.X(RE.latched ? hold + 0.65 : RE_VDD), A.Y(RE.latched ? Math.min(100, reLatchI()/1.0) : 0.5)) + `<text x="44" y="12" style="fill:var(--hole)">— PNPN snapback (latched if VDD > V_hold)</text>`;
+    const ss = range(0.5, 10, 60), B = axesR(220, 230, {l:34,r:8,t:28,b:30}, 0.5, 10, 0, 40, 2, 10, "NMOS–well spacing (µm)", "β·β");
+    b = B.s + `<line x1="${B.X(0.5)}" x2="${B.X(10)}" y1="${B.Y(1)}" y2="${B.Y(1)}" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${B.X(9.8)}" y="${B.Y(1) - 4}" text-anchor="end" style="fill:var(--hole)">β·β = 1</text>`;
+    b += `<path d="${pathOf(ss.map(s => [s, Math.min(40, 30/s*5)]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="${pathOf(ss.map(s => [s, 0.1*30/s*2]), B.X, B.Y)}" fill="none" stroke="var(--channel)" stroke-width="2"/>`;
+    b += B.frame + dotSvg(B.X(RE.spc), B.Y(Math.min(40, reLoop()))) + `<text x="36" y="12" style="fill:var(--accent)">— no guard ring</text><text x="120" y="12" style="fill:var(--channel)">— guard rings</text>`;
+  } else {
+    const ts = range(0, 1e-6, 150), ipk = RE.vhbm/1500;
+    const A = axesR(300, 230, {l:38,r:10,t:28,b:30}, 0, 1, 0, Math.ceil(ipk*1.1*2)/2 || 0.5, 0.2, niceStep(ipk/4), "time (µs)", "HBM current (A)");
+    a = A.s + `<path d="${pathOf(ts.map(t => [t*1e6, reIhbm(t)]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>` + A.frame + `<text x="44" y="12" style="fill:var(--accent)">— human-body-model discharge</text>`;
+    const vs = range(500, 8000, 60), B = axesR(220, 230, {l:34,r:8,t:28,b:30}, 0, 8000, 0, 30, 2000, 5, "HBM voltage (V)", "peak pin voltage (V)");
+    const save = RE.vhbm, pts = vs.map(v => { RE.vhbm = v; return [v, Math.min(30, Math.max(...range(0, 1e-6, 80).map(reVpin)))]; }); RE.vhbm = save;
+    b = B.s + `<line x1="${B.X(0)}" x2="${B.X(8000)}" y1="${B.Y(RE.vbd)}" y2="${B.Y(RE.vbd)}" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${B.X(7900)}" y="${B.Y(RE.vbd) - 4}" text-anchor="end" style="fill:var(--hole)">oxide limit</text>`;
+    b += `<path d="${pathOf(pts, B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>` + B.frame + dotSvg(B.X(RE.vhbm), B.Y(Math.min(30, Math.max(...range(0, 1e-6, 80).map(reVpin)))));
+  }
+  $("re-p1").innerHTML = a; $("re-p2").innerHTML = b;
+}
+let reUpd = 0;
+function reTickAll(dt){ reTick(dt); if (++reUpd % 8 === 0) updateRE(); }
+document.querySelectorAll("#re-view button").forEach(b => b.addEventListener("click", () => { RE.view = b.dataset.v; updateRE(); }));
+[["re-rsub","rsub"],["re-spc","spc"],["re-amp","trigAmp"],["re-vhbm","vhbm"],["re-vbd","vbd"]].forEach(([id, k]) => $(id).addEventListener("input", e => { RE[k] = +e.target.value; if (k === "vhbm" || k === "vbd") RE.dmg = false; updateRE(); }));
+$("re-guard").addEventListener("change", e => { RE.guard = e.target.checked; updateRE(); });
+$("re-diodes").addEventListener("change", e => { RE.diodes = e.target.checked; RE.dmg = false; updateRE(); });
+$("re-clamp").addEventListener("change", e => { RE.clamp = e.target.checked; RE.dmg = false; updateRE(); });
+$("re-trig").addEventListener("click", () => { RE.trig = 0.6; updateRE(); });
+$("re-reset").addEventListener("click", () => { RE.latched = false; RE.trig = 0; updateRE(); });
+$("re-zap").addEventListener("click", () => { RE.et = 0; RE.dmg = false; updateRE(); });
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd"};
 function showTab(t){
   zoomClose();
   tab = t;
@@ -10918,6 +11415,7 @@ function showTab(t){
   else if (t === "rx"){ $("sub-top").textContent = "77 GHz radar receiver · noise, mixing and analog-to-digital conversion"; RXC.resize(); updateRX(); }
   else if (t === "bj"){ $("sub-top").textContent = "Bipolar transistors · silicon BJT and SiGe HBT for mm-wave"; BJC.resize(); updateBJ(); }
   else if (t === "an"){ $("sub-top").textContent = "Analog building blocks · bandgap reference and differential-pair op-amp"; ANC.resize(); updateAN(); }
+  else if (t === "re"){ $("sub-top").textContent = "Reliability · parasitic thyristor latch-up and electrostatic discharge"; REC.resize(); updateRE(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -10938,6 +11436,7 @@ function frame(now){
   else if (tab === "rx"){ rxTickAll(dt); if (RXC.cv.clientWidth) drawRX(dt, T); }
   else if (tab === "bj"){ bjTick(dt); if (BJC.cv.clientWidth) drawBJ(dt, T); }
   else if (tab === "an"){ anTickAll(dt); if (ANC.cv.clientWidth) drawANtab(dt, T); }
+  else if (tab === "re"){ reTickAll(dt); if (REC.cv.clientWidth) drawRE(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
