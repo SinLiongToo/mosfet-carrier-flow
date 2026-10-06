@@ -1975,6 +1975,168 @@ Object.assign(window.I18N_ZH, {
 "oxide": "氧化層",
 "energy band diagram from the gate into the silicon": "從閘極到矽內部的能帶圖"
 });
+Object.assign(window.I18N_ZH, {
+"Leakage & FinFET": "漏電與 FinFET",
+"Subthreshold leakage": "次臨界漏電",
+"Leakage view": "漏電檢視",
+"Planar → FinFET → GAA": "平面 → FinFET → GAA",
+"Transistor structure": "電晶體結構",
+"Planar": "平面",
+"GAA nanosheet": "GAA 奈米片",
+"Physical gate length. Shorter gates are faster but the drain field reaches the source and the gate loses control.": "實際閘極長度。閘極越短越快，但汲極電場會伸到源極，閘極失去控制。",
+"Gate length L": "閘極長度 L",
+"Thickness of the silicon body: the fin width or the nanosheet thickness. Thinner bodies are easier for the gate to control.": "矽本體厚度：鰭片寬度或奈米片厚度。本體越薄，閘極越容易控制。",
+"Body thickness tsi": "本體厚度 tsi",
+"Gate voltage. Below Vth the current falls exponentially, about #× per SS millivolts.": "閘極電壓。低於 Vth 時電流呈指數下降，每降低 SS 毫伏約減少 # 倍。",
+"Drain voltage. A higher drain voltage lowers the source barrier (DIBL) and raises the leakage.": "汲極電壓。汲極電壓越高，源極能障越低（DIBL），漏電越大。",
+"Junction temperature. Hot chips leak much more: kT grows and Vth drops by about # mV per °C.": "接面溫度。晶片越熱漏電越多：kT 變大，而且 Vth 每 °C 下降約 # mV。",
+"Temperature T": "溫度 T",
+"Threshold voltage flavour": "臨界電壓種類",
+"Log drain current versus gate voltage, or subthreshold swing versus gate length": "汲極電流（對數）對閘極電壓，或次臨界擺幅對閘極長度",
+"Off current versus temperature, or DIBL versus gate length": "關閉電流對溫度，或 DIBL 對閘極長度",
+"Explain the terms: subthreshold swing, Ion/Ioff, DIBL, Vth flavours, FinFET, GAA": "名詞解釋：次臨界擺幅、Ion/Ioff、DIBL、Vth 種類、FinFET、GAA",
+"Why a transistor never turns fully off": "為什麼電晶體永遠關不乾淨",
+"Electrons in the source have a spread of thermal energies. Their number falls by #× for every # meV of extra energy at room temperature (the Boltzmann tail).": "源極中的電子有一定範圍的熱能量分布。室溫下能量每多 # meV，電子數量就減少 # 倍（波茲曼尾端）。",
+"The gate controls an energy barrier between source and drain. Only electrons above the barrier get through.": "閘極控制源極與汲極之間的能障，只有能量高於能障的電子能通過。",
+"Each # mV the gate raises the barrier (at best) removes # % of the current. So below Vth, current falls exponentially, but never to zero.": "閘極每把能障提高 # mV（最理想情況），電流就少掉 # %。所以低於 Vth 時電流呈指數下降，但永遠不會到零。",
+"To keep leakage small, Vth cannot go much below ~#–# V, so VDD cannot go much below ~#–# V. This \"Boltzmann tyranny\" is why supply voltages stopped shrinking.": "為了讓漏電夠小，Vth 不能低於約 #–# V，因此 VDD 也很難低於約 #–# V。這個「波茲曼暴政」就是電源電壓停止下降的原因。",
+"Your transistor:": "你的電晶體：",
+"How the industry fought leakage": "業界如何對抗漏電",
+"Node (approx.)": "製程節點（約）",
+"Structure": "結構",
+"Key change": "關鍵改變",
+"Planar, strained Si": "平面，應變矽",
+"Faster carriers; high-k metal gate at # nm cuts gate leakage": "載子更快；# nm 導入高介電常數金屬閘極，降低閘極漏電",
+"Planar (and FD-SOI)": "平面（以及 FD-SOI）",
+"Last planar nodes; thin-body SOI as an alternative": "最後的平面節點；薄本體 SOI 是另一條路",
+"Gate on # sides of a thin fin": "閘極包住薄鰭片的 # 個面",
+"#/# nm and beyond": "#/# nm 及以後",
+"Gate on all # sides; sheet width sets drive": "閘極包住全部 # 個面；奈米片寬度決定驅動力",
+"Future": "未來",
+"CFET, #D materials": "CFET、#D 材料",
+"Stack n and p devices; atom-thin channels": "把 n 與 p 元件疊在一起；原子級薄的通道",
+"Node names like \"# nm\" are marketing labels today; the real gate length is closer to #–# nm. What matters is how well the gate wraps the channel relative to its length (L/λ).": "像「# nm」這樣的節點名稱如今只是行銷標籤；實際閘極長度約 #–# nm。真正重要的是閘極相對其長度把通道包得多好（L/λ）。",
+"Leakage terms": "漏電名詞",
+"Subthreshold swing SS": "次臨界擺幅 SS",
+"Gate voltage per decade of current below Vth; # mV/dec at # K is the physical limit.": "低於 Vth 時電流變化十倍所需的閘極電壓；# K 時 # mV/dec 是物理極限。",
+"On current (speed) and off current (standby leakage) per µm of width.": "每 µm 寬度的導通電流（速度）與關閉電流（待機漏電）。",
+"Body factor n": "基體係數 n",
+"# + Cdep/Cox: the fraction of gate voltage lost to the depletion capacitance. Thin, fully depleted bodies get close to #.": "# + Cdep/Cox：閘極電壓被空乏電容分走的比例。薄而完全空乏的本體接近 #。",
+"Drain-induced barrier lowering: the drain voltage reduces Vth (mV per V).": "汲極引致能障降低：汲極電壓使 Vth 下降（每伏特多少 mV）。",
+"Low, standard and high threshold transistors offered by the same process; designers mix them to trade speed for leakage.": "同一製程提供的低、標準、高臨界電壓電晶體；設計者混用它們，在速度與漏電之間取捨。",
+"Gate-induced drain leakage: band-to-band tunnelling at the drain edge when the gate is strongly off.": "閘極引致汲極漏電：閘極深度關閉時，在汲極邊緣發生能帶間穿隧。",
+"Gate leakage": "閘極漏電",
+"Electrons tunnelling through a very thin oxide; solved by high-k dielectrics (HfO₂) with a thicker physical layer.": "電子穿隧過極薄的氧化層；改用實體較厚的高介電常數材料（HfO₂）來解決。",
+"Junction leakage": "接面漏電",
+"Reverse-biased source/drain diode current (see the PN junction tab).": "逆偏的源極／汲極二極體電流（見 PN 接面分頁）。",
+"Power gating": "電源閘控",
+"Switching whole blocks off with a high-Vth header or footer transistor to stop their leakage.": "用高 Vth 的上方或下方開關電晶體關掉整個區塊，阻止其漏電。",
+"Structure terms": "結構名詞",
+"Scale length λ": "尺度長度 λ",
+"Decay length of the gate's influence into the body; good control needs L ≳ #λ.": "閘極影響深入本體的衰減長度；良好控制需要 L ≳ #λ。",
+"Channel stood up as a thin vertical fin, gate wrapped over three sides.": "把通道立起來成為薄的垂直鰭片，閘極包住三個面。",
+"GAA / nanosheet": "GAA／奈米片",
+"Gate-all-around: stacked horizontal sheets, each fully surrounded by the gate.": "閘極全環繞：堆疊的水平奈米片，每一片都被閘極完全包住。",
+"Fin / sheet pitch": "鰭片／奈米片間距",
+"Spacing between fins or stacks; sets how much width fits per unit area.": "鰭片或堆疊之間的距離；決定單位面積能放多少寬度。",
+"Effective width": "有效寬度",
+"Total gated channel perimeter; fins and stacked sheets give more of it per footprint.": "被閘極包覆的通道總周長；鰭片和堆疊奈米片能在同樣面積中提供更多。",
+"Fully depleted": "完全空乏",
+"A body so thin that it is entirely depleted, which improves n and SS.": "本體薄到完全空乏，可改善 n 和 SS。",
+"Equivalent oxide thickness: high-k layer expressed as the SiO₂ thickness with the same capacitance.": "等效氧化層厚度：把高介電常數層換算成相同電容的 SiO₂ 厚度。",
+"Leakage and #D transistors · VDD = # V · EOT # nm": "漏電與 #D 電晶體 · VDD = # V · EOT # nm",
+"Below Vth the current does not stop: it falls #× for every ~# mV": "低於 Vth 電流不會停止：每約 # mV 減少 # 倍",
+"Below the threshold voltage the channel is not really off. The source is full of electrons with a spread of thermal energies (a Boltzmann tail), and the gate controls an energy barrier between source and drain. Only electrons with more energy than the barrier can cross, and that fraction is e^(−Φ/kT). Lowering the gate voltage raises the barrier, but by at most qVGS/n, so the current can drop at best #× for every n·(kT/q)·ln# ≈ n × # mV at room temperature. That number is the subthreshold swing SS. Nothing made of a normal MOSFET can beat # mV/dec at # K, which is why the off-current cannot be made arbitrarily small while keeping VDD low. Three things make leakage worse: a lower Vth (LVT cells are fast but leaky), a hot chip (kT grows and Vth drops by about # mV/°C, so leakage roughly doubles every #–# °C) and DIBL, where the drain voltage pulls the barrier down. Multiplied by billions of transistors, these nanoamps become watts of standby power.": "低於臨界電壓時，通道並沒有真正關閉。源極充滿具有一定熱能量分布的電子（波茲曼尾端），而閘極控制源極與汲極之間的能障。只有能量高於能障的電子能通過，比例為 e^(−Φ/kT)。降低閘極電壓會提高能障，但最多只提高 qVGS/n，所以室溫下電流最多只能每 n·(kT/q)·ln# ≈ n × # mV 減少 # 倍。這個數字就是次臨界擺幅 SS。一般 MOSFET 在 # K 下不可能優於 # mV/dec，所以在維持低 VDD 的同時，關閉電流無法任意變小。有三件事會讓漏電更嚴重：較低的 Vth（LVT 元件快但會漏電）、晶片變熱（kT 變大且 Vth 每 °C 下降約 # mV，漏電大約每 #–# °C 加倍），以及 DIBL（汲極電壓把能障拉低）。乘上數十億顆電晶體，這些奈安培就變成數瓦的待機功耗。",
+"Electrons / conduction band": "電子／導帶",
+"Electrons above the barrier (they leak)": "高於能障的電子（會漏電）",
+"SS: gate voltage needed to change the current #×. Ideal limit n·# mV/dec at room temperature.": "SS：讓電流改變 # 倍所需的閘極電壓。室溫下理想極限為 n·# mV/dec。",
+"Subthreshold swing": "次臨界擺幅",
+"Current per µm of footprint at VGS = VDS = VDD. Sets the speed.": "VGS = VDS = VDD 時每 µm 佔地的電流。決定速度。",
+"On current Ion": "導通電流 Ion",
+"Current per µm at VGS = #, VDS = VDD. Sets the standby (leakage) power.": "VGS = #、VDS = VDD 時每 µm 的電流。決定待機（漏電）功耗。",
+"Off current Ioff": "關閉電流 Ioff",
+"How well the switch separates on and off. Modern logic needs roughly #⁴–#⁶.": "開關區分開與關的能力。現代邏輯約需 #⁴–#⁶。",
+"SS = n·(kT/q)·ln#, the slope of the log-current curve below Vth.": "SS = n·(kT/q)·ln#，低於 Vth 時對數電流曲線的斜率。",
+"Swing": "擺幅",
+"= # · # mV · # = # mV/dec (ideal limit #)": "= # · # mV · # = # mV/dec（理想極限 #）",
+"n = # + Cdep/Cox; how much of the gate voltage actually moves the barrier. # is ideal.": "n = # + Cdep/Cox；閘極電壓實際移動能障的程度。# 是理想值。",
+"n = # + Cdep/Cox (× short-channel penalty)": "n = # + Cdep/Cox（× 短通道懲罰）",
+"FinFET, L = # nm → n = #": "FinFET，L = # nm → n = #",
+"Planar, L = # nm → n = #": "平面，L = # nm → n = #",
+"GAA nanosheet, L = # nm → n = #": "GAA 奈米片，L = # nm → n = #",
+"Below Vth the current is exponential in VGS: the Boltzmann tail of the source electrons.": "低於 Vth 時電流與 VGS 呈指數關係：來自源極電子的波茲曼尾端。",
+"Exponential": "指數關係",
+"Drain-induced barrier lowering in mV of Vth per V of drain voltage.": "汲極引致能障降低：每伏汲極電壓使 Vth 下降的 mV 數。",
+"η = # mV/V → Vth drops # mV at VDS = # V": "η = # mV/V → VDS = # V 時 Vth 下降 # mV",
+"Higher temperature: larger kT (worse SS) and lower Vth, so much more leakage.": "溫度越高：kT 越大（SS 變差）且 Vth 越低，所以漏電大增。",
+"Temperature": "溫度",
+"at # °C: Ioff = # pA/µm (#× the # °C value)": "# °C 時：Ioff = # pA/µm（是 # °C 時的 # 倍）",
+"at # °C: Ioff = # nA/µm (#× the # °C value)": "# °C 時：Ioff = # nA/µm（是 # °C 時的 # 倍）",
+"at # °C: Ioff = # µA/µm (#× the # °C value)": "# °C 時：Ioff = # µA/µm（是 # °C 時的 # 倍）",
+"Standby power = VDD × Ioff × total transistor width.": "待機功耗 = VDD × Ioff × 電晶體總寬度。",
+"Leakage power": "漏電功耗",
+"P = VDD · Ioff · ΣW (#⁹ transistors × # µm)": "P = VDD · Ioff · ΣW（#⁹ 顆電晶體 × # µm）",
+"The three threshold flavours of your FinFET at # °C:": "你的 FinFET 在 # °C 時三種臨界電壓：",
+"The three threshold flavours of your Planar at # °C:": "你的平面電晶體在 # °C 時三種臨界電壓：",
+"The three threshold flavours of your GAA nanosheet at # °C:": "你的 GAA 奈米片在 # °C 時三種臨界電壓：",
+"Flavour": "種類",
+"Use": "用途",
+"speed-critical paths": "速度關鍵路徑",
+"general logic": "一般邏輯",
+"always-on, standby": "常開、待機電路",
+"gate VGS = # V": "閘極 VGS = # V",
+"source (n+)": "源極（n+）",
+"drain VDS = # V": "汲極 VDS = # V",
+"current # µA/µm (flow drawn on a log scale)": "電流 # µA/µm（流動以對數刻度表示）",
+"current # nA/µm (flow drawn on a log scale)": "電流 # nA/µm（流動以對數刻度表示）",
+"current # pA/µm (flow drawn on a log scale)": "電流 # pA/µm（流動以對數刻度表示）",
+"current # mA/µm (flow drawn on a log scale)": "電流 # mA/µm（流動以對數刻度表示）",
+"barrier Φ = # eV": "能障 Φ = # eV",
+"source EF": "源極 EF",
+"electrons in the source, per energy (log scale, # decades)": "源極中各能量的電子數（對數刻度，# 個十倍）",
+"fraction above the barrier e^(−Φ/kT) = #e-#": "高於能障的比例 e^(−Φ/kT) = #e-#",
+"kT = # meV at # °C → every # meV of barrier = #× current": "# °C 時 kT = # meV → 能障每 # meV = 電流 # 倍",
+"DIBL: the drain pulls the barrier down by ≈ # mV": "DIBL：汲極把能障拉低約 # mV",
+"conduction band along the channel": "沿通道的導帶",
+"Planar → FinFET → gate-all-around": "平面 → FinFET → 閘極全環繞",
+"Wrapping the gate around the channel to win back control at short gate lengths": "把閘極包住通道，在短閘極長度下奪回控制權",
+"As the gate gets shorter, the drain sits closer to the source and its field reaches into the channel, competing with the gate. The gate loses control: SS rises above # mV/dec and DIBL grows, so the transistor leaks. The useful measure is the scale length λ = √(εsi·tsi·tox/(N·εox)): how far the gate's influence reaches into the body. Good control needs L ≳ #λ. A planar transistor has the gate on one side only and a thick body, so λ is large; below about #–# nm it cannot be turned off well. A FinFET stands the channel up as a thin fin and wraps the gate over three sides, so the body is thin and N ≈ #–#; it carried the industry from #/# nm to #/# nm. Gate-all-around (GAA) nanosheets go further: thin horizontal sheets with the gate on all four sides of each, the best possible electrostatics, and a sheet width that can be chosen for drive strength. In the cross-section, red means the gate barely reaches a point: that is where leakage flows.": "閘極越短，汲極離源極越近，它的電場伸入通道和閘極搶控制權。閘極失去控制：SS 升到 # mV/dec 以上、DIBL 變大，電晶體就會漏電。有用的指標是尺度長度 λ = √(εsi·tsi·tox/(N·εox))：閘極影響能深入本體多遠。良好控制需要 L ≳ #λ。平面電晶體只有一面閘極、本體又厚，所以 λ 大；在約 #–# nm 以下就無法好好關閉。FinFET 把通道立成薄鰭片，閘極包住三個面，所以本體薄、N ≈ #–#；它帶領業界從 #/# nm 走到 #/# nm。閘極全環繞（GAA）奈米片更進一步：薄的水平奈米片，每一片四個面都被閘極包住，靜電控制最好，而且奈米片寬度可以依驅動力需求選擇。剖面圖中紅色代表閘極幾乎控制不到的地方：那就是漏電流經的路徑。",
+"Channel (silicon)": "通道（矽）",
+"Strong gate control": "閘極控制強",
+"Weak control (leakage path)": "控制弱（漏電路徑）",
+"How far the gate's influence reaches into the body. Smaller is better.": "閘極影響深入本體的距離。越小越好。",
+"Subthreshold swing at this gate length, including short-channel degradation.": "此閘極長度下的次臨界擺幅，包含短通道劣化。",
+"Gate length in units of the scale length. Above about # the gate is in control.": "以尺度長度為單位的閘極長度。大於約 # 時閘極能掌控。",
+"λ = √(εsi·tsi·tox/(N·εox)); N = number of gated sides that count.": "λ = √(εsi·tsi·tox/(N·εox))；N = 有效的閘極包覆面數。",
+"Scale length": "尺度長度",
+"SS degrades as the drain couples into the channel: SS ≈ #·n#/(# − #e^(−L/#λ)).": "汲極耦合進通道時 SS 會劣化：SS ≈ #·n#/(# − #e^(−L/#λ))。",
+"Short-channel SS": "短通道 SS",
+"Fins and stacked sheets give more channel width per unit of chip area.": "鰭片和堆疊奈米片在單位晶片面積中提供更多通道寬度。",
+"FinFET: fins·(#H + Wfin) · GAA: sheets·#(W + T)": "FinFET：鰭片數·(#H + Wfin) · GAA：奈米片數·#(W + T)",
+"FinFET: ≈ ×# drive per footprint vs planar": "FinFET：每單位面積驅動力約為平面的 # 倍",
+"Planar: ≈ ×# drive per footprint vs planar": "平面：每單位面積驅動力約為平面的 # 倍",
+"GAA nanosheet: ≈ ×# drive per footprint vs planar": "GAA 奈米片：每單位面積驅動力約為平面的 # 倍",
+"The three structures at L = # nm:": "三種結構在 L = # nm 時：",
+"gate length L (nm)": "閘極長度 L（nm）",
+"# mV/dec limit": "# mV/dec 極限",
+"planar": "平面",
+"FinFET · gate length # nm": "FinFET · 閘極長度 # nm",
+"Planar · gate length # nm": "平面 · 閘極長度 # nm",
+"GAA nanosheet · gate length # nm": "GAA 奈米片 · 閘極長度 # nm",
+"gate covers 1 side (top)": "閘極包住 1 面（頂面）",
+"gate covers 3 sides (top + both walls)": "閘極包住 3 面（頂面 + 兩側壁）",
+"gate covers all 4 sides of every sheet": "閘極包住每片的全部 4 面",
+"relative drive per footprint ≈ ×#": "每單位面積相對驅動力 ≈ ×#",
+"Channel cross-section (looking along the current)": "通道剖面（沿電流方向看）",
+"drain field leaks in from below": "汲極電場從下方滲入",
+"scale length λ = # nm": "尺度長度 λ = # nm",
+"colour: gate control exp(−distance/λ)": "顏色：閘極控制力 exp(−距離/λ)",
+"orange = strong · teal = medium · red = weak (leaky)": "橘 = 強 · 青綠 = 中 · 紅 = 弱（會漏電）",
+"L/λ = # (want ≳ # for good control)": "L/λ = #（要 ≳ # 才能良好控制）",
+"source": "源極",
+"drain": "汲極",
+"gate": "閘極"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -2302,6 +2464,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-rf" aria-selected="false" aria-controls="tab-rf">RF passives</button>
         <button role="tab" id="tab-btn-mi" aria-selected="false" aria-controls="tab-mi">MIMO &amp; beams</button>
         <button role="tab" id="tab-btn-pn" aria-selected="false" aria-controls="tab-pn">PN junction & MOS cap</button>
+        <button role="tab" id="tab-btn-lk" aria-selected="false" aria-controls="tab-lk">Leakage & FinFET</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -3630,6 +3793,134 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Cox</dt><dd>Oxide capacitance per area, εox/tox.</dd>
               <dt>LF / HF C-V</dt><dd>At low frequency the inversion electrons follow the signal (C back to Cox); at high frequency they cannot, so C stays at its minimum.</dd>
               <dt>Varactor</dt><dd>A voltage-controlled capacitor built from this structure; it tunes oscillators such as the radar VCO.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== LEAKAGE & FINFET TAB ===================== -->
+  <section id="tab-lk" role="tabpanel" aria-labelledby="tab-btn-lk" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="lk-pill">SUB</span><h2 id="lk-name">Subthreshold leakage</h2></div>
+      <p id="lk-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="lk-view" role="group" aria-label="Leakage view" style="flex-wrap:wrap">
+        <button data-v="sub" aria-pressed="true">Subthreshold leakage</button>
+        <button data-v="fin" aria-pressed="false">Planar → FinFET → GAA</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvlk" aria-label="Animated transistor: energy barrier with thermal electrons, or 3D structure with gate-control map"></canvas>
+      <div class="legend" id="lk-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="lk-ro"></div>
+        <div class="chips">
+          <div class="seg" id="lk-st" role="group" aria-label="Transistor structure">
+            <button data-s="planar" aria-pressed="false">Planar</button>
+            <button data-s="fin" aria-pressed="true">FinFET</button>
+            <button data-s="gaa" aria-pressed="false">GAA nanosheet</button>
+          </div>
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Physical gate length. Shorter gates are faster but the drain field reaches the source and the gate loses control.">Gate length L</span><span id="lk-L-v"></span></div>
+          <input id="lk-L" type="range" min="5" max="50" step="1" value="20">
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Thickness of the silicon body: the fin width or the nanosheet thickness. Thinner bodies are easier for the gate to control.">Body thickness tsi</span><span id="lk-tsi-v"></span></div>
+          <input id="lk-tsi" type="range" min="4" max="16" step="1" value="7">
+        </div>
+        <div id="lk-c-sub" style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Gate voltage. Below Vth the current falls exponentially, about 10× per SS millivolts.">Gate voltage VGS</span><span id="lk-vgs-v"></span></div>
+            <input id="lk-vgs" type="range" min="0" max="0.8" step="0.01" value="0.3">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Drain voltage. A higher drain voltage lowers the source barrier (DIBL) and raises the leakage.">Drain voltage VDS</span><span id="lk-vds-v"></span></div>
+            <input id="lk-vds" type="range" min="0.05" max="0.8" step="0.01" value="0.8">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Junction temperature. Hot chips leak much more: kT grows and Vth drops by about 1 mV per °C.">Temperature T</span><span id="lk-T-v"></span></div>
+            <input id="lk-T" type="range" min="-40" max="150" step="1" value="25">
+          </div>
+          <div class="chips">
+            <div class="seg" id="lk-vtf" role="group" aria-label="Threshold voltage flavour">
+              <button data-f="lvt" aria-pressed="false">LVT 0.25 V</button>
+              <button data-f="svt" aria-pressed="true">SVT 0.35 V</button>
+              <button data-f="hvt" aria-pressed="false">HVT 0.45 V</button>
+            </div>
+          </div>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="lk-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Characteristics</p>
+        <div class="plots">
+          <div class="plot"><svg id="lk-p1" viewBox="0 0 300 230" role="img" aria-label="Log drain current versus gate voltage, or subthreshold swing versus gate length"></svg></div>
+          <div class="plot"><svg id="lk-p2" viewBox="0 0 220 230" role="img" aria-label="Off current versus temperature, or DIBL versus gate length"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="lk-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: subthreshold swing, Ion/Ioff, DIBL, Vth flavours, FinFET, GAA</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>Why a transistor never turns fully off</h3>
+            <ol>
+              <li>Electrons in the source have a spread of thermal energies. Their number falls by 10× for every 60 meV of extra energy at room temperature (the Boltzmann tail).</li>
+              <li>The gate controls an energy barrier between source and drain. Only electrons above the barrier get through.</li>
+              <li>Each 60 mV the gate raises the barrier (at best) removes 90 % of the current. So below Vth, current falls exponentially, but never to zero.</li>
+              <li>To keep leakage small, Vth cannot go much below ~0.25–0.3 V, so VDD cannot go much below ~0.6–0.7 V. This "Boltzmann tyranny" is why supply voltages stopped shrinking.</li>
+            </ol>
+            <p id="lk-g-head">Your transistor:</p>
+            <div class="tbl" id="lk-g-live"></div>
+            <h3>How the industry fought leakage</h3>
+            <div class="tbl"><table>
+              <tr><th>Node (approx.)</th><th>Structure</th><th>Key change</th></tr>
+              <tr><td>90–45 nm</td><td>Planar, strained Si</td><td>Faster carriers; high-k metal gate at 45 nm cuts gate leakage</td></tr>
+              <tr><td>28–20 nm</td><td>Planar (and FD-SOI)</td><td>Last planar nodes; thin-body SOI as an alternative</td></tr>
+              <tr><td>22/16 nm – 5/4 nm</td><td>FinFET</td><td>Gate on 3 sides of a thin fin</td></tr>
+              <tr><td>3/2 nm and beyond</td><td>GAA nanosheet</td><td>Gate on all 4 sides; sheet width sets drive</td></tr>
+              <tr><td>Future</td><td>CFET, 2D materials</td><td>Stack n and p devices; atom-thin channels</td></tr>
+            </table></div>
+            <p class="note">Node names like "3 nm" are marketing labels today; the real gate length is closer to 12–16 nm. What matters is how well the gate wraps the channel relative to its length (L/λ).</p>
+          </div>
+          <div>
+            <h3>Leakage terms</h3>
+            <dl>
+              <dt>Subthreshold swing SS</dt><dd>Gate voltage per decade of current below Vth; 60 mV/dec at 300 K is the physical limit.</dd>
+              <dt>Ion / Ioff</dt><dd>On current (speed) and off current (standby leakage) per µm of width.</dd>
+              <dt>Body factor n</dt><dd>1 + Cdep/Cox: the fraction of gate voltage lost to the depletion capacitance. Thin, fully depleted bodies get close to 1.</dd>
+              <dt>DIBL</dt><dd>Drain-induced barrier lowering: the drain voltage reduces Vth (mV per V).</dd>
+              <dt>LVT / SVT / HVT</dt><dd>Low, standard and high threshold transistors offered by the same process; designers mix them to trade speed for leakage.</dd>
+              <dt>GIDL</dt><dd>Gate-induced drain leakage: band-to-band tunnelling at the drain edge when the gate is strongly off.</dd>
+              <dt>Gate leakage</dt><dd>Electrons tunnelling through a very thin oxide; solved by high-k dielectrics (HfO₂) with a thicker physical layer.</dd>
+              <dt>Junction leakage</dt><dd>Reverse-biased source/drain diode current (see the PN junction tab).</dd>
+              <dt>Power gating</dt><dd>Switching whole blocks off with a high-Vth header or footer transistor to stop their leakage.</dd>
+            </dl>
+            <h3>Structure terms</h3>
+            <dl>
+              <dt>Scale length λ</dt><dd>Decay length of the gate's influence into the body; good control needs L ≳ 5λ.</dd>
+              <dt>FinFET</dt><dd>Channel stood up as a thin vertical fin, gate wrapped over three sides.</dd>
+              <dt>GAA / nanosheet</dt><dd>Gate-all-around: stacked horizontal sheets, each fully surrounded by the gate.</dd>
+              <dt>Fin / sheet pitch</dt><dd>Spacing between fins or stacks; sets how much width fits per unit area.</dd>
+              <dt>Effective width</dt><dd>Total gated channel perimeter; fins and stacked sheets give more of it per footprint.</dd>
+              <dt>Fully depleted</dt><dd>A body so thin that it is entirely depleted, which improves n and SS.</dd>
+              <dt>EOT</dt><dd>Equivalent oxide thickness: high-k layer expressed as the SiO₂ thickness with the same capacitance.</dd>
             </dl>
           </div>
         </div>
@@ -7890,11 +8181,283 @@ document.querySelectorAll("#pn-view button").forEach(b => b.addEventListener("cl
 [["pn-na","na"],["pn-nd","nd"],["pn-v","v"],["pn-nam","nam"],["pn-tox","tox"],["pn-vg","vg"]].forEach(([id, k]) => $(id).addEventListener("input", e => { PJ[k] = +e.target.value; updatePN(); }));
 document.querySelectorAll("#pn-bias button").forEach(b => b.addEventListener("click", () => { PJ.v = +b.dataset.b; $("pn-v").value = PJ.v; updatePN(); }));
 
+/* =========================================================
+   TAB — subthreshold leakage, planar vs FinFET vs gate-all-around
+   ========================================================= */
+const LKC = setupCanvas($("cvlk"), 1000, 488);
+const LK = {view:"sub", st:"fin", L:20, tsi:7, vgs:0.3, vds:0.8, T:25, vt:"svt", t:0, flow:[], acc:0};
+const LK_VDD = 0.8;
+const LK_ST = {
+  planar:{name:"Planar", sides:1, n0:1.30, drive:1.0, tbody:15},
+  fin:{name:"FinFET", sides:2, n0:1.08, drive:2.2, tbody:null},
+  gaa:{name:"GAA nanosheet", sides:4, n0:1.03, drive:2.6, tbody:null}
+};
+const LK_VTH = {lvt:0.25, svt:0.35, hvt:0.45};
+const lkVt = () => 8.617e-5*(LK.T + 273.15);                   // kT/q in V
+function lkDev(st = LK.st, L = LK.L){
+  const s = LK_ST[st], tb = s.tbody || LK.tsi, tox = 1.0;      // EOT 1 nm
+  const lam = Math.sqrt(11.7*tb*tox/((st === "planar" ? 1 : s.sides)*3.9));
+  const e = Math.exp(-L/(2*lam));
+  const n = s.n0/Math.max(0.15, 1 - 2*e);
+  const ss = n*lkVt()*Math.log(10)*1000;                         // mV/dec
+  const dibl = 900*e;                                            // mV/V
+  return {lam, n, ss, dibl, drive: s.drive, e};
+}
+// EKV-style current per µm of footprint (A/µm), smooth from subthreshold to strong inversion
+function lkId(vgs, vds, st = LK.st, vtk = LK.vt, L = LK.L){
+  const d = lkDev(st, L), Vt = lkVt();
+  const vth = LK_VTH[vtk] - d.dibl/1000*vds - 0.0010*(LK.T - 25);
+  const Ispec = 10e-6*d.drive, F = x => { const z = x/(2*d.n*Vt); const l = z > 30 ? z : Math.log1p(Math.exp(z)); return l*l; };
+  return Ispec*(F(vgs - vth) - F(vgs - vth - d.n*vds));
+}
+const lkFmt = i => i >= 1e-3 ? (i*1e3).toFixed(2) + " mA/µm" : i >= 1e-6 ? (i*1e6).toFixed(1) + " µA/µm" : i >= 1e-9 ? (i*1e9).toFixed(2) + " nA/µm" : (i*1e12).toFixed(2) + " pA/µm";
+
+function lkTick(dt){
+  LK.t += dt;
+  const I = lkId(LK.vgs, LK.vds), rate = clamp(4*(Math.log10(Math.max(I, 1e-15)) + 13), 0, 40);
+  LK.acc += rate*dt*(reduce ? 0.3 : 1);
+  while (LK.acc >= 1){ LK.acc -= 1; LK.flow.push({p:0, y:Math.random(), s:rnd(0.8, 1.2)}); }
+  LK.flow.forEach(f => f.p += dt*0.45*f.s);
+  LK.flow = LK.flow.filter(f => f.p < 1);
+}
+
+/* ---------------- drawing: subthreshold ---------------- */
+function drawLKsub(dt, T){
+  const d = lkDev(), Vt = lkVt(), I = lkId(LK.vgs, LK.vds);
+  const vth = LK_VTH[LK.vt] - d.dibl/1000*LK.vds - 0.0010*(LK.T - 25);
+  // cross-section strip
+  const sx0 = 60, sx1 = 320, dx0 = 680, dx1 = 940, yT = 70, yB = 150;
+  ctx.fillStyle = C.si; ctx.fillRect(sx0, yT, dx1 - sx0, yB - yT);
+  ctx.fillStyle = C.nplus; ctx.fillRect(sx0, yT, sx1 - sx0, yB - yT); ctx.fillRect(dx0, yT, dx1 - dx0, yB - yT);
+  ctx.fillStyle = C.oxide; ctx.fillRect(sx1, yT - 8, dx0 - sx1, 8);
+  ctx.fillStyle = C.metal; ctx.fillRect(sx1, yT - 36, dx0 - sx1, 28);
+  txt(`gate VGS = ${f2(LK.vgs)} V`, (sx1 + dx0)/2, yT - 46, {al:"center", col:C.fg, w:700, px:12});
+  txt("source (n+)", (sx0 + sx1)/2, yT - 12, {al:"center", col:C.electron, w:700, px:12});
+  txt(`drain VDS = ${f2(LK.vds)} V`, (dx0 + dx1)/2, yT - 12, {al:"center", col:C.electron, w:700, px:12});
+  for (let i=0;i<34;i++){ const x = sx0 + 10 + (i*37) % (sx1 - sx0 - 20), y = yT + 8 + (i*23) % (yB - yT - 16); dot(x + Math.sin(T*2 + i), y, C.electron, false, 1, 2.8); }
+  for (let i=0;i<34;i++){ const x = dx0 + 10 + (i*37) % (dx1 - dx0 - 20), y = yT + 8 + (i*23) % (yB - yT - 16); dot(x + Math.sin(T*2 + i), y, C.electron, false, 1, 2.8); }
+  LK.flow.forEach(f => dot(sx1 + f.p*(dx0 - sx1), yT + 10 + f.y*(yB - yT - 20), C.electron, false, Math.min(1, 4*(1 - f.p)), 3.2));
+  txt(`current ${lkFmt(I)} (flow drawn on a log scale)`, (sx1 + dx0)/2, yB + 16, {al:"center", col:C.accent, w:600, px:11});
+  // band diagram: conduction band edge from source to drain
+  const phi = Math.max(0.02, (vth - LK.vgs)/d.n + 0.22);          // barrier above the source Ec (eV)
+  const eTop = 0.75, eBot = -LK.vds - 0.15, Y = e => 196 + (eTop - e)/(eTop - eBot)*232;
+  const ec = x => {                                               // x: 0 = source edge, 1 = drain edge
+    if (x <= 0) return 0;
+    if (x >= 1) return -LK.vds;
+    const hump = phi*Math.pow(Math.sin(Math.PI*Math.min(1, x/0.9)), 0.7);
+    return hump - LK.vds*Math.pow(x, 2.2);
+  };
+  const xs = range(-0.6, 1.6, 220), X = x => sx1 + x*(dx0 - sx1);
+  ctx.strokeStyle = C.electron; ctx.lineWidth = 2.6; pl(xs.map(x => [X(x), Y(ec(x))]));
+  let xm = 0, em = -9; for (let i=0;i<=200;i++){ const x = i/200, e = ec(x); if (e > em){ em = e; xm = x; } }
+  ctx.strokeStyle = C.accent; ctx.setLineDash([5,4]); ctx.lineWidth = 1.6; pl([[sx0, Y(em)],[X(xm) + 40, Y(em)]]); ctx.setLineDash([]);
+  txt(`barrier Φ = ${em.toFixed(3)} eV`, X(xm), Y(em) - 12, {al:"center", col:C.accent, w:700, px:12});
+  txt("Ec", sx0 + 4, Y(0) + 12, {col:C.electron, w:700, px:11}); txt("source EF", sx0 + 4, Y(0) - 8, {px:10});
+  // Boltzmann tail of the source electrons (bar length ∝ log of the number per energy)
+  const dec = 10;
+  for (let e = 0.005; e < 0.72; e += 0.018){
+    const lg = -e/Vt/Math.log(10), len = Math.max(0, 1 + lg/dec)*230, y = Y(e);
+    ctx.fillStyle = e > em ? C.accent : C.electron; ctx.globalAlpha = e > em ? 0.95 : 0.35; ctx.fillRect(sx1 - 6 - len, y - 3, len, 6); ctx.globalAlpha = 1;
+  }
+  const frac = Math.exp(-em/Vt);
+  txt(`electrons in the source, per energy (log scale, ${dec} decades)`, sx0, 470, {px:10});
+  txt(`fraction above the barrier e^(−Φ/kT) = ${frac.toExponential(1)}`, sx0, 452, {col:C.accent, w:600, px:11});
+  txt(`kT = ${(Vt*1000).toFixed(1)} meV at ${LK.T} °C → every ${(Vt*Math.log(10)*1000).toFixed(0)} meV of barrier = 10× current`, dx1, 452, {al:"right", col:C.fg, w:600, px:11});
+  txt(`DIBL: the drain pulls the barrier down by ≈ ${(d.dibl*LK.vds).toFixed(0)} mV`, dx1, 470, {al:"right", px:10});
+  txt("conduction band along the channel", X(1.25), Y(-LK.vds) - 12, {al:"center", px:10});
+}
+
+/* ---------------- drawing: planar vs FinFET vs GAA ---------------- */
+const iso = (x, y, z) => [300 + (x - y)*0.87, 300 + (x + y)*0.5 - z];  // isometric projection, px
+function isoBox(x, y, z, w, dpt, h, col, a = 1){
+  const p = (u, v, s) => iso(x + u, y + v, z + s);
+  const face = (pts, c, al) => { ctx.fillStyle = c; ctx.globalAlpha = al; ctx.beginPath(); pts.forEach((q, i) => i ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1])); ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1; ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.stroke(); };
+  face([p(0,0,h), p(w,0,h), p(w,dpt,h), p(0,dpt,h)], col, a);
+  face([p(0,dpt,0), p(w,dpt,0), p(w,dpt,h), p(0,dpt,h)], col, a*0.8);
+  face([p(w,0,0), p(w,dpt,0), p(w,dpt,h), p(w,0,h)], col, a*0.65);
+}
+function drawLKfin(dt, T){
+  const st = LK.st, d = lkDev(), sc = 4;                          // 4 px per nm
+  ctx.fillStyle = C.panel2; ctx.fillRect(8, 8, 560, 472);
+  txt(`${LK_ST[st].name} · gate length ${LK.L} nm`, 20, 26, {col:C.fg, w:700, px:13});
+  // substrate
+  isoBox(-120, -60, -30, 240, 120, 30, C.si, 1);
+  const gl = LK.L*1.6, chans = [];
+  if (st === "planar"){
+    isoBox(-100, -40, 0, 200, 80, 2, C.nplus, 0.8); chans.push({x:-100, y:-30, z:2, w:200, d:60, h:2});
+    isoBox(-gl/2, -46, 2, gl, 92, 3, C.oxide, 0.9); isoBox(-gl/2, -46, 5, gl, 92, 26, C.metal, 0.75);
+  } else if (st === "fin"){
+    const fw = Math.max(6, LK.tsi*1.6);
+    [-26, 26].forEach(y0 => { isoBox(-100, y0 - fw/2, 0, 200, fw, 50, C.si, 1); isoBox(-100, y0 - fw/2, 0, 200, fw, 50, C.nplus, 0.5); chans.push({x:-100, y:y0, z:25, w:200}); });
+    isoBox(-gl/2, -56, 0, gl, 112, 58, C.metal, 0.62);
+    isoBox(-gl/2, -56, 58, gl, 112, 4, C.oxide, 0.6);
+  } else {
+    const th = Math.max(5, LK.tsi*1.1);
+    isoBox(-gl/2 - 6, -50, 0, gl + 12, 100, 62, C.metal, 0.32);
+    [10, 28, 46].forEach(z0 => { isoBox(-100, -30, z0, 200, 60, th, C.si, 1); isoBox(-100, -30, z0, 200, 60, th, C.nplus, 0.5); chans.push({x:-100, y:0, z:z0 + th/2, w:200}); });
+    isoBox(-gl/2, -50, 0, gl, 100, 64, C.metal, 0.45);
+  }
+  // electrons drifting along each channel
+  chans.forEach((c, k) => { for (let i=0;i<6;i++){ const u = ((T*0.25 + i/6 + k*0.13) % 1); const [px, py] = iso(c.x + u*c.w, c.y, c.z + (c.h || 0)); dot(px, py, C.electron, false, 1, 3); } });
+  const [sx, sy] = iso(-100, 60, 0), [dxx, dyy] = iso(100, -60, 0);
+  txt("source", sx - 10, sy + 18, {al:"center", col:C.electron, w:700, px:12}); txt("drain", dxx + 24, dyy - 6, {col:C.electron, w:700, px:12});
+  const [gx, gy] = iso(0, 0, 80); txt("gate", gx, gy - 6, {al:"center", col:C.fg, w:700, px:12});
+  txt(`gate covers ${LK_ST[st].sides === 1 ? "1 side (top)" : LK_ST[st].sides === 2 ? "3 sides (top + both walls)" : "all 4 sides of every sheet"}`, 20, 452, {col:C.accent, w:600, px:11});
+  txt(`relative drive per footprint ≈ ×${LK_ST[st].drive}`, 20, 470, {px:10});
+  // channel cross-section with gate-control map
+  panel(580, 8, 412, 472, "Channel cross-section (looking along the current)");
+  const cx = 786, cy = 230, sc2 = st === "planar" ? 3 : 4;
+  const th = Math.max(4, LK.tsi*0.8);
+  const bodies = st === "planar" ? [{x:-50, y:-4, w:100, h:40, gate:"top"}] :
+                 st === "fin" ? [{x:-LK.tsi/2, y:-30, w:LK.tsi, h:42, gate:"tri"}] :
+                 [0, 1, 2].map(k => ({x:-16, y:-30 + k*(th + 9), w:32, h:th, gate:"all"}));
+  const gates = [], oxw = 1.2;
+  bodies.forEach(b => {
+    if (b.gate === "top") gates.push([b.x - 10, b.y - 12, b.w + 20, 12 - oxw]);
+    else if (b.gate === "tri") gates.push([b.x - 14, b.y - 12, b.w + 28, 12 - oxw], [b.x - 14, b.y - 12, 14 - oxw, b.h + 12], [b.x + b.w + oxw, b.y - 12, 14 - oxw, b.h + 12]);
+  });
+  if (st === "gaa"){ const top = bodies[0].y - 8, bot = bodies[2].y + bodies[2].h + 8; gates.push([-26, top, 52, bot - top]); }
+  ctx.fillStyle = C.metal; gates.forEach(([x, y, w, h]) => ctx.fillRect(cx + x*sc2, cy + y*sc2, w*sc2, h*sc2));
+  if (st === "fin"){ ctx.fillStyle = C.si; ctx.fillRect(cx - LK.tsi*sc2/2, cy + 12*sc2, LK.tsi*sc2, 8*sc2); ctx.fillRect(cx - 44*sc2, cy + 20*sc2, 88*sc2, 10*sc2); }
+  bodies.forEach(b => {
+    ctx.fillStyle = C.oxide; ctx.fillRect(cx + (b.x - oxw)*sc2, cy + (b.y - oxw)*sc2, (b.w + 2*oxw)*sc2, (b.h + (b.gate === "top" ? oxw : 2*oxw))*sc2);
+    const N = 14;
+    for (let i=0;i<N;i++) for (let j=0;j<N;j++){
+      const px = b.x + (i + 0.5)*b.w/N, py = b.y + (j + 0.5)*b.h/N;
+      let dist = py - b.y;
+      if (b.gate !== "top") dist = Math.min(dist, px - b.x, b.x + b.w - px);
+      if (b.gate === "all") dist = Math.min(dist, b.y + b.h - py);
+      const ctl = Math.exp(-dist/d.lam);
+      ctx.fillStyle = ctl > 0.5 ? C.accent : ctl > 0.15 ? C.channel : C.hole; ctx.globalAlpha = 0.25 + 0.65*ctl;
+      ctx.fillRect(cx + (b.x + i*b.w/N)*sc2, cy + (b.y + j*b.h/N)*sc2, b.w/N*sc2 + 0.5, b.h/N*sc2 + 0.5); ctx.globalAlpha = 1;
+    }
+  });
+  if (st !== "gaa"){
+    const yb = st === "planar" ? cy + 36*sc2 : cy + 30*sc2;
+    ctx.strokeStyle = C.hole; ctx.lineWidth = 2; ctx.setLineDash([4,3]); pl([[cx - 20, yb + 30],[cx - 20, yb - 6]]); pl([[cx + 20, yb + 30],[cx + 20, yb - 6]]); ctx.setLineDash([]);
+    txt("drain field leaks in from below", cx, yb + 46, {al:"center", col:C.hole, w:600, px:11});
+  }
+  const gTop = Math.min(...gates.map(g => g[1]));
+  txt("gate", cx, cy + gTop*sc2 - 10, {al:"center", col:C.fg, w:700, px:12});
+  txt(`scale length λ = ${d.lam.toFixed(2)} nm`, 596, 420, {col:C.fg, w:700, px:12});
+  txt("colour: gate control exp(−distance/λ)", 596, 440, {px:10});
+  txt("orange = strong · teal = medium · red = weak (leaky)", 596, 456, {px:10});
+  txt(`L/λ = ${(LK.L/d.lam).toFixed(1)} (want ≳ 5 for good control)`, 596, 472, {col: LK.L/d.lam > 5 ? C.channel : C.hole, w:600, px:11});
+}
+function drawLK(dt, T){ begin(LKC); if (LK.view === "sub") drawLKsub(dt, T); else drawLKfin(dt, T); }
+
+/* ---------------- DOM ---------------- */
+const LKINFO = {
+  sub:{pill:"SUB", name:"Subthreshold leakage", sub:"Below Vth the current does not stop: it falls 10× for every ~60 mV",
+    text:"Below the threshold voltage the channel is not really off. The source is full of electrons with a spread of thermal energies (a Boltzmann tail), and the gate controls an energy barrier between source and drain. Only electrons with more energy than the barrier can cross, and that fraction is e^(−Φ/kT). Lowering the gate voltage raises the barrier, but by at most qVGS/n, so the current can drop at best 10× for every n·(kT/q)·ln10 ≈ n × 60 mV at room temperature. That number is the subthreshold swing SS. Nothing made of a normal MOSFET can beat 60 mV/dec at 300 K, which is why the off-current cannot be made arbitrarily small while keeping VDD low. Three things make leakage worse: a lower Vth (LVT cells are fast but leaky), a hot chip (kT grows and Vth drops by about 1 mV/°C, so leakage roughly doubles every 10–15 °C) and DIBL, where the drain voltage pulls the barrier down. Multiplied by billions of transistors, these nanoamps become watts of standby power."},
+  fin:{pill:"3D", name:"Planar → FinFET → gate-all-around", sub:"Wrapping the gate around the channel to win back control at short gate lengths",
+    text:"As the gate gets shorter, the drain sits closer to the source and its field reaches into the channel, competing with the gate. The gate loses control: SS rises above 60 mV/dec and DIBL grows, so the transistor leaks. The useful measure is the scale length λ = √(εsi·tsi·tox/(N·εox)): how far the gate's influence reaches into the body. Good control needs L ≳ 5λ. A planar transistor has the gate on one side only and a thick body, so λ is large; below about 20–28 nm it cannot be turned off well. A FinFET stands the channel up as a thin fin and wraps the gate over three sides, so the body is thin and N ≈ 2–3; it carried the industry from 22/16 nm to 5/3 nm. Gate-all-around (GAA) nanosheets go further: thin horizontal sheets with the gate on all four sides of each, the best possible electrostatics, and a sheet width that can be chosen for drive strength. In the cross-section, red means the gate barely reaches a point: that is where leakage flows."}
+};
+Object.assign(TIP, {
+  "Subthreshold swing":"SS: gate voltage needed to change the current 10×. Ideal limit n·60 mV/dec at room temperature.",
+  "On current Ion":"Current per µm of footprint at VGS = VDS = VDD. Sets the speed.",
+  "Off current Ioff":"Current per µm at VGS = 0, VDS = VDD. Sets the standby (leakage) power.",
+  "Ion / Ioff":"How well the switch separates on and off. Modern logic needs roughly 10⁴–10⁶.",
+  "Scale length λ":"How far the gate's influence reaches into the body. Smaller is better.",
+  "SS":"Subthreshold swing at this gate length, including short-channel degradation.",
+  "DIBL":"Drain-induced barrier lowering in mV of Vth per V of drain voltage.",
+  "L / λ":"Gate length in units of the scale length. Above about 5 the gate is in control.",
+  "Swing":"SS = n·(kT/q)·ln10, the slope of the log-current curve below Vth.",
+  "Body factor n":"n = 1 + Cdep/Cox; how much of the gate voltage actually moves the barrier. 1 is ideal.",
+  "Exponential":"Below Vth the current is exponential in VGS: the Boltzmann tail of the source electrons.",
+  "Temperature":"Higher temperature: larger kT (worse SS) and lower Vth, so much more leakage.",
+  "Leakage power":"Standby power = VDD × Ioff × total transistor width.",
+  "Scale length":"λ = √(εsi·tsi·tox/(N·εox)); N = number of gated sides that count.",
+  "Short-channel SS":"SS degrades as the drain couples into the channel: SS ≈ 60·n0/(1 − 2e^(−L/2λ)).",
+  "Effective width":"Fins and stacked sheets give more channel width per unit of chip area."
+});
+const LKLEG = {
+  sub:[["electron","Electrons / conduction band"],["accent","Electrons above the barrier (they leak)"],["oxide","Gate oxide"]],
+  fin:[["metal","Gate"],["nplus","Channel (silicon)"],["accent","Strong gate control"],["hole","Weak control (leakage path)"]]
+};
+let lkGlossKey = "";
+function updateLK(){
+  const v = LK.view, info = LKINFO[v], d = lkDev();
+  $("lk-pill").textContent = info.pill; $("lk-name").textContent = info.name; $("lk-sub").textContent = info.sub; $("lk-explain").textContent = info.text;
+  document.querySelectorAll("#lk-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  document.querySelectorAll("#lk-st button").forEach(b => b.setAttribute("aria-pressed", b.dataset.s === LK.st));
+  document.querySelectorAll("#lk-vtf button").forEach(b => b.setAttribute("aria-pressed", b.dataset.f === LK.vt));
+  $("lk-c-sub").hidden = v !== "sub";
+  $("lk-vgs-v").textContent = `${f2(LK.vgs)} V`; $("lk-vds-v").textContent = `${f2(LK.vds)} V`; $("lk-T-v").textContent = `${LK.T} °C`;
+  $("lk-L-v").textContent = `${LK.L} nm`; $("lk-tsi-v").textContent = `${LK.tsi} nm`;
+  setHTML("lk-legend", LKLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  const ro = [], rows = [], ion = lkId(LK_VDD, LK_VDD), ioff = lkId(0, LK_VDD), Vt = lkVt();
+  if (v === "sub"){
+    ro.push(["Subthreshold swing", d.ss.toFixed(0) + " mV/dec"], ["On current Ion", lkFmt(ion)], ["Off current Ioff", lkFmt(ioff)], ["Ion / Ioff", sci(ion/ioff)]);
+    rows.push({name:"Swing", f:"SS = n · (kT/q) · ln10", sub:`= ${d.n.toFixed(2)} · ${(Vt*1000).toFixed(1)} mV · 2.303 = ${d.ss.toFixed(0)} mV/dec (ideal limit ${(Vt*Math.log(10)*1000).toFixed(0)})`});
+    rows.push({name:"Body factor n", f:"n = 1 + Cdep/Cox  (× short-channel penalty)", sub:`${LK_ST[LK.st].name}, L = ${LK.L} nm → n = ${d.n.toFixed(2)}`});
+    rows.push({name:"Exponential", f:"ID ∝ e^((VGS − Vth)/(n·kT/q)) · (1 − e^(−VDS/(kT/q)))", sub:`VGS = ${f2(LK.vgs)} V → ID = ${lkFmt(lkId(LK.vgs, LK.vds))}`});
+    rows.push({name:"DIBL", f:"Vth = Vth0 − η·VDS", sub:`η = ${d.dibl.toFixed(0)} mV/V → Vth drops ${(d.dibl*LK.vds).toFixed(0)} mV at VDS = ${f2(LK.vds)} V`});
+    rows.push({name:"Temperature", f:"Vth ≈ Vth0 − 1 mV/°C · (T − 25 °C),  kT/q ∝ T", sub:`at ${LK.T} °C: Ioff = ${lkFmt(ioff)} (${(ioff/lkIdAt(25)).toFixed(1)}× the 25 °C value)`});
+    rows.push({name:"Leakage power", f:"P = VDD · Ioff · ΣW  (10⁹ transistors × 0.1 µm)", sub:`= 0.8 V · ${lkFmt(ioff)} · 10⁸ µm = ${(LK_VDD*ioff*1e8*1000).toFixed(1)} mW`});
+  } else {
+    ro.push(["Scale length λ", d.lam.toFixed(2) + " nm"], ["SS", d.ss.toFixed(0) + " mV/dec"], ["DIBL", d.dibl.toFixed(0) + " mV/V"], ["L / λ", (LK.L/d.lam).toFixed(1)]);
+    rows.push({name:"Scale length", f:"λ = √(εsi·tsi·tox / (N·εox))", sub:`tsi = ${LK_ST[LK.st].tbody || LK.tsi} nm, EOT 1 nm, N = ${LK.st === "planar" ? 1 : LK_ST[LK.st].sides} → λ = ${d.lam.toFixed(2)} nm`});
+    rows.push({name:"Short-channel SS", f:"SS ≈ 60 mV/dec · n0 / (1 − 2e^(−L/2λ))", sub:`= 60 · ${LK_ST[LK.st].n0} / (1 − 2·${d.e.toFixed(3)}) = ${d.ss.toFixed(0)} mV/dec`});
+    rows.push({name:"DIBL", f:"DIBL ≈ 900 mV/V · e^(−L/2λ)", sub:`= ${d.dibl.toFixed(0)} mV/V`});
+    rows.push({name:"Effective width", f:"FinFET: fins·(2H + Wfin) · GAA: sheets·2(W + T)", sub:`${LK_ST[LK.st].name}: ≈ ×${LK_ST[LK.st].drive} drive per footprint vs planar`});
+  }
+  renderRo($("lk-ro"), ro); renderEq($("lk-eq"), rows);
+  updateLKGloss(); drawLKPlots();
+}
+function lkIdAt(Tc){ const s = LK.T; LK.T = Tc; const i = lkId(0, LK_VDD); LK.T = s; return i; }
+function updateLKGloss(){
+  const key = [LK.view, LK.st, LK.L, LK.tsi, LK.T, LK.vt].join("|"); if (key === lkGlossKey) return; lkGlossKey = key;
+  let h, t;
+  if (LK.view === "sub"){
+    h = `The three threshold flavours of your ${LK_ST[LK.st].name} at ${LK.T} °C:`;
+    t = `<table><tr><th>Flavour</th><th>Vth</th><th>Ion</th><th>Ioff</th><th>Ion/Ioff</th><th>Use</th></tr>` + [["lvt","LVT","speed-critical paths"],["svt","SVT","general logic"],["hvt","HVT","always-on, standby"]].map(([k, n, u]) => { const on = lkId(LK_VDD, LK_VDD, LK.st, k), off = lkId(0, LK_VDD, LK.st, k); return `<tr${k === LK.vt ? ' style="font-weight:700"' : ""}><td>${n}</td><td>${LK_VTH[k]} V</td><td>${lkFmt(on)}</td><td>${lkFmt(off)}</td><td>${sci(on/off)}</td><td>${u}</td></tr>`; }).join("") + `</table>`;
+  } else {
+    h = `The three structures at L = ${LK.L} nm:`;
+    t = `<table><tr><th>Structure</th><th>λ</th><th>L/λ</th><th>SS</th><th>DIBL</th><th>Ioff (SVT)</th></tr>` + ["planar","fin","gaa"].map(k => { const dd = lkDev(k); return `<tr${k === LK.st ? ' style="font-weight:700"' : ""}><td>${LK_ST[k].name}</td><td>${dd.lam.toFixed(2)} nm</td><td>${(LK.L/dd.lam).toFixed(1)}</td><td>${dd.ss.toFixed(0)} mV/dec</td><td>${dd.dibl.toFixed(0)} mV/V</td><td>${lkFmt(lkId(0, LK_VDD, k, "svt"))}</td></tr>`; }).join("") + `</table>`;
+  }
+  $("lk-g-head").textContent = h; $("lk-g-live").innerHTML = t;
+}
+function drawLKPlots(){
+  let a = "", b = "";
+  const lg = i => Math.log10(Math.max(i, 1e-15));
+  if (LK.view === "sub"){
+    const vs = range(0, 1, 120);
+    const A = axesR(300, 230, {l:38,r:10,t:28,b:30}, 0, 1, -13, -3, 0.2, 2, "VGS (V)", "log10 ID (A/µm)");
+    a = A.s + `<path d="${pathOf(vs.map(v => [v, lg(lkId(v, 0.05))]), A.X, A.Y)}" fill="none" stroke="var(--electron)" stroke-width="1.8" stroke-dasharray="5 3"/>`;
+    a += `<path d="${pathOf(vs.map(v => [v, lg(lkId(v, LK.vds))]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+    const ioff = lkId(0, LK_VDD), ion = lkId(LK_VDD, LK_VDD);
+    a += `<line x1="${A.X(0)}" x2="${A.X(LK_VDD)}" y1="${A.Y(lg(ioff))}" y2="${A.Y(lg(ioff))}" stroke="var(--hole)" stroke-dasharray="2 3"/><text x="${A.X(0.02)}" y="${A.Y(lg(ioff)) + 12}" style="fill:var(--hole)">Ioff</text>`;
+    a += `<line x1="${A.X(LK_VDD)}" x2="${A.X(LK_VDD)}" y1="28" y2="200" stroke="var(--muted)" stroke-dasharray="2 3"/><text x="${A.X(LK_VDD) - 3}" y="${A.Y(lg(ion)) - 6}" text-anchor="end">Ion</text>`;
+    a += A.frame + dotSvg(A.X(LK.vgs), A.Y(lg(lkId(LK.vgs, LK.vds)))) + `<text x="44" y="12" style="fill:var(--accent)">— VDS = ${f2(LK.vds)} V</text><text x="140" y="12" style="fill:var(--electron)">- - VDS = 0.05 V</text>`;
+    const ts = range(-40, 150, 60), save = LK.T;
+    const B = axesR(220, 230, {l:34,r:8,t:28,b:30}, -40, 150, -13, -5, 50, 2, "T (°C)", "log10 Ioff");
+    b = B.s;
+    [["lvt","var(--hole)"],["svt","var(--accent)"],["hvt","var(--electron)"]].forEach(([k, c]) => { b += `<path d="${pathOf(ts.map(x => { LK.T = x; return [x, lg(lkId(0, LK_VDD, LK.st, k))]; }), B.X, B.Y)}" fill="none" stroke="${c}" stroke-width="${k === LK.vt ? 2.6 : 1.4}"/>`; });
+    LK.T = save;
+    b += B.frame + dotSvg(B.X(LK.T), B.Y(lg(ioff))) + `<text x="36" y="12" style="fill:var(--hole)">LVT</text><text x="64" y="12" style="fill:var(--accent)">SVT</text><text x="92" y="12" style="fill:var(--electron)">HVT</text>`;
+  } else {
+    const Ls = range(5, 50, 90), cols = {planar:"var(--hole)", fin:"var(--accent)", gaa:"var(--electron)"};
+    const A = axesR(300, 230, {l:34,r:10,t:28,b:30}, 5, 50, 50, 200, 5, 25, "gate length L (nm)", "SS (mV/dec)");
+    a = A.s + `<line x1="${A.X(5)}" x2="${A.X(50)}" y1="${A.Y(60*(LK.T + 273.15)/300)}" y2="${A.Y(60*(LK.T + 273.15)/300)}" stroke="var(--muted)" stroke-dasharray="2 3"/><text x="${A.X(49)}" y="${A.Y(60*(LK.T + 273.15)/300) + 12}" text-anchor="end">60 mV/dec limit</text>`;
+    ["planar","fin","gaa"].forEach(k => a += `<path d="${pathOf(Ls.map(L => [L, Math.min(200, lkDev(k, L).ss)]), A.X, A.Y)}" fill="none" stroke="${cols[k]}" stroke-width="${k === LK.st ? 2.6 : 1.4}"/>`);
+    a += A.frame + dotSvg(A.X(LK.L), A.Y(Math.min(200, lkDev().ss))) + `<text x="40" y="12" style="fill:var(--hole)">planar</text><text x="84" y="12" style="fill:var(--accent)">FinFET</text><text x="132" y="12" style="fill:var(--electron)">GAA</text>`;
+    const B = axesR(220, 230, {l:34,r:8,t:28,b:30}, 5, 50, 0, 300, 15, 50, "L (nm)", "DIBL (mV/V)");
+    b = B.s; ["planar","fin","gaa"].forEach(k => b += `<path d="${pathOf(Ls.map(L => [L, Math.min(300, lkDev(k, L).dibl)]), B.X, B.Y)}" fill="none" stroke="${cols[k]}" stroke-width="${k === LK.st ? 2.6 : 1.4}"/>`);
+    b += B.frame + dotSvg(B.X(LK.L), B.Y(Math.min(300, lkDev().dibl)));
+  }
+  $("lk-p1").innerHTML = a; $("lk-p2").innerHTML = b;
+}
+document.querySelectorAll("#lk-view button").forEach(b => b.addEventListener("click", () => { LK.view = b.dataset.v; updateLK(); }));
+document.querySelectorAll("#lk-st button").forEach(b => b.addEventListener("click", () => { LK.st = b.dataset.s; updateLK(); }));
+document.querySelectorAll("#lk-vtf button").forEach(b => b.addEventListener("click", () => { LK.vt = b.dataset.f; updateLK(); }));
+[["lk-vgs","vgs"],["lk-vds","vds"],["lk-T","T"],["lk-L","L"],["lk-tsi","tsi"]].forEach(([id, k]) => $(id).addEventListener("input", e => { LK[k] = +e.target.value; updateLK(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet"};
 function showTab(t){
   zoomClose();
   tab = t;
@@ -7908,6 +8471,7 @@ function showTab(t){
   else if (t === "mi"){ $("sub-top").textContent = "MIMO and beams · phased arrays, beam switching, virtual arrays, car radar layouts"; MIC.resize(); updateMI(); }
   else if (t === "rf"){ $("sub-top").textContent = "RF passives · S-parameters, coupler, balun, antenna, waveguide modes"; RFC.resize(); updateRF(); }
   else if (t === "pn"){ $("sub-top").textContent = "PN junction and MOS capacitor · silicon at 300 K · ni = 1e10 cm⁻³"; PNC.resize(); updatePN(); }
+  else if (t === "lk"){ $("sub-top").textContent = "Leakage and 3D transistors · VDD = 0.8 V · EOT 1 nm"; LKC.resize(); updateLK(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -7923,6 +8487,7 @@ function frame(now){
   else if (tab === "mi"){ miTick(dt); if (MIC.cv.clientWidth) drawMI(dt, T); }
   else if (tab === "rf"){ rfTick(dt); if (RFC.cv.clientWidth) drawRF(dt, T); }
   else if (tab === "pn"){ pnTick(dt); if (PNC.cv.clientWidth) drawPNtab(dt, T); }
+  else if (tab === "lk"){ lkTick(dt); if (LKC.cv.clientWidth) drawLK(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
