@@ -1804,6 +1804,177 @@ window.I18N_ZH = {
 "cascode > # MΩ vs basic > # MΩ → ×#": "疊接 > # MΩ，基本 > # MΩ → ×#",
 "cascode > # MΩ vs basic > # MΩ → ×∞": "疊接 > # MΩ，基本 > # MΩ → ×∞"
 };
+Object.assign(window.I18N_ZH, {
+"PN junction & MOS cap": "PN 接面與 MOS 電容",
+"PN junction": "PN 接面",
+"Junction view": "接面檢視",
+"MOS capacitor (C-V)": "MOS 電容（C-V）",
+"Acceptor concentration of the p side (atoms per cm³). More doping gives a higher built-in voltage and a thinner depletion region on that side.": "p 側的受體濃度（每 cm³ 原子數）。摻雜越多，內建電位越高，該側的空乏區越薄。",
+"p-side doping NA": "p 側摻雜 NA",
+"Donor concentration of the n side. The lighter-doped side takes most of the depletion width.": "n 側的施體濃度。摻雜較淡的一側佔去大部分的空乏區寬度。",
+"n-side doping ND": "n 側摻雜 ND",
+"Anode (p) voltage against the cathode (n). Positive = forward bias, negative = reverse bias.": "陽極（p）相對陰極（n）的電壓。正值 = 順向偏壓，負值 = 逆向偏壓。",
+"Bias voltage V": "偏壓 V",
+"Reverse −# V": "逆偏 −# V",
+"Zero bias": "零偏壓",
+"Forward # V": "順偏 # V",
+"Gate voltage against the substrate. Negative accumulates holes, positive depletes and then inverts the surface.": "閘極相對基板的電壓。負電壓累積電洞，正電壓先使表面空乏、再使其反轉。",
+"Gate voltage VG": "閘極電壓 VG",
+"Thickness of the gate oxide. Thinner oxide means a larger Cox, a lower Vth and a stronger grip of the gate on the channel.": "閘極氧化層厚度。氧化層越薄，Cox 越大、Vth 越低，閘極對通道的控制力越強。",
+"Oxide thickness tox": "氧化層厚度 tox",
+"Acceptor doping of the p substrate. Higher doping needs more gate voltage to invert, so Vth rises.": "p 型基板的受體摻雜。摻雜越高，需要越大的閘極電壓才能反轉，因此 Vth 上升。",
+"Substrate doping NA": "基板摻雜 NA",
+"Characteristics": "特性曲線",
+"Diode current versus voltage, or capacitance versus gate voltage": "二極體電流對電壓，或電容對閘極電壓",
+"Junction capacitance, or surface potential versus gate voltage": "接面電容，或表面電位對閘極電壓",
+"Explain the terms: doping, band diagram, depletion, built-in voltage, breakdown, C-V": "名詞解釋：摻雜、能帶圖、空乏、內建電位、崩潰、C-V",
+"How a PN junction forms": "PN 接面如何形成",
+"Pure silicon has very few free carriers (ni ≈ #¹⁰ cm⁻³). <b>Doping</b> adds them: boron gives holes (p-type), phosphorus or arsenic gives electrons (n-type).": "純矽的自由載子非常少（ni ≈ #¹⁰ cm⁻³）。<b>摻雜</b>可以增加載子：硼提供電洞（p 型），磷或砷提供電子（n 型）。",
+"Where p meets n, electrons diffuse into the p side and holes into the n side, and recombine.": "p 與 n 接觸處，電子擴散到 p 側、電洞擴散到 n 側，然後復合。",
+"The dopant atoms they leave behind are charged and fixed: a <b>depletion region</b> with a strong electric field.": "留下的摻雜原子帶電且固定不動，形成具有強電場的<b>空乏區</b>。",
+"The field pushes back on diffusion. Balance is reached at the <b>built-in voltage</b> Vbi ≈ #–# V.": "電場會反推擴散，兩者在<b>內建電位</b> Vbi ≈ #–# V 時達到平衡。",
+"An external voltage tips the balance: <b>forward</b> lowers the barrier (current e^(V/Vt)), <b>reverse</b> raises it (only leakage, until breakdown).": "外加電壓會打破平衡：<b>順偏</b>降低能障（電流 ∝ e^(V/Vt)），<b>逆偏</b>提高能障（只有漏電，直到崩潰）。",
+"Your doping at a few bias points:": "你目前的摻雜在幾個偏壓下：",
+"How to read a band diagram": "如何看能帶圖",
+"Up means higher electron energy. Electrons live on or above Ec and roll downhill; holes live on or below Ev and float uphill. A sloped band means an electric field. The Fermi level EF marks how full the states are: close to Ec means n-type, close to Ev means p-type. In equilibrium EF is flat everywhere; an applied voltage V splits it by qV.": "往上代表電子能量越高。電子位於 Ec 或其上方，會往下坡滾；電洞位於 Ev 或其下方，會往上浮。能帶傾斜代表有電場。費米能階 EF 表示能態被填滿的程度：靠近 Ec 是 n 型，靠近 Ev 是 p 型。平衡時 EF 處處平坦；外加電壓 V 會讓兩側的 EF 相差 qV。",
+"Where these junctions appear on this site": "這些接面在本網站的哪裡出現",
+"Place": "位置",
+"Junction": "接面",
+"Why it matters": "為什麼重要",
+"Every MOSFET": "每一顆 MOSFET",
+"Source/drain to body (reverse biased)": "源極／汲極對基體（逆偏）",
+"Isolates transistors; leakage and capacitance": "隔離電晶體；造成漏電與電容",
+"Body effect tab": "基體效應分頁",
+"Source-body reverse bias VSB": "源極－基體逆偏 VSB",
+"Wider depletion raises Vth": "空乏區變寬，Vth 上升",
+"# GHz VCO": "# GHz VCO",
+"MOS varactor (this C-V curve)": "MOS 變容器（就是這條 C-V 曲線）",
+"Tuning voltage sets capacitance and frequency": "調諧電壓決定電容與頻率",
+"ESD protection": "ESD 保護",
+"Diodes to the supply rails": "接到電源軌的二極體",
+"Steer surge current away from the gates": "把突波電流導離閘極",
+"Image sensors, solar cells": "影像感測器、太陽能電池",
+"Photodiode": "光二極體",
+"Light makes electron-hole pairs in the depletion region": "光在空乏區產生電子－電洞對",
+"Junction terms": "接面名詞",
+"Intrinsic carrier density of pure silicon, about #¹⁰ cm⁻³ at room temperature.": "純矽的本質載子濃度，室溫下約 #¹⁰ cm⁻³。",
+"Acceptor / donor": "受體／施體",
+"Dopant that takes an electron (boron → hole, p-type) or gives one (phosphorus → electron, n-type).": "接受電子的摻雜（硼 → 電洞，p 型）或提供電子的摻雜（磷 → 電子，n 型）。",
+"Ec, Ev, Eg": "Ec、Ev、Eg",
+"Conduction-band edge, valence-band edge and the band gap between them (# eV in silicon).": "導帶邊緣、價帶邊緣，以及兩者之間的能隙（矽為 # eV）。",
+"Fermi level EF": "費米能階 EF",
+"Energy at which a state is half likely to be filled; it tells how n- or p-type the material is.": "能態被佔據機率為一半的能量；代表材料偏 n 型或 p 型的程度。",
+"Vt = kT/q": "Vt = kT/q",
+"Thermal voltage, # mV at # K: the natural voltage scale of carrier statistics.": "熱電壓，# K 時為 # mV：載子統計的自然電壓尺度。",
+"Diffusion / drift": "擴散／漂移",
+"Carriers move from high to low concentration (diffusion) or are pushed by an electric field (drift).": "載子從高濃度往低濃度移動（擴散），或被電場推動（漂移）。",
+"Minority injection": "少數載子注入",
+"In forward bias electrons enter the p side and holes the n side, where they are the minority and recombine.": "順偏時電子進入 p 側、電洞進入 n 側，在那裡它們是少數載子並且復合。",
+"Reverse saturation current: tiny, set by ni², doping and diffusion lengths; doubles roughly every #–# °C.": "逆向飽和電流：非常小，由 ni²、摻雜和擴散長度決定；溫度每升高約 #–# °C 就加倍。",
+"Avalanche": "累增崩潰",
+"Carriers gain enough energy in the field to knock out new electron-hole pairs, which multiply.": "載子在電場中獲得足夠能量，撞擊出新的電子－電洞對，數量倍增。",
+"Zener breakdown": "齊納崩潰",
+"In very heavily doped junctions electrons tunnel straight through the thin barrier (below about # V).": "在極重摻雜的接面中，電子直接穿隧過很薄的能障（約 # V 以下）。",
+"MOS capacitor terms": "MOS 電容名詞",
+"Accumulation": "累積",
+"Majority carriers (holes) gather at the surface; C ≈ Cox.": "多數載子（電洞）聚集在表面；C ≈ Cox。",
+"Holes are pushed away; fixed charge forms a layer that grows with VG and lowers C.": "電洞被推開；固定電荷形成一層，隨 VG 增厚並使 C 下降。",
+"The surface holds more electrons than the bulk holds holes: it acts as n-type.": "表面的電子比基板內的電洞還多：表面表現得像 n 型。",
+"Surface potential: total band bending at the oxide interface.": "表面電位：在氧化層介面的總能帶彎曲量。",
+"Fermi potential: (kT/q)·ln(NA/ni); strong inversion starts at ψs = #φF.": "費米電位：(kT/q)·ln(NA/ni)；在 ψs = #φF 時開始強反轉。",
+"Flat-band voltage: gate voltage that makes the bands flat (set by the work-function difference and oxide charge).": "平帶電壓：使能帶變平的閘極電壓（由功函數差與氧化層電荷決定）。",
+"Oxide capacitance per area, εox/tox.": "單位面積氧化層電容，εox/tox。",
+"LF / HF C-V": "低頻／高頻 C-V",
+"At low frequency the inversion electrons follow the signal (C back to Cox); at high frequency they cannot, so C stays at its minimum.": "低頻時反轉層電子能跟上訊號（C 回到 Cox）；高頻時跟不上，所以 C 停在最小值。",
+"A voltage-controlled capacitor built from this structure; it tunes oscillators such as the radar VCO.": "用這種結構做成的電壓控制電容，用來調諧振盪器，例如雷達的 VCO。",
+"PN junction and MOS capacitor · silicon at # K · ni = #e# cm⁻³": "PN 接面與 MOS 電容 · 矽，# K · ni = #e# cm⁻³",
+"Where p meets n: a depletion region, a built-in barrier and a one-way current": "p 與 n 相遇：空乏區、內建能障與單向電流",
+"Put p-type silicon (full of holes) against n-type silicon (full of electrons). Electrons diffuse into the p side and holes into the n side, where they recombine. They leave behind fixed, charged dopant ions: negative acceptors on the p side, positive donors on the n side. This depletion region has no free carriers and a strong electric field that pushes back against further diffusion, until the two balance at the built-in voltage Vbi. In the band diagram this shows up as a step of qVbi between the two sides. Forward bias (anode positive) lowers the barrier by qV: the number of carriers able to climb it grows as e^(V/Vt), so the current rises exponentially. Reverse bias raises the barrier and widens the depletion region; only a tiny leakage of minority carriers flows, until the field is strong enough for avalanche multiplication or tunnelling (Zener) and the junction breaks down. The depletion region also acts as a capacitor whose plates move apart with reverse bias, so its capacitance falls as Cj ∝ #/√(Vbi − V).": "把 p 型矽（充滿電洞）和 n 型矽（充滿電子）貼在一起。電子擴散到 p 側、電洞擴散到 n 側，在那裡復合，留下固定不動的帶電摻雜離子：p 側是帶負電的受體，n 側是帶正電的施體。這個空乏區沒有自由載子，並有一個反推擴散的強電場，直到兩者在內建電位 Vbi 達成平衡。在能帶圖中，這表現為兩側之間 qVbi 的階差。順偏（陽極為正）會把能障降低 qV：能翻越能障的載子數量隨 e^(V/Vt) 增加，所以電流呈指數上升。逆偏會提高能障並使空乏區變寬；只有極小的少數載子漏電流，直到電場強到發生累增倍增或穿隧（齊納），接面就崩潰了。空乏區也像一個電容，逆偏時極板間距拉大，所以電容按 Cj ∝ #/√(Vbi − V) 下降。",
+"Depletion (fixed ions)": "空乏區（固定離子）",
+"Fermi level · field": "費米能階 · 電場",
+"Vbi: the voltage step the depletion region builds up at zero bias, (kT/q)·ln(NA·ND/ni²).": "Vbi：零偏壓時空乏區建立的電位階差，(kT/q)·ln(NA·ND/ni²)。",
+"Built-in voltage": "內建電位",
+"W: thickness of the region emptied of free carriers. Grows with reverse bias and with lower doping.": "W：沒有自由載子的區域厚度。逆偏越大、摻雜越低，W 越大。",
+"Depletion width": "空乏區寬度",
+"Diode current from anode to cathode. Exponential in forward bias, a tiny leakage in reverse.": "從陽極流到陰極的二極體電流。順偏時呈指數，逆偏時只有極小的漏電。",
+"Current": "電流",
+"Junction capacitance εs·A/W. Falls as the depletion region widens under reverse bias.": "接面電容 εs·A/W。逆偏使空乏區變寬時，電容下降。",
+"Capacitance": "電容",
+"Built-in voltage from the doping on both sides.": "由兩側摻雜決定的內建電位。",
+"Built-in": "內建電位",
+"Depletion width and how it splits between the two sides: the lighter-doped side takes most of it.": "空乏區寬度及其在兩側的分配：摻雜較淡的一側佔大部分。",
+"Width": "寬度",
+"= # µm (p side #, n side # µm)": "= # µm（p 側 #，n 側 # µm）",
+"Highest electric field, at the junction. Breakdown happens when it reaches a few hundred kV/cm.": "最高電場，位於接面處。達到數百 kV/cm 時就會崩潰。",
+"Peak field": "峰值電場",
+"Shockley equation: current grows by e (#×) every # mV of forward bias.": "Shockley 方程式：順偏每增加 # mV，電流增為 e 倍（# 倍）。",
+"Diode law": "二極體方程式",
+"Depletion capacitance: a parallel-plate capacitor with gap W.": "空乏電容：間距為 W 的平行板電容。",
+"Junction C": "接面電容",
+"Cj = εs·A / W (A = # µm × # µm)": "Cj = εs·A / W（A = # µm × # µm）",
+"Reverse voltage where avalanche multiplication or tunnelling makes the current shoot up.": "累增倍增或穿隧使電流暴增的逆向電壓。",
+"Breakdown": "崩潰",
+"N = #e# → VBR ≈ # V (avalanche)": "N = #e# → VBR ≈ # V（累增崩潰）",
+"N = #e# → VBR ≈ # V (tunnelling, Zener)": "N = #e# → VBR ≈ # V（穿隧，齊納）",
+"Bias V": "偏壓 V",
+"Barrier": "能障",
+"Width W": "寬度 W",
+"reverse leakage −Is": "逆向漏電 −Is",
+"forward": "順偏",
+"— diode current (log scale)": "— 二極體電流（對數刻度）",
+"— junction capacitance": "— 接面電容",
+"E field, peak # kV/cm": "電場，峰值 # kV/cm",
+"p-type NA = #e# cm⁻³": "p 型 NA = #e# cm⁻³",
+"n-type ND = #e# cm⁻³": "n 型 ND = #e# cm⁻³",
+"depletion W = # µm": "空乏區 W = # µm",
+"anode V = # V": "陽極 V = # V",
+"cathode # V": "陰極 # V",
+"barrier q(Vbi − V) = # eV": "能障 q(Vbi − V) = # eV",
+"band gap Eg = # eV": "能隙 Eg = # eV",
+"energy band diagram (electron energy up)": "能帶圖（電子能量往上增加）",
+"MOS capacitor and C-V": "MOS 電容與 C-V",
+"Gate, oxide and silicon: accumulation, depletion, inversion": "閘極、氧化層與矽：累積、空乏、反轉",
+"A MOS capacitor is a transistor without source and drain: a gate, a thin oxide and a p-type substrate. A negative gate pulls holes to the surface (accumulation) and the capacitance is just the oxide capacitance Cox. A positive gate first pushes the holes away, leaving fixed negative acceptor ions: a depletion layer that grows with the gate voltage and adds a second capacitance in series, so C drops. In the band diagram the bands bend down by the surface potential ψs. Once ψs reaches #φF, the surface has as many free electrons as the bulk had holes: it has inverted to n-type. That is the threshold voltage Vth, the same Vth as in the transistor tab. In inversion the electron layer screens the substrate. At low frequency it follows the signal and C returns to Cox; at high frequency (and in a varactor) the electrons cannot form fast enough, the depletion width stays at its maximum and C stays low. The steep middle part of this C-V curve is exactly what a MOS varactor uses to tune the radar VCO.": "MOS 電容就是沒有源極和汲極的電晶體：一個閘極、一層薄氧化層和 p 型基板。負的閘極電壓把電洞吸到表面（累積），電容就是氧化層電容 Cox。正的閘極電壓先把電洞推開，留下固定的帶負電受體離子：一層隨閘極電壓變厚的空乏層，等於串聯了第二個電容，所以 C 下降。在能帶圖中，能帶會向下彎曲，彎曲量就是表面電位 ψs。當 ψs 達到 #φF 時，表面的自由電子和基板內的電洞一樣多：表面已反轉成 n 型。這就是臨界電壓 Vth，和電晶體分頁的 Vth 相同。反轉時電子層會屏蔽基板。低頻時它能跟上訊號，C 回到 Cox；高頻時（以及在變容器中）電子來不及形成，空乏寬度停在最大值，C 維持在低點。這條 C-V 曲線中間陡峭的部分，正是 MOS 變容器用來調諧雷達 VCO 的地方。",
+"Fermi level": "費米能階",
+"How far the bands bend down at the silicon surface. #φF marks the start of strong inversion.": "矽表面能帶向下彎曲的程度。#φF 代表強反轉的起點。",
+"Surface potential ψs": "表面電位 ψs",
+"Accumulation, depletion, weak or strong inversion, judged from ψs.": "依 ψs 判斷：累積、空乏、弱反轉或強反轉。",
+"Region": "區域",
+"strong inversion": "強反轉",
+"Gate voltage at which ψs = #φF and an inversion layer forms.": "使 ψs = #φF、形成反轉層的閘極電壓。",
+"Threshold Vth": "臨界電壓 Vth",
+"Measured capacitance divided by the oxide capacitance (low-frequency curve).": "量到的電容除以氧化層電容（低頻曲線）。",
+"φF: how far the Fermi level sits below the middle of the gap in the p-type bulk.": "φF：p 型基板中費米能階低於能隙中央的距離。",
+"Fermi potential": "費米電位",
+"= # V → strong inversion at ψs = #φF = # V": "= # V → 在 ψs = #φF = # V 時強反轉",
+"Cox = εox/tox per unit area. Thinner oxide gives more capacitance and more control.": "Cox = εox/tox（單位面積）。氧化層越薄，電容越大、控制力越強。",
+"Oxide capacitance": "氧化層電容",
+"VFB: the gate voltage at which the bands are flat (no charge in the silicon).": "VFB：能帶平坦（矽中沒有電荷）時的閘極電壓。",
+"Flat band": "平帶",
+"VFB = φms = −(Eg/#q + φF) (n+ poly gate)": "VFB = φms = −(Eg/#q + φF)（n+ 多晶矽閘極）",
+"Vth = VFB + #φF + depletion charge / Cox.": "Vth = VFB + #φF + 空乏電荷 / Cox。",
+"The gate sees Cox in series with the silicon capacitance Cs.": "閘極看到的是 Cox 與矽電容 Cs 串聯。",
+"Series C": "串聯電容",
+"low freq C/Cox = #, high freq #": "低頻 C/Cox = #，高頻 #",
+"Your MOS capacitor at a few gate voltages:": "你的 MOS 電容在幾個閘極電壓下：",
+"C/Cox (LF)": "C/Cox（低頻）",
+"C/Cox (HF)": "C/Cox（高頻）",
+"accumulation": "累積",
+"depletion": "空乏",
+"weak inversion": "弱反轉",
+"— low frequency": "— 低頻",
+"- - high frequency": "- - 高頻",
+"#φF: inversion": "#φF：反轉",
+"— band bending": "— 能帶彎曲",
+"gate": "閘極",
+"oxide # nm": "氧化層 # nm",
+"p-substrate NA = #e# cm⁻³": "p 型基板 NA = #e# cm⁻³",
+"depletion # µm": "空乏 # µm",
+"EF (gate)": "EF（閘極）",
+"band bending ψs = # V (#φF = # V)": "能帶彎曲 ψs = # V（#φF = # V）",
+"oxide": "氧化層",
+"energy band diagram from the gate into the silicon": "從閘極到矽內部的能帶圖"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -2130,6 +2301,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-rd" aria-selected="false" aria-controls="tab-rd">77 GHz radar</button>
         <button role="tab" id="tab-btn-rf" aria-selected="false" aria-controls="tab-rf">RF passives</button>
         <button role="tab" id="tab-btn-mi" aria-selected="false" aria-controls="tab-mi">MIMO &amp; beams</button>
+        <button role="tab" id="tab-btn-pn" aria-selected="false" aria-controls="tab-pn">PN junction & MOS cap</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -3328,6 +3500,136 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Pelgrom's law</dt><dd>σ(ΔVth) = AVT/√(W·L): bigger transistors match better.</dd>
               <dt>Common centroid</dt><dd>Layout that interleaves the unit transistors so gradients across the chip cancel.</dd>
               <dt>INL / DNL</dt><dd>Integral and differential non-linearity of a DAC, in LSB: how far each output, and each step, is from ideal.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== PN JUNCTION & MOS CAPACITOR TAB ===================== -->
+  <section id="tab-pn" role="tabpanel" aria-labelledby="tab-btn-pn" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="pn-pill">PN</span><h2 id="pn-name">PN junction</h2></div>
+      <p id="pn-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="pn-view" role="group" aria-label="Junction view" style="flex-wrap:wrap">
+        <button data-v="pn" aria-pressed="true">PN junction</button>
+        <button data-v="mos" aria-pressed="false">MOS capacitor (C-V)</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvpn" aria-label="Animated junction: cross-section with carriers and the energy band diagram below"></canvas>
+      <div class="legend" id="pn-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="pn-ro"></div>
+        <div id="pn-c-pn" style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Acceptor concentration of the p side (atoms per cm³). More doping gives a higher built-in voltage and a thinner depletion region on that side.">p-side doping NA</span><span id="pn-na-v"></span></div>
+            <input id="pn-na" type="range" min="15" max="18" step="0.1" value="16">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Donor concentration of the n side. The lighter-doped side takes most of the depletion width.">n-side doping ND</span><span id="pn-nd-v"></span></div>
+            <input id="pn-nd" type="range" min="15" max="18" step="0.1" value="16">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Anode (p) voltage against the cathode (n). Positive = forward bias, negative = reverse bias.">Bias voltage V</span><span id="pn-v-v"></span></div>
+            <input id="pn-v" type="range" min="-12" max="0.8" step="0.01" value="0.45">
+          </div>
+          <div class="chips" id="pn-bias">
+            <button class="chipbtn" data-b="-8">Reverse −8 V</button>
+            <button class="chipbtn" data-b="0">Zero bias</button>
+            <button class="chipbtn" data-b="0.6">Forward 0.6 V</button>
+          </div>
+        </div>
+        <div id="pn-c-mos" hidden style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Gate voltage against the substrate. Negative accumulates holes, positive depletes and then inverts the surface.">Gate voltage VG</span><span id="pn-vg-v"></span></div>
+            <input id="pn-vg" type="range" min="-3" max="3" step="0.01" value="1.5">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Thickness of the gate oxide. Thinner oxide means a larger Cox, a lower Vth and a stronger grip of the gate on the channel.">Oxide thickness tox</span><span id="pn-tox-v"></span></div>
+            <input id="pn-tox" type="range" min="2" max="30" step="1" value="10">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Acceptor doping of the p substrate. Higher doping needs more gate voltage to invert, so Vth rises.">Substrate doping NA</span><span id="pn-nam-v"></span></div>
+            <input id="pn-nam" type="range" min="15" max="18" step="0.1" value="16.5">
+          </div>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="pn-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Characteristics</p>
+        <div class="plots">
+          <div class="plot"><svg id="pn-p1" viewBox="0 0 300 230" role="img" aria-label="Diode current versus voltage, or capacitance versus gate voltage"></svg></div>
+          <div class="plot"><svg id="pn-p2" viewBox="0 0 220 230" role="img" aria-label="Junction capacitance, or surface potential versus gate voltage"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="pn-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: doping, band diagram, depletion, built-in voltage, breakdown, C-V</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>How a PN junction forms</h3>
+            <ol>
+              <li>Pure silicon has very few free carriers (ni ≈ 10¹⁰ cm⁻³). <b>Doping</b> adds them: boron gives holes (p-type), phosphorus or arsenic gives electrons (n-type).</li>
+              <li>Where p meets n, electrons diffuse into the p side and holes into the n side, and recombine.</li>
+              <li>The dopant atoms they leave behind are charged and fixed: a <b>depletion region</b> with a strong electric field.</li>
+              <li>The field pushes back on diffusion. Balance is reached at the <b>built-in voltage</b> Vbi ≈ 0.6–0.9 V.</li>
+              <li>An external voltage tips the balance: <b>forward</b> lowers the barrier (current e^(V/Vt)), <b>reverse</b> raises it (only leakage, until breakdown).</li>
+            </ol>
+            <p id="pn-g-head">Your doping at a few bias points:</p>
+            <div class="tbl" id="pn-g-live"></div>
+            <h3>How to read a band diagram</h3>
+            <p class="note">Up means higher electron energy. Electrons live on or above Ec and roll downhill; holes live on or below Ev and float uphill. A sloped band means an electric field. The Fermi level EF marks how full the states are: close to Ec means n-type, close to Ev means p-type. In equilibrium EF is flat everywhere; an applied voltage V splits it by qV.</p>
+            <h3>Where these junctions appear on this site</h3>
+            <div class="tbl"><table>
+              <tr><th>Place</th><th>Junction</th><th>Why it matters</th></tr>
+              <tr><td>Every MOSFET</td><td>Source/drain to body (reverse biased)</td><td>Isolates transistors; leakage and capacitance</td></tr>
+              <tr><td>Body effect tab</td><td>Source-body reverse bias VSB</td><td>Wider depletion raises Vth</td></tr>
+              <tr><td>77 GHz VCO</td><td>MOS varactor (this C-V curve)</td><td>Tuning voltage sets capacitance and frequency</td></tr>
+              <tr><td>ESD protection</td><td>Diodes to the supply rails</td><td>Steer surge current away from the gates</td></tr>
+              <tr><td>Image sensors, solar cells</td><td>Photodiode</td><td>Light makes electron-hole pairs in the depletion region</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Junction terms</h3>
+            <dl>
+              <dt>ni</dt><dd>Intrinsic carrier density of pure silicon, about 10¹⁰ cm⁻³ at room temperature.</dd>
+              <dt>Acceptor / donor</dt><dd>Dopant that takes an electron (boron → hole, p-type) or gives one (phosphorus → electron, n-type).</dd>
+              <dt>Ec, Ev, Eg</dt><dd>Conduction-band edge, valence-band edge and the band gap between them (1.12 eV in silicon).</dd>
+              <dt>Fermi level EF</dt><dd>Energy at which a state is half likely to be filled; it tells how n- or p-type the material is.</dd>
+              <dt>Vt = kT/q</dt><dd>Thermal voltage, 25.9 mV at 300 K: the natural voltage scale of carrier statistics.</dd>
+              <dt>Diffusion / drift</dt><dd>Carriers move from high to low concentration (diffusion) or are pushed by an electric field (drift).</dd>
+              <dt>Minority injection</dt><dd>In forward bias electrons enter the p side and holes the n side, where they are the minority and recombine.</dd>
+              <dt>Is</dt><dd>Reverse saturation current: tiny, set by ni², doping and diffusion lengths; doubles roughly every 5–6 °C.</dd>
+              <dt>Avalanche</dt><dd>Carriers gain enough energy in the field to knock out new electron-hole pairs, which multiply.</dd>
+              <dt>Zener breakdown</dt><dd>In very heavily doped junctions electrons tunnel straight through the thin barrier (below about 5 V).</dd>
+            </dl>
+            <h3>MOS capacitor terms</h3>
+            <dl>
+              <dt>Accumulation</dt><dd>Majority carriers (holes) gather at the surface; C ≈ Cox.</dd>
+              <dt>Depletion</dt><dd>Holes are pushed away; fixed charge forms a layer that grows with VG and lowers C.</dd>
+              <dt>Inversion</dt><dd>The surface holds more electrons than the bulk holds holes: it acts as n-type.</dd>
+              <dt>ψs</dt><dd>Surface potential: total band bending at the oxide interface.</dd>
+              <dt>φF</dt><dd>Fermi potential: (kT/q)·ln(NA/ni); strong inversion starts at ψs = 2φF.</dd>
+              <dt>VFB</dt><dd>Flat-band voltage: gate voltage that makes the bands flat (set by the work-function difference and oxide charge).</dd>
+              <dt>Cox</dt><dd>Oxide capacitance per area, εox/tox.</dd>
+              <dt>LF / HF C-V</dt><dd>At low frequency the inversion electrons follow the signal (C back to Cox); at high frequency they cannot, so C stays at its minimum.</dd>
+              <dt>Varactor</dt><dd>A voltage-controlled capacitor built from this structure; it tunes oscillators such as the radar VCO.</dd>
             </dl>
           </div>
         </div>
@@ -7282,14 +7584,321 @@ $("cm-clm").addEventListener("change", e => { CM.clm = e.target.checked; updateC
 $("cm-seed").addEventListener("click", () => { CM.seed++; updateCM(); });
 
 
+/* =========================================================
+   TAB — PJ junction and MOS capacitor (silicon, 300 K)
+   ========================================================= */
+const PNC = setupCanvas($("cvpn"), 1000, 488);
+const QE = 1.602e-19, ES = 11.7*8.854e-14, EOX = 3.9*8.854e-14, NI = 1e10, VT = 0.02585, NCB = 2.8e19, NVB = 1.04e19, EG = 1.12;
+const AREA = 1e-4;                                               // junction area, cm² (100 µm × 100 µm)
+const PJ = {view:"pn", na:16, nd:16, v:0.45, t:0, tox:10, nam:16.5, vg:1.5, inj:[], acc:0};
+const sci = x => { const e = Math.floor(Math.log10(Math.abs(x))), m = x/10**e; return `${m.toFixed(1)}e${e}`; };
+const fmtI = i => { const a = Math.abs(i), s = i < 0 ? "−" : ""; return a >= 1e-3 ? s + (a*1e3).toFixed(2) + " mA" : a >= 1e-6 ? s + (a*1e6).toFixed(2) + " µA" : a >= 1e-9 ? s + (a*1e9).toFixed(2) + " nA" : s + (a*1e12).toFixed(3) + " pA"; };
+
+/* ---------------- PJ junction model ---------------- */
+function pnModel(V = PJ.v){
+  const NA = 10**PJ.na, ND = 10**PJ.nd;
+  const vbi = VT*Math.log(NA*ND/(NI*NI));
+  const vj = Math.min(V, vbi - 0.05);
+  const W = Math.sqrt(2*ES*(vbi - vj)/QE*(1/NA + 1/ND));
+  const xp = W*ND/(NA + ND), xn = W*NA/(NA + ND);
+  const Emax = QE*NA*xp/ES;
+  const Dn = 36, Dp = 12, Ln = 6e-3, Lp = 3.46e-3;
+  const Is = QE*AREA*NI*NI*(Dn/(Ln*NA) + Dp/(Lp*ND));
+  const Neff = NA*ND/(NA + ND), vbr = 60*Math.pow(EG/1.1, 1.5)*Math.pow(Neff/1e16, -0.75);
+  let I;
+  if (V >= 0) I = Is*(Math.exp(V/VT) - 1);
+  else if (-V < 0.98*vbr) I = -Is/(1 - Math.pow(-V/vbr, 4));
+  else I = -(Is*50 + (-V - 0.98*vbr)/20);
+  const Cj = ES*AREA/W;
+  return {NA, ND, vbi, vj, W, xp, xn, Emax, Is, I, Cj, vbr, Neff, zener: vbr < 5};
+}
+// electrostatic potential across the junction (0 on the p side, vbi − V on the n side), x in cm from the junction
+function pnPhi(m, x){
+  const k = QE/(2*ES), tot = m.vbi - m.vj;
+  if (x <= -m.xp) return 0;
+  if (x <= 0) return k*m.NA*(x + m.xp)**2;
+  if (x < m.xn) return tot - k*m.ND*(m.xn - x)**2;
+  return tot;
+}
+
+/* ---------------- MOS capacitor model (n+ poly gate, p substrate) ---------------- */
+function mosModel(VG = PJ.vg){
+  const NA = 10**PJ.nam, cox = EOX/(PJ.tox*1e-7), phiF = VT*Math.log(NA/NI);
+  const vfb = -(EG/2 + phiF);
+  const r2 = (NI/NA)**2, kq = Math.sqrt(2*ES*VT*QE*NA);
+  const Fq = p => { const b = p/VT; return Math.sqrt(Math.max(0, (Math.exp(-b) + b - 1) + r2*(Math.exp(b) - b - 1))); };
+  const Qs = p => (p >= 0 ? 1 : -1)*kq*Fq(p);                  // magnitude of semiconductor charge, + = negative charge
+  let lo = -0.7, hi = 2*phiF + 0.45;
+  for (let i=0;i<60;i++){ const m = (lo + hi)/2; if (vfb + m + Qs(m)/cox < VG) lo = m; else hi = m; }
+  const ps = (lo + hi)/2;
+  const qdep = ps > 0 ? Math.sqrt(2*QE*ES*NA*Math.min(ps, 2*phiF + 0.2)) : 0;
+  const qs = Qs(ps), qinv = Math.max(0, qs - qdep), qacc = ps < 0 ? -qs : 0;
+  const csLF = p => { const d = 1e-4; return Math.max(1e-12, (Qs(p + d) - Qs(p - d))/(2*d)); };
+  const wmax = Math.sqrt(2*ES*2*phiF/(QE*NA));
+  const wd = ps > 0 ? Math.min(Math.sqrt(2*ES*ps/(QE*NA)), wmax*1.03) : 0;
+  const csHF = p => p <= 0 ? csLF(p) : ES/Math.max(Math.sqrt(2*ES*Math.min(p, 2*phiF)/(QE*NA)), 1e-9);
+  const cLF = cox*csLF(ps)/(cox + csLF(ps)), cHF = cox*csHF(ps)/(cox + csHF(ps));
+  const vth = vfb + 2*phiF + Math.sqrt(2*QE*ES*NA*2*phiF)/cox;
+  const region = ps < -VT ? "accumulation" : ps < phiF ? "depletion" : ps < 2*phiF ? "weak inversion" : "strong inversion";
+  return {NA, cox, phiF, vfb, ps, qs, qdep, qinv, qacc, wd, wmax, cLF, cHF, vth, region, ld: Math.sqrt(ES*VT/(QE*NA)), Qs, cox};
+}
+const mosCurve = (() => { let key = "", data = null; return () => {
+  const k = PJ.nam + "|" + PJ.tox; if (k === key) return data; key = k;
+  data = range(-3, 3, 120).map(v => { const m = mosModel(v); return {v, lf: m.cLF/m.cox, hf: m.cHF/m.cox, ps: m.ps}; });
+  return data; }; })();
+
+/* ---------------- animation ---------------- */
+const pnHoles = Array.from({length:70}, () => ({fx:Math.random(), fy:Math.random(), ph:rnd(0,6.28), w:rnd(1.5,3)}));
+const pnElecs = Array.from({length:70}, () => ({fx:Math.random(), fy:Math.random(), ph:rnd(0,6.28), w:rnd(1.5,3)}));
+function pnTick(dt){
+  PJ.t += dt;
+  if (PJ.view !== "pn") return;
+  const m = pnModel(), I = m.I;
+  let rate = 0, mode = "none";
+  if (I > 1e-12){ rate = clamp(5*Math.log10(I/1e-12), 0, 45); mode = "inj"; }
+  else if (I < 0){ const b = -I > m.Is*5; rate = b ? 40 : 1.2; mode = b ? "bd" : "gen"; }
+  PJ.acc += rate*dt*(reduce ? 0.3 : 1);
+  while (PJ.acc >= 1){
+    PJ.acc -= 1;
+    if (mode === "inj"){ PJ.inj.push({e:true, x:null, side:"n", life:1, y:Math.random(), v:-1}); PJ.inj.push({e:false, x:null, side:"p", life:1, y:Math.random(), v:1}); }
+    else { PJ.inj.push({e:true, x:null, side:"gen", life:1, y:Math.random(), v:1, g:Math.random()}); PJ.inj.push({e:false, x:null, side:"gen", life:1, y:Math.random(), v:-1, g:Math.random()}); }
+  }
+  if (PJ.inj.length > 220) PJ.inj.splice(0, PJ.inj.length - 220);
+}
+
+/* ---------------- drawing ---------------- */
+const PN_X0 = 500, PN_L = 40, PN_R = 960;
+function pnScale(m){
+  const lim = -Math.min(12, m.vbr), mm = pnModel(lim);
+  return 440/(1.2*Math.max(mm.xp, mm.xn));                      // px per cm
+}
+function drawPN(dt, T){
+  const m = pnModel(), sc = pnScale(m), xp = m.xp*sc, xn = m.xn*sc, jit = reduce ? 0 : 1.2;
+  const yT = 44, yB = 210;
+  // cross-section
+  ctx.fillStyle = C.pplus; ctx.fillRect(PN_L, yT, PN_X0 - PN_L, yB - yT);
+  ctx.fillStyle = C.nplus; ctx.fillRect(PN_X0, yT, PN_R - PN_X0, yB - yT);
+  ctx.fillStyle = C.deplete; ctx.fillRect(PN_X0 - xp, yT, xp + xn, yB - yT);
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(PN_L + .5, yT + .5, PN_R - PN_L - 1, yB - yT - 1);
+  ctx.strokeStyle = C.fg; ctx.setLineDash([4,4]); pl([[PN_X0, yT - 6],[PN_X0, yB + 6]]); ctx.setLineDash([]);
+  // fixed ions in the depletion region
+  for (let x = PN_X0 - xp + 6; x < PN_X0 + xn - 4; x += 15) for (let y = yT + 12; y < yB - 6; y += 19){
+    ctx.strokeStyle = C.ion; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(x, y, 4, 0, 6.283); ctx.stroke(); sign(x, y, 2.2, x < PN_X0 ? -1 : 1, C.ion);
+  }
+  // majority carriers outside the depletion region
+  pnHoles.forEach(h => { const x = PN_L + 6 + h.fx*Math.max(0, PN_X0 - xp - PN_L - 12), y = yT + 8 + h.fy*(yB - yT - 16); dot(x + Math.sin(T*h.w + h.ph)*jit, y + Math.cos(T*h.w + h.ph)*jit, C.hole, true, 1, 3.2); });
+  pnElecs.forEach(h => { const x = PN_X0 + xn + 6 + h.fx*Math.max(0, PN_R - PN_X0 - xn - 12), y = yT + 8 + h.fy*(yB - yT - 16); dot(x + Math.sin(T*h.w + h.ph)*jit, y + Math.cos(T*h.w + h.ph)*jit, C.electron, false, 1, 3.2); });
+  // moving minority carriers (injection, generation, avalanche)
+  const sp = 150*dt*(reduce ? 0.4 : 1);
+  PJ.inj.forEach(c => {
+    if (c.x === null){
+      if (c.side === "n") c.x = xn + 4; else if (c.side === "p") c.x = -xp - 4; else c.x = -xp + c.g*(xp + xn);
+    }
+    const inDep = c.x > -xp && c.x < xn;
+    c.x += c.v*sp*(inDep ? 2.2 : 1);
+    if (c.side !== "gen" && !inDep) c.life -= dt*0.55;
+    if (c.side === "gen" && (c.x < -xp - 60 || c.x > xn + 60)) c.life -= dt*2;
+  });
+  PJ.inj = PJ.inj.filter(c => c.life > 0 && c.x > PN_L - PN_X0 && c.x < PN_R - PN_X0);
+  PJ.inj.forEach(c => dot(PN_X0 + c.x, yT + 10 + c.y*(yB - yT - 20), c.e ? C.electron : C.hole, !c.e, c.life, 3.4));
+  if (xp + xn > 44){
+    const ya = yB + 18; ctx.strokeStyle = C.accent; ctx.fillStyle = C.accent; ctx.lineWidth = 2;
+    pl([[PN_X0 + xn - 4, ya],[PN_X0 - xp + 10, ya]]); ctx.beginPath(); ctx.moveTo(PN_X0 - xp + 4, ya); ctx.lineTo(PN_X0 - xp + 14, ya - 5); ctx.lineTo(PN_X0 - xp + 14, ya + 5); ctx.fill();
+  }
+  txt(`E field, peak ${(m.Emax/1000).toFixed(0)} kV/cm`, PN_X0, yB + 32, {al:"center", col:C.accent, w:600, px:11});
+  txt(`p-type  NA = ${sci(m.NA)} cm⁻³`, PN_L + 8, yT - 12, {col:C.hole, w:700, px:12});
+  txt(`n-type  ND = ${sci(m.ND)} cm⁻³`, PN_R - 8, yT - 12, {al:"right", col:C.electron, w:700, px:12});
+  txt(`depletion W = ${(m.W*1e4).toFixed(3)} µm`, PN_X0, yT - 12, {al:"center", col:C.fg, w:600, px:11});
+  txt(`anode V = ${f2(PJ.v)} V`, PN_L + 8, yB + 18, {px:11, col:C.fg, w:600});
+  txt("cathode 0 V", PN_R - 8, yB + 18, {al:"right", px:11, col:C.fg, w:600});
+  const bar = 1e-4*sc;                                               // 1 µm in px
+  const bl = bar > 400 ? bar/10 : bar < 20 ? bar*10 : bar, bt = bar > 400 ? "0.1 µm" : bar < 20 ? "10 µm" : "1 µm";
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 2; pl([[PN_R - 8 - bl, yB + 34],[PN_R - 8, yB + 34]]); txt(bt, PN_R - 8 - bl/2, yB + 44, {al:"center", px:10});
+  // band diagram
+  const evp = -VT*Math.log(NVB/m.NA), ecp = evp + EG, drop = m.vbi - m.vj;
+  const eMax = ecp + 0.35, eMin = evp - drop - 0.35, Y = e => 470 - (e - eMin)/(eMax - eMin)*196;
+  const xs = range(PN_L - PN_X0, PN_R - PN_X0, 240);
+  const band = off => xs.map(x => [PN_X0 + x, Y(off - pnPhi(m, x/sc))]);
+  ctx.lineWidth = 2.4; ctx.strokeStyle = C.electron; pl(band(ecp)); ctx.strokeStyle = C.hole; pl(band(evp));
+  ctx.lineWidth = 1; ctx.strokeStyle = C.muted; ctx.setLineDash([3,4]); pl(band((ecp + evp)/2)); ctx.setLineDash([]);
+  const efn = ecp - drop - VT*Math.log(NCB/m.ND);
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 1.8; ctx.setLineDash([6,4]);
+  pl([[PN_L, Y(0)],[PN_X0 + xn, Y(0)]]); pl([[PN_X0 - xp, Y(efn)],[PN_R, Y(efn)]]); ctx.setLineDash([]);
+  txt("Ec", PN_L + 4, Y(ecp) - 9, {col:C.electron, w:700, px:11}); txt("Ev", PN_L + 4, Y(evp) + 10, {col:C.hole, w:700, px:11});
+  txt("EF,p", PN_L + 30, Y(0) - 8, {col:C.accent, w:700, px:11}); txt("EF,n", PN_R - 4, Y(efn) - 8, {al:"right", col:C.accent, w:700, px:11});
+  if (Math.abs(PJ.v) > 0.05) txt(`qV = ${f2(PJ.v)} eV`, PN_X0 + 70, (Y(0) + Y(efn))/2, {col:C.accent, px:10, w:600});
+  // barrier arrow on the n side
+  const xb = PN_R - 120; ctx.strokeStyle = C.fg; ctx.lineWidth = 1.4; pl([[xb, Y(ecp - drop)],[xb, Y(ecp)]]);
+  ctx.setLineDash([2,3]); pl([[PN_X0 - xp, Y(ecp)],[xb + 10, Y(ecp)]]); ctx.setLineDash([]);
+  txt(`barrier q(Vbi − V) = ${drop.toFixed(2)} eV`, xb - 6, (Y(ecp - drop) + Y(ecp))/2, {al:"right", px:11, col:C.fg, w:600});
+  txt(`band gap Eg = ${EG} eV`, PN_L + 8, Y(evp) + 26, {px:10});
+  // carriers in the bands: electrons sit in Ec on the n side, holes in Ev on the p side; moving ones follow the bands
+  for (let i=0;i<14;i++){ const x = PN_X0 + xn + 20 + i*((PN_R - PN_X0 - xn - 40)/14); dot(x + Math.sin(T*2 + i)*jit, Y(ecp - drop) - 5, C.electron, false, 1, 3); }
+  for (let i=0;i<14;i++){ const x = PN_L + 20 + i*((PN_X0 - xp - PN_L - 40)/14); dot(x + Math.cos(T*2 + i)*jit, Y(evp) + 5, C.hole, true, 1, 3); }
+  PJ.inj.forEach(c => { if (Math.random() < 0) return; const px = PN_X0 + c.x, e = c.e ? ecp - pnPhi(m, c.x/sc) : evp - pnPhi(m, c.x/sc); dot(px, Y(e) + (c.e ? -5 : 5), c.e ? C.electron : C.hole, !c.e, c.life*0.9, 3); });
+  txt("energy band diagram (electron energy up)", PN_L, 262, {px:11, col:C.fg, w:600});
+}
+
+function drawMOS(dt, T){
+  const m = mosModel(), jit = reduce ? 0 : 1.1;
+  const gx0 = 40, gx1 = 140, ox1 = gx1 + 6 + PJ.tox*2, sx1 = 960, yT = 44, yB = 200;
+  const sc = (sx1 - ox1)/(3*m.wmax);                                // px per cm of depth
+  // gate, oxide, substrate
+  ctx.fillStyle = C.metal; ctx.fillRect(gx0, yT, gx1 - gx0, yB - yT);
+  ctx.fillStyle = C.oxide; ctx.fillRect(gx1, yT, ox1 - gx1, yB - yT);
+  ctx.fillStyle = C.pplus; ctx.fillRect(ox1, yT, sx1 - ox1, yB - yT);
+  const wd = m.wd*sc;
+  if (wd > 1){ ctx.fillStyle = C.deplete; ctx.fillRect(ox1, yT, wd, yB - yT);
+    for (let x = ox1 + 8; x < ox1 + wd - 4; x += 16) for (let y = yT + 12; y < yB - 6; y += 19){ ctx.strokeStyle = C.ion; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(x, y, 4, 0, 6.283); ctx.stroke(); sign(x, y, 2.2, -1, C.ion); } }
+  pnHoles.forEach(h => { const x = ox1 + wd + 6 + h.fx*(sx1 - ox1 - wd - 12), y = yT + 8 + h.fy*(yB - yT - 16); dot(x + Math.sin(T*h.w + h.ph)*jit, y + Math.cos(T*h.w + h.ph)*jit, C.hole, true, 1, 3.2); });
+  const nAcc = Math.min(40, Math.round(m.qacc/1.5e-8)), nInv = Math.min(40, Math.round(m.qinv/1.5e-8));
+  for (let i=0;i<nAcc;i++){ const y = yT + 6 + (i + 0.5)*(yB - yT - 12)/nAcc; dot(ox1 + 4 + (i % 2)*5 + Math.sin(T*2 + i)*jit*0.5, y, C.hole, true, 1, 3); }
+  for (let i=0;i<nInv;i++){ const y = yT + 6 + (i + 0.5)*(yB - yT - 12)/nInv; dot(ox1 + 4 + (i % 2)*5 + Math.sin(T*2 + i)*jit*0.5, y, C.electron, false, 1, 3); }
+  const qg = m.qs, nG = Math.min(14, Math.round(Math.abs(qg)/4e-8));
+  for (let i=0;i<nG;i++) sign(gx1 - 12, yT + 10 + (i + 0.5)*(yB - yT - 20)/nG, 4, qg >= 0 ? 1 : -1, C.bg);
+  txt("gate", (gx0 + gx1)/2, yT - 12, {al:"center", col:C.fg, w:700, px:12});
+  txt(`oxide ${PJ.tox} nm`, (gx1 + ox1)/2, yB + 32, {al:"center", col:C.oxide, w:600, px:10});
+  txt(`p-substrate  NA = ${sci(m.NA)} cm⁻³`, sx1 - 8, yT - 12, {al:"right", col:C.hole, w:700, px:12});
+  txt(`VG = ${f2(PJ.vg)} V`, gx0 + 4, yB + 16, {col:C.fg, w:600, px:11});
+  txt(m.region, ox1 + 12, yT - 12, {col:C.accent, w:700, px:13});
+  if (wd > 30) txt(`depletion ${(m.wd*1e4).toFixed(3)} µm`, ox1 + wd/2, yB + 16, {al:"center", px:10, col:C.fg});
+  // band diagram along the depth
+  const evb = -VT*Math.log(NVB/m.NA), ecb = evb + EG, efm = -PJ.vg;
+  const psi = d => m.ps >= 0 ? (d < m.wd ? m.ps*(1 - d/Math.max(m.wd, 1e-9))**2 : 0) : m.ps*Math.exp(-d/m.ld);
+  const eMax = Math.max(ecb - Math.min(m.ps, 0), efm) + 0.45, eMin = Math.min(evb - Math.max(m.ps, 0), efm) - 0.45;
+  const Y = e => 470 - (e - eMin)/(eMax - eMin)*196;
+  ctx.fillStyle = C.oxide; ctx.globalAlpha = 0.25; ctx.fillRect(gx1, 262, ox1 - gx1, 214); ctx.globalAlpha = 1;
+  const xs = range(ox1, sx1, 200), bandS = off => xs.map(x => [x, Y(off - psi((x - ox1)/sc))]);
+  ctx.lineWidth = 2.4; ctx.strokeStyle = C.electron; pl(bandS(ecb)); ctx.strokeStyle = C.hole; pl(bandS(evb));
+  ctx.lineWidth = 1; ctx.strokeStyle = C.muted; ctx.setLineDash([3,4]); pl(bandS((ecb + evb)/2)); ctx.setLineDash([]);
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 1.8; ctx.setLineDash([6,4]); pl([[ox1, Y(0)],[sx1, Y(0)]]); pl([[gx0, Y(efm)],[gx1, Y(efm)]]); ctx.setLineDash([]);
+  ctx.fillStyle = C.metal; ctx.globalAlpha = 0.35; ctx.fillRect(gx0, Y(efm), gx1 - gx0, 470 - Y(efm)); ctx.globalAlpha = 1;
+  txt("EF (gate)", gx0 + 4, Y(efm) - 8, {col:C.accent, w:700, px:10});
+  txt("EF", sx1 - 4, Y(0) - 8, {al:"right", col:C.accent, w:700, px:11});
+  txt("Ec", sx1 - 4, Y(ecb) - 9, {al:"right", col:C.electron, w:700, px:11}); txt("Ev", sx1 - 4, Y(evb) + 10, {al:"right", col:C.hole, w:700, px:11});
+  txt("Ei", sx1 - 30, Y((ecb + evb)/2) - 8, {al:"right", px:10});
+  txt(`band bending ψs = ${m.ps.toFixed(3)} V  (2φF = ${(2*m.phiF).toFixed(3)} V)`, ox1 + 14, 276, {col:C.fg, w:600, px:11});
+  txt("oxide", (gx1 + ox1)/2, 466, {al:"center", px:10});
+  if (m.qinv > 1e-9){ const xi = ox1 + 6; for (let i=0;i<Math.min(8, nInv);i++) dot(xi + i*6, Y(ecb - m.ps) - 5, C.electron, false, 1, 2.8); }
+  if (m.qacc > 1e-9){ const xi = ox1 + 6; for (let i=0;i<Math.min(8, nAcc);i++) dot(xi + i*6, Y(evb - m.ps) + 5, C.hole, true, 1, 2.8); }
+  txt("energy band diagram from the gate into the silicon", gx0, 262, {px:11, col:C.fg, w:600});
+}
+function drawPNtab(dt, T){ begin(PNC); if (PJ.view === "pn") drawPN(dt, T); else drawMOS(dt, T); }
+
+/* ---------------- DOM ---------------- */
+const PNINFO = {
+  pn:{pill:"PN", name:"PN junction", sub:"Where p meets n: a depletion region, a built-in barrier and a one-way current",
+    text:"Put p-type silicon (full of holes) against n-type silicon (full of electrons). Electrons diffuse into the p side and holes into the n side, where they recombine. They leave behind fixed, charged dopant ions: negative acceptors on the p side, positive donors on the n side. This depletion region has no free carriers and a strong electric field that pushes back against further diffusion, until the two balance at the built-in voltage Vbi. In the band diagram this shows up as a step of qVbi between the two sides. Forward bias (anode positive) lowers the barrier by qV: the number of carriers able to climb it grows as e^(V/Vt), so the current rises exponentially. Reverse bias raises the barrier and widens the depletion region; only a tiny leakage of minority carriers flows, until the field is strong enough for avalanche multiplication or tunnelling (Zener) and the junction breaks down. The depletion region also acts as a capacitor whose plates move apart with reverse bias, so its capacitance falls as Cj ∝ 1/√(Vbi − V)."},
+  mos:{pill:"MOS", name:"MOS capacitor and C-V", sub:"Gate, oxide and silicon: accumulation, depletion, inversion",
+    text:"A MOS capacitor is a transistor without source and drain: a gate, a thin oxide and a p-type substrate. A negative gate pulls holes to the surface (accumulation) and the capacitance is just the oxide capacitance Cox. A positive gate first pushes the holes away, leaving fixed negative acceptor ions: a depletion layer that grows with the gate voltage and adds a second capacitance in series, so C drops. In the band diagram the bands bend down by the surface potential ψs. Once ψs reaches 2φF, the surface has as many free electrons as the bulk had holes: it has inverted to n-type. That is the threshold voltage Vth, the same Vth as in the transistor tab. In inversion the electron layer screens the substrate. At low frequency it follows the signal and C returns to Cox; at high frequency (and in a varactor) the electrons cannot form fast enough, the depletion width stays at its maximum and C stays low. The steep middle part of this C-V curve is exactly what a MOS varactor uses to tune the radar VCO."}
+};
+Object.assign(TIP, {
+  "Built-in voltage":"Vbi: the voltage step the depletion region builds up at zero bias, (kT/q)·ln(NA·ND/ni²).",
+  "Depletion width":"W: thickness of the region emptied of free carriers. Grows with reverse bias and with lower doping.",
+  "Current":"Diode current from anode to cathode. Exponential in forward bias, a tiny leakage in reverse.",
+  "Capacitance":"Junction capacitance εs·A/W. Falls as the depletion region widens under reverse bias.",
+  "Surface potential ψs":"How far the bands bend down at the silicon surface. 2φF marks the start of strong inversion.",
+  "Region":"Accumulation, depletion, weak or strong inversion, judged from ψs.",
+  "Threshold Vth":"Gate voltage at which ψs = 2φF and an inversion layer forms.",
+  "C / Cox":"Measured capacitance divided by the oxide capacitance (low-frequency curve).",
+  "Built-in":"Built-in voltage from the doping on both sides.",
+  "Width":"Depletion width and how it splits between the two sides: the lighter-doped side takes most of it.",
+  "Peak field":"Highest electric field, at the junction. Breakdown happens when it reaches a few hundred kV/cm.",
+  "Diode law":"Shockley equation: current grows by e (2.7×) every 26 mV of forward bias.",
+  "Junction C":"Depletion capacitance: a parallel-plate capacitor with gap W.",
+  "Breakdown":"Reverse voltage where avalanche multiplication or tunnelling makes the current shoot up.",
+  "Fermi potential":"φF: how far the Fermi level sits below the middle of the gap in the p-type bulk.",
+  "Oxide capacitance":"Cox = εox/tox per unit area. Thinner oxide gives more capacitance and more control.",
+  "Flat band":"VFB: the gate voltage at which the bands are flat (no charge in the silicon).",
+  "Threshold":"Vth = VFB + 2φF + depletion charge / Cox.",
+  "Series C":"The gate sees Cox in series with the silicon capacitance Cs."
+});
+const PNLEG = {
+  pn:[["hole","Hole"],["electron","Electron"],["deplete","Depletion (fixed ions)"],["accent","Fermi level · field"]],
+  mos:[["hole","Hole"],["electron","Electron"],["deplete","Depletion (fixed ions)"],["oxide","Oxide"],["accent","Fermi level"]]
+};
+let pnGlossKey = "";
+function updatePN(){
+  const v = PJ.view, info = PNINFO[v];
+  $("pn-pill").textContent = info.pill; $("pn-name").textContent = info.name; $("pn-sub").textContent = info.sub; $("pn-explain").textContent = info.text;
+  document.querySelectorAll("#pn-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  $("pn-c-pn").hidden = v !== "pn"; $("pn-c-mos").hidden = v !== "mos";
+  $("pn-na-v").textContent = `${sci(10**PJ.na)} cm⁻³`; $("pn-nd-v").textContent = `${sci(10**PJ.nd)} cm⁻³`; $("pn-v-v").textContent = `${f2(PJ.v)} V`;
+  $("pn-nam-v").textContent = `${sci(10**PJ.nam)} cm⁻³`; $("pn-tox-v").textContent = `${PJ.tox} nm`; $("pn-vg-v").textContent = `${f2(PJ.vg)} V`;
+  setHTML("pn-legend", PNLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  const ro = [], rows = [];
+  if (v === "pn"){
+    const m = pnModel();
+    ro.push(["Built-in voltage", f2(m.vbi) + " V"], ["Depletion width", (m.W*1e4).toFixed(3) + " µm"], ["Current", fmtI(m.I)], ["Capacitance", (m.Cj*1e12).toFixed(2) + " pF"]);
+    rows.push({name:"Built-in", f:"Vbi = (kT/q) · ln(NA·ND / ni²)", sub:`= 0.0259 · ln(${sci(m.NA)} · ${sci(m.ND)} / 1e20) = ${f2(m.vbi)} V`});
+    rows.push({name:"Width", f:"W = √(2εs(Vbi − V)/q · (1/NA + 1/ND))", sub:`= ${(m.W*1e4).toFixed(3)} µm  (p side ${(m.xp*1e4).toFixed(3)}, n side ${(m.xn*1e4).toFixed(3)} µm)`});
+    rows.push({name:"Peak field", f:"Emax = q·NA·xp / εs", sub:`= ${(m.Emax/1000).toFixed(0)} kV/cm`});
+    rows.push({name:"Diode law", f:"I = Is · (e^(V/Vt) − 1),  Vt = kT/q = 25.9 mV", sub:`Is = ${sci(m.Is)} A → I = ${fmtI(m.I)}`});
+    rows.push({name:"Junction C", f:"Cj = εs·A / W  (A = 100 µm × 100 µm)", sub:`= ${(m.Cj*1e12).toFixed(2)} pF`});
+    rows.push({name:"Breakdown", f:"VBR ≈ 60 V · (N / 10¹⁶ cm⁻³)^(−3/4)", sub:`N = ${sci(m.Neff)} → VBR ≈ ${m.vbr.toFixed(1)} V ${m.zener ? "(tunnelling, Zener)" : "(avalanche)"}`});
+  } else {
+    const m = mosModel();
+    ro.push(["Surface potential ψs", m.ps.toFixed(3) + " V"], ["Region", m.region], ["Threshold Vth", f2(m.vth) + " V"], ["C / Cox", m.cLF/m.cox > 0 ? (m.cLF/m.cox).toFixed(3) : "—"]);
+    rows.push({name:"Fermi potential", f:"φF = (kT/q) · ln(NA / ni)", sub:`= ${m.phiF.toFixed(3)} V → strong inversion at ψs = 2φF = ${(2*m.phiF).toFixed(3)} V`});
+    rows.push({name:"Oxide capacitance", f:"Cox = εox / tox", sub:`= 3.45e-13 F/cm / ${PJ.tox} nm = ${(m.cox*1e9).toFixed(1)} nF/cm² (${(m.cox*1e15/1e8).toFixed(2)} fF/µm²)`});
+    rows.push({name:"Flat band", f:"VFB = φms = −(Eg/2q + φF)  (n+ poly gate)", sub:`= −(0.56 + ${m.phiF.toFixed(3)}) = ${f2(m.vfb)} V`});
+    rows.push({name:"Threshold", f:"Vth = VFB + 2φF + √(2q·εs·NA·2φF) / Cox", sub:`= ${f2(m.vfb)} + ${(2*m.phiF).toFixed(2)} + ${(Math.sqrt(2*QE*ES*m.NA*2*m.phiF)/m.cox).toFixed(2)} = ${f2(m.vth)} V`});
+    rows.push({name:"Series C", f:"1/C = 1/Cox + 1/Cs", sub:`low freq C/Cox = ${(m.cLF/m.cox).toFixed(3)}, high freq ${(m.cHF/m.cox).toFixed(3)}`});
+  }
+  renderRo($("pn-ro"), ro); renderEq($("pn-eq"), rows);
+  updatePNGloss(); drawPNPlots();
+}
+function updatePNGloss(){
+  const key = [PJ.view, PJ.na, PJ.nd, PJ.nam, PJ.tox].join("|"); if (key === pnGlossKey) return; pnGlossKey = key;
+  let h, t;
+  if (PJ.view === "pn"){
+    h = "Your doping at a few bias points:";
+    t = `<table><tr><th>Bias V</th><th>Barrier</th><th>Width W</th><th>Current</th><th>Cj</th></tr>` + [-10, -5, -1, 0, 0.3, 0.6, 0.7].map(V => { const m = pnModel(V); return `<tr><td>${V} V</td><td>${(m.vbi - m.vj).toFixed(2)} eV</td><td>${(m.W*1e4).toFixed(3)} µm</td><td>${fmtI(m.I)}</td><td>${(m.Cj*1e12).toFixed(2)} pF</td></tr>`; }).join("") + `</table>`;
+  } else {
+    h = "Your MOS capacitor at a few gate voltages:";
+    t = `<table><tr><th>VG</th><th>ψs</th><th>Region</th><th>C/Cox (LF)</th><th>C/Cox (HF)</th></tr>` + [-2, -1, 0, 0.5, 1, 2, 3].map(V => { const m = mosModel(V); return `<tr><td>${V} V</td><td>${m.ps.toFixed(3)} V</td><td>${m.region}</td><td>${(m.cLF/m.cox).toFixed(3)}</td><td>${(m.cHF/m.cox).toFixed(3)}</td></tr>`; }).join("") + `</table>`;
+  }
+  $("pn-g-head").textContent = h; $("pn-g-live").innerHTML = t;
+}
+function drawPNPlots(){
+  let a = "", b = "";
+  if (PJ.view === "pn"){
+    const m = pnModel(), vs = range(-12, 0.8, 260), lg = i => Math.log10(Math.max(Math.abs(i), 1e-18));
+    const A = axesR(300, 230, {l:38,r:10,t:28,b:30}, -12, 0.8, -17, -1, 2, 2, "V (V)", "log10 |I| (A)");
+    a = A.s + `<path d="${pathOf(vs.map(v => [v, lg(pnModel(v).I)]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+    if (m.vbr < 12) a += `<line x1="${A.X(-m.vbr)}" x2="${A.X(-m.vbr)}" y1="28" y2="200" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${A.X(-m.vbr) + 3}" y="42" style="fill:var(--hole)">breakdown</text>`;
+    a += `<text x="${A.X(-6)}" y="${A.Y(lg(m.Is)) - 6}" text-anchor="middle">reverse leakage −Is</text><text x="${A.X(0.4)}" y="${A.Y(-3)}" text-anchor="end">forward</text>`;
+    a += A.frame + dotSvg(A.X(PJ.v), A.Y(lg(m.I))) + `<text x="44" y="12" style="fill:var(--accent)">— diode current (log scale)</text>`;
+    const cs = vs.filter(v => v < m.vbi - 0.1).map(v => [v, pnModel(v).Cj*1e12]), cm = Math.max(...cs.map(q => q[1])), st = niceStep(cm/4);
+    const B = axesR(220, 230, {l:34,r:8,t:28,b:30}, -12, 0.8, 0, Math.ceil(cm/st)*st, 4, st, "V (V)", "Cj (pF)");
+    b = B.s + `<path d="${pathOf(cs, B.X, B.Y)}" fill="none" stroke="var(--electron)" stroke-width="2.2"/>` + B.frame + dotSvg(B.X(PJ.v), B.Y(m.Cj*1e12)) + `<text x="40" y="12" style="fill:var(--electron)">— junction capacitance</text>`;
+  } else {
+    const m = mosModel(), d = mosCurve();
+    const A = axesR(300, 230, {l:34,r:10,t:28,b:30}, -3, 3, 0, 1.05, 1, 0.25, "VG (V)", "C / Cox");
+    a = A.s + `<path d="${pathOf(d.map(q => [q.v, q.lf]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/><path d="${pathOf(d.map(q => [q.v, q.hf]), A.X, A.Y)}" fill="none" stroke="var(--electron)" stroke-width="2" stroke-dasharray="5 3"/>`;
+    a += `<line x1="${A.X(m.vfb)}" x2="${A.X(m.vfb)}" y1="28" y2="200" stroke="var(--muted)" stroke-dasharray="2 3"/><text x="${A.X(m.vfb) + 3}" y="196">VFB</text>`;
+    a += `<line x1="${A.X(m.vth)}" x2="${A.X(m.vth)}" y1="28" y2="200" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${A.X(m.vth) + 3}" y="42" style="fill:var(--hole)">Vth</text>`;
+    a += A.frame + dotSvg(A.X(PJ.vg), A.Y(m.cLF/m.cox)) + `<text x="40" y="12" style="fill:var(--accent)">— low frequency</text><text x="140" y="12" style="fill:var(--electron)">- - high frequency</text>`;
+    const B = axesR(220, 230, {l:34,r:8,t:28,b:30}, -3, 3, -0.4, 1.2, 1, 0.4, "VG (V)", "ψs (V)");
+    b = B.s + `<line x1="${B.X(-3)}" x2="${B.X(3)}" y1="${B.Y(2*m.phiF)}" y2="${B.Y(2*m.phiF)}" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${B.X(-2.9)}" y="${B.Y(2*m.phiF) - 4}" style="fill:var(--hole)">2φF: inversion</text>`;
+    b += `<line x1="${B.X(-3)}" x2="${B.X(3)}" y1="${B.Y(0)}" y2="${B.Y(0)}" stroke="var(--muted)" stroke-dasharray="2 3"/>`;
+    b += `<path d="${pathOf(d.map(q => [q.v, q.ps]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>` + B.frame + dotSvg(B.X(PJ.vg), B.Y(m.ps)) + `<text x="40" y="12" style="fill:var(--accent)">— band bending</text>`;
+  }
+  $("pn-p1").innerHTML = a; $("pn-p2").innerHTML = b;
+}
+document.querySelectorAll("#pn-view button").forEach(b => b.addEventListener("click", () => { PJ.view = b.dataset.v; PJ.inj = []; updatePN(); }));
+[["pn-na","na"],["pn-nd","nd"],["pn-v","v"],["pn-nam","nam"],["pn-tox","tox"],["pn-vg","vg"]].forEach(([id, k]) => $(id).addEventListener("input", e => { PJ[k] = +e.target.value; updatePN(); }));
+document.querySelectorAll("#pn-bias button").forEach(b => b.addEventListener("click", () => { PJ.v = +b.dataset.b; $("pn-v").value = PJ.v; updatePN(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction"};
 function showTab(t){
   zoomClose();
   tab = t;
-  ["mos","inv","body","cm","pw","rd","rf","mi"].forEach(k => { $("tab-"+k).hidden = t !== k; $("tab-btn-"+k).setAttribute("aria-selected", t === k); });
+  TABS.forEach(k => { $("tab-"+k).hidden = t !== k; $("tab-btn-"+k).setAttribute("aria-selected", t === k); });
   $("seg-type").hidden = t !== "mos";
   try { history.replaceState(null, "", HASH[t]); } catch(e){}
   if (t === "mos"){ M.resize(); updateMos(); }
@@ -7298,10 +7907,11 @@ function showTab(t){
   else if (t === "cm"){ $("sub-top").textContent = `Current mirrors · VDD = ${VDD} V · Vth = 1.0 V · copy one reference current to many outputs`; CMC.resize(); updateCM(); }
   else if (t === "mi"){ $("sub-top").textContent = "MIMO and beams · phased arrays, beam switching, virtual arrays, car radar layouts"; MIC.resize(); updateMI(); }
   else if (t === "rf"){ $("sub-top").textContent = "RF passives · S-parameters, coupler, balun, antenna, waveguide modes"; RFC.resize(); updateRF(); }
+  else if (t === "pn"){ $("sub-top").textContent = "PN junction and MOS capacitor · silicon at 300 K · ni = 1e10 cm⁻³"; PNC.resize(); updatePN(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
-["mos","inv","body","cm","pw","rd","rf","mi"].forEach(k => $("tab-btn-"+k).addEventListener("click", () => showTab(k)));
+TABS.forEach(k => $("tab-btn-"+k).addEventListener("click", () => showTab(k)));
 
 let last = performance.now(), T = 0;
 function frame(now){
@@ -7312,6 +7922,7 @@ function frame(now){
   else if (tab === "cm"){ cmTick(dt); if (CMC.cv.clientWidth) drawCM(dt, T); }
   else if (tab === "mi"){ miTick(dt); if (MIC.cv.clientWidth) drawMI(dt, T); }
   else if (tab === "rf"){ rfTick(dt); if (RFC.cv.clientWidth) drawRF(dt, T); }
+  else if (tab === "pn"){ pnTick(dt); if (PNC.cv.clientWidth) drawPNtab(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
@@ -7363,7 +7974,7 @@ addEventListener("keydown", e => { if (e.key === "Escape") zoomClose(); });
 addEventListener("resize", zoomSize);
 
 buildLegend(); updateMos();
-showTab(location.hash === "#inverter" ? "inv" : location.hash === "#body-effect" ? "body" : location.hash === "#power" ? "pw" : location.hash === "#radar" ? "rd" : location.hash === "#rf-passives" ? "rf" : location.hash === "#mimo" ? "mi" : location.hash === "#current-mirror" ? "cm" : "mos");
+showTab(Object.keys(HASH).find(k => HASH[k] === location.hash) || "mos");
 requestAnimationFrame(frame);
 })();
 </script>
