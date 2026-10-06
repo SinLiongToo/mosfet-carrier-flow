@@ -56,6 +56,39 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **MIMO virtual array** – Ntx × Nrx → virtual array (TDM animation), angle spectrum of two close targets with RX only vs MIMO, resolution vs channels
 - **Car: one module vs many** – cascaded imaging radar vs five standard radars vs imaging + corners: coverage, front resolution (two cars side by side), chips, modules, rough cost
 
+## PN junction & MOS cap tab (`#pn-junction`)
+- **PN junction** – cross-section with fixed ions, majority carriers and injected minority carriers, aligned energy-band diagram (Ec, Ev, split Fermi levels), diode I–V with avalanche/Zener breakdown, junction capacitance
+- **MOS capacitor** – accumulation / depletion / inversion, band bending ψs, low- and high-frequency C–V (the curve the radar VCO varactor uses), threshold voltage
+
+## Leakage & FinFET tab (`#leakage-finfet`)
+- **Subthreshold leakage** – source–drain barrier with the Boltzmann tail of electrons, 60 mV/dec limit, DIBL, temperature, LVT/SVT/HVT, Ion/Ioff, leakage power
+- **Planar → FinFET → GAA** – 3D structures, gate-control map in the channel cross-section, scale length λ, SS and DIBL vs gate length
+
+## Memory tab (`#memory`)
+- **SRAM 6T** – read / write / hold cycle with waveforms, read disturb, butterfly curve and SNM, cell and pull-up ratios
+- **DRAM 1T1C** – leaking storage capacitor, refresh, charge sharing ΔV = (Vcell − VDD/2)·Cs/(Cs + Cbl), retention vs temperature
+- **Flash** – floating-gate cell, Fowler-Nordheim ISPP programming, erase, SLC/MLC/TLC Vth distributions with read references, wear and retention
+
+## Radar receiver tab (`#radar-receiver`)
+- **Chain & noise** – antenna → LNA → mixer → IF → ADC, level diagram, Friis noise figure, radar equation, SNR vs range and detection range (car, motorbike, pedestrian)
+- **Mixer & IF filter** – LO × echo → beat frequency, high-pass that compensates 1/R⁴, low-pass that sets Rmax
+- **SAR ADC** – capacitive DAC and comparator binary search, LSB, SQNR = 6.02N + 1.76 dB, radar dynamic range
+
+## BJT & SiGe HBT tab (`#bipolar`)
+- **BJT operation** – emitter injection, base transport, collector sweep, β, gm, Early effect, saturation, Gummel plot
+- **SiGe HBT** – Ge-graded base drift field and band diagrams vs Si, base transit time, fT and fmax vs IC, technologies for 77 GHz
+
+## Analog tab (`#analog`)
+- **Bandgap reference** – CTAT VBE + K·PTAT ΔVBE, temperature sweep, drift in ppm/°C, best K
+- **Differential pair & op-amp** – tail-current steering, mirror load, gain, GBW, Miller compensation, phase margin and step response
+
+## Latch-up & ESD tab (`#latchup-esd`)
+- **Latch-up** – parasitic PNPN thyristor in CMOS, trigger and positive feedback, loop gain, guard rings and spacing, power cycle
+- **ESD protection** – human-body-model zap into a pin, diodes to the rails and a power clamp vs gate-oxide breakdown
+
+## Process flow tab (`#process-flow`)
+- 15 animated steps from a bare wafer to a CMOS inverter (STI, wells, gate, LDD/spacers, source/drain, anneal, silicide, contacts, copper), implant depth profiles and junction depth, Deal-Grove oxidation
+
 Every tab has hover/tap explanations on its readouts and equations, plus an **Explain the terms** panel: a step-by-step walkthrough, live tables computed from the current settings, and a glossary.
 
 Light / dark theme toggle (follows the system by default).
