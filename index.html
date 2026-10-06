@@ -3506,6 +3506,100 @@ Object.assign(window.I18N_ZH, {
 "equivalent circuit": "等效電路"
 });
 Object.assign(window.I18N_ZH, {"Topic": "主題", "Devices": "元件", "Circuits": "電路", "Power & RF": "電源與射頻", "Fab, package & reliability": "製程、封裝與可靠度"});
+Object.assign(window.I18N_ZH, {
+"Interposer TSVs": "中介層 TSV",
+"Deep silicon etch, oxide liner, copper fill: through-silicon vias": "深矽蝕刻、氧化層內襯、填銅：矽穿孔",
+"Step #/#: Interposer TSVs": "第 #/# 步：中介層 TSV",
+"# · Interposer TSVs": "# · 中介層 TSV",
+"#. Interposer TSVs": "#. 中介層 TSV",
+"Interposer RDL": "中介層 RDL",
+"Fine-pitch copper wiring (≈ #–# µm lines) on the silicon interposer": "在矽中介層上做細間距銅線路（線寬約 #–# µm）",
+"Step #/#: Interposer RDL": "第 #/# 步：中介層 RDL",
+"# · Interposer RDL": "# · 中介層 RDL",
+"#. Interposer RDL": "#. 中介層 RDL",
+"Chip-on-wafer": "晶片上晶圓（CoW）",
+"SoC and HBM stacks bonded with micro-bumps at ≈ # µm pitch": "SoC 與 HBM 堆疊以約 # µm 間距的微凸塊接合",
+"Step #/#: Chip-on-wafer": "第 #/# 步：晶片上晶圓（CoW）",
+"# · Chip-on-wafer": "# · 晶片上晶圓（CoW）",
+"#. Chip-on-wafer": "#. 晶片上晶圓（CoW）",
+"Underfill, mold, TSV reveal": "底部填膠、封膠、TSV 露出",
+"Fill and mold the top, thin the interposer back side until the TSVs appear": "上方填膠並封膠，再把中介層背面磨薄直到 TSV 露出",
+"Step #/#: Underfill, mold, TSV reveal": "第 #/# 步：底部填膠、封膠、TSV 露出",
+"# · Underfill, mold, TSV reveal": "# · 底部填膠、封膠、TSV 露出",
+"#. Underfill, mold, TSV reveal": "#. 底部填膠、封膠、TSV 露出",
+"C# bumps + substrate": "C4 凸塊 + 基板",
+"C# bumps on the interposer back, attach to the organic substrate, BGA balls": "在中介層背面做 C4 凸塊，接到有機基板，再植 BGA 錫球",
+"Step #/#: C# bumps + substrate": "第 #/# 步：C4 凸塊 + 基板",
+"# · C# bumps + substrate": "# · C4 凸塊 + 基板",
+"#. C# bumps + substrate": "#. C4 凸塊 + 基板",
+"Inside an HBM stack": "HBM 堆疊內部",
+"#–# DRAM dies stacked with TSVs and micro-bumps on a base logic die": "#–# 顆 DRAM 晶粒以 TSV 與微凸塊堆疊在底層邏輯晶粒上",
+"Step #/#: Inside an HBM stack": "第 #/# 步：HBM 堆疊內部",
+"# · Inside an HBM stack": "# · HBM 堆疊內部",
+"#. Inside an HBM stack": "#. HBM 堆疊內部",
+"Hybrid bonding (#D)": "混合鍵合（3D）",
+"Copper-to-copper and oxide-to-oxide bonding, < # µm pitch, no solder": "銅對銅、氧化層對氧化層直接鍵合，間距 < # µm，不用銲錫",
+"Step #/#: Hybrid bonding (#D)": "第 #/# 步：混合鍵合（3D）",
+"# · Hybrid bonding (#D)": "# · 混合鍵合（3D）",
+"#. Hybrid bonding (#D)": "#. 混合鍵合（3D）",
+"#D / #D (CoWoS, HBM)": "2.5D / 3D（CoWoS、HBM）",
+"#D and #D packaging": "2.5D 與 3D 封裝",
+"#D / #D": "2.5D / 3D",
+"Silicon interposers, TSVs, stacked HBM and hybrid bonding: chiplets talking as if they were one chip": "矽中介層、TSV、堆疊式 HBM 與混合鍵合：讓小晶片像同一顆晶片一樣溝通",
+"AI accelerators and high-end GPUs need far more memory bandwidth than a PCB can carry. #D packaging (TSMC CoWoS, Intel EMIB) places the processor and several HBM memory stacks side by side on a silicon interposer: a slab of silicon with fab-grade copper wiring a few hundred nanometres wide and through-silicon vias (TSVs) that pass signals and power down to the package substrate. Micro-bumps at about # µm pitch give tens of thousands of connections, and the wires between chips are only a few millimetres long, so each HBM stack can use a #-bit bus at modest clock rates and low energy per bit. HBM itself is #D: # to # thinned DRAM dies stacked on a logic base die and connected straight through by thousands of TSVs. The next step is hybrid bonding (TSMC SoIC, used for #D V-Cache): two dies are pressed face to face, their oxide surfaces bond, and an anneal fuses the copper pads directly, with no bumps or solder, at under # µm pitch. Compared with wire bond and flip-chip, each step shrinks the pitch by about ten times and the energy per bit by several times.": "AI 加速器與高階 GPU 需要的記憶體頻寬遠超過 PCB 所能承載。#D 封裝（台積電 CoWoS、Intel EMIB）把處理器和數個 HBM 記憶體堆疊並排放在矽中介層上：這是一片矽，上面有晶圓廠等級、寬度只有數百奈米的銅線路，以及把訊號和電源往下傳到封裝基板的矽穿孔（TSV）。約 # µm 間距的微凸塊提供數萬個連接點，晶片之間的導線只有幾毫米長，所以每個 HBM 堆疊可以用 #-bit 匯流排，以不高的時脈和很低的每位元能量傳輸。HBM 本身就是 #D：# 到 # 顆薄化的 DRAM 晶粒堆疊在邏輯底層晶粒上，以數千個 TSV 直接貫穿連接。下一步是混合鍵合（台積電 SoIC，用於 #D V-Cache）：兩顆晶粒面對面壓合，氧化層表面先鍵合，再經退火讓銅墊直接熔接，不用凸塊也不用銲錫，間距在 # µm 以下。和打線、覆晶相比，每一代的間距約縮小十倍，每位元能量也降低好幾倍。",
+"Silicon (interposer, dies)": "矽（中介層、晶粒）",
+"Copper TSV / RDL / pads": "銅 TSV / RDL / 銲墊",
+"Micro-bumps, C#, balls": "微凸塊、C4、錫球",
+"Data between chips": "晶片間的資料",
+"Assembly step": "組裝步驟",
+"Micro-bump pitch": "微凸塊間距",
+"HBM bus": "HBM 匯流排",
+"# bit": "# bit",
+"Bandwidth / stack": "每堆疊頻寬",
+"Connection density": "連接密度",
+"N/mm² = # / pitch²": "N/mm² = # / 間距²",
+"C# # µm: # · micro-bump # µm: # · hybrid bond # µm: # # per mm²": "C# # µm：# · 微凸塊 # µm：# · 混合鍵合 # µm：# #（每 mm²）",
+"HBM bandwidth": "HBM 頻寬",
+"BW = bus width × data rate / #": "BW = 匯流排寬度 × 資料速率 / #",
+"HBM#: # bit × # Gb/s / # ≈ # GB/s per stack; # stacks ≈ # TB/s": "HBM#：# bit × # Gb/s / # ≈ 每堆疊 # GB/s；# 個堆疊 ≈ # TB/s",
+"Energy per bit": "每位元能量",
+"E ≈ C·V² of the link; shorter wires = less C": "E ≈ 連線的 C·V²；導線越短 = C 越小",
+"PCB DDR ≈ # pJ/bit · #D interposer ≈ # pJ/bit · #D hybrid bond ≈ # pJ/bit": "PCB DDR ≈ # pJ/bit · #D 中介層 ≈ # pJ/bit · #D 混合鍵合 ≈ # pJ/bit",
+"aspect ratio = depth / diameter": "深寬比 = 深度 / 直徑",
+"≈ # µm / # µm = #:# (interposer), ≈ # µm / # µm in HBM": "≈ # µm / # µm = #:#（中介層），HBM 中 ≈ # µm / # µm",
+"log# connections / mm²": "log# 連接數 / mm²",
+"log# pJ/bit": "log# pJ/bit",
+"wire bond": "打線",
+"C# bump": "C4 凸塊",
+"C# bumps": "C4 凸塊",
+"micro-bump": "微凸塊",
+"hybrid # µm": "混合#µm",
+"hybrid": "混合鍵合",
+"#D TSV": "3D TSV",
+"each generation: ≈ #× denser": "每一代：密度約 #×",
+"energy to move one bit": "搬移一個位元的能量",
+"interposer": "中介層",
+"TSV: hole etched ≈ # µm deep, lined with oxide, filled with copper": "TSV：蝕刻約 # µm 深的孔，內襯氧化層，再填銅",
+"#D: chips side by side on a silicon interposer (CoWoS-type)": "#D：晶片並排放在矽中介層上（CoWoS 型）",
+"#D: chips side by side on a silicon interposer (CoWoS-type) · BGA balls go to the PCB": "#D：晶片並排放在矽中介層上（CoWoS 型）· BGA 錫球接到 PCB",
+"RDL: thousands of fine wires between SoC and HBM": "RDL：SoC 與 HBM 之間數千條細線",
+"micro-bumps ≈ # µm pitch": "微凸塊間距約 # µm",
+"underfill + mold over the chips": "晶片上方的底部填膠 + 封膠",
+"interposer back thinned: TSVs exposed": "中介層背面磨薄：TSV 露出",
+"organic package substrate": "有機封裝基板",
+"base (logic) die: interface PHY, test, repair": "底層（邏輯）晶粒：介面 PHY、測試、修復",
+"each layer ≈ #–# µm thin; thousands of TSVs carry # data bits straight up": "每層約 #–# µm 薄；數千個 TSV 把 # 個資料位元直接往上傳",
+"DRAM die #": "DRAM 晶粒 #",
+"top die (face down)": "上晶粒（面朝下）",
+"bottom die (face up)": "下晶粒（面朝上）",
+"align ±# µm": "對準 ±# µm",
+"#. oxide surfaces touch and bond at room temperature": "#. 氧化層表面在室溫接觸並鍵合",
+"#. anneal: copper expands and the pads fuse into one metal": "#. 退火：銅膨脹，銲墊熔成一體",
+"pitch here ≈ # µm → > # # connections per mm²; no bumps, no solder, no underfill": "此處間距約 # µm → 每 mm² > # # 個連接；不用凸塊、銲錫或底部填膠",
+"used for SRAM on logic (#D V-Cache), image sensors, SoIC chiplet stacks": "用於邏輯上疊 SRAM（#D V-Cache）、影像感測器、SoIC 小晶片堆疊",
+"hole": "孔",
+"SoC / GPU": "SoC / GPU"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -6063,6 +6157,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button data-v="wb" aria-pressed="true">Wire bond</button>
         <button data-v="fc" aria-pressed="false">Flip-chip (RDL + bumps)</button>
         <button data-v="fo" aria-pressed="false">Fan-out WLP (eWLB)</button>
+        <button data-v="ad" aria-pressed="false">2.5D / 3D (CoWoS, HBM)</button>
         <button data-v="rf" aria-pressed="false">Interconnects at 77 GHz</button>
       </div>
     </div>
@@ -12346,6 +12441,15 @@ const PK_FLOWS = {
     {name:"Fan-out RDL", tool:"Polymer + copper lines route beyond the die edge (and form the antenna)"},
     {name:"Solder balls", tool:"Ball drop and reflow on the fanned-out pads"},
     {name:"Singulation", tool:"Saw the reconstituted wafer into packages"}
+  ],
+  ad:[
+    {name:"Interposer TSVs", tool:"Deep silicon etch, oxide liner, copper fill: through-silicon vias"},
+    {name:"Interposer RDL", tool:"Fine-pitch copper wiring (≈ 0.4–2 µm lines) on the silicon interposer"},
+    {name:"Chip-on-wafer", tool:"SoC and HBM stacks bonded with micro-bumps at ≈ 40 µm pitch"},
+    {name:"Underfill, mold, TSV reveal", tool:"Fill and mold the top, thin the interposer back side until the TSVs appear"},
+    {name:"C4 bumps + substrate", tool:"C4 bumps on the interposer back, attach to the organic substrate, BGA balls"},
+    {name:"Inside an HBM stack", tool:"8–16 DRAM dies stacked with TSVs and micro-bumps on a base logic die"},
+    {name:"Hybrid bonding (3D)", tool:"Copper-to-copper and oxide-to-oxide bonding, < 10 µm pitch, no solder"}
   ]
 };
 const pkSteps = () => PK_FLOWS[PK.view] || PK_FLOWS.wb;
@@ -12551,7 +12655,65 @@ function drawPKrf(dt, T){
   eq(130, `${L.toFixed(2)} nH`); eq(630, `${(PK_BUMP_L*1000).toFixed(0)} pH`);
   txt("equivalent circuit", 500, 372, {al:"center", px:11, col:C.fg, w:600});
 }
-function drawPK(dt, T){ begin(PKC); ({wb: drawPKwb, fc: drawPKfc, fo: drawPKfo, rf: drawPKrf})[PK.view](dt, T); }
+/* ---------------- drawing: 2.5D / 3D (CoWoS-type interposer, HBM, hybrid bonding) ---------------- */
+function pkTSV(x, y0, y1, fill){ ctx.fillStyle = C.oxide; ctx.fillRect(x - 5, y0, 10, y1 - y0); ctx.fillStyle = C.accent; ctx.fillRect(x - 3, y1 - (y1 - y0)*fill, 6, (y1 - y0)*fill); }
+function drawPKad(dt, T){
+  const s = PK.s, p = PK.p, steps = PK_FLOWS.ad;
+  ctx.fillStyle = C.panel2; ctx.fillRect(8, 8, 652, 472);
+  pkHead(steps);
+  if (s === 6){
+    // hybrid bonding close-up: two dies face to face
+    const fuse = Math.min(1, p*1.6), gap = 60*(1 - Math.min(1, p*2));
+    ctx.fillStyle = C.si; ctx.fillRect(80, 110, 500, 90); ctx.fillRect(80, 250 + gap, 500, 90);
+    txt("top die (face down)", 330, 140, {al:"center", col:C.fg, w:700, px:12}); txt("bottom die (face up)", 330, 312 + gap, {al:"center", col:C.fg, w:700, px:12});
+    ctx.fillStyle = C.oxide; ctx.globalAlpha = 0.55; ctx.fillRect(80, 200, 500, 25); ctx.fillRect(80, 225 + gap, 500, 25); ctx.globalAlpha = 1;
+    for (let i=0;i<10;i++){ const x = 105 + i*48; ctx.fillStyle = C.accent; ctx.fillRect(x, 205, 22, 20 + 2*fuse); ctx.fillRect(x, 225 + gap - 2*fuse, 22, 20 + 2*fuse); }
+    if (p < 0.5){ ctx.strokeStyle = C.fg; ctx.lineWidth = 2; pl([[600, 200],[600, 225 + gap]]); txt("align ±0.1 µm", 610, 214 + gap/2, {px:10, col:C.fg}); }
+    else { ctx.fillStyle = C.hole; ctx.globalAlpha = 0.15*Math.sin(Math.PI*(p - 0.5)/0.5); ctx.fillRect(8, 8, 652, 472); ctx.globalAlpha = 1; }
+    txt(p < 0.5 ? "1. oxide surfaces touch and bond at room temperature" : "2. anneal: copper expands and the pads fuse into one metal", 330, 380, {al:"center", col:C.fg, w:600, px:12});
+    txt("pitch here ≈ 9 µm → > 10 000 connections per mm²; no bumps, no solder, no underfill", 330, 404, {al:"center", col:C.accent, w:600, px:11});
+    txt("used for SRAM on logic (3D V-Cache), image sensors, SoIC chiplet stacks", 330, 424, {al:"center", px:10});
+    pkList(steps); return;
+  }
+  if (s === 5){
+    // HBM stack close-up
+    const n = 8, bx = 160, bw = 340, top = 120, dh = 30, shown = Math.min(n, Math.floor(p*n*1.3) + 1);
+    ctx.fillStyle = C.metal; ctx.fillRect(bx, top + n*dh + 10, bw, 34); txt("base (logic) die: interface PHY, test, repair", bx + bw/2, top + n*dh + 27, {al:"center", col:C.bg, w:700, px:11});
+    for (let k=0;k<shown;k++){ const y = top + (n - 1 - k)*dh + 10; ctx.fillStyle = C.si; ctx.fillRect(bx, y, bw, dh - 6); ctx.strokeStyle = C.line; ctx.strokeRect(bx + .5, y + .5, bw - 1, dh - 7); txt(`DRAM die ${k + 1}`, bx + 8, y + 12, {px:10, col:C.fg}); [bx + 120, bx + 180, bx + 240, bx + 300].forEach(x => { pkTSV(x, y, y + dh - 6, 1); ctx.fillStyle = C.muted; ctx.fillRect(x - 4, y + dh - 6, 8, 6); }); }
+    for (let k=0;k<6;k++){ const u = ((T*0.5 + k/6) % 1), y = top + n*dh + 10 - u*(n*dh); dot(bx + 180, y, C.electron, false, 1, 3); }
+    txt("each layer ≈ 30–50 µm thin; thousands of TSVs carry 1024 data bits straight up", 330, 100, {al:"center", col:C.fg, w:600, px:11});
+    pkList(steps); return;
+  }
+  // 2.5D cross-section
+  const sy0 = 400, iy0 = 300, iy1 = 360;
+  const subOn = s >= 4, revealed = s >= 3 && (s > 3 || p > 0.6);
+  if (subOn){ ctx.fillStyle = C.channel; ctx.globalAlpha = 0.35; ctx.fillRect(40, sy0, 580, 40); ctx.globalAlpha = 1; txt("organic package substrate", 330, sy0 + 26, {al:"center", col:C.fg, w:600, px:11}); ctx.fillStyle = C.muted; for (let x = 70; x <= 590; x += 40){ ctx.beginPath(); ctx.arc(x, sy0 + 50, 9*(s > 4 || p > 0.6 ? 1 : p/0.6), 0, 6.283); ctx.fill(); } }
+  // interposer
+  const iy = subOn ? iy0 + 20 : iy0;
+  ctx.fillStyle = C.si; ctx.fillRect(80, iy, 500, iy1 - iy0 - (revealed ? 18 : 0)); ctx.strokeStyle = C.line; ctx.strokeRect(80.5, iy + .5, 499, iy1 - iy0 - 1 - (revealed ? 18 : 0));
+  const ih = iy1 - iy0 - (revealed ? 18 : 0);
+  txt("interposer", 586, iy + ih/2, {px:10, col:C.fg, w:600});
+  for (let x = 110; x <= 560; x += 50) pkTSV(x, iy + 2, iy + ih - (revealed ? 0 : 6), s === 0 ? Math.min(1, p*1.4) : 1);
+  if (s === 0) txt("TSV: hole etched ≈ 100 µm deep, lined with oxide, filled with copper", 330, iy - 40, {al:"center", col:C.accent, w:600, px:11});
+  if (subOn){ ctx.fillStyle = C.muted; for (let x = 110; x <= 560; x += 50){ ctx.beginPath(); ctx.ellipse(x, iy + ih + 8, 10, 7, 0, 0, 6.283); ctx.fill(); } txt("C4 bumps", 586, iy + ih + 10, {px:10}); }
+  // RDL on top of the interposer
+  const rdl = s > 1 ? 1 : s === 1 ? p : 0;
+  if (rdl > 0){ ctx.fillStyle = C.oxide; ctx.globalAlpha = 0.4; ctx.fillRect(80, iy - 10*rdl, 500, 10*rdl); ctx.globalAlpha = 1; ctx.fillStyle = C.accent; for (let i=0;i<4;i++) ctx.fillRect(150 + i*20, iy - 8 + i*2, 180*rdl, 1.5); if (s === 1) txt("RDL: thousands of fine wires between SoC and HBM", 330, iy - 24, {al:"center", col:C.accent, w:600, px:11}); }
+  // chips
+  const cow = s > 2 ? 1 : s === 2 ? p : 0;
+  if (cow > 0){
+    const drop = 120*(1 - Math.min(1, cow*1.5));
+    const chip = (x, w, h, lab, col) => { ctx.fillStyle = col; ctx.fillRect(x, iy - 16 - h - drop, w, h); ctx.strokeStyle = C.line; ctx.strokeRect(x + .5, iy - 16 - h - drop + .5, w - 1, h - 1); txt(lab, x + w/2, iy - 16 - h/2 - drop, {al:"center", col:C.fg, w:700, px:11}); ctx.fillStyle = C.muted; for (let bx = x + 8; bx < x + w - 4; bx += 14) ctx.fillRect(bx, iy - 16 - drop, 6, 6); };
+    chip(110, 230, 70, "SoC / GPU", C.si);
+    [[370, "HBM"], [470, "HBM"]].forEach(([x, l]) => { for (let k=0;k<5;k++){ ctx.fillStyle = k === 0 ? C.metal : C.si; ctx.fillRect(x, iy - 16 - drop - (k + 1)*18, 90, 16); } ctx.fillStyle = C.muted; for (let bx = x + 8; bx < x + 86; bx += 14) ctx.fillRect(bx, iy - 16 - drop, 6, 6); txt(l, x + 45, iy - 16 - drop - 104, {al:"center", col:C.fg, w:700, px:11}); });
+    if (s === 2) txt("micro-bumps ≈ 40 µm pitch", 330, 80, {al:"center", col:C.fg, w:600, px:11});
+  }
+  if (s >= 3){ const m = s === 3 ? Math.min(1, p*2) : 1; ctx.fillStyle = C.fg; ctx.globalAlpha = 0.15*m; ctx.fillRect(100, iy - 16 - 104, 480, 104); ctx.globalAlpha = 1; if (s === 3) txt(p > 0.6 ? "interposer back thinned: TSVs exposed" : "underfill + mold over the chips", 330, 80, {al:"center", col:C.fg, w:600, px:11}); }
+  if (s >= 2){ for (let k=0;k<6;k++){ const u = ((T*0.7 + k/6) % 1); dot(225 + u*(415 - 225), iy - 6, C.electron, false, 1, 3); } }
+  txt(subOn ? "2.5D: chips side by side on a silicon interposer (CoWoS-type) · BGA balls go to the PCB" : "2.5D: chips side by side on a silicon interposer (CoWoS-type)", 20, 472, {px:11, col:C.fg, w:600});
+  pkList(steps);
+}
+function drawPK(dt, T){ begin(PKC); ({wb: drawPKwb, fc: drawPKfc, fo: drawPKfo, rf: drawPKrf, ad: drawPKad})[PK.view](dt, T); }
 
 /* ---------------- DOM ---------------- */
 const PKINFO = {
@@ -12561,6 +12723,8 @@ const PKINFO = {
     text:"Flip-chip turns the die upside down and connects it through bumps instead of wires. On the wafer, a redistribution layer (RDL) is built on top of the passivation: a polymer such as polyimide, openings over the pads, a seed layer, a resist pattern and electroplated copper lines that move the signals from the edge pads to a regular area array. A second polymer layer opens the new sites, under-bump metallurgy (UBM) gives the solder a surface it can wet without dissolving the pad, and bumps are plated: solder balls, or today mostly copper pillars with a SnAg solder cap, at 40–150 µm pitch. After dicing, each die is flipped, aligned to the substrate pads and reflowed at about 250 °C so the solder melts and forms joints. Because silicon (2.6 ppm/K) and the organic substrate (≈ 17 ppm/K) expand differently with temperature, an epoxy underfill is wicked into the gap and cured; it spreads the stress over the whole die instead of the tiny joints. Flip-chip gives hundreds or thousands of I/Os over the whole die area and connections only tens of picohenries long."},
   fo:{pill:"FO", name:"Fan-out wafer-level package (eWLB)", sub:"Embed the die in mold, build the wiring on top, no substrate and no wires",
     text:"Fan-out wafer-level packaging (eWLB, InFO) skips the package substrate. Known-good dies are placed face down on a carrier and embedded in mold compound, which makes a new, larger 'reconstituted' wafer. After the carrier is removed, the RDL is built directly on the die faces and the surrounding mold, so the wiring can fan out beyond the die edge and leave room for solder balls at a relaxed pitch. The connections are only a few micrometres of copper with no wires or bumps in the RF path, so losses at 77 GHz are very low, and the same RDL layer can form the antennas: antenna-in-package (AiP). That is why many automotive radar chips are packaged this way."},
+  ad:{pill:"3D", name:"2.5D and 3D packaging", sub:"Silicon interposers, TSVs, stacked HBM and hybrid bonding: chiplets talking as if they were one chip",
+    text:"AI accelerators and high-end GPUs need far more memory bandwidth than a PCB can carry. 2.5D packaging (TSMC CoWoS, Intel EMIB) places the processor and several HBM memory stacks side by side on a silicon interposer: a slab of silicon with fab-grade copper wiring a few hundred nanometres wide and through-silicon vias (TSVs) that pass signals and power down to the package substrate. Micro-bumps at about 40 µm pitch give tens of thousands of connections, and the wires between chips are only a few millimetres long, so each HBM stack can use a 1024-bit bus at modest clock rates and low energy per bit. HBM itself is 3D: 8 to 16 thinned DRAM dies stacked on a logic base die and connected straight through by thousands of TSVs. The next step is hybrid bonding (TSMC SoIC, used for 3D V-Cache): two dies are pressed face to face, their oxide surfaces bond, and an anneal fuses the copper pads directly, with no bumps or solder, at under 10 µm pitch. Compared with wire bond and flip-chip, each step shrinks the pitch by about ten times and the energy per bit by several times."},
   rf:{pill:"RF", name:"Interconnects at 77 GHz", sub:"Why a millimetre of bond wire is a problem and a bump is not",
     text:"At low frequency any connection is just a wire. At millimetre-wave frequencies the inductance of the connection matters: its reactance is X = 2πfL. A 1 mm bond wire has about 0.8–1 nH, which at 77 GHz is about 400–500 Ω in series with a 50 Ω line: most of the signal is reflected and the rest is distorted. Designers can partly tune it out with a matching network, multiple parallel wires or very short wires, but it only works over a narrow band and varies with the wire loop height. A flip-chip bump or a fan-out RDL via is only tens of micrometres long, around 20 pH, a few ohms at 77 GHz, and behaves almost like a continuation of the transmission line. That is the main reason radar transceivers use flip-chip or fan-out packages."}
 };
@@ -12581,7 +12745,8 @@ const PKLEG = {
   wb:[["si","Silicon die"],["metal","Lead frame / pads"],["accent","Gold/copper wire"],["channel","Die-attach epoxy"]],
   fc:[["metal","Al pad"],["oxide","Polyimide / underfill"],["accent","Copper RDL and pillars"],["muted","Solder"]],
   fo:[["si","Die"],["fg","Mold compound"],["accent","RDL (and antenna)"],["muted","Solder balls"]],
-  rf:[["accent","Bond wire / bump"],["electron","Signal"],["hole","High reactance"]]
+  rf:[["accent","Bond wire / bump"],["electron","Signal"],["hole","High reactance"]],
+  ad:[["si","Silicon (interposer, dies)"],["accent","Copper TSV / RDL / pads"],["muted","Micro-bumps, C4, balls"],["electron","Data between chips"]]
 };
 let pkGlossKey = "";
 function updatePK(){
@@ -12594,6 +12759,17 @@ function updatePK(){
   $("pk-wl-v").textContent = `${PK.wl.toFixed(2)} mm`; $("pk-f-v").textContent = `${PK.f} GHz`; $("pk-die-v").textContent = `${PK.die} mm`;
   setHTML("pk-legend", PKLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
   const L = pkWireL(), sw = pkS21(L, PK.f), sb = pkS21(PK_BUMP_L, PK.f, 0.02);
+  ["pk-wl", "pk-f", "pk-die"].forEach(id => $(id).closest(".slider").hidden = v === "ad");
+  if (v === "ad"){
+    renderRo($("pk-ro"), [["Assembly step", `${PK.s + 1} / ${steps.length}`], ["Micro-bump pitch", "40 µm"], ["HBM bus", "1024 bit"], ["Bandwidth / stack", "≈ 819 GB/s"]]);
+    renderEq($("pk-eq"), [
+      {name:"Connection density", f:"N/mm² = 1 / pitch²", sub:"C4 150 µm: 44 · micro-bump 40 µm: 625 · hybrid bond 9 µm: 12 300 per mm²"},
+      {name:"HBM bandwidth", f:"BW = bus width × data rate / 8", sub:"HBM3: 1024 bit × 6.4 Gb/s / 8 ≈ 819 GB/s per stack; 6 stacks ≈ 4.9 TB/s"},
+      {name:"Energy per bit", f:"E ≈ C·V² of the link; shorter wires = less C", sub:"PCB DDR ≈ 15 pJ/bit · 2.5D interposer ≈ 1 pJ/bit · 3D hybrid bond ≈ 0.05 pJ/bit"},
+      {name:"TSV", f:"aspect ratio = depth / diameter", sub:"≈ 100 µm / 10 µm = 10:1 (interposer), ≈ 50 µm / 5 µm in HBM"}
+    ]);
+    drawPKPlots(); return;
+  }
   renderRo($("pk-ro"), v === "rf"
     ? [["Wire inductance", `${L.toFixed(2)} nH`], ["Wire reactance", `${(2*Math.PI*PK.f*L).toFixed(0)} Ω`], ["Wire |S21|", `${pkDb(sw).toFixed(1)} dB`], ["Bump |S21|", `${pkDb(sb).toFixed(2)} dB`]]
     : [["Assembly step", `${PK.s + 1} / ${steps.length}`], ["Wire inductance", `${L.toFixed(2)} nH`], ["Wire |S21|", `${pkDb(sw).toFixed(1)} dB`], ["Bump |S21|", `${pkDb(sb).toFixed(2)} dB`]]);
@@ -12609,6 +12785,17 @@ function updatePK(){
   drawPKPlots();
 }
 function drawPKPlots(){
+  if (PK.view === "ad"){
+    const tech = [["wire bond", 1/0.05*4/10], ["C4 bump", 1/0.15**2], ["micro-bump", 1/0.04**2], ["hybrid 9 µm", 1/0.009**2], ["hybrid 3 µm", 1/0.003**2]];
+    const A = axesR(300, 230, {l:38,r:10,t:28,b:30}, 0, 5, 0, 6, 5, 1, "", "log10 connections / mm²");
+    let a = A.s; tech.forEach(([n, v], i) => { const x = A.X(i + 0.15), w = A.X(i + 0.85) - x, y = A.Y(Math.log10(v)); a += `<rect x="${x}" y="${y}" width="${w}" height="${A.Y(0) - y}" fill="${i === 2 || i === 3 ? "var(--accent)" : "var(--muted)"}"/><text x="${x + w/2}" y="${A.Y(0) + 14}" text-anchor="middle" font-size="8">${n}</text><text x="${x + w/2}" y="${y - 4}" text-anchor="middle" font-size="8">${v >= 1000 ? (v/1000).toFixed(v >= 1e4 ? 0 : 1) + "k" : v.toFixed(0)}</text>`; });
+    a += A.frame + `<text x="44" y="12">each generation: ≈ 10× denser</text>`;
+    const en = [["PCB DDR", 15], ["2.5D", 1], ["3D TSV", 0.3], ["hybrid", 0.05]];
+    const B = axesR(220, 230, {l:34,r:8,t:28,b:30}, 0, 4, -2, 2, 5, 1, "", "log10 pJ/bit");
+    let b = B.s; en.forEach(([n, v], i) => { const x = B.X(i + 0.15), w = B.X(i + 0.85) - x, y = B.Y(Math.log10(v)); b += `<rect x="${x}" y="${Math.min(y, B.Y(-2))}" width="${w}" height="${Math.abs(B.Y(-2) - y)}" fill="var(--electron)"/><text x="${x + w/2}" y="${B.Y(-2) + 14}" text-anchor="middle" font-size="8">${n}</text><text x="${x + w/2}" y="${y - 4}" text-anchor="middle" font-size="8">${v} pJ</text>`; });
+    b += B.frame + `<text x="40" y="12" style="fill:var(--electron)">energy to move one bit</text>`;
+    $("pk-p1").innerHTML = a; $("pk-p2").innerHTML = b; return;
+  }
   const fs = range(1, 110, 110), L = pkWireL();
   const A = axesR(300, 230, {l:38,r:10,t:28,b:30}, 0, 110, -30, 0, 20, 5, "frequency (GHz)", "|S21| (dB)");
   let a = A.s + `<line x1="${A.X(77)}" x2="${A.X(77)}" y1="28" y2="200" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${A.X(77) + 3}" y="40" style="fill:var(--hole)">77 GHz</text>`;

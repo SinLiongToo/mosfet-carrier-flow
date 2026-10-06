@@ -93,6 +93,7 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Wire bond** – back-grinding, dicing, die attach (epoxy, pick-and-place, cure), thermosonic ball/stitch wire bonding with capillary and free-air ball, molding, marking, singulation, final test
 - **Flip-chip (RDL + bumps)** – passivation, polyimide, RDL copper plating, UBM, Cu pillar + solder cap, flip and place, reflow, underfill
 - **Fan-out WLP (eWLB)** – dies on a carrier, compression molding, debond, fan-out RDL with antenna-in-package, solder balls, singulation
+- **2.5D / 3D (CoWoS, HBM)** – silicon interposer with TSVs and fine RDL, chip-on-wafer with micro-bumps, TSV reveal, C4 + substrate, inside an HBM stack, Cu–Cu hybrid bonding; connection density and energy per bit compared from wire bond to hybrid bond
 - **Interconnects at 77 GHz** – bond-wire inductance vs bump: reactance, |S21| vs frequency, I/O count of edge pads vs area bumps
 
 Tabs are grouped into four topics (Devices · Circuits · Power & RF · Fab, package & reliability); the topic selector in the header shows that topic's tabs.
