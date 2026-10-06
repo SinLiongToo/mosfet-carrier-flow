@@ -2732,6 +2732,130 @@ Object.assign(window.I18N_ZH, {
 "IC = # µA": "IC = # µA",
 "# V": "# V"
 });
+Object.assign(window.I18N_ZH, {
+"Analog (bandgap · op-amp)": "類比（能隙參考 · 運放）",
+"Bandgap voltage reference": "能隙參考電壓",
+"Analog block": "類比電路",
+"Bandgap reference": "能隙參考電壓",
+"Differential pair & op-amp": "差動對與運算放大器",
+"Chip temperature. A good reference keeps its output within a few mV from −# to # °C.": "晶片溫度。好的參考電壓在 −# 到 # °C 之間輸出只變動幾 mV。",
+"▶ Sweep temperature": "▶ 掃描溫度",
+"❚❚ Stop temperature sweep": "❚❚ 停止溫度掃描",
+"Set the best K": "設定最佳 K",
+"Q# is built from N copies of Q# in parallel. A larger N gives a larger ΔVBE and needs a smaller resistor ratio.": "Q{0} 由 N 個 Q{1} 並聯組成。N 越大，ΔVBE 越大，所需的電阻比越小。",
+"Area ratio N": "面積比 N",
+"Resistor ratio R#/R# that scales the PTAT term. Trimming this on every chip removes the remaining slope.": "放大 PTAT 項的電阻比 R#/R#。在每顆晶片上微調它，可以去除剩下的斜率。",
+"Resistor ratio K = R#/R#": "電阻比 K = R#/R#",
+"Differential input voltage Vin+ − Vin−. It steers the tail current between the two branches.": "差動輸入電壓 Vin+ − Vin−。它決定尾電流在兩個分支間如何分配。",
+"Input difference Vid": "輸入差 Vid",
+"Tail current of the differential pair. More current gives more gm and bandwidth but costs power.": "差動對的尾電流。電流越大，gm 與頻寬越大，但更耗電。",
+"Tail current Iss": "尾電流 Iss",
+"Miller compensation capacitor. Larger Cc means lower bandwidth but more phase margin and less ringing.": "Miller 補償電容。Cc 越大，頻寬越低，但相位裕度越大、振鈴越少。",
+"Compensation Cc": "補償電容 Cc",
+"Reference voltage versus temperature, or branch currents versus input difference": "參考電壓對溫度，或分支電流對輸入差",
+"Temperature drift versus resistor ratio, or open-loop Bode plot": "溫度漂移對電阻比，或開迴路 Bode 圖",
+"Explain the terms: PTAT, CTAT, bandgap, ppm/°C, differential pair, CMRR, GBW, phase margin": "名詞解釋：PTAT、CTAT、能隙、ppm/°C、差動對、CMRR、GBW、相位裕度",
+"Why the bandgap works": "能隙參考為什麼行得通",
+"A forward-biased junction's voltage VBE drops by about # mV for every degree: <b>CTAT</b>.": "順偏接面的電壓 VBE 每升高一度約下降 # mV：<b>CTAT</b>。",
+"Two junctions at the same current but with different areas differ by ΔVBE = (kT/q)·ln N, which grows with temperature: <b>PTAT</b>.": "電流相同但面積不同的兩個接面，相差 ΔVBE = (kT/q)·ln N，隨溫度上升：<b>PTAT</b>。",
+"Add the PTAT term, scaled by K, to VBE. With the right K the slopes cancel.": "把乘上 K 的 PTAT 項加到 VBE 上。K 選得對，斜率就互相抵消。",
+"The result sits near # V, the band-gap voltage of silicon extrapolated to absolute zero.": "結果約為 # V，也就是矽能隙電壓外推到絕對零度的值。",
+"Your reference:": "你的參考電壓：",
+"The same PTAT current is also a free temperature sensor: on-chip thermometers measure ΔVBE, and the \"temperature\" readout of a phone or CPU usually comes from such a circuit.": "同一個 PTAT 電流也是免費的溫度感測器：晶片上的溫度計就是量 ΔVBE，手機或 CPU 顯示的「溫度」通常來自這種電路。",
+"Reference terms": "參考電壓名詞",
+"Complementary / proportional to absolute temperature.": "與絕對溫度互補（反向）／成正比。",
+"Band-gap voltage": "能隙電壓",
+"About # V: VBE extrapolated to # K; the sum the circuit settles at.": "約 {0} V：VBE 外推到 {1} K 的值；電路最後穩定在這個總和。",
+"Drift in millionths of the output per degree; good references reach #–# ppm/°C.": "每度輸出變化的百萬分之幾；好的參考電壓可達 #–# ppm/°C。",
+"Curvature": "曲率",
+"The remaining bow because VBE is not perfectly linear in T.": "因為 VBE 對 T 不是完全線性而剩下的弓形彎曲。",
+"Trimming": "微調",
+"Adjusting K (with fuses or registers) on every chip after test.": "測試後在每顆晶片上調整 K（用熔絲或暫存器）。",
+"Start-up circuit": "啟動電路",
+"Extra circuit that kicks the bandgap out of its all-zero state at power-on.": "開機時把能隙電路從全零狀態推出來的額外電路。",
+"Op-amp terms": "運算放大器名詞",
+"Differential pair": "差動對",
+"Two matched transistors sharing a tail current; responds to the input difference.": "兩個匹配的電晶體共用尾電流；對輸入差產生反應。",
+"Common-mode rejection: how much better the amplifier responds to the difference than to the common level.": "共模拒斥：放大器對差動訊號的反應比對共模訊號強多少。",
+"Active load": "主動負載",
+"Current mirror used as the load; converts the two currents into one output.": "用電流鏡當負載；把兩個電流轉成一個輸出。",
+"Gain-bandwidth product: open-loop gain × bandwidth, constant for a one-pole amplifier.": "增益頻寬積：開迴路增益 × 頻寬，單極點放大器時為常數。",
+"Phase margin": "相位裕度",
+"#° minus the loop phase lag at unity gain; #° rings, #° is a good target.": "#° 減去單位增益處的迴路相位落後；#° 會振鈴，#° 是好的目標。",
+"Miller compensation": "Miller 補償",
+"Capacitor across the second stage that splits the poles and sets GBW.": "跨接在第二級的電容，用來分離極點並設定 GBW。",
+"Fastest output change, Iss/Cc, when the input step fully switches the pair.": "輸入步階讓差動對完全切換時的最快輸出變化率，Iss/Cc。",
+"Offset": "偏移",
+"Input voltage needed to make the output zero, caused by mismatch of the pair.": "讓輸出為零所需的輸入電壓，由差動對的不匹配造成。",
+"Analog building blocks · bandgap reference and differential-pair op-amp": "類比基本電路 · 能隙參考電壓與差動對運算放大器",
+"Two temperature drifts of opposite sign add up to a voltage that hardly moves": "兩個方向相反的溫度漂移相加，得到幾乎不動的電壓",
+"Almost every chip needs a voltage that stays put over temperature and supply: the # V reference of the LDO, the ADC's full scale, the bias of every current mirror. A bipolar transistor's VBE falls by about # mV/°C (complementary to absolute temperature, CTAT). The difference between the VBE of two transistors run at the same current but with an area ratio N is ΔVBE = (kT/q)·ln N, which rises in proportion to absolute temperature (PTAT). The op-amp forces the two branches to the same voltage, so ΔVBE appears across R# and sets a PTAT current; R# scales it up. The output is Vref = VBE + (R#/R#)·ΔVBE. With the right ratio K the two slopes cancel, and Vref settles near the silicon band-gap voltage extrapolated to # K, about # V, hence the name. What is left is a small bow-shaped curvature, a few ppm/°C; precision references trim K on every chip and add curvature correction.": "幾乎每顆晶片都需要一個不隨溫度和電源變動的電壓：LDO 的 # V 參考、ADC 的滿刻度、每個電流鏡的偏壓。雙極電晶體的 VBE 每 °C 約下降 # mV（與絕對溫度互補，CTAT）。兩顆電晶體電流相同但面積比為 N，它們的 VBE 差 ΔVBE = (kT/q)·ln N 與絕對溫度成正比上升（PTAT）。運算放大器強迫兩個分支電壓相同，所以 ΔVBE 落在 R# 上，形成 PTAT 電流；R# 再把它放大。輸出 Vref = VBE + (R#/R#)·ΔVBE。比例 K 選得對，兩個斜率就互相抵消，Vref 停在矽能隙電壓外推到 # K 的值附近，約 # V，名稱由此而來。剩下的是一點弓形彎曲，約幾 ppm/°C；精密參考電壓會在每顆晶片上微調 K，並加入曲率補償。",
+"K·ΔVBE (PTAT) · branch current": "K·ΔVBE（PTAT）· 分支電流",
+"Output of the bandgap: VBE + K·ΔVBE.": "能隙電路的輸出：VBE + K·ΔVBE。",
+"Reference Vref": "參考電壓 Vref",
+"Box-method temperature coefficient over −# … # °C.": "以方框法計算 −# … # °C 間的溫度係數。",
+"Drift": "漂移",
+"Base-emitter voltage of Q# at this temperature (CTAT).": "此溫度下 Q# 的基極－射極電壓（CTAT）。",
+"VBE difference between Q# and the N× larger Q# (PTAT).": "Q# 與大 N 倍的 Q# 之間的 VBE 差（PTAT）。",
+"VBE falls with temperature, about −# mV/°C.": "VBE 隨溫度下降，約 −# mV/°C。",
+"= # mV at # °C (slope ≈ -# mV/°C)": "= # mV（# °C 時，斜率 ≈ -# mV/°C）",
+"ΔVBE = (kT/q)·ln N rises in proportion to absolute temperature.": "ΔVBE = (kT/q)·ln N 與絕對溫度成正比上升。",
+"= # mV · ln # = # mV (slope +# mV/°C)": "= # mV · ln # = # mV（斜率 +# mV/°C）",
+"Vref = VBE + (R#/R#)·ΔVBE.": "Vref = VBE + (R#/R#)·ΔVBE。",
+"Sum": "相加",
+"Ratio R#/R# at which the two slopes cancel.": "兩個斜率互相抵消時的比例 R#/R#。",
+"Best K": "最佳 K",
+"K ≈ # for N = # → Vref ≈ # V (close to the band gap, # V)": "N = {1} 時 K ≈ {0} → Vref ≈ {2} V（接近能隙，{3} V）",
+"Vref at a few temperatures for K = #, N = #:": "K = #、N = # 時幾個溫度下的 Vref：",
+"— Vref (remaining curvature)": "— Vref（剩下的曲率）",
+"drift (ppm/°C)": "漂移（ppm/°C）",
+"— drift vs K": "— 漂移對 K",
+"area #×": "面積 #×",
+"B (forced equal to A)": "B（被強迫等於 A）",
+"ΔVBE across R# = # mV": "R# 兩端 ΔVBE = # mV",
+"op-amp forces A = B, so the same current flows in both branches": "運放強迫 A = B，所以兩個分支流過相同電流",
+"Q# is #× larger: at the same current its VBE is lower by Vt·ln #": "Q# 大 # 倍：相同電流下它的 VBE 低 Vt·ln #",
+"At # °C: two opposite drifts add up": "# °C 時：兩個相反的漂移相加",
+"VBE falls ≈ −# mV/°C (CTAT)": "VBE 下降 ≈ −# mV/°C（CTAT）",
+"K·ΔVBE rises ≈ +# mV/°C (PTAT)": "K·ΔVBE 上升 ≈ +# mV/°C（PTAT）",
+"drift over −#…# °C: # ppm/°C": "−#…# °C 間漂移：# ppm/°C",
+"Differential pair and op-amp": "差動對與運算放大器",
+"A tail current split by the input difference, a mirror load, and the compensation that keeps it stable": "依輸入差分配的尾電流、電流鏡負載，以及讓它穩定的補償",
+"The differential pair is the input of almost every op-amp and comparator. Two matched transistors share a fixed tail current Iss. If both gates are at the same voltage the current splits evenly; a small difference Vin+ − Vin− steers more of it to one side, linearly at first (ΔI ≈ gm·Vid) and then completely once |Vid| exceeds √#·Vov. Because only the difference matters, noise and supply changes common to both inputs cancel (high CMRR). A PMOS current mirror on top copies the left current to the right, so the output receives I# − I# and the stage has a gain of gm·(ro#||ro#), around #–#. A second stage multiplies that to thousands. With two stages there are two poles, and with feedback the phase shift around the loop can reach #°: the amplifier rings or oscillates. Miller compensation puts a capacitor Cc across the second stage. It splits the poles: the gain-bandwidth becomes GBW = gm#/(#π·Cc) and the second pole stays at gm#/(#π·CL). The phase margin PM measures how far from #° the loop is at GBW; about #° gives a fast step with little overshoot.": "差動對幾乎是所有運算放大器和比較器的輸入級。兩個匹配的電晶體共用固定的尾電流 Iss。兩個閘極電壓相同時電流平分；小小的差 Vin+ − Vin− 會把較多電流推向一側，一開始是線性的（ΔI ≈ gm·Vid），當 |Vid| 超過 √#·Vov 時就完全切到一邊。因為只有差值有作用，兩個輸入共同的雜訊和電源變化都會抵消（高 CMRR）。上方的 PMOS 電流鏡把左邊的電流複製到右邊，所以輸出得到 I# − I#，這一級增益為 gm·(ro#||ro#)，約 #–#。第二級再把它乘到幾千倍。兩級就有兩個極點，加上回授後迴路相移可能達到 #°：放大器會振鈴甚至振盪。Miller 補償在第二級跨接電容 Cc，把極點分開：增益頻寬變成 GBW = gm#/(#π·Cc)，第二極點維持在 gm#/(#π·CL)。相位裕度 PM 表示在 GBW 處迴路相位離 #° 還有多遠；約 #° 可以得到快速且過衝很小的步階響應。",
+"I# / step response": "I# / 步階響應",
+"Ideal input step": "理想輸入步階",
+"Open-loop gain of the two-stage op-amp, A#·A#.": "兩級運放的開迴路增益，A#·A#。",
+"DC gain": "直流增益",
+"Gain-bandwidth product: the frequency where the open-loop gain falls to #.": "增益頻寬積：開迴路增益降到 # 的頻率。",
+"How far the loop phase is from −#° at the unity-gain frequency.": "在單位增益頻率處，迴路相位離 −#° 還有多遠。",
+"Peak overshoot of the step response in a unity-gain buffer.": "單位增益緩衝器步階響應的峰值過衝。",
+"Overshoot": "過衝",
+"Large-signal current steering of the differential pair.": "差動對的大訊號電流分配。",
+"Pair": "差動對",
+"Vid = # mV → ΔI = # µA of # µA (switches fully at # mV)": "Vid = # mV → ΔI = # µA（共 # µA，在 # mV 時完全切換）",
+"Vid = -# mV → ΔI = -# µA of # µA (switches fully at # mV)": "Vid = -# mV → ΔI = -# µA（共 # µA，在 # mV 時完全切換）",
+"Transconductance": "轉導",
+"First stage gain gm#·(ro#||ro#).": "第一級增益 gm#·(ro#||ro#)。",
+"Stage gain": "級增益",
+"Miller compensation sets GBW = gm#/(#π·Cc).": "Miller 補償設定 GBW = gm#/(#π·Cc)。",
+"Bandwidth": "頻寬",
+"Output pole gm#/(#π·CL); keep it well above GBW.": "輸出極點 gm#/(#π·CL)；要遠高於 GBW。",
+"Second pole": "第二極點",
+"Compensation capacitor versus speed and stability:": "補償電容與速度、穩定度的關係：",
+"current (µA)": "電流（µA）",
+"— gain (dB)": "— 增益（dB）",
+"- - phase": "- - 相位",
+"Unity-gain buffer step response · PM #°": "單位增益緩衝器步階響應 · PM #°",
+"time (# … # ns)": "時間（# … # ns）",
+"overshoot # % · ζ = #": "過衝 # % · ζ = #",
+"low phase margin: rings (increase Cc)": "相位裕度低：會振鈴（加大 Cc）",
+"very stable but slow (decrease Cc)": "非常穩定但慢（減小 Cc）",
+"well damped": "阻尼良好",
+"tail Iss = # µA": "尾電流 Iss = # µA",
+"the tail current is split according to Vin+ − Vin−": "尾電流依 Vin+ − Vin− 分配",
+"all of the tail current switched to one side": "尾電流全部切到一側",
+"the mirror copies I# to the right; Vout gets I# − I#": "電流鏡把 I# 複製到右邊；Vout 得到 I# − I#"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -3063,6 +3187,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-mm" aria-selected="false" aria-controls="tab-mm">Memory (SRAM · DRAM · Flash)</button>
         <button role="tab" id="tab-btn-rx" aria-selected="false" aria-controls="tab-rx">Radar receiver (LNA · mixer · ADC)</button>
         <button role="tab" id="tab-btn-bj" aria-selected="false" aria-controls="tab-bj">BJT & SiGe HBT</button>
+        <button role="tab" id="tab-btn-an" aria-selected="false" aria-controls="tab-an">Analog (bandgap · op-amp)</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -4931,6 +5056,119 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>fT</dt><dd>Transit frequency: where the small-signal current gain drops to 1.</dd>
               <dt>fmax</dt><dd>Maximum oscillation frequency: where power gain drops to 1.</dd>
               <dt>BiCMOS</dt><dd>Process with both bipolar transistors and CMOS on one chip.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== ANALOG BLOCKS TAB ===================== -->
+  <section id="tab-an" role="tabpanel" aria-labelledby="tab-btn-an" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="an-pill">BGR</span><h2 id="an-name">Bandgap voltage reference</h2></div>
+      <p id="an-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="an-view" role="group" aria-label="Analog block" style="flex-wrap:wrap">
+        <button data-v="bg" aria-pressed="true">Bandgap reference</button>
+        <button data-v="dp" aria-pressed="false">Differential pair &amp; op-amp</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvan" aria-label="Animated analog circuit: bandgap reference with temperature bars, or differential pair with step response"></canvas>
+      <div class="legend" id="an-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="an-ro"></div>
+        <div id="an-c-bg" style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Chip temperature. A good reference keeps its output within a few mV from −40 to 125 °C.">Temperature T</span><span id="an-T-v"></span></div>
+            <input id="an-T" type="range" min="-40" max="125" step="1" value="27">
+          </div>
+          <div class="chips">
+            <button class="chipbtn" id="an-sweep">▶ Sweep temperature</button>
+            <button class="chipbtn" id="an-best">Set the best K</button>
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Q2 is built from N copies of Q1 in parallel. A larger N gives a larger ΔVBE and needs a smaller resistor ratio.">Area ratio N</span><span id="an-N-v"></span></div>
+            <input id="an-N" type="range" min="2" max="24" step="1" value="8">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Resistor ratio R2/R1 that scales the PTAT term. Trimming this on every chip removes the remaining slope.">Resistor ratio K = R2/R1</span><span id="an-K-v"></span></div>
+            <input id="an-K" type="range" min="5" max="20" step="0.1" value="11.5">
+          </div>
+        </div>
+        <div id="an-c-dp" hidden style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Differential input voltage Vin+ − Vin−. It steers the tail current between the two branches.">Input difference Vid</span><span id="an-vid-v"></span></div>
+            <input id="an-vid" type="range" min="-0.6" max="0.6" step="0.005" value="0.05">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Tail current of the differential pair. More current gives more gm and bandwidth but costs power.">Tail current Iss</span><span id="an-iss-v"></span></div>
+            <input id="an-iss" type="range" min="20" max="600" step="10" value="250">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Miller compensation capacitor. Larger Cc means lower bandwidth but more phase margin and less ringing.">Compensation Cc</span><span id="an-cc-v"></span></div>
+            <input id="an-cc" type="range" min="0.1" max="5" step="0.05" value="1">
+          </div>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="an-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Characteristics</p>
+        <div class="plots">
+          <div class="plot"><svg id="an-p1" viewBox="0 0 300 230" role="img" aria-label="Reference voltage versus temperature, or branch currents versus input difference"></svg></div>
+          <div class="plot"><svg id="an-p2" viewBox="0 0 220 230" role="img" aria-label="Temperature drift versus resistor ratio, or open-loop Bode plot"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="an-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: PTAT, CTAT, bandgap, ppm/°C, differential pair, CMRR, GBW, phase margin</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>Why the bandgap works</h3>
+            <ol>
+              <li>A forward-biased junction's voltage VBE drops by about 2 mV for every degree: <b>CTAT</b>.</li>
+              <li>Two junctions at the same current but with different areas differ by ΔVBE = (kT/q)·ln N, which grows with temperature: <b>PTAT</b>.</li>
+              <li>Add the PTAT term, scaled by K, to VBE. With the right K the slopes cancel.</li>
+              <li>The result sits near 1.2 V, the band-gap voltage of silicon extrapolated to absolute zero.</li>
+            </ol>
+            <p id="an-g-head">Your reference:</p>
+            <div class="tbl" id="an-g-live"></div>
+            <p class="note">The same PTAT current is also a free temperature sensor: on-chip thermometers measure ΔVBE, and the "temperature" readout of a phone or CPU usually comes from such a circuit.</p>
+          </div>
+          <div>
+            <h3>Reference terms</h3>
+            <dl>
+              <dt>CTAT / PTAT</dt><dd>Complementary / proportional to absolute temperature.</dd>
+              <dt>Band-gap voltage</dt><dd>About 1.2 V: VBE extrapolated to 0 K; the sum the circuit settles at.</dd>
+              <dt>ppm/°C</dt><dd>Drift in millionths of the output per degree; good references reach 1–10 ppm/°C.</dd>
+              <dt>Curvature</dt><dd>The remaining bow because VBE is not perfectly linear in T.</dd>
+              <dt>Trimming</dt><dd>Adjusting K (with fuses or registers) on every chip after test.</dd>
+              <dt>Start-up circuit</dt><dd>Extra circuit that kicks the bandgap out of its all-zero state at power-on.</dd>
+            </dl>
+            <h3>Op-amp terms</h3>
+            <dl>
+              <dt>Differential pair</dt><dd>Two matched transistors sharing a tail current; responds to the input difference.</dd>
+              <dt>CMRR</dt><dd>Common-mode rejection: how much better the amplifier responds to the difference than to the common level.</dd>
+              <dt>Active load</dt><dd>Current mirror used as the load; converts the two currents into one output.</dd>
+              <dt>GBW</dt><dd>Gain-bandwidth product: open-loop gain × bandwidth, constant for a one-pole amplifier.</dd>
+              <dt>Phase margin</dt><dd>180° minus the loop phase lag at unity gain; 45° rings, 60° is a good target.</dd>
+              <dt>Miller compensation</dt><dd>Capacitor across the second stage that splits the poles and sets GBW.</dd>
+              <dt>Slew rate</dt><dd>Fastest output change, Iss/Cc, when the input step fully switches the pair.</dd>
+              <dt>Offset</dt><dd>Input voltage needed to make the output zero, caused by mismatch of the pair.</dd>
             </dl>
           </div>
         </div>
@@ -10408,11 +10646,260 @@ function drawBJPlots(){
 document.querySelectorAll("#bj-view button").forEach(b => b.addEventListener("click", () => { BJ.view = b.dataset.v; BJ.flow = []; updateBJ(); }));
 [["bj-vbe","vbe"],["bj-vce","vce"],["bj-wb","wb"],["bj-wbh","wbh"],["bj-nb","nb"],["bj-ge","ge"],["bj-ge0","ge0"],["bj-ic","ic"]].forEach(([id, k]) => $(id).addEventListener("input", e => { BJ[k] = +e.target.value; updateBJ(); }));
 
+/* =========================================================
+   TAB — analog building blocks: bandgap reference, differential pair / op-amp
+   ========================================================= */
+const ANC = setupCanvas($("cvan"), 1000, 488);
+const AN = {view:"bg", t:0, T:27, N:8, K:11.5, sweep:false, sw:0,
+  vid:0.05, iss:250, cc:1, stepT:0};
+const AN_VG0 = 1.205, AN_VBE0 = 0.65, AN_ETA = 4;
+const anVt = Tc => 8.617e-5*(Tc + 273.15);
+const anVbe = Tc => { const T = Tc + 273.15, T0 = 300.15; return AN_VG0 - (AN_VG0 - AN_VBE0)*T/T0 - (AN_ETA - 1)*8.617e-5*T*Math.log(T/T0); };
+const anDvbe = Tc => anVt(Tc)*Math.log(AN.N);
+const anVref = (Tc, K = AN.K) => anVbe(Tc) + K*anDvbe(Tc);
+function anTC(K = AN.K){ const v = range(-40, 125, 66).map(T => anVref(T, K)); const mx = Math.max(...v), mn = Math.min(...v), avg = (mx + mn)/2; return (mx - mn)/avg/165*1e6; }   // box-method ppm/°C
+function anKopt(){ let lo = 2, hi = 40; for (let i=0;i<50;i++){ const m = (lo + hi)/2; if ((anVref(126, m) - anVref(-40, m)) < 0) lo = m; else hi = m; } return (lo + hi)/2; }
+
+/* ---------------- differential pair / two-stage op-amp ---------------- */
+const AN_K = 4e-3, AN_GM6 = 5e-3, AN_CL = 2e-12;
+function anOpamp(){
+  const iss = AN.iss*1e-6, gm1 = Math.sqrt(AN_K*iss), ro = 1/(0.1*iss/2), A1 = gm1*ro/2, A2 = 50, A0 = A1*A2;
+  const cc = AN.cc*1e-12, gbw = gm1/(2*Math.PI*cc), p2 = AN_GM6/(2*Math.PI*AN_CL), z = AN_GM6/(2*Math.PI*cc);
+  const pm = 90 - Math.atan(gbw/p2)*180/Math.PI - Math.atan(gbw/z)*180/Math.PI;
+  const wn = 2*Math.PI*Math.sqrt(gbw*p2), zeta = 0.5*Math.sqrt(p2/gbw);
+  const os = zeta < 1 ? Math.exp(-Math.PI*zeta/Math.sqrt(1 - zeta*zeta))*100 : 0;
+  return {gm1, A1, A0, gbw, p2, z, pm, wn, zeta, os, vovMax: Math.sqrt(2*iss/AN_K)};
+}
+function anDI(vid){                                                        // I1 − I2 of the pair, mA
+  const iss = AN.iss*1e-3, k = AN_K*1e3, lim = Math.sqrt(2*iss/k);
+  if (Math.abs(vid) >= lim) return Math.sign(vid)*iss;
+  return (k/2)*vid*Math.sqrt(4*iss/k - vid*vid);
+}
+function anStep(t, O){                                                     // unity-gain step response (t in s)
+  const z = O.zeta, w = O.wn;
+  if (z >= 1){ const s1 = -w*(z - Math.sqrt(z*z - 1)), s2 = -w*(z + Math.sqrt(z*z - 1)); return 1 - (s2*Math.exp(s1*t) - s1*Math.exp(s2*t))/(s2 - s1); }
+  const wd = w*Math.sqrt(1 - z*z); return 1 - Math.exp(-z*w*t)*(Math.cos(wd*t) + z/Math.sqrt(1 - z*z)*Math.sin(wd*t));
+}
+
+function anTick(dt){
+  AN.t += dt;
+  if (AN.view === "bg" && AN.sweep){ AN.sw += dt*0.25; AN.T = Math.round(-40 + 165*(0.5 - 0.5*Math.cos(AN.sw*Math.PI))); $("an-T").value = AN.T; }
+  if (AN.view === "dp"){ AN.stepT = (AN.stepT + dt*0.4) % 1; }
+}
+
+/* ---------------- drawing helpers ---------------- */
+function bjtSym(x, y, label, area){            // diode-connected npn-style symbol, collector at top, emitter at bottom
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x, y, 22, 0, 6.283); ctx.stroke();
+  pl([[x - 8, y - 14],[x - 8, y + 14]]); pl([[x - 8, y - 6],[x + 10, y - 20]]); pl([[x - 8, y + 6],[x + 10, y + 20]]);
+  ctx.fillStyle = C.fg; ctx.beginPath(); ctx.moveTo(x + 10, y + 20); ctx.lineTo(x + 1, y + 18); ctx.lineTo(x + 6, y + 11); ctx.fill();
+  wire([[x + 10, y - 20],[x + 10, y - 34]]); wire([[x + 10, y + 20],[x + 10, y + 40]]);
+  wire([[x - 8, y],[x - 30, y],[x - 30, y - 30],[x + 10, y - 30]]);        // base tied to collector
+  txt(label, x + 30, y - 6, {col:C.fg, w:700, px:12}); txt(area, x + 30, y + 10, {px:10});
+}
+function opampUp(x, y){ ctx.strokeStyle = C.fg; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x - 44, y + 30); ctx.lineTo(x + 44, y + 30); ctx.lineTo(x, y - 30); ctx.closePath(); ctx.stroke(); txt("−", x - 22, y + 18, {al:"center", col:C.fg, w:700, px:13}); txt("+", x + 22, y + 18, {al:"center", col:C.fg, w:700, px:13}); }
+function anRes(x, y0, y1, label){ resistor(x, y0, y1, label); }
+
+/* ---------------- drawing: bandgap ---------------- */
+let anOff = 0;
+function drawBG(dt, T){
+  const vbe = anVbe(AN.T), dv = anDvbe(AN.T), vref = vbe + AN.K*dv, R1 = 10, I = dv/R1;     // R1 = 10 kΩ → I in mA
+  ctx.fillStyle = C.panel2; ctx.fillRect(8, 8, 560, 472);
+  wire([[120, 60],[460, 60]]); ndot(290, 60); txt(`Vref = ${vref.toFixed(4)} V`, 460, 44, {al:"right", col:C.accent, w:700, px:14});
+  opampUp(290, 140); wire([[290, 110],[290, 60]]);
+  // left branch: R2 → node A → Q1
+  wire([[160, 60],[160, 80]]); anRes(160, 80, 170, `R2 = ${(AN.K*R1).toFixed(0)} k`); wire([[160, 170],[160, 210]]); ndot(160, 210);
+  wire([[160, 210],[246, 210],[246, 170],[268, 170]]);
+  bjtSym(150, 280, "Q1", "area 1×"); wire([[160, 210],[160, 246]]); wire([[160, 320],[160, 360]]); gnd(160, 360);
+  // right branch: R2 → node B → R1 → Q2
+  wire([[420, 60],[420, 80]]); anRes(420, 80, 170, `R2 = ${(AN.K*R1).toFixed(0)} k`); wire([[420, 170],[420, 210]]); ndot(420, 210);
+  wire([[420, 210],[334, 210],[334, 170],[312, 170]]);
+  anRes(420, 220, 280, `R1 = ${R1} k`); wire([[420, 210],[420, 220]]); wire([[420, 280],[420, 306]]);
+  bjtSym(410, 340, "Q2", `area ${AN.N}×`); wire([[420, 380],[420, 410]]); gnd(420, 410);
+  txt(`A: VBE1 = ${vbe.toFixed(3)} V`, 150, 228, {al:"right", col:C.electron, w:600, px:11});
+  txt("B (forced equal to A)", 430, 228, {col:C.electron, w:600, px:11});
+  txt(`ΔVBE across R1 = ${(dv*1000).toFixed(1)} mV`, 434, 290, {col:C.accent, w:600, px:11});
+  txt(`I = ΔVBE/R1 = ${(I*1000).toFixed(2)} µA (PTAT)`, 24, 400, {col:C.fg, w:600, px:12});
+  txt("op-amp forces A = B, so the same current flows in both branches", 24, 420, {px:10});
+  txt(`Q2 is ${AN.N}× larger: at the same current its VBE is lower by Vt·ln ${AN.N}`, 24, 436, {px:10});
+  anOff += dt*60*(0.5 + I*20);
+  flowDots(polyline([[160, 60],[160, 360]]), anOff, 0.8, C.accent); flowDots(polyline([[420, 60],[420, 410]]), anOff, 0.8, C.accent);
+  // stacked bars: CTAT + PTAT = constant
+  const ox = 580, oy = 8, w = 412, h = 472; panel(ox, oy, w, h, `At ${AN.T} °C: two opposite drifts add up`);
+  const Y = v => oy + 420 - v/1.4*360, bx = ox + 60, bw = 70;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; for (let v = 0; v <= 1.4001; v += 0.2){ pl([[ox + 40, Y(v)],[ox + w - 14, Y(v)]]); txt(`${v.toFixed(1)} V`, ox + 36, Y(v), {al:"right", px:10}); }
+  ctx.fillStyle = C.electron; ctx.fillRect(bx, Y(vbe), bw, Y(0) - Y(vbe));
+  ctx.fillStyle = C.accent; ctx.fillRect(bx, Y(vbe + AN.K*dv), bw, Y(vbe) - Y(vbe + AN.K*dv));
+  txt("VBE", bx + bw/2, Y(vbe/2), {al:"center", col:C.bg, w:700, px:12}); txt(`${(vbe*1000).toFixed(0)} mV`, bx + bw/2, Y(vbe/2) + 16, {al:"center", col:C.bg, px:10});
+  txt("K·ΔVBE", bx + bw/2, Y(vbe + AN.K*dv/2), {al:"center", col:C.bg, w:700, px:12});
+  txt(`= ${vref.toFixed(4)} V`, bx + bw + 10, Y(vref), {col:C.accent, w:700, px:13});
+  txt("VBE falls ≈ −2 mV/°C (CTAT)", bx + bw + 10, Y(vbe/2), {col:C.electron, w:600, px:11});
+  txt(`K·ΔVBE rises ≈ +${(AN.K*8.617e-5*Math.log(AN.N)*1000).toFixed(2)} mV/°C (PTAT)`, bx + bw + 10, Y(vbe + AN.K*dv/2) + 4, {col:C.accent, w:600, px:11});
+  // thermometer
+  const tx = ox + w - 50, tf = (AN.T + 40)/165;
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 2; ctx.strokeRect(tx - 7, oy + 60, 14, 300); ctx.beginPath(); ctx.arc(tx, oy + 372, 14, 0, 6.283); ctx.stroke();
+  ctx.fillStyle = C.hole; ctx.fillRect(tx - 5, oy + 358 - tf*296, 10, tf*296 + 4); ctx.beginPath(); ctx.arc(tx, oy + 372, 11, 0, 6.283); ctx.fill();
+  txt(`${AN.T} °C`, tx, oy + 404, {al:"center", col:C.hole, w:700, px:12});
+  txt(`drift over −40…125 °C: ${anTC().toFixed(1)} ppm/°C`, ox + 14, oy + 452, {col:C.fg, w:600, px:11});
+}
+
+/* ---------------- drawing: differential pair ---------------- */
+function drawDP(dt, T){
+  const O = anOpamp(), iss = AN.iss/1000, di = anDI(AN.vid), i1 = (iss + di)/2, i2 = (iss - di)/2;
+  ctx.fillStyle = C.panel2; ctx.fillRect(8, 8, 520, 472);
+  wire([[100, 50],[440, 50]]); txt(`VDD ${VDD} V`, 440, 36, {al:"right", col:C.fg, w:600});
+  // PMOS mirror load (M3 diode-connected on the left)
+  mmSymM("p", 210, 110, {on:true}); symb("p", 330, 110, {on:true});
+  wire([[180, 60],[180, 50]]); wire([[360, 60],[360, 50]]);
+  wire([[268, 110],[272, 110]]); wire([[252, 110],[272, 110]]); wire([[180, 160],[180, 175],[262, 175],[262, 110]]); ndot(180, 175);
+  txt("M3", 160, 100, {al:"right", px:11, col:C.fg, w:700}); txt("M4", 372, 100, {px:11, col:C.fg, w:700});
+  // input pair
+  symb("n", 150, 250, {on:i1 > 1e-6}); mmSymM("n", 390, 250, {on:i2 > 1e-6});
+  wire([[180, 160],[180, 200]]); wire([[360, 160],[360, 200]]); ndot(360, 185);
+  wire([[360, 185],[470, 185]]); txt("Vout", 476, 185, {col:C.accent, w:700, px:12});
+  wire([[180, 300],[180, 330],[360, 330],[360, 300]]); ndot(270, 330);
+  wire([[92, 250],[40, 250]]); wire([[448, 250],[500, 250]]);
+  txt(`Vin+ ${AN.vid >= 0 ? "+" : ""}${(AN.vid*500).toFixed(0)} mV`, 20, 234, {col:C.electron, w:700, px:11});
+  txt(`Vin− ${AN.vid >= 0 ? "−" : "+"}${Math.abs(AN.vid*500).toFixed(0)} mV`, 512, 234, {al:"right", col:C.electron, w:700, px:11});
+  txt("M1", 192, 250, {px:11, col:C.fg, w:700}); txt("M2", 348, 250, {al:"right", px:11, col:C.fg, w:700});
+  // tail current source
+  wire([[270, 330],[270, 360]]); isrc(270, 382, ""); wire([[270, 402],[270, 425]]); gnd(270, 425);
+  txt(`tail Iss = ${AN.iss} µA`, 300, 382, {col:C.fg, w:600, px:11});
+  anOff += dt*60;
+  flowDots(polyline([[180, 50],[180, 330],[270, 330],[270, 402]]), anOff, Math.min(1, i1/iss*1.5), C.accent);
+  flowDots(polyline([[360, 50],[360, 330],[270, 330]]), anOff + 9, Math.min(1, i2/iss*1.5), C.electron);
+  txt(`I1 = ${(i1*1000).toFixed(0)} µA`, 150, 320, {al:"right", col:C.accent, w:700, px:12}); txt(`I2 = ${(i2*1000).toFixed(0)} µA`, 390, 320, {col:C.electron, w:700, px:12});
+  txt(Math.abs(AN.vid) >= O.vovMax ? "all of the tail current switched to one side" : "the tail current is split according to Vin+ − Vin−", 24, 452, {px:11, col:C.fg, w:600});
+  txt("the mirror copies I1 to the right; Vout gets I1 − I2", 24, 468, {px:10});
+  // step response of the two-stage op-amp as a unity-gain buffer
+  const ox = 540, oy = 8, w = 452, h = 472; panel(ox, oy, w, h, `Unity-gain buffer step response · PM ${O.pm.toFixed(0)}°`);
+  const tEnd = 12/O.wn, X = t => ox + 40 + t/tEnd*(w - 60), Y = v => oy + 380 - v*240;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; [0, 0.5, 1].forEach(v => { pl([[ox + 40, Y(v)],[ox + w - 20, Y(v)]]); txt(v.toFixed(1), ox + 34, Y(v), {al:"right", px:10}); });
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1.6; ctx.setLineDash([5,3]); pl([[ox + 40, Y(0)],[X(0), Y(0)],[X(0), Y(1)],[ox + w - 20, Y(1)]]); ctx.setLineDash([]);
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2.4; ctx.beginPath();
+  for (let i=0;i<=300;i++){ const t = i/300*tEnd, v = anStep(t, O); i ? ctx.lineTo(X(t), Y(v)) : ctx.moveTo(X(t), Y(v)); } ctx.stroke();
+  const tc = AN.stepT*tEnd; dot(X(tc), Y(anStep(tc, O)), C.accent, false, 1, 5);
+  txt(`time (0 … ${(tEnd*1e9).toFixed(1)} ns)`, ox + w/2, oy + 400, {al:"center", px:10});
+  txt(`overshoot ${O.os.toFixed(1)} % · ζ = ${O.zeta.toFixed(2)}`, ox + 40, oy + 430, {col: O.pm < 45 ? C.hole : C.fg, w:700, px:12});
+  txt(O.pm < 45 ? "low phase margin: rings (increase Cc)" : O.pm > 75 ? "very stable but slow (decrease Cc)" : "well damped", ox + 40, oy + 452, {col: O.pm < 45 ? C.hole : C.channel, w:600, px:11});
+}
+function drawANtab(dt, T){ begin(ANC); if (AN.view === "bg") drawBG(dt, T); else drawDP(dt, T); }
+
+/* ---------------- DOM ---------------- */
+const ANINFO = {
+  bg:{pill:"BGR", name:"Bandgap voltage reference", sub:"Two temperature drifts of opposite sign add up to a voltage that hardly moves",
+    text:"Almost every chip needs a voltage that stays put over temperature and supply: the 0.8 V reference of the LDO, the ADC's full scale, the bias of every current mirror. A bipolar transistor's VBE falls by about 2 mV/°C (complementary to absolute temperature, CTAT). The difference between the VBE of two transistors run at the same current but with an area ratio N is ΔVBE = (kT/q)·ln N, which rises in proportion to absolute temperature (PTAT). The op-amp forces the two branches to the same voltage, so ΔVBE appears across R1 and sets a PTAT current; R2 scales it up. The output is Vref = VBE + (R2/R1)·ΔVBE. With the right ratio K the two slopes cancel, and Vref settles near the silicon band-gap voltage extrapolated to 0 K, about 1.2 V, hence the name. What is left is a small bow-shaped curvature, a few ppm/°C; precision references trim K on every chip and add curvature correction."},
+  dp:{pill:"OTA", name:"Differential pair and op-amp", sub:"A tail current split by the input difference, a mirror load, and the compensation that keeps it stable",
+    text:"The differential pair is the input of almost every op-amp and comparator. Two matched transistors share a fixed tail current Iss. If both gates are at the same voltage the current splits evenly; a small difference Vin+ − Vin− steers more of it to one side, linearly at first (ΔI ≈ gm·Vid) and then completely once |Vid| exceeds √2·Vov. Because only the difference matters, noise and supply changes common to both inputs cancel (high CMRR). A PMOS current mirror on top copies the left current to the right, so the output receives I1 − I2 and the stage has a gain of gm·(ro2||ro4), around 30–50. A second stage multiplies that to thousands. With two stages there are two poles, and with feedback the phase shift around the loop can reach 180°: the amplifier rings or oscillates. Miller compensation puts a capacitor Cc across the second stage. It splits the poles: the gain-bandwidth becomes GBW = gm1/(2π·Cc) and the second pole stays at gm6/(2π·CL). The phase margin PM measures how far from 180° the loop is at GBW; about 60° gives a fast step with little overshoot."}
+};
+Object.assign(TIP, {
+  "Reference Vref":"Output of the bandgap: VBE + K·ΔVBE.",
+  "Drift":"Box-method temperature coefficient over −40 … 125 °C.",
+  "VBE":"Base-emitter voltage of Q1 at this temperature (CTAT).",
+  "ΔVBE":"VBE difference between Q1 and the N× larger Q2 (PTAT).",
+  "CTAT":"VBE falls with temperature, about −2 mV/°C.",
+  "PTAT":"ΔVBE = (kT/q)·ln N rises in proportion to absolute temperature.",
+  "Sum":"Vref = VBE + (R2/R1)·ΔVBE.",
+  "Best K":"Ratio R2/R1 at which the two slopes cancel.",
+  "DC gain":"Open-loop gain of the two-stage op-amp, A1·A2.",
+  "GBW":"Gain-bandwidth product: the frequency where the open-loop gain falls to 1.",
+  "Phase margin":"How far the loop phase is from −180° at the unity-gain frequency.",
+  "Overshoot":"Peak overshoot of the step response in a unity-gain buffer.",
+  "Pair":"Large-signal current steering of the differential pair.",
+  "Transconductance":"gm1 = √(k·Iss) = 2·(Iss/2)/Vov.",
+  "Stage gain":"First stage gain gm1·(ro2||ro4).",
+  "Bandwidth":"Miller compensation sets GBW = gm1/(2π·Cc).",
+  "Second pole":"Output pole gm6/(2π·CL); keep it well above GBW."
+});
+const ANLEG = {
+  bg:[["electron","VBE (CTAT)"],["accent","K·ΔVBE (PTAT) · branch current"],["hole","Temperature"]],
+  dp:[["accent","I1 / step response"],["electron","I2"],["muted","Ideal input step"]]
+};
+let anGlossKey = "";
+function updateAN(){
+  const v = AN.view, info = ANINFO[v];
+  $("an-pill").textContent = info.pill; $("an-name").textContent = info.name; $("an-sub").textContent = info.sub; $("an-explain").textContent = info.text;
+  document.querySelectorAll("#an-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  $("an-c-bg").hidden = v !== "bg"; $("an-c-dp").hidden = v !== "dp";
+  $("an-T-v").textContent = `${AN.T} °C`; $("an-N-v").textContent = `${AN.N}×`; $("an-K-v").textContent = AN.K.toFixed(1);
+  $("an-vid-v").textContent = `${(AN.vid*1000).toFixed(0)} mV`; $("an-iss-v").textContent = `${AN.iss} µA`; $("an-cc-v").textContent = `${AN.cc.toFixed(2)} pF`;
+  $("an-sweep").textContent = AN.sweep ? "❚❚ Stop temperature sweep" : "▶ Sweep temperature";
+  setHTML("an-legend", ANLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  const ro = [], rows = [];
+  if (v === "bg"){
+    const vbe = anVbe(AN.T), dv = anDvbe(AN.T), ko = anKopt();
+    ro.push(["Reference Vref", `${anVref(AN.T).toFixed(4)} V`], ["Drift", `${anTC().toFixed(1)} ppm/°C`], ["VBE", `${(vbe*1000).toFixed(1)} mV`], ["ΔVBE", `${(dv*1000).toFixed(2)} mV`]);
+    rows.push({name:"CTAT", f:"VBE(T) ≈ VG0 − (VG0 − VBE0)·T/T0 − (η − 1)·(kT/q)·ln(T/T0)", sub:`= ${(vbe*1000).toFixed(1)} mV at ${AN.T} °C (slope ≈ ${((anVbe(AN.T + 1) - vbe)*1000).toFixed(2)} mV/°C)`});
+    rows.push({name:"PTAT", f:"ΔVBE = (kT/q) · ln N", sub:`= ${(anVt(AN.T)*1000).toFixed(2)} mV · ln ${AN.N} = ${(dv*1000).toFixed(2)} mV (slope +${(8.617e-5*Math.log(AN.N)*1000).toFixed(3)} mV/°C)`});
+    rows.push({name:"Sum", f:"Vref = VBE + (R2/R1) · ΔVBE", sub:`= ${(vbe*1000).toFixed(1)} + ${AN.K.toFixed(1)} · ${(dv*1000).toFixed(2)} = ${(anVref(AN.T)*1000).toFixed(1)} mV`});
+    rows.push({name:"Best K", f:"d(Vref)/dT = 0 → K = −(dVBE/dT) / ((k/q)·ln N)", sub:`K ≈ ${ko.toFixed(1)} for N = ${AN.N} → Vref ≈ ${anVref(27, ko).toFixed(3)} V (close to the band gap, 1.2 V)`});
+  } else {
+    const O = anOpamp();
+    ro.push(["DC gain", `${(20*Math.log10(O.A0)).toFixed(0)} dB`], ["GBW", `${(O.gbw/1e6).toFixed(0)} MHz`], ["Phase margin", `${O.pm.toFixed(0)}°`], ["Overshoot", `${O.os.toFixed(1)} %`]);
+    rows.push({name:"Pair", f:"ΔI = (k/2)·Vid·√(4·Iss/k − Vid²),  full switch at |Vid| = √(2·Iss/k)", sub:`Vid = ${(AN.vid*1000).toFixed(0)} mV → ΔI = ${(anDI(AN.vid)*1000).toFixed(0)} µA of ${AN.iss} µA (switches fully at ${(O.vovMax*1000).toFixed(0)} mV)`});
+    rows.push({name:"Transconductance", f:"gm1 = √(k·Iss)", sub:`= √(${AN_K*1000} mA/V² · ${AN.iss} µA) = ${(O.gm1*1000).toFixed(2)} mS`});
+    rows.push({name:"Stage gain", f:"A1 = gm1·(ro2 || ro4),  A0 = A1·A2", sub:`A1 = ${O.A1.toFixed(0)}, A2 = 50 → A0 = ${O.A0.toFixed(0)} (${(20*Math.log10(O.A0)).toFixed(0)} dB)`});
+    rows.push({name:"Bandwidth", f:"GBW = gm1 / (2π·Cc)", sub:`= ${(O.gm1*1000).toFixed(2)} mS / (2π · ${AN.cc.toFixed(2)} pF) = ${(O.gbw/1e6).toFixed(0)} MHz`});
+    rows.push({name:"Second pole", f:"p2 = gm6/(2π·CL),  PM = 90° − atan(GBW/p2) − atan(GBW/z)", sub:`p2 = ${(O.p2/1e6).toFixed(0)} MHz, z = ${(O.z/1e6).toFixed(0)} MHz → PM = ${O.pm.toFixed(0)}°`});
+  }
+  renderRo($("an-ro"), ro); renderEq($("an-eq"), rows);
+  updateANGloss(); drawANPlots();
+}
+function updateANGloss(){
+  const key = [AN.view, AN.N, AN.K, AN.iss, AN.cc].join("|"); if (key === anGlossKey) return; anGlossKey = key;
+  let h, t;
+  if (AN.view === "bg"){
+    h = `Vref at a few temperatures for K = ${AN.K.toFixed(1)}, N = ${AN.N}:`;
+    t = `<table><tr><th>T</th><th>VBE</th><th>K·ΔVBE</th><th>Vref</th></tr>` + [-40, 0, 27, 85, 125].map(T => `<tr><td>${T} °C</td><td>${(anVbe(T)*1000).toFixed(1)} mV</td><td>${(AN.K*anDvbe(T)*1000).toFixed(1)} mV</td><td>${(anVref(T)*1000).toFixed(2)} mV</td></tr>`).join("") + `</table>`;
+  } else {
+    h = "Compensation capacitor versus speed and stability:";
+    const save = AN.cc;
+    t = `<table><tr><th>Cc</th><th>GBW</th><th>Phase margin</th><th>Overshoot</th></tr>` + [0.2, 0.5, 1, 2, 4].map(c => { AN.cc = c; const O = anOpamp(); return `<tr${c === save ? ' style="font-weight:700"' : ""}><td>${c} pF</td><td>${(O.gbw/1e6).toFixed(0)} MHz</td><td>${O.pm.toFixed(0)}°</td><td>${O.os.toFixed(1)} %</td></tr>`; }).join("") + `</table>`;
+    AN.cc = save;
+  }
+  $("an-g-head").textContent = h; $("an-g-live").innerHTML = t;
+}
+function drawANPlots(){
+  let a = "", b = "";
+  if (AN.view === "bg"){
+    const Ts = range(-40, 125, 80), vr = Ts.map(T => anVref(T)*1000), mn = Math.min(...vr), mx = Math.max(...vr), pad = Math.max(1, (mx - mn)*0.3);
+    const st = niceStep((mx - mn + 2*pad)/4), y0 = Math.floor((mn - pad)/st)*st, y1 = Math.ceil((mx + pad)/st)*st;
+    const A = axesR(300, 230, {l:44,r:10,t:28,b:30}, -40, 125, y0, y1, 40, st, "T (°C)", "Vref (mV)");
+    a = A.s + `<path d="${pathOf(Ts.map((T, i) => [T, vr[i]]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + A.frame + dotSvg(A.X(AN.T), A.Y(anVref(AN.T)*1000)) + `<text x="50" y="12" style="fill:var(--accent)">— Vref (remaining curvature)</text>`;
+    const Ks = range(5, 20, 60), tcs = Ks.map(k => Math.min(400, anTC(k)));
+    const B = axesR(220, 230, {l:34,r:8,t:28,b:30}, 5, 20, 0, 400, 5, 100, "K = R2/R1", "drift (ppm/°C)");
+    b = B.s + `<path d="${pathOf(Ks.map((k, i) => [k, tcs[i]]), B.X, B.Y)}" fill="none" stroke="var(--electron)" stroke-width="2.2"/>` + B.frame + dotSvg(B.X(clamp(AN.K, 5, 20)), B.Y(Math.min(400, anTC()))) + `<text x="40" y="12" style="fill:var(--electron)">— drift vs K</text>`;
+  } else {
+    const vs = range(-0.6, 0.6, 120), iss = AN.iss/1000;
+    const A = axesR(300, 230, {l:38,r:10,t:28,b:30}, -0.6, 0.6, 0, Math.ceil(iss*1000/50)*50, 0.3, niceStep(iss*1000/4), "Vid = Vin+ − Vin− (V)", "current (µA)");
+    a = A.s + `<path d="${pathOf(vs.map(x => [x, (iss + anDI(x))/2*1000]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/><path d="${pathOf(vs.map(x => [x, (iss - anDI(x))/2*1000]), A.X, A.Y)}" fill="none" stroke="var(--electron)" stroke-width="2.2"/>`;
+    a += A.frame + dotSvg(A.X(AN.vid), A.Y((iss + anDI(AN.vid))/2*1000)) + `<text x="44" y="12" style="fill:var(--accent)">— I1</text><text x="74" y="12" style="fill:var(--electron)">— I2</text>`;
+    const O = anOpamp(), fs = Array.from({length:120}, (_, i) => 10**(2 + 8*i/119)), lx = f => 34 + (Math.log10(f) - 2)/8*176;
+    const p1 = O.gbw/O.A0, mag = f => 20*Math.log10(O.A0) - 10*Math.log10(1 + (f/p1)**2) - 10*Math.log10(1 + (f/O.p2)**2);
+    const ph = f => -Math.atan(f/p1)*180/Math.PI - Math.atan(f/O.p2)*180/Math.PI - Math.atan(f/O.z)*180/Math.PI;
+    const ly = d => 200 - (clamp(d, -40, 80) + 40)/120*172, lp = p => 200 - (clamp(p, -200, 0) + 200)/200*172;
+    b = `<text x="36" y="12" style="fill:var(--accent)">— gain (dB)</text><text x="110" y="12" style="fill:var(--electron)">- - phase</text>`;
+    for (let d = -40; d <= 80; d += 40) b += `<line x1="34" x2="210" y1="${ly(d)}" y2="${ly(d)}" stroke="var(--line)"/><text x="30" y="${ly(d) + 3}" text-anchor="end">${d}</text>`;
+    ["100","10k","1M","100M","10G"].forEach((s, i) => b += `<text x="${lx(10**(2 + 2*i))}" y="214" text-anchor="middle">${s}</text>`);
+    b += `<text x="122" y="228" text-anchor="middle">frequency (Hz)</text>`;
+    b += `<path d="${fs.map((f, i) => (i ? "L" : "M") + lx(f).toFixed(1) + " " + ly(mag(f)).toFixed(1)).join("")}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+    b += `<path d="${fs.map((f, i) => (i ? "L" : "M") + lx(f).toFixed(1) + " " + lp(ph(f)).toFixed(1)).join("")}" fill="none" stroke="var(--electron)" stroke-width="1.6" stroke-dasharray="5 3"/>`;
+    b += `<line x1="${lx(O.gbw)}" x2="${lx(O.gbw)}" y1="28" y2="200" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${lx(O.gbw) + 3}" y="40" style="fill:var(--hole)">GBW · PM ${O.pm.toFixed(0)}°</text>`;
+    b += `<line x1="34" x2="34" y1="28" y2="200" stroke="var(--muted)"/><line x1="34" x2="210" y1="200" y2="200" stroke="var(--muted)"/>`;
+  }
+  $("an-p1").innerHTML = a; $("an-p2").innerHTML = b;
+}
+document.querySelectorAll("#an-view button").forEach(b => b.addEventListener("click", () => { AN.view = b.dataset.v; updateAN(); }));
+[["an-T","T"],["an-N","N"],["an-K","K"],["an-vid","vid"],["an-iss","iss"],["an-cc","cc"]].forEach(([id, k]) => $(id).addEventListener("input", e => { AN[k] = +e.target.value; if (k === "T") AN.sweep = false; updateAN(); }));
+$("an-sweep").addEventListener("click", () => { AN.sweep = !AN.sweep; AN.sw = 0; updateAN(); });
+$("an-best").addEventListener("click", () => { AN.K = Math.round(anKopt()*10)/10; $("an-K").value = AN.K; updateAN(); });
+let anUpd = 0;
+function anTickAll(dt){ anTick(dt); if (AN.sweep && ++anUpd % 4 === 0) updateAN(); }
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog"};
 function showTab(t){
   zoomClose();
   tab = t;
@@ -10430,6 +10917,7 @@ function showTab(t){
   else if (t === "mm"){ $("sub-top").textContent = "Memory cells · SRAM, DRAM and flash built from MOSFETs"; MMC.resize(); updateMM(); }
   else if (t === "rx"){ $("sub-top").textContent = "77 GHz radar receiver · noise, mixing and analog-to-digital conversion"; RXC.resize(); updateRX(); }
   else if (t === "bj"){ $("sub-top").textContent = "Bipolar transistors · silicon BJT and SiGe HBT for mm-wave"; BJC.resize(); updateBJ(); }
+  else if (t === "an"){ $("sub-top").textContent = "Analog building blocks · bandgap reference and differential-pair op-amp"; ANC.resize(); updateAN(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -10449,6 +10937,7 @@ function frame(now){
   else if (tab === "mm"){ mmTickAll(dt); if (MMC.cv.clientWidth) drawMM(dt, T); }
   else if (tab === "rx"){ rxTickAll(dt); if (RXC.cv.clientWidth) drawRX(dt, T); }
   else if (tab === "bj"){ bjTick(dt); if (BJC.cv.clientWidth) drawBJ(dt, T); }
+  else if (tab === "an"){ anTickAll(dt); if (ANC.cv.clientWidth) drawANtab(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
