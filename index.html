@@ -2137,6 +2137,259 @@ Object.assign(window.I18N_ZH, {
 "drain": "汲極",
 "gate": "閘極"
 });
+Object.assign(window.I18N_ZH, {
+"Memory (SRAM · DRAM · Flash)": "記憶體（SRAM · DRAM · Flash）",
+"SRAM #T cell": "SRAM #T 記憶胞",
+"Memory type": "記憶體類型",
+"Flash (floating gate)": "Flash（浮動閘）",
+"SRAM operation": "SRAM 操作",
+"Hold": "保持",
+"Read": "讀取",
+"Write": "寫入",
+"Flip stored bit": "翻轉儲存的位元",
+"Width of the pull-down NMOS divided by the access NMOS. Bigger = the # node stays low during a read.": "下拉 NMOS 寬度除以存取 NMOS 寬度。越大，讀取時 # 節點越能維持在低電位。",
+"Cell ratio β = Wpd/Wacc": "記憶胞比 β = Wpd/Wacc",
+"Width of the pull-up PMOS divided by the access NMOS. Smaller = easier to overwrite the cell.": "上拉 PMOS 寬度除以存取 NMOS 寬度。越小越容易覆寫記憶胞。",
+"Pull-up ratio PR = Wpu/Wacc": "上拉比 PR = Wpu/Wacc",
+"Read the cell": "讀取記憶胞",
+"Write a #": "寫入 #",
+"Auto-refresh: on": "自動刷新：開",
+"Auto-refresh: off": "自動刷新：關",
+"Capacitance of the storage capacitor. Modern cells are tall, thin cylinders of about #–# fF.": "儲存電容值。現代記憶胞是又高又細的圓柱，約 #–# fF。",
+"Storage capacitor Cs": "儲存電容 Cs",
+"Capacitance of the bit line shared by many cells. The bigger it is, the smaller the read signal.": "許多記憶胞共用的位元線電容。越大，讀取訊號越小。",
+"Bit-line capacitance Cbl": "位元線電容 Cbl",
+"Chip temperature. Leakage roughly doubles every # °C, so a hot DRAM must be refreshed more often.": "晶片溫度。漏電大約每 # °C 加倍，所以熱的 DRAM 必須更常刷新。",
+"Time between refreshes of the same row. The JEDEC standard is # ms, halved above # °C.": "同一列兩次刷新之間的時間。JEDEC 標準為 # ms，高於 # °C 時減半。",
+"Refresh interval": "刷新間隔",
+"Bits per cell": "每胞位元數",
+"SLC # bit": "SLC # 位元",
+"MLC # bits": "MLC # 位元",
+"TLC # bits": "TLC # 位元",
+"The Vth window to program this cell into. Each level stands for a bit pattern (Gray code).": "要把這個記憶胞程式化到的 Vth 區間。每個準位代表一組位元（格雷碼）。",
+"Target level": "目標準位",
+"Program (ISPP pulses)": "程式化（ISPP 脈衝）",
+"Erase": "抹除",
+"How many times the block has been programmed and erased. The tunnel oxide wears and the distributions widen.": "這個區塊被程式化和抹除的次數。穿隧氧化層會磨耗，分布變寬。",
+"Program/erase cycles": "程式化／抹除次數",
+"Storage time since programming. Electrons slowly leak off the floating gate, so Vth drifts down.": "程式化之後的儲存時間。電子慢慢從浮動閘漏掉，所以 Vth 往下漂移。",
+"Retention time": "資料保存時間",
+"Margins": "裕度",
+"Butterfly curve, charge-sharing signal or ISPP staircase": "蝴蝶曲線、電荷分享訊號或 ISPP 階梯",
+"Noise margin, retention versus temperature or tunnelling current": "雜訊裕度、保存時間對溫度，或穿隧電流",
+"Explain the terms: SRAM, DRAM, flash, SNM, refresh, charge sharing, ISPP, MLC": "名詞解釋：SRAM、DRAM、Flash、SNM、刷新、電荷分享、ISPP、MLC",
+"Three ways to store a bit": "儲存一個位元的三種方式",
+"Bit stored as": "位元儲存形式",
+"State of a latch (# inverters)": "鎖存器狀態（# 個反相器）",
+"Charge on a capacitor": "電容上的電荷",
+"Electrons on a floating gate": "浮動閘上的電子",
+"Transistors per bit": "每位元電晶體數",
+"# (+# capacitor)": "#（+# 個電容）",
+"# (or ⅓ with TLC)": "#（TLC 時為 ⅓）",
+"Keeps data without power?": "斷電後保留資料？",
+"No": "否",
+"No (and leaks within ms)": "否（而且在毫秒內漏掉）",
+"Yes, for years": "是，可保存數年",
+"Access time": "存取時間",
+"≈ #–# µs read, ms to write": "讀取約 #–# µs，寫入需毫秒",
+"Where": "用在哪裡",
+"CPU caches, registers": "CPU 快取、暫存器",
+"Main memory (DDR, HBM)": "主記憶體（DDR、HBM）",
+"SSDs, phones, USB sticks": "SSD、手機、隨身碟",
+"Your settings:": "你的設定：",
+"All three are built from the same MOSFET. SRAM uses it as a switch, DRAM as a valve for charge, and flash adds a second, floating gate that turns the threshold voltage itself into the stored value.": "三者都由同樣的 MOSFET 構成。SRAM 把它當開關，DRAM 把它當電荷的閥門，而 Flash 多加一個浮動閘，讓臨界電壓本身成為儲存的數值。",
+"SRAM terms": "SRAM 名詞",
+"Word line (WL)": "字元線（WL）",
+"Row signal that opens the access transistors of every cell in the row.": "打開整列記憶胞存取電晶體的列訊號。",
+"Bit lines (BL, BLB)": "位元線（BL、BLB）",
+"Column wires that carry the data in and out, as a complementary pair.": "傳送資料進出的行導線，成對互補。",
+"Precharge": "預充電",
+"Charging the bit lines to a known voltage before a read.": "讀取前把位元線充到已知電壓。",
+"Sense amplifier": "感測放大器",
+"Fast latch that turns a small bit-line difference into a full logic level.": "把位元線上的小差異放大成完整邏輯準位的快速鎖存器。",
+"Static noise margin: size of the largest square in the butterfly plot's eye.": "靜態雜訊裕度：蝴蝶圖眼中能放入的最大正方形邊長。",
+"Read disturb": "讀取干擾",
+"The # node is pulled up during a read; too much and the cell flips.": "讀取時 # 節點被往上拉；拉太多記憶胞就會翻轉。",
+"Cell ratio β": "記憶胞比 β",
+"Pull-down / access strength; sets read stability.": "下拉／存取強度比；決定讀取穩定度。",
+"DRAM and flash terms": "DRAM 與 Flash 名詞",
+"Charge sharing": "電荷分享",
+"Cell and bit line settle to a common voltage; the bit line moves only by Cs/(Cs + Cbl) of the difference.": "記憶胞與位元線達到共同電壓；位元線只變動差值的 Cs/(Cs + Cbl)。",
+"Refresh": "刷新",
+"Periodic read-and-rewrite of every row before its charge leaks away.": "在電荷漏光之前，定期把每一列讀出再寫回。",
+"How long a stored value survives without refresh (DRAM) or power (flash).": "沒有刷新（DRAM）或沒有電源（Flash）時，資料能保存多久。",
+"Floating gate / charge trap": "浮動閘／電荷捕捉層",
+"Isolated storage layer for electrons; modern #D NAND uses a silicon-nitride charge-trap layer instead.": "隔離的電子儲存層；現代 #D NAND 改用氮化矽電荷捕捉層。",
+"Fowler-Nordheim tunnelling": "Fowler-Nordheim 穿隧",
+"Electrons tunnelling through a thin oxide under a very high field.": "電子在極強電場下穿隧過薄氧化層。",
+"Incremental step pulse programming: pulse, verify, pulse a bit higher.": "增量步進脈衝程式化：打脈衝、驗證、再打高一點的脈衝。",
+"#, #, # or # bits per cell = #, #, # or # Vth levels.": "每胞 #、#、# 或 # 位元 = #、#、# 或 # 個 Vth 準位。",
+"Endurance": "耐用度",
+"Number of program/erase cycles before the cell becomes unreliable.": "記憶胞變得不可靠之前能承受的程式化／抹除次數。",
+"Error-correcting code that repairs bits whose Vth drifted across a read reference.": "修正 Vth 漂移越過讀取參考電壓之位元的錯誤更正碼。",
+"Cells stacked in #–# layers around vertical channels.": "記憶胞圍繞垂直通道堆疊 #–# 層。",
+"Memory cells · SRAM, DRAM and flash built from MOSFETs": "記憶胞 · 用 MOSFET 做成的 SRAM、DRAM 與 Flash",
+"Two cross-coupled inverters hold a bit; two access transistors read and write it": "兩個交叉耦合的反相器保存一個位元；兩個存取電晶體負責讀寫",
+"An SRAM cell is two CMOS inverters connected in a loop: each one's output drives the other's input, so the pair is stable in exactly two states, Q = # or Q = #, as long as power is on. Two access NMOS transistors (M#, M#) connect the nodes to the bit lines when the word line WL is high. To read, both bit lines are precharged to VDD and WL is raised; the side storing # slowly pulls its bit line down, and a sense amplifier detects the small difference. The danger is read disturb: while the access transistor is on, it pushes current into the # node and lifts it. If it rises past the trip point of the other inverter, the cell flips and the data is destroyed. The pull-down transistor must therefore be stronger than the access transistor: the cell ratio β = Wpd/Wacc is usually #–#. To write, the bit lines are driven to the new value and the access transistor must overpower the pull-up PMOS, so the pull-up must be weak. The butterfly plot shows both inverter curves; the side of the largest square that fits in the smaller eye is the static noise margin (SNM).": "SRAM 記憶胞是兩個接成迴路的 CMOS 反相器：彼此的輸出驅動對方的輸入，所以只要有電，它就穩定在兩種狀態之一：Q = # 或 Q = #。當字元線 WL 為高電位時，兩個存取 NMOS（M#、M#）把節點接到位元線。讀取時，兩條位元線先預充到 VDD，再拉高 WL；存 # 的那一側會慢慢把它的位元線往下拉，由感測放大器偵測這個小差異。危險在於讀取干擾：存取電晶體導通時，會把電流灌進 # 節點並把它抬高。如果抬高超過另一個反相器的翻轉點，記憶胞就會翻轉，資料被破壞。因此下拉電晶體必須比存取電晶體強：記憶胞比 β = Wpd/Wacc 通常是 #–#。寫入時，位元線被驅動到新數值，存取電晶體必須壓過上拉 PMOS，所以上拉要弱。蝴蝶圖畫出兩條反相器曲線；較小的眼中能放入的最大正方形邊長，就是靜態雜訊裕度（SNM）。",
+"# years": "# 年",
+"High (≈ VDD)": "高電位（≈ VDD）",
+"Low (≈ # V) · read current": "低電位（≈ # V）· 讀取電流",
+"Write current": "寫入電流",
+"Static noise margin while reading: the largest noise voltage the cell tolerates without flipping.": "讀取時的靜態雜訊裕度：記憶胞不翻轉所能承受的最大雜訊電壓。",
+"Read SNM": "讀取 SNM",
+"Static noise margin with the word line off.": "字元線關閉時的靜態雜訊裕度。",
+"Hold SNM": "保持 SNM",
+"How far below the trip point the access transistor pulls the # node. Positive = the write succeeds.": "存取電晶體把 # 節點拉到翻轉點以下多少。正值 = 寫入成功。",
+"Write margin": "寫入裕度",
+"Wpd/Wacc. Larger β = stronger pull-down = more read stability.": "Wpd/Wacc。β 越大 = 下拉越強 = 讀取越穩定。",
+"Both inverter curves drawn on the same axes; the eyes show how much noise the stored state survives.": "把兩條反相器曲線畫在同一座標上；眼的大小代表儲存狀態能承受多少雜訊。",
+"Butterfly": "蝴蝶曲線",
+"SNM = side of the largest square inside the smaller eye": "SNM = 較小眼中最大正方形的邊長",
+"hold # mV, read # mV (read is always worse)": "保持 # mV，讀取 # mV（讀取一定比較差）",
+"The # node rises while the access transistor feeds current into it from the precharged bit line.": "存取電晶體從預充的位元線灌電流進來時，# 節點會上升。",
+"V# = # V vs trip point # V → safe": "V# = # V，翻轉點 # V → 安全",
+"V# = # V vs trip point # V → the cell flips": "V# = # V，翻轉點 # V → 記憶胞翻轉",
+"The access transistor must pull the # node below the other inverter's trip point.": "存取電晶體必須把 # 節點拉到另一個反相器的翻轉點以下。",
+"V# = # V vs trip # V → write succeeds": "V# = # V，翻轉點 # V → 寫入成功",
+"V# = # V vs trip # V → write fails": "V# = # V，翻轉點 # V → 寫入失敗",
+"β = Wpd / Wacc (read stability), PR = Wpu / Wacc (writability)": "β = Wpd / Wacc（讀取穩定度），PR = Wpu / Wacc（可寫入性）",
+"Read stability and writability for a few cell ratios (your pull-up ratio):": "幾種記憶胞比下的讀取穩定度與可寫入性（使用你的上拉比）：",
+"#-node bump": "# 節點抬升",
+"Write V#": "寫入 V#",
+"Read safe?": "讀取安全？",
+"— read (both inverters)": "— 讀取（兩個反相器）",
+"- - hold": "- - 保持",
+"cell ratio β": "記憶胞比 β",
+"— read SNM": "— 讀取 SNM",
+"pull-down W = #": "下拉 W = #",
+"pull-up W = #": "上拉 W = #",
+"sense amplifier": "感測放大器",
+"sense amplifier: read #": "感測放大器：讀到 #",
+"read #: the # node only bumps to # V (trip point # V)": "讀取 #：# 節點只抬升到 # V（翻轉點 # V）",
+"READ UPSET: the # node rises to # V > trip # V and the cell flips": "讀取翻轉：# 節點升到 # V > 翻轉點 # V，記憶胞翻轉",
+"holding #: the two inverters keep each other in place": "保持 #：兩個反相器互相把對方鎖住",
+"write #: access M# pulls the # node to # V < trip # V → flips": "寫入 #：存取 M# 把 # 節點拉到 # V < 翻轉點 # V → 翻轉",
+"WRITE FAILS: the pull-up holds the node at # V > trip # V": "寫入失敗：上拉把節點撐在 # V > 翻轉點 # V",
+"Waveforms · one read cycle": "波形 · 一次讀取週期",
+"Waveforms · one write cycle": "波形 · 一次寫入週期",
+"Waveforms · one hold cycle": "波形 · 保持狀態",
+"DRAM #T#C cell": "DRAM #T#C 記憶胞",
+"A bit is a few femtocoulombs on a capacitor; it leaks away and must be refreshed": "一個位元就是電容上幾飛庫侖的電荷；它會漏掉，必須刷新",
+"A DRAM cell is a single access transistor and a tiny capacitor (about #–# fF). A # is the capacitor charged to VDD, a # is empty. That is why DRAM is so dense, and why it is volatile: the charge leaks through the transistor and the junction, and the stored # slowly sinks. Leakage roughly doubles every # °C, so a hot chip loses data faster. Reading is gentle and destructive at once: the bit line, with a much larger capacitance Cbl, is precharged to VDD/#; when the word line opens the cell, the charge is shared and the bit line moves by only ΔV = (Vcell − VDD/#)·Cs/(Cs + Cbl), a few tens of millivolts. A sense amplifier detects that small shift, drives the bit line to the full rail and thereby writes the value back into the cell. To keep the data, every row must be read and rewritten (refreshed) before its # sinks too low to give a readable ΔV, typically every # ms (# ms above # °C).": "DRAM 記憶胞只有一個存取電晶體和一個很小的電容（約 {0}–{1} fF）。{2} 代表電容充到 VDD，{3} 代表沒有電荷。這就是 DRAM 密度高、但也是揮發性的原因：電荷會經由電晶體和接面漏掉，儲存的 {4} 會慢慢下沉。漏電大約每 {5} °C 加倍，所以晶片越熱，資料流失越快。讀取既溫和又具破壞性：電容大得多（Cbl）的位元線先預充到 VDD/{6}；字元線打開記憶胞時電荷被分享，位元線只變動 ΔV = (Vcell − VDD/{7})·Cs/(Cs + Cbl)，大約幾十毫伏。感測放大器偵測這個小變化，把位元線推到完整電壓，同時把數值寫回記憶胞。為了保住資料，每一列都必須在它的 {8} 下沉到讀不出 ΔV 之前被讀出並寫回（刷新），通常每 {9} ms 一次（高於 {11} °C 時為 {10} ms）。",
+"Stored charge": "儲存的電荷",
+"Electrons / leakage": "電子／漏電",
+"Minimum readable level": "最低可讀準位",
+"Bit-line voltage change caused by charge sharing with the cell.": "與記憶胞電荷分享造成的位元線電壓變化。",
+"Signal ΔV": "訊號 ΔV",
+"Time until a stored # decays below the lowest readable level.": "儲存的 # 衰減到最低可讀準位以下所需的時間。",
+"Retention": "保存時間",
+"Interval at which every row is read and rewritten.": "每一列被讀出並寫回的間隔。",
+"Present voltage on the storage capacitor.": "儲存電容目前的電壓。",
+"Cell voltage": "記憶胞電壓",
+"The cell and bit-line capacitors settle at a common voltage when the word line opens.": "字元線打開時，記憶胞電容與位元線電容達到共同電壓。",
+"= (# − #) · # / (# + #) = # mV for a full #": "= (# − #) · # / (# + #) = # mV（滿電荷的 #）",
+"The stored charge decays with time constant τ, which halves every # °C.": "儲存的電荷以時間常數 τ 衰減，τ 每 # °C 減半。",
+"Leakage": "漏電",
+"Vcell(t) = V# · e^(−t/τ), τ halves every # °C": "Vcell(t) = V# · e^(−t/τ)，τ 每 # °C 減半",
+"τ = # s at # °C": "{1} °C 時 τ = {0} s",
+"Vmin = # V → t_ret = # ms > refresh: data safe": "Vmin = # V → t_ret = # ms > 刷新間隔：資料安全",
+"Vmin = # V → t_ret = # ms < refresh: data lost!": "Vmin = # V → t_ret = # ms < 刷新間隔：資料遺失！",
+"every row read and rewritten within t_REF (# ms; # ms above # °C)": "每一列必須在 t_REF 內被讀出並寫回（{0} ms；高於 {2} °C 時 {1} ms）",
+"now every # ms, margin ×#": "目前每 # ms，裕度 ×#",
+"Retention of your cell at different temperatures:": "你的記憶胞在不同溫度下的保存時間：",
+"vs refresh # ms": "對刷新 # ms",
+"ΔV for a # (mV)": "# 的 ΔV（mV）",
+"sense amp needs ≈ # mV": "感測放大器需要約 # mV",
+"— charge-sharing signal": "— 電荷分享訊號",
+"log# retention (ms)": "log# 保存時間（ms）",
+"refresh": "刷新",
+"Flash memory cell": "Flash 記憶胞",
+"Electrons trapped on a floating gate shift the threshold voltage, even with the power off": "被困在浮動閘的電子會改變臨界電壓，即使斷電也一樣",
+"A flash cell is a MOSFET with an extra, electrically isolated gate sandwiched between the channel and the control gate. Electrons placed on this floating gate stay there for years because they are surrounded by insulator. Their negative charge screens the control gate, so more control-gate voltage is needed to turn the channel on: the threshold voltage shifts up by ΔVth = −ΔQ/CCG. To program, a high voltage (about #–# V) on the control gate creates such a strong field across the thin tunnel oxide that electrons tunnel through it (Fowler-Nordheim tunnelling). It is done in small steps (ISPP): pulse, verify the Vth, pulse a little higher, until the cell passes. Erasing pulls the electrons back out with the well biased high. To read, a reference voltage is applied: if the cell conducts, its Vth is below the reference. Storing # or # bits per cell (MLC, TLC) means placing Vth in one of # or # narrow windows. With every program/erase cycle the oxide wears and the distributions widen; over time charge leaks and they drift down. When neighbouring levels overlap, the controller's error-correcting code has to repair the bits.": "Flash 記憶胞是一顆 MOSFET，在通道與控制閘之間多夾了一個電性隔離的閘極。放到這個浮動閘上的電子被絕緣體包圍，可以停留好幾年。它們的負電荷會屏蔽控制閘，所以需要更高的控制閘電壓才能打開通道：臨界電壓上升 ΔVth = −ΔQ/CCG。程式化時，在控制閘加上高電壓（約 #–# V），讓薄穿隧氧化層上的電場強到電子可以穿隧過去（Fowler-Nordheim 穿隧）。這是分成小步驟進行的（ISPP）：打脈衝、驗證 Vth、再打高一點的脈衝，直到通過。抹除時把井區接高電壓，把電子拉回來。讀取時加上參考電壓：如果記憶胞導通，代表它的 Vth 低於參考電壓。每胞存 # 或 # 位元（MLC、TLC）代表要把 Vth 放進 # 或 # 個窄窄的區間之一。每次程式化／抹除都會磨耗氧化層，讓分布變寬；隨著時間電荷流失，分布往下漂移。當相鄰準位重疊時，就要靠控制器的錯誤更正碼修正位元。",
+"Electrons (on the floating gate / tunnelling)": "電子（在浮動閘上／穿隧中）",
+"This cell's level": "這個記憶胞的準位",
+"Read reference voltages": "讀取參考電壓",
+"Threshold voltage of this flash cell, set by the electrons on its floating gate.": "這個 Flash 記憶胞的臨界電壓，由浮動閘上的電子決定。",
+"Cell Vth": "記憶胞 Vth",
+"Level found by comparing Vth with the read references, Gray-coded.": "把 Vth 與讀取參考電壓比較得到的準位（格雷碼）。",
+"Reads as": "讀出值",
+"Number of Vth windows: #^(bits per cell).": "Vth 區間數：#^(每胞位元數)。",
+"Levels": "準位數",
+"Smallest distance between the ±#σ edges of neighbouring Vth distributions.": "相鄰 Vth 分布 ±#σ 邊緣之間的最小距離。",
+"Worst gap": "最小間隙",
+"Electrons on the floating gate raise Vth by their charge divided by the control-gate capacitance.": "浮動閘上的電子使 Vth 上升，上升量為其電荷除以控制閘電容。",
+"Threshold shift": "臨界電壓偏移",
+"Vth = -# V → ≈ # electrons for C_CG ≈ # aF": "Vth = -{0} V → C_CG ≈ {2} aF 時約 {1} 個電子",
+"Vth = # V → ≈ # electrons for C_CG ≈ # aF": "Vth = {0} V → C_CG ≈ {2} aF 時約 {1} 個電子",
+"Fowler-Nordheim current through the tunnel oxide; extremely steep in the oxide field.": "通過穿隧氧化層的 Fowler-Nordheim 電流；對氧化層電場極為敏感。",
+"FN tunnelling": "FN 穿隧",
+"Incremental step pulse programming: raise the gate voltage a little each pulse and verify.": "增量步進脈衝程式化：每個脈衝把閘極電壓提高一點並驗證。",
+"VCG = # V + # V·k, verify after every pulse": "VCG = # V + # V·k，每個脈衝後驗證",
+"target level # at # V, # pulses so far": "目標準位 #（# V），目前已打 # 個脈衝",
+"target level # at -# V, # pulses so far": "目標準位 #（-# V），目前已打 # 個脈衝",
+"Program/erase cycles widen the distributions; time and temperature shift them down.": "程式化／抹除次數使分布變寬；時間和溫度使分布下移。",
+"Wear and retention": "磨耗與保存",
+"σ grows with P/E cycles; Vth drifts down with time": "σ 隨 P/E 次數增加；Vth 隨時間往下漂移",
+"σ = # mV, drift of the top level # mV": "σ = # mV，最高準位漂移 # mV",
+"σ = # mV, drift of the top level -# mV": "σ = # mV，最高準位漂移 -# mV",
+"Bits per cell and how tight the windows get:": "每胞位元數與區間有多窄：",
+"Bits": "位元數",
+"Spacing": "間距",
+"Typical endurance": "典型耐用度",
+"#–#k cycles": "#–#k 次",
+"program pulse": "程式化脈衝",
+"— ISPP: Vth rises ≈ # V per pulse": "— ISPP：每個脈衝 Vth 約上升 # V",
+"- - verify levels": "- - 驗證準位",
+"oxide field (MV/cm)": "氧化層電場（MV/cm）",
+"control gate": "控制閘",
+"control gate # V": "控制閘 # V",
+"control gate -# V": "控制閘 -# V",
+"ONO (blocking)": "ONO（阻擋層）",
+"floating gate": "浮動閘",
+"≈ # electrons": "約 # 個電子",
+"tunnel oxide ≈ # nm": "穿隧氧化層 ≈ # nm",
+"idle · Vth = -# V": "閒置 · Vth = -# V",
+"idle · Vth = # V": "閒置 · Vth = # V",
+"programming: ISPP pulse # (Fowler-Nordheim tunnelling)": "程式化中：ISPP 脈衝 #（Fowler-Nordheim 穿隧）",
+"erasing: electrons tunnel back into the well": "抹除中：電子穿隧回到井區",
+"reads as level # = \"#\"": "讀出為準位 # = \"#\"",
+"Vth distribution of the array · MLC (# bit/cell)": "陣列的 Vth 分布 · MLC（每胞 # 位元）",
+"Vth distribution of the array · SLC (# bit/cell)": "陣列的 Vth 分布 · SLC（每胞 # 位元）",
+"Vth distribution of the array · TLC (# bit/cell)": "陣列的 Vth 分布 · TLC（每胞 # 位元）",
+"threshold voltage Vth (V)": "臨界電壓 Vth（V）",
+"this cell": "這個記憶胞",
+"worst gap between neighbouring levels (±#σ): # V": "相鄰準位的最小間隙（±#σ）：# V",
+"worst gap between neighbouring levels (±#σ): -# V → read errors (ECC needed)": "相鄰準位的最小間隙（±#σ）：-# V → 會讀錯（需要 ECC）",
+"bit line # V": "位元線 # V",
+"word line # V": "字元線 # V",
+"storage capacitor Cs = # fF": "儲存電容 Cs = # fF",
+"cell # V (still reads 1)": "記憶胞 # V（仍讀為 1）",
+"cell # V (lost: reads 0)": "記憶胞 # V（已遺失：讀為 0）",
+"plate at VDD/#": "極板接 VDD/#",
+"leakage →": "漏電 →",
+"sense amp": "感測放大器",
+"sense amp: #": "感測放大器：#",
+"#. bit line precharged to VDD/#": "#. 位元線預充到 VDD/#",
+"#. charge sharing: ΔV = # mV": "#. 電荷分享：ΔV = # mV",
+"#. charge sharing: ΔV = -# mV": "#. 電荷分享：ΔV = -# mV",
+"#. sense amp amplifies and writes back": "#. 感測放大器放大並寫回",
+"auto-refresh every # ms: on": "每 # ms 自動刷新：開",
+"auto-refresh every # ms: off": "每 # ms 自動刷新：關",
+"Cell voltage over time (refresh restores it)": "記憶胞電壓隨時間變化（刷新會恢復它）",
+"minimum readable 1: # V": "最低可讀的 {0}：{1} V",
+"time window # ms · retention # ms at # °C": "時間窗 {0} ms · {2} °C 時保存 {1} ms",
+"Thermal voltage, # mV at # K: the natural voltage scale of carrier statistics.": "熱電壓，{1} K 時為 {0} mV：載子統計的自然電壓尺度。",
+"Shockley equation: current grows by e (#×) every # mV of forward bias.": "Shockley 方程式：順偏每增加 {1} mV，電流增為 e 倍（{0} 倍）。",
+"Electrons in the source have a spread of thermal energies. Their number falls by #× for every # meV of extra energy at room temperature (the Boltzmann tail).": "源極中的電子有一定範圍的熱能量分布。室溫下能量每多 {1} meV，電子數量就減少 {0} 倍（波茲曼尾端）。",
+"Gate voltage per decade of current below Vth; # mV/dec at # K is the physical limit.": "低於 Vth 時電流變化十倍所需的閘極電壓；{1} K 時 {0} mV/dec 是物理極限。",
+"Below Vth the current does not stop: it falls #× for every ~# mV": "低於 Vth 電流不會停止：每約 {1} mV 減少 {0} 倍",
+"η = # mV/V → Vth drops # mV at VDS = # V": "η = {0} mV/V → VDS = {2} V 時 Vth 下降 {1} mV",
+"at # °C: Ioff = # pA/µm (#× the # °C value)": "{0} °C 時：Ioff = {1} pA/µm（是 {3} °C 時的 {2} 倍）",
+"at # °C: Ioff = # nA/µm (#× the # °C value)": "{0} °C 時：Ioff = {1} nA/µm（是 {3} °C 時的 {2} 倍）",
+"at # °C: Ioff = # µA/µm (#× the # °C value)": "{0} °C 時：Ioff = {1} µA/µm（是 {3} °C 時的 {2} 倍）",
+"kT = # meV at # °C → every # meV of barrier = #× current": "{1} °C 時 kT = {0} meV → 能障每 {2} meV = 電流 {3} 倍",
+"Below the threshold voltage the channel is not really off. The source is full of electrons with a spread of thermal energies (a Boltzmann tail), and the gate controls an energy barrier between source and drain. Only electrons with more energy than the barrier can cross, and that fraction is e^(−Φ/kT). Lowering the gate voltage raises the barrier, but by at most qVGS/n, so the current can drop at best #× for every n·(kT/q)·ln# ≈ n × # mV at room temperature. That number is the subthreshold swing SS. Nothing made of a normal MOSFET can beat # mV/dec at # K, which is why the off-current cannot be made arbitrarily small while keeping VDD low. Three things make leakage worse: a lower Vth (LVT cells are fast but leaky), a hot chip (kT grows and Vth drops by about # mV/°C, so leakage roughly doubles every #–# °C) and DIBL, where the drain voltage pulls the barrier down. Multiplied by billions of transistors, these nanoamps become watts of standby power.": "低於臨界電壓時，通道並沒有真正關閉。源極充滿具有一定熱能量分布的電子（波茲曼尾端），而閘極控制源極與汲極之間的能障。只有能量高於能障的電子能通過，比例為 e^(−Φ/kT)。降低閘極電壓會提高能障，但最多只提高 qVGS/n，所以室溫下電流最多只能每 n·(kT/q)·ln{1} ≈ n × {2} mV 減少 {0} 倍。這個數字就是次臨界擺幅 SS。一般 MOSFET 在 {4} K 下不可能優於 {3} mV/dec，所以在維持低 VDD 的同時，關閉電流無法任意變小。有三件事會讓漏電更嚴重：較低的 Vth（LVT 元件快但會漏電）、晶片變熱（kT 變大且 Vth 每 °C 下降約 {5} mV，漏電大約每 {6}–{7} °C 加倍），以及 DIBL（汲極電壓把能障拉低）。乘上數十億顆電晶體，這些奈安培就變成數瓦的待機功耗。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -2465,6 +2718,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-mi" aria-selected="false" aria-controls="tab-mi">MIMO &amp; beams</button>
         <button role="tab" id="tab-btn-pn" aria-selected="false" aria-controls="tab-pn">PN junction & MOS cap</button>
         <button role="tab" id="tab-btn-lk" aria-selected="false" aria-controls="tab-lk">Leakage & FinFET</button>
+        <button role="tab" id="tab-btn-mm" aria-selected="false" aria-controls="tab-mm">Memory (SRAM · DRAM · Flash)</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -3921,6 +4175,159 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Effective width</dt><dd>Total gated channel perimeter; fins and stacked sheets give more of it per footprint.</dd>
               <dt>Fully depleted</dt><dd>A body so thin that it is entirely depleted, which improves n and SS.</dd>
               <dt>EOT</dt><dd>Equivalent oxide thickness: high-k layer expressed as the SiO₂ thickness with the same capacitance.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== MEMORY TAB ===================== -->
+  <section id="tab-mm" role="tabpanel" aria-labelledby="tab-btn-mm" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="mm-pill">SRAM</span><h2 id="mm-name">SRAM 6T cell</h2></div>
+      <p id="mm-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="mm-view" role="group" aria-label="Memory type" style="flex-wrap:wrap">
+        <button data-v="sram" aria-pressed="true">SRAM 6T</button>
+        <button data-v="dram" aria-pressed="false">DRAM 1T1C</button>
+        <button data-v="flash" aria-pressed="false">Flash (floating gate)</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvmm" aria-label="Animated memory cell with its waveforms or threshold-voltage distribution"></canvas>
+      <div class="legend" id="mm-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="mm-ro"></div>
+        <div id="mm-c-sram" style="display:grid;gap:12px">
+          <div class="chips">
+            <div class="seg" id="mm-op" role="group" aria-label="SRAM operation">
+              <button data-o="hold" aria-pressed="false">Hold</button>
+              <button data-o="read" aria-pressed="true">Read</button>
+              <button data-o="write" aria-pressed="false">Write</button>
+            </div>
+            <button class="chipbtn" id="mm-flip">Flip stored bit</button>
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Width of the pull-down NMOS divided by the access NMOS. Bigger = the 0 node stays low during a read.">Cell ratio β = Wpd/Wacc</span><span id="mm-beta-v"></span></div>
+            <input id="mm-beta" type="range" min="0.6" max="3.5" step="0.1" value="2">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Width of the pull-up PMOS divided by the access NMOS. Smaller = easier to overwrite the cell.">Pull-up ratio PR = Wpu/Wacc</span><span id="mm-pr-v"></span></div>
+            <input id="mm-pr" type="range" min="0.5" max="6" step="0.1" value="1">
+          </div>
+        </div>
+        <div id="mm-c-dram" hidden style="display:grid;gap:12px">
+          <div class="chips">
+            <button class="chipbtn" id="mm-read">Read the cell</button>
+            <button class="chipbtn" id="mm-write1">Write a 1</button>
+            <button class="chipbtn" id="mm-auto">Auto-refresh: on</button>
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Capacitance of the storage capacitor. Modern cells are tall, thin cylinders of about 10–30 fF.">Storage capacitor Cs</span><span id="mm-cs-v"></span></div>
+            <input id="mm-cs" type="range" min="8" max="40" step="1" value="25">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Capacitance of the bit line shared by many cells. The bigger it is, the smaller the read signal.">Bit-line capacitance Cbl</span><span id="mm-cbl-v"></span></div>
+            <input id="mm-cbl" type="range" min="40" max="300" step="5" value="100">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Chip temperature. Leakage roughly doubles every 10 °C, so a hot DRAM must be refreshed more often.">Temperature</span><span id="mm-temp-v"></span></div>
+            <input id="mm-temp" type="range" min="25" max="125" step="1" value="85">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Time between refreshes of the same row. The JEDEC standard is 64 ms, halved above 85 °C.">Refresh interval</span><span id="mm-tref-v"></span></div>
+            <input id="mm-tref" type="range" min="16" max="512" step="8" value="64">
+          </div>
+        </div>
+        <div id="mm-c-flash" hidden style="display:grid;gap:12px">
+          <div class="chips">
+            <div class="seg" id="mm-bits" role="group" aria-label="Bits per cell">
+              <button data-b="1" aria-pressed="false">SLC 1 bit</button>
+              <button data-b="2" aria-pressed="true">MLC 2 bits</button>
+              <button data-b="3" aria-pressed="false">TLC 3 bits</button>
+            </div>
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="The Vth window to program this cell into. Each level stands for a bit pattern (Gray code).">Target level</span><span id="mm-level-v"></span></div>
+            <input id="mm-level" type="range" min="0" max="3" step="1" value="2">
+          </div>
+          <div class="chips">
+            <button class="chipbtn" id="mm-prog">Program (ISPP pulses)</button>
+            <button class="chipbtn" id="mm-erase">Erase</button>
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="How many times the block has been programmed and erased. The tunnel oxide wears and the distributions widen.">Program/erase cycles</span><span id="mm-cyc-v"></span></div>
+            <input id="mm-cyc" type="range" min="0" max="20000" step="100" value="1000">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Storage time since programming. Electrons slowly leak off the floating gate, so Vth drifts down.">Retention time</span><span id="mm-yr-v"></span></div>
+            <input id="mm-yr" type="range" min="0" max="10" step="0.5" value="0">
+          </div>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="mm-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Margins</p>
+        <div class="plots">
+          <div class="plot"><svg id="mm-p1" viewBox="0 0 300 230" role="img" aria-label="Butterfly curve, charge-sharing signal or ISPP staircase"></svg></div>
+          <div class="plot"><svg id="mm-p2" viewBox="0 0 220 230" role="img" aria-label="Noise margin, retention versus temperature or tunnelling current"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="mm-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: SRAM, DRAM, flash, SNM, refresh, charge sharing, ISPP, MLC</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>Three ways to store a bit</h3>
+            <div class="tbl"><table>
+              <tr><th></th><th>SRAM</th><th>DRAM</th><th>Flash</th></tr>
+              <tr><td>Bit stored as</td><td>State of a latch (2 inverters)</td><td>Charge on a capacitor</td><td>Electrons on a floating gate</td></tr>
+              <tr><td>Transistors per bit</td><td>6</td><td>1 (+1 capacitor)</td><td>1 (or ⅓ with TLC)</td></tr>
+              <tr><td>Keeps data without power?</td><td>No</td><td>No (and leaks within ms)</td><td>Yes, for years</td></tr>
+              <tr><td>Access time</td><td>≈ 1 ns</td><td>≈ 10–50 ns</td><td>≈ 25–100 µs read, ms to write</td></tr>
+              <tr><td>Where</td><td>CPU caches, registers</td><td>Main memory (DDR, HBM)</td><td>SSDs, phones, USB sticks</td></tr>
+            </table></div>
+            <p id="mm-g-head">Your settings:</p>
+            <div class="tbl" id="mm-g-live"></div>
+            <p class="note">All three are built from the same MOSFET. SRAM uses it as a switch, DRAM as a valve for charge, and flash adds a second, floating gate that turns the threshold voltage itself into the stored value.</p>
+          </div>
+          <div>
+            <h3>SRAM terms</h3>
+            <dl>
+              <dt>Word line (WL)</dt><dd>Row signal that opens the access transistors of every cell in the row.</dd>
+              <dt>Bit lines (BL, BLB)</dt><dd>Column wires that carry the data in and out, as a complementary pair.</dd>
+              <dt>Precharge</dt><dd>Charging the bit lines to a known voltage before a read.</dd>
+              <dt>Sense amplifier</dt><dd>Fast latch that turns a small bit-line difference into a full logic level.</dd>
+              <dt>SNM</dt><dd>Static noise margin: size of the largest square in the butterfly plot's eye.</dd>
+              <dt>Read disturb</dt><dd>The 0 node is pulled up during a read; too much and the cell flips.</dd>
+              <dt>Cell ratio β</dt><dd>Pull-down / access strength; sets read stability.</dd>
+            </dl>
+            <h3>DRAM and flash terms</h3>
+            <dl>
+              <dt>Charge sharing</dt><dd>Cell and bit line settle to a common voltage; the bit line moves only by Cs/(Cs + Cbl) of the difference.</dd>
+              <dt>Refresh</dt><dd>Periodic read-and-rewrite of every row before its charge leaks away.</dd>
+              <dt>Retention time</dt><dd>How long a stored value survives without refresh (DRAM) or power (flash).</dd>
+              <dt>Floating gate / charge trap</dt><dd>Isolated storage layer for electrons; modern 3D NAND uses a silicon-nitride charge-trap layer instead.</dd>
+              <dt>Fowler-Nordheim tunnelling</dt><dd>Electrons tunnelling through a thin oxide under a very high field.</dd>
+              <dt>ISPP</dt><dd>Incremental step pulse programming: pulse, verify, pulse a bit higher.</dd>
+              <dt>SLC / MLC / TLC / QLC</dt><dd>1, 2, 3 or 4 bits per cell = 2, 4, 8 or 16 Vth levels.</dd>
+              <dt>Endurance</dt><dd>Number of program/erase cycles before the cell becomes unreliable.</dd>
+              <dt>ECC</dt><dd>Error-correcting code that repairs bits whose Vth drifted across a read reference.</dd>
+              <dt>3D NAND</dt><dd>Cells stacked in 100–300 layers around vertical channels.</dd>
             </dl>
           </div>
         </div>
@@ -8453,11 +8860,437 @@ document.querySelectorAll("#lk-st button").forEach(b => b.addEventListener("clic
 document.querySelectorAll("#lk-vtf button").forEach(b => b.addEventListener("click", () => { LK.vt = b.dataset.f; updateLK(); }));
 [["lk-vgs","vgs"],["lk-vds","vds"],["lk-T","T"],["lk-L","L"],["lk-tsi","tsi"]].forEach(([id, k]) => $(id).addEventListener("input", e => { LK[k] = +e.target.value; updateLK(); }));
 
+/* =========================================================
+   TAB — memories: SRAM 6T, DRAM 1T1C, NAND flash
+   ========================================================= */
+const MMC = setupCanvas($("cvmm"), 1000, 488);
+const MM = {view:"sram", t:0, bit:1,
+  op:"read", beta:2, pr:1, opT:0,                              // SRAM: operation, cell ratio, pull-up ratio, cycle phase
+  cs:25, cbl:100, temp:85, tref:64, dT:0, vcell:1.2, dhist:[], dread:0, auto:true,      // DRAM
+  bits:2, level:2, vth:-2, pulses:0, prog:false, eraseT:0, cycles:1000, years:0, flow:[]};   // flash
+const MMF = {L:1, vsb:0, clm:true, body:false, dibl:false, vsat:false};
+
+/* ---------------- SRAM model (uses the transistor model of tab 1, VDD = 3.3 V) ---------------- */
+// output of one cell inverter for input vin; mode "read" adds the access transistor pulling the node up from a precharged bit line
+function srInv(vin, mode){
+  const Wpd = MM.beta, Wpu = MM.pr, Wa = 1;
+  const f = vo => solve("n", vin, vo, MMF, Wpd).I - solve("p", VDD - vin, VDD - vo, MMF, Wpu).I - (mode === "read" ? solve("n", VDD - vo, VDD - vo, MMF, Wa).I : 0);
+  let lo = 0, hi = VDD;
+  for (let i=0;i<36;i++){ const m = (lo + hi)/2; if (f(m) > 0) hi = m; else lo = m; }
+  return (lo + hi)/2;
+}
+// static noise margin from the butterfly curve (largest square in the smaller lobe)
+function srSNM(mode){
+  const xs = range(0, VDD, 90), A = xs.map(x => [x, srInv(x, mode)]), B = A.map(([x, y]) => [y, x]);
+  const rot = ([x, y]) => [(x - y)/Math.SQRT2, (x + y)/Math.SQRT2];
+  const ua = A.map(rot), ub = B.map(rot);
+  const at = (pts, v) => { for (let i=1;i<pts.length;i++){ const [u0, v0] = pts[i-1], [u1, v1] = pts[i]; if ((v - v0)*(v - v1) <= 0 && v0 !== v1) return u0 + (u1 - u0)*(v - v0)/(v1 - v0); } return null; };
+  let p = 0, n = 0;
+  for (let v = 0.05; v < VDD*Math.SQRT2 - 0.05; v += 0.01){ const a = at(ua, v), b = at(ub, v); if (a === null || b === null) continue; const d = a - b; p = Math.max(p, d); n = Math.max(n, -d); }
+  return {snm: Math.min(p, n)/Math.SQRT2, curve: A};
+}
+const srVM = () => { let lo = 0, hi = VDD; for (let i=0;i<36;i++){ const m = (lo + hi)/2; if (srInv(m, "hold") > m) lo = m; else hi = m; } return (lo + hi)/2; };
+// node voltage of a '1' being written to '0' (pull-up PMOS fights the access NMOS)
+function srWriteV(){
+  let lo = 0, hi = VDD;
+  for (let i=0;i<36;i++){ const m = (lo + hi)/2; const d = solve("p", VDD, VDD - m, MMF, MM.pr).I - solve("n", VDD, m, MMF, 1).I; if (d > 0) lo = m; else hi = m; }
+  return (lo + hi)/2;
+}
+// read-disturb bump on the node holding 0 (pull-down fights the access transistor from the precharged bit line)
+function srReadBump(){
+  let lo = 0, hi = VDD;
+  for (let i=0;i<36;i++){ const m = (lo + hi)/2; const d = solve("n", VDD, m, MMF, MM.beta).I - solve("n", VDD - m, VDD - m, MMF, 1).I; if (d > 0) hi = m; else lo = m; }
+  return (lo + hi)/2;
+}
+let srCache = {k:""}, srBetaCurve = {k:null};
+function srAll(){
+  const k = MM.beta + "|" + MM.pr; if (srCache.k === k) return srCache;
+  const hold = srSNM("hold"), read = srSNM("read");
+  srCache = {k, hold, read, vm: srVM(), vw: srWriteV(), bump: srReadBump()};
+  return srCache;
+}
+// waveforms over one 4-second cycle
+function srWave(ph){
+  const S = srAll(), b = MM.bit, wlOn = ph > 0.15 && ph < 0.78, ramp = x => clamp(x, 0, 1);
+  const WL = MM.op === "hold" ? 0 : VDD*ramp((ph - 0.15)/0.06)*(ph < 0.78 ? 1 : ramp(1 - (ph - 0.78)/0.06));
+  let BL = VDD, BLB = VDD, Q = b ? VDD : 0, QB = b ? 0 : VDD, ok = true;
+  if (MM.op === "read"){
+    const upset = S.bump > S.vm;
+    const dv = ph < 0.22 ? 0 : Math.min(0.9, (ph - 0.22)*2.2);
+    const sense = ph > 0.55;
+    const lowBL = sense ? Math.max(0, VDD - dv - (ph - 0.55)*14) : VDD - dv;
+    if (b){ BLB = lowBL; } else { BL = lowBL; }
+    const bump = wlOn ? Math.min(S.bump, S.bump*ramp((ph - 0.17)/0.08)) : 0;
+    if (upset && ph > 0.3){ Q = b ? 0 : VDD; QB = b ? VDD : 0; ok = false; }
+    else if (b) QB = bump; else Q = bump;
+    if (ph > 0.84){ BL = VDD; BLB = VDD; }
+  } else if (MM.op === "write"){
+    const w = 1 - b;                                             // write the opposite value
+    const drv = ramp(ph/0.08);
+    BL = w ? VDD : VDD*(1 - drv); BLB = w ? VDD*(1 - drv) : VDD;
+    const flips = S.vw < S.vm, k = ramp((ph - 0.22)/0.12);
+    if (flips){ const q = (b ? VDD : 0) + ((w ? VDD : 0) - (b ? VDD : 0))*k; Q = q; QB = VDD - q; }
+    else if (ph > 0.2 && ph < 0.78){ const dip = S.vw*k + VDD*(1 - k); if (b){ Q = dip; } else { QB = dip; } ok = false; }
+    if (ph > 0.84){ BL = VDD; BLB = VDD; }
+  }
+  return {WL, BL, BLB, Q, QB, ok};
+}
+
+/* ---------------- DRAM model (VDD = 1.2 V, plate and bit-line precharge at VDD/2) ---------------- */
+const DR_VDD = 1.2;
+const drTau = (T = MM.temp) => 19*Math.pow(2, -(T - 25)/10);             // s, cell leakage time constant
+const drVmin = () => DR_VDD/2 + 0.05*(MM.cs + MM.cbl)/MM.cs;             // lowest '1' that still gives a 50 mV signal
+const drRetention = (T = MM.temp) => Math.max(0, drTau(T)*Math.log(DR_VDD/Math.max(drVmin(), 1e-3))*1000);   // ms
+const drDV = v => (v - DR_VDD/2)*MM.cs/(MM.cs + MM.cbl);
+
+/* ---------------- flash model ---------------- */
+const FL_ERASED = -2;
+function flLevels(bits = MM.bits){
+  const n = 2**bits; if (n === 2) return [FL_ERASED, 2.2];
+  const out = [FL_ERASED]; for (let k=1;k<n;k++) out.push(0.4 + (k - 1)*(4.6/(n - 2))); return out;
+}
+const flSigma = () => 0.12 + 0.05*Math.log10(1 + MM.cycles/100);
+const flShift = k => -0.06*MM.years*k;                                    // charge loss grows with the level
+const flRefs = () => { const L = flLevels(); return L.slice(1).map((v, i) => (L[i] + flShift(i) + v + flShift(i + 1))/2); };
+const flGray = n => (n ^ (n >> 1)).toString(2).padStart(MM.bits, "0");
+function flRead(v){ const r = flRefs(); let k = 0; while (k < r.length && v > r[k]) k++; return k; }
+
+/* ---------------- tick ---------------- */
+function mmTick(dt){
+  MM.t += dt;
+  if (MM.view === "sram"){ MM.opT += dt/4*(reduce ? 0.5 : 1); if (MM.opT >= 1){ MM.opT -= 1; if (MM.op === "write" && srAll().vw < srAll().vm) MM.bit = 1 - MM.bit; } }
+  else if (MM.view === "dram"){
+    const ms = dt*40*(reduce ? 0.5 : 1); MM.dT += ms;
+    MM.vcell = MM.vcell*Math.exp(-ms/1000/drTau());
+    if (MM.auto && (MM.dT % MM.tref) < ms && MM.vcell > DR_VDD/2) MM.vcell = DR_VDD;        // refresh: sense and write back
+    if (MM.dread > 0) MM.dread = Math.max(0, MM.dread - dt/2.5);
+    MM.dhist.push([MM.dT, MM.vcell]); if (MM.dhist.length > 700) MM.dhist.shift();
+  } else {
+    if (MM.prog){
+      MM.eraseT += dt;
+      if (MM.eraseT > 0.45){ MM.eraseT = 0; MM.pulses++;
+        const target = flLevels()[MM.level], verify = target - 0.25;
+        if (MM.vth >= verify || MM.pulses > 40) MM.prog = false; else MM.vth = Math.min(MM.vth + 0.3 + (MM.pulses < 3 ? 0.4 : 0), 6.5);
+      }
+      for (let i=0;i<2;i++) MM.flow.push({y:0, x:Math.random(), up:true});
+    }
+    if (MM.erasing){ MM.vth -= dt*4; for (let i=0;i<2;i++) MM.flow.push({y:1, x:Math.random(), up:false}); if (MM.vth <= FL_ERASED){ MM.vth = FL_ERASED; MM.erasing = false; } }
+    MM.flow.forEach(f => f.y += (f.up ? 1 : -1)*dt*2.4); MM.flow = MM.flow.filter(f => f.y >= 0 && f.y <= 1);
+  }
+}
+
+/* ---------------- drawing helpers ---------------- */
+function mmSymM(t, x, yc, o){ ctx.save(); ctx.translate(2*x, 0); ctx.scale(-1, 1); symb(t, x, yc, {on:o.on}); ctx.restore(); }
+function mmAcc(x, y, on, wlY){             // horizontal access NMOS centred at x, gate below
+  ctx.strokeStyle = on ? C.electron : C.muted; ctx.lineWidth = 4; pl([[x - 22, y],[x + 22, y]]);
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 3; pl([[x - 16, y + 12],[x + 16, y + 12]]);
+  wire([[x - 18, y],[x - 30, y]]); wire([[x + 18, y],[x + 30, y]]); wire([[x, y + 12],[x, wlY]]); ndot(x, wlY);
+}
+const vcol = v => v > VDD*0.6 ? C.accent : v < VDD*0.3 ? C.electron : C.fg;
+function nodeLab(x, y, name, v, al = "center"){ ctx.fillStyle = vcol(v); ctx.beginPath(); ctx.arc(x, y, 6, 0, 6.283); ctx.fill(); txt(`${name} ${f2(v)} V`, x + (al === "left" ? 10 : al === "right" ? -10 : 0), y - 14, {al, col:vcol(v), w:700, px:12}); }
+function scope(ox, oy, w, h, title, traces, ph, vmax){
+  panel(ox, oy, w, h, title);
+  const lanes = traces.length, lh = (h - 40)/lanes;
+  traces.forEach((tr, i) => {
+    const y0 = oy + 30 + i*lh, Y = v => y0 + lh - 6 - v/vmax*(lh - 14);
+    ctx.strokeStyle = C.line; ctx.lineWidth = 1; pl([[ox + 54, y0 + lh - 6],[ox + w - 10, y0 + lh - 6]]);
+    txt(tr.name, ox + 10, y0 + lh/2, {px:11, col:tr.col, w:700});
+    ctx.strokeStyle = tr.col; ctx.lineWidth = 2; ctx.beginPath();
+    for (let k=0;k<=200;k++){ const p = k/200, x = ox + 54 + p*(w - 64), v = tr.f(p); k ? ctx.lineTo(x, Y(v)) : ctx.moveTo(x, Y(v)); }
+    ctx.stroke();
+  });
+  const cx = ox + 54 + ph*(w - 64); ctx.strokeStyle = C.fg; ctx.lineWidth = 1.2; pl([[cx, oy + 28],[cx, oy + h - 8]]);
+}
+
+/* ---------------- SRAM drawing ---------------- */
+let mmOff = 0;
+function drawSRAM(dt, T){
+  const S = srAll(), ph = MM.opT, w = srWave(ph);
+  ctx.fillStyle = C.panel2; ctx.fillRect(8, 8, 540, 472);
+  // rails and bit lines
+  wire([[110, 60],[450, 60]]); txt(`VDD ${VDD} V`, 450, 46, {al:"right", col:C.fg, w:600});
+  wire([[110, 350],[450, 350]]); gnd(280, 350);
+  ctx.strokeStyle = vcol(w.BL); ctx.lineWidth = 3; pl([[50, 40],[50, 440]]); ctx.strokeStyle = vcol(w.BLB); pl([[510, 40],[510, 440]]);
+  txt(`BL ${f2(w.BL)} V`, 50, 30, {al:"center", col:vcol(w.BL), w:700, px:12}); txt(`BLB ${f2(w.BLB)} V`, 510, 30, {al:"center", col:vcol(w.BLB), w:700, px:12});
+  ctx.strokeStyle = vcol(w.WL); ctx.lineWidth = 3; pl([[30, 410],[530, 410]]); txt(`WL ${f2(w.WL)} V`, 280, 428, {al:"center", col:vcol(w.WL), w:700, px:12});
+  // left inverter (mirrored: gate on the right), right inverter (gate on the left)
+  const on = (g, s, t) => t === "n" ? g - s > 1 : s - g > 1;
+  mmSymM("p", 170, 140, {on:on(w.QB, VDD, "p")}); mmSymM("n", 170, 290, {on:on(w.QB, 0, "n")});
+  symb("p", 390, 140, {on:on(w.Q, VDD, "p")}); symb("n", 390, 290, {on:on(w.Q, 0, "n")});
+  wire([[140, 90],[140, 60]]); wire([[140, 340],[140, 350]]); wire([[420, 90],[420, 60]]); wire([[420, 340],[420, 350]]);
+  wire([[140, 190],[140, 240]]); wire([[420, 190],[420, 240]]);
+  wire([[228, 140],[228, 290]]); wire([[332, 140],[332, 290]]);
+  wire([[140, 215],[332, 215]]); ndot(332, 215); wire([[420, 232],[228, 232]]); ndot(228, 232); ndot(420, 232); wire([[420, 215],[420, 232]]);
+  txt("M2", 128, 128, {al:"right", px:11, col:C.fg, w:700}); txt("M1", 128, 278, {al:"right", px:11, col:C.fg, w:700});
+  txt("M4", 432, 128, {px:11, col:C.fg, w:700}); txt("M3", 432, 278, {px:11, col:C.fg, w:700});
+  txt(`pull-down W = ${MM.beta}`, 170, 336, {al:"center", px:10}); txt(`pull-up W = ${MM.pr}`, 170, 96, {al:"center", px:10});
+  // access transistors
+  mmAcc(95, 215, w.WL > 1, 410); mmAcc(465, 215, w.WL > 1, 410);
+  wire([[65, 215],[50, 215]]); wire([[125, 215],[140, 215]]); wire([[435, 215],[420, 215]]); wire([[495, 215],[510, 215]]);
+  txt("M5", 95, 198, {al:"center", px:11, col:C.fg, w:700}); txt("M6", 465, 198, {al:"center", px:11, col:C.fg, w:700});
+  nodeLab(140, 215, "Q", w.Q, "left"); nodeLab(420, 215, "QB", w.QB, "right");
+  // current dots: bit-line discharge during a read, or the write fight
+  mmOff += dt*80;
+  if (MM.op === "read" && ph > 0.2 && ph < 0.78){
+    const zero = MM.bit ? 420 : 140, bl = MM.bit ? 510 : 50;
+    flowDots(polyline([[bl, 120],[bl, 215],[zero, 215],[zero, 240],[zero, 350]]), mmOff, 0.8, C.electron);
+  }
+  if (MM.op === "write" && ph > 0.15 && ph < 0.78){
+    const one = MM.bit ? 140 : 420, bl = MM.bit ? 50 : 510;
+    flowDots(polyline([[one, 60],[one, 190],[one, 215],[bl, 215],[bl, 440]]), mmOff, 0.8, C.hole);
+  }
+  // sense amp + status
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; ctx.strokeRect(150, 448, 260, 28);
+  const sensed = MM.op === "read" && ph > 0.55 && ph < 0.84;
+  txt(sensed ? `sense amplifier: read ${w.ok ? MM.bit : 1 - MM.bit}` : "sense amplifier", 280, 462, {al:"center", col: sensed ? C.accent : C.fg, w:700, px:12});
+  wire([[50, 462],[150, 462]]); wire([[410, 462],[510, 462]]);
+  const msg = MM.op === "hold" ? `holding ${MM.bit}: the two inverters keep each other in place` :
+    MM.op === "read" ? (S.bump > S.vm ? `READ UPSET: the 0 node rises to ${f2(S.bump)} V > trip ${f2(S.vm)} V and the cell flips` : `read ${MM.bit}: the 0 node only bumps to ${f2(S.bump)} V (trip point ${f2(S.vm)} V)`) :
+    (S.vw < S.vm ? `write ${1 - MM.bit}: access M${MM.bit ? 5 : 6} pulls the 1 node to ${f2(S.vw)} V < trip ${f2(S.vm)} V → flips` : `WRITE FAILS: the pull-up holds the node at ${f2(S.vw)} V > trip ${f2(S.vm)} V`);
+  txt(msg, 20, 384, {px:11, col: (MM.op === "read" && S.bump > S.vm) || (MM.op === "write" && S.vw >= S.vm) ? C.hole : C.fg, w:600});
+  // scope
+  const tr = [{name:"WL", col:C.accent, f:p => srWave(p).WL}, {name:"BL", col:C.electron, f:p => srWave(p).BL}, {name:"BLB", col:C.channel, f:p => srWave(p).BLB}, {name:"Q", col:C.hole, f:p => srWave(p).Q}, {name:"QB", col:C.fg, f:p => srWave(p).QB}];
+  scope(560, 8, 432, 472, `Waveforms · one ${MM.op} cycle`, tr, ph, VDD);
+}
+
+/* ---------------- DRAM drawing ---------------- */
+function drawDRAM(dt, T){
+  const vb = DR_VDD/2, dv = drDV(MM.vcell), reading = MM.dread > 0, rp = 1 - MM.dread;
+  ctx.fillStyle = C.panel2; ctx.fillRect(8, 8, 540, 472);
+  // bit line, word line, access transistor, storage capacitor
+  const blV = reading ? (rp < 0.3 ? vb : rp < 0.55 ? vb + dv*clamp((rp - 0.3)/0.1, 0, 1) : (dv > 0 ? DR_VDD : 0)) : vb;
+  ctx.strokeStyle = blV > vb + 0.05 ? C.accent : blV < vb - 0.05 ? C.electron : C.fg; ctx.lineWidth = 3; pl([[80, 40],[80, 440]]);
+  txt(`bit line ${f2(blV)} V`, 80, 28, {al:"center", col:C.fg, w:700, px:12});
+  const wlOn = reading && rp > 0.15 && rp < 0.9;
+  ctx.strokeStyle = wlOn ? C.accent : C.muted; ctx.lineWidth = 3; pl([[60, 330],[300, 330]]); txt(`word line ${wlOn ? DR_VDD + 1 : 0} V`, 300, 346, {al:"right", col: wlOn ? C.accent : C.fg, w:700, px:11});
+  mmAcc(160, 200, wlOn, 330); wire([[80, 200],[130, 200]]); wire([[190, 200],[240, 200]]);
+  // capacitor drawn as a bucket of charge
+  const bx = 240, by = 110, bw = 120, bh = 180, lvl = clamp(MM.vcell/DR_VDD, 0, 1);
+  ctx.fillStyle = C.accent; ctx.globalAlpha = 0.75; ctx.fillRect(bx, by + bh*(1 - lvl), bw, bh*lvl); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 2; pl([[bx, by],[bx, by + bh],[bx + bw, by + bh],[bx + bw, by]]);
+  for (let i=0;i<Math.round(lvl*24);i++){ const x = bx + 10 + (i % 6)*20, y = by + bh - 12 - Math.floor(i/6)*(bh*lvl/4.3); dot(x + Math.sin(T*2 + i), y, C.electron, false, 0.9, 3); }
+  // leaking drops
+  if (!reduce) for (let k=0;k<3;k++){ const p = (T*0.6/(drTau()/5 + 0.5) + k/3) % 1; dot(bx + bw*0.5 + k*12 - 12, by + bh + 6 + p*40, C.electron, false, 1 - p, 2.6); }
+  txt(`storage capacitor Cs = ${MM.cs} fF`, bx + bw/2, by - 14, {al:"center", col:C.fg, w:700, px:12});
+  txt(`cell ${f2(MM.vcell)} V (${MM.vcell > drVmin() ? "still reads 1" : "lost: reads 0"})`, bx + bw/2, by - 36, {al:"center", col: MM.vcell > drVmin() ? C.channel : C.hole, w:700, px:12});
+  txt("plate at VDD/2", bx + bw + 12, by + bh/2, {px:10});
+  txt("leakage →", bx + bw/2 + 34, by + bh + 26, {px:10, col:C.electron});
+  // bit-line capacitance
+  wire([[80, 380],[130, 380]]); ctx.strokeStyle = C.muted; ctx.lineWidth = 3; pl([[130, 366],[130, 394]]); pl([[140, 366],[140, 394]]); wire([[140, 380],[170, 380]]); gnd(170, 380);
+  txt(`Cbl = ${MM.cbl} fF`, 112, 410, {px:11, col:C.fg, w:600});
+  // sense amp
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; ctx.strokeRect(20, 448, 140, 28);
+  txt(reading && rp > 0.55 ? `sense amp: ${dv > 0 ? 1 : 0}` : "sense amp", 90, 462, {al:"center", col: reading && rp > 0.55 ? C.accent : C.fg, w:700, px:12});
+  txt(reading ? (rp < 0.3 ? "1. bit line precharged to VDD/2" : rp < 0.55 ? `2. charge sharing: ΔV = ${(dv*1000).toFixed(0)} mV` : "3. sense amp amplifies and writes back") : `auto-refresh every ${MM.tref} ms: ${MM.auto ? "on" : "off"}`, 172, 462, {col:C.fg, w:600, px:11});
+  // scope: cell voltage history
+  const ox = 560, oy = 8, w = 432, h = 472; panel(ox, oy, w, h, "Cell voltage over time (refresh restores it)");
+  const t1 = MM.dT, t0 = t1 - 4*MM.tref, X = t => ox + 50 + (t - t0)/(t1 - t0)*(w - 64), Y = v => oy + 420 - v/DR_VDD*360;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; [0, vb, DR_VDD].forEach(v => pl([[ox + 50, Y(v)],[ox + w - 14, Y(v)]]));
+  txt("VDD", ox + 44, Y(DR_VDD), {al:"right", px:10}); txt("VDD/2", ox + 44, Y(vb), {al:"right", px:10}); txt("0", ox + 44, Y(0), {al:"right", px:10});
+  ctx.strokeStyle = C.hole; ctx.setLineDash([4,3]); pl([[ox + 50, Y(drVmin())],[ox + w - 14, Y(drVmin())]]); ctx.setLineDash([]);
+  txt(`minimum readable 1: ${f2(drVmin())} V`, ox + w - 16, Y(drVmin()) - 8, {al:"right", col:C.hole, w:600, px:10});
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2.2; ctx.beginPath(); let first = true;
+  MM.dhist.forEach(([t, v]) => { if (t < t0) return; first ? ctx.moveTo(X(t), Y(v)) : ctx.lineTo(X(t), Y(v)); first = false; }); ctx.stroke();
+  txt(`time window ${(4*MM.tref).toFixed(0)} ms · retention ${drRetention().toFixed(0)} ms at ${MM.temp} °C`, ox + 14, oy + 452, {px:11, col:C.fg, w:600});
+}
+
+/* ---------------- flash drawing ---------------- */
+function drawFlash(dt, T){
+  const L = flLevels(), sig = flSigma(), q = clamp((MM.vth - FL_ERASED)/8.5, 0, 1);
+  ctx.fillStyle = C.panel2; ctx.fillRect(8, 8, 470, 472);
+  const x0 = 40, x1 = 450, sy = 330;
+  ctx.fillStyle = C.si; ctx.fillRect(x0, sy, x1 - x0, 120); ctx.fillStyle = C.pplus; ctx.fillRect(x0, sy, x1 - x0, 120);
+  ctx.fillStyle = C.nplus; ctx.fillRect(x0, sy, 90, 50); ctx.fillRect(x1 - 90, sy, 90, 50);
+  const gx0 = 150, gx1 = 340;
+  ctx.fillStyle = C.oxide; ctx.fillRect(gx0, sy - 14, gx1 - gx0, 14);                // tunnel oxide
+  ctx.fillStyle = C.metal; ctx.globalAlpha = 0.7; ctx.fillRect(gx0, sy - 74, gx1 - gx0, 60); ctx.globalAlpha = 1;   // floating gate
+  ctx.fillStyle = C.oxide; ctx.globalAlpha = 0.6; ctx.fillRect(gx0 - 10, sy - 96, gx1 - gx0 + 20, 22); ctx.globalAlpha = 1; // ONO
+  ctx.fillStyle = C.metal; ctx.fillRect(gx0 - 10, sy - 176, gx1 - gx0 + 20, 80);       // control gate
+  const nE = Math.round(q*36);
+  for (let i=0;i<nE;i++){ const x = gx0 + 12 + (i % 12)*14.5, y = sy - 66 + Math.floor(i/12)*16; dot(x + Math.sin(T*2 + i)*0.8, y, C.electron, false, 1, 3.4); }
+  MM.flow.forEach(f => dot(gx0 + 20 + f.x*(gx1 - gx0 - 40), sy + 10 - f.y*30, C.electron, false, 1, 3));
+  const vg = MM.prog ? 16 + 0.3*MM.pulses : MM.erasing ? -18 : 0;
+  txt(`control gate ${vg ? vg.toFixed(1) + " V" : ""}`, (gx0 + gx1)/2, sy - 136, {al:"center", col:C.fg, w:700, px:12});
+  txt("ONO (blocking)", gx1 + 16, sy - 85, {px:10});
+  txt("floating gate", gx1 + 16, sy - 44, {px:10}); txt(`≈ ${Math.round((MM.vth - FL_ERASED)*125)} electrons`, gx1 + 16, sy - 30, {px:10, col:C.electron, w:600});
+  txt("tunnel oxide ≈ 8 nm", gx1 + 16, sy - 7, {px:10});
+  txt("source", x0 + 45, sy + 26, {al:"center", col:C.electron, w:700, px:11}); txt("drain", x1 - 45, sy + 26, {al:"center", col:C.electron, w:700, px:11});
+  txt("p-well", (x0 + x1)/2, sy + 96, {al:"center", px:11, col:C.fg});
+  txt(MM.prog ? `programming: ISPP pulse ${MM.pulses} (Fowler-Nordheim tunnelling)` : MM.erasing ? "erasing: electrons tunnel back into the well" : `idle · Vth = ${f2(MM.vth)} V`, x0, 30, {col: MM.prog || MM.erasing ? C.accent : C.fg, w:700, px:12});
+  const rd = flRead(MM.vth);
+  txt(`reads as level ${rd} = "${flGray(rd)}"`, x0, 50, {col:C.fg, w:600, px:12});
+  // Vth distributions of the whole array
+  const ox = 488, oy = 8, w = 504, h = 472; panel(ox, oy, w, h, `Vth distribution of the array · ${["", "SLC", "MLC", "TLC"][MM.bits]} (${MM.bits} bit/cell)`);
+  const vmin = -4, vmax = 7, X = v => ox + 30 + (v - vmin)/(vmax - vmin)*(w - 50), Y0 = oy + 400;
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1; pl([[ox + 30, Y0],[ox + w - 20, Y0]]);
+  for (let v = -4; v <= 7; v++){ txt(`${v}`, X(v), Y0 + 14, {al:"center", px:10}); }
+  txt("threshold voltage Vth (V)", ox + w/2, Y0 + 32, {al:"center", px:11, col:C.fg});
+  L.forEach((m, k) => {
+    const mu = m + flShift(k), s = sig*(k === 0 ? 2.2 : 1);
+    ctx.fillStyle = k === rd ? C.accent : C.electron; ctx.globalAlpha = k === rd ? 0.55 : 0.3; ctx.beginPath(); ctx.moveTo(X(mu - 4*s), Y0);
+    for (let v = mu - 4*s; v <= mu + 4*s; v += s/8) ctx.lineTo(X(v), Y0 - 300*Math.exp(-0.5*((v - mu)/s)**2)*(0.5/Math.max(0.5, s*3)));
+    ctx.lineTo(X(mu + 4*s), Y0); ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1;
+    txt(`"${flGray(k)}"`, X(mu), Y0 - 300*(0.5/Math.max(0.5, s*3)) - 10, {al:"center", col:C.fg, w:700, px:11});
+  });
+  flRefs().forEach((r, i) => { ctx.strokeStyle = C.hole; ctx.setLineDash([4,3]); ctx.lineWidth = 1.4; pl([[X(r), oy + 40],[X(r), Y0]]); ctx.setLineDash([]); txt(`R${i + 1}`, X(r), oy + 52, {al:"center", col:C.hole, w:700, px:10}); });
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 3; pl([[X(MM.vth), oy + 64],[X(MM.vth), Y0]]); txt("this cell", X(MM.vth), oy + 74, {al:"center", col:C.accent, w:700, px:11});
+  const gaps = L.slice(1).map((m, i) => (m + flShift(i + 1) - 3*sig) - (L[i] + flShift(i) + 3*sig*(i === 0 ? 2.2 : 1)));
+  const worst = Math.min(...gaps);
+  txt(`worst gap between neighbouring levels (±3σ): ${worst.toFixed(2)} V ${worst < 0 ? "→ read errors (ECC needed)" : ""}`, ox + 14, oy + 452, {col: worst < 0.2 ? C.hole : C.fg, w:600, px:11});
+}
+function drawMM(dt, T){ begin(MMC); ({sram: drawSRAM, dram: drawDRAM, flash: drawFlash})[MM.view](dt, T); }
+
+/* ---------------- DOM ---------------- */
+const MMINFO = {
+  sram:{pill:"SRAM", name:"SRAM 6T cell", sub:"Two cross-coupled inverters hold a bit; two access transistors read and write it",
+    text:"An SRAM cell is two CMOS inverters connected in a loop: each one's output drives the other's input, so the pair is stable in exactly two states, Q = 1 or Q = 0, as long as power is on. Two access NMOS transistors (M5, M6) connect the nodes to the bit lines when the word line WL is high. To read, both bit lines are precharged to VDD and WL is raised; the side storing 0 slowly pulls its bit line down, and a sense amplifier detects the small difference. The danger is read disturb: while the access transistor is on, it pushes current into the 0 node and lifts it. If it rises past the trip point of the other inverter, the cell flips and the data is destroyed. The pull-down transistor must therefore be stronger than the access transistor: the cell ratio β = Wpd/Wacc is usually 1.5–2.5. To write, the bit lines are driven to the new value and the access transistor must overpower the pull-up PMOS, so the pull-up must be weak. The butterfly plot shows both inverter curves; the side of the largest square that fits in the smaller eye is the static noise margin (SNM)."},
+  dram:{pill:"DRAM", name:"DRAM 1T1C cell", sub:"A bit is a few femtocoulombs on a capacitor; it leaks away and must be refreshed",
+    text:"A DRAM cell is a single access transistor and a tiny capacitor (about 10–30 fF). A 1 is the capacitor charged to VDD, a 0 is empty. That is why DRAM is so dense, and why it is volatile: the charge leaks through the transistor and the junction, and the stored 1 slowly sinks. Leakage roughly doubles every 10 °C, so a hot chip loses data faster. Reading is gentle and destructive at once: the bit line, with a much larger capacitance Cbl, is precharged to VDD/2; when the word line opens the cell, the charge is shared and the bit line moves by only ΔV = (Vcell − VDD/2)·Cs/(Cs + Cbl), a few tens of millivolts. A sense amplifier detects that small shift, drives the bit line to the full rail and thereby writes the value back into the cell. To keep the data, every row must be read and rewritten (refreshed) before its 1 sinks too low to give a readable ΔV, typically every 64 ms (32 ms above 85 °C)."},
+  flash:{pill:"NAND", name:"Flash memory cell", sub:"Electrons trapped on a floating gate shift the threshold voltage, even with the power off",
+    text:"A flash cell is a MOSFET with an extra, electrically isolated gate sandwiched between the channel and the control gate. Electrons placed on this floating gate stay there for years because they are surrounded by insulator. Their negative charge screens the control gate, so more control-gate voltage is needed to turn the channel on: the threshold voltage shifts up by ΔVth = −ΔQ/CCG. To program, a high voltage (about 15–20 V) on the control gate creates such a strong field across the thin tunnel oxide that electrons tunnel through it (Fowler-Nordheim tunnelling). It is done in small steps (ISPP): pulse, verify the Vth, pulse a little higher, until the cell passes. Erasing pulls the electrons back out with the well biased high. To read, a reference voltage is applied: if the cell conducts, its Vth is below the reference. Storing 2 or 3 bits per cell (MLC, TLC) means placing Vth in one of 4 or 8 narrow windows. With every program/erase cycle the oxide wears and the distributions widen; over time charge leaks and they drift down. When neighbouring levels overlap, the controller's error-correcting code has to repair the bits."}
+};
+Object.assign(TIP, {
+  "Read SNM":"Static noise margin while reading: the largest noise voltage the cell tolerates without flipping.",
+  "Hold SNM":"Static noise margin with the word line off.",
+  "Write margin":"How far below the trip point the access transistor pulls the 1 node. Positive = the write succeeds.",
+  "Cell ratio β":"Wpd/Wacc. Larger β = stronger pull-down = more read stability.",
+  "Butterfly":"Both inverter curves drawn on the same axes; the eyes show how much noise the stored state survives.",
+  "Read disturb":"The 0 node rises while the access transistor feeds current into it from the precharged bit line.",
+  "Write":"The access transistor must pull the 1 node below the other inverter's trip point.",
+  "Signal ΔV":"Bit-line voltage change caused by charge sharing with the cell.",
+  "Retention":"Time until a stored 1 decays below the lowest readable level.",
+  "Refresh":"Interval at which every row is read and rewritten.",
+  "Cell voltage":"Present voltage on the storage capacitor.",
+  "Charge sharing":"The cell and bit-line capacitors settle at a common voltage when the word line opens.",
+  "Leakage":"The stored charge decays with time constant τ, which halves every 10 °C.",
+  "Cell Vth":"Threshold voltage of this flash cell, set by the electrons on its floating gate.",
+  "Reads as":"Level found by comparing Vth with the read references, Gray-coded.",
+  "Levels":"Number of Vth windows: 2^(bits per cell).",
+  "Worst gap":"Smallest distance between the ±3σ edges of neighbouring Vth distributions.",
+  "Threshold shift":"Electrons on the floating gate raise Vth by their charge divided by the control-gate capacitance.",
+  "FN tunnelling":"Fowler-Nordheim current through the tunnel oxide; extremely steep in the oxide field.",
+  "ISPP":"Incremental step pulse programming: raise the gate voltage a little each pulse and verify.",
+  "Wear and retention":"Program/erase cycles widen the distributions; time and temperature shift them down."
+});
+const MMLEG = {
+  sram:[["accent","High (≈ VDD)"],["electron","Low (≈ 0 V) · read current"],["hole","Write current"]],
+  dram:[["accent","Stored charge"],["electron","Electrons / leakage"],["hole","Minimum readable level"]],
+  flash:[["electron","Electrons (on the floating gate / tunnelling)"],["accent","This cell's level"],["hole","Read reference voltages"]]
+};
+let mmGlossKey = "";
+function updateMM(){
+  const v = MM.view, info = MMINFO[v];
+  $("mm-pill").textContent = info.pill; $("mm-name").textContent = info.name; $("mm-sub").textContent = info.sub; $("mm-explain").textContent = info.text;
+  document.querySelectorAll("#mm-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  document.querySelectorAll("#mm-op button").forEach(b => b.setAttribute("aria-pressed", b.dataset.o === MM.op));
+  document.querySelectorAll("#mm-bits button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.b === MM.bits));
+  ["sram","dram","flash"].forEach(k => $("mm-c-" + k).hidden = k !== v);
+  $("mm-beta-v").textContent = MM.beta.toFixed(2); $("mm-pr-v").textContent = MM.pr.toFixed(2);
+  $("mm-cs-v").textContent = `${MM.cs} fF`; $("mm-cbl-v").textContent = `${MM.cbl} fF`; $("mm-temp-v").textContent = `${MM.temp} °C`; $("mm-tref-v").textContent = `${MM.tref} ms`;
+  $("mm-level").max = 2**MM.bits - 1; if (MM.level > 2**MM.bits - 1) MM.level = 2**MM.bits - 1; $("mm-level").value = MM.level;
+  $("mm-level-v").textContent = `${MM.level} ("${flGray(MM.level)}")`; $("mm-cyc-v").textContent = `${MM.cycles}`; $("mm-yr-v").textContent = `${MM.years} years`;
+  $("mm-auto").textContent = MM.auto ? "Auto-refresh: on" : "Auto-refresh: off";
+  setHTML("mm-legend", MMLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  const ro = [], rows = [];
+  if (v === "sram"){
+    const S = srAll();
+    ro.push(["Read SNM", `${(S.read.snm*1000).toFixed(0)} mV`], ["Hold SNM", `${(S.hold.snm*1000).toFixed(0)} mV`], ["Write margin", `${((S.vm - S.vw)*1000).toFixed(0)} mV`], ["Cell ratio β", MM.beta.toFixed(2)]);
+    rows.push({name:"Butterfly", f:"SNM = side of the largest square inside the smaller eye", sub:`hold ${(S.hold.snm*1000).toFixed(0)} mV, read ${(S.read.snm*1000).toFixed(0)} mV (read is always worse)`});
+    rows.push({name:"Read disturb", f:"In,pd(VGS = VDD, VDS = V0) = In,acc(VGS = VDS = VDD − V0)", sub:`V0 = ${f2(S.bump)} V vs trip point ${f2(S.vm)} V → ${S.bump < S.vm ? "safe" : "the cell flips"}`});
+    rows.push({name:"Write", f:"Ip,pu(VSG = VDD, VSD = VDD − V1) = In,acc(VGS = VDD, VDS = V1)", sub:`V1 = ${f2(S.vw)} V vs trip ${f2(S.vm)} V → ${S.vw < S.vm ? "write succeeds" : "write fails"}`});
+    rows.push({name:"Cell ratio β", f:"β = Wpd / Wacc (read stability), PR = Wpu / Wacc (writability)", sub:`β = ${MM.beta.toFixed(2)}, PR = ${MM.pr.toFixed(2)}`});
+  } else if (v === "dram"){
+    const dv = drDV(DR_VDD);
+    ro.push(["Signal ΔV", `${(dv*1000).toFixed(0)} mV`], ["Retention", `${drRetention().toFixed(0)} ms`], ["Refresh", `${MM.tref} ms`], ["Cell voltage", `${f2(MM.vcell)} V`]);
+    rows.push({name:"Charge sharing", f:"ΔV = (Vcell − VDD/2) · Cs / (Cs + Cbl)", sub:`= (${DR_VDD} − ${DR_VDD/2}) · ${MM.cs} / (${MM.cs} + ${MM.cbl}) = ${(dv*1000).toFixed(0)} mV for a full 1`});
+    rows.push({name:"Leakage", f:"Vcell(t) = V0 · e^(−t/τ),  τ halves every 10 °C", sub:`τ = ${drTau().toFixed(2)} s at ${MM.temp} °C`});
+    rows.push({name:"Retention", f:"t_ret = τ · ln(VDD / Vmin),  Vmin = VDD/2 + 50 mV·(Cs + Cbl)/Cs", sub:`Vmin = ${f2(drVmin())} V → t_ret = ${drRetention().toFixed(0)} ms ${drRetention() > MM.tref ? "> refresh: data safe" : "< refresh: data lost!"}`});
+    rows.push({name:"Refresh", f:"every row read and rewritten within t_REF (64 ms; 32 ms above 85 °C)", sub:`now every ${MM.tref} ms, margin ×${(drRetention()/MM.tref).toFixed(1)}`});
+  } else {
+    const L = flLevels(), rd = flRead(MM.vth), gaps = L.slice(1).map((m, i) => (m + flShift(i + 1) - 3*flSigma()) - (L[i] + flShift(i) + 3*flSigma()*(i === 0 ? 2.2 : 1)));
+    ro.push(["Cell Vth", `${f2(MM.vth)} V`], ["Reads as", `"${flGray(rd)}"`], ["Levels", `${L.length}`], ["Worst gap", `${Math.min(...gaps).toFixed(2)} V`]);
+    rows.push({name:"Threshold shift", f:"ΔVth = −Q_FG / C_CG", sub:`Vth = ${f2(MM.vth)} V → ≈ ${Math.round((MM.vth - FL_ERASED)*125)} electrons for C_CG ≈ 20 aF`});
+    rows.push({name:"FN tunnelling", f:"J = A·E²·exp(−B/E),  E ≈ αG·VCG / tox", sub:`αG = 0.6, VCG = 18 V, tox = 8 nm → E ≈ ${(0.6*18/8e-7/1e6).toFixed(1)} MV/cm`});
+    rows.push({name:"ISPP", f:"VCG = 16 V + 0.3 V·k, verify after every pulse", sub:`target level ${MM.level} at ${f2(L[MM.level])} V, ${MM.pulses} pulses so far`});
+    rows.push({name:"Wear and retention", f:"σ grows with P/E cycles; Vth drifts down with time", sub:`σ = ${(flSigma()*1000).toFixed(0)} mV, drift of the top level ${(flShift(L.length - 1)*1000).toFixed(0)} mV`});
+  }
+  renderRo($("mm-ro"), ro); renderEq($("mm-eq"), rows);
+  updateMMGloss(); drawMMPlots();
+}
+function updateMMGloss(){
+  const key = [MM.view, MM.beta, MM.pr, MM.cs, MM.cbl, MM.temp, MM.tref, MM.bits, MM.cycles, MM.years].join("|"); if (key === mmGlossKey) return; mmGlossKey = key;
+  let h, t;
+  if (MM.view === "sram"){
+    h = "Read stability and writability for a few cell ratios (your pull-up ratio):";
+    const save = MM.beta;
+    t = `<table><tr><th>β</th><th>Read SNM</th><th>0-node bump</th><th>Write V1</th><th>Read safe?</th></tr>` + [1, 1.5, 2, 3].map(b => { MM.beta = b; srCache = {k:""}; const S = srAll(); return `<tr${b === save ? ' style="font-weight:700"' : ""}><td>${b}</td><td>${(S.read.snm*1000).toFixed(0)} mV</td><td>${f2(S.bump)} V</td><td>${f2(S.vw)} V</td>${ck(S.bump < S.vm)}</tr>`; }).join("") + `</table>`;
+    MM.beta = save; srCache = {k:""};
+  } else if (MM.view === "dram"){
+    h = "Retention of your cell at different temperatures:";
+    t = `<table><tr><th>Temperature</th><th>τ</th><th>Retention</th><th>vs refresh ${MM.tref} ms</th></tr>` + [25, 45, 65, 85, 105].map(T => `<tr${T === MM.temp ? ' style="font-weight:700"' : ""}><td>${T} °C</td><td>${drTau(T).toFixed(2)} s</td><td>${drRetention(T).toFixed(0)} ms</td>${ck(drRetention(T) > MM.tref)}</tr>`).join("") + `</table>`;
+  } else {
+    h = "Bits per cell and how tight the windows get:";
+    t = `<table><tr><th>Type</th><th>Bits</th><th>Levels</th><th>Spacing</th><th>Typical endurance</th></tr>` + [["SLC",1,"≈ 4 V","50–100k cycles"],["MLC",2,"≈ 1.6 V","3–10k"],["TLC",3,"≈ 0.8 V","1–3k"],["QLC",4,"≈ 0.4 V","≈ 1k"]].map(([n, b, s, e]) => `<tr${b === MM.bits ? ' style="font-weight:700"' : ""}><td>${n}</td><td>${b}</td><td>${2**b}</td><td>${s}</td><td>${e}</td></tr>`).join("") + `</table>`;
+  }
+  $("mm-g-head").textContent = h; $("mm-g-live").innerHTML = t;
+}
+function drawMMPlots(){
+  let a = "", b = "";
+  if (MM.view === "sram"){
+    const S = srAll(), A = axesR(300, 230, {l:34,r:10,t:28,b:30}, 0, VDD, 0, VDD, 1, 1, "V(Q) (V)", "V(QB) (V)");
+    const hold = S.hold.curve, read = S.read.curve;
+    a = A.s + `<path d="${pathOf(hold, A.X, A.Y)}" fill="none" stroke="var(--muted)" stroke-dasharray="4 3" stroke-width="1.6"/><path d="${pathOf(hold.map(([x, y]) => [y, x]), A.X, A.Y)}" fill="none" stroke="var(--muted)" stroke-dasharray="4 3" stroke-width="1.6"/>`;
+    a += `<path d="${pathOf(read, A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/><path d="${pathOf(read.map(([x, y]) => [y, x]), A.X, A.Y)}" fill="none" stroke="var(--electron)" stroke-width="2.2"/>`;
+    const s = S.read.snm; a += `<rect x="${A.X(0.15)}" y="${A.Y(0.15 + s) }" width="${A.X(s) - A.X(0)}" height="${A.Y(0) - A.Y(s)}" fill="var(--accent)" fill-opacity=".25" stroke="var(--accent)"/>`;
+    a += A.frame + `<text x="44" y="12" style="fill:var(--accent)">— read (both inverters)</text><text x="180" y="12" style="fill:var(--muted)">- - hold</text><text x="${A.X(0.2)}" y="${A.Y(0.2 + s) - 4}" style="fill:var(--accent)">SNM ${(s*1000).toFixed(0)} mV</text>`;
+    if (srBetaCurve.k !== MM.pr){ const save = MM.beta; srBetaCurve = {k:MM.pr, pts: range(0.8, 3.5, 22).map(x => { MM.beta = x; srCache = {k:""}; const T = srAll(); return [x, T.read.snm*1000, T.hold.snm*1000]; })}; MM.beta = save; srCache = {k:""}; }
+    const pts = srBetaCurve.pts;
+    const ym = Math.max(...pts.map(p => p[2]))*1.1, st = niceStep(ym/4);
+    const B = axesR(220, 230, {l:38,r:8,t:28,b:30}, 0.8, 3.5, 0, Math.ceil(ym/st)*st, 0.5, st, "cell ratio β", "SNM (mV)");
+    b = B.s + `<path d="${pathOf(pts.map(p => [p[0], p[2]]), B.X, B.Y)}" fill="none" stroke="var(--muted)" stroke-dasharray="4 3"/><path d="${pathOf(pts.map(p => [p[0], p[1]]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+    b += B.frame + dotSvg(B.X(MM.beta), B.Y(srAll().read.snm*1000)) + `<text x="40" y="12" style="fill:var(--accent)">— read SNM</text><text x="110" y="12" style="fill:var(--muted)">- - hold</text>`;
+  } else if (MM.view === "dram"){
+    const r = range(0.02, 1, 60), A = axesR(300, 230, {l:38,r:10,t:28,b:30}, 0, 1, 0, 400, 0.2, 100, "Cs / Cbl", "ΔV for a 1 (mV)");
+    a = A.s + `<path d="${pathOf(r.map(x => [x, (DR_VDD/2)*x/(1 + x)*1000]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+    a += `<line x1="${A.X(0)}" x2="${A.X(1)}" y1="${A.Y(50)}" y2="${A.Y(50)}" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${A.X(0.98)}" y="${A.Y(50) - 4}" text-anchor="end" style="fill:var(--hole)">sense amp needs ≈ 50 mV</text>`;
+    a += A.frame + dotSvg(A.X(Math.min(1, MM.cs/MM.cbl)), A.Y(drDV(DR_VDD)*1000)) + `<text x="44" y="12" style="fill:var(--accent)">— charge-sharing signal</text>`;
+    const ts = range(25, 125, 50), lg = x => Math.log10(Math.max(x, 1e-3));
+    const B = axesR(220, 230, {l:34,r:8,t:28,b:30}, 25, 125, 0, 6, 25, 1, "T (°C)", "log10 retention (ms)");
+    b = B.s + `<path d="${pathOf(ts.map(T => [T, lg(drRetention(T))]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/><line x1="${B.X(25)}" x2="${B.X(125)}" y1="${B.Y(lg(MM.tref))}" y2="${B.Y(lg(MM.tref))}" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${B.X(122)}" y="${B.Y(lg(MM.tref)) - 4}" text-anchor="end" style="fill:var(--hole)">refresh</text>`;
+    b += B.frame + dotSvg(B.X(MM.temp), B.Y(lg(drRetention())));
+  } else {
+    // Vth vs pulse number (ISPP staircase) and FN current vs field
+    const A = axesR(300, 230, {l:34,r:10,t:28,b:30}, 0, 20, -3, 6, 4, 1, "program pulse", "Vth (V)");
+    let v = FL_ERASED; const st = [[0, v]]; for (let k=1;k<=20;k++){ v = Math.min(v + 0.3 + (k < 3 ? 0.4 : 0), 6.5); st.push([k, v]); }
+    a = A.s + `<path d="${pathOf(st, A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+    flLevels().forEach((m, k) => { if (k) a += `<line x1="${A.X(0)}" x2="${A.X(20)}" y1="${A.Y(m - 0.25)}" y2="${A.Y(m - 0.25)}" stroke="var(--electron)" stroke-dasharray="2 3" stroke-opacity=".7"/>`; });
+    a += A.frame + dotSvg(A.X(Math.min(20, MM.pulses)), A.Y(MM.vth)) + `<text x="44" y="12" style="fill:var(--accent)">— ISPP: Vth rises ≈ 0.3 V per pulse</text><text x="44" y="24" style="fill:var(--electron)">- - verify levels</text>`;
+    const Es = range(6, 16, 60), J = E => 1.25e-6*(E*1e6)**2*Math.exp(-2.33e8/(E*1e6));
+    const B = axesR(220, 230, {l:34,r:8,t:28,b:30}, 6, 16, -12, 2, 2, 2, "oxide field (MV/cm)", "log10 J (A/cm²)");
+    b = B.s + `<path d="${pathOf(Es.map(E => [E, Math.log10(J(E))]), B.X, B.Y)}" fill="none" stroke="var(--electron)" stroke-width="2.2"/>`;
+    const Eop = MM.prog ? 0.6*(16 + 0.3*MM.pulses)/8e-7/1e6 : 0.6*3/8e-7/1e6;
+    b += B.frame + dotSvg(B.X(clamp(Eop, 6, 16)), B.Y(clamp(Math.log10(J(clamp(Eop, 6, 16))), -12, 2))) + `<text x="36" y="12" style="fill:var(--electron)">— Fowler-Nordheim</text>`;
+  }
+  $("mm-p1").innerHTML = a; $("mm-p2").innerHTML = b;
+}
+let mmUpd = 0;
+function mmTickAll(dt){ mmTick(dt); if (++mmUpd % 6 === 0) updateMM(); }
+document.querySelectorAll("#mm-view button").forEach(b => b.addEventListener("click", () => { MM.view = b.dataset.v; updateMM(); }));
+document.querySelectorAll("#mm-op button").forEach(b => b.addEventListener("click", () => { MM.op = b.dataset.o; MM.opT = 0; updateMM(); }));
+document.querySelectorAll("#mm-bits button").forEach(b => b.addEventListener("click", () => { MM.bits = +b.dataset.b; MM.vth = FL_ERASED; MM.pulses = 0; MM.prog = false; updateMM(); }));
+[["mm-beta","beta"],["mm-pr","pr"],["mm-cs","cs"],["mm-cbl","cbl"],["mm-temp","temp"],["mm-tref","tref"],["mm-level","level"],["mm-cyc","cycles"],["mm-yr","years"]].forEach(([id, k]) => $(id).addEventListener("input", e => { MM[k] = +e.target.value; updateMM(); }));
+$("mm-flip").addEventListener("click", () => { MM.bit = 1 - MM.bit; MM.opT = 0; updateMM(); });
+$("mm-read").addEventListener("click", () => { MM.dread = 1; updateMM(); });
+$("mm-auto").addEventListener("click", () => { MM.auto = !MM.auto; updateMM(); });
+$("mm-write1").addEventListener("click", () => { MM.vcell = DR_VDD; updateMM(); });
+$("mm-prog").addEventListener("click", () => { MM.erasing = false; MM.prog = true; MM.pulses = 0; MM.eraseT = 0; updateMM(); });
+$("mm-erase").addEventListener("click", () => { MM.prog = false; MM.erasing = true; MM.pulses = 0; updateMM(); });
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory"};
 function showTab(t){
   zoomClose();
   tab = t;
@@ -8472,6 +9305,7 @@ function showTab(t){
   else if (t === "rf"){ $("sub-top").textContent = "RF passives · S-parameters, coupler, balun, antenna, waveguide modes"; RFC.resize(); updateRF(); }
   else if (t === "pn"){ $("sub-top").textContent = "PN junction and MOS capacitor · silicon at 300 K · ni = 1e10 cm⁻³"; PNC.resize(); updatePN(); }
   else if (t === "lk"){ $("sub-top").textContent = "Leakage and 3D transistors · VDD = 0.8 V · EOT 1 nm"; LKC.resize(); updateLK(); }
+  else if (t === "mm"){ $("sub-top").textContent = "Memory cells · SRAM, DRAM and flash built from MOSFETs"; MMC.resize(); updateMM(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -8488,6 +9322,7 @@ function frame(now){
   else if (tab === "rf"){ rfTick(dt); if (RFC.cv.clientWidth) drawRF(dt, T); }
   else if (tab === "pn"){ pnTick(dt); if (PNC.cv.clientWidth) drawPNtab(dt, T); }
   else if (tab === "lk"){ lkTick(dt); if (LKC.cv.clientWidth) drawLK(dt, T); }
+  else if (tab === "mm"){ mmTickAll(dt); if (MMC.cv.clientWidth) drawMM(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
