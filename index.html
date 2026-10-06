@@ -2390,6 +2390,195 @@ Object.assign(window.I18N_ZH, {
 "kT = # meV at # °C → every # meV of barrier = #× current": "{1} °C 時 kT = {0} meV → 能障每 {2} meV = 電流 {3} 倍",
 "Below the threshold voltage the channel is not really off. The source is full of electrons with a spread of thermal energies (a Boltzmann tail), and the gate controls an energy barrier between source and drain. Only electrons with more energy than the barrier can cross, and that fraction is e^(−Φ/kT). Lowering the gate voltage raises the barrier, but by at most qVGS/n, so the current can drop at best #× for every n·(kT/q)·ln# ≈ n × # mV at room temperature. That number is the subthreshold swing SS. Nothing made of a normal MOSFET can beat # mV/dec at # K, which is why the off-current cannot be made arbitrarily small while keeping VDD low. Three things make leakage worse: a lower Vth (LVT cells are fast but leaky), a hot chip (kT grows and Vth drops by about # mV/°C, so leakage roughly doubles every #–# °C) and DIBL, where the drain voltage pulls the barrier down. Multiplied by billions of transistors, these nanoamps become watts of standby power.": "低於臨界電壓時，通道並沒有真正關閉。源極充滿具有一定熱能量分布的電子（波茲曼尾端），而閘極控制源極與汲極之間的能障。只有能量高於能障的電子能通過，比例為 e^(−Φ/kT)。降低閘極電壓會提高能障，但最多只提高 qVGS/n，所以室溫下電流最多只能每 n·(kT/q)·ln{1} ≈ n × {2} mV 減少 {0} 倍。這個數字就是次臨界擺幅 SS。一般 MOSFET 在 {4} K 下不可能優於 {3} mV/dec，所以在維持低 VDD 的同時，關閉電流無法任意變小。有三件事會讓漏電更嚴重：較低的 Vth（LVT 元件快但會漏電）、晶片變熱（kT 變大且 Vth 每 °C 下降約 {5} mV，漏電大約每 {6}–{7} °C 加倍），以及 DIBL（汲極電壓把能障拉低）。乘上數十億顆電晶體，這些奈安培就變成數瓦的待機功耗。"
 });
+Object.assign(window.I18N_ZH, {
+"Radar receiver (LNA · mixer · ADC)": "雷達接收器（LNA · 混頻器 · ADC）",
+"Receiver chain and noise": "接收鏈與雜訊",
+"Receiver view": "接收器檢視",
+"Chain & noise": "接收鏈與雜訊",
+"Mixer & IF filter": "混頻器與 IF 濾波",
+"Car # m²": "汽車 # m²",
+"Motorbike # m²": "機車 # m²",
+"Pedestrian # m²": "行人 # m²",
+"Distance to the target. The echo power falls as #/R⁴ and the beat frequency rises as R.": "到目標的距離。回波功率按 #/R⁴ 下降，拍頻隨 R 上升。",
+"Target range R": "目標距離 R",
+"No LNA (antenna straight into the mixer, common in CMOS radar)": "不用 LNA（天線直接接混頻器，CMOS 雷達常見）",
+"Gain of the low-noise amplifier. More gain hides the noise of the stages behind it.": "低雜訊放大器的增益。增益越大，越能掩蓋後級的雜訊。",
+"LNA gain": "LNA 增益",
+"Noise figure of the LNA: how many dB it worsens the SNR. It adds almost directly to the total.": "LNA 的雜訊指數：它讓 SNR 變差多少 dB。幾乎直接加到總值上。",
+"LNA noise figure": "LNA 雜訊指數",
+"Noise figure of the mixer. Without an LNA it is the first stage and dominates.": "混頻器的雜訊指數。沒有 LNA 時它是第一級，影響最大。",
+"Mixer noise figure": "混頻器雜訊指數",
+"Gain of the IF filter and amplifier before the ADC.": "ADC 之前 IF 濾波器與放大器的增益。",
+"IF gain": "IF 增益",
+"Corner of the IF high-pass filter. It removes transmitter leakage and evens out near and far echoes.": "IF 高通濾波器的轉角頻率。它去除發射端洩漏，並讓近、遠回波強度接近。",
+"High-pass corner": "高通轉角",
+"Resolution of the ADC. Each extra bit halves the step size and adds about # dB of dynamic range.": "ADC 解析度。每多一位元，步階減半，動態範圍多約 # dB。",
+"Resolution N": "解析度 N",
+"Analog input voltage being converted (# to Vref = # V).": "要轉換的類比輸入電壓（# 到 Vref = # V）。",
+"Performance": "性能",
+"SNR versus range, IF filter response or SAR steps": "SNR 對距離、IF 濾波器響應或 SAR 步驟",
+"Noise contributions, beat frequency versus range or SQNR versus bits": "雜訊貢獻、拍頻對距離或 SQNR 對位元數",
+"Explain the terms: radar equation, noise figure, Friis, LNA, mixer, IF, ADC, SQNR": "名詞解釋：雷達方程式、雜訊指數、Friis、LNA、混頻器、IF、ADC、SQNR",
+"The receive path, step by step": "接收路徑，逐步說明",
+"<b>Antenna</b>: collects the echo, often less than a picowatt.": "<b>天線</b>：收集回波，常常不到一皮瓦。",
+"<b>LNA</b>: amplifies it while adding as little noise as possible (optional at # GHz in CMOS).": "<b>LNA</b>：放大訊號，同時盡量少加雜訊（# GHz 的 CMOS 中可省略）。",
+"<b>Mixer</b>: multiplies it by the transmit chirp (LO) and produces the beat frequency fb, a few MHz.": "<b>混頻器</b>：把它乘上發射中的啁啾（LO），產生只有幾 MHz 的拍頻 fb。",
+"<b>IF filter and amplifier</b>: high-pass for leakage and near/far balance, low-pass against aliasing.": "<b>IF 濾波與放大</b>：高通處理洩漏並平衡近遠目標，低通防止混疊。",
+"<b>ADC</b>: samples the beat signal, typically # bits at #–# MS/s.": "<b>ADC</b>：取樣拍頻訊號，通常 # 位元、#–# MS/s。",
+"<b>FFT and detection</b>: each target becomes a peak; peaks above the noise by about # dB count as detections.": "<b>FFT 與偵測</b>：每個目標變成一個峰值；高出雜訊約 # dB 的峰值算偵測到。",
+"Detection range with your receiver:": "你的接收器的偵測距離：",
+"The radar now has two range limits: the IF bandwidth (fb must stay below # MHz, see the radar tab) and the echo power (SNR must stay above the threshold). The shorter of the two wins.": "雷達現在有兩個距離限制：IF 頻寬（fb 必須低於 # MHz，見雷達分頁）和回波功率（SNR 必須高於門檻）。以兩者中較短的為準。",
+"Receiver terms": "接收器名詞",
+"Radar equation": "雷達方程式",
+"Pr = Pt·G²·λ²·σ/((#π)³R⁴): echo power for a target with radar cross-section σ.": "Pr = Pt·G²·λ²·σ/((#π)³R⁴)：雷達截面積為 σ 的目標回波功率。",
+"RCS σ": "雷達截面積 σ",
+"Radar cross-section: how big a target looks to the radar (car ≈ # m², pedestrian ≈ # m²).": "雷達截面積：目標在雷達眼中有多大（汽車約 # m²，行人約 # m²）。",
+"Thermal noise power density: −# dBm per Hz at room temperature.": "熱雜訊功率密度：室溫下每 Hz −# dBm。",
+"Noise figure NF": "雜訊指數 NF",
+"How many dB a stage worsens the signal-to-noise ratio.": "一級電路讓訊雜比變差多少 dB。",
+"Friis formula": "Friis 公式",
+"Total noise factor; later stages count less because of the gain in front of them.": "總雜訊因數；後級因為前面有增益，影響較小。",
+"Low-noise amplifier: first gain stage, sets most of the noise figure.": "低雜訊放大器：第一個增益級，決定大部分雜訊指數。",
+"Local oscillator: the chirp from the PLL, used to mix the echo down.": "本地振盪器：來自 PLL 的啁啾，用來把回波降頻。",
+"Intermediate frequency: the beat signal after the mixer.": "中頻：混頻器之後的拍頻訊號。",
+"Processing gain": "處理增益",
+"SNR gained by the FFT (noise bandwidth #/Tc) and by adding chirps coherently.": "FFT（雜訊頻寬 #/Tc）與同調累加多個啁啾所獲得的 SNR。",
+"ADC terms": "ADC 名詞",
+"Successive approximation register: finds the code by binary search.": "逐次逼近暫存器：用二分搜尋找出數位碼。",
+"Capacitive DAC": "電容式 DAC",
+"Binary-weighted capacitors that produce each trial voltage.": "二進位加權電容，產生每一次的試驗電壓。",
+"Comparator": "比較器",
+"Decides whether the input is above or below the trial level.": "判斷輸入高於或低於試驗電壓。",
+"Least significant bit: the smallest step, Vref/#^N.": "最低有效位元：最小步階，Vref/#^N。",
+"Quantisation-limited SNR, #N + # dB; ENOB is the effective number of bits including real noise.": "受量化限制的 SNR，#N + # dB；ENOB 是包含真實雜訊後的有效位元數。",
+"Sample rate": "取樣率",
+"Must be at least twice the highest beat frequency (Nyquist).": "至少要是最高拍頻的兩倍（奈奎斯特）。",
+"# GHz radar receiver · noise, mixing and analog-to-digital conversion": "# GHz 雷達接收器 · 雜訊、混頻與類比數位轉換",
+"How weak the echo is, and how much each stage adds to the noise": "回波有多微弱，以及每一級增加多少雜訊",
+"The echo that comes back is tiny: the radar equation says the received power falls as #/R⁴ (out and back), so a car at # m returns about #⁻¹³ W. The receiver has to amplify it without burying it in noise. Every resistor and transistor adds thermal noise; the noise figure NF says by how many dB a stage worsens the signal-to-noise ratio. Friis' formula shows that the first stage dominates: F = F# + (F# − #)/G# + (F# − #)/(G#·G#) + … A low-noise amplifier (LNA) with gain shields the noisy mixer and ADC behind it. At # GHz in CMOS, LNA gain is expensive, so many radar chips connect the antenna straight to the mixer and accept a higher NF. After the ADC, an FFT over one chirp narrows the noise bandwidth to #/Tc, and adding many chirps coherently gains another #·log(N) dB. The detection range is where the final SNR drops to about # dB.": "回來的回波非常微弱：雷達方程式說接收功率按 #/R⁴ 下降（去回各一次），所以 # m 外的汽車只回來約 #⁻¹³ W。接收器必須把它放大，又不能讓它淹沒在雜訊中。每個電阻和電晶體都會加入熱雜訊；雜訊指數 NF 表示一級電路讓訊雜比變差多少 dB。Friis 公式顯示第一級影響最大：F = F# + (F# − #)/G# + (F# − #)/(G#·G#) + … 有增益的低雜訊放大器（LNA）能保護後面雜訊較大的混頻器和 ADC。在 # GHz 的 CMOS 中，LNA 增益很昂貴，所以許多雷達晶片把天線直接接到混頻器，接受較高的 NF。ADC 之後，對一個啁啾做 FFT 會把雜訊頻寬縮小到 #/Tc，再同調累加許多啁啾又多得 #·log(N) dB。偵測距離就是最終 SNR 降到約 # dB 的地方。",
+"# bits": "# 位元",
+"Signal (echo)": "訊號（回波）",
+"Noise": "雜訊",
+"Echo travelling through the chain": "在接收鏈中傳遞的回波",
+"Echo power at the antenna from the radar equation, falling as #/R⁴.": "由雷達方程式算出的天線端回波功率，按 #/R⁴ 下降。",
+"Received power": "接收功率",
+"Total receiver noise figure from Friis' formula.": "由 Friis 公式算出的接收器總雜訊指數。",
+"Noise figure": "雜訊指數",
+"Signal-to-noise ratio of the target in its FFT bin after integrating all chirps.": "累加所有啁啾後，目標在其 FFT 頻格中的訊雜比。",
+"Final SNR": "最終 SNR",
+"Range where the SNR drops to # dB for this target.": "此目標 SNR 降到 # dB 時的距離。",
+"Detection range": "偵測距離",
+"Pr = Pt·G²·λ²·σ / ((#π)³·R⁴): power that comes back from a target of cross-section σ.": "Pr = Pt·G²·λ²·σ / ((#π)³·R⁴)：截面積 σ 的目標反射回來的功率。",
+"Noise of later stages is divided by the gain in front of them.": "後級雜訊會被前面的增益除掉。",
+"LNA # % · Mixer # % · IF amp # % · ADC # % → NF # dB": "LNA # % · 混頻器 # % · IF 放大 # % · ADC # % → NF # dB",
+"Mixer # % · IF amp # % · ADC # % → NF # dB": "混頻器 # % · IF 放大 # % · ADC # % → NF # dB",
+"Thermal noise kT·B with B = #/Tc (one FFT bin), raised by the noise figure.": "熱雜訊 kT·B，B = #/Tc（一個 FFT 頻格），再加上雜訊指數。",
+"Noise per bin": "每頻格雜訊",
+"Adding N chirps coherently gains #·log(N) dB of SNR.": "同調累加 N 個啁啾可獲得 #·log(N) dB 的 SNR。",
+"Integration": "累加",
+"= -# − (-#) + # = # dB (detect above # dB)": "= -# − (-#) + # = # dB（高於 # dB 即偵測到）",
+"Detection range with your receiver (# dB SNR):": "你的接收器的偵測距離（SNR # dB）：",
+"Power at # m": "# m 處功率",
+"Beat freq there": "該處拍頻",
+"# MHz (beyond IF!)": "# MHz（超出 IF！）",
+"Motorbike": "機車",
+"Pedestrian": "行人",
+"Car": "汽車",
+"range R (m)": "距離 R（m）",
+"detection threshold # dB": "偵測門檻 # dB",
+"car": "汽車",
+"motorbike": "機車",
+"pedestrian": "行人",
+"% of total noise": "佔總雜訊 %",
+"Mixer": "混頻器",
+"IF amp": "IF 放大",
+"RX antenna": "接收天線",
+"IF filter + amp": "IF 濾波 + 放大",
+"LO #–# GHz chirp from the PLL": "LO：來自 PLL 的 #–# GHz 啁啾",
+"Car at # m (σ = # m²) → received -# dBm": "汽車在 # m（σ = # m²）→ 接收 -# dBm",
+"Motorbike at # m (σ = # m²) → received -# dBm": "機車在 # m（σ = # m²）→ 接收 -# dBm",
+"Pedestrian at # m (σ = # m²) → received -# dBm": "行人在 # m（σ = # m²）→ 接收 -# dBm",
+"Level diagram: signal and noise per FFT bin": "位準圖：每個 FFT 頻格的訊號與雜訊",
+"antenna": "天線",
+"SNR at the antenna # dB → lost # dB = total noise figure": "天線端 SNR # dB → 損失 # dB = 總雜訊指數",
+"signal": "訊號",
+"noise": "雜訊",
+"Mixer and IF filter": "混頻器與 IF 濾波器",
+"Multiplying the echo by the transmit chirp leaves the beat frequency": "把回波乘上發射啁啾，留下拍頻",
+"The mixer multiplies the received echo by the chirp being transmitted at that moment (the local oscillator, LO). The product of two cosines is a sum and a difference: cos a · cos b = ½cos(a − b) + ½cos(a + b). The sum is near # GHz and is filtered away; the difference is the beat frequency fb = #RS/c, a few MHz, which an ordinary ADC can sample. The IF filter does two more jobs. A low-pass filter (here # MHz) removes everything the ADC cannot handle; it sets the maximum range Rmax. A high-pass filter removes the strong low-frequency leakage from the transmitter and the bumper, and, because near targets have low fb and very strong echoes, its # dB/decade slope partly compensates the #/R⁴ path loss. Near and far targets then arrive at similar levels and fit in the ADC's dynamic range.": "混頻器把收到的回波乘上當下正在發射的啁啾（本地振盪器 LO）。兩個餘弦相乘會得到和頻與差頻：cos a · cos b = ½cos(a − b) + ½cos(a + b)。和頻接近 # GHz，會被濾掉；差頻就是拍頻 fb = #RS/c，只有幾 MHz，一般的 ADC 就能取樣。IF 濾波器還有兩個任務。低通濾波器（這裡是 # MHz）去除 ADC 處理不了的部分，它決定了最大距離 Rmax。高通濾波器去除來自發射端與保險桿的強烈低頻洩漏；而且因為近距離目標的 fb 低、回波又非常強，它每十倍頻 # dB 的斜率可以部分補償 #/R⁴ 的路徑損耗。這樣近、遠目標到達時強度接近，都能放進 ADC 的動態範圍。",
+"LO chirp": "LO 啁啾",
+"Echo": "回波",
+"IF beat signal": "IF 拍頻訊號",
+"fb = #·R·S/c: the difference frequency left after the mixer.": "fb = #·R·S/c：混頻後留下的差頻。",
+"Beat frequency": "拍頻",
+"Combined high-pass and low-pass filter gain at the beat frequency.": "高通與低通濾波器在拍頻處的合成增益。",
+"High-pass": "高通",
+"Suppresses close, strong echoes and leakage; # dB/decade below the corner.": "壓制近距離的強回波與洩漏；轉角以下每十倍頻 # dB。",
+"Low-pass": "低通",
+"Anti-alias filter; its corner sets the maximum range.": "抗混疊濾波器；其轉角決定最大距離。",
+"Product of two cosines: a sum and a difference frequency.": "兩個餘弦的乘積：和頻與差頻。",
+"Mixing": "混頻",
+"difference = fb = # MHz, sum ≈ # GHz (filtered)": "差頻 = fb = # MHz，和頻 ≈ # GHz（已濾除）",
+"High-pass × low-pass response of the IF chain.": "IF 鏈的高通 × 低通響應。",
+"IF filter": "IF 濾波器",
+"at fb: -# dB · echo power ∝ #/R⁴ ∝ #/fb⁴ (−# dB/dec) vs HP +# dB/dec": "在 fb：-# dB · 回波功率 ∝ #/R⁴ ∝ #/fb⁴（−# dB/dec），高通 +# dB/dec",
+"at fb: # dB · echo power ∝ #/R⁴ ∝ #/fb⁴ (−# dB/dec) vs HP +# dB/dec": "在 fb：# dB · 回波功率 ∝ #/R⁴ ∝ #/fb⁴（−# dB/dec），高通 +# dB/dec",
+"— IF filter gain": "— IF 濾波器增益",
+"- - echo power ∝ #/fb⁴": "- - 回波功率 ∝ #/fb⁴",
+"— echo after the filter": "— 濾波後的回波",
+"frequency (Hz)": "頻率（Hz）",
+"# MHz low-pass → Rmax # m": "# MHz 低通 → Rmax # m",
+"SAR analog-to-digital converter": "SAR 類比數位轉換器",
+"A binary search with a capacitor DAC and one comparator": "用電容 DAC 和一個比較器做二分搜尋",
+"A successive-approximation (SAR) ADC finds the digital code with a binary search. It samples the input on a capacitor array, then tries the most significant bit: the capacitive DAC produces half of Vref and the comparator asks whether the input is above it. If yes the bit stays #, if not it is cleared. Then it tries the next bit, halving the remaining window each time, so N bits take N comparisons. SAR ADCs are small and very power-efficient, which is why radar chips use them, typically # bits at #–# MS/s per receive channel. Each bit adds about # dB of dynamic range: SQNR = #·N + # dB. A radar needs that range because a car at # m and a pedestrian at # m differ by # dB or more in echo power; the IF high-pass filter reduces the gap so that # bits are enough.": "逐次逼近（SAR）ADC 用二分搜尋找出數位碼。它先把輸入取樣到電容陣列上，再試最高位元：電容式 DAC 產生 Vref 的一半，比較器判斷輸入是否高於它。是的話該位元保持 #，否則清除。接著試下一個位元，每次把剩下的區間減半，所以 N 位元需要 N 次比較。SAR ADC 體積小、非常省電，所以雷達晶片採用它，通常每個接收通道 # 位元、#–# MS/s。每多一位元，動態範圍多約 # dB：SQNR = #·N + # dB。雷達需要這樣的範圍，因為 # m 外的汽車和 # m 外的行人，回波功率相差 # dB 以上；IF 高通濾波器把差距縮小，所以 # 位元就夠用。",
+"Bit being tried": "正在試的位元",
+"Bits kept (#)": "保留的位元（#）",
+"Trial level rejected": "被否決的試驗電壓",
+"Digital output word of the ADC.": "ADC 的數位輸出字。",
+"Smallest step: Vref / #^N.": "最小步階：Vref / #^N。",
+"Signal-to-quantisation-noise ratio of an ideal N-bit converter.": "理想 N 位元轉換器的訊號對量化雜訊比。",
+"A SAR needs one comparison per bit.": "SAR 每個位元需要一次比較。",
+"Steps": "步數",
+"Successive approximation: binary search for the code.": "逐次逼近：用二分搜尋找數位碼。",
+"for k = N−# … #: try bk = #, keep it if Vin ≥ VDAC": "k = N−# … #：試 bk = #，若 Vin ≥ VDAC 則保留",
+"= # dB for N = #": "= # dB（N = #）",
+"Ratio between the strongest and weakest echo the radar must handle.": "雷達必須同時處理的最強與最弱回波之比。",
+"Dynamic range": "動態範圍",
+"car at # m vs pedestrian at # m: Δ = #·log(#/#) + #·log(#/#)": "# m 的汽車對 # m 的行人：Δ = #·log(#/#) + #·log(#/#)",
+"= # + # = # dB before the IF high-pass → needs ≈ # bits, fewer with the filter": "= # + # = # dB（IF 高通之前）→ 約需 # 位元，有濾波器可以更少",
+"Resolution and what it buys:": "解析度與它帶來的效益：",
+"cheap sensors": "低成本感測器",
+"short-range radar": "短距雷達",
+"automotive radar": "車用雷達",
+"high-end radar, audio": "高階雷達、音訊",
+"precision audio": "精密音訊",
+"comparison step": "比較步驟",
+"DAC trial level (V)": "DAC 試驗電壓（V）",
+"— DAC level each step": "— 每步的 DAC 電壓",
+"bits N": "位元數 N",
+"radar dynamic range ≈ # dB": "雷達動態範圍 ≈ # dB",
+"LO (TX chirp)": "LO（發射啁啾）",
+"echo (delayed copy)": "回波（延遲的複本）",
+"mixer output = LO × echo": "混頻器輸出 = LO × 回波",
+"IF after the low-pass filter: fb = # MHz": "低通濾波後的 IF：fb = # MHz",
+"delay τ = 2R/c = # ns (drawn much larger)": "延遲 τ = 2R/c = # ns（圖中大幅放大）",
+"sum frequency (≈ # GHz) is removed by the filter; only the difference fb survives": "和頻（≈ # GHz）被濾波器去除，只留下差頻 fb",
+"#-bit SAR ADC · Vref = # V · input # V": "# 位元 SAR ADC · Vref = # V · 輸入 # V",
+"sample": "取樣",
+"capacitive DAC (binary-weighted)": "電容式 DAC（二進位加權）",
+"bits MSB → LSB (SAR register)": "位元 MSB → LSB（SAR 暫存器）",
+"done": "完成",
+"Vin ≥ # V → keep 1": "Vin ≥ # V → 保留 1",
+"Vin < # V → clear to 0": "Vin < # V → 清為 0",
+"code = #b = #": "碼 = #b = #",
+"= # V (LSB = # mV)": "= # V（LSB = # mV）",
+"quantisation error # mV < 1 LSB": "量化誤差 # mV < 1 LSB",
+"quantisation error -# mV < 1 LSB": "量化誤差 -# mV < 1 LSB",
+"step # of #: try bit #": "第 # 步（共 # 步）：試位元 #",
+"one comparison per bit: N clock cycles per sample": "每位元一次比較：每次取樣需 N 個時脈週期",
+"Binary search: the window halves each step": "二分搜尋：每一步區間減半",
+"bar = remaining window · line = trial level": "長條 = 剩餘區間 · 橫線 = 試驗電壓"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -2719,6 +2908,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-pn" aria-selected="false" aria-controls="tab-pn">PN junction & MOS cap</button>
         <button role="tab" id="tab-btn-lk" aria-selected="false" aria-controls="tab-lk">Leakage & FinFET</button>
         <button role="tab" id="tab-btn-mm" aria-selected="false" aria-controls="tab-mm">Memory (SRAM · DRAM · Flash)</button>
+        <button role="tab" id="tab-btn-rx" aria-selected="false" aria-controls="tab-rx">Radar receiver (LNA · mixer · ADC)</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -4328,6 +4518,139 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Endurance</dt><dd>Number of program/erase cycles before the cell becomes unreliable.</dd>
               <dt>ECC</dt><dd>Error-correcting code that repairs bits whose Vth drifted across a read reference.</dd>
               <dt>3D NAND</dt><dd>Cells stacked in 100–300 layers around vertical channels.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== RADAR RECEIVER TAB ===================== -->
+  <section id="tab-rx" role="tabpanel" aria-labelledby="tab-btn-rx" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="rx-pill">RX</span><h2 id="rx-name">Receiver chain and noise</h2></div>
+      <p id="rx-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="rx-view" role="group" aria-label="Receiver view" style="flex-wrap:wrap">
+        <button data-v="chain" aria-pressed="true">Chain &amp; noise</button>
+        <button data-v="mix" aria-pressed="false">Mixer &amp; IF filter</button>
+        <button data-v="adc" aria-pressed="false">SAR ADC</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvrx" aria-label="Animated radar receiver: block diagram with level diagram, mixer waveforms or SAR ADC binary search"></canvas>
+      <div class="legend" id="rx-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="rx-ro"></div>
+        <div id="rx-c-R" style="display:grid;gap:12px">
+          <div class="chips">
+            <div class="seg" id="rx-tgt" role="group" aria-label="Target">
+              <button data-t="car" aria-pressed="true">Car 10 m²</button>
+              <button data-t="moto" aria-pressed="false">Motorbike 3 m²</button>
+              <button data-t="ped" aria-pressed="false">Pedestrian 0.5 m²</button>
+            </div>
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Distance to the target. The echo power falls as 1/R⁴ and the beat frequency rises as R.">Target range R</span><span id="rx-R-v"></span></div>
+            <input id="rx-R" type="range" min="2" max="400" step="1" value="80">
+          </div>
+        </div>
+        <div id="rx-c-chain" style="display:grid;gap:12px">
+          <label class="chk"><input type="checkbox" id="rx-nolna"> No LNA (antenna straight into the mixer, common in CMOS radar)</label>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Gain of the low-noise amplifier. More gain hides the noise of the stages behind it.">LNA gain</span><span id="rx-lnaG-v"></span></div>
+            <input id="rx-lnaG" type="range" min="0" max="25" step="1" value="15">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Noise figure of the LNA: how many dB it worsens the SNR. It adds almost directly to the total.">LNA noise figure</span><span id="rx-lnaNF-v"></span></div>
+            <input id="rx-lnaNF" type="range" min="2" max="10" step="0.5" value="5">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Noise figure of the mixer. Without an LNA it is the first stage and dominates.">Mixer noise figure</span><span id="rx-mixNF-v"></span></div>
+            <input id="rx-mixNF" type="range" min="6" max="18" step="0.5" value="12">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Gain of the IF filter and amplifier before the ADC.">IF gain</span><span id="rx-ifG-v"></span></div>
+            <input id="rx-ifG" type="range" min="0" max="50" step="1" value="30">
+          </div>
+        </div>
+        <div id="rx-c-mix" hidden style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Corner of the IF high-pass filter. It removes transmitter leakage and evens out near and far echoes.">High-pass corner</span><span id="rx-fhp-v"></span></div>
+            <input id="rx-fhp" type="range" min="50" max="3000" step="50" value="500">
+          </div>
+        </div>
+        <div id="rx-c-adc" hidden style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Resolution of the ADC. Each extra bit halves the step size and adds about 6 dB of dynamic range.">Resolution N</span><span id="rx-N-v"></span></div>
+            <input id="rx-N" type="range" min="3" max="12" step="1" value="8">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Analog input voltage being converted (0 to Vref = 1 V).">Input voltage Vin</span><span id="rx-vin-v"></span></div>
+            <input id="rx-vin" type="range" min="0" max="0.999" step="0.001" value="0.62">
+          </div>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="rx-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Performance</p>
+        <div class="plots">
+          <div class="plot"><svg id="rx-p1" viewBox="0 0 300 230" role="img" aria-label="SNR versus range, IF filter response or SAR steps"></svg></div>
+          <div class="plot"><svg id="rx-p2" viewBox="0 0 220 230" role="img" aria-label="Noise contributions, beat frequency versus range or SQNR versus bits"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="rx-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: radar equation, noise figure, Friis, LNA, mixer, IF, ADC, SQNR</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>The receive path, step by step</h3>
+            <ol>
+              <li><b>Antenna</b>: collects the echo, often less than a picowatt.</li>
+              <li><b>LNA</b>: amplifies it while adding as little noise as possible (optional at 77 GHz in CMOS).</li>
+              <li><b>Mixer</b>: multiplies it by the transmit chirp (LO) and produces the beat frequency fb, a few MHz.</li>
+              <li><b>IF filter and amplifier</b>: high-pass for leakage and near/far balance, low-pass against aliasing.</li>
+              <li><b>ADC</b>: samples the beat signal, typically 12 bits at 20–50 MS/s.</li>
+              <li><b>FFT and detection</b>: each target becomes a peak; peaks above the noise by about 13 dB count as detections.</li>
+            </ol>
+            <p id="rx-g-head">Detection range with your receiver:</p>
+            <div class="tbl" id="rx-g-live"></div>
+            <p class="note">The radar now has two range limits: the IF bandwidth (fb must stay below 20 MHz, see the radar tab) and the echo power (SNR must stay above the threshold). The shorter of the two wins.</p>
+          </div>
+          <div>
+            <h3>Receiver terms</h3>
+            <dl>
+              <dt>Radar equation</dt><dd>Pr = Pt·G²·λ²·σ/((4π)³R⁴): echo power for a target with radar cross-section σ.</dd>
+              <dt>RCS σ</dt><dd>Radar cross-section: how big a target looks to the radar (car ≈ 10 m², pedestrian ≈ 0.5 m²).</dd>
+              <dt>kT</dt><dd>Thermal noise power density: −174 dBm per Hz at room temperature.</dd>
+              <dt>Noise figure NF</dt><dd>How many dB a stage worsens the signal-to-noise ratio.</dd>
+              <dt>Friis formula</dt><dd>Total noise factor; later stages count less because of the gain in front of them.</dd>
+              <dt>LNA</dt><dd>Low-noise amplifier: first gain stage, sets most of the noise figure.</dd>
+              <dt>LO</dt><dd>Local oscillator: the chirp from the PLL, used to mix the echo down.</dd>
+              <dt>IF</dt><dd>Intermediate frequency: the beat signal after the mixer.</dd>
+              <dt>Processing gain</dt><dd>SNR gained by the FFT (noise bandwidth 1/Tc) and by adding chirps coherently.</dd>
+            </dl>
+            <h3>ADC terms</h3>
+            <dl>
+              <dt>SAR</dt><dd>Successive approximation register: finds the code by binary search.</dd>
+              <dt>Capacitive DAC</dt><dd>Binary-weighted capacitors that produce each trial voltage.</dd>
+              <dt>Comparator</dt><dd>Decides whether the input is above or below the trial level.</dd>
+              <dt>LSB</dt><dd>Least significant bit: the smallest step, Vref/2^N.</dd>
+              <dt>SQNR / ENOB</dt><dd>Quantisation-limited SNR, 6.02N + 1.76 dB; ENOB is the effective number of bits including real noise.</dd>
+              <dt>Sample rate</dt><dd>Must be at least twice the highest beat frequency (Nyquist).</dd>
             </dl>
           </div>
         </div>
@@ -9286,11 +9609,293 @@ $("mm-write1").addEventListener("click", () => { MM.vcell = DR_VDD; updateMM(); 
 $("mm-prog").addEventListener("click", () => { MM.erasing = false; MM.prog = true; MM.pulses = 0; MM.eraseT = 0; updateMM(); });
 $("mm-erase").addEventListener("click", () => { MM.prog = false; MM.erasing = true; MM.pulses = 0; updateMM(); });
 
+/* =========================================================
+   TAB — 77 GHz radar receiver: noise chain, mixer + IF filter, SAR ADC
+   ========================================================= */
+const RXC = setupCanvas($("cvrx"), 1000, 488);
+const RX = {view:"chain", t:0, R:80, tgt:"car", lnaG:15, lnaNF:5, mixNF:12, ifG:30, noLna:false,
+  fhp:500, sarN:8, vin:0.62, sarT:0, sarStep:0};
+const RX_TGT = {car:{name:"Car", s:10}, moto:{name:"Motorbike", s:3}, ped:{name:"Pedestrian", s:0.5}};
+const RX_PT = 12, RX_GA = 20, RX_LAM = 3.9e-3, RX_TC = 40e-6, RX_NC = 128, RX_S = 25e12, RX_FIF = 20e6;   // dBm, dBi, m, s, chirps, Hz/s, Hz
+const db = x => 10*Math.log10(x), lin = d => 10**(d/10);
+
+/* ---------------- noise chain ---------------- */
+function rxStages(){
+  const st = [];
+  if (!RX.noLna) st.push({name:"LNA", g:RX.lnaG, nf:RX.lnaNF});
+  st.push({name:"Mixer", g:5, nf:RX.mixNF}, {name:"IF amp", g:RX.ifG, nf:15}, {name:"ADC", g:0, nf:30});
+  let F = 0, Gc = 1; const contrib = [];
+  st.forEach((s, i) => { const add = i === 0 ? lin(s.nf) : (lin(s.nf) - 1)/Gc; contrib.push(add); F += add; Gc *= lin(s.g); });
+  return {st, F, NF: db(F), contrib};
+}
+function rxPr(R, sig){ return RX_PT + 2*RX_GA + 20*Math.log10(RX_LAM) + db(sig) - 30*Math.log10(4*Math.PI) - 40*Math.log10(R); }   // dBm
+function rxSNR(R, sig, NF){ return rxPr(R, sig) - (-174 + NF + db(1/RX_TC)) + db(RX_NC); }
+const rxRmax = (sig, NF) => { const s100 = rxSNR(100, sig, NF); return 100*10**((s100 - 13)/40); };
+
+/* ---------------- IF filter ---------------- */
+const rxFb = R => 2*R*RX_S/3e8;
+function rxH(f){ const hp = (f/(RX.fhp*1e3))**2, lp = (f/RX_FIF)**4; return Math.sqrt(hp*hp/(1 + hp*hp))/Math.sqrt(1 + lp*lp); }  // 2nd-order HP, 4th-order LP (magnitude)
+
+/* ---------------- SAR ---------------- */
+function sarRun(vin = RX.vin, N = RX.sarN){
+  let lo = 0, hi = 1, code = 0; const steps = [];
+  for (let k=N-1;k>=0;k--){ const trial = code + 2**k, v = trial/2**N, keep = vin >= v; steps.push({k, trial, v, keep, lo, hi}); if (keep){ code = trial; lo = v; } else hi = v; }
+  return {code, steps};
+}
+
+function rxTick(dt){
+  RX.t += dt;
+  if (RX.view === "adc"){ RX.sarT += dt*(reduce ? 0.6 : 1.4); if (RX.sarT >= RX.sarN + 2.5){ RX.sarT = 0; } RX.sarStep = Math.floor(RX.sarT); }
+}
+
+/* ---------------- drawing: chain ---------------- */
+function rxBlock(x, y, w, h, t1, t2, col){
+  ctx.fillStyle = C.panel; ctx.fillRect(x, y, w, h); ctx.strokeStyle = col || C.fg; ctx.lineWidth = 1.6; ctx.strokeRect(x + .5, y + .5, w - 1, h - 1);
+  txt(t1, x + w/2, y + h/2 - (t2 ? 8 : 0), {al:"center", col:C.fg, w:700, px:12}); if (t2) txt(t2, x + w/2, y + h/2 + 10, {al:"center", col:C.accent, w:600, px:10});
+}
+function drawRXchain(dt, T){
+  const C2 = rxStages(), sig = RX_TGT[RX.tgt].s, pr = rxPr(RX.R, sig);
+  // antenna + blocks
+  const y = 70, h = 56, xs = [], names = C2.st.map(s => s.name);
+  let x = 120;
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 2; pl([[60, y + 28],[60, y - 8]]); pl([[44, y - 8],[60, y + 16],[76, y - 8]]);
+  txt("RX antenna", 60, y + 48, {al:"center", px:10, col:C.fg});
+  wire([[60, y + 28],[x, y + 28]]);
+  C2.st.forEach((s, i) => {
+    const w = s.name === "IF amp" ? 140 : 120;
+    rxBlock(x, y, w, h, s.name === "IF amp" ? "IF filter + amp" : s.name, `G ${s.g} dB · NF ${s.nf} dB`, s.name === "LNA" ? C.accent : null);
+    xs.push(x + w/2);
+    if (i < C2.st.length - 1) wire([[x + w, y + 28],[x + w + 50, y + 28]]);
+    x += w + 50;
+  });
+  const mi = names.indexOf("Mixer"), mx = xs[mi];
+  wire([[mx, y + h],[mx, y + h + 40]]); txt("LO 76–81 GHz chirp from the PLL", mx, y + h + 54, {al:"center", col:C.accent, px:10, w:600});
+  txt(`${RX_TGT[RX.tgt].name} at ${RX.R} m (σ = ${sig} m²) → received ${pr.toFixed(1)} dBm`, 30, 30, {col:C.fg, w:700, px:12});
+  // echo packets travelling through the chain
+  for (let k=0;k<6;k++){ const p = ((T*0.35 + k/6) % 1), px = 60 + p*(x - 110); dot(px, y + 28, C.electron, false, 1 - p*0.3, 3.2); }
+  // level diagram (per FFT bin, after coherent integration)
+  const ox = 30, oy = 216, w = 940, hh = 250; panel(ox, oy, w, hh, "Level diagram: signal and noise per FFT bin");
+  const nIn = -174 + db(1/RX_TC);                                        // thermal noise per bin at the input
+  let s = pr, nTot = lin(nIn), g = 0; const pts = [{x:"antenna", s, n: nIn}];
+  C2.st.forEach((st, i) => { nTot = (nTot*1 + lin(nIn)*(lin(st.nf) - 1))*lin(st.g); s += st.g; g += st.g; pts.push({x: st.name, s, n: db(nTot)}); });
+  const vmax = Math.max(...pts.map(p => p.s)) + 10, vmin = Math.min(...pts.map(p => p.n)) - 10;
+  const X = i => ox + 90 + i*(w - 130)/(pts.length - 1), Y = v => oy + hh - 30 - (v - vmin)/(vmax - vmin)*(hh - 70);
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; for (let v = Math.ceil(vmin/20)*20; v <= vmax; v += 20){ pl([[ox + 80, Y(v)],[ox + w - 20, Y(v)]]); txt(`${v} dBm`, ox + 74, Y(v), {al:"right", px:10}); }
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2.6; pl(pts.map((p, i) => [X(i), Y(p.s)])); ctx.strokeStyle = C.hole; pl(pts.map((p, i) => [X(i), Y(p.n)]));
+  pts.forEach((p, i) => { dot(X(i), Y(p.s), C.accent, false, 1, 4); dot(X(i), Y(p.n), C.hole, false, 1, 4); txt(p.x === "IF amp" ? "IF amp" : p.x, X(i), oy + hh - 14, {al:"center", px:10, col:C.fg, w:600}); });
+  const last = pts[pts.length - 1], snr0 = pts[0].s - pts[0].n, snr1 = last.s - last.n;
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.4; pl([[X(pts.length - 1) + 14, Y(last.s)],[X(pts.length - 1) + 14, Y(last.n)]]);
+  txt(`SNR ${snr1.toFixed(1)} dB`, X(pts.length - 1) + 8, (Y(last.s) + Y(last.n))/2, {al:"right", col:C.fg, w:700, px:12});
+  txt(`SNR at the antenna ${snr0.toFixed(1)} dB → lost ${(snr0 - snr1).toFixed(1)} dB = total noise figure`, ox + 90, oy + 38, {px:11, col:C.fg, w:600});
+  txt("signal", X(0) + 12, Y(pts[0].s) - 12, {col:C.accent, w:700, px:11}); txt("noise", X(0) + 12, Y(pts[0].n) + 14, {col:C.hole, w:700, px:11});
+}
+
+/* ---------------- drawing: mixer ---------------- */
+function drawRXmix(dt, T){
+  const fb = rxFb(RX.R), tau = clamp(RX.R/200*0.08, 0.003, 0.08), k = 120, f0 = 30, ph = T*0.5;
+  const phi = t => 2*Math.PI*(f0*t + 0.5*k*t*t) + ph;
+  const lanes = [
+    {name:"LO (TX chirp)", col:C.accent, f:t => Math.cos(phi(t))},
+    {name:"echo (delayed copy)", col:C.electron, f:t => 0.8*Math.cos(phi(t - tau))},
+    {name:"mixer output = LO × echo", col:C.fg, f:t => Math.cos(phi(t))*Math.cos(phi(t - tau))*1.6},
+    {name:`IF after the low-pass filter: fb = ${(fb/1e6).toFixed(2)} MHz`, col:C.hole, f:t => 0.8*Math.cos(phi(t) - phi(t - tau))*rxH(fb)/Math.max(rxH(fb), 1e-3)}
+  ];
+  const ox = 30, w = 940, lh = 104;
+  lanes.forEach((L, i) => {
+    const y0 = 20 + i*(lh + 12); panel(ox, y0, w, lh, L.name);
+    const yc = y0 + lh/2 + 8;
+    ctx.strokeStyle = C.line; ctx.lineWidth = 1; pl([[ox + 10, yc],[ox + w - 10, yc]]);
+    ctx.strokeStyle = L.col; ctx.lineWidth = 1.6; ctx.beginPath();
+    for (let j=0;j<=1400;j++){ const t = j/1400, xx = ox + 10 + t*(w - 20), v = L.f(t); j ? ctx.lineTo(xx, yc - v*34) : ctx.moveTo(xx, yc - v*34); }
+    ctx.stroke();
+  });
+  txt(`delay τ = 2R/c = ${(2*RX.R/3e8*1e9).toFixed(0)} ns (drawn much larger)`, ox + w - 14, 36, {al:"right", px:10});
+  txt("sum frequency (≈ 154 GHz) is removed by the filter; only the difference fb survives", ox + w - 14, 20 + 3*(lh + 12) + 16, {al:"right", px:10});
+}
+
+/* ---------------- drawing: SAR ADC ---------------- */
+function drawRXadc(dt, T){
+  const N = RX.sarN, S = sarRun(), step = Math.min(RX.sarStep, N), done = RX.sarStep >= N;
+  let code = 0; for (let i=0;i<step;i++) if (S.steps[i].keep) code = S.steps[i].trial;
+  const cur = S.steps[Math.min(step, N - 1)];
+  ctx.fillStyle = C.panel2; ctx.fillRect(8, 8, 560, 472);
+  txt(`${N}-bit SAR ADC · Vref = 1 V · input ${f2(RX.vin)} V`, 24, 30, {col:C.fg, w:700, px:13});
+  // sample-and-hold
+  wire([[30, 120],[90, 120]]); txt("Vin", 30, 104, {col:C.accent, w:700, px:12});
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 2; pl([[90, 120],[120, 108]]); ndot(90, 120); ndot(124, 120); wire([[124, 120],[160, 120]]);
+  txt("sample", 105, 96, {al:"center", px:10});
+  // capacitive DAC (binary weighted)
+  const bx = 160, by = 160; txt("capacitive DAC (binary-weighted)", bx, by + 166, {px:11, col:C.fg, w:600});
+  for (let i=0;i<N;i++){
+    const kbit = N - 1 - i, wgt = 2**kbit, hgt = 10 + 70*Math.log2(wgt + 1)/Math.log2(2**(N - 1) + 1), x = bx + i*(330/N);
+    const isTrial = !done && i === step, on = i < step ? S.steps[i].keep : isTrial;
+    ctx.fillStyle = isTrial ? C.accent : on ? C.electron : C.line; ctx.globalAlpha = on || isTrial ? 0.85 : 0.6; ctx.fillRect(x, by + 90 - hgt, 330/N - 6, hgt); ctx.globalAlpha = 1;
+    txt(`${wgt}C`, x + (330/N - 6)/2, by + 104, {al:"center", px:9, col:C.fg});
+    txt(i < step || done ? (S.steps[i].keep ? "1" : "0") : isTrial ? "?" : "·", x + (330/N - 6)/2, by + 124, {al:"center", px:13, col: isTrial ? C.accent : C.fg, w:700});
+  }
+  txt("bits MSB → LSB (SAR register)", bx, by + 146, {px:10});
+  // comparator
+  const cx = 420, cy = 120; ctx.strokeStyle = C.fg; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(cx, cy - 30); ctx.lineTo(cx + 60, cy); ctx.lineTo(cx, cy + 30); ctx.closePath(); ctx.stroke();
+  txt("+", cx + 8, cy - 14, {px:12, col:C.fg, w:700}); txt("−", cx + 8, cy + 14, {px:12, col:C.fg, w:700});
+  wire([[160, 120],[160, 106],[cx, 106]]); wire([[bx + 165, by],[bx + 165, cy + 14],[cx, cy + 14]]);
+  wire([[cx + 60, cy],[cx + 100, cy]]);
+  txt(done ? "done" : `Vin ${cur.keep ? "≥" : "<"} ${f2(cur.v)} V → ${cur.keep ? "keep 1" : "clear to 0"}`, cx + 30, cy + 50, {al:"center", col: done ? C.channel : cur.keep ? C.electron : C.hole, w:700, px:11});
+  txt(`code = ${(done ? S.code : code).toString(2).padStart(N, "0")}b = ${done ? S.code : code}`, 24, 360, {col:C.fg, w:700, px:14});
+  txt(`= ${((done ? S.code : code)/2**N).toFixed(4)} V (LSB = ${(1000/2**N).toFixed(2)} mV)`, 24, 384, {col:C.fg, w:600, px:12});
+  txt(done ? `quantisation error ${((RX.vin - S.code/2**N)*1000).toFixed(2)} mV < 1 LSB` : `step ${step + 1} of ${N}: try bit ${N - 1 - step}`, 24, 410, {col:C.accent, w:600, px:12});
+  txt("one comparison per bit: N clock cycles per sample", 24, 440, {px:10});
+  // binary search on a number line
+  const ox = 580, oy = 8, w = 412, h = 472; panel(ox, oy, w, h, "Binary search: the window halves each step");
+  const Y = v => oy + 440 - v*390, xl = ox + 60;
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 2; pl([[xl, Y(0)],[xl, Y(1)]]);
+  for (let v = 0; v <= 1.0001; v += 0.25) txt(`${v.toFixed(2)} V`, xl - 8, Y(v), {al:"right", px:10});
+  S.steps.forEach((s, i) => {
+    if (i > step) return;
+    const xx = xl + 30 + i*Math.min(38, 320/N);
+    ctx.fillStyle = i === step && !done ? C.accent : C.electron; ctx.globalAlpha = i === step && !done ? 0.45 : 0.22; ctx.fillRect(xx - 8, Y(s.hi), 16, Y(s.lo) - Y(s.hi)); ctx.globalAlpha = 1;
+    ctx.strokeStyle = s.keep ? C.electron : C.hole; ctx.lineWidth = 2; pl([[xx - 11, Y(s.v)],[xx + 11, Y(s.v)]]);
+    txt(`${N - 1 - i}`, xx, Y(0) + 14, {al:"center", px:9});
+  });
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2; ctx.setLineDash([5,4]); pl([[xl, Y(RX.vin)],[ox + w - 12, Y(RX.vin)]]); ctx.setLineDash([]);
+  txt("Vin", ox + w - 14, Y(RX.vin) - 8, {al:"right", col:C.accent, w:700, px:11});
+  txt("bar = remaining window · line = trial level", xl, oy + 462, {px:10});
+}
+function drawRX(dt, T){ begin(RXC); ({chain: drawRXchain, mix: drawRXmix, adc: drawRXadc})[RX.view](dt, T); }
+
+/* ---------------- DOM ---------------- */
+const RXINFO = {
+  chain:{pill:"RX", name:"Receiver chain and noise", sub:"How weak the echo is, and how much each stage adds to the noise",
+    text:"The echo that comes back is tiny: the radar equation says the received power falls as 1/R⁴ (out and back), so a car at 100 m returns about 10⁻¹³ W. The receiver has to amplify it without burying it in noise. Every resistor and transistor adds thermal noise; the noise figure NF says by how many dB a stage worsens the signal-to-noise ratio. Friis' formula shows that the first stage dominates: F = F1 + (F2 − 1)/G1 + (F3 − 1)/(G1·G2) + … A low-noise amplifier (LNA) with gain shields the noisy mixer and ADC behind it. At 77 GHz in CMOS, LNA gain is expensive, so many radar chips connect the antenna straight to the mixer and accept a higher NF. After the ADC, an FFT over one chirp narrows the noise bandwidth to 1/Tc, and adding many chirps coherently gains another 10·log(N) dB. The detection range is where the final SNR drops to about 13 dB."},
+  mix:{pill:"MIX", name:"Mixer and IF filter", sub:"Multiplying the echo by the transmit chirp leaves the beat frequency",
+    text:"The mixer multiplies the received echo by the chirp being transmitted at that moment (the local oscillator, LO). The product of two cosines is a sum and a difference: cos a · cos b = ½cos(a − b) + ½cos(a + b). The sum is near 154 GHz and is filtered away; the difference is the beat frequency fb = 2RS/c, a few MHz, which an ordinary ADC can sample. The IF filter does two more jobs. A low-pass filter (here 20 MHz) removes everything the ADC cannot handle; it sets the maximum range Rmax. A high-pass filter removes the strong low-frequency leakage from the transmitter and the bumper, and, because near targets have low fb and very strong echoes, its 40 dB/decade slope partly compensates the 1/R⁴ path loss. Near and far targets then arrive at similar levels and fit in the ADC's dynamic range."},
+  adc:{pill:"ADC", name:"SAR analog-to-digital converter", sub:"A binary search with a capacitor DAC and one comparator",
+    text:"A successive-approximation (SAR) ADC finds the digital code with a binary search. It samples the input on a capacitor array, then tries the most significant bit: the capacitive DAC produces half of Vref and the comparator asks whether the input is above it. If yes the bit stays 1, if not it is cleared. Then it tries the next bit, halving the remaining window each time, so N bits take N comparisons. SAR ADCs are small and very power-efficient, which is why radar chips use them, typically 12 bits at 20–50 MS/s per receive channel. Each bit adds about 6 dB of dynamic range: SQNR = 6.02·N + 1.76 dB. A radar needs that range because a car at 5 m and a pedestrian at 150 m differ by 60 dB or more in echo power; the IF high-pass filter reduces the gap so that 12 bits are enough."}
+};
+Object.assign(TIP, {
+  "Received power":"Echo power at the antenna from the radar equation, falling as 1/R⁴.",
+  "Noise figure":"Total receiver noise figure from Friis' formula.",
+  "Final SNR":"Signal-to-noise ratio of the target in its FFT bin after integrating all chirps.",
+  "Detection range":"Range where the SNR drops to 13 dB for this target.",
+  "Radar equation":"Pr = Pt·G²·λ²·σ / ((4π)³·R⁴): power that comes back from a target of cross-section σ.",
+  "Friis":"Noise of later stages is divided by the gain in front of them.",
+  "Noise per bin":"Thermal noise kT·B with B = 1/Tc (one FFT bin), raised by the noise figure.",
+  "Integration":"Adding N chirps coherently gains 10·log(N) dB of SNR.",
+  "Beat frequency":"fb = 2·R·S/c: the difference frequency left after the mixer.",
+  "IF gain":"Combined high-pass and low-pass filter gain at the beat frequency.",
+  "High-pass":"Suppresses close, strong echoes and leakage; 40 dB/decade below the corner.",
+  "Low-pass":"Anti-alias filter; its corner sets the maximum range.",
+  "Mixing":"Product of two cosines: a sum and a difference frequency.",
+  "IF filter":"High-pass × low-pass response of the IF chain.",
+  "Code":"Digital output word of the ADC.",
+  "LSB":"Smallest step: Vref / 2^N.",
+  "SQNR":"Signal-to-quantisation-noise ratio of an ideal N-bit converter.",
+  "Steps":"A SAR needs one comparison per bit.",
+  "SAR":"Successive approximation: binary search for the code.",
+  "Dynamic range":"Ratio between the strongest and weakest echo the radar must handle."
+});
+const RXLEG = {
+  chain:[["accent","Signal (echo)"],["hole","Noise"],["electron","Echo travelling through the chain"]],
+  mix:[["accent","LO chirp"],["electron","Echo"],["hole","IF beat signal"]],
+  adc:[["accent","Bit being tried"],["electron","Bits kept (1)"],["hole","Trial level rejected"]]
+};
+let rxGlossKey = "";
+function updateRX(){
+  const v = RX.view, info = RXINFO[v], C2 = rxStages(), sig = RX_TGT[RX.tgt].s;
+  $("rx-pill").textContent = info.pill; $("rx-name").textContent = info.name; $("rx-sub").textContent = info.sub; $("rx-explain").textContent = info.text;
+  document.querySelectorAll("#rx-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  document.querySelectorAll("#rx-tgt button").forEach(b => b.setAttribute("aria-pressed", b.dataset.t === RX.tgt));
+  $("rx-c-chain").hidden = v !== "chain"; $("rx-c-mix").hidden = v !== "mix"; $("rx-c-adc").hidden = v !== "adc"; $("rx-c-R").hidden = v === "adc";
+  $("rx-R-v").textContent = `${RX.R} m`; $("rx-lnaG-v").textContent = `${RX.lnaG} dB`; $("rx-lnaNF-v").textContent = `${RX.lnaNF} dB`; $("rx-mixNF-v").textContent = `${RX.mixNF} dB`; $("rx-ifG-v").textContent = `${RX.ifG} dB`;
+  $("rx-fhp-v").textContent = `${RX.fhp} kHz`; $("rx-N-v").textContent = `${RX.sarN} bits`; $("rx-vin-v").textContent = `${RX.vin.toFixed(3)} V`;
+  setHTML("rx-legend", RXLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  const ro = [], rows = [];
+  if (v === "chain"){
+    const pr = rxPr(RX.R, sig), snr = rxSNR(RX.R, sig, C2.NF), rm = rxRmax(sig, C2.NF);
+    ro.push(["Received power", `${pr.toFixed(1)} dBm`], ["Noise figure", `${C2.NF.toFixed(1)} dB`], ["Final SNR", `${snr.toFixed(1)} dB`], ["Detection range", `${rm.toFixed(0)} m`]);
+    rows.push({name:"Radar equation", f:"Pr = Pt + 2G + 20·log λ + 10·log σ − 30·log 4π − 40·log R", sub:`= ${RX_PT} + ${2*RX_GA} − 48.2 + ${db(sig).toFixed(1)} − 33.0 − ${(40*Math.log10(RX.R)).toFixed(1)} = ${pr.toFixed(1)} dBm`});
+    rows.push({name:"Friis", f:"F = F1 + (F2 − 1)/G1 + (F3 − 1)/(G1·G2) + …", sub:C2.st.map((s, i) => `${s.name} ${db(C2.F) ? (C2.contrib[i]/C2.F*100).toFixed(0) : 0} %`).join(" · ") + ` → NF ${C2.NF.toFixed(1)} dB`});
+    rows.push({name:"Noise per bin", f:"N = −174 dBm/Hz + NF + 10·log(1/Tc)", sub:`= −174 + ${C2.NF.toFixed(1)} + ${db(1/RX_TC).toFixed(1)} = ${(-174 + C2.NF + db(1/RX_TC)).toFixed(1)} dBm`});
+    rows.push({name:"Integration", f:"SNR = Pr − N + 10·log(Nc)", sub:`= ${pr.toFixed(1)} − (${(-174 + C2.NF + db(1/RX_TC)).toFixed(1)}) + ${db(RX_NC).toFixed(1)} = ${snr.toFixed(1)} dB (detect above 13 dB)`});
+  } else if (v === "mix"){
+    const fb = rxFb(RX.R), H = db(rxH(fb)**2);
+    ro.push(["Beat frequency", `${(fb/1e6).toFixed(2)} MHz`], ["IF gain", `${H.toFixed(1)} dB`], ["High-pass", `${RX.fhp} kHz`], ["Low-pass", "20 MHz"]);
+    rows.push({name:"Mixing", f:"cos(ωLO·t) · cos(ωRX·t) = ½cos((ωLO − ωRX)t) + ½cos((ωLO + ωRX)t)", sub:`difference = fb = ${(fb/1e6).toFixed(2)} MHz, sum ≈ 154 GHz (filtered)`});
+    rows.push({name:"Beat frequency", f:"fb = 2·R·S / c,  S = 25 MHz/µs", sub:`R = ${RX.R} m → ${(fb/1e6).toFixed(2)} MHz`});
+    rows.push({name:"IF filter", f:"|H| = HP(f) · LP(f),  HP: (f/fhp)² / √(1 + (f/fhp)⁴)", sub:`at fb: ${H.toFixed(1)} dB · echo power ∝ 1/R⁴ ∝ 1/fb⁴ (−40 dB/dec) vs HP +40 dB/dec`});
+  } else {
+    const S = sarRun(), sq = 6.02*RX.sarN + 1.76;
+    ro.push(["Code", `${S.code}`], ["LSB", `${(1000/2**RX.sarN).toFixed(2)} mV`], ["SQNR", `${sq.toFixed(1)} dB`], ["Steps", `${RX.sarN}`]);
+    rows.push({name:"SAR", f:"for k = N−1 … 0: try bk = 1, keep it if Vin ≥ VDAC", sub:`Vin = ${RX.vin.toFixed(3)} V → code ${S.code} = ${S.code.toString(2).padStart(RX.sarN, "0")}b`});
+    rows.push({name:"LSB", f:"LSB = Vref / 2^N", sub:`= 1 V / ${2**RX.sarN} = ${(1000/2**RX.sarN).toFixed(3)} mV`});
+    rows.push({name:"SQNR", f:"SQNR = 6.02·N + 1.76 dB", sub:`= ${sq.toFixed(1)} dB for N = ${RX.sarN}`});
+    rows.push({name:"Dynamic range", f:"car at 5 m vs pedestrian at 150 m: Δ = 10·log(10/0.5) + 40·log(150/5)", sub:`= 13 + 59 = 72 dB before the IF high-pass → needs ≈ ${Math.ceil((72 + 13 - 1.76)/6.02)} bits, fewer with the filter`});
+  }
+  renderRo($("rx-ro"), ro); renderEq($("rx-eq"), rows);
+  updateRXGloss(); drawRXPlots();
+}
+function updateRXGloss(){
+  const key = [RX.view, RX.lnaG, RX.lnaNF, RX.mixNF, RX.ifG, RX.noLna, RX.fhp, RX.sarN].join("|"); if (key === rxGlossKey) return; rxGlossKey = key;
+  const C2 = rxStages();
+  let h, t;
+  if (RX.view === "adc"){
+    h = "Resolution and what it buys:";
+    t = `<table><tr><th>Bits</th><th>LSB (1 V)</th><th>SQNR</th><th>Typical use</th></tr>` + [[8,"cheap sensors"],[10,"short-range radar"],[12,"automotive radar"],[14,"high-end radar, audio"],[16,"precision audio"]].map(([n, u]) => `<tr${n === RX.sarN ? ' style="font-weight:700"' : ""}><td>${n}</td><td>${(1000/2**n).toFixed(3)} mV</td><td>${(6.02*n + 1.76).toFixed(1)} dB</td><td>${u}</td></tr>`).join("") + `</table>`;
+  } else {
+    h = "Detection range with your receiver (13 dB SNR):";
+    t = `<table><tr><th>Target</th><th>σ</th><th>Power at 100 m</th><th>Detection range</th><th>Beat freq there</th></tr>` + Object.entries(RX_TGT).map(([k, q]) => { const rm = rxRmax(q.s, C2.NF); return `<tr${k === RX.tgt ? ' style="font-weight:700"' : ""}><td>${q.name}</td><td>${q.s} m²</td><td>${rxPr(100, q.s).toFixed(1)} dBm</td><td>${rm.toFixed(0)} m</td><td>${(rxFb(rm)/1e6).toFixed(1)} MHz${rxFb(rm) > RX_FIF ? " (beyond IF!)" : ""}</td></tr>`; }).join("") + `</table>`;
+  }
+  $("rx-g-head").textContent = h; $("rx-g-live").innerHTML = t;
+}
+function drawRXPlots(){
+  let a = "", b = "";
+  const C2 = rxStages();
+  if (RX.view === "chain"){
+    const Rs = range(5, 400, 120), cols = {car:"var(--accent)", moto:"var(--electron)", ped:"var(--hole)"};
+    const A = axesR(300, 230, {l:34,r:10,t:28,b:30}, 5, 400, -10, 70, 100, 10, "range R (m)", "SNR (dB)");
+    a = A.s + `<line x1="${A.X(5)}" x2="${A.X(400)}" y1="${A.Y(13)}" y2="${A.Y(13)}" stroke="var(--fg)" stroke-dasharray="3 3"/><text x="${A.X(395)}" y="${A.Y(13) - 4}" text-anchor="end">detection threshold 13 dB</text>`;
+    Object.entries(RX_TGT).forEach(([k, q]) => a += `<path d="${pathOf(Rs.map(R => [R, clamp(rxSNR(R, q.s, C2.NF), -10, 70)]), A.X, A.Y)}" fill="none" stroke="${cols[k]}" stroke-width="${k === RX.tgt ? 2.6 : 1.4}"/>`);
+    a += A.frame + dotSvg(A.X(RX.R), A.Y(clamp(rxSNR(RX.R, RX_TGT[RX.tgt].s, C2.NF), -10, 70))) + `<text x="40" y="12" style="fill:var(--accent)">car</text><text x="66" y="12" style="fill:var(--electron)">motorbike</text><text x="124" y="12" style="fill:var(--hole)">pedestrian</text>`;
+    const tot = C2.contrib.reduce((s, x) => s + x, 0), B = axesR(220, 230, {l:34,r:8,t:28,b:30}, 0, C2.st.length, 0, 100, 5, 25, "", "% of total noise");
+    b = B.s; C2.st.forEach((s, i) => { const p = C2.contrib[i]/tot*100, x = B.X(i + 0.15), w = B.X(i + 0.85) - x; b += `<rect x="${x}" y="${B.Y(p)}" width="${w}" height="${B.Y(0) - B.Y(p)}" fill="${i === 0 ? "var(--accent)" : "var(--hole)"}"/><text x="${x + w/2}" y="${B.Y(0) + 14}" text-anchor="middle">${s.name}</text><text x="${x + w/2}" y="${B.Y(p) - 4}" text-anchor="middle">${p.toFixed(0)}%</text>`; });
+    b += B.frame;
+  } else if (RX.view === "mix"){
+    const fs = Array.from({length:120}, (_, i) => 10**(4 + 4*i/119)), lx = f => 34 + (Math.log10(f) - 4)/4*256, ly = d => 200 - (clamp(d, -80, 10) + 80)/90*172;
+    a = `<text x="40" y="12" style="fill:var(--accent)">— IF filter gain</text><text x="140" y="12" style="fill:var(--electron)">- - echo power ∝ 1/fb⁴</text><text x="40" y="24" style="fill:var(--hole)">— echo after the filter</text>`;
+    for (let d = -80; d <= 10; d += 20) a += `<line x1="34" x2="290" y1="${ly(d)}" y2="${ly(d)}" stroke="var(--line)"/><text x="30" y="${ly(d) + 3}" text-anchor="end">${d}</text>`;
+    ["10k","100k","1M","10M","100M"].forEach((s, i) => a += `<text x="${lx(10**(4 + i))}" y="214" text-anchor="middle">${s}</text>`);
+    a += `<text x="160" y="228" text-anchor="middle">frequency (Hz)</text>`;
+    const ref = rxFb(200), echo = f => -40*Math.log10(f/ref) - 30;
+    a += `<path d="${fs.map((f, i) => (i ? "L" : "M") + lx(f).toFixed(1) + " " + ly(db(rxH(f)**2)).toFixed(1)).join("")}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+    a += `<path d="${fs.map((f, i) => (i ? "L" : "M") + lx(f).toFixed(1) + " " + ly(echo(f)).toFixed(1)).join("")}" fill="none" stroke="var(--electron)" stroke-width="1.6" stroke-dasharray="5 3"/>`;
+    a += `<path d="${fs.map((f, i) => (i ? "L" : "M") + lx(f).toFixed(1) + " " + ly(echo(f) + db(rxH(f)**2)).toFixed(1)).join("")}" fill="none" stroke="var(--hole)" stroke-width="2"/>`;
+    a += `<line x1="34" x2="34" y1="28" y2="200" stroke="var(--muted)"/><line x1="34" x2="290" y1="200" y2="200" stroke="var(--muted)"/>` + dotSvg(lx(rxFb(RX.R)), ly(db(rxH(rxFb(RX.R))**2)));
+    const Rs = range(1, 200, 100), B = axesR(220, 230, {l:34,r:8,t:28,b:30}, 0, 200, 0, 34, 50, 5, "range R (m)", "fb (MHz)");
+    b = B.s + `<path d="${pathOf(Rs.map(R => [R, rxFb(R)/1e6]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/><line x1="${B.X(0)}" x2="${B.X(200)}" y1="${B.Y(20)}" y2="${B.Y(20)}" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${B.X(4)}" y="${B.Y(20) - 4}" style="fill:var(--hole)">20 MHz low-pass → Rmax 120 m</text>`;
+    b += B.frame + dotSvg(B.X(RX.R), B.Y(rxFb(RX.R)/1e6));
+  } else {
+    const S = sarRun(), N = RX.sarN, A = axesR(300, 230, {l:34,r:10,t:28,b:30}, 0, N, 0, 1, Math.max(1, Math.round(N/4)), 0.25, "comparison step", "DAC trial level (V)");
+    let pth = "", code = 0; S.steps.forEach((s, i) => { pth += (i ? "L" : "M") + A.X(i) + " " + A.Y(s.v) + "L" + A.X(i + 1) + " " + A.Y(s.v); });
+    a = A.s + `<line x1="${A.X(0)}" x2="${A.X(N)}" y1="${A.Y(RX.vin)}" y2="${A.Y(RX.vin)}" stroke="var(--accent)" stroke-dasharray="4 3"/><path d="${pth}" fill="none" stroke="var(--electron)" stroke-width="2.2"/>`;
+    S.steps.forEach((s, i) => a += `<circle cx="${A.X(i + 0.5)}" cy="${A.Y(s.v)}" r="3.5" fill="${s.keep ? "var(--electron)" : "var(--hole)"}"/>`);
+    a += A.frame + `<text x="40" y="12" style="fill:var(--electron)">— DAC level each step</text><text x="160" y="12" style="fill:var(--accent)">- - Vin</text>`;
+    const B = axesR(220, 230, {l:34,r:8,t:28,b:30}, 4, 16, 0, 100, 4, 20, "bits N", "SQNR (dB)");
+    b = B.s + `<path d="${pathOf(range(4, 16, 24).map(n => [n, 6.02*n + 1.76]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/><line x1="${B.X(4)}" x2="${B.X(16)}" y1="${B.Y(72)}" y2="${B.Y(72)}" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${B.X(4.2)}" y="${B.Y(72) - 4}" style="fill:var(--hole)">radar dynamic range ≈ 72 dB</text>`;
+    b += B.frame + dotSvg(B.X(N), B.Y(6.02*N + 1.76));
+  }
+  $("rx-p1").innerHTML = a; $("rx-p2").innerHTML = b;
+}
+document.querySelectorAll("#rx-view button").forEach(b => b.addEventListener("click", () => { RX.view = b.dataset.v; RX.sarT = 0; updateRX(); }));
+document.querySelectorAll("#rx-tgt button").forEach(b => b.addEventListener("click", () => { RX.tgt = b.dataset.t; updateRX(); }));
+[["rx-R","R"],["rx-lnaG","lnaG"],["rx-lnaNF","lnaNF"],["rx-mixNF","mixNF"],["rx-ifG","ifG"],["rx-fhp","fhp"],["rx-N","sarN"],["rx-vin","vin"]].forEach(([id, k]) => $(id).addEventListener("input", e => { RX[k] = +e.target.value; if (k === "sarN" || k === "vin") RX.sarT = 0; updateRX(); }));
+$("rx-nolna").addEventListener("change", e => { RX.noLna = e.target.checked; updateRX(); });
+let rxUpd = 0;
+function rxTickAll(dt){ rxTick(dt); if (RX.view === "adc" && ++rxUpd % 10 === 0) updateRX(); }
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver"};
 function showTab(t){
   zoomClose();
   tab = t;
@@ -9306,6 +9911,7 @@ function showTab(t){
   else if (t === "pn"){ $("sub-top").textContent = "PN junction and MOS capacitor · silicon at 300 K · ni = 1e10 cm⁻³"; PNC.resize(); updatePN(); }
   else if (t === "lk"){ $("sub-top").textContent = "Leakage and 3D transistors · VDD = 0.8 V · EOT 1 nm"; LKC.resize(); updateLK(); }
   else if (t === "mm"){ $("sub-top").textContent = "Memory cells · SRAM, DRAM and flash built from MOSFETs"; MMC.resize(); updateMM(); }
+  else if (t === "rx"){ $("sub-top").textContent = "77 GHz radar receiver · noise, mixing and analog-to-digital conversion"; RXC.resize(); updateRX(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -9323,6 +9929,7 @@ function frame(now){
   else if (tab === "pn"){ pnTick(dt); if (PNC.cv.clientWidth) drawPNtab(dt, T); }
   else if (tab === "lk"){ lkTick(dt); if (LKC.cv.clientWidth) drawLK(dt, T); }
   else if (tab === "mm"){ mmTickAll(dt); if (MMC.cv.clientWidth) drawMM(dt, T); }
+  else if (tab === "rx"){ rxTickAll(dt); if (RXC.cv.clientWidth) drawRX(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
