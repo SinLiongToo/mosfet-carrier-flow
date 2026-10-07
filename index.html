@@ -4001,6 +4001,326 @@ Object.assign(window.I18N_ZH, {
 "Hollow metal pipe, # × # mm inside, that carries #–# GHz in the TE# mode with very low loss.": "內徑 {0} × {1} mm 的中空金屬管，以 TE{4} 模態低損耗傳送 {2}–{3} GHz。",
 "# of #": "{0}（要求 {1}）"
 });
+Object.assign(window.I18N_ZH, {
+"Foreign material (particle) drop": "異物（微粒）掉落",
+"line resistance": "線電阻",
+"A particle lands on the metal film before litho and shadows the line": "微粒在微影前落在金屬膜上，遮住了線路",
+"The narrowed line still conducts: resistance only slightly higher, test passes": "變窄的線路仍可導通：電阻只略高，測試通過",
+"High current density at the neck: electromigration opens the line": "頸縮處電流密度高：電遷移把線路燒斷",
+"A particle falls on the wafer during deposition or litho; the line under it is patterned narrower or thinner.": "沉積或微影時有微粒掉到晶圓上，下方的線路被做得更窄或更薄。",
+"The neck still carries the current; the line resistance rises by only a few per cent, well inside the limits.": "頸縮處仍能承載電流；線電阻只增加幾個百分比，遠在規格內。",
+"The current density in the neck is much higher, so electromigration and heating thin it further until it opens.": "頸縮處的電流密度高很多，電遷移與發熱使它越來越薄，最後斷開。",
+"Clean tools and wafer carriers, particle monitors on every tool, inline defect inspection with SEM review.": "保持機台與晶圓載具潔淨，每台機台做微粒監控，線上缺陷檢測搭配 SEM 複查。",
+"Burn-in, at-speed and Vmin tests, GDBN around defect clusters.": "預燒、實速與 Vmin 測試，在缺陷群聚周圍做 GDBN。",
+"line resistance / limit": "線電阻 / 規格",
+"<b>Foreign material (particle) drop</b>: A particle falls on the wafer during deposition or litho; the line under it is patterned narrower or thinner.": "<b>異物（微粒）掉落</b>：沉積或微影時有微粒掉到晶圓上，下方的線路被做得更窄或更薄。",
+"<b>Why it passes the test</b>: The neck still carries the current; the line resistance rises by only a few per cent, well inside the limits.": "<b>為什麼能通過測試</b>：頸縮處仍能承載電流；線電阻只增加幾個百分比，遠在規格內。",
+"<b>How it fails in the field</b>: The current density in the neck is much higher, so electromigration and heating thin it further until it opens.": "<b>在使用中如何失效</b>：頸縮處的電流密度高很多，電遷移與發熱使它越來越薄，最後斷開。",
+"<b>Prevent and detect in the fab</b>: Clean tools and wafer carriers, particle monitors on every tool, inline defect inspection with SEM review.": "<b>在晶圓廠如何預防與偵測</b>：保持機台與晶圓載具潔淨，每台機台做微粒監控，線上缺陷檢測搭配 SEM 複查。",
+"<b>Screen at test</b>: Burn-in, at-speed and Vmin tests, GDBN around defect clusters.": "<b>測試時如何篩選</b>：預燒、實速與 Vmin 測試，在缺陷群聚周圍做 GDBN。",
+"Gate-oxide thin spot": "閘極氧化層薄點",
+"gate leakage": "閘極漏電",
+"Contamination or a particle during oxidation leaves a locally thinner gate oxide": "氧化時的汙染或微粒讓閘極氧化層局部變薄",
+"Leakage through the thin spot is still below the IDDQ limit": "薄點的漏電仍低於 IDDQ 規格",
+"Traps build up under the electric field (TDDB) until the oxide breaks down": "電場下陷阱逐漸累積（TDDB），直到氧化層崩潰",
+"Metal contamination, a particle or surface roughness slows the oxide growth in one spot.": "金屬汙染、微粒或表面粗糙讓某一點的氧化層長得較慢。",
+"A few angstroms thinner still insulates: the extra leakage hides below the IDDQ limit.": "薄了幾埃仍能絕緣：多出來的漏電藏在 IDDQ 規格之下。",
+"The field across the thin spot is higher, so traps form faster (TDDB) until a conductive path shorts gate and channel.": "薄點承受的電場較高，陷阱生成更快（TDDB），直到形成導通路徑，讓閘極與通道短路。",
+"Pre-oxidation cleans, low-defect oxidation, gate-oxide integrity (GOI) and TDDB test structures on PCM.": "氧化前清洗、低缺陷氧化製程、PCM 上的閘氧完整性（GOI）與 TDDB 測試結構。",
+"High-voltage stress test (HVST), burn-in, IDDQ and PAT.": "高壓應力測試（HVST）、預燒、IDDQ 與 PAT。",
+"gate leakage / limit": "閘極漏電 / 規格",
+"<b>Gate-oxide thin spot</b>: Metal contamination, a particle or surface roughness slows the oxide growth in one spot.": "<b>閘極氧化層薄點</b>：金屬汙染、微粒或表面粗糙讓某一點的氧化層長得較慢。",
+"<b>Why it passes the test</b>: A few angstroms thinner still insulates: the extra leakage hides below the IDDQ limit.": "<b>為什麼能通過測試</b>：薄了幾埃仍能絕緣：多出來的漏電藏在 IDDQ 規格之下。",
+"<b>How it fails in the field</b>: The field across the thin spot is higher, so traps form faster (TDDB) until a conductive path shorts gate and channel.": "<b>在使用中如何失效</b>：薄點承受的電場較高，陷阱生成更快（TDDB），直到形成導通路徑，讓閘極與通道短路。",
+"<b>Prevent and detect in the fab</b>: Pre-oxidation cleans, low-defect oxidation, gate-oxide integrity (GOI) and TDDB test structures on PCM.": "<b>在晶圓廠如何預防與偵測</b>：氧化前清洗、低缺陷氧化製程、PCM 上的閘氧完整性（GOI）與 TDDB 測試結構。",
+"<b>Screen at test</b>: High-voltage stress test (HVST), burn-in, IDDQ and PAT.": "<b>測試時如何篩選</b>：高壓應力測試（HVST）、預燒、IDDQ 與 PAT。",
+"Via void / partial fill": "導孔空洞 / 填充不完全",
+"via resistance": "導孔電阻",
+"Copper plating leaves a void at the bottom of the via": "電鍍銅時在導孔底部留下空洞",
+"The remaining contact area carries the current: via resistance is still in spec": "剩下的接觸面積仍能導電：導孔電阻仍在規格內",
+"Stress migration and electromigration grow the void until the via opens": "應力遷移與電遷移讓空洞長大，直到導孔斷開",
+"Poor barrier/seed coverage or plating chemistry leaves a void at the bottom of a copper via.": "阻障層 / 晶種層覆蓋不良或電鍍化學條件不佳，在銅導孔底部留下空洞。",
+"The copper around the void still connects the two metal layers; the resistance is only somewhat higher.": "空洞周圍的銅仍連接上下兩層金屬；電阻只是稍高。",
+"Vacancies collect at the void under stress and current, and it grows until the via opens.": "在應力與電流作用下，空位聚集到空洞，使它長大直到導孔斷開。",
+"Barrier and seed coverage control, plating bath control, via-chain monitors on PCM, inline SEM.": "控制阻障層與晶種層覆蓋、電鍍槽管控、PCM 上的導孔鏈監控、線上 SEM。",
+"Burn-in, delay and at-speed tests; via-chain resistance on PCM.": "預燒、延遲與實速測試；PCM 上的導孔鏈電阻。",
+"via resistance / limit": "導孔電阻 / 規格",
+"<b>Via void / partial fill</b>: Poor barrier/seed coverage or plating chemistry leaves a void at the bottom of a copper via.": "<b>導孔空洞 / 填充不完全</b>：阻障層 / 晶種層覆蓋不良或電鍍化學條件不佳，在銅導孔底部留下空洞。",
+"<b>Why it passes the test</b>: The copper around the void still connects the two metal layers; the resistance is only somewhat higher.": "<b>為什麼能通過測試</b>：空洞周圍的銅仍連接上下兩層金屬；電阻只是稍高。",
+"<b>How it fails in the field</b>: Vacancies collect at the void under stress and current, and it grows until the via opens.": "<b>在使用中如何失效</b>：在應力與電流作用下，空位聚集到空洞，使它長大直到導孔斷開。",
+"<b>Prevent and detect in the fab</b>: Barrier and seed coverage control, plating bath control, via-chain monitors on PCM, inline SEM.": "<b>在晶圓廠如何預防與偵測</b>：控制阻障層與晶種層覆蓋、電鍍槽管控、PCM 上的導孔鏈監控、線上 SEM。",
+"<b>Screen at test</b>: Burn-in, delay and at-speed tests; via-chain resistance on PCM.": "<b>測試時如何篩選</b>：預燒、延遲與實速測試；PCM 上的導孔鏈電阻。",
+"Etch residue (stringer)": "蝕刻殘留（stringer）",
+"line-to-line leakage": "線間漏電",
+"Incomplete etch leaves a thin metal sliver almost bridging two lines": "蝕刻不完全，留下幾乎連接兩條線的金屬細條",
+"A gap of a few nanometres remains: leakage is tiny, test passes": "仍有幾奈米的間隙：漏電極小，測試通過",
+"Voltage, heat and moisture let copper migrate across the gap until the lines short": "電壓、熱與濕氣讓銅遷移跨過間隙，直到兩線短路",
+"An etch that stops a little early, or redeposited material, leaves a thin stringer between two lines.": "蝕刻稍早停止或材料再沉積，在兩條線之間留下細長殘留。",
+"It does not quite touch the next line: only a tiny leakage flows across the remaining gap.": "它還沒碰到另一條線：跨過剩下間隙的漏電非常小。",
+"Under bias, heat and moisture, metal ions migrate and grow a filament across the gap until the lines short.": "在偏壓、高溫與濕氣下，金屬離子遷移並長出細絲跨過間隙，最後兩線短路。",
+"Over-etch margin, post-etch cleans, inline inspection for residues.": "足夠的過蝕刻餘裕、蝕刻後清洗、線上檢測殘留。",
+"IDDQ, HVST, burn-in and PAT.": "IDDQ、HVST、預燒與 PAT。",
+"line-to-line leakage / limit": "線間漏電 / 規格",
+"<b>Etch residue (stringer)</b>: An etch that stops a little early, or redeposited material, leaves a thin stringer between two lines.": "<b>蝕刻殘留（stringer）</b>：蝕刻稍早停止或材料再沉積，在兩條線之間留下細長殘留。",
+"<b>Why it passes the test</b>: It does not quite touch the next line: only a tiny leakage flows across the remaining gap.": "<b>為什麼能通過測試</b>：它還沒碰到另一條線：跨過剩下間隙的漏電非常小。",
+"<b>How it fails in the field</b>: Under bias, heat and moisture, metal ions migrate and grow a filament across the gap until the lines short.": "<b>在使用中如何失效</b>：在偏壓、高溫與濕氣下，金屬離子遷移並長出細絲跨過間隙，最後兩線短路。",
+"<b>Prevent and detect in the fab</b>: Over-etch margin, post-etch cleans, inline inspection for residues.": "<b>在晶圓廠如何預防與偵測</b>：足夠的過蝕刻餘裕、蝕刻後清洗、線上檢測殘留。",
+"<b>Screen at test</b>: IDDQ, HVST, burn-in and PAT.": "<b>測試時如何篩選</b>：IDDQ、HVST、預燒與 PAT。",
+"CMP micro-scratch": "CMP 微刮傷",
+"A hard particle in the CMP slurry scratches the dielectric; the scratch fills with copper": "CMP 研磨液中的硬顆粒刮傷介電層；刮痕被銅填滿",
+"The copper filament does not touch the next line yet": "銅細條還沒碰到旁邊的線",
+"The thin dielectric between filament and line breaks down (BEOL TDDB)": "細條與線之間變薄的介電層崩潰（後段 TDDB）",
+"An agglomerated slurry particle or a pad debris drags across the wafer during CMP and cuts a groove.": "研磨液中的團聚顆粒或研磨墊碎屑在 CMP 時拖過晶圓，刮出溝槽。",
+"The next metal fills the groove with a copper sliver that comes close to a line but does not touch it.": "下一層金屬把溝槽填成銅細條，靠近某條線但沒有接觸。",
+"The narrowed dielectric gap sees a high field and breaks down over time, shorting the two lines.": "變窄的介電層間隙承受高電場，隨時間崩潰，使兩條線短路。",
+"Slurry filtration, pad conditioning, post-CMP cleans and inspection.": "研磨液過濾、研磨墊修整、CMP 後清洗與檢測。",
+"HVST and IDDQ, burn-in, GDBN along the scratch.": "HVST 與 IDDQ、預燒、沿刮痕做 GDBN。",
+"<b>CMP micro-scratch</b>: An agglomerated slurry particle or a pad debris drags across the wafer during CMP and cuts a groove.": "<b>CMP 微刮傷</b>：研磨液中的團聚顆粒或研磨墊碎屑在 CMP 時拖過晶圓，刮出溝槽。",
+"<b>Why it passes the test</b>: The next metal fills the groove with a copper sliver that comes close to a line but does not touch it.": "<b>為什麼能通過測試</b>：下一層金屬把溝槽填成銅細條，靠近某條線但沒有接觸。",
+"<b>How it fails in the field</b>: The narrowed dielectric gap sees a high field and breaks down over time, shorting the two lines.": "<b>在使用中如何失效</b>：變窄的介電層間隙承受高電場，隨時間崩潰，使兩條線短路。",
+"<b>Prevent and detect in the fab</b>: Slurry filtration, pad conditioning, post-CMP cleans and inspection.": "<b>在晶圓廠如何預防與偵測</b>：研磨液過濾、研磨墊修整、CMP 後清洗與檢測。",
+"<b>Screen at test</b>: HVST and IDDQ, burn-in, GDBN along the scratch.": "<b>測試時如何篩選</b>：HVST 與 IDDQ、預燒、沿刮痕做 GDBN。",
+"Mobile-ion contamination (Na⁺, K⁺)": "可動離子汙染（Na⁺、K⁺）",
+"Vth shift": "Vth 偏移",
+"Sodium or potassium from a furnace, a chemical or handling ends up in the gate oxide": "來自爐管、化學品或人員操作的鈉、鉀進入閘極氧化層",
+"The ions sit far from the channel: Vth is still on target": "離子離通道很遠：Vth 仍在目標值",
+"Heat and gate bias drift the ions to the silicon interface: Vth shifts, leakage and delay grow": "高溫與閘極偏壓讓離子漂移到矽介面：Vth 偏移，漏電與延遲增加",
+"Alkali ions from contaminated furnaces, chemicals or handling get into the oxide.": "受汙染的爐管、化學品或操作把鹼金屬離子帶進氧化層。",
+"At first they sit near the gate, far from the channel, so the threshold voltage is still correct.": "一開始離子停在閘極附近、遠離通道，所以臨界電壓仍正確。",
+"At temperature and under bias the ions drift to the Si/SiO# interface and shift Vth, making transistors leaky or slow.": "在高溫與偏壓下，離子漂移到 Si/SiO2 介面，使 Vth 偏移，電晶體變得漏電或變慢。",
+"Clean furnaces and chemicals, TXRF and VPD-ICPMS monitoring, bias-temperature (BTS) C–V tests on monitor wafers.": "保持爐管與化學品潔淨、TXRF 與 VPD-ICPMS 監控、監控晶圓上的偏壓溫度（BTS）C–V 測試。",
+"High-temperature bake or burn-in, then retest Vth and IDDQ for drift.": "高溫烘烤或預燒後，重測 Vth 與 IDDQ 的漂移。",
+"Vth shift / limit": "Vth 偏移 / 規格",
+"<b>Mobile-ion contamination (Na⁺, K⁺)</b>: Alkali ions from contaminated furnaces, chemicals or handling get into the oxide.": "<b>可動離子汙染（Na⁺、K⁺）</b>：受汙染的爐管、化學品或操作把鹼金屬離子帶進氧化層。",
+"<b>Why it passes the test</b>: At first they sit near the gate, far from the channel, so the threshold voltage is still correct.": "<b>為什麼能通過測試</b>：一開始離子停在閘極附近、遠離通道，所以臨界電壓仍正確。",
+"<b>How it fails in the field</b>: At temperature and under bias the ions drift to the Si/SiO# interface and shift Vth, making transistors leaky or slow.": "<b>在使用中如何失效</b>：在高溫與偏壓下，離子漂移到 Si/SiO2 介面，使 Vth 偏移，電晶體變得漏電或變慢。",
+"<b>Prevent and detect in the fab</b>: Clean furnaces and chemicals, TXRF and VPD-ICPMS monitoring, bias-temperature (BTS) C–V tests on monitor wafers.": "<b>在晶圓廠如何預防與偵測</b>：保持爐管與化學品潔淨、TXRF 與 VPD-ICPMS 監控、監控晶圓上的偏壓溫度（BTS）C–V 測試。",
+"<b>Screen at test</b>: High-temperature bake or burn-in, then retest Vth and IDDQ for drift.": "<b>測試時如何篩選</b>：高溫烘烤或預燒後，重測 Vth 與 IDDQ 的漂移。",
+"Plasma (antenna) damage": "電漿（天線）損傷",
+"gate leakage / ΔVth": "閘極漏電 / ΔVth",
+"During plasma etch a long metal line collects charge and pushes current through the gate oxide": "電漿蝕刻時，長金屬線收集電荷並把電流推過閘極氧化層",
+"The damage only adds traps: Vth and leakage barely change": "損傷只增加陷阱：Vth 與漏電幾乎不變",
+"Damaged oxide degrades faster under bias (NBTI, TDDB) and fails early": "受損的氧化層在偏壓下劣化更快（NBTI、TDDB），提早失效",
+"A long metal line connected to a gate acts as an antenna in the plasma and charges up.": "連接閘極的長金屬線在電漿中像天線一樣累積電荷。",
+"The tunnelling current creates some traps in the oxide, but Vth and leakage are still within the limits.": "穿隧電流在氧化層中產生一些陷阱，但 Vth 與漏電仍在規格內。",
+"The pre-damaged oxide wears out much faster under bias (NBTI and TDDB) and fails early.": "預先受損的氧化層在偏壓下老化快得多（NBTI 與 TDDB），提早失效。",
+"Antenna design rules, protection diodes, plasma-charging monitors.": "天線設計規則、保護二極體、電漿充電監控。",
+"Burn-in, HVST; antenna test structures on PCM.": "預燒、HVST；PCM 上的天線測試結構。",
+"gate leakage / ΔVth / limit": "閘極漏電 / ΔVth / 規格",
+"<b>Plasma (antenna) damage</b>: A long metal line connected to a gate acts as an antenna in the plasma and charges up.": "<b>電漿（天線）損傷</b>：連接閘極的長金屬線在電漿中像天線一樣累積電荷。",
+"<b>Why it passes the test</b>: The tunnelling current creates some traps in the oxide, but Vth and leakage are still within the limits.": "<b>為什麼能通過測試</b>：穿隧電流在氧化層中產生一些陷阱，但 Vth 與漏電仍在規格內。",
+"<b>How it fails in the field</b>: The pre-damaged oxide wears out much faster under bias (NBTI and TDDB) and fails early.": "<b>在使用中如何失效</b>：預先受損的氧化層在偏壓下老化快得多（NBTI 與 TDDB），提早失效。",
+"<b>Prevent and detect in the fab</b>: Antenna design rules, protection diodes, plasma-charging monitors.": "<b>在晶圓廠如何預防與偵測</b>：天線設計規則、保護二極體、電漿充電監控。",
+"<b>Screen at test</b>: Burn-in, HVST; antenna test structures on PCM.": "<b>測試時如何篩選</b>：預燒、HVST；PCM 上的天線測試結構。",
+"Latent defects from the fab": "晶圓製程中的潛在缺陷",
+"Foreign material, voids, thin oxide, residues, contamination: defects that pass the test today and fail in the field": "異物、空洞、薄氧化層、殘留、汙染：今天通過測試、日後在使用中失效的缺陷",
+"Choose a defect that can enter during wafer processing, pass the wafer test and fail later in the field.": "選擇一種在晶圓製程中產生、通過晶圓測試、之後在使用中失效的缺陷。",
+"Defect type": "缺陷種類",
+"Foreign material (particle)": "異物（微粒）",
+"Via void": "導孔空洞",
+"Mobile ions (Na⁺, K⁺)": "可動離子（Na⁺、K⁺）",
+"How much of the feature this die's defect has consumed: # = perfect, # = already broken. Shown in the animation and the drift plot.": "這顆晶粒的缺陷吃掉了結構的多少：# = 完好，# = 已經壞掉。用於動畫與漂移圖。",
+"Defect severity": "缺陷嚴重度",
+"Hours of burn-in at # °C before shipping. # = no burn-in.": "出貨前在 # °C 預燒的時數。# = 不預燒。",
+"Burn-in time": "預燒時間",
+"Supply voltage during burn-in, relative to the normal VDD. Higher voltage accelerates oxide and dielectric defects strongly.": "預燒時的電源電壓，相對於正常 VDD。電壓越高，氧化層與介電層缺陷加速得越明顯。",
+"Burn-in voltage": "預燒電壓",
+"Share of the dies that carry a latent defect of this type, in parts per million. Severities are spread from mild to almost broken.": "帶有這類潛在缺陷的晶粒比例（ppm）。嚴重度從輕微到幾乎壞掉平均分布。",
+"Latent defect density": "潛在缺陷密度",
+"off": "關閉",
+"Latent defect": "潛在缺陷",
+"A defect that passes every test at time zero and fails later under voltage, current, heat or moisture.": "在時間零點通過所有測試，之後在電壓、電流、高溫或濕氣下失效的缺陷。",
+"Infant mortality": "早夭期",
+"The early, falling part of the bathtub curve, caused mostly by latent defects.": "浴缸曲線早期下降的部分，主要由潛在缺陷造成。",
+"Burn-in": "預燒",
+"Running chips hot (≈ # °C) at raised voltage for hours so weak ones fail in the factory.": "讓晶片在高溫（≈ # °C）與提高的電壓下運作數小時，讓弱的晶片在工廠內就失效。",
+"Acceleration factor": "加速因子",
+"How many hours of normal use one hour of stress is worth: AF = AF_T · AF_V.": "一小時應力相當於多少小時的正常使用：AF = AF_T · AF_V。",
+"Time-dependent dielectric breakdown: traps build up in an oxide under field until it shorts.": "時間相依介電崩潰：氧化層在電場下累積陷阱，直到短路。",
+"Electromigration": "電遷移",
+"Copper atoms pushed by the electron current; a narrowed line or via thins further until it opens.": "銅原子被電子流推動；變窄的線或導孔會越來越薄，直到斷開。",
+"High-voltage stress test: a short overvoltage step that breaks weak oxides during test.": "高壓應力測試：在測試時短暫施加過電壓，讓脆弱的氧化層崩潰。",
+"Metal / copper": "金屬 / 銅",
+"Oxide / dielectric": "氧化層 / 介電層",
+"Silicon": "矽",
+"Defect, damage, failure": "缺陷、損傷、失效",
+"Current / electrons": "電流 / 電子",
+"How long this die would last in normal use (# °C, nominal VDD).": "這顆晶粒在正常使用下（# °C、標稱 VDD）能撐多久。",
+"How many hours of use one hour of burn-in is worth for this mechanism.": "對這個失效機制而言，一小時預燒相當於多少小時的使用。",
+"The field time that the whole burn-in is equivalent to.": "整段預燒相當於的使用時間。",
+"What happens to this die: caught in the factory or failing at the customer.": "這顆晶粒的結局：在工廠被攔截，或在客戶端失效。",
+"A more severe defect leaves less margin and fails sooner (simple power-law model).": "缺陷越嚴重，餘裕越小、越早失效（簡單冪次模型）。",
+"Arrhenius law: a hotter chip ages faster; Ea depends on the mechanism.": "阿瑞尼斯定律：晶片越熱老化越快；Ea 取決於失效機制。",
+"Oxide and dielectric wear-out grow exponentially with voltage; metal migration with current density.": "氧化層與介電層劣化隨電壓指數增加；金屬遷移則隨電流密度增加。",
+"A latent defect is caught if it fails within the burn-in's equivalent field time.": "潛在缺陷若在預燒等效的使用時間內失效，就會被攔截。",
+"Latent dies of this type that would fail in the customer's first year.": "這類潛在缺陷晶粒中，會在客戶端第一年失效的比例。",
+"Time to failure in use": "使用中的失效時間",
+"Burn-in acceleration": "預燒加速",
+"Burn-in = field use": "預燒 = 使用時間",
+"This die": "這顆晶粒",
+"< # h": "< # 小時",
+"fails at test": "測試即失效",
+"caught": "已攔截",
+"field failure": "使用中失效",
+"survives": "存活",
+"Defect weakening": "缺陷弱化",
+"Temperature acceleration": "溫度加速",
+"Voltage acceleration": "電壓加速",
+"Burn-in screen": "預燒篩選",
+"Field fallout": "使用中失效",
+"AF_V ≈ (V_bi/VDD)² through the current density": "AF_V ≈ (V_bi/VDD)²（經由電流密度）",
+"caught if TTF < t_bi·AF_T·AF_V": "TTF < t_bi·AF_T·AF_V 即被攔截",
+"first-year failures = p·P(t_e < TTF < t_e + # y)": "第一年失效 = p·P(t_e < TTF < t_e + # 年)",
+"Ea = # eV, # °C → # °C: AF_T = #": "Ea = # eV，# °C → # °C：AF_T = #",
+"β = #, #×VDD → AF_V = #": "β = #，#×VDD → AF_V = #",
+"no burn-in: every latent defect ships": "不預燒：所有潛在缺陷都會出貨",
+"# ppm latent: # ppm without burn-in → # ppm with burn-in": "潛在缺陷 # ppm：不預燒 # ppm → 有預燒 # ppm",
+"About this defect": "關於這個缺陷",
+"# · In the fab": "# · 在晶圓廠",
+"# · At the wafer test": "# · 晶圓測試時",
+"# · In the field": "# · 使用中",
+"Life of this die": "這顆晶粒的一生",
+"wafer test (t = #): pass": "晶圓測試（t = #）：通過",
+"all parameters inside the limits": "所有參數都在規格內",
+"fails at the wafer test": "晶圓測試即失效",
+"too damaged to pass even once": "損傷太嚴重，一開始就過不了",
+"burn-in # h, # °C, #×VDD": "預燒 # 小時，# °C，#×VDD",
+"no burn-in": "不預燒",
+"caught: fails in the factory": "攔截：在工廠內失效",
+"never reaches the customer": "不會到客戶手上",
+"an escape: a return from the customer": "漏網：客戶退貨",
+"outlives a #-year car life": "撐過 # 年的車輛壽命",
+"equivalent hours of use (log)": "等效使用時數（對數）",
+"burn-in": "預燒",
+"# d": "# 天",
+"# mo": "# 個月",
+"# y": "# 年",
+"fails": "失效",
+"ships": "出貨",
+"this defect in # ppm of the dies": "# ppm 的晶粒帶有這種缺陷",
+"first-year field failures:": "第一年使用中失效：",
+"# ppm without burn-in": "不預燒：# ppm",
+"# ppm with this burn-in": "這個預燒條件：# ppm",
+"burn-in removes # ppm in the factory": "預燒在工廠內移除 # ppm",
+"foreign particle": "異物微粒",
+"metal film deposited; a particle lands before litho": "金屬膜沉積完成；微影前有微粒掉落",
+"the particle shadowed the line during etch: a neck remains": "蝕刻時微粒遮住線路：留下頸縮",
+"the test only checks that the line conducts and the delay is in spec": "測試只確認線路導通、延遲在規格內",
+"OPEN: the line is cut": "斷路：線路被切斷",
+"the electron wind pushes copper atoms out of the neck": "電子風把銅原子推出頸縮處",
+"metal line (side view along the line)": "金屬線（沿線方向的側視圖）",
+"dielectric": "介電層",
+"silicon": "矽",
+"contamination": "汙染",
+"gate oxidation: the oxide grows more slowly at the contaminated spot": "閘極氧化：汙染處的氧化層長得較慢",
+"the gate is deposited on top": "上方沉積閘極",
+"gate": "閘極",
+"oxide # nm, thin spot # nm": "氧化層 # nm，薄點 # nm",
+"leakage through the thin spot is below the IDDQ limit → PASS": "薄點漏電低於 IDDQ 規格 → 通過",
+"the gate still controls the channel normally": "閘極仍能正常控制通道",
+"BREAKDOWN: gate shorted to the channel": "崩潰：閘極與通道短路",
+"traps pile up in the thin spot (TDDB)": "陷阱在薄點累積（TDDB）",
+"metal #": "金屬 #",
+"via": "導孔",
+"void": "空洞",
+"via hole etched through the dielectric": "在介電層中蝕刻出導孔",
+"copper plating fills the via but traps a void at the bottom": "電鍍銅填滿導孔，但底部留下空洞",
+"thousands of vias in the chip: one slightly high one is not noticed": "晶片中有數千個導孔：一個稍高的不會被發現",
+"OPEN: the void cut the via": "斷路：空洞切斷了導孔",
+"vacancies collect at the void: it grows with current and heat": "空位聚集到空洞：它隨電流與熱而長大",
+"metal etch through a resist mask": "透過光阻遮罩蝕刻金屬",
+"residue": "殘留",
+"the etch stopped a little early: a thin stringer remains": "蝕刻稍早停止：留下細長殘留",
+"gap ≈ # nm left: leakage of a few pA → PASS": "剩下約 # nm 間隙：漏電只有幾 pA → 通過",
+"moisture": "濕氣",
+"SHORT: the filament bridged the two lines": "短路：細絲連通了兩條線",
+"bias + heat + moisture: metal ions grow a filament across the gap": "偏壓 + 高溫 + 濕氣：金屬離子長出細絲跨過間隙",
+"line A": "線 A",
+"line B": "線 B",
+"CMP pad": "CMP 研磨墊",
+"a hard particle under the CMP pad scratches the dielectric": "CMP 研磨墊下的硬顆粒刮傷介電層",
+"the next metal layer fills the scratch with copper": "下一層金屬把刮痕填滿銅",
+"the copper sliver ends # nm from line B → PASS": "銅細條末端離線 B 只有 # nm → 通過",
+"no short and almost no leakage at time zero": "時間零點沒有短路、幾乎沒有漏電",
+"SHORT: the thin dielectric broke down": "短路：變薄的介電層崩潰",
+"high field across the narrowed gap: the dielectric wears out (BEOL TDDB)": "變窄間隙中的高電場：介電層逐漸劣化（後段 TDDB）",
+"scratch": "刮痕",
+"gate oxide": "閘極氧化層",
+"silicon (channel)": "矽（通道）",
+"Na⁺ / K⁺ from a furnace, chemical or handling enter the oxide": "來自爐管、化學品或操作的 Na⁺ / K⁺ 進入氧化層",
+"the ions sit near the gate, far from the channel: Vth on target → PASS": "離子停在閘極附近、遠離通道：Vth 正常 → 通過",
+"heat + bias drift the ions to the interface: ΔVth ≈ −# mV": "高溫 + 偏壓讓離子漂移到介面：ΔVth ≈ −# mV",
+"the transistor turns on too early: leakage and timing fail": "電晶體太早導通：漏電與時序失效",
+"Vth slowly moves out of its window": "Vth 慢慢偏離允許範圍",
+"long metal line = antenna": "長金屬線 = 天線",
+"plasma": "電漿",
+"the line collects plasma charge and drives current through the thin gate oxide": "金屬線收集電漿電荷，把電流推過薄閘極氧化層",
+"traps": "陷阱",
+"# traps: Vth +# mV, leakage slightly up → PASS": "# 個陷阱：Vth +# mV，漏電略增 → 通過",
+"BREAKDOWN of the damaged oxide": "受損氧化層崩潰",
+"the damaged oxide wears out faster under bias (NBTI, TDDB)": "受損氧化層在偏壓下劣化更快（NBTI、TDDB）",
+"neck # % of the line: resistance +# % → PASS": "頸縮處剩線寬的 # %：電阻 +# % → 通過",
+"via resistance +# %: still within the limit → PASS": "導孔電阻 +# %：仍在規格內 → 通過",
+"log# hours of use": "log# 使用時數",
+"log# failure rate (FIT)": "log# 失效率 (FIT)",
+"infant mortality": "早夭期",
+"useful life": "穩定期",
+"wear-out": "老化期",
+"-- no burn-in": "-- 不預燒",
+"— with burn-in": "— 有預燒",
+"test limit": "測試規格",
+"this die, s = #": "這顆晶粒，s = #",
+"Not every defect kills a die at once. A particle that lands on a metal film narrows a line instead of cutting it, contamination during oxidation leaves a thin spot instead of a hole, a copper via plates with a small void, an etch leaves a residue a few nanometres short of a short. These dies pass every test at time zero because their parameters are still inside the limits, but the defect is a weak point: current, voltage, temperature and moisture make it grow until the die fails in the field. Latent defects come from the same sources as killer defects, mainly particles and process excursions, so they scale with D# and cluster around failing dies. They cause the falling left side of the bathtub curve, called infant mortality. Burn-in removes them by running the chips hot (typically # °C) at raised voltage for hours. The stress speeds up the failure mechanism by an acceleration factor AF = AF_T·AF_V, so a few hours of burn-in equal months or years of use, and the weak dies fail in the factory instead of in the car. How much each stress helps depends on the mechanism: oxide and dielectric breakdown respond strongly to voltage, metal migration mainly to temperature and current. Because burn-in is expensive, fabs work hard to prevent these defects (clean tools, inline inspection, monitors on PCM), and test engineers add cheaper screens such as high-voltage stress, IDDQ, PAT and GDBN.": "不是每個缺陷都會立刻讓晶粒壞掉。掉在金屬膜上的微粒只讓線路變窄而不是切斷；氧化時的汙染留下薄點而不是破洞；銅導孔電鍍時留下小空洞；蝕刻留下的殘留離短路只差幾奈米。這些晶粒在時間零點通過所有測試，因為參數仍在規格內，但缺陷是一個弱點：電流、電壓、溫度和濕氣會讓它擴大，直到晶粒在使用中失效。潛在缺陷和致命缺陷來自相同的來源，主要是微粒和製程異常，所以它們隨 D# 增加，並聚集在失效晶粒周圍。它們造成浴缸曲線左側下降的部分，稱為早夭期。預燒讓晶片在高溫（通常 # °C）與提高的電壓下運作數小時來移除它們。應力以加速因子 AF = AF_T·AF_V 加快失效機制，所以幾小時的預燒相當於幾個月甚至幾年的使用，脆弱的晶粒就在工廠內失效，而不是在車上。各種應力的效果取決於機制：氧化層與介電層崩潰對電壓很敏感，金屬遷移主要受溫度和電流影響。因為預燒很貴，晶圓廠盡力預防這些缺陷（潔淨的機台、線上檢測、PCM 監控），測試工程師也加入較便宜的篩選，例如高壓應力、IDDQ、PAT 和 GDBN。",
+"# min": "# 分鐘",
+"# h": "# 小時",
+"# days": "# 天",
+"# months": "# 個月",
+"# years": "# 年",
+"> # years": "> # 年",
+"∞": "∞",
+"= # min of field use (AF #×)": "= 相當於使用 # 分鐘（AF #×）",
+"= # h of field use (AF #×)": "= 相當於使用 # 小時（AF #×）",
+"= # days of field use (AF #×)": "= 相當於使用 # 天（AF #×）",
+"= # months of field use (AF #×)": "= 相當於使用 # 個月（AF #×）",
+"= # years of field use (AF #×)": "= 相當於使用 # 年（AF #×）",
+"= > # years of field use (AF #×)": "= 相當於使用 > # 年（AF #×）",
+"= ∞ of field use (AF #×)": "= 相當於使用 ∞（AF #×）",
+"field failure after # min": "使用 # 分鐘 後失效",
+"field failure after # h": "使用 # 小時 後失效",
+"field failure after # days": "使用 # 天 後失效",
+"field failure after # months": "使用 # 個月 後失效",
+"field failure after # years": "使用 # 年 後失效",
+"field failure after > # years": "使用 > # 年 後失效",
+"field failure after ∞": "使用 ∞ 後失效",
+"would fail after # min": "要 # 分鐘 後才會失效",
+"would fail after # h": "要 # 小時 後才會失效",
+"would fail after # days": "要 # 天 後才會失效",
+"would fail after # months": "要 # 個月 後才會失效",
+"would fail after # years": "要 # 年 後才會失效",
+"would fail after > # years": "要 > # 年 後才會失效",
+"would fail after ∞": "要 ∞ 後才會失效",
+"# h × # = # min of use → caught": "# 小時 × # = 使用 # 分鐘 → 攔截",
+"# h × # = # h of use → caught": "# 小時 × # = 使用 # 小時 → 攔截",
+"# h × # = # days of use → caught": "# 小時 × # = 使用 # 天 → 攔截",
+"# h × # = # months of use → caught": "# 小時 × # = 使用 # 個月 → 攔截",
+"# h × # = # years of use → caught": "# 小時 × # = 使用 # 年 → 攔截",
+"# h × # = > # years of use → caught": "# 小時 × # = 使用 > # 年 → 攔截",
+"# h × # = ∞ of use → caught": "# 小時 × # = 使用 ∞ → 攔截",
+"# h × # = # min of use → not caught": "# 小時 × # = 使用 # 分鐘 → 未攔截",
+"# h × # = # h of use → not caught": "# 小時 × # = 使用 # 小時 → 未攔截",
+"# h × # = # days of use → not caught": "# 小時 × # = 使用 # 天 → 未攔截",
+"# h × # = # months of use → not caught": "# 小時 × # = 使用 # 個月 → 未攔截",
+"# h × # = # years of use → not caught": "# 小時 × # = 使用 # 年 → 未攔截",
+"# h × # = > # years of use → not caught": "# 小時 × # = 使用 > # 年 → 未攔截",
+"# h × # = ∞ of use → not caught": "# 小時 × # = 使用 ∞ → 未攔截",
+"s = #, T# = #^# h, n = # → # min": "s = #，T# = #^# 小時，n = # → # 分鐘",
+"s = #, T# = #^# h, n = # → # h": "s = #，T# = #^# 小時，n = # → # 小時",
+"s = #, T# = #^# h, n = # → # days": "s = #，T# = #^# 小時，n = # → # 天",
+"s = #, T# = #^# h, n = # → # months": "s = #，T# = #^# 小時，n = # → # 個月",
+"s = #, T# = #^# h, n = # → # years": "s = #，T# = #^# 小時，n = # → # 年",
+"s = #, T# = #^# h, n = # → > # years": "s = #，T# = #^# 小時，n = # → > # 年",
+"s = #, T# = #^# h, n = # → ∞": "s = #，T# = #^# 小時，n = # → ∞"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -6716,6 +7036,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button data-v="map" aria-pressed="true">Wafer map &amp; WAT sites</button>
         <button data-v="ym" aria-pressed="false">Yield models (D0, die size)</button>
         <button data-v="sc" aria-pressed="false">Screening (GDBN, PAT)</button>
+        <button data-v="lat" aria-pressed="false">Latent defects from the fab</button>
       </div>
     </div>
 
@@ -6750,7 +7071,19 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
             <button class="chipbtn" data-l="def">Defect scan</button>
           </div>
         </div>
-        <div class="chips"><button class="chipbtn" id="yd-seed">New wafer (new random data)</button></div>
+        <div id="yd-c-lat" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Choose a defect that can enter during wafer processing, pass the wafer test and fail later in the field.">Defect type</span>
+          <div class="chips" id="yd-lat">
+            <button class="chipbtn" data-d="fm">Foreign material (particle)</button>
+            <button class="chipbtn" data-d="gox">Gate-oxide thin spot</button>
+            <button class="chipbtn" data-d="via">Via void</button>
+            <button class="chipbtn" data-d="bridge">Etch residue (stringer)</button>
+            <button class="chipbtn" data-d="scr">CMP micro-scratch</button>
+            <button class="chipbtn" data-d="ion">Mobile ions (Na⁺, K⁺)</button>
+            <button class="chipbtn" data-d="pid">Plasma (antenna) damage</button>
+          </div>
+        </div>
+        <div class="chips" id="yd-c-seed"><button class="chipbtn" id="yd-seed">New wafer (new random data)</button></div>
         <div class="slider" id="yd-c-die">
           <div class="lab"><span class="term" tabindex="0" data-tip="Edge length of a square die. Bigger dies: fewer per wafer and each one is more likely to catch a defect.">Die size</span><span id="yd-die-v"></span></div>
           <input id="yd-die" type="range" min="4" max="20" step="0.5" value="10">
@@ -6775,6 +7108,22 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
           <div class="lab"><span class="term" tabindex="0" data-tip="Good die in bad neighbourhood: drop a passing die if at least this many of its 8 neighbours failed.">GDBN threshold</span><span id="yd-gn-v"></span></div>
           <input id="yd-gn" type="range" min="1" max="8" step="1" value="3">
         </div>
+        <div class="slider" id="yd-c-sev">
+          <div class="lab"><span class="term" tabindex="0" data-tip="How much of the feature this die's defect has consumed: 0 = perfect, 1 = already broken. Shown in the animation and the drift plot.">Defect severity</span><span id="yd-sev-v"></span></div>
+          <input id="yd-sev" type="range" min="0.2" max="0.95" step="0.01" value="0.6">
+        </div>
+        <div class="slider" id="yd-c-bih">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Hours of burn-in at 125 °C before shipping. 0 = no burn-in.">Burn-in time</span><span id="yd-bih-v"></span></div>
+          <input id="yd-bih" type="range" min="0" max="168" step="1" value="48">
+        </div>
+        <div class="slider" id="yd-c-vs">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Supply voltage during burn-in, relative to the normal VDD. Higher voltage accelerates oxide and dielectric defects strongly.">Burn-in voltage</span><span id="yd-vs-v"></span></div>
+          <input id="yd-vs" type="range" min="1" max="1.5" step="0.05" value="1.2">
+        </div>
+        <div class="slider" id="yd-c-ppm">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Share of the dies that carry a latent defect of this type, in parts per million. Severities are spread from mild to almost broken.">Latent defect density</span><span id="yd-ppm-v"></span></div>
+          <input id="yd-ppm" type="range" min="50" max="3000" step="50" value="500">
+        </div>
         <div class="slider" id="yd-c-pk">
           <div class="lab"><span class="term" tabindex="0" data-tip="Part average testing: drop a passing die whose IDDQ is more than k robust sigmas from the wafer median.">PAT limit k</span><span id="yd-pk-v"></span></div>
           <input id="yd-pk" type="range" min="2" max="8" step="0.5" value="4">
@@ -6790,7 +7139,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
           <div class="plot"><svg id="yd-p2" viewBox="0 0 220 230" role="img" aria-label="Ring-oscillator calibration, or good dies per wafer, or the screening waterfall"></svg></div>
         </div>
         <div class="sub-card explain" id="yd-diag-card">
-          <p class="eyebrow">What this signature suggests</p>
+          <p class="eyebrow" id="yd-diag-h">What this signature suggests</p>
           <div id="yd-diag"></div>
         </div>
         <div class="sub-card explain">
@@ -6850,6 +7199,13 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>GDBN</dt><dd>Good die in bad neighbourhood: passing dies surrounded by failures are dropped.</dd>
               <dt>PAT</dt><dd>Part average testing: outliers from the wafer's own distribution are dropped (AEC-Q001).</dd>
               <dt>DPPM</dt><dd>Defective parts per million shipped: what the customer measures.</dd>
+              <dt>Latent defect</dt><dd>A defect that passes every test at time zero and fails later under voltage, current, heat or moisture.</dd>
+              <dt>Infant mortality</dt><dd>The early, falling part of the bathtub curve, caused mostly by latent defects.</dd>
+              <dt>Burn-in</dt><dd>Running chips hot (≈ 125 °C) at raised voltage for hours so weak ones fail in the factory.</dd>
+              <dt>Acceleration factor</dt><dd>How many hours of normal use one hour of stress is worth: AF = AF_T · AF_V.</dd>
+              <dt>TDDB</dt><dd>Time-dependent dielectric breakdown: traps build up in an oxide under field until it shorts.</dd>
+              <dt>Electromigration</dt><dd>Copper atoms pushed by the electron current; a narrowed line or via thins further until it opens.</dd>
+              <dt>HVST</dt><dd>High-voltage stress test: a short overvoltage step that breaks weak oxides during test.</dd>
             </dl>
             <p class="note">WAT tells you the process was on target where it was measured. CP tells you every die. Use both: calibrate CP against WAT, then read the whole wafer.</p>
           </div>
@@ -13593,7 +13949,7 @@ $("pk-step").addEventListener("input", e => { PK.s = +e.target.value; PK.p = 0.9
    TAB — yield & WAT: sparse WAT sites vs the CP wafer map, yield models, GDBN / PAT screening
    ========================================================= */
 const YDC = setupCanvas($("cvyd"), 1000, 520);
-const YD = {view:"map", sig:"edge", layer:"true", die:10, sites:1, amp:50, d0:0.1, al:2, gn:3, pk:4, seed:1, rev:0, dp:0, data:null, key:""};
+const YD = {view:"map", sig:"edge", layer:"true", die:10, sites:1, amp:50, d0:0.1, al:2, gn:3, pk:4, seed:1, rev:0, dp:0, data:null, key:"", lat:"fm", sev:0.6, bih:48, vs:1.2, ppm:500};
 const YD_R = 150, YD_EE = 3, YD_RU = YD_R - YD_EE, YD_SPEC = 30, YD_K = 2;   // mm, mm, mm, mV, MHz per mV of ring-oscillator shift
 function ydSitePts(k){
   const pts = [[0, 0]], ring = (r, a0) => { for (let i=0;i<4;i++){ const a = a0 + i*Math.PI/2; pts.push([r*Math.cos(a), r*Math.sin(a)]); } };
@@ -13811,9 +14167,242 @@ function drawYDsc(T){
   txt(`latent defects caught: ${sc.caught} of ${sc.lat}`, 510, 434, {px:12, col: sc.caught === sc.lat ? C.channel : C.hole, w:700});
   txt("a latent defect passes every test today and fails in the car", 510, 462, {px:11});
 }
+
+/* ---------------- latent defects from the fab ---------------- */
+const YD_LAT = {
+  fm:{name:"Foreign material (particle) drop", param:"line resistance", ea:0.9, beta:0,
+    fab:"A particle lands on the metal film before litho and shadows the line", test:"The narrowed line still conducts: resistance only slightly higher, test passes", field:"High current density at the neck: electromigration opens the line",
+    how:"A particle falls on the wafer during deposition or litho; the line under it is patterned narrower or thinner.", why:"The neck still carries the current; the line resistance rises by only a few per cent, well inside the limits.", fail:"The current density in the neck is much higher, so electromigration and heating thin it further until it opens.", prevent:"Clean tools and wafer carriers, particle monitors on every tool, inline defect inspection with SEM review.", screen:"Burn-in, at-speed and Vmin tests, GDBN around defect clusters."},
+  gox:{name:"Gate-oxide thin spot", param:"gate leakage", ea:0.7, beta:12,
+    fab:"Contamination or a particle during oxidation leaves a locally thinner gate oxide", test:"Leakage through the thin spot is still below the IDDQ limit", field:"Traps build up under the electric field (TDDB) until the oxide breaks down",
+    how:"Metal contamination, a particle or surface roughness slows the oxide growth in one spot.", why:"A few angstroms thinner still insulates: the extra leakage hides below the IDDQ limit.", fail:"The field across the thin spot is higher, so traps form faster (TDDB) until a conductive path shorts gate and channel.", prevent:"Pre-oxidation cleans, low-defect oxidation, gate-oxide integrity (GOI) and TDDB test structures on PCM.", screen:"High-voltage stress test (HVST), burn-in, IDDQ and PAT."},
+  via:{name:"Via void / partial fill", param:"via resistance", ea:1.0, beta:0,
+    fab:"Copper plating leaves a void at the bottom of the via", test:"The remaining contact area carries the current: via resistance is still in spec", field:"Stress migration and electromigration grow the void until the via opens",
+    how:"Poor barrier/seed coverage or plating chemistry leaves a void at the bottom of a copper via.", why:"The copper around the void still connects the two metal layers; the resistance is only somewhat higher.", fail:"Vacancies collect at the void under stress and current, and it grows until the via opens.", prevent:"Barrier and seed coverage control, plating bath control, via-chain monitors on PCM, inline SEM.", screen:"Burn-in, delay and at-speed tests; via-chain resistance on PCM."},
+  bridge:{name:"Etch residue (stringer)", param:"line-to-line leakage", ea:0.8, beta:6,
+    fab:"Incomplete etch leaves a thin metal sliver almost bridging two lines", test:"A gap of a few nanometres remains: leakage is tiny, test passes", field:"Voltage, heat and moisture let copper migrate across the gap until the lines short",
+    how:"An etch that stops a little early, or redeposited material, leaves a thin stringer between two lines.", why:"It does not quite touch the next line: only a tiny leakage flows across the remaining gap.", fail:"Under bias, heat and moisture, metal ions migrate and grow a filament across the gap until the lines short.", prevent:"Over-etch margin, post-etch cleans, inline inspection for residues.", screen:"IDDQ, HVST, burn-in and PAT."},
+  scr:{name:"CMP micro-scratch", param:"line-to-line leakage", ea:0.8, beta:6,
+    fab:"A hard particle in the CMP slurry scratches the dielectric; the scratch fills with copper", test:"The copper filament does not touch the next line yet", field:"The thin dielectric between filament and line breaks down (BEOL TDDB)",
+    how:"An agglomerated slurry particle or a pad debris drags across the wafer during CMP and cuts a groove.", why:"The next metal fills the groove with a copper sliver that comes close to a line but does not touch it.", fail:"The narrowed dielectric gap sees a high field and breaks down over time, shorting the two lines.", prevent:"Slurry filtration, pad conditioning, post-CMP cleans and inspection.", screen:"HVST and IDDQ, burn-in, GDBN along the scratch."},
+  ion:{name:"Mobile-ion contamination (Na⁺, K⁺)", param:"Vth shift", ea:1.0, beta:3,
+    fab:"Sodium or potassium from a furnace, a chemical or handling ends up in the gate oxide", test:"The ions sit far from the channel: Vth is still on target", field:"Heat and gate bias drift the ions to the silicon interface: Vth shifts, leakage and delay grow",
+    how:"Alkali ions from contaminated furnaces, chemicals or handling get into the oxide.", why:"At first they sit near the gate, far from the channel, so the threshold voltage is still correct.", fail:"At temperature and under bias the ions drift to the Si/SiO2 interface and shift Vth, making transistors leaky or slow.", prevent:"Clean furnaces and chemicals, TXRF and VPD-ICPMS monitoring, bias-temperature (BTS) C–V tests on monitor wafers.", screen:"High-temperature bake or burn-in, then retest Vth and IDDQ for drift."},
+  pid:{name:"Plasma (antenna) damage", param:"gate leakage / ΔVth", ea:0.7, beta:10,
+    fab:"During plasma etch a long metal line collects charge and pushes current through the gate oxide", test:"The damage only adds traps: Vth and leakage barely change", field:"Damaged oxide degrades faster under bias (NBTI, TDDB) and fails early",
+    how:"A long metal line connected to a gate acts as an antenna in the plasma and charges up.", why:"The tunnelling current creates some traps in the oxide, but Vth and leakage are still within the limits.", fail:"The pre-damaged oxide wears out much faster under bias (NBTI and TDDB) and fails early.", prevent:"Antenna design rules, protection diodes, plasma-charging monitors.", screen:"Burn-in, HVST; antenna test structures on PCM."}
+};
+const YD_T0 = 1e7, YD_NW = 8, YD_SA = 0.2, YD_SB = 0.95, YD_LIFE = 15*8760;      // h, exponent, severity spread of the population, car life (h)
+const ydTTF = sv => YD_T0*Math.pow(Math.max(1e-6, 1 - sv), YD_NW);
+const ydSofT = t => 1 - Math.pow(Math.max(t, 1e-12)/YD_T0, 1/YD_NW);
+const ydFrac = (t1, t2) => Math.max(0, (clamp(ydSofT(t1), YD_SA, YD_SB) - clamp(ydSofT(t2), YD_SA, YD_SB))/(YD_SB - YD_SA));
+function ydLatCalc(){
+  const L = YD_LAT[YD.lat], k = 8.617e-5, at = Math.exp(L.ea/k*(1/(273.15 + 55) - 1/(273.15 + 125))), av = L.beta ? Math.exp(L.beta*(YD.vs - 1)) : YD.vs**2;
+  const af = at*av, te = YD.bih*af, ttf = ydTTF(YD.sev), t0fail = ttf < 1, caught = !t0fail && YD.bih > 0 && ttf < te;
+  const f0 = YD.ppm*ydFrac(1, 8760), f1 = YD.ppm*ydFrac(Math.max(1, te), te + 8760), fc = YD.bih > 0 ? YD.ppm*ydFrac(1, Math.max(1, te)) : 0;
+  return {L, at, av, af, te, ttf, t0fail, caught, field: !t0fail && !caught && ttf - te < YD_LIFE, f0, f1, fc};
+}
+function ydFmtT(h){
+  if (!isFinite(h)) return "∞";
+  if (h < 1) return `${Math.max(1, h*60).toFixed(0)} min`;
+  if (h < 48) return `${h.toFixed(0)} h`;
+  if (h < 24*60) return `${(h/24).toFixed(0)} days`;
+  if (h < 8760*2) return `${(h/730).toFixed(0)} months`;
+  if (h < 8760*1000) return `${(h/8760).toFixed(h < 8760*10 ? 1 : 0)} years`;
+  return "> 1000 years";
+}
+const ydFmtN = x => x >= 100 ? x.toFixed(0) : x >= 10 ? x.toFixed(1) : x.toFixed(2);
+const ydRect = (x, y, w, h, c, a = 1) => { ctx.globalAlpha = Math.max(0, Math.min(1, a)); ctx.fillStyle = c; ctx.fillRect(x, y, w, h); ctx.globalAlpha = 1; };
+const ydBall = (x, y, r, c, a = 1) => { ctx.globalAlpha = Math.max(0, Math.min(1, a)); ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill(); ctx.globalAlpha = 1; };
+function ydSpark(x, y, T){ ctx.strokeStyle = C.hole; ctx.lineWidth = 2.5; for (let k=0;k<8;k++){ const a = k*0.785 + T*3, r2 = 15 + 6*Math.sin(T*20 + k); pl([[x + 6*Math.cos(a), y + 6*Math.sin(a)],[x + r2*Math.cos(a), y + r2*Math.sin(a)]]); } }
+const ydMsg = (t, col = C.fg) => txt(t, 340, 196, {al:"center", px:12, w:700, col});
+const ydMsg2 = t => txt(t, 340, 216, {al:"center", px:11, col:C.fg});
+const YD_LATDRAW = {
+  fm(ph, u, T, sv){
+    ydRect(40, 400, 600, 50, C.oxide, .3); ydRect(40, 450, 600, 40, C.si); txt("dielectric", 48, 425, {px:10, col:C.fg});
+    const y0 = 340, h = 50, nx = 305, nw = 50, open = ph === 2 && u >= 0.92;
+    let hn = h*(1 - sv); if (ph === 2) hn *= 1 - Math.min(1, u/0.92);
+    if (ph === 0 && u < 0.45){
+      ydRect(40, y0, 600, h, C.accent, u/0.12);
+      const py = 240 + (y0 - 11 - 240)*Math.min(1, u/0.35); ydBall(nx + nw/2, py, 11, C.fg);
+      txt("foreign particle", nx + nw/2 + 18, py, {px:10, col:C.fg, w:700});
+      ydMsg("metal film deposited; a particle lands before litho");
+    } else {
+      ydRect(40, y0, nx - 40, h, C.accent); ydRect(nx + nw, y0, 640 - nx - nw, h, C.accent);
+      if (!open) ydRect(nx, y0 + h - hn, nw, hn, C.accent);
+      if (ph === 0){ ydBall(nx + nw/2, y0 + h - hn - 11, 11, C.fg, 1 - (u - 0.45)/0.45); ydMsg("the particle shadowed the line during etch: a neck remains"); }
+    }
+    if (ph >= 1 && !open) for (let k=0;k<14;k++){ const x = 40 + ((T*90 + k*43) % 600), inN = x > nx && x < nx + nw; dot(x, inN ? y0 + h - hn/2 : y0 + h/2, C.electron, false, 1, 2.5); }
+    const pct = 100*(nw/600)*(1/Math.max(0.05, 1 - sv) - 1);
+    if (ph === 1){ ydMsg(`neck ${(100*(1 - sv)).toFixed(0)} % of the line: resistance +${pct.toFixed(1)} % → PASS`, C.channel); ydMsg2("the test only checks that the line conducts and the delay is in spec"); }
+    if (ph === 2){ for (let k=0;k<8;k++){ const v = ((T*0.8 + k/8) % 1); ydBall(nx + nw + 6 + v*90, y0 + h - Math.max(hn, 6)/2 - 4 + (k % 3)*4, 2.4, C.accent, 1 - v); }
+      ydMsg(open ? "OPEN: the line is cut" : "the electron wind pushes copper atoms out of the neck", open ? C.hole : C.fg); if (open) ydSpark(nx + nw/2, y0 + h/2, T); }
+    txt("metal line (side view along the line)", 48, y0 - 12, {px:10, col:C.fg});
+  },
+  gox(ph, u, T, sv){
+    const sy = 410, tox = 30, sp0 = 300, sp1 = 360, tt = tox*(1 - sv), g = ph === 0 ? Math.min(1, u/0.6) : 1;
+    ydRect(40, sy, 600, 80, C.si); txt("silicon", 48, sy + 60, {px:10, col:C.fg});
+    ydRect(140, sy - tox*g, sp0 - 140, tox*g, C.oxide, .75); ydRect(sp1, sy - tox*g, 520 - sp1, tox*g, C.oxide, .75); ydRect(sp0, sy - tt*g, sp1 - sp0, tt*g, C.oxide, .75);
+    if (ph === 0){ ydBall((sp0 + sp1)/2, sy - tt*g - 6, 5, C.hole); txt("contamination", (sp0 + sp1)/2 + 10, sy - tt*g - 20, {px:10, col:C.hole, w:700}); ydMsg(u < 0.65 ? "gate oxidation: the oxide grows more slowly at the contaminated spot" : "the gate is deposited on top"); }
+    if (ph > 0 || u > 0.65){ const a = ph === 0 ? (u - 0.65)/0.35 : 1; ydRect(140, sy - tox - 70, 380, 70, C.metal, a); ydRect(sp0, sy - tox, sp1 - sp0, tox - tt, C.metal, a); txt("gate", 330, sy - tox - 35, {al:"center", w:700, col:C.fg}); }
+    txt(`oxide 2.0 nm, thin spot ${(2*(1 - sv)).toFixed(1)} nm`, 330, sy + 30, {al:"center", px:10, col:C.fg});
+    if (ph >= 1){ const n = ph === 1 ? 3 : 3 + Math.floor(u*10), open = ph === 2 && u >= 0.92;
+      for (let k=0;k<n;k++){ const v = ((T*1.4 + k/n) % 1); dot(sp0 + 8 + (k*17) % (sp1 - sp0 - 16), sy - tt + v*tt, C.electron, false, 1, 2); }
+      if (ph === 1){ ydMsg("leakage through the thin spot is below the IDDQ limit → PASS", C.channel); ydMsg2("the gate still controls the channel normally"); }
+      if (ph === 2){ const nt = Math.floor(Math.min(1, u/0.92)*9); for (let k=0;k<nt;k++) ydBall((sp0 + sp1)/2 + (k % 2 ? 6 : -6), sy - 3 - k*(tt/9), 3, C.hole);
+        if (open){ ydRect((sp0 + sp1)/2 - 6, sy - tt, 12, tt, C.hole, .9); ydSpark((sp0 + sp1)/2, sy - tt/2, T); }
+        ydMsg(open ? "BREAKDOWN: gate shorted to the channel" : "traps pile up in the thin spot (TDDB)", open ? C.hole : C.fg); } }
+  },
+  via(ph, u, T, sv){
+    ydRect(40, 450, 600, 40, C.si); ydRect(40, 290, 600, 160, C.oxide, .3);
+    ydRect(100, 420, 460, 30, C.accent); txt("metal 1", 108, 436, {px:10, col:C.fg});
+    const vx = 310, vw = 44, vy0 = 300, vy1 = 420, fill = ph === 0 ? clamp((u - 0.3)/0.5, 0, 1) : 1, open = ph === 2 && u >= 0.92;
+    let vwid = vw*sv*0.85, vh = 14 + 40*sv; if (ph === 2) vwid += (vw - vwid)*Math.min(1, u/0.92);
+    ydRect(vx, vy0, vw, vy1 - vy0, C.panel2);
+    if (fill > 0) ydRect(vx, vy1 - (vy1 - vy0)*fill, vw, (vy1 - vy0)*fill, C.accent);
+    if (fill > 0.2){ ctx.fillStyle = C.panel2; ctx.beginPath(); ctx.ellipse(vx + vw/2, vy1 - vh/2, vwid/2, vh/2, 0, 0, 6.283); ctx.fill(); if (open) ydRect(vx, vy1 - vh, vw, vh, C.panel2); }
+    if (ph > 0 || fill >= 1){ ydRect(100, 270, 460, 30, C.accent); txt("metal 2", 108, 286, {px:10, col:C.fg}); }
+    txt("via", vx + vw + 8, vy0 + 20, {px:10, col:C.fg, w:700}); if (fill > 0.2) txt("void", vx + vw + 8, vy1 - vh/2, {px:10, col:C.hole, w:700});
+    if (ph === 0) ydMsg(u < 0.3 ? "via hole etched through the dielectric" : "copper plating fills the via but traps a void at the bottom");
+    if (ph >= 1 && !open) for (let k=0;k<6;k++){ const v = ((T*0.9 + k/6) % 1), side = k % 2 ? vx + 6 : vx + vw - 6; dot(side, vy0 + v*(vy1 - vy0), C.electron, false, 1, 2.5); }
+    if (ph === 1){ ydMsg(`via resistance +${(100*(1/Math.max(0.05, 1 - sv*0.85) - 1)).toFixed(0)} %: still within the limit → PASS`, C.channel); ydMsg2("thousands of vias in the chip: one slightly high one is not noticed"); }
+    if (ph === 2){ ydMsg(open ? "OPEN: the void cut the via" : "vacancies collect at the void: it grows with current and heat", open ? C.hole : C.fg); if (open) ydSpark(vx + vw/2, vy1 - vh/2, T); }
+  },
+  bridge(ph, u, T, sv){
+    ydRect(40, 380, 600, 30, C.oxide, .3); ydRect(40, 410, 600, 80, C.si);
+    const l1 = [180, 290], l2 = [380, 490], y0 = 300, y1 = 380, rl = (l2[0] - l1[1])*(0.55 + 0.4*sv), open = ph === 2 && u >= 0.92;
+    if (ph === 0 && u < 0.5){ const e = clamp((u - 0.1)/0.4, 0, 1);
+      ydRect(120, y0, 430, y1 - y0, C.accent); [[120, l1[0]], [l1[1], l2[0]], [l2[1], 550]].forEach(([a, b]) => ydRect(a, y0, b - a, (y1 - y0 - 8)*e, C.panel2));
+      ydRect(l1[0], y0 - 14, l1[1] - l1[0], 14, C.fg, .5); ydRect(l2[0], y0 - 14, l2[1] - l2[0], 14, C.fg, .5); ydMsg("metal etch through a resist mask"); }
+    else {
+      ydRect(l1[0], y0, l1[1] - l1[0], y1 - y0, C.accent); ydRect(l2[0], y0, l2[1] - l2[0], y1 - y0, C.accent); ydRect(l1[1], y1 - 7, rl, 7, C.accent);
+      txt("residue", l1[1] + 4, y1 + 14, {px:10, col:C.hole, w:700});
+      if (ph === 0) ydMsg("the etch stopped a little early: a thin stringer remains");
+    }
+    const gnm = 40*(1 - (0.55 + 0.4*sv));
+    if (ph === 1){ for (let k=0;k<3;k++){ const v = ((T*0.6 + k/3) % 1); dot(l1[1] + rl + v*(l2[0] - l1[1] - rl), y1 - 4, C.electron, false, 1, 2); }
+      ydMsg(`gap ≈ ${gnm.toFixed(0)} nm left: leakage of a few pA → PASS`, C.channel); }
+    if (ph === 2){ const g = l2[0] - l1[1] - rl, len = g*Math.min(1, u/0.92), x0 = l1[1] + rl;
+      ctx.strokeStyle = C.accent; ctx.lineWidth = 2; pl(range(0, 1, 10).map(t => [x0 + t*len, y1 - 4 + (t ? 4*Math.sin(t*20) : 0)]));
+      for (let k=0;k<5;k++) ydBall(l1[1] + 20 + k*16, y0 - 20 - 8*Math.sin(T*2 + k), 4, C.electron, .6);
+      txt("moisture", l1[1] + 10, y0 - 40, {px:10, col:C.electron});
+      ydMsg(open ? "SHORT: the filament bridged the two lines" : "bias + heat + moisture: metal ions grow a filament across the gap", open ? C.hole : C.fg); if (open) ydSpark(l2[0], y1 - 4, T); }
+    txt("line A", (l1[0] + l1[1])/2, y0 + 30, {al:"center", px:10, col:C.fg, w:700}); txt("line B", (l2[0] + l2[1])/2, y0 + 30, {al:"center", px:10, col:C.fg, w:700});
+  },
+  scr(ph, u, T, sv){
+    ydRect(40, 300, 600, 80, C.oxide, .3); ydRect(40, 380, 600, 110, C.si);
+    const l1 = [200, 280], l2 = [400, 480], y0 = 320, y1 = 380, gs = 285, ge = gs + 115*(0.55 + 0.4*sv), dep = 6 + 10*sv, open = ph === 2 && u >= 0.92;
+    ydRect(l1[0], y0, l1[1] - l1[0], y1 - y0, C.accent); ydRect(l2[0], y0, l2[1] - l2[0], y1 - y0, C.accent);
+    if (ph === 0){ const px = 40 + 600*Math.min(1, u/0.7);
+      if (px > gs) ydRect(gs, 300, Math.min(px, ge) - gs, dep, C.panel2);
+      if (u < 0.7){ ydRect(px - 70, 262, 140, 34, C.muted); txt("CMP pad", px, 279, {al:"center", px:10, col:C.panel, w:700}); ydBall(px, 299, 5, C.fg); }
+      if (u > 0.78) ydRect(gs, 300, ge - gs, dep, C.accent, (u - 0.78)/0.22);
+      ydMsg(u < 0.7 ? "a hard particle under the CMP pad scratches the dielectric" : "the next metal layer fills the scratch with copper"); }
+    else ydRect(gs, 300, ge - gs, dep, C.accent);
+    if (ph === 1){ ydMsg(`the copper sliver ends ${(40*(l2[0] - ge)/115).toFixed(0)} nm from line B → PASS`, C.channel); ydMsg2("no short and almost no leakage at time zero"); }
+    if (ph === 2){ for (let k=0;k<4;k++){ const yy = 302 + k*4; ctx.strokeStyle = C.electron; ctx.globalAlpha = 0.4 + 0.4*Math.sin(T*6 + k); ctx.lineWidth = 1.5; pl([[ge, yy],[l2[0], yy + 10]]); } ctx.globalAlpha = 1;
+      if (open){ ydRect(ge, 300, l2[0] - ge, dep, C.hole, .9); ydSpark((ge + l2[0])/2, 304, T); }
+      ydMsg(open ? "SHORT: the thin dielectric broke down" : "high field across the narrowed gap: the dielectric wears out (BEOL TDDB)", open ? C.hole : C.fg); }
+    txt("scratch", (gs + ge)/2, 296 - 10, {al:"center", px:10, col:C.hole, w:700});
+    txt("line A", (l1[0] + l1[1])/2, 352, {al:"center", px:10, col:C.fg, w:700}); txt("line B", (l2[0] + l2[1])/2, 352, {al:"center", px:10, col:C.fg, w:700});
+  },
+  ion(ph, u, T, sv){
+    const sy = 410; ydRect(40, sy, 600, 80, C.si); ydRect(140, sy - 50, 380, 50, C.oxide, .55); ydRect(140, sy - 110, 380, 60, C.metal);
+    txt("gate", 330, sy - 80, {al:"center", w:700, col:C.fg}); txt("gate oxide", 528, sy - 25, {px:10, col:C.fg}); txt("silicon (channel)", 48, sy + 50, {px:10, col:C.fg});
+    const n = Math.round(4 + 10*sv);
+    for (let k=0;k<n;k++){ const x = 160 + k*(340/(n - 1)); let y = sy - 44;
+      if (ph === 0) y = 230 + (sy - 44 - 230)*Math.min(1, Math.max(0, u*1.4 - k*0.03)); if (ph === 2) y = sy - 44 + 38*Math.min(1, u/0.9);
+      ydBall(x, y, 6, C.hole, ph === 0 && y < sy - 110 ? .5 : 1); txt("+", x, y, {al:"center", px:11, col:C.panel, w:700}); }
+    if (ph === 0) ydMsg("Na⁺ / K⁺ from a furnace, chemical or handling enter the oxide");
+    if (ph === 1){ ydMsg("the ions sit near the gate, far from the channel: Vth on target → PASS", C.channel); }
+    if (ph === 2){ const dv = 150*sv*Math.min(1, u/0.9); for (let k=0;k<Math.floor(u*14);k++) dot(160 + ((k*47 + T*30) % 340), sy + 6, C.electron, false, 1, 2.5);
+      ydMsg(`heat + bias drift the ions to the interface: ΔVth ≈ −${dv.toFixed(0)} mV`, dv > 60 ? C.hole : C.fg); ydMsg2(dv > 60 ? "the transistor turns on too early: leakage and timing fail" : "Vth slowly moves out of its window"); }
+  },
+  pid(ph, u, T, sv){
+    const sy = 430; ydRect(40, sy, 600, 60, C.si); ydRect(130, sy - 14, 70, 14, C.oxide, .8); ydRect(130, sy - 44, 70, 30, C.metal);
+    ydRect(156, 262, 18, sy - 44 - 262, C.accent); ydRect(156, 242, 470, 20, C.accent);
+    txt("gate", 165, sy - 29, {al:"center", px:10, w:700, col:C.fg}); txt("long metal line = antenna", 390, 276, {al:"center", px:10, col:C.fg});
+    const nt = ph === 0 ? Math.floor(u*(2 + 5*sv)) : ph === 1 ? Math.floor(2 + 5*sv) : Math.floor(2 + 5*sv + Math.min(1, u/0.92)*8), open = ph === 2 && u >= 0.92;
+    if (ph === 0){ ydRect(40, 168, 600, 64, C.hole, .12); txt("plasma", 600, 186, {al:"right", px:10, col:C.hole, w:700});
+      for (let k=0;k<12;k++){ const x = 200 + k*35, v = ((T*1.2 + k*0.37) % 1); txt("+", x, 175 + v*62, {al:"center", px:12, col:C.hole, w:700}); txt("+", 190 + k*36, 236, {al:"center", px:10, col:C.hole}); }
+      for (let k=0;k<3;k++){ const v = ((T*1.5 + k/3) % 1); dot(150 + k*15, sy - 14 + v*14, C.electron, false, 1, 2); }
+      ydMsg("the line collects plasma charge and drives current through the thin gate oxide"); }
+    for (let k=0;k<nt;k++) ydBall(138 + (k*11) % 56, sy - 10 + (k % 2)*5, 2.6, C.hole);
+    txt("traps", 210, sy - 4, {px:10, col:C.hole, w:700});
+    if (ph === 1) ydMsg(`${nt} traps: Vth +${(4 + 12*sv).toFixed(0)} mV, leakage slightly up → PASS`, C.channel);
+    if (ph === 2){ if (open){ ydRect(160, sy - 14, 10, 14, C.hole); ydSpark(165, sy - 7, T); } ydMsg(open ? "BREAKDOWN of the damaged oxide" : "the damaged oxide wears out faster under bias (NBTI, TDDB)", open ? C.hole : C.fg); }
+  }
+};
+function drawYDlat(T){
+  const L = YD_LAT[YD.lat], r = ydLatCalc(), cyc = 10, tt = T % cyc, ph = tt < 3.4 ? 0 : tt < 5.8 ? 1 : 2, u = ph === 0 ? tt/3.4 : ph === 1 ? (tt - 3.4)/2.4 : Math.min(1, (tt - 5.8)/3.6);
+  panel(20, 20, 640, 480, L.name);
+  [["1 · In the fab", L.fab, C.accent], ["2 · At the wafer test", L.test, C.channel], ["3 · In the field", L.field, C.hole]].forEach(([h, t, c], i) => {
+    const y = 64 + i*36, on = i === ph; if (on){ ctx.fillStyle = c; ctx.globalAlpha = 0.12; ctx.fillRect(28, y - 10, 624, 32); ctx.globalAlpha = 1; }
+    txt(h, 36, y, {px:12, w:700, col: on ? c : C.muted}); txt(t, 36, y + 15, {px:11, col: on ? C.fg : C.muted}); });
+  ctx.save(); ctx.beginPath(); ctx.rect(24, 172, 632, 324); ctx.clip(); YD_LATDRAW[YD.lat](ph, u, T, YD.sev); ctx.restore();
+  // life of this die
+  panel(670, 20, 320, 480, "Life of this die");
+  let y = 60; const row = (mk, head, sub, col) => { txt(mk, 686, y, {px:14, w:700, col}); txt(head, 706, y, {px:12, w:700, col:C.fg}); if (sub) txt(sub, 706, y + 17, {px:11, col:C.fg}); y += sub ? 50 : 32; };
+  row(r.t0fail ? "✗" : "✓", r.t0fail ? "fails at the wafer test" : "wafer test (t = 0): pass", r.t0fail ? "too damaged to pass even once" : "all parameters inside the limits", r.t0fail ? C.hole : C.channel);
+  if (!r.t0fail){
+    if (YD.bih > 0) row("▸", `burn-in ${YD.bih} h, 125 °C, ${YD.vs.toFixed(2)}×VDD`, `= ${ydFmtT(r.te)} of field use (AF ${ydFmtN(r.af)}×)`, C.muted);
+    else row("–", "no burn-in", "", C.muted);
+    if (r.caught) row("✓", "caught: fails in the factory", "never reaches the customer", C.channel);
+    else if (r.field) row("✗", `field failure after ${ydFmtT(r.ttf - r.te)}`, "an escape: a return from the customer", C.hole);
+    else row("✓", "outlives a 15-year car life", `would fail after ${ydFmtT(r.ttf)}`, C.channel);
+  }
+  // log time axis in equivalent field hours
+  const ax0 = 690, ax1 = 970, ay = 300, X = h => ax0 + (clamp(Math.log10(Math.max(h, 0.1)), -1, 6) + 1)/7*(ax1 - ax0);
+  txt("equivalent hours of use (log)", ax0, ay - 34, {px:10});
+  if (YD.bih > 0){ ctx.fillStyle = C.oxide; ctx.globalAlpha = 0.3; ctx.fillRect(ax0, ay - 12, X(r.te) - ax0, 24); ctx.globalAlpha = 1; txt("burn-in", ax0 + 4, ay - 20, {px:10, col:C.oxide, w:700}); }
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1.5; pl([[ax0, ay],[ax1, ay]]);
+  [[1, "1 h"], [24, "1 d"], [730, "1 mo"], [8760, "1 y"], [YD_LIFE, "15 y"]].forEach(([h, l]) => { const x = X(h); pl([[x, ay - 4],[x, ay + 4]]); txt(l, x, ay + 14, {al:"center", px:9}); });
+  if (!r.t0fail){ const x = X(r.ttf); ctx.strokeStyle = C.hole; ctx.lineWidth = 3; pl([[x - 6, ay - 6],[x + 6, ay + 6]]); pl([[x - 6, ay + 6],[x + 6, ay - 6]]); txt("fails", x, ay + 30, {al:"center", px:10, col:C.hole, w:700}); }
+  if (YD.bih > 0){ const x = X(r.te); ctx.strokeStyle = C.channel; ctx.lineWidth = 2; pl([[x, ay - 14],[x, ay + 14]]); txt("ships", x, ay - 24, {al:"center", px:10, col:C.channel, w:700}); }
+  // population
+  txt(`this defect in ${YD.ppm} ppm of the dies`, 686, 372, {px:11, col:C.fg});
+  txt("first-year field failures:", 686, 396, {px:11, col:C.fg, w:700});
+  txt(`${ydFmtN(r.f0)} ppm without burn-in`, 700, 418, {px:11, col:C.hole});
+  txt(`${ydFmtN(r.f1)} ppm with this burn-in`, 700, 438, {px:11, col: r.f1 < 1 ? C.channel : C.accent, w:700});
+  txt(`burn-in removes ${ydFmtN(r.fc)} ppm in the factory`, 686, 466, {px:11, col:C.fg});
+}
+function ydLatUpdate(){
+  const r = ydLatCalc(), L = r.L;
+  document.querySelectorAll("#yd-lat button").forEach(b => { const on = b.dataset.d === YD.lat; b.setAttribute("aria-pressed", on); b.style.borderColor = on ? "var(--accent)" : ""; b.style.color = on ? "var(--accent)" : ""; });
+  $("yd-sev-v").textContent = YD.sev.toFixed(2); $("yd-bih-v").textContent = YD.bih ? `${YD.bih} h` : "off"; $("yd-vs-v").textContent = `${YD.vs.toFixed(2)} × VDD`; $("yd-ppm-v").textContent = `${YD.ppm} ppm`;
+  renderRo($("yd-ro"), [["Time to failure in use", r.t0fail ? "< 1 h" : ydFmtT(r.ttf)], ["Burn-in acceleration", `${ydFmtN(r.af)}×`], ["Burn-in = field use", YD.bih ? ydFmtT(r.te) : "–"],
+    ["This die", r.t0fail ? "fails at test" : r.caught ? "caught" : r.field ? "field failure" : "survives"]]);
+  renderEq($("yd-eq"), [
+    {name:"Defect weakening", f:"TTF = T0·(1 − s)^n", sub:`s = ${YD.sev.toFixed(2)}, T0 = 10^7 h, n = 8 → ${ydFmtT(r.ttf)}`},
+    {name:"Temperature acceleration", f:"AF_T = exp[Ea/k·(1/T_use − 1/T_bi)]", sub:`Ea = ${L.ea} eV, 55 °C → 125 °C: AF_T = ${ydFmtN(r.at)}`},
+    L.beta ? {name:"Voltage acceleration", f:"AF_V = exp[β·(V_bi/VDD − 1)]", sub:`β = ${L.beta}, ${YD.vs.toFixed(2)}×VDD → AF_V = ${ydFmtN(r.av)}`}
+           : {name:"Voltage acceleration", f:"AF_V ≈ (V_bi/VDD)² through the current density", sub:`${YD.vs.toFixed(2)}×VDD → AF_V = ${r.av.toFixed(2)}`},
+    {name:"Burn-in screen", f:"caught if TTF < t_bi·AF_T·AF_V", sub: YD.bih ? `${YD.bih} h × ${ydFmtN(r.af)} = ${ydFmtT(r.te)} of use → ${r.caught ? "caught" : "not caught"}` : "no burn-in: every latent defect ships"},
+    {name:"Field fallout", f:"first-year failures = p·P(t_e < TTF < t_e + 1 y)", sub:`${YD.ppm} ppm latent: ${ydFmtN(r.f0)} ppm without burn-in → ${ydFmtN(r.f1)} ppm with burn-in`}
+  ]);
+  $("yd-diag-h").textContent = "About this defect";
+  setHTML("yd-diag", `<p><b>${L.name}</b>: ${L.how}</p><p><b>Why it passes the test</b>: ${L.why}</p><p><b>How it fails in the field</b>: ${L.fail}</p><p><b>Prevent and detect in the fab</b>: ${L.prevent}</p><p><b>Screen at test</b>: ${L.screen}</p>`);
+  // bathtub curve and this die's drift
+  const lat = (t, p) => { const sv = ydSofT(t); if (sv < YD_SA || sv > YD_SB) return 0; return p*1e-6*(1/YD_NW)*Math.pow(t/YD_T0, 1/YD_NW)/t/(YD_SB - YD_SA)*1e9; };
+  const wear = t => 4/2e5*Math.pow(t/2e5, 3)*1e9, ts = range(0, 6, 120).map(x => 10**x), lg = v => Math.log10(Math.max(1, v));
+  const P = axesR(300, 230, {l:38,r:10,t:28,b:30}, 0, 6, 0, 5, 1, 1, "log10 hours of use", "log10 failure rate (FIT)");
+  let a = P.s + [[YD_LIFE, "15 y"], [8760, "1 y"]].map(([h, l]) => `<line x1="${P.X(Math.log10(h))}" x2="${P.X(Math.log10(h))}" y1="28" y2="200" stroke="var(--muted)" stroke-dasharray="2 3"/><text x="${P.X(Math.log10(h)) + 2}" y="40" font-size="8">${l}</text>`).join("");
+  a += `<path d="${pathOf(ts.map(t => [Math.log10(t), lg(lat(t, YD.ppm) + 5 + wear(t))]), P.X, P.Y)}" fill="none" stroke="var(--hole)" stroke-width="1.6" stroke-dasharray="4 3"/>`;
+  a += `<path d="${pathOf(ts.map(t => [Math.log10(t), lg(lat(t + r.te, YD.ppm) + 5 + wear(t))]), P.X, P.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>`;
+  a += `<text x="${P.X(0.2)}" y="${P.Y(4.6)}" font-size="9">infant mortality</text><text x="${P.X(2.6)}" y="${P.Y(2.2)}" font-size="9">useful life</text><text x="${P.X(5.2)}" y="${P.Y(3.2)}" font-size="9">wear-out</text>`;
+  a += P.frame + `<text x="44" y="12" style="fill:var(--hole)">-- no burn-in</text><text x="132" y="12" style="fill:var(--accent)">— with burn-in</text>`;
+  const m0 = 0.2 + 0.6*YD.sev, drift = t => t >= r.ttf ? 1.45 : m0 + (1 - m0)*Math.pow(t/r.ttf, 1/3), xs = range(-1, 6, 140);
+  const Q = axesR(220, 230, {l:40,r:8,t:28,b:30}, -1, 6, 0, 1.5, 1, 0.25, "log10 hours of use", `${L.param} / limit`);
+  let b = Q.s;
+  if (YD.bih > 0) b += `<rect x="${Q.X(-1)}" y="28" width="${Math.max(0, Q.X(clamp(Math.log10(Math.max(r.te, 0.1)), -1, 6)) - Q.X(-1))}" height="172" fill="var(--oxide)" opacity=".18"/><text x="${Q.X(-1) + 3}" y="40" font-size="8" style="fill:var(--oxide)">burn-in</text>`;
+  b += `<line x1="40" x2="212" y1="${Q.Y(1)}" y2="${Q.Y(1)}" stroke="var(--hole)" stroke-dasharray="4 3"/><text x="210" y="${Q.Y(1) - 4}" text-anchor="end" font-size="8" style="fill:var(--hole)">test limit</text>`;
+  b += `<path d="${pathOf(xs.map(x => [x, Math.min(1.45, drift(10**x))]), Q.X, Q.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+  b += Q.frame + dotSvg(Q.X(-1), Q.Y(m0)) + `<text x="46" y="12" style="fill:var(--accent)">this die, s = ${YD.sev.toFixed(2)}</text>`;
+  $("yd-p1").innerHTML = a; $("yd-p2").innerHTML = b;
+}
 function drawYD(dt, T){
   begin(YDC); ydEnsure(); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 520);
-  if (YD.view === "ym") drawYDym(T); else if (YD.view === "sc"){ YD.scr = YD.scr || ydScreen(); drawYDsc(T); } else drawYDmap(T);
+  if (YD.view === "lat") drawYDlat(T); else if (YD.view === "ym") drawYDym(T); else if (YD.view === "sc"){ YD.scr = YD.scr || ydScreen(); drawYDsc(T); } else drawYDmap(T);
 }
 function ydTick(dt){ if (!(dt >= 0)) return; YD.rev = Math.min(1, YD.rev + (reduce ? 1 : dt/3)); YD.dp = Math.min(1, YD.dp + (reduce ? 1 : dt/2.5)); }
 
@@ -13823,6 +14412,8 @@ const YDINFO = {
     text:"WAT (wafer acceptance test) measures test structures (PCM, testkeys) that sit in the scribe lines between the dies, at only 5 to 13 sites per wafer and often on only some wafers of a lot. Its job is to prove that the process was on target, not to map every die. CP (circuit probe, wafer sort) tests every die, so the bin map covers the whole wafer but only tells you pass, fail and the bin. When a low-yield area falls between WAT sites, as an edge ring usually does because the outermost site sits 15–20 mm inside the edge, the WAT report can be fully in spec while the yield is poor. The way out is to combine data. The shape of the failing area points to a process step. Parameters measured on every die at CP, such as a ring-oscillator frequency, IDDQ or Vmin, can be calibrated against WAT where both exist and turned into a ΔVth map of the whole wafer. Inline data (thickness, CD, defect scans) usually has more points than WAT. Defect-type signatures such as a scratch, a reticle repeat or a probe-card fault leave no trace in WAT or in the ring oscillator: they need the defect scan, the position in the reticle field or the tester's per-site yield."},
   ym:{pill:"D0", name:"Yield models", sub:"Random defects, die size and clustering: Poisson, Murphy and negative binomial",
     text:"In a mature process most yield loss comes from random killer defects: particles and pattern defects that short or open a line. With a defect density D0 per cm² and a die area A, the simplest model is Poisson: Y = e^(−A·D0). Real defects are not independent but clustered, so several often land on a die that is already dead and the yield is higher than Poisson predicts. The negative binomial model adds a clustering parameter α (small α = strong clustering, α → ∞ gives Poisson); Murphy's model sits in between. Because yield falls exponentially with area, a die twice as large can give far fewer good dies per wafer: fewer dies fit and each one is more likely to be hit. That is one reason for chiplets, and why fabs fight so hard to lower D0."},
+  lat:{pill:"LAT", name:"Latent defects from the fab", sub:"Foreign material, voids, thin oxide, residues, contamination: defects that pass the test today and fail in the field",
+    text:"Not every defect kills a die at once. A particle that lands on a metal film narrows a line instead of cutting it, contamination during oxidation leaves a thin spot instead of a hole, a copper via plates with a small void, an etch leaves a residue a few nanometres short of a short. These dies pass every test at time zero because their parameters are still inside the limits, but the defect is a weak point: current, voltage, temperature and moisture make it grow until the die fails in the field. Latent defects come from the same sources as killer defects, mainly particles and process excursions, so they scale with D0 and cluster around failing dies. They cause the falling left side of the bathtub curve, called infant mortality. Burn-in removes them by running the chips hot (typically 125 °C) at raised voltage for hours. The stress speeds up the failure mechanism by an acceleration factor AF = AF_T·AF_V, so a few hours of burn-in equal months or years of use, and the weak dies fail in the factory instead of in the car. How much each stress helps depends on the mechanism: oxide and dielectric breakdown respond strongly to voltage, metal migration mainly to temperature and current. Because burn-in is expensive, fabs work hard to prevent these defects (clean tools, inline inspection, monitors on PCM), and test engineers add cheaper screens such as high-voltage stress, IDDQ, PAT and GDBN."},
   sc:{pill:"PAT", name:"Screening: GDBN and PAT", sub:"Passing dies next to failures, or far from their neighbours, are the ones that fail later",
     text:"Some dies pass every test today but carry a latent defect, such as a partial short, a thin spot in an oxide or a weak via, that fails in the field. Latent defects come from the same mechanisms as killer defects, so they cluster near failing dies. Good die in bad neighbourhood (GDBN) therefore drops passing dies whose neighbours failed. Part average testing (PAT, AEC-Q001) drops dies whose parameters, here the quiescent current IDDQ, are outliers from the wafer's own distribution even though they are inside the datasheet limit; robust statistics (median and IQR) keep the outliers from widening the limits. Both trade yield for quality: a tighter threshold catches more latent defects but throws away good dies. Automotive radar chips aim for single-digit DPPM, so this screening is standard. Watch the probe-card signature: those failures are not real, and GDBN around them throws away good dies, so retest before screening."}
 };
@@ -13859,11 +14450,21 @@ Object.assign(TIP, {
   "Good dies":"Good dies per wafer: what you actually sell.",
   "GDBN":"Good die in bad neighbourhood.",
   "PAT":"Part average testing with robust limits.",
-  "Cost and escapes":"Yield given up against latent defects that still ship."
+  "Cost and escapes":"Yield given up against latent defects that still ship.",
+  "Time to failure in use":"How long this die would last in normal use (55 °C, nominal VDD).",
+  "Burn-in acceleration":"How many hours of use one hour of burn-in is worth for this mechanism.",
+  "Burn-in = field use":"The field time that the whole burn-in is equivalent to.",
+  "This die":"What happens to this die: caught in the factory or failing at the customer.",
+  "Defect weakening":"A more severe defect leaves less margin and fails sooner (simple power-law model).",
+  "Temperature acceleration":"Arrhenius law: a hotter chip ages faster; Ea depends on the mechanism.",
+  "Voltage acceleration":"Oxide and dielectric wear-out grow exponentially with voltage; metal migration with current density.",
+  "Burn-in screen":"A latent defect is caught if it fails within the burn-in's equivalent field time.",
+  "Field fallout":"Latent dies of this type that would fail in the customer's first year."
 });
 const YDLEG = {
   map:[["channel","Pass (bin 1)"],["hole","Parametric fail (bin 2)"],["accent","Functional / defect fail (bin 3)"],["metal","Contact fail (bin 5)"],["fg","WAT site (PCM in the scribe line)"]],
   ym:[["channel","Good die"],["hole","Killed by a defect"],["fg","Killer defect"]],
+  lat:[["accent","Metal / copper"],["oxide","Oxide / dielectric"],["si","Silicon"],["hole","Defect, damage, failure"],["electron","Current / electrons"]],
   sc:[["channel","Shipped"],["accent","Dropped by GDBN"],["oxide","Dropped by PAT"],["hole","Failed at CP"],["fg","Latent defect (ring: caught, dot: escaped)"]]
 };
 const ydChip = (sel, attr, val) => document.querySelectorAll(sel).forEach(b => { const on = b.dataset[attr] === val; b.setAttribute("aria-pressed", on); b.style.borderColor = on ? "var(--accent)" : ""; b.style.color = on ? "var(--accent)" : ""; });
@@ -13873,12 +14474,16 @@ function updateYD(){
   $("yd-pill").textContent = info.pill; $("yd-name").textContent = info.name; $("yd-sub").textContent = info.sub; $("yd-explain").textContent = info.text;
   document.querySelectorAll("#yd-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
   ydChip("#yd-sig button", "s", YD.sig); ydChip("#yd-layer button", "l", YD.layer);
-  const vis = {"yd-c-sig":v !== "ym", "yd-c-layer":v === "map", "yd-c-sites":v === "map", "yd-c-amp":v !== "ym", "yd-c-d0":true, "yd-c-al":v === "ym", "yd-c-gn":v === "sc", "yd-c-pk":v === "sc", "yd-diag-card":v !== "ym"};
+  const LV = v === "lat";
+  const vis = {"yd-c-sig":v === "map" || v === "sc", "yd-c-layer":v === "map", "yd-c-sites":v === "map", "yd-c-amp":v === "map" || v === "sc", "yd-c-d0":!LV, "yd-c-die":!LV, "yd-c-seed":!LV,
+    "yd-c-lat":LV, "yd-c-sev":LV, "yd-c-bih":LV, "yd-c-vs":LV, "yd-c-ppm":LV, "yd-c-al":v === "ym", "yd-c-gn":v === "sc", "yd-c-pk":v === "sc", "yd-diag-card":v !== "ym"};
   Object.entries(vis).forEach(([id, on]) => $(id).hidden = !on);
   $("yd-die-v").textContent = `${YD.die} mm`; $("yd-sites-v").textContent = `${D.sites.length} sites`; $("yd-amp-v").textContent = `${YD.amp} mV`;
   $("yd-d0-v").textContent = `${YD.d0.toFixed(2)} /cm²`; $("yd-al-v").textContent = YD.al >= 8 ? "≥ 8 (random)" : YD.al.toFixed(1);
   $("yd-gn-v").textContent = `≥ ${YD.gn} of 8`; $("yd-pk-v").textContent = `${YD.pk} σ`;
   setHTML("yd-legend", YDLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  if (LV){ ydLatUpdate(); return; }
+  $("yd-diag-h").textContent = "What this signature suggests";
   const st = ydStats(), A = (YD.die/10)**2;
   YD.scr = ydScreen(); const sc = YD.scr;
   if (v === "map"){
@@ -13962,6 +14567,8 @@ document.querySelectorAll("#yd-view button").forEach(b => b.addEventListener("cl
 document.querySelectorAll("#yd-sig button").forEach(b => b.addEventListener("click", () => { YD.sig = b.dataset.s; updateYD(); }));
 document.querySelectorAll("#yd-layer button").forEach(b => b.addEventListener("click", () => { YD.layer = b.dataset.l; updateYD(); }));
 $("yd-seed").addEventListener("click", () => { YD.seed++; updateYD(); });
+document.querySelectorAll("#yd-lat button").forEach(b => b.addEventListener("click", () => { YD.lat = b.dataset.d; updateYD(); }));
+[["yd-sev","sev"],["yd-bih","bih"],["yd-vs","vs"],["yd-ppm","ppm"]].forEach(([id, k]) => $(id).addEventListener("input", e => { YD[k] = +e.target.value; updateYD(); }));
 [["yd-die","die"],["yd-sites","sites"],["yd-amp","amp"],["yd-d0","d0"],["yd-al","al"],["yd-gn","gn"],["yd-pk","pk"]].forEach(([id, k]) => $(id).addEventListener("input", e => { YD[k] = +e.target.value; updateYD(); }));
 
 /* ================= tabs + loop ================= */
@@ -14031,7 +14638,7 @@ function frame(now){
 }
 
 /* ================= find (every tab, English and 中文) ================= */
-const FIND_SEL = "h3, summary, dt, li, tr, p.note, .term, .chipbtn[data-s], .chipbtn[data-l], .stepper .seg button[data-v]";
+const FIND_SEL = "h3, summary, dt, li, tr, p.note, .term, .chipbtn[data-s], .chipbtn[data-l], .chipbtn[data-d], .stepper .seg button[data-v]";
 const FIND_PRI = {Tab:12, View:8, About:5, Term:6, Option:4, Control:3, Heading:3, Glossary:2};
 const findIdx = [];
 const fClean = x => (x || "").replace(/\s+/g, " ").trim();
