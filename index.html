@@ -3600,6 +3600,286 @@ Object.assign(window.I18N_ZH, {
 "hole": "孔",
 "SoC / GPU": "SoC / GPU"
 });
+Object.assign(window.I18N_ZH, {
+"Yield &amp; WAT": "良率與 WAT",
+"Yield & WAT": "良率與 WAT",
+"Yield and WAT · wafer maps, sparse test sites, yield models, screening": "良率與 WAT · 晶圓圖、稀疏量測點、良率模型、篩選",
+"MAP": "MAP",
+"Wafer map and WAT sampling": "晶圓圖與 WAT 取樣",
+"Yield view": "良率視圖",
+"Wafer map & WAT sites": "晶圓圖與 WAT 量測點",
+"Yield models (D#, die size)": "良率模型（D0、晶粒尺寸）",
+"Screening (GDBN, PAT)": "篩選（GDBN、PAT）",
+"Choose what went wrong in the fab (or at the tester). The bin map shows the result; try to recognise it from the map alone.": "選擇晶圓廠（或測試端）出了什麼問題。Bin map 會顯示結果；試著只看圖就認出原因。",
+"Failure signature": "失效特徵",
+"Random defects": "隨機缺陷",
+"Edge ring": "邊緣環",
+"Donut": "甜甜圈",
+"Center": "中心",
+"Gradient": "梯度",
+"Reticle repeat": "光罩重複",
+"Scratch": "刮傷",
+"Probe-card site": "探針卡 site",
+"What the right-hand wafer shows: the real parameter (unknown in practice), what the WAT sites can reconstruct, what every die's ring oscillator says, or the inline defect scan.": "右側晶圓顯示的內容：真實參數（實務上無從得知）、WAT 量測點能重建出的分布、每顆晶粒的環形振盪器結果，或線上缺陷掃描。",
+"Right-hand map": "右側晶圓圖",
+"True ΔVth": "真實 ΔVth",
+"WAT fit": "WAT 擬合",
+"CP ring-osc proxy": "CP 環振代理",
+"Defect scan": "缺陷掃描",
+"New wafer (new random data)": "新晶圓（新的隨機資料）",
+"Edge length of a square die. Bigger dies: fewer per wafer and each one is more likely to catch a defect.": "正方形晶粒的邊長。晶粒越大，每片晶圓能放的越少，而且每顆更容易碰到缺陷。",
+"Die size": "晶粒尺寸",
+"Number of PCM test sites the fab measures per wafer. # or # is common; # or more on engineering wafers.": "晶圓廠每片晶圓量測的 PCM 測試點數。常見 # 或 # 點；工程晶圓 # 點以上。",
+"WAT sites": "WAT 量測點",
+"Strength of the process problem as a threshold-voltage shift. The test limit is ±# mV.": "製程問題的強度，以臨界電壓偏移表示。測試規格為 ±# mV。",
+"Signature strength": "特徵強度",
+"Killer defect density D# per cm². A mature line is around #–# /cm²; a new process can be # or more.": "每 cm² 的致命缺陷密度 D#。成熟產線約 #–# /cm²；新製程可能到 # 以上。",
+"Defect density D#": "缺陷密度 D0",
+"Clustering parameter α of the negative-binomial model. Small α: defects come in clusters (higher yield for the same D#). Large α: purely random (Poisson).": "負二項式模型的群聚參數 α。α 小：缺陷成群出現（同樣 D# 下良率較高）。α 大：完全隨機（Poisson）。",
+"Clustering α": "群聚 α",
+"Good die in bad neighbourhood: drop a passing die if at least this many of its # neighbours failed.": "壞鄰居中的好晶粒：若 # 個鄰居中至少有這麼多顆失效，就剔除這顆通過的晶粒。",
+"GDBN threshold": "GDBN 門檻",
+"Part average testing: drop a passing die whose IDDQ is more than k robust sigmas from the wafer median.": "零件平均測試：若通過晶粒的 IDDQ 偏離晶圓中位數超過 k 個穩健標準差，就剔除。",
+"PAT limit k": "PAT 界限 k",
+"Analysis": "分析",
+"Parameter versus radius, or yield versus die area, or IDDQ histogram with PAT limits": "參數對半徑、良率對晶粒面積，或含 PAT 界限的 IDDQ 直方圖",
+"Ring-oscillator calibration, or good dies per wafer, or the screening waterfall": "環形振盪器校正、每片晶圓良品數，或篩選瀑布圖",
+"Wafer maps: test bins with the WAT sites, and the true, fitted or ring-oscillator parameter map; or random defects on a wafer; or screening of good dies near failures": "晶圓圖：測試 bin 與 WAT 量測點，以及真實、擬合或環振參數圖；或晶圓上的隨機缺陷；或篩選失效旁的良品晶粒",
+"What this signature suggests": "這個特徵代表什麼",
+"How it works": "運作原理",
+"Explain the terms: WAT, PCM, CP, bin map, D#, GDBN, PAT, DPPM": "名詞解釋：WAT、PCM、CP、bin map、D0、GDBN、PAT、DPPM",
+"When yield is low where there is no WAT data": "低良率區沒有 WAT 資料時怎麼辦",
+"<b>Read the map</b>: the shape of the failing area (edge, donut, center, line, repeat) points to the process step.": "<b>先看圖</b>：失效區的形狀（邊緣、甜甜圈、中心、線、重複）指向製程站點。",
+"<b>Rule out the tester</b>: per-site yield, probe card, touchdown pattern. A test problem is not a fab problem.": "<b>排除測試端</b>：各 site 良率、探針卡、touchdown 圖形。測試問題不是晶圓廠問題。",
+"<b>Use data every die has</b>: CP parametrics (ring oscillator, IDDQ, Vmin, RF gain, VCO frequency), calibrated against WAT where both exist.": "<b>用每顆晶粒都有的資料</b>：CP 參數（環形振盪器、IDDQ、Vmin、RF 增益、VCO 頻率），在兩者都有的位置對 WAT 校正。",
+"<b>Use denser fab data</b>: inline thickness and CD maps, defect inspection scans, tool and chamber history (commonality).": "<b>用更密的廠內資料</b>：線上膜厚與 CD 圖、缺陷檢測掃描、機台與 chamber 履歷（共通性分析）。",
+"<b>Ask for more data</b>: an engineering full-map WAT on the suspect wafers, nanoprobing and failure analysis on a failing die next to a good one.": "<b>要求更多資料</b>：對可疑晶圓做工程全片 WAT，並對失效晶粒與旁邊的良品做 nanoprobing 和失效分析。",
+"<b>Design it in next time</b>: your own monitors inside the die, so every die carries its own PCM.": "<b>下一版直接設計進去</b>：在晶粒內放自己的監控結構，讓每顆晶粒都有自己的 PCM。",
+"<b>Protect the customer</b>: GDBN, PAT and inking of the bad region until the cause is fixed.": "<b>保護客戶</b>：在原因修正前，用 GDBN、PAT 並把壞區域打點（ink）剔除。",
+"Signature → likely cause → next step": "特徵 → 可能原因 → 下一步",
+"Signature": "特徵",
+"Likely cause": "可能原因",
+"Next step": "下一步",
+"Etch / CMP edge, film roll-off, edge bead, bevel": "蝕刻 / CMP 邊緣、膜厚邊緣衰減、邊緣光阻珠、斜邊",
+"Edge-inclusive WAT, inline edge points, chamber split": "含邊緣點的 WAT、線上邊緣量測點、chamber 分組比較",
+"Plasma or gas distribution, RTP lamp zones": "電漿或氣體分布、RTP 燈區",
+"Chamber commonality, radial thickness / CD maps": "chamber 共通性、徑向膜厚 / CD 圖",
+"Spin coat, center-fed gas, CMP center rate": "旋塗、中心進氣、CMP 中心移除率",
+"Center WAT site trend": "中心 WAT 點趨勢",
+"Temperature tilt, chuck levelling, implant angle": "溫度傾斜、載台水平、佈植角度",
+"Plane fit, notch orientation per tool": "平面擬合、各機台的 notch 方向",
+"Mask defect, lens aberration, design marginality": "光罩缺陷、鏡頭像差、設計邊際",
+"Stack by in-field position, reticle inspection": "依 field 內位置疊圖、光罩檢查",
+"Wafer handling, CMP particle": "晶圓傳送、CMP 微粒",
+"Inline scan of each layer, find the adding tool": "逐層線上掃描，找出增加缺陷的機台",
+"Needle damage, contact, tester channel": "探針損傷、接觸、測試機通道",
+"Per-site yield, clean card, retest": "各 site 良率、清潔探針卡、重測",
+"Random": "隨機",
+"Particles (D#)": "微粒（D0）",
+"Defect pareto, SEM review, kill ratio": "缺陷柏拉圖、SEM 複查、致命比",
+"Test terms": "測試名詞",
+"Wafer acceptance test: the fab's electrical test of test structures before the wafer ships.": "晶圓允收測試：晶圓出廠前，晶圓廠對測試結構做的電性測試。",
+"PCM / testkey": "PCM / testkey",
+"Process control monitor: transistors, resistors, capacitors and chains placed in the scribe line.": "製程監控結構：放在切割道上的電晶體、電阻、電容和串鏈。",
+"Scribe line": "切割道",
+"The lane between dies that the dicing saw removes: free space for test structures.": "晶粒之間、會被切割刀切掉的走道：放測試結構的免費空間。",
+"CP / wafer sort": "CP / 晶圓針測",
+"Circuit probe: every die is tested on the wafer with a probe card; results go into the bin map.": "電路針測：用探針卡在晶圓上測每顆晶粒；結果存成 bin map。",
+"Bin": "Bin",
+"Test result category: pass, parametric fail, functional fail, contact fail.": "測試結果分類：通過、參數失效、功能失效、接觸失效。",
+"Edge exclusion": "邊緣排除區",
+"Outer ring of the wafer (often #–# mm) that the fab does not guarantee.": "晶圓最外圈（常為 #–# mm），晶圓廠不保證。",
+"Ring oscillator (RO)": "環形振盪器（RO）",
+"Chain of inverters on the die whose frequency tracks transistor speed (Vth, Idsat).": "晶粒上的一串反相器，頻率反映電晶體速度（Vth、Idsat）。",
+"Quiescent supply current: leakage of the whole die at rest; a defect often shows up as extra current.": "靜態電源電流：整顆晶粒靜止時的漏電；缺陷常表現為額外電流。",
+"Yield and screening terms": "良率與篩選名詞",
+"Killer defect density per cm²: the main input of every yield model.": "每 cm² 的致命缺陷密度：所有良率模型的主要輸入。",
+"Kill ratio": "致命比",
+"Fraction of the defects of a type that actually make a die fail.": "某類缺陷中，真正讓晶粒失效的比例。",
+"Commonality": "共通性分析",
+"Finding the tool, chamber or time that all bad lots share.": "找出所有壞批共同經過的機台、chamber 或時段。",
+"Nanoprobing": "奈米探針量測",
+"Landing fine probes on single transistors inside a die to measure Vth and Idsat directly.": "把細探針直接下在晶粒內的單顆電晶體上，量測 Vth 和 Idsat。",
+"EMMI / OBIRCH": "EMMI / OBIRCH",
+"Failure analysis methods that find leakage spots by emitted light or laser heating.": "以發光或雷射加熱找出漏電點的失效分析方法。",
+"Good die in bad neighbourhood: passing dies surrounded by failures are dropped.": "壞鄰居中的好晶粒：被失效晶粒包圍的通過晶粒會被剔除。",
+"Part average testing: outliers from the wafer's own distribution are dropped (AEC-Q#).": "零件平均測試：剔除偏離本片晶圓分布的離群值（AEC-Q#）。",
+"Defective parts per million shipped: what the customer measures.": "每百萬出貨件中的不良數：客戶看的指標。",
+"WAT tells you the process was on target where it was measured. CP tells you every die. Use both: calibrate CP against WAT, then read the whole wafer.": "WAT 告訴你被量到的位置製程有沒有達標，CP 告訴你每一顆晶粒。兩者一起用：用 WAT 校正 CP，再判讀整片晶圓。",
+"The fab measures a few test sites, the tester measures every die: what to do where WAT has no data": "晶圓廠只量幾個測試點，測試機量每一顆晶粒：WAT 沒有資料的地方怎麼辦",
+"WAT (wafer acceptance test) measures test structures (PCM, testkeys) that sit in the scribe lines between the dies, at only # to # sites per wafer and often on only some wafers of a lot. Its job is to prove that the process was on target, not to map every die. CP (circuit probe, wafer sort) tests every die, so the bin map covers the whole wafer but only tells you pass, fail and the bin. When a low-yield area falls between WAT sites, as an edge ring usually does because the outermost site sits #–# mm inside the edge, the WAT report can be fully in spec while the yield is poor. The way out is to combine data. The shape of the failing area points to a process step. Parameters measured on every die at CP, such as a ring-oscillator frequency, IDDQ or Vmin, can be calibrated against WAT where both exist and turned into a ΔVth map of the whole wafer. Inline data (thickness, CD, defect scans) usually has more points than WAT. Defect-type signatures such as a scratch, a reticle repeat or a probe-card fault leave no trace in WAT or in the ring oscillator: they need the defect scan, the position in the reticle field or the tester's per-site yield.": "WAT（晶圓允收測試）量測放在晶粒之間切割道上的測試結構（PCM、testkey），每片只量 # 到 # 個點，而且常常一批只量其中幾片。它的目的是證明製程有達標，不是畫出每顆晶粒的分布。CP（電路針測、晶圓測試）會測每一顆晶粒，所以 bin map 涵蓋整片晶圓，但只告訴你通過、失效和 bin 別。當低良率區落在 WAT 量測點之間（邊緣環通常就是這樣，因為最外圈的量測點離邊緣還有 #–# mm），WAT 報告可能完全在規格內，良率卻很差。解法是結合多種資料。失效區的形狀指向製程站點。CP 時每顆晶粒都量得到的參數（例如環形振盪器頻率、IDDQ 或 Vmin），可以在兩者都有的位置對 WAT 校正，換算成整片晶圓的 ΔVth 圖。線上資料（膜厚、CD、缺陷掃描）通常比 WAT 點更多。缺陷型的特徵（刮傷、光罩重複、探針卡故障）在 WAT 和環形振盪器裡完全看不到：要靠缺陷掃描、在光罩 field 內的位置，或測試機各 site 的良率。",
+"# mm": "# mm",
+"# sites": "# 點",
+"# mV": "# mV",
+"# /cm²": "# /cm²",
+"≥ # of #": "≥ {0}（共 {1} 顆）",
+"# σ": "# σ",
+"≥ # (random)": "≥ #（隨機）",
+"Pass (bin #)": "通過（bin #）",
+"Parametric fail (bin #)": "參數失效（bin #）",
+"Functional / defect fail (bin #)": "功能 / 缺陷失效（bin #）",
+"Contact fail (bin #)": "接觸失效（bin #）",
+"WAT site (PCM in the scribe line)": "WAT 量測點（切割道上的 PCM）",
+"Fraction of dies that pass circuit probe (wafer sort).": "通過電路針測（晶圓測試）的晶粒比例。",
+"CP yield": "CP 良率",
+"WAT sites whose ΔVth is within ±# mV.": "ΔVth 在 ±# mV 以內的 WAT 量測點。",
+"WAT sites in spec": "WAT 合格點數",
+"Largest difference between the true ΔVth of a die and the value the WAT fit predicts there.": "晶粒真實 ΔVth 與 WAT 擬合在該處預測值的最大差異。",
+"Max WAT-fit error": "WAT 擬合最大誤差",
+"Share of dies more than # mm from the nearest WAT site.": "離最近 WAT 量測點超過 # mm 的晶粒比例。",
+"Dies > # mm from a site": "離量測點 > # mm 的晶粒",
+"Low-order surface fitted through the WAT sites.": "通過 WAT 量測點擬合的低階曲面。",
+"Spatial fit": "空間擬合",
+"# sites → # coefficients · RMS error # mV, worst # mV at r = # mm": "# 點 → # 個係數 · RMS 誤差 # mV，最大 # mV（r = # mm）",
+"# sites → # coefficients · RMS error # mV, worst -# mV at r = # mm": "# 點 → # 個係數 · RMS 誤差 # mV，最大 -# mV（r = # mm）",
+"Every die's ring oscillator converted to ΔVth.": "把每顆晶粒的環形振盪器換算成 ΔVth。",
+"CP proxy": "CP 代理量測",
+"k = # MHz/mV from simulation, f# = # MHz calibrated on # WAT sites → a ΔVth for every die": "k = # MHz/mV 來自模擬，f# = # MHz 以 # 個 WAT 點校正 → 每顆晶粒都有 ΔVth",
+"A die fails parametric test when its worst ΔVth is outside the limit.": "晶粒最差位置的 ΔVth 超出規格時，判為參數失效。",
+"Test limit": "測試規格",
+"# parametric fails (bin #), # functional (bin #), # contact (bin #)": "參數失效 # 顆（bin #）、功能失效 # 顆（bin #）、接觸失效 # 顆（bin #）",
+"Yield in the outer ring compared with the rest of the wafer.": "最外圈與晶圓其他區域的良率比較。",
+"Edge vs inner": "邊緣 vs 內圈",
+"# % vs # %": "# % vs # %",
+"Likely causes": "可能原因",
+"Edge (r > # mm) yield # % vs inner # %": "邊緣（r > # mm）良率 # %，內圈 # %",
+"Yield per tester site (#×# touchdown): # / # / # / # %": "各測試 site 良率（#×# touchdown）：# / # / # / # %",
+"Yield per position in the #×# reticle field: # / # / # / # %": "#×# 光罩 field 內各位置良率：# / # / # / # %",
+"WAT: # of # sites in spec": "WAT：{1} 點中 {0} 點合格",
+"radius (mm)": "半徑 (mm)",
+"· dies": "· 晶粒",
+"◆ WAT": "◆ WAT",
+"· WAT fit": "· WAT 擬合",
+"-- spec": "-- 規格",
+"f RO (MHz)": "f RO (MHz)",
+"● WAT": "● WAT",
+"— calibration": "— 校正",
+"CP bin map (every die tested)": "CP bin map（每顆晶粒都測）",
+"True ΔVth (not measurable in production)": "真實 ΔVth（量產中量不到）",
+"CP ring-oscillator proxy (every die)": "CP 環形振盪器代理（每顆晶粒）",
+"Inline defect scan": "線上缺陷掃描",
+"WAT fit from # sites": "由 # 個量測點擬合的 WAT",
+"spec": "規格",
+"WAT: all # sites in spec · CP yield # %": "WAT：# 個點全部合格 · CP 良率 # %",
+"WAT: # of # sites out of spec · CP yield # %": "WAT：{1} 個點中有 {0} 個不合格 · CP 良率 {2} %",
+"the real threshold shift of every die: in production nobody has this map": "每顆晶粒真正的臨界電壓偏移：量產中沒有人拿得到這張圖",
+"a smooth surface through the WAT sites: right near the sites, blind between and beyond them": "通過 WAT 點的平滑曲面：量測點附近準確，點與點之間和外圍看不到",
+"ring-oscillator frequency on every die, converted to ΔVth with the WAT sites as calibration": "每顆晶粒的環形振盪器頻率，以 WAT 點校正後換算成 ΔVth",
+"particles found by optical inspection; a mask defect or a probe-card fault leaves nothing here": "光學檢測找到的微粒；光罩缺陷或探針卡故障在這裡完全看不到",
+"Yield models": "良率模型",
+"Random defects, die size and clustering: Poisson, Murphy and negative binomial": "隨機缺陷、晶粒尺寸與群聚：Poisson、Murphy 與負二項式",
+"In a mature process most yield loss comes from random killer defects: particles and pattern defects that short or open a line. With a defect density D# per cm² and a die area A, the simplest model is Poisson: Y = e^(−A·D#). Real defects are not independent but clustered, so several often land on a die that is already dead and the yield is higher than Poisson predicts. The negative binomial model adds a clustering parameter α (small α = strong clustering, α → ∞ gives Poisson); Murphy's model sits in between. Because yield falls exponentially with area, a die twice as large can give far fewer good dies per wafer: fewer dies fit and each one is more likely to be hit. That is one reason for chiplets, and why fabs fight so hard to lower D#.": "成熟製程中，大部分良率損失來自隨機的致命缺陷：讓線路短路或斷路的微粒和圖形缺陷。設每 cm² 缺陷密度為 D#、晶粒面積為 A，最簡單的模型是 Poisson：Y = e^(−A·D#)。實際的缺陷不是獨立的，而是成群出現，所以常有好幾顆落在已經壞掉的晶粒上，良率因此比 Poisson 預測的高。負二項式模型加入群聚參數 α（α 小 = 群聚強，α → ∞ 即為 Poisson）；Murphy 模型介於兩者之間。因為良率隨面積指數下降，面積大一倍的晶粒，每片晶圓的良品數可能少很多：放得下的晶粒變少，而且每顆更容易被缺陷打中。這是採用小晶片（chiplet）的原因之一，也是晶圓廠拚命降低 D# 的原因。",
+"Good die": "良品晶粒",
+"Killed by a defect": "被缺陷打壞",
+"Killer defect": "致命缺陷",
+"Complete dies that fit inside the edge exclusion.": "能完整放進邊緣排除區以內的晶粒。",
+"Gross dies": "總晶粒數",
+"Yield of this simulated wafer with the defects that have landed so far.": "這片模擬晶圓目前已落下缺陷時的良率。",
+"Simulated yield": "模擬良率",
+"Yield model for independent random defects.": "獨立隨機缺陷的良率模型。",
+"Yield model with clustered defects (parameter α).": "缺陷群聚的良率模型（參數 α）。",
+"Neg. binomial": "負二項式",
+"A = # cm², A·D# = # → # %": "A = # cm²，A·D# = # → # %",
+"Yield model between Poisson and strong clustering.": "介於 Poisson 與強群聚之間的良率模型。",
+"Negative binomial": "負二項式",
+"Gross dies per wafer from the wafer and die size.": "由晶圓與晶粒尺寸算出的每片總晶粒數。",
+"Dies per wafer": "每片晶粒數",
+"d = # mm, A = # mm² → # (counted: #)": "d = # mm，A = # mm² → #（實際數：#）",
+"Good dies per wafer: what you actually sell.": "每片晶圓的良品數：真正能賣的數量。",
+"Good dies": "良品數",
+"≈ # good dies per wafer": "每片約 # 顆良品",
+"die area A (cm²)": "晶粒面積 A (cm²)",
+"yield (%)": "良率 (%)",
+"— Poisson": "— Poisson",
+"— Murphy": "— Murphy",
+"— neg. binomial": "— 負二項式",
+"log# dies / wafer": "log# 晶粒數 / 片",
+"die size (mm)": "晶粒尺寸 (mm)",
+"— gross": "— 總數",
+"— good": "— 良品",
+"Random killer defects on one wafer": "一片晶圓上的隨機致命缺陷",
+"Yield: this wafer vs the models": "良率：這片晶圓 vs 模型",
+"This wafer (simulated)": "這片晶圓（模擬）",
+"die # × # mm = # cm² · D# = # /cm²": "晶粒 # × # mm = # cm² · D# = # /cm²",
+"A·D# = # killer defects per die on average": "A·D{0} = {1}（每顆晶粒平均致命缺陷數）",
+"# gross dies → # good dies on this wafer": "這片晶圓 # 顆總晶粒 → # 顆良品",
+"clustered defects often land on dies that are already dead:": "群聚的缺陷常落在已經壞掉的晶粒上：",
+"the yield is higher than Poisson predicts": "所以良率比 Poisson 預測的高",
+"nearly random defects: the yield follows Poisson": "缺陷接近隨機：良率符合 Poisson",
+"bigger die → fewer dies per wafer and each one is hit more often": "晶粒越大 → 每片晶粒越少，而且每顆更常被打中",
+"Screening: GDBN and PAT": "篩選：GDBN 與 PAT",
+"Passing dies next to failures, or far from their neighbours, are the ones that fail later": "緊鄰失效晶粒、或與鄰居差異很大的通過晶粒，就是之後會壞的那些",
+"Some dies pass every test today but carry a latent defect, such as a partial short, a thin spot in an oxide or a weak via, that fails in the field. Latent defects come from the same mechanisms as killer defects, so they cluster near failing dies. Good die in bad neighbourhood (GDBN) therefore drops passing dies whose neighbours failed. Part average testing (PAT, AEC-Q#) drops dies whose parameters, here the quiescent current IDDQ, are outliers from the wafer's own distribution even though they are inside the datasheet limit; robust statistics (median and IQR) keep the outliers from widening the limits. Both trade yield for quality: a tighter threshold catches more latent defects but throws away good dies. Automotive radar chips aim for single-digit DPPM, so this screening is standard. Watch the probe-card signature: those failures are not real, and GDBN around them throws away good dies, so retest before screening.": "有些晶粒今天通過所有測試，卻帶有潛在缺陷（例如部分短路、氧化層薄點或脆弱的 via），會在使用中失效。潛在缺陷和致命缺陷來自相同機制，所以會聚集在失效晶粒附近。因此「壞鄰居中的好晶粒」（GDBN）會剔除鄰居失效的通過晶粒。零件平均測試（PAT，AEC-Q#）則剔除參數（這裡是靜態電流 IDDQ）偏離本片晶圓分布的離群晶粒，即使它們仍在規格書範圍內；用穩健統計（中位數與 IQR）可避免離群值把界限撐寬。兩者都是用良率換品質：門檻越嚴，抓到越多潛在缺陷，但也丟掉越多好晶粒。車用雷達晶片的目標是個位數 DPPM，所以這種篩選是標準做法。注意探針卡的特徵：那些失效不是真的，對它們做 GDBN 會丟掉好晶粒，所以篩選前要先重測。",
+"Shipped": "出貨",
+"Dropped by GDBN": "GDBN 剔除",
+"Dropped by PAT": "PAT 剔除",
+"Failed at CP": "CP 失效",
+"Latent defect (ring: caught, dot: escaped)": "潛在缺陷（圈：已攔截，點：漏網）",
+"Dies that passed every test at circuit probe.": "電路針測時通過所有測試的晶粒。",
+"CP good dies": "CP 良品數",
+"Passing dies dropped because too many neighbours failed.": "因太多鄰居失效而被剔除的通過晶粒。",
+"Passing dies dropped as statistical outliers.": "因統計離群而被剔除的通過晶粒。",
+"Dies with a hidden defect that the screening removed, out of all such dies.": "帶潛在缺陷的晶粒中，被篩選剔除的數量。",
+"Latent caught": "攔截潛在缺陷",
+"Good die in bad neighbourhood.": "壞鄰居中的好晶粒。",
+"drop if bad neighbours ≥ n": "壞鄰居數 ≥ n 就剔除",
+"n = # → # good dies dropped": "n = # → 剔除 # 顆好晶粒",
+"Part average testing with robust limits.": "使用穩健界限的零件平均測試。",
+"limits = median ± k·σr, σr = IQR / #": "界限 = 中位數 ± k·σr，σr = IQR / #",
+"log# IDDQ: # ± #·# → # dropped": "log# IDDQ：# ± #·# → 剔除 #",
+"Yield given up against latent defects that still ship.": "放棄的良率與仍會出貨的潛在缺陷之間的取捨。",
+"Cost and escapes": "成本與漏網",
+"yield loss vs latent escapes": "良率損失 vs 潛在缺陷漏網",
+"yield loss # % · # of # latent defects shipped → # DPPM on this wafer": "良率損失 {0} % · {2} 個潛在缺陷中有 {1} 個出貨 → 本片 {3} DPPM",
+"log# IDDQ (µA)": "log# IDDQ (µA)",
+"dies": "晶粒數",
+"-- PAT limits": "-- PAT 界限",
+"| latent defects": "| 潛在缺陷",
+"CP pass": "CP 通過",
+"ship": "出貨",
+"escapes: # latent": "漏網：# 個潛在缺陷",
+"Bin map after screening": "篩選後的 bin map",
+"GDBN: one passing die and its # neighbours": "GDBN：一顆通過晶粒與它的 # 個鄰居",
+"# of # neighbours failed": "{1} 個鄰居中有 {0} 個失效",
+"threshold: drop if ≥ #": "門檻：≥ # 就剔除",
+"→ dropped (inked)": "→ 剔除（打點）",
+"→ kept": "→ 保留",
+"defects cluster, so a die next to": "缺陷會群聚，所以緊鄰",
+"dead dies may carry a latent defect": "壞晶粒的晶粒可能帶潛在缺陷",
+"this one is actually fine": "這顆其實沒問題",
+"this one really has a latent defect": "這顆真的有潛在缺陷",
+"off wafer": "晶圓外",
+"PAT: outliers of the wafer's own IDDQ": "PAT：本片晶圓 IDDQ 的離群值",
+"median # µA · robust σ = # decades": "中位數 # µA · 穩健 σ = # 個數量級",
+"limits #–# µA (datasheet limit # µA)": "界限 #–# µA（規格書上限 # µA）",
+"# passing dies dropped by PAT, # by GDBN": "PAT 剔除 {0} 顆通過晶粒，GDBN 剔除 {1} 顆",
+"latent defects caught: # of #": "攔截潛在缺陷：{1} 個中的 {0} 個",
+"a latent defect passes every test today and fails in the car": "潛在缺陷今天通過所有測試，卻在車上失效",
+"<b>Random defects</b>: Isolated failures spread over the wafer, no spatial pattern.": "<b>隨機缺陷</b>：零星失效散布在整片晶圓上，沒有空間圖形。",
+"<b>Likely causes</b>: Particles and pattern defects; the yield follows D# and the die area.": "<b>可能原因</b>：微粒與圖形缺陷；良率由 D# 與晶粒面積決定。",
+"<b>Next step</b>: Defect pareto from inline inspection, SEM review of the killer defects, find the layers and tools that add the most particles.": "<b>下一步</b>：從線上檢測做缺陷柏拉圖，SEM 複查致命缺陷，找出增加最多微粒的層別與機台。",
+"<b>Edge ring</b>: A ring of failures at the wafer edge. WAT often misses it: the outermost site is #–# mm inside the edge.": "<b>邊緣環</b>：晶圓邊緣一圈失效。WAT 常常看不到：最外圈的量測點離邊緣還有 #–# mm。",
+"<b>Likely causes</b>: Etch or CMP non-uniformity at the edge, film thickness roll-off, litho focus and edge bead, bevel defects.": "<b>可能原因</b>：邊緣的蝕刻或 CMP 不均勻、膜厚邊緣衰減、微影焦距與邊緣光阻珠、斜邊缺陷。",
+"<b>Next step</b>: Engineering WAT with edge sites, inline thickness and CD with edge points, edge yield per chamber, and ask for the fab's edge-exclusion spec.": "<b>下一步</b>：含邊緣點的工程 WAT、含邊緣點的線上膜厚與 CD、各 chamber 的邊緣良率，並向晶圓廠確認 edge exclusion 規格。",
+"<b>Donut</b>: A ring of failures at mid-radius, between the WAT site rings.": "<b>甜甜圈</b>：半徑中段一圈失效，剛好落在 WAT 量測點的兩圈之間。",
+"<b>Likely causes</b>: Plasma density or gas flow in etch or CVD, RTP lamp zones, CMP zone pressure.": "<b>可能原因</b>：蝕刻或 CVD 的電漿密度或氣流、RTP 燈區、CMP 分區壓力。",
+"<b>Next step</b>: Commonality by chamber, radial thickness and CD maps, nanoprobe a die on the ring next to a good die.": "<b>下一步</b>：依 chamber 做共通性分析、徑向膜厚與 CD 圖，對環上的晶粒與旁邊的良品做 nanoprobing。",
+"<b>Center</b>: Failures at the wafer center.": "<b>中心</b>：晶圓中心失效。",
+"<b>Likely causes</b>: Spin-coat thickness, center-fed gas or etch loading, CMP center removal rate.": "<b>可能原因</b>：旋塗厚度、中心進氣或蝕刻負載、CMP 中心移除率。",
+"<b>Next step</b>: Every WAT plan has a center site: check its trend first, then the coat and CMP tools.": "<b>下一步</b>：每個 WAT 計畫都有中心點：先看它的趨勢，再查塗佈與 CMP 機台。",
+"<b>Gradient</b>: One side of the wafer is worse than the other.": "<b>梯度</b>：晶圓一側比另一側差。",
+"<b>Likely causes</b>: Temperature tilt (hot plate, furnace position), chuck levelling, implant angle.": "<b>可能原因</b>：溫度傾斜（熱板、爐管位置）、載台水平、佈植角度。",
+"<b>Next step</b>: Fit a plane to WAT and CP data, check the notch orientation in each tool and the slot position in the furnace.": "<b>下一步</b>：對 WAT 與 CP 資料做平面擬合，檢查各機台的 notch 方向與爐管中的 slot 位置。",
+"<b>Reticle repeat</b>: The same die position in every reticle field fails.": "<b>光罩重複</b>：每個光罩 field 中同一位置的晶粒都失效。",
+"<b>Likely causes</b>: A mask defect or haze, lens aberration in one corner of the field, or a design marginality at one position.": "<b>可能原因</b>：光罩缺陷或霧化、field 某個角落的鏡頭像差，或某個位置的設計邊際。",
+"<b>Next step</b>: Stack the failures by in-field position, reticle inspection, compare with another mask. WAT never sees it.": "<b>下一步</b>：依 field 內位置疊圖、檢查光罩、和另一片光罩比較。WAT 永遠看不到它。",
+"<b>Scratch</b>: Failures along a line or arc.": "<b>刮傷</b>：沿著一條線或弧線失效。",
+"<b>Likely causes</b>: Wafer handling (robot, cassette) or a particle dragged by CMP.": "<b>可能原因</b>：晶圓傳送（機械手臂、晶舟）或 CMP 拖曳的微粒。",
+"<b>Next step</b>: Inline defect scans layer by layer to find the step that adds the scratch, then the tool.": "<b>下一步</b>：逐層線上缺陷掃描，找出產生刮傷的步驟，再找機台。",
+"<b>Probe-card site</b>: A stripe pattern that follows the prober stepping, not the reticle; one tester site fails much more.": "<b>探針卡 site</b>：條紋圖形跟著針測機的步進走，而不是光罩；某一個測試 site 失效特別多。",
+"<b>Likely causes</b>: A damaged or dirty probe needle, contact resistance, or one tester channel.": "<b>可能原因</b>：探針損傷或髒污、接觸電阻，或某個測試機通道。",
+"<b>Next step</b>: Per-site yield from the tester log, clean or replace the card and retest: this is a test problem, not a fab problem.": "<b>下一步</b>：從測試紀錄看各 site 良率，清潔或更換探針卡後重測：這是測試問題，不是晶圓廠問題。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -3943,6 +4223,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-re" aria-selected="false" aria-controls="tab-re">Latch-up & ESD</button>
         <button role="tab" id="tab-btn-fb" aria-selected="false" aria-controls="tab-fb">Process flow (fab)</button>
         <button role="tab" id="tab-btn-pk" aria-selected="false" aria-controls="tab-pk">Packaging (assembly)</button>
+        <button role="tab" id="tab-btn-yd" aria-selected="false" aria-controls="tab-yd">Yield &amp; WAT</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -6260,6 +6541,157 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>AiP</dt><dd>Antenna-in-package: radar antennas formed in the package RDL.</dd>
               <dt>TSV / hybrid bonding</dt><dd>Through-silicon vias and direct copper-to-copper bonding for 3D stacking.</dd>
             </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>  <!-- ===================== YIELD & WAT TAB ===================== -->
+  <section id="tab-yd" role="tabpanel" aria-labelledby="tab-btn-yd" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="yd-pill">MAP</span><h2 id="yd-name">Wafer map and WAT sampling</h2></div>
+      <p id="yd-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="yd-view" role="group" aria-label="Yield view" style="flex-wrap:wrap">
+        <button data-v="map" aria-pressed="true">Wafer map &amp; WAT sites</button>
+        <button data-v="ym" aria-pressed="false">Yield models (D0, die size)</button>
+        <button data-v="sc" aria-pressed="false">Screening (GDBN, PAT)</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvyd" aria-label="Wafer maps: test bins with the WAT sites, and the true, fitted or ring-oscillator parameter map; or random defects on a wafer; or screening of good dies near failures"></canvas>
+      <div class="legend" id="yd-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="yd-ro"></div>
+        <div id="yd-c-sig" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Choose what went wrong in the fab (or at the tester). The bin map shows the result; try to recognise it from the map alone.">Failure signature</span>
+          <div class="chips" id="yd-sig">
+            <button class="chipbtn" data-s="rand">Random defects</button>
+            <button class="chipbtn" data-s="edge">Edge ring</button>
+            <button class="chipbtn" data-s="donut">Donut</button>
+            <button class="chipbtn" data-s="center">Center</button>
+            <button class="chipbtn" data-s="grad">Gradient</button>
+            <button class="chipbtn" data-s="ret">Reticle repeat</button>
+            <button class="chipbtn" data-s="scr">Scratch</button>
+            <button class="chipbtn" data-s="probe">Probe-card site</button>
+          </div>
+        </div>
+        <div id="yd-c-layer" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="What the right-hand wafer shows: the real parameter (unknown in practice), what the WAT sites can reconstruct, what every die's ring oscillator says, or the inline defect scan.">Right-hand map</span>
+          <div class="chips" id="yd-layer">
+            <button class="chipbtn" data-l="true">True ΔVth</button>
+            <button class="chipbtn" data-l="wat">WAT fit</button>
+            <button class="chipbtn" data-l="ro">CP ring-osc proxy</button>
+            <button class="chipbtn" data-l="def">Defect scan</button>
+          </div>
+        </div>
+        <div class="chips"><button class="chipbtn" id="yd-seed">New wafer (new random data)</button></div>
+        <div class="slider" id="yd-c-die">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Edge length of a square die. Bigger dies: fewer per wafer and each one is more likely to catch a defect.">Die size</span><span id="yd-die-v"></span></div>
+          <input id="yd-die" type="range" min="4" max="20" step="0.5" value="10">
+        </div>
+        <div class="slider" id="yd-c-sites">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Number of PCM test sites the fab measures per wafer. 5 or 9 is common; 13 or more on engineering wafers.">WAT sites</span><span id="yd-sites-v"></span></div>
+          <input id="yd-sites" type="range" min="0" max="3" step="1" value="1">
+        </div>
+        <div class="slider" id="yd-c-amp">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Strength of the process problem as a threshold-voltage shift. The test limit is ±30 mV.">Signature strength</span><span id="yd-amp-v"></span></div>
+          <input id="yd-amp" type="range" min="0" max="90" step="1" value="50">
+        </div>
+        <div class="slider" id="yd-c-d0">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Killer defect density D0 per cm². A mature line is around 0.05–0.1 /cm²; a new process can be 0.5 or more.">Defect density D0</span><span id="yd-d0-v"></span></div>
+          <input id="yd-d0" type="range" min="0.02" max="1" step="0.01" value="0.1">
+        </div>
+        <div class="slider" id="yd-c-al">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Clustering parameter α of the negative-binomial model. Small α: defects come in clusters (higher yield for the same D0). Large α: purely random (Poisson).">Clustering α</span><span id="yd-al-v"></span></div>
+          <input id="yd-al" type="range" min="0.3" max="10" step="0.1" value="2">
+        </div>
+        <div class="slider" id="yd-c-gn">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Good die in bad neighbourhood: drop a passing die if at least this many of its 8 neighbours failed.">GDBN threshold</span><span id="yd-gn-v"></span></div>
+          <input id="yd-gn" type="range" min="1" max="8" step="1" value="3">
+        </div>
+        <div class="slider" id="yd-c-pk">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Part average testing: drop a passing die whose IDDQ is more than k robust sigmas from the wafer median.">PAT limit k</span><span id="yd-pk-v"></span></div>
+          <input id="yd-pk" type="range" min="2" max="8" step="0.5" value="4">
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="yd-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Analysis</p>
+        <div class="plots">
+          <div class="plot"><svg id="yd-p1" viewBox="0 0 300 230" role="img" aria-label="Parameter versus radius, or yield versus die area, or IDDQ histogram with PAT limits"></svg></div>
+          <div class="plot"><svg id="yd-p2" viewBox="0 0 220 230" role="img" aria-label="Ring-oscillator calibration, or good dies per wafer, or the screening waterfall"></svg></div>
+        </div>
+        <div class="sub-card explain" id="yd-diag-card">
+          <p class="eyebrow">What this signature suggests</p>
+          <div id="yd-diag"></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="yd-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: WAT, PCM, CP, bin map, D0, GDBN, PAT, DPPM</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>When yield is low where there is no WAT data</h3>
+            <ol>
+              <li><b>Read the map</b>: the shape of the failing area (edge, donut, center, line, repeat) points to the process step.</li>
+              <li><b>Rule out the tester</b>: per-site yield, probe card, touchdown pattern. A test problem is not a fab problem.</li>
+              <li><b>Use data every die has</b>: CP parametrics (ring oscillator, IDDQ, Vmin, RF gain, VCO frequency), calibrated against WAT where both exist.</li>
+              <li><b>Use denser fab data</b>: inline thickness and CD maps, defect inspection scans, tool and chamber history (commonality).</li>
+              <li><b>Ask for more data</b>: an engineering full-map WAT on the suspect wafers, nanoprobing and failure analysis on a failing die next to a good one.</li>
+              <li><b>Design it in next time</b>: your own monitors inside the die, so every die carries its own PCM.</li>
+              <li><b>Protect the customer</b>: GDBN, PAT and inking of the bad region until the cause is fixed.</li>
+            </ol>
+            <h3>Signature → likely cause → next step</h3>
+            <div class="tbl"><table>
+              <tr><th>Signature</th><th>Likely cause</th><th>Next step</th></tr>
+              <tr><td>Edge ring</td><td>Etch / CMP edge, film roll-off, edge bead, bevel</td><td>Edge-inclusive WAT, inline edge points, chamber split</td></tr>
+              <tr><td>Donut</td><td>Plasma or gas distribution, RTP lamp zones</td><td>Chamber commonality, radial thickness / CD maps</td></tr>
+              <tr><td>Center</td><td>Spin coat, center-fed gas, CMP center rate</td><td>Center WAT site trend</td></tr>
+              <tr><td>Gradient</td><td>Temperature tilt, chuck levelling, implant angle</td><td>Plane fit, notch orientation per tool</td></tr>
+              <tr><td>Reticle repeat</td><td>Mask defect, lens aberration, design marginality</td><td>Stack by in-field position, reticle inspection</td></tr>
+              <tr><td>Scratch</td><td>Wafer handling, CMP particle</td><td>Inline scan of each layer, find the adding tool</td></tr>
+              <tr><td>Probe-card site</td><td>Needle damage, contact, tester channel</td><td>Per-site yield, clean card, retest</td></tr>
+              <tr><td>Random</td><td>Particles (D0)</td><td>Defect pareto, SEM review, kill ratio</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Test terms</h3>
+            <dl>
+              <dt>WAT</dt><dd>Wafer acceptance test: the fab's electrical test of test structures before the wafer ships.</dd>
+              <dt>PCM / testkey</dt><dd>Process control monitor: transistors, resistors, capacitors and chains placed in the scribe line.</dd>
+              <dt>Scribe line</dt><dd>The lane between dies that the dicing saw removes: free space for test structures.</dd>
+              <dt>CP / wafer sort</dt><dd>Circuit probe: every die is tested on the wafer with a probe card; results go into the bin map.</dd>
+              <dt>Bin</dt><dd>Test result category: pass, parametric fail, functional fail, contact fail.</dd>
+              <dt>Edge exclusion</dt><dd>Outer ring of the wafer (often 2–3 mm) that the fab does not guarantee.</dd>
+              <dt>Ring oscillator (RO)</dt><dd>Chain of inverters on the die whose frequency tracks transistor speed (Vth, Idsat).</dd>
+              <dt>IDDQ</dt><dd>Quiescent supply current: leakage of the whole die at rest; a defect often shows up as extra current.</dd>
+            </dl>
+            <h3>Yield and screening terms</h3>
+            <dl>
+              <dt>D0</dt><dd>Killer defect density per cm²: the main input of every yield model.</dd>
+              <dt>Kill ratio</dt><dd>Fraction of the defects of a type that actually make a die fail.</dd>
+              <dt>Commonality</dt><dd>Finding the tool, chamber or time that all bad lots share.</dd>
+              <dt>Nanoprobing</dt><dd>Landing fine probes on single transistors inside a die to measure Vth and Idsat directly.</dd>
+              <dt>EMMI / OBIRCH</dt><dd>Failure analysis methods that find leakage spots by emitted light or laser heating.</dd>
+              <dt>GDBN</dt><dd>Good die in bad neighbourhood: passing dies surrounded by failures are dropped.</dd>
+              <dt>PAT</dt><dd>Part average testing: outliers from the wafer's own distribution are dropped (AEC-Q001).</dd>
+              <dt>DPPM</dt><dd>Defective parts per million shipped: what the customer measures.</dd>
+            </dl>
+            <p class="note">WAT tells you the process was on target where it was measured. CP tells you every die. Use both: calibrate CP against WAT, then read the whole wafer.</p>
           </div>
         </div>
       </details>
@@ -12817,12 +13249,387 @@ $("pk-next").addEventListener("click", () => { PK.s = Math.min(pkSteps().length 
 $("pk-step").addEventListener("input", e => { PK.s = +e.target.value; PK.p = 0.999; PK.play = false; updatePK(); });
 [["pk-wl","wl"],["pk-f","f"],["pk-die","die"]].forEach(([id, k]) => $(id).addEventListener("input", e => { PK[k] = +e.target.value; updatePK(); }));
 
+/* =========================================================
+   TAB — yield & WAT: sparse WAT sites vs the CP wafer map, yield models, GDBN / PAT screening
+   ========================================================= */
+const YDC = setupCanvas($("cvyd"), 1000, 520);
+const YD = {view:"map", sig:"edge", layer:"true", die:10, sites:1, amp:50, d0:0.1, al:2, gn:3, pk:4, seed:1, rev:0, dp:0, data:null, key:""};
+const YD_R = 150, YD_EE = 3, YD_RU = YD_R - YD_EE, YD_SPEC = 30, YD_K = 2;   // mm, mm, mm, mV, MHz per mV of ring-oscillator shift
+function ydSitePts(k){
+  const pts = [[0, 0]], ring = (r, a0) => { for (let i=0;i<4;i++){ const a = a0 + i*Math.PI/2; pts.push([r*Math.cos(a), r*Math.sin(a)]); } };
+  if (k === 0) ring(80, 0);
+  else if (k === 1){ ring(65, 0); ring(115, Math.PI/4); }
+  else if (k === 2){ ring(65, 0); ring(115, Math.PI/4); ring(130, 0); }
+  else for (let i=-2;i<=2;i++) for (let j=-2;j<=2;j++){ const x = i*52, y = j*52; if ((i || j) && Math.hypot(x, y) < 140) pts.push([x, y]); }
+  return pts;
+}
+// stable per-die random numbers (do not change when the signature changes)
+const ydH = (i, j, k) => { let h = Math.imul(i + 4096, 374761393) ^ Math.imul(j + 4096, 668265263) ^ Math.imul(k + YD.seed*131, 1274126177); h = Math.imul(h ^ h >>> 13, 1274126177); h ^= h >>> 16; return (h >>> 0)/4294967296; };
+const ydG = (i, j, k) => { let u = 0; for (let q=0;q<4;q++) u += ydH(i, j, k*8 + q); return (u - 2)*Math.sqrt(3); };
+function ydSig(x, y){
+  const r = Math.hypot(x, y), A = YD.amp;
+  if (YD.sig === "edge") return A*Math.exp((r - YD_RU)/8);
+  if (YD.sig === "donut") return A*Math.exp(-(((r - 85)/13)**2));
+  if (YD.sig === "center") return A*Math.exp(-((r/32)**2));
+  if (YD.sig === "grad") return A*(x + y)/(Math.SQRT2*YD_RU);
+  return 0;
+}
+// random killer defects; small α → clusters
+function ydDefects(r, d0, al){
+  const N = Math.round(d0*Math.PI*14.7*14.7), m = al >= 8 ? 1 : Math.max(1, Math.round(3/al)), out = [];
+  const g = () => { let u = 0; for (let i=0;i<4;i++) u += r(); return (u - 2)*Math.sqrt(3); };
+  while (out.length < N){
+    let cx, cy; do { cx = (r()*2 - 1)*YD_RU; cy = (r()*2 - 1)*YD_RU; } while (Math.hypot(cx, cy) > YD_RU);
+    const k = m === 1 ? 1 : 1 + Math.floor(r()*(2*m - 1));
+    for (let q=0;q<k && out.length < N;q++){ const x = cx + (m === 1 ? 0 : 5*g()), y = cy + (m === 1 ? 0 : 5*g()); out.push(Math.hypot(x, y) <= YD_RU ? [x, y, 0] : [cx, cy, 0]); }
+  }
+  return out;
+}
+function ydSolve(M, b){
+  const n = b.length, A = M.map((r, i) => [...r, b[i]]);
+  for (let c=0;c<n;c++){
+    let p = c; for (let r=c+1;r<n;r++) if (Math.abs(A[r][c]) > Math.abs(A[p][c])) p = r;
+    [A[c], A[p]] = [A[p], A[c]];
+    for (let r=0;r<n;r++){ if (r === c) continue; const f = A[r][c]/A[c][c]; for (let k=c;k<=n;k++) A[r][k] -= f*A[c][k]; }
+  }
+  return A.map((r, i) => r[n]/r[i]);
+}
+const ydMod = (a, m) => ((a % m) + m) % m;
+function ydBuild(){
+  const W = YD.die, n = Math.ceil(YD_R/W) + 1, dies = [], idx = new Map();
+  const rnd = cmRand(YD.seed*977 + 5), ph1 = rnd()*6.28, ph2 = rnd()*6.28;
+  const field = (x, y) => 4*Math.sin(x/50 + ph1) + 3*Math.cos(y/60 + ph2) + ydSig(x, y);
+  // scratch: a bowed line across the wafer
+  const th = rnd()*6.283, P0 = [118*Math.cos(th), 118*Math.sin(th)], P1 = [118*Math.cos(th + 2.3), 118*Math.sin(th + 2.3)];
+  const nx = -(P1[1] - P0[1]), ny = P1[0] - P0[0], nl = Math.hypot(nx, ny);
+  const scr = range(0, 1, 120).map(t => [P0[0] + (P1[0] - P0[0])*t + 30*Math.sin(Math.PI*t)*nx/nl, P0[1] + (P1[1] - P0[1])*t + 30*Math.sin(Math.PI*t)*ny/nl]);
+  const defs = ydDefects(cmRand(YD.seed*31 + 7), YD.d0, YD.al);
+  if (YD.sig === "scr") scr.forEach(p => defs.push([p[0] + (rnd() - .5)*2, p[1] + (rnd() - .5)*2, 1]));
+  for (let i=-n;i<n;i++) for (let j=-n;j<n;j++){
+    const x0 = i*W, y0 = j*W, cs = [[x0, y0],[x0 + W, y0],[x0, y0 + W],[x0 + W, y0 + W]];
+    if (Math.max(...cs.map(([u, v]) => Math.hypot(u, v))) > YD_RU) continue;
+    const x = x0 + W/2, y = y0 + W/2;
+    let tv = field(x, y); cs.forEach(([u, v]) => { const f = field(u, v); if (Math.abs(f) > Math.abs(tv)) tv = f; });   // worst point of the die
+    idx.set(i + "," + j, dies.length);
+    dies.push({i, j, x, y, r:Math.hypot(x, y), tv, dv: tv + 5*ydG(i, j, 1), rdef:0, sdef:0, hit:1e9, mask:false, contact:false, bin:1});
+  }
+  defs.forEach(([x, y, t], q) => { const k = idx.get(Math.floor(x/W) + "," + Math.floor(y/W)); if (k === undefined) return; const d = dies[k]; if (t){ d.sdef++; } else { d.rdef++; d.hit = Math.min(d.hit, q); } });
+  dies.forEach(d => {
+    if (YD.sig === "ret" && ydMod(d.i, 2) === 1 && ydMod(d.j, 2) === 0 && ydH(d.i, d.j, 3) < 0.85) d.mask = true;
+    if (YD.sig === "probe" && ydMod(d.i, 4) === 2 && ydH(d.i, d.j, 4) < 0.45) d.contact = true;
+    d.bin = d.contact ? 5 : (d.rdef || d.sdef || d.mask) ? 3 : Math.abs(d.dv) > YD_SPEC ? 2 : 1;
+  });
+  // WAT: PCM sites in the scribe line, fitted with a + bx + cy + dr²
+  const sites = ydSitePts(YD.sites).map(([x, y], q) => ({x, y, v: field(x, y) + 2*ydG(q, 999, 2)}));
+  const bas = (x, y) => [1, x/150, y/150, (x*x + y*y)/22500], M = [0,1,2,3].map(() => [0,0,0,0]), bv = [0,0,0,0];
+  sites.forEach(s => { const p = bas(s.x, s.y); for (let a=0;a<4;a++){ bv[a] += p[a]*s.v; for (let b=0;b<4;b++) M[a][b] += p[a]*p[b]; } });
+  for (let a=0;a<4;a++) M[a][a] += 1e-6;
+  const coef = ydSolve(M, bv);
+  // CP ring oscillator on every die; slope from simulation, offset calibrated on the WAT sites
+  dies.forEach(d => { const p = bas(d.x, d.y); d.fit = p.reduce((s, q, a) => s + q*coef[a], 0); d.f = 1000 - YD_K*d.dv + 3*ydG(d.i, d.j, 5); d.near = Math.min(...sites.map(s => Math.hypot(d.x - s.x, d.y - s.y))); });
+  sites.forEach(s => { let bd = 1e9; dies.forEach(d => { const q = Math.hypot(d.x - s.x, d.y - s.y); if (q < bd){ bd = q; s.die = d; } }); });
+  const off = sites.reduce((a, s) => a + s.die.f + YD_K*s.v, 0)/sites.length;
+  dies.forEach(d => d.ro = (off - d.f)/YD_K);
+  // neighbours, latent defects and IDDQ
+  dies.forEach(d => {
+    let bad = 0, def = 0;
+    for (let a=-1;a<=1;a++) for (let b=-1;b<=1;b++){ if (!a && !b) continue; const q = idx.get((d.i + a) + "," + (d.j + b)); if (q === undefined) continue; if (dies[q].bin !== 1) bad++; if (dies[q].bin === 3) def++; }
+    d.bad = bad;
+    d.lat = d.bin === 1 && ydH(d.i, d.j, 6) < 0.004 + 0.35*def/8;
+    d.iq = 1 - d.dv/90 + 0.06*ydG(d.i, d.j, 7) + (d.lat ? 0.2 + 0.9*ydH(d.i, d.j, 8) : 0);   // log10 IDDQ (µA)
+  });
+  // prober order: serpentine from the top row
+  const ord = dies.map((d, k) => k).sort((a, b) => dies[b].j - dies[a].j || (ydMod(dies[a].j, 2) ? dies[b].i - dies[a].i : dies[a].i - dies[b].i));
+  const rank = new Array(dies.length); ord.forEach((k, q) => rank[k] = q);
+  YD.data = {W, dies, idx, sites, defs, scr, coef, off, rank, ord};
+}
+function ydEnsure(){ const k = [YD.sig, YD.die, YD.amp, YD.seed, YD.d0, YD.al, YD.sites].join("|"); if (k !== YD.key){ const dz = YD.key.split("|"), redo = !YD.data || dz[1] != YD.die || dz[3] != YD.seed || dz[4] != YD.d0 || dz[5] != YD.al; YD.key = k; ydBuild(); YD.rev = 0; if (redo) YD.dp = 0; } }
+function ydScreen(){
+  const D = YD.data; D.dies.forEach(d => { d.gd = d.pat = false; });
+  const pass = D.dies.filter(d => d.bin === 1), v = pass.map(d => d.iq).sort((a, b) => a - b);
+  const q = p => v.length ? v[Math.min(v.length - 1, Math.round(p*(v.length - 1)))] : 1;
+  const med = q(0.5), sr = Math.max(0.01, (q(0.75) - q(0.25))/1.349), lo = med - YD.pk*sr, hi = med + YD.pk*sr;
+  let ng = 0, np = 0, lat = 0, caught = 0;
+  pass.forEach(d => { d.gd = d.bad >= YD.gn; d.pat = !d.gd && (d.iq < lo || d.iq > hi); if (d.gd) ng++; if (d.pat) np++; if (d.lat){ lat++; if (d.gd || d.pat) caught++; } });
+  return {pass:pass.length, ng, np, lat, caught, ship:pass.length - ng - np, med, sr, lo, hi};
+}
+function ydStats(){
+  const D = YD.data, ds = D.dies, N = ds.length, y = a => a.length ? 100*a.filter(d => d.bin === 1).length/a.length : 0;
+  const err = ds.map(d => d.tv - d.fit), rms = Math.sqrt(err.reduce((a, e) => a + e*e, 0)/N);
+  let mx = 0, mr = 0; err.forEach((e, k) => { if (Math.abs(e) > Math.abs(mx)){ mx = e; mr = ds[k].r; } });
+  return {N, y: y(ds), edge: y(ds.filter(d => d.r > 130)), inner: y(ds.filter(d => d.r <= 130)),
+    site: [0,1,2,3].map(s => y(ds.filter(d => ydMod(d.i, 4) === s))), ret: [0,1,2,3].map(p => y(ds.filter(d => ydMod(d.i, 2) + 2*ydMod(d.j, 2) === p))),
+    watIn: D.sites.filter(s => Math.abs(s.v) <= YD_SPEC).length, rms, mx, mr, far: 100*ds.filter(d => d.near > 40).length/N,
+    b2: ds.filter(d => d.bin === 2).length, b3: ds.filter(d => d.bin === 3).length, b5: ds.filter(d => d.bin === 5).length};
+}
+// yield models
+const ydPoi = (A, D0) => Math.exp(-A*D0);
+const ydMur = (A, D0) => { const x = A*D0; return x < 1e-9 ? 1 : ((1 - Math.exp(-x))/x)**2; };
+const ydNB = (A, D0, al) => Math.pow(1 + A*D0/al, -al);
+const ydDPW = Wmm => { const A = Wmm*Wmm, d = 2*YD_RU; return Math.max(0, Math.PI*d*d/(4*A) - Math.PI*d/Math.sqrt(2*A)); };
+
+/* ---------------- drawing helpers ---------------- */
+const ydHex = {};
+function ydRGB(c){ if (ydHex[c]) return ydHex[c]; let v = [128,128,128], m = /^#([0-9a-f]{6})$/i.exec(c || ""); if (m){ const n = parseInt(m[1], 16); v = [n >> 16, n >> 8 & 255, n & 255]; } else if ((m = /^#([0-9a-f]{3})$/i.exec(c || ""))) v = [...m[1]].map(h => parseInt(h + h, 16)); return ydHex[c] = v; }
+function ydHeat(v, vmax){ const t = clamp(v/vmax, -1, 1), a = ydRGB(C.panel2), b = ydRGB(t < 0 ? C.electron : C.hole), u = Math.abs(t); return `rgb(${a.map((q, i) => Math.round(q + (b[i] - q)*u)).join(",")})`; }
+const ydBinCol = b => b === 1 ? C.channel : b === 2 ? C.hole : b === 3 ? C.accent : C.metal;
+function ydWafer(cx, cy, Rp, fill, title){
+  const k = Rp/YD_R, D = YD.data, W = D.W, s = W*k, gap = s > 6 ? 1 : 0.5;
+  ctx.fillStyle = C.si; ctx.beginPath(); ctx.arc(cx, cy, Rp, 0, 6.283); ctx.fill(); ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.stroke();
+  ctx.fillStyle = C.panel2; ctx.beginPath(); ctx.arc(cx, cy + Rp, 6, 0, 6.283); ctx.fill();
+  D.dies.forEach((d, n) => { const c = fill(d, n); if (!c) return; ctx.fillStyle = c; ctx.fillRect(cx + (d.x - W/2)*k + gap/2, cy - (d.y + W/2)*k + gap/2, s - gap, s - gap); });
+  ctx.setLineDash([3, 3]); ctx.strokeStyle = C.muted; ctx.beginPath(); ctx.arc(cx, cy, YD_RU*k, 0, 6.283); ctx.stroke(); ctx.setLineDash([]);
+  if (title) txt(title, cx, cy - Rp - 16, {al:"center", col:C.fg, w:700, px:13});
+}
+const ydXY = (cx, cy, Rp, x, y) => [cx + x*Rp/YD_R, cy - y*Rp/YD_R];
+function ydSitesDraw(cx, cy, Rp, T){
+  YD.data.sites.forEach(s => {
+    const [x, y] = ydXY(cx, cy, Rp, s.x, s.y), bad = Math.abs(s.v) > YD_SPEC;
+    ctx.fillStyle = C.fg; ctx.beginPath(); ctx.moveTo(x, y - 7); ctx.lineTo(x + 7, y); ctx.lineTo(x, y + 7); ctx.lineTo(x - 7, y); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = bad ? C.hole : C.panel; ctx.lineWidth = 1.5; ctx.stroke();
+    ctx.strokeStyle = C.fg; ctx.globalAlpha = 0.5*(1 - (T*0.8 % 1)); ctx.beginPath(); ctx.arc(x, y, 7 + 10*(T*0.8 % 1), 0, 6.283); ctx.stroke(); ctx.globalAlpha = 1;
+  });
+}
+function ydBar(x, y0, y1, vmax){
+  for (let k=0;k<=40;k++){ const v = vmax - 2*vmax*k/40; ctx.fillStyle = ydHeat(v, vmax); ctx.fillRect(x, y0 + (y1 - y0)*k/40, 12, (y1 - y0)/40 + 1); }
+  ctx.strokeStyle = C.line; ctx.strokeRect(x + .5, y0 + .5, 11, y1 - y0 - 1);
+  txt(`+${vmax} mV`, x + 6, y0 - 16, {al:"center", px:10}); txt(`−${vmax} mV`, x + 6, y1 + 16, {al:"center", px:10});
+  [YD_SPEC, -YD_SPEC].forEach(v => { const yy = y0 + (y1 - y0)*(vmax - v)/(2*vmax); ctx.strokeStyle = C.fg; ctx.lineWidth = 1.5; pl([[x - 4, yy],[x + 16, yy]]); });
+  txt("spec", x + 6, y0 + (y1 - y0)*(vmax - YD_SPEC)/(2*vmax) - 9, {al:"center", px:9, col:C.fg});
+}
+
+/* ---------------- drawing: map view ---------------- */
+const YD_LAYER = {true:"True ΔVth (not measurable in production)", wat:"WAT fit", ro:"CP ring-oscillator proxy (every die)", def:"Inline defect scan"};
+function drawYDmap(T){
+  const D = YD.data, shown = Math.floor(YD.rev*D.dies.length);
+  ydWafer(240, 262, 205, (d, n) => D.rank[n] < shown ? ydBinCol(d.bin) : C.panel2, "CP bin map (every die tested)");
+  if (YD.rev < 1){ const d = D.dies[D.ord[Math.min(shown, D.ord.length - 1)]], [x, y] = ydXY(240, 262, 205, d.x - D.W/2, d.y + D.W/2), s = D.W*205/YD_R; ctx.strokeStyle = C.fg; ctx.lineWidth = 2; ctx.strokeRect(x, y, s*(YD.sig === "probe" ? 4 : 1), s); }
+  ydSitesDraw(240, 262, 205, T);
+  const L = YD.layer, st = ydStats();
+  const title = L === "wat" ? `WAT fit from ${D.sites.length} sites` : YD_LAYER[L];
+  if (L === "def"){
+    ydWafer(760, 262, 205, () => C.panel2, title);
+    D.defs.forEach(([x, y, t]) => { const [u, v] = ydXY(760, 262, 205, x, y); ctx.fillStyle = t ? C.hole : C.fg; ctx.beginPath(); ctx.arc(u, v, t ? 1.6 : 2.2, 0, 6.283); ctx.fill(); });
+  } else {
+    ydWafer(760, 262, 205, d => ydHeat(L === "true" ? d.dv : L === "wat" ? d.fit : d.ro, 60), title);
+    ydBar(494, 110, 410, 60);
+    if (L === "wat") ydSitesDraw(760, 262, 205, T);
+  }
+  const allIn = st.watIn === D.sites.length;
+  txt(allIn ? `WAT: all ${D.sites.length} sites in spec · CP yield ${st.y.toFixed(0)} %` : `WAT: ${D.sites.length - st.watIn} of ${D.sites.length} sites out of spec · CP yield ${st.y.toFixed(0)} %`, 500, 488, {al:"center", w:700, px:13, col: allIn && st.y < 90 ? C.hole : C.fg});
+  const note = {true:"the real threshold shift of every die: in production nobody has this map",
+    wat:"a smooth surface through the WAT sites: right near the sites, blind between and beyond them",
+    ro:"ring-oscillator frequency on every die, converted to ΔVth with the WAT sites as calibration",
+    def:"particles found by optical inspection; a mask defect or a probe-card fault leaves nothing here"}[L];
+  txt(note, 500, 507, {al:"center", px:11, col:C.fg});
+}
+
+/* ---------------- drawing: yield-model view ---------------- */
+function drawYDym(T){
+  const D = YD.data, nd = Math.floor(YD.dp*D.defs.filter(q => !q[2]).length);
+  ydWafer(240, 262, 205, d => d.hit < nd ? C.hole : C.channel, "Random killer defects on one wafer");
+  let k = 0; D.defs.forEach(([x, y, t]) => { if (t || k++ >= nd) return; const [u, v] = ydXY(240, 262, 205, x, y); ctx.fillStyle = C.fg; ctx.beginPath(); ctx.arc(u, v, 2.2, 0, 6.283); ctx.fill(); });
+  const A = (YD.die/10)**2, ys = 100*D.dies.filter(d => d.hit >= nd).length/D.dies.length;
+  panel(490, 40, 490, 450, "Yield: this wafer vs the models");
+  const rows = [["This wafer (simulated)", ys, C.accent], ["Poisson", 100*ydPoi(A, YD.d0), C.hole], ["Murphy", 100*ydMur(A, YD.d0), C.muted], ["Negative binomial", 100*ydNB(A, YD.d0, YD.al), C.channel]];
+  rows.forEach(([l, v, c], i) => { const y = 84 + i*56; txt(l, 510, y, {col:C.fg, w:600, px:12}); ctx.fillStyle = C.line; ctx.fillRect(510, y + 12, 360, 16); ctx.fillStyle = c; ctx.fillRect(510, y + 12, 360*v/100, 16); txt(`${v.toFixed(1)} %`, 880, y + 20, {col:C.fg, w:700, px:12}); });
+  const good = D.dies.filter(d => d.hit >= nd).length;
+  txt(`die ${YD.die} × ${YD.die} mm = ${A.toFixed(2)} cm² · D0 = ${YD.d0.toFixed(2)} /cm²`, 510, 330, {col:C.fg, px:12});
+  txt(`A·D0 = ${(A*YD.d0).toFixed(2)} killer defects per die on average`, 510, 352, {px:12, col:C.fg});
+  txt(`${D.dies.length} gross dies → ${good} good dies on this wafer`, 510, 374, {px:12, col:C.fg, w:700});
+  txt(YD.al < 3 ? "clustered defects often land on dies that are already dead:" : "nearly random defects: the yield follows Poisson", 510, 410, {px:11, col:C.accent});
+  if (YD.al < 3) txt("the yield is higher than Poisson predicts", 510, 428, {px:11, col:C.accent});
+  txt("bigger die → fewer dies per wafer and each one is hit more often", 510, 462, {px:11});
+}
+
+/* ---------------- drawing: screening view ---------------- */
+function drawYDsc(T){
+  const D = YD.data, sc = YD.scr, W = D.W, k = 205/YD_R, s = W*k;
+  ydWafer(240, 262, 205, d => d.bin !== 1 ? (d.bin === 5 ? C.metal : C.hole) : d.gd ? C.accent : d.pat ? C.oxide : C.channel, "Bin map after screening");
+  D.dies.forEach(d => { if (!d.lat) return; const [x, y] = ydXY(240, 262, 205, d.x, d.y), r = Math.max(2.2, s*0.28); ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); if (d.gd || d.pat) ctx.stroke(); else { ctx.fillStyle = C.fg; ctx.fill(); } });
+  // GDBN close-up
+  panel(490, 40, 490, 270, "GDBN: one passing die and its 8 neighbours");
+  const pass = D.dies.filter(d => d.bin === 1), demo = pass.reduce((a, d) => d.bad > a.bad ? d : a, pass[0] || D.dies[0]);
+  const gx = 530, gy = 80, q = 58;
+  for (let a=-1;a<=1;a++) for (let b=1;b>=-1;b--){
+    const x = gx + (a + 1)*q, y = gy + (1 - b)*q, n = D.idx.get((demo.i + a) + "," + (demo.j + b)), e = n === undefined ? null : D.dies[n];
+    ctx.fillStyle = !e ? C.panel : e.bin !== 1 ? (e.bin === 5 ? C.metal : C.hole) : C.channel; ctx.fillRect(x + 2, y + 2, q - 4, q - 4);
+    if (!e) txt("off wafer", x + q/2, y + q/2, {al:"center", px:9});
+  }
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 3; ctx.strokeRect(gx + q + 1, gy + q + 1, q - 2, q - 2);
+  const drop = demo.bad >= YD.gn;
+  txt(`${demo.bad} of 8 neighbours failed`, 730, 110, {col:C.fg, w:700, px:13});
+  txt(`threshold: drop if ≥ ${YD.gn}`, 730, 134, {px:12, col:C.fg});
+  txt(drop ? "→ dropped (inked)" : "→ kept", 730, 162, {col: drop ? C.accent : C.channel, w:700, px:13});
+  txt("defects cluster, so a die next to", 730, 196, {px:11}); txt("dead dies may carry a latent defect", 730, 212, {px:11});
+  txt(demo.lat ? "this one really has a latent defect" : "this one is actually fine", 730, 240, {px:11, col: demo.lat ? C.hole : C.channel, w:600});
+  // PAT summary
+  panel(490, 325, 490, 165, "PAT: outliers of the wafer's own IDDQ");
+  txt(`median ${(10**sc.med).toFixed(1)} µA · robust σ = ${sc.sr.toFixed(3)} decades`, 510, 362, {px:12, col:C.fg});
+  txt(`limits ${(10**sc.lo).toFixed(1)}–${(10**sc.hi).toFixed(1)} µA (datasheet limit 100 µA)`, 510, 384, {px:12, col:C.fg});
+  txt(`${sc.np} passing dies dropped by PAT, ${sc.ng} by GDBN`, 510, 410, {px:12, col:C.fg, w:700});
+  txt(`latent defects caught: ${sc.caught} of ${sc.lat}`, 510, 434, {px:12, col: sc.caught === sc.lat ? C.channel : C.hole, w:700});
+  txt("a latent defect passes every test today and fails in the car", 510, 462, {px:11});
+}
+function drawYD(dt, T){
+  begin(YDC); ydEnsure(); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 520);
+  if (YD.view === "ym") drawYDym(T); else if (YD.view === "sc"){ YD.scr = YD.scr || ydScreen(); drawYDsc(T); } else drawYDmap(T);
+}
+function ydTick(dt){ if (!(dt >= 0)) return; YD.rev = Math.min(1, YD.rev + (reduce ? 1 : dt/3)); YD.dp = Math.min(1, YD.dp + (reduce ? 1 : dt/2.5)); }
+
+/* ---------------- DOM ---------------- */
+const YDINFO = {
+  map:{pill:"MAP", name:"Wafer map and WAT sampling", sub:"The fab measures a few test sites, the tester measures every die: what to do where WAT has no data",
+    text:"WAT (wafer acceptance test) measures test structures (PCM, testkeys) that sit in the scribe lines between the dies, at only 5 to 13 sites per wafer and often on only some wafers of a lot. Its job is to prove that the process was on target, not to map every die. CP (circuit probe, wafer sort) tests every die, so the bin map covers the whole wafer but only tells you pass, fail and the bin. When a low-yield area falls between WAT sites, as an edge ring usually does because the outermost site sits 15–20 mm inside the edge, the WAT report can be fully in spec while the yield is poor. The way out is to combine data. The shape of the failing area points to a process step. Parameters measured on every die at CP, such as a ring-oscillator frequency, IDDQ or Vmin, can be calibrated against WAT where both exist and turned into a ΔVth map of the whole wafer. Inline data (thickness, CD, defect scans) usually has more points than WAT. Defect-type signatures such as a scratch, a reticle repeat or a probe-card fault leave no trace in WAT or in the ring oscillator: they need the defect scan, the position in the reticle field or the tester's per-site yield."},
+  ym:{pill:"D0", name:"Yield models", sub:"Random defects, die size and clustering: Poisson, Murphy and negative binomial",
+    text:"In a mature process most yield loss comes from random killer defects: particles and pattern defects that short or open a line. With a defect density D0 per cm² and a die area A, the simplest model is Poisson: Y = e^(−A·D0). Real defects are not independent but clustered, so several often land on a die that is already dead and the yield is higher than Poisson predicts. The negative binomial model adds a clustering parameter α (small α = strong clustering, α → ∞ gives Poisson); Murphy's model sits in between. Because yield falls exponentially with area, a die twice as large can give far fewer good dies per wafer: fewer dies fit and each one is more likely to be hit. That is one reason for chiplets, and why fabs fight so hard to lower D0."},
+  sc:{pill:"PAT", name:"Screening: GDBN and PAT", sub:"Passing dies next to failures, or far from their neighbours, are the ones that fail later",
+    text:"Some dies pass every test today but carry a latent defect, such as a partial short, a thin spot in an oxide or a weak via, that fails in the field. Latent defects come from the same mechanisms as killer defects, so they cluster near failing dies. Good die in bad neighbourhood (GDBN) therefore drops passing dies whose neighbours failed. Part average testing (PAT, AEC-Q001) drops dies whose parameters, here the quiescent current IDDQ, are outliers from the wafer's own distribution even though they are inside the datasheet limit; robust statistics (median and IQR) keep the outliers from widening the limits. Both trade yield for quality: a tighter threshold catches more latent defects but throws away good dies. Automotive radar chips aim for single-digit DPPM, so this screening is standard. Watch the probe-card signature: those failures are not real, and GDBN around them throws away good dies, so retest before screening."}
+};
+const YDDIAG = {
+  rand:{name:"Random defects", look:"Isolated failures spread over the wafer, no spatial pattern.", cause:"Particles and pattern defects; the yield follows D0 and the die area.", next:"Defect pareto from inline inspection, SEM review of the killer defects, find the layers and tools that add the most particles."},
+  edge:{name:"Edge ring", look:"A ring of failures at the wafer edge. WAT often misses it: the outermost site is 15–20 mm inside the edge.", cause:"Etch or CMP non-uniformity at the edge, film thickness roll-off, litho focus and edge bead, bevel defects.", next:"Engineering WAT with edge sites, inline thickness and CD with edge points, edge yield per chamber, and ask for the fab's edge-exclusion spec."},
+  donut:{name:"Donut", look:"A ring of failures at mid-radius, between the WAT site rings.", cause:"Plasma density or gas flow in etch or CVD, RTP lamp zones, CMP zone pressure.", next:"Commonality by chamber, radial thickness and CD maps, nanoprobe a die on the ring next to a good die."},
+  center:{name:"Center", look:"Failures at the wafer center.", cause:"Spin-coat thickness, center-fed gas or etch loading, CMP center removal rate.", next:"Every WAT plan has a center site: check its trend first, then the coat and CMP tools."},
+  grad:{name:"Gradient", look:"One side of the wafer is worse than the other.", cause:"Temperature tilt (hot plate, furnace position), chuck levelling, implant angle.", next:"Fit a plane to WAT and CP data, check the notch orientation in each tool and the slot position in the furnace."},
+  ret:{name:"Reticle repeat", look:"The same die position in every reticle field fails.", cause:"A mask defect or haze, lens aberration in one corner of the field, or a design marginality at one position.", next:"Stack the failures by in-field position, reticle inspection, compare with another mask. WAT never sees it."},
+  scr:{name:"Scratch", look:"Failures along a line or arc.", cause:"Wafer handling (robot, cassette) or a particle dragged by CMP.", next:"Inline defect scans layer by layer to find the step that adds the scratch, then the tool."},
+  probe:{name:"Probe-card site", look:"A stripe pattern that follows the prober stepping, not the reticle; one tester site fails much more.", cause:"A damaged or dirty probe needle, contact resistance, or one tester channel.", next:"Per-site yield from the tester log, clean or replace the card and retest: this is a test problem, not a fab problem."}
+};
+Object.assign(TIP, {
+  "CP yield":"Fraction of dies that pass circuit probe (wafer sort).",
+  "WAT sites in spec":"WAT sites whose ΔVth is within ±30 mV.",
+  "Max WAT-fit error":"Largest difference between the true ΔVth of a die and the value the WAT fit predicts there.",
+  "Dies > 40 mm from a site":"Share of dies more than 40 mm from the nearest WAT site.",
+  "Gross dies":"Complete dies that fit inside the edge exclusion.",
+  "Simulated yield":"Yield of this simulated wafer with the defects that have landed so far.",
+  "Poisson":"Yield model for independent random defects.",
+  "Neg. binomial":"Yield model with clustered defects (parameter α).",
+  "CP good dies":"Dies that passed every test at circuit probe.",
+  "Dropped by GDBN":"Passing dies dropped because too many neighbours failed.",
+  "Dropped by PAT":"Passing dies dropped as statistical outliers.",
+  "Latent caught":"Dies with a hidden defect that the screening removed, out of all such dies.",
+  "Spatial fit":"Low-order surface fitted through the WAT sites.",
+  "CP proxy":"Every die's ring oscillator converted to ΔVth.",
+  "Test limit":"A die fails parametric test when its worst ΔVth is outside the limit.",
+  "Edge vs inner":"Yield in the outer ring compared with the rest of the wafer.",
+  "Murphy":"Yield model between Poisson and strong clustering.",
+  "Negative binomial":"Yield model with clustered defects (parameter α).",
+  "Dies per wafer":"Gross dies per wafer from the wafer and die size.",
+  "Good dies":"Good dies per wafer: what you actually sell.",
+  "GDBN":"Good die in bad neighbourhood.",
+  "PAT":"Part average testing with robust limits.",
+  "Cost and escapes":"Yield given up against latent defects that still ship."
+});
+const YDLEG = {
+  map:[["channel","Pass (bin 1)"],["hole","Parametric fail (bin 2)"],["accent","Functional / defect fail (bin 3)"],["metal","Contact fail (bin 5)"],["fg","WAT site (PCM in the scribe line)"]],
+  ym:[["channel","Good die"],["hole","Killed by a defect"],["fg","Killer defect"]],
+  sc:[["channel","Shipped"],["accent","Dropped by GDBN"],["oxide","Dropped by PAT"],["hole","Failed at CP"],["fg","Latent defect (ring: caught, dot: escaped)"]]
+};
+const ydChip = (sel, attr, val) => document.querySelectorAll(sel).forEach(b => { const on = b.dataset[attr] === val; b.setAttribute("aria-pressed", on); b.style.borderColor = on ? "var(--accent)" : ""; b.style.color = on ? "var(--accent)" : ""; });
+function updateYD(){
+  ydEnsure();
+  const v = YD.view, info = YDINFO[v], D = YD.data;
+  $("yd-pill").textContent = info.pill; $("yd-name").textContent = info.name; $("yd-sub").textContent = info.sub; $("yd-explain").textContent = info.text;
+  document.querySelectorAll("#yd-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  ydChip("#yd-sig button", "s", YD.sig); ydChip("#yd-layer button", "l", YD.layer);
+  const vis = {"yd-c-sig":v !== "ym", "yd-c-layer":v === "map", "yd-c-sites":v === "map", "yd-c-amp":v !== "ym", "yd-c-d0":true, "yd-c-al":v === "ym", "yd-c-gn":v === "sc", "yd-c-pk":v === "sc", "yd-diag-card":v !== "ym"};
+  Object.entries(vis).forEach(([id, on]) => $(id).hidden = !on);
+  $("yd-die-v").textContent = `${YD.die} mm`; $("yd-sites-v").textContent = `${D.sites.length} sites`; $("yd-amp-v").textContent = `${YD.amp} mV`;
+  $("yd-d0-v").textContent = `${YD.d0.toFixed(2)} /cm²`; $("yd-al-v").textContent = YD.al >= 8 ? "≥ 8 (random)" : YD.al.toFixed(1);
+  $("yd-gn-v").textContent = `≥ ${YD.gn} of 8`; $("yd-pk-v").textContent = `${YD.pk} σ`;
+  setHTML("yd-legend", YDLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  const st = ydStats(), A = (YD.die/10)**2;
+  YD.scr = ydScreen(); const sc = YD.scr;
+  if (v === "map"){
+    renderRo($("yd-ro"), [["CP yield", `${st.y.toFixed(1)} %`], ["WAT sites in spec", `${st.watIn} / ${D.sites.length}`], ["Max WAT-fit error", `${st.mx.toFixed(0)} mV`], ["Dies > 40 mm from a site", `${st.far.toFixed(0)} %`]]);
+    renderEq($("yd-eq"), [
+      {name:"Spatial fit", f:"ΔVth(x, y) ≈ a + b·x + c·y + d·r²", sub:`${D.sites.length} sites → 4 coefficients · RMS error ${st.rms.toFixed(1)} mV, worst ${st.mx.toFixed(0)} mV at r = ${st.mr.toFixed(0)} mm`},
+      {name:"CP proxy", f:"f_RO = f0 − k·ΔVth", sub:`k = ${YD_K} MHz/mV from simulation, f0 = ${D.off.toFixed(0)} MHz calibrated on ${D.sites.length} WAT sites → a ΔVth for every die`},
+      {name:"Test limit", f:"|ΔVth| ≤ 30 mV", sub:`${st.b2} parametric fails (bin 2), ${st.b3} functional (bin 3), ${st.b5} contact (bin 5)`},
+      {name:"Edge vs inner", f:"Y(r > 130 mm) vs Y(r ≤ 130 mm)", sub:`${st.edge.toFixed(0)} % vs ${st.inner.toFixed(0)} %`}
+    ]);
+  } else if (v === "ym"){
+    const yn = 100*ydNB(A, YD.d0, YD.al), good = D.dies.filter(d => !d.rdef).length;
+    renderRo($("yd-ro"), [["Gross dies", `${D.dies.length}`], ["Simulated yield", `${(100*good/D.dies.length).toFixed(1)} %`], ["Poisson", `${(100*ydPoi(A, YD.d0)).toFixed(1)} %`], ["Neg. binomial", `${yn.toFixed(1)} %`]]);
+    renderEq($("yd-eq"), [
+      {name:"Poisson", f:"Y = e^(−A·D0)", sub:`A = ${A.toFixed(2)} cm², A·D0 = ${(A*YD.d0).toFixed(2)} → ${(100*ydPoi(A, YD.d0)).toFixed(1)} %`},
+      {name:"Murphy", f:"Y = [(1 − e^(−A·D0)) / (A·D0)]²", sub:`→ ${(100*ydMur(A, YD.d0)).toFixed(1)} %`},
+      {name:"Negative binomial", f:"Y = (1 + A·D0/α)^(−α)", sub:`α = ${YD.al.toFixed(1)} → ${yn.toFixed(1)} %`},
+      {name:"Dies per wafer", f:"DPW ≈ π·d²/(4A) − π·d/√(2A)", sub:`d = 294 mm, A = ${(YD.die*YD.die).toFixed(0)} mm² → ${ydDPW(YD.die).toFixed(0)} (counted: ${D.dies.length})`},
+      {name:"Good dies", f:"GDW = DPW · Y", sub:`≈ ${(ydDPW(YD.die)*yn/100).toFixed(0)} good dies per wafer`}
+    ]);
+  } else {
+    const loss = sc.pass ? 100*(sc.ng + sc.np)/sc.pass : 0, esc = sc.lat - sc.caught;
+    renderRo($("yd-ro"), [["CP good dies", `${sc.pass}`], ["Dropped by GDBN", `${sc.ng}`], ["Dropped by PAT", `${sc.np}`], ["Latent caught", `${sc.caught} / ${sc.lat}`]]);
+    renderEq($("yd-eq"), [
+      {name:"GDBN", f:"drop if bad neighbours ≥ n", sub:`n = ${YD.gn} → ${sc.ng} good dies dropped`},
+      {name:"PAT", f:"limits = median ± k·σr, σr = IQR / 1.349", sub:`log10 IDDQ: ${sc.med.toFixed(2)} ± ${YD.pk}·${sc.sr.toFixed(3)} → ${sc.np} dropped`},
+      {name:"Cost and escapes", f:"yield loss vs latent escapes", sub:`yield loss ${loss.toFixed(1)} % · ${esc} of ${sc.lat} latent defects shipped → ${sc.ship ? (1e6*esc/sc.ship).toFixed(0) : 0} DPPM on this wafer`}
+    ]);
+  }
+  const g = YDDIAG[YD.sig];
+  setHTML("yd-diag", `<p><b>${g.name}</b>: ${g.look}</p><p><b>Likely causes</b>: ${g.cause}</p><p><b>Next step</b>: ${g.next}</p><ul class="note">`
+    + `<li>Edge (r > 130 mm) yield ${st.edge.toFixed(0)} % vs inner ${st.inner.toFixed(0)} %</li>`
+    + `<li>Yield per tester site (1×4 touchdown): ${st.site.map(x => x.toFixed(0)).join(" / ")} %</li>`
+    + `<li>Yield per position in the 2×2 reticle field: ${st.ret.map(x => x.toFixed(0)).join(" / ")} %</li>`
+    + `<li>WAT: ${st.watIn} of ${D.sites.length} sites in spec</li></ul>`);
+  drawYDPlots(st, sc);
+}
+function drawYDPlots(st, sc){
+  const D = YD.data, v = YD.view, step = Math.max(1, Math.ceil(D.dies.length/1200)), sub = D.dies.filter((d, k) => k % step === 0);
+  let a = "", b = "";
+  if (v === "map"){
+    const P = axesR(300, 230, {l:38,r:10,t:28,b:30}, 0, 150, -40, 100, 30, 20, "radius (mm)", "ΔVth (mV)");
+    a = P.s + [YD_SPEC, -YD_SPEC].map(y => `<line x1="38" x2="290" y1="${P.Y(y)}" y2="${P.Y(y)}" stroke="var(--hole)" stroke-dasharray="3 3"/>`).join("");
+    a += sub.map(d => `<circle cx="${P.X(d.r).toFixed(1)}" cy="${P.Y(d.dv).toFixed(1)}" r="1.3" fill="var(--${d.bin === 2 ? "hole" : "muted"})" opacity=".7"/>`).join("");
+    a += sub.map(d => `<circle cx="${P.X(d.r).toFixed(1)}" cy="${P.Y(d.fit).toFixed(1)}" r="1" fill="var(--electron)" opacity=".6"/>`).join("");
+    a += D.sites.map(s => `<rect x="${(P.X(Math.hypot(s.x, s.y)) - 4).toFixed(1)}" y="${(P.Y(s.v) - 4).toFixed(1)}" width="8" height="8" transform="rotate(45 ${P.X(Math.hypot(s.x, s.y)).toFixed(1)} ${P.Y(s.v).toFixed(1)})" fill="var(--fg)"/>`).join("");
+    a += P.frame + `<text x="44" y="12" style="fill:var(--muted)">· dies</text><text x="92" y="12" style="fill:var(--fg)">◆ WAT</text><text x="140" y="12" style="fill:var(--electron)">· WAT fit</text><text x="200" y="12" style="fill:var(--hole)">-- spec</text>`;
+    const Q = axesR(220, 230, {l:40,r:8,t:28,b:30}, -40, 100, 780, 1100, 35, 80, "ΔVth (mV)", "f RO (MHz)");
+    b = Q.s + sub.map(d => `<circle cx="${Q.X(d.dv).toFixed(1)}" cy="${Q.Y(d.f).toFixed(1)}" r="1.2" fill="var(--muted)" opacity=".6"/>`).join("");
+    b += `<path d="${pathOf([[-40, D.off + 40*YD_K], [100, D.off - 100*YD_K]], Q.X, Q.Y)}" stroke="var(--accent)" stroke-width="2" fill="none"/>`;
+    b += D.sites.map(s => `<circle cx="${Q.X(s.v).toFixed(1)}" cy="${Q.Y(s.die.f).toFixed(1)}" r="3.5" fill="var(--fg)"/>`).join("");
+    b += Q.frame + `<text x="46" y="12" style="fill:var(--fg)">● WAT</text><text x="90" y="12" style="fill:var(--accent)">— calibration</text>`;
+  } else if (v === "ym"){
+    const As = range(0.01, 4, 80), A = (YD.die/10)**2;
+    const P = axesR(300, 230, {l:38,r:10,t:28,b:30}, 0, 4, 0, 100, 1, 20, "die area A (cm²)", "yield (%)");
+    a = P.s + [["hole", x => ydPoi(x, YD.d0)], ["muted", x => ydMur(x, YD.d0)], ["channel", x => ydNB(x, YD.d0, YD.al)]].map(([c, f]) => `<path d="${pathOf(As.map(x => [x, 100*f(x)]), P.X, P.Y)}" stroke="var(--${c})" stroke-width="2" fill="none"/>`).join("");
+    const ys = 100*D.dies.filter(d => !d.rdef).length/D.dies.length;
+    a += P.frame + dotSvg(P.X(A), P.Y(ys)) + `<text x="44" y="12" style="fill:var(--hole)">— Poisson</text><text x="118" y="12" style="fill:var(--muted)">— Murphy</text><text x="186" y="12" style="fill:var(--channel)">— neg. binomial</text>`;
+    const Ws = range(4, 20, 64), lg = x => Math.log10(Math.max(10, x));
+    const Q = axesR(220, 230, {l:40,r:8,t:28,b:30}, 4, 20, 1, 4, 4, 1, "die size (mm)", "log10 dies / wafer");
+    b = Q.s + `<path d="${pathOf(Ws.map(w => [w, lg(ydDPW(w))]), Q.X, Q.Y)}" stroke="var(--muted)" stroke-width="2" fill="none"/>`;
+    b += `<path d="${pathOf(Ws.map(w => [w, lg(ydDPW(w)*ydNB((w/10)**2, YD.d0, YD.al))]), Q.X, Q.Y)}" stroke="var(--channel)" stroke-width="2.2" fill="none"/>`;
+    b += Q.frame + dotSvg(Q.X(YD.die), Q.Y(lg(ydDPW(YD.die)*ydNB(A, YD.d0, YD.al)))) + `<text x="46" y="12" style="fill:var(--muted)">— gross</text><text x="104" y="12" style="fill:var(--channel)">— good</text>`;
+  } else {
+    const pass = D.dies.filter(d => d.bin === 1), x0 = 0.2, x1 = 2.4, bw = 0.05, nb = Math.round((x1 - x0)/bw), cnt = new Array(nb).fill(0);
+    pass.forEach(d => { const k = Math.floor((d.iq - x0)/bw); if (k >= 0 && k < nb) cnt[k]++; });
+    const ym = Math.max(4, ...cnt), ys = niceStep(ym/4);
+    const P = axesR(300, 230, {l:38,r:10,t:28,b:30}, x0, x1, 0, Math.ceil(ym/ys)*ys, 0.4, ys, "log10 IDDQ (µA)", "dies");
+    a = P.s + cnt.map((c, k) => c ? `<rect x="${P.X(x0 + k*bw).toFixed(1)}" y="${P.Y(c).toFixed(1)}" width="${(P.X(x0 + bw) - P.X(x0) - 0.5).toFixed(1)}" height="${(P.Y(0) - P.Y(c)).toFixed(1)}" fill="var(--muted)"/>` : "").join("");
+    a += [sc.lo, sc.hi].map(x => `<line x1="${P.X(x)}" x2="${P.X(x)}" y1="28" y2="200" stroke="var(--oxide)" stroke-width="2" stroke-dasharray="4 3"/>`).join("");
+    a += pass.filter(d => d.lat).map(d => `<line x1="${P.X(d.iq).toFixed(1)}" x2="${P.X(d.iq).toFixed(1)}" y1="194" y2="200" stroke="var(--hole)" stroke-width="2"/>`).join("");
+    a += P.frame + `<text x="44" y="12" style="fill:var(--oxide)">-- PAT limits</text><text x="140" y="12" style="fill:var(--hole)">| latent defects</text>`;
+    const Q = axesR(220, 230, {l:40,r:8,t:28,b:30}, 0, 4, 0, Math.ceil(Math.max(10, 1.25*sc.pass)/niceStep(Math.max(10, sc.pass)/4))*niceStep(Math.max(10, sc.pass)/4), 1, niceStep(Math.max(10, sc.pass)/4), "", "dies");
+    const bars = [["CP pass", 0, sc.pass, "channel"], ["GDBN", sc.pass - sc.ng, sc.pass, "accent"], ["PAT", sc.ship, sc.pass - sc.ng, "oxide"], ["ship", 0, sc.ship, "channel"]];
+    b = Q.s + bars.map(([l, y0, y1, c], k) => `<rect x="${(Q.X(k + 0.15)).toFixed(1)}" y="${Q.Y(y1).toFixed(1)}" width="${(Q.X(0.7) - Q.X(0)).toFixed(1)}" height="${Math.max(1, Q.Y(y0) - Q.Y(y1)).toFixed(1)}" fill="var(--${c})"/><text x="${Q.X(k + 0.5).toFixed(1)}" y="216" text-anchor="middle">${l}</text><text x="${Q.X(k + 0.5).toFixed(1)}" y="${(Q.Y(y1) - 4).toFixed(1)}" text-anchor="middle" font-size="9">${k === 1 || k === 2 ? "−" + (y1 - y0) : y1}</text>`).join("");
+    b += Q.frame + `<text x="80" y="12" style="fill:var(--hole)">escapes: ${sc.lat - sc.caught} latent</text>`;
+  }
+  $("yd-p1").innerHTML = a; $("yd-p2").innerHTML = b;
+}
+document.querySelectorAll("#yd-view button").forEach(b => b.addEventListener("click", () => { YD.view = b.dataset.v; YD.rev = 0; YD.dp = 0; updateYD(); }));
+document.querySelectorAll("#yd-sig button").forEach(b => b.addEventListener("click", () => { YD.sig = b.dataset.s; updateYD(); }));
+document.querySelectorAll("#yd-layer button").forEach(b => b.addEventListener("click", () => { YD.layer = b.dataset.l; updateYD(); }));
+$("yd-seed").addEventListener("click", () => { YD.seed++; updateYD(); });
+[["yd-die","die"],["yd-sites","sites"],["yd-amp","amp"],["yd-d0","d0"],["yd-al","al"],["yd-gn","gn"],["yd-pk","pk"]].forEach(([id, k]) => $(id).addEventListener("input", e => { YD[k] = +e.target.value; updateYD(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"fab", re:"fab"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"fab", re:"fab", yd:"fab"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -12853,6 +13660,7 @@ function showTab(t){
   else if (t === "re"){ $("sub-top").textContent = "Reliability · parasitic thyristor latch-up and electrostatic discharge"; REC.resize(); updateRE(); }
   else if (t === "fb"){ $("sub-top").textContent = "CMOS process flow · from a bare wafer to an inverter in 15 steps"; FBC.resize(); updateFB(); }
   else if (t === "pk"){ $("sub-top").textContent = "Packaging and assembly · die attach, wire bond, RDL, bumps, fan-out"; PKC.resize(); updatePK(); }
+  else if (t === "yd"){ $("sub-top").textContent = "Yield and WAT · wafer maps, sparse test sites, yield models, screening"; YDC.resize(); updateYD(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -12876,6 +13684,7 @@ function frame(now){
   else if (tab === "re"){ reTickAll(dt); if (REC.cv.clientWidth) drawRE(dt, T); }
   else if (tab === "fb"){ fbTickAll(dt); if (FBC.cv.clientWidth) drawFB(dt, T); }
   else if (tab === "pk"){ pkTickAll(dt); if (PKC.cv.clientWidth) drawPK(dt, T); }
+  else if (tab === "yd"){ ydTick(dt); if (YDC.cv.clientWidth) drawYD(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);

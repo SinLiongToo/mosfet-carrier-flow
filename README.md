@@ -96,6 +96,11 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **2.5D / 3D (CoWoS, HBM)** – silicon interposer with TSVs and fine RDL, chip-on-wafer with micro-bumps, TSV reveal, C4 + substrate, inside an HBM stack, Cu–Cu hybrid bonding; connection density and energy per bit compared from wire bond to hybrid bond
 - **Interconnects at 77 GHz** – bond-wire inductance vs bump: reactance, |S21| vs frequency, I/O count of edge pads vs area bumps
 
+## Yield & WAT tab (`#yield`)
+- **Wafer map & WAT sites** – CP bin map of every die next to 5/9/13/21 WAT sites; eight failure signatures (random, edge ring, donut, center, gradient, reticle repeat, scratch, probe-card site); right-hand map of the true ΔVth, the WAT surface fit, a ring-oscillator proxy calibrated on WAT, or the inline defect scan; radial profile, RO calibration, and a diagnosis with edge / per-tester-site / per-reticle-position yields
+- **Yield models** – clustered random defects on a wafer vs Poisson, Murphy and negative binomial; dies per wafer and good dies vs die size
+- **Screening** – GDBN with a neighbourhood close-up, PAT on IDDQ with robust limits, latent defects caught vs escaped, yield loss vs DPPM
+
 Tabs are grouped into four topics (Devices · Circuits · Power & RF · Fab, package & reliability); the topic selector in the header shows that topic's tabs.
 
 Every tab has hover/tap explanations on its readouts and equations, plus an **Explain the terms** panel: a step-by-step walkthrough, live tables computed from the current settings, and a glossary.
