@@ -94,6 +94,9 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Flip-chip (RDL + bumps)** – passivation, polyimide, RDL copper plating, UBM, Cu pillar + solder cap, flip and place, reflow, underfill
 - **Fan-out WLP (eWLB)** – dies on a carrier, compression molding, debond, fan-out RDL with antenna-in-package, solder balls, singulation
 - **2.5D / 3D (CoWoS, HBM)** – silicon interposer with TSVs and fine RDL, chip-on-wafer with micro-bumps, TSV reveal, C4 + substrate, inside an HBM stack, Cu–Cu hybrid bonding; connection density and energy per bit compared from wire bond to hybrid bond
+- **Antenna in package (AiP)** – eWLB cross-section with RDL feed and patch antennas radiating through the mold over a λ/4 PCB reflector; top view of how many patches fit around the die at λ0/2 for 3 TX + 4 RX vs package size and frequency
+- **Launcher in package (LiP)** – launcher in the RDL coupling into a metallized plastic waveguide antenna with slot radiators, animated TE10 wave; WR-12 cross-section with cutoff, λg and single-mode band
+- AiP and LiP views compare antennas on the PCB, AiP and LiP: loss budget (transition, line, antenna efficiency), realized gain and relative radar range vs elements per antenna and chip-to-antenna distance
 - **Interconnects at 77 GHz** – bond-wire inductance vs bump: reactance, |S21| vs frequency, I/O count of edge pads vs area bumps
 
 ## Yield & WAT tab (`#yield`)
@@ -103,7 +106,7 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 
 Tabs are grouped into four topics (Devices · Circuits · Power & RF · Fab, package & reliability); the topic selector in the header shows that topic's tabs.
 
-**Find** (header button, Ctrl+K or /) searches every tab at once, open or not: tab and view names, the "How it works" text of every view, glossary terms, tables, lists and controls, in English and 繁體中文 whichever language is shown. Picking a result opens that tab and view, opens the glossary if needed, and highlights the match.
+**Find** (magnifier button in the header, Ctrl+K or /) searches every tab at once, open or not: tab and view names, the "How it works" text of every view, glossary terms, tables, lists and controls, in English and 繁體中文 whichever language is shown. Picking a result opens that tab and view, opens the glossary if needed, and highlights the match.
 
 The footer shows when the site was last updated (the deploy time of the page).
 

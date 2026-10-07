@@ -3881,6 +3881,126 @@ Object.assign(window.I18N_ZH, {
 "<b>Next step</b>: Per-site yield from the tester log, clean or replace the card and retest: this is a test problem, not a fab problem.": "<b>下一步</b>：從測試紀錄看各 site 良率，清潔或更換探針卡後重測：這是測試問題，不是晶圓廠問題。"
 });
 Object.assign(window.I18N_ZH, {"Find": "搜尋", "Find (Ctrl+K or /)": "搜尋（Ctrl+K 或 /）", "Search every tab: terms, views, controls (e.g. TSV, GDBN, latch-up)": "搜尋所有分頁：名詞、視圖、控制項（例如 TSV、GDBN、閂鎖）", "Searches every tab, including the ones that are not open. ↑ ↓ to move, Enter to open, Esc to close.": "搜尋所有分頁，包括沒有開啟的。↑ ↓ 移動，Enter 開啟，Esc 關閉。", "Results": "結果", "No results for this search.": "找不到符合的結果。", "# results": "# 筆結果", "Tab": "分頁", "About": "說明", "Term": "名詞", "Table": "表格", "List": "清單", "Glossary": "名詞解釋", "Heading": "標題", "Control": "控制項", "Option": "選項", "Note": "附註", "Last updated:": "最後更新："});
+Object.assign(window.I18N_ZH, {
+"Antenna in package (AiP)": "封裝內天線（AiP）",
+"Launcher in package (LiP)": "封裝內發射器（LiP）",
+"Number of radiating elements (patches or slots) in each TX or RX antenna. More elements: more gain and a narrower beam.": "每個 TX 或 RX 天線的輻射元件數（貼片或槽孔）。元件越多：增益越高、波束越窄。",
+"Elements per antenna": "每個天線的元件數",
+"Length of the line from the chip to the antennas: a microstrip on the PCB, or the waveguide for LiP. AiP keeps it inside the package (about # mm).": "從晶片到天線的線長：PCB 上的微帶線，或 LiP 的波導。AiP 把它留在封裝內（約 # mm）。",
+"Chip-to-antenna distance": "晶片到天線距離",
+"Edge length of the AiP package. The antennas have to fit around the # mm die, about half a wavelength apart.": "AiP 封裝的邊長。天線要放在 # mm 晶粒周圍，彼此相距約半個波長。",
+"Package size": "封裝尺寸",
+"AiP (antenna in package)": "AiP（封裝內天線）",
+"Antennas in the package RDL": "天線做在封裝 RDL 中",
+"fine RDL": "細線 RDL",
+"RF never leaves the package": "RF 訊號不離開封裝",
+"Corner and short-range radar, in-cabin": "角雷達與短距雷達、車內雷達",
+"LiP (launcher in package)": "LiP（封裝內發射器）",
+"Launcher into a waveguide antenna": "發射器耦合到波導天線",
+"very low loss": "損耗極低",
+"Long-range and imaging radar": "長距與成像雷達",
+"Launcher in package: a small transition in the package couples the signal into a hollow waveguide antenna above it.": "封裝內發射器：封裝中的小型轉接結構把訊號耦合到上方的中空波導天線。",
+"Waveguide (WR-#)": "波導（WR-#）",
+"The radar antennas are built into the package RDL: the # GHz signal never leaves the package": "雷達天線直接做在封裝 RDL 中：# GHz 訊號從不離開封裝",
+"In a classic radar module the MMIC sits in a package on a PCB made of an expensive high-frequency laminate (for example Rogers RO#), and the antennas are copper patches on that PCB. Every # GHz signal has to leave the package through a solder ball, run along a microstrip line and reach the antenna, losing power at each transition and on every millimetre of line. Antenna in package (AiP) moves the antennas into the package itself. In a fan-out package (eWLB) the RDL that already routes the signals out of the die also forms the patch antennas next to the die, and the metal plane on the PCB below acts as a reflector about a quarter wavelength away, so the antennas radiate up through the mold compound. Only DC, control and low-frequency signals go to the PCB, which can then be cheap FR-#. The module becomes smaller and cheaper, and the RF performance no longer depends on the PCB maker. The price is space: a package is only about # mm across and the patches must be about half a wavelength (≈ # mm) apart, so each antenna gets only a few elements. That limits the gain, the range and the angular resolution, which is why AiP is popular for corner radars, short-range sensors and in-cabin radar.": "傳統雷達模組中，MMIC 封裝放在用昂貴高頻板材（例如 Rogers RO#）做的 PCB 上，天線則是 PCB 上的銅貼片。每個 # GHz 訊號都必須經由錫球離開封裝、沿微帶線走到天線，每個轉接點和每一毫米的線都會損失功率。封裝內天線（AiP）把天線移進封裝本身。在扇出型封裝（eWLB）中，原本就把訊號從晶粒拉出來的 RDL，同時在晶粒旁形成貼片天線；下方 PCB 上的金屬層約在四分之一波長處當作反射面，讓天線穿過封膠向上輻射。只有直流、控制和低頻訊號會進到 PCB，所以 PCB 可以用便宜的 FR-#。模組變得更小更便宜，RF 性能也不再受 PCB 廠影響。代價是空間：封裝寬度只有約 # mm，貼片之間又必須相距約半個波長（≈ # mm），所以每個天線只能放幾個元件。這限制了增益、距離和角度解析度，因此 AiP 常用於角雷達、短距感測器和車內雷達。",
+"RDL feed and patch antennas": "RDL 饋線與貼片天線",
+"Reflector / ground on the PCB": "PCB 上的反射面 / 接地",
+"# GHz signal": "# GHz 訊號",
+"Resonant length of a patch antenna: half a wavelength in the substrate.": "貼片天線的共振長度：基材中的半個波長。",
+"Patch length": "貼片長度",
+"Spacing to the ground plane that makes the reflected wave add in phase.": "與接地面的間距，讓反射波同相相加。",
+"Reflector gap λ/#": "反射間距 λ/#",
+"Elements that fit in the package for each of the # TX and # RX antennas, of those requested.": "在要求的元件數中，# 個 TX 與 # 個 RX 天線各自能放進封裝的數量。",
+"Antenna gain after the feed and efficiency losses, antenna in package.": "扣除饋線與效率損耗後的天線增益（封裝內天線）。",
+"AiP realized gain": "AiP 實際增益",
+"εeff ≈ # → L = # mm at # GHz": "εeff ≈ {0} → {2} GHz 時 L = {1} mm",
+"A quarter wavelength between the antenna and its ground plane.": "天線與其接地面之間相距四分之一波長。",
+"Reflector spacing": "反射面間距",
+"= # mm: the wave reflected by the ground adds in phase": "= # mm：接地面反射的波同相相加",
+"N elements in phase add about #·log# N dB to the gain of one element.": "N 個同相元件約比單一元件多 #·log# N dB 增益。",
+"Antenna array gain": "天線陣列增益",
+"AiP: # + #·log# # = # dBi; a # mm package fits # per antenna": "AiP：# + #·log# # = # dBi；# mm 封裝每個天線可放 # 個",
+"Gain left after transitions, line loss and antenna efficiency.": "扣除轉接、線路損耗與天線效率後剩下的增益。",
+"Realized gain": "實際增益",
+"Gr = G − transition − line − efficiency": "Gr = G − 轉接 − 線路 − 效率",
+"on PCB # dBi · AiP # dBi · LiP # dBi": "PCB 上 # dBi · AiP # dBi · LiP # dBi",
+"Detection range scales with the fourth root of the received power, so # dB more gain on TX and RX gives about # % more range.": "偵測距離與接收功率的四次方根成正比，所以 TX 與 RX 各多 # dB 增益，距離約增加 # %。",
+"Radar range": "雷達距離",
+"compared with antennas on the PCB: AiP # % · LiP # %": "相對於 PCB 上的天線：AiP # % · LiP # %",
+"loss (dB)": "損耗 (dB)",
+"on PCB": "PCB 上",
+"■ transition": "■ 轉接",
+"■ line": "■ 線路",
+"■ efficiency": "■ 效率",
+"range vs on PCB (%)": "距離 vs PCB 上 (%)",
+"# elements, # mm": "# 個元件，# mm",
+"Antenna in package: cross-section": "封裝內天線：剖面",
+"FR-# PCB: no RF laminate needed": "FR-# PCB：不需要高頻板材",
+"ground plane = reflector": "接地面 = 反射面",
+"solder balls": "錫球",
+"mold compound": "封膠",
+"TX patches": "TX 貼片",
+"RX patches": "RX 貼片",
+"RDL feed": "RDL 饋線",
+"the # GHz signal never leaves the package: it radiates up through the mold": "# GHz 訊號從不離開封裝：它穿過封膠向上輻射",
+"the reflected wave from the ground plane adds in phase (λ/# below)": "接地面反射的波同相相加（在下方 λ/# 處）",
+"Top view of the package": "封裝俯視圖",
+"# patch sites at λ#/# = # mm": "# 個貼片位置，間距 λ#/# = # mm",
+"→ # per antenna for # TX + # RX": "→ 每個天線 # 個（# TX + # RX）",
+"unused": "未使用",
+"you asked for #: the package is too small": "要求 # 個：封裝太小",
+"all requested elements fit": "要求的元件全部放得下",
+"The package launches the wave straight into a waveguide antenna: low loss and high gain": "封裝把電磁波直接送進波導天線：低損耗、高增益",
+"Launcher in package (LiP), also called launch-on-package, puts only a small transition into the package: a patch or probe in the RDL, the launcher, which couples the # GHz signal into a hollow rectangular waveguide placed right above it. The waveguide is part of a plastic antenna block with a metal coating, mounted over the package on the PCB. Inside the air-filled waveguide the TE# mode travels with very little loss, roughly a tenth of a microstrip line, so the antennas can sit centimetres away from the chip and still be efficient. At the end, slotted-waveguide arrays or horns radiate with high efficiency and with far larger apertures than fit in a package. The result is more gain and range than AiP and lower loss than antennas on the PCB, again on a cheap FR-# board, at the cost of an extra #D part that must be aligned to the package. The waveguide has to be wide enough for the radar band: the standard WR-# (# × # mm) has a TE# cutoff of # GHz and carries only one mode from # to # GHz. LiP is used for long-range and imaging radars.": "封裝內發射器（LiP，也稱 launch-on-package）只在封裝中放一個小型轉接結構：RDL 中的貼片或探針，也就是發射器，把 # GHz 訊號耦合進正上方的中空矩形波導。波導是表面鍍金屬的塑膠天線模塊的一部分，裝在 PCB 上、罩在封裝上方。在充滿空氣的波導中，TE# 模態的損耗非常小，大約只有微帶線的十分之一，所以天線可以離晶片好幾公分仍然很有效率。末端的槽孔波導陣列或號角天線以高效率輻射，口徑遠大於封裝能容納的大小。結果是增益與距離都比 AiP 好、損耗比 PCB 上的天線低，而且同樣用便宜的 FR-# 板，代價是多一個必須對準封裝的 #D 零件。波導必須夠寬才能讓雷達頻段通過：標準 WR-#（# × # mm）的 TE# 截止頻率為 # GHz，在 # 到 # GHz 只傳一個模態。LiP 用於長距與成像雷達。",
+"Launcher in the RDL": "RDL 中的發射器",
+"Die": "晶粒",
+"Metallized waveguide antenna": "鍍金屬波導天線",
+"TE# wave": "TE# 波",
+"Lowest frequency the WR-# waveguide can carry (TE# mode).": "WR-# 波導能傳送的最低頻率（TE# 模態）。",
+"WR-# cutoff": "WR-# 截止頻率",
+"Wavelength along the waveguide; longer than in free space.": "沿波導方向的波長；比自由空間中長。",
+"Guide wavelength λg": "導波波長 λg",
+"Loss of the air-filled waveguide from the launcher to the antenna.": "從發射器到天線這段空氣波導的損耗。",
+"Waveguide loss": "波導損耗",
+"Antenna gain after the launcher, waveguide and efficiency losses, launcher in package.": "扣除發射器、波導與效率損耗後的天線增益（封裝內發射器）。",
+"LiP realized gain": "LiP 實際增益",
+"Below this frequency the waveguide does not carry a wave.": "低於這個頻率，波導無法傳送電磁波。",
+"TE# cutoff": "TE# 截止頻率",
+"a = # mm → # GHz; TE# at # GHz": "a = # mm → # GHz；TE# 在 # GHz",
+"Wavelength of the TE# mode inside the waveguide.": "波導內 TE# 模態的波長。",
+"Guide wavelength": "導波波長",
+"λ# = # mm → λg = # mm at # GHz": "λ{0} = {1} mm → {3} GHz 時 λg = {2} mm",
+"Loss along the line from the chip to the antenna.": "從晶片到天線這段線路的損耗。",
+"Line loss": "線路損耗",
+"loss = α·l": "損耗 = α·l",
+"# mm: microstrip # dB vs waveguide # dB": "# mm：微帶線 # dB vs 波導 # dB",
+"no propagation": "無法傳播",
+"# GHz is below cutoff: no wave propagates": "# GHz 低於截止頻率：無法傳播",
+"Launcher in package: cross-section": "封裝內發射器：剖面",
+"FR-# PCB": "FR-# PCB",
+"launcher": "發射器",
+"(patch in the RDL)": "（RDL 中的貼片）",
+"metallized plastic waveguide antenna": "鍍金屬塑膠波導天線",
+"below cutoff: the wave dies out in the waveguide": "低於截止頻率：電磁波在波導中衰減消失",
+"slots radiate: large aperture, high efficiency": "槽孔輻射：大口徑、高效率",
+"air-filled waveguide": "空氣波導",
+"(TE# mode)": "（TE# 模態）",
+"package": "封裝",
+"waveguide # mm: # dB · same length of microstrip: # dB": "波導 # mm：# dB · 同長度微帶線：# dB",
+"WR-# waveguide, TE# mode": "WR-# 波導，TE# 模態",
+"E field: strongest in the middle,": "電場：中間最強，",
+"zero at the side walls": "側壁處為零",
+"TE# cutoff fc = c/#a = # GHz": "TE# 截止頻率 fc = c/#a = # GHz",
+"next mode TE# at # GHz": "下一個模態 TE# 在 # GHz",
+"at # GHz: λ# = # mm": "# GHz 時：λ# = # mm",
+"guide wavelength λg = # mm": "導波波長 λg = # mm",
+"f < fc: evanescent, no propagation": "f < fc：消逝波，無法傳播",
+"single-mode: only TE# propagates": "單模：只有 TE# 傳播",
+"TE# propagates too: more than one mode": "TE# 也會傳播：不只一個模態",
+"#–# GHz radar band: single-mode in WR-#": "#–# GHz 雷達頻段：在 WR-# 中為單模",
+"Hollow metal pipe, # × # mm inside, that carries #–# GHz in the TE# mode with very low loss.": "內徑 {0} × {1} mm 的中空金屬管，以 TE{4} 模態低損耗傳送 {2}–{3} GHz。",
+"# of #": "{0}（要求 {1}）"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -4250,7 +4370,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button id="bt-n" aria-pressed="true">NMOS</button>
         <button id="bt-p" aria-pressed="false">PMOS</button>
       </div>
-      <button class="iconbtn" id="find-btn" aria-label="Find (Ctrl+K or /)" title="Find (Ctrl+K or /)"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><span>Find</span></button>
+      <button class="iconbtn" id="find-btn" aria-label="Find (Ctrl+K or /)" title="Find (Ctrl+K or /)"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg></button>
       <button class="iconbtn" id="lang" data-i18n-skip aria-label="切換為中文" title="中文"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.5 3.9 5.5 3.9 9s-1.3 6.5-3.9 9c-2.6-2.5-3.9-5.5-3.9-9S9.4 5.5 12 3z"/></svg><span id="lang-lab">中文</span></button>
       <button class="iconbtn" id="theme" aria-label="Switch colour theme"><span id="theme-ic">☀</span><span id="theme-lab">Light</span></button>
     </div>
@@ -6461,6 +6581,8 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button data-v="fc" aria-pressed="false">Flip-chip (RDL + bumps)</button>
         <button data-v="fo" aria-pressed="false">Fan-out WLP (eWLB)</button>
         <button data-v="ad" aria-pressed="false">2.5D / 3D (CoWoS, HBM)</button>
+        <button data-v="aip" aria-pressed="false">Antenna in package (AiP)</button>
+        <button data-v="lip" aria-pressed="false">Launcher in package (LiP)</button>
         <button data-v="rf" aria-pressed="false">Interconnects at 77 GHz</button>
       </div>
     </div>
@@ -6496,6 +6618,18 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <div class="slider">
           <div class="lab"><span class="term" tabindex="0" data-tip="Edge length of a square die. Wire bonds only use the edge, bumps use the whole area.">Die size</span><span id="pk-die-v"></span></div>
           <input id="pk-die" type="range" min="1" max="15" step="0.5" value="5">
+        </div>
+        <div class="slider" id="pk-c-n">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Number of radiating elements (patches or slots) in each TX or RX antenna. More elements: more gain and a narrower beam.">Elements per antenna</span><span id="pk-n-v"></span></div>
+          <input id="pk-n" type="range" min="1" max="16" step="1" value="4">
+        </div>
+        <div class="slider" id="pk-c-feed">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Length of the line from the chip to the antennas: a microstrip on the PCB, or the waveguide for LiP. AiP keeps it inside the package (about 1.5 mm).">Chip-to-antenna distance</span><span id="pk-feed-v"></span></div>
+          <input id="pk-feed" type="range" min="2" max="60" step="1" value="15">
+        </div>
+        <div class="slider" id="pk-c-pkg">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Edge length of the AiP package. The antennas have to fit around the 4 mm die, about half a wavelength apart.">Package size</span><span id="pk-pkg-v"></span></div>
+          <input id="pk-pkg" type="range" min="6" max="16" step="0.5" value="12">
         </div>
         <p class="eyebrow">Equations</p>
         <div class="eq" id="pk-eq"></div>
@@ -6535,6 +6669,8 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <tr><td>Wire-bond BGA</td><td>Wire bond + laminate</td><td>40–60 µm pads</td><td>≈ 1 nH/mm</td><td>Mid-range ICs</td></tr>
               <tr><td>Flip-chip BGA</td><td>Cu pillar / C4 bumps</td><td>40–150 µm</td><td>≈ 10–50 pH</td><td>CPUs, GPUs, RF</td></tr>
               <tr><td>WLCSP</td><td>RDL + balls on the die</td><td>0.35–0.5 mm balls</td><td>very low</td><td>Phones, small ICs</td></tr>
+              <tr><td>AiP (antenna in package)</td><td>Antennas in the package RDL</td><td>fine RDL</td><td>RF never leaves the package</td><td>Corner and short-range radar, in-cabin</td></tr>
+              <tr><td>LiP (launcher in package)</td><td>Launcher into a waveguide antenna</td><td>fine RDL</td><td>very low loss</td><td>Long-range and imaging radar</td></tr>
               <tr><td>Fan-out (eWLB, InFO)</td><td>RDL in mold, no substrate</td><td>fine RDL, 0.4–0.5 mm balls</td><td>very low</td><td>77 GHz radar, mobile SoC</td></tr>
               <tr><td>2.5D / 3D</td><td>Interposer, TSV, hybrid bonding</td><td>&lt; 10 µm</td><td>very low</td><td>HBM memory, chiplets, AI</td></tr>
             </table></div>
@@ -6561,6 +6697,8 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Underfill</dt><dd>Epoxy under the flipped die that shares the thermal-expansion stress.</dd>
               <dt>Fan-out</dt><dd>RDL extends beyond the die edge onto surrounding mold compound.</dd>
               <dt>AiP</dt><dd>Antenna-in-package: radar antennas formed in the package RDL.</dd>
+              <dt>LiP</dt><dd>Launcher in package: a small transition in the package couples the signal into a hollow waveguide antenna above it.</dd>
+              <dt>Waveguide (WR-12)</dt><dd>Hollow metal pipe, 3.10 × 1.55 mm inside, that carries 60–90 GHz in the TE10 mode with very low loss.</dd>
               <dt>TSV / hybrid bonding</dt><dd>Through-silicon vias and direct copper-to-copper bonding for 3D stacking.</dd>
             </dl>
           </div>
@@ -12877,7 +13015,7 @@ document.querySelectorAll("#fb-ox button").forEach(b => b.addEventListener("clic
    TAB — packaging / assembly: wire bond, flip-chip (RDL + bumps), fan-out WLP, mm-wave parasitics
    ========================================================= */
 const PKC = setupCanvas($("cvpk"), 1000, 488);
-const PK = {view:"wb", s:0, p:0, play:true, wl:1.0, f:77, die:5};
+const PK = {view:"wb", s:0, p:0, play:true, wl:1.0, f:77, die:5, n:4, feed:15, pkg:12};
 const PK_FLOWS = {
   wb:[
     {name:"Wafer back-grinding", tool:"Grinding wheel thins the wafer from 775 µm to ≈ 200 µm"},
@@ -12937,7 +13075,7 @@ function pkS21(LnH, fGHz, CpF = PK_PAD_C){                                      
 const pkDb = x => 20*Math.log10(Math.max(x, 1e-6));
 
 function pkTick(dt){
-  if (PK.view !== "rf" && PK.play){ PK.p += dt/(reduce ? 1.2 : 3.4); if (PK.p >= 1){ PK.p = 0; PK.s = (PK.s + 1) % pkSteps().length; $("pk-step").value = PK.s; updatePK(); } }
+  if (PK_FLOWS[PK.view] && PK.play){ PK.p += dt/(reduce ? 1.2 : 3.4); if (PK.p >= 1){ PK.p = 0; PK.s = (PK.s + 1) % pkSteps().length; $("pk-step").value = PK.s; updatePK(); } }
 }
 
 /* ---------------- drawing helpers ---------------- */
@@ -13178,7 +13316,117 @@ function drawPKad(dt, T){
   txt(subOn ? "2.5D: chips side by side on a silicon interposer (CoWoS-type) · BGA balls go to the PCB" : "2.5D: chips side by side on a silicon interposer (CoWoS-type)", 20, 472, {px:11, col:C.fg, w:600});
   pkList(steps);
 }
-function drawPK(dt, T){ begin(PKC); ({wb: drawPKwb, fc: drawPKfc, fo: drawPKfo, rf: drawPKrf, ad: drawPKad})[PK.view](dt, T); }
+
+/* ---------------- antennas: on PCB vs antenna in package vs launcher in package ---------------- */
+const PK_C = 299.792458, PK_WR12 = 3.0988;                       // mm·GHz, WR-12 broad wall (mm)
+function pkAipGrid(){                                            // patch positions (mm) that fit around a 4 mm die, λ0/2 apart
+  const d = PK_C/PK.f/2, h = PK.pkg/2 - 0.3, n = Math.max(0, Math.floor(2*h/d)), x0 = -(n - 1)*d/2, keep = 2 + d/2 - 0.2, pts = [];
+  for (let i=0;i<n;i++) for (let j=0;j<n;j++){ const x = x0 + i*d, y = x0 + j*d; if (Math.abs(x) < keep && Math.abs(y) < keep) continue; pts.push([x, y]); }
+  return pts;
+}
+function pkAnt(){
+  const f = PK.f, k = f/77, lam = PK_C/f, grid = pkAipGrid(), cap = Math.max(1, Math.floor(grid.length/7)), nA = Math.min(PK.n, cap);
+  const opts = [
+    {name:"on PCB", tr:0.6, line:0.08*k*PK.feed, eff:0.85, g1:6, n:PK.n},
+    {name:"AiP", tr:0, line:0.2*k*1.5, eff:0.65, g1:5, n:nA},
+    {name:"LiP", tr:0.5, line:0.012*k*PK.feed, eff:0.9, g1:7, n:PK.n}];
+  opts.forEach(o => { o.effdB = -10*Math.log10(o.eff); o.loss = o.tr + o.line + o.effdB; o.G = o.g1 + 10*Math.log10(o.n); o.Gr = o.G - o.loss; });
+  opts.forEach(o => o.range = 100*Math.pow(10, (o.Gr - opts[0].Gr)/20));
+  const fc = PK_C/(2*PK_WR12), lg = f > fc ? lam/Math.sqrt(1 - (fc/f)**2) : Infinity;
+  return {lam, grid, cap, nA, opts, fc, lg, patch: lam/(2*Math.sqrt(3.0))};
+}
+function pkWaves(x, y, T, n, rmax, col, up = true){             // expanding wavefronts
+  ctx.strokeStyle = col; ctx.lineWidth = 2;
+  for (let k=0;k<n;k++){ const u = ((T*0.7 + k/n) % 1), r = 8 + u*rmax; ctx.globalAlpha = 0.85*(1 - u); ctx.beginPath(); ctx.arc(x, y, r, up ? Math.PI*1.15 : 0.15*Math.PI, up ? Math.PI*1.85 : 0.85*Math.PI); ctx.stroke(); }
+  ctx.globalAlpha = 1;
+}
+function drawPKaip(dt, T){
+  const A = pkAnt();
+  ctx.fillStyle = C.panel2; ctx.fillRect(8, 8, 984, 472);
+  panel(20, 20, 640, 450, "Antenna in package: cross-section");
+  const pcbY = 392, rdlY = 330, x0 = 90, x1 = 590, dx0 = 270, dx1 = 410;
+  ctx.fillStyle = C.channel; ctx.globalAlpha = 0.25; ctx.fillRect(40, pcbY, 600, 50); ctx.globalAlpha = 1;
+  txt("FR-4 PCB: no RF laminate needed", 340, pcbY + 34, {al:"center", px:11, col:C.fg});
+  ctx.fillStyle = C.metal; ctx.fillRect(40, pcbY - 4, 600, 4); txt("ground plane = reflector", 636, pcbY + 12, {al:"right", px:10, col:C.fg});
+  ctx.fillStyle = C.muted; [x0 + 12, dx0 + 15, dx0 + 55, dx1 - 55, dx1 - 15, x1 - 12].forEach(x => { ctx.beginPath(); ctx.arc(x, rdlY + 30, 13, 0, 6.283); ctx.fill(); });
+  txt("solder balls", (dx0 + dx1)/2, rdlY + 52, {al:"center", px:10});
+  ctx.fillStyle = C.fg; ctx.globalAlpha = 0.28; ctx.fillRect(x0, 240, x1 - x0, rdlY - 240); ctx.globalAlpha = 1;
+  txt("mold compound", x0 + 8, 252, {px:10, col:C.fg});
+  ctx.fillStyle = C.si; ctx.fillRect(dx0, 282, dx1 - dx0, rdlY - 284); txt("die (face down)", (dx0 + dx1)/2, 302, {al:"center", col:C.fg, w:700, px:11});
+  // RDL feed lines and patches, one row each side; real spacing λ0/2, scaled to the package
+  const sc = (x1 - x0)/PK.pkg, d = A.lam/2*sc, Lp = Math.min(d*0.9, A.patch*sc), zoneL = [x0 + 10, dx0 - 14], zoneR = [dx1 + 14, x1 - 10];
+  const row = ([u, v]) => { const n = Math.max(1, Math.min(A.nA, Math.floor((v - u)/d))), w = n*d, st = (u + v)/2 - w/2 + d/2; return Array.from({length:n}, (_, i) => st + i*d); };
+  const pl1 = row(zoneL), pr1 = row(zoneR);
+  ctx.fillStyle = C.accent; ctx.fillRect(Math.min(...pl1), rdlY, dx0 - Math.min(...pl1), 3); ctx.fillRect(dx1, rdlY, Math.max(...pr1) - dx1, 3);
+  [...pl1, ...pr1].forEach(x => ctx.fillRect(x - Lp/2, rdlY - 2, Lp, 6));
+  [[pl1, dx0, -1], [pr1, dx1, 1]].forEach(([ps, xs, sg]) => ps.forEach(x => { for (let q=0;q<3;q++){ const u = ((T*0.8 + q/3) % 1); dot(xs + (x - xs)*u, rdlY + 1.5, C.electron, false, 1, 3); } }));
+  [...pl1, ...pr1].forEach((x, i) => pkWaves(x, rdlY - 4, T + i*0.13, 3, 110, C.electron));
+  // λ/4 dimension
+  const gx = (pl1[0] + zoneL[0])/2 + 6; ctx.strokeStyle = C.fg; ctx.lineWidth = 1.2; pl([[gx, rdlY + 4],[gx, pcbY - 4]]); pl([[gx - 4, rdlY + 4],[gx + 4, rdlY + 4]]); pl([[gx - 4, pcbY - 4],[gx + 4, pcbY - 4]]);
+  txt(`≈ λ/4 = ${(A.lam/4).toFixed(2)} mm`, gx + 8, (rdlY + pcbY)/2 + 6, {px:10, col:C.fg});
+  txt("TX patches", (zoneL[0] + zoneL[1])/2, rdlY + 16, {al:"center", px:10, col:C.accent, w:700});
+  txt("RX patches", (zoneR[0] + zoneR[1])/2, rdlY + 16, {al:"center", px:10, col:C.accent, w:700});
+  txt("RDL feed", dx0 - 40, rdlY - 12, {al:"center", px:10, col:C.accent});
+  txt("the 77 GHz signal never leaves the package: it radiates up through the mold", 340, 60, {al:"center", px:11, col:C.fg, w:600});
+  txt("the reflected wave from the ground plane adds in phase (λ/4 below)", 340, 78, {al:"center", px:10});
+  // top view
+  panel(680, 20, 300, 450, "Top view of the package");
+  const s2 = 240/PK.pkg, cx = 830, cy = 200, half = PK.pkg/2*s2;
+  ctx.fillStyle = C.fg; ctx.globalAlpha = 0.18; ctx.fillRect(cx - half, cy - half, 2*half, 2*half); ctx.globalAlpha = 1; ctx.strokeStyle = C.line; ctx.strokeRect(cx - half + .5, cy - half + .5, 2*half - 1, 2*half - 1);
+  ctx.fillStyle = C.si; ctx.fillRect(cx - 2*s2, cy - 2*s2, 4*s2, 4*s2); txt("die", cx, cy, {al:"center", col:C.fg, w:700, px:11});
+  const used = 7*A.nA, pw = Math.min(A.patch*s2, A.lam/2*s2*0.85);
+  A.grid.forEach(([x, y], i) => { ctx.fillStyle = i < 3*A.nA ? C.accent : i < used ? C.channel : C.line; ctx.fillRect(cx + x*s2 - pw/2, cy - y*s2 - pw/2, pw, pw); });
+  txt(`${A.grid.length} patch sites at λ0/2 = ${(A.lam/2).toFixed(2)} mm`, cx, cy + half + 22, {al:"center", px:11, col:C.fg});
+  txt(`→ ${A.cap} per antenna for 3 TX + 4 RX`, cx, cy + half + 42, {al:"center", px:11, col:C.fg, w:700});
+  ctx.fillStyle = C.accent; ctx.fillRect(712, cy + half + 62, 10, 10); txt("TX", 728, cy + half + 67, {px:10});
+  ctx.fillStyle = C.channel; ctx.fillRect(762, cy + half + 62, 10, 10); txt("RX", 778, cy + half + 67, {px:10});
+  ctx.fillStyle = C.line; ctx.fillRect(812, cy + half + 62, 10, 10); txt("unused", 828, cy + half + 67, {px:10});
+  txt(PK.n > A.cap ? `you asked for ${PK.n}: the package is too small` : "all requested elements fit", cx, cy + half + 92, {al:"center", px:11, col: PK.n > A.cap ? C.hole : C.channel, w:600});
+}
+function drawPKlip(dt, T){
+  const A = pkAnt(), f = PK.f, prop = f > A.fc;
+  ctx.fillStyle = C.panel2; ctx.fillRect(8, 8, 984, 472);
+  panel(20, 20, 640, 450, "Launcher in package: cross-section");
+  const pcbY = 410, pkY0 = 318, rdlY = 362, wgX0 = 385, wgX1 = 425, chY0 = 190, chY1 = 224, topY = 160;
+  ctx.fillStyle = C.channel; ctx.globalAlpha = 0.25; ctx.fillRect(40, pcbY, 600, 44); ctx.globalAlpha = 1; txt("FR-4 PCB", 50, pcbY + 22, {px:11, col:C.fg});
+  ctx.fillStyle = C.metal; ctx.fillRect(40, pcbY - 4, 600, 4);
+  // package with the launcher under the waveguide opening
+  ctx.fillStyle = C.muted; for (let x = 250; x <= 450; x += 40){ ctx.beginPath(); ctx.arc(x, rdlY + 22, 11, 0, 6.283); ctx.fill(); }
+  ctx.fillStyle = C.fg; ctx.globalAlpha = 0.28; ctx.fillRect(230, pkY0, 240, rdlY - pkY0); ctx.globalAlpha = 1;
+  ctx.fillStyle = C.si; ctx.fillRect(255, pkY0 + 14, 105, rdlY - pkY0 - 16); txt("die", 307, pkY0 + 30, {al:"center", col:C.fg, w:700, px:11});
+  ctx.fillStyle = C.accent; ctx.fillRect(330, rdlY, (wgX0 + wgX1)/2 - 330, 3); ctx.fillRect(wgX0 - 4, rdlY - 2, wgX1 - wgX0 + 8, 6);
+  txt("launcher", 478, pkY0 + 22, {px:10, col:C.accent, w:700}); txt("(patch in the RDL)", 478, pkY0 + 36, {px:10, col:C.accent});
+  // antenna block: metallized plastic over the package
+  ctx.fillStyle = C.metal; ctx.fillRect(120, topY, 520, pkY0 - 6 - topY); ctx.fillRect(120, topY, 40, pcbY - 4 - topY); ctx.fillRect(600, topY, 40, pcbY - 4 - topY);
+  ctx.fillStyle = C.panel2; ctx.fillRect(wgX0, chY0, wgX1 - wgX0, pkY0 - 6 - chY0); ctx.fillRect(wgX0, chY0, 560 - wgX0, chY1 - chY0);
+  const slots = [450, 490, 530]; slots.forEach(x => ctx.fillRect(x - 6, topY, 12, chY0 - topY));
+  // TE10 wave along the channel: up the vertical part, then along the horizontal part
+  const sc = 12, lgpx = prop ? A.lg*sc : 30, path = [];
+  for (let y = pkY0 - 6; y >= chY0 + 17; y -= 2) path.push([(wgX0 + wgX1)/2, y]);
+  for (let x = (wgX0 + wgX1)/2; x <= 552; x += 2) path.push([x, (chY0 + chY1)/2]);
+  path.forEach(([x, y], i) => { const s1 = i*2, amp = prop ? 1 : Math.exp(-s1/25), v = Math.sin(2*Math.PI*(s1/lgpx - T*0.9)); ctx.fillStyle = C.electron; ctx.globalAlpha = Math.max(0, v)*amp*0.9; i < (pkY0 - 6 - chY0 - 17)/2 ? ctx.fillRect(wgX0 + 3, y - 1, wgX1 - wgX0 - 6, 2) : ctx.fillRect(x - 1, chY0 + 3, 2, chY1 - chY0 - 6); });
+  ctx.globalAlpha = 1;
+  pkWaves((wgX0 + wgX1)/2, rdlY - 4, T, 2, 30, C.electron);
+  if (prop) slots.forEach((x, i) => pkWaves(x, topY, T + i*0.2, 3, 55, C.electron));
+  txt("metallized plastic waveguide antenna", 370, 62, {al:"center", px:11, col:C.fg, w:700});
+  txt(prop ? "slots radiate: large aperture, high efficiency" : "below cutoff: the wave dies out in the waveguide", 370, 80, {al:"center", px:11, col: prop ? C.electron : C.hole, w:600});
+  txt("air-filled waveguide", 170, (chY0 + chY1)/2 + 44, {px:10, col:C.fg}); txt("(TE10 mode)", 170, (chY0 + chY1)/2 + 58, {px:10});
+  txt("package", 236, pkY0 + 7, {px:10, col:C.fg});
+  txt(`waveguide ${PK.feed} mm: ${A.opts[2].line.toFixed(2)} dB · same length of microstrip: ${A.opts[0].line.toFixed(2)} dB`, 340, 462, {al:"center", px:11, col:C.fg, w:600});
+  // WR-12 cross-section with the TE10 field
+  panel(680, 20, 300, 450, "WR-12 waveguide, TE10 mode");
+  const ax = 710, ay = 80, aw = 240, ah = 120;
+  ctx.strokeStyle = C.metal; ctx.lineWidth = 6; ctx.strokeRect(ax, ay, aw, ah);
+  for (let i=1;i<=9;i++){ const x = ax + aw*i/10, e = Math.sin(Math.PI*i/10)*Math.cos(T*3), len = 46*e; ctx.strokeStyle = C.electron; ctx.lineWidth = 1 + 2*Math.abs(e); pl([[x, ay + ah/2 - len],[x, ay + ah/2 + len]]); if (Math.abs(len) > 6){ ctx.fillStyle = C.electron; ctx.beginPath(); const tip = ay + ah/2 + len, sg = Math.sign(len); ctx.moveTo(x, tip + 4*sg); ctx.lineTo(x - 4, tip - 3*sg); ctx.lineTo(x + 4, tip - 3*sg); ctx.closePath(); ctx.fill(); } }
+  txt("a = 3.10 mm", ax + aw/2, ay + ah + 18, {al:"center", px:11, col:C.fg}); txt("b = 1.55 mm", ax + aw + 4, ay - 10, {al:"right", px:10});
+  txt("E field: strongest in the middle,", ax + aw/2, ay + ah + 40, {al:"center", px:10}); txt("zero at the side walls", ax + aw/2, ay + ah + 54, {al:"center", px:10});
+  const lines = [[`TE10 cutoff fc = c/2a = ${A.fc.toFixed(1)} GHz`, C.fg], [`next mode TE20 at ${(2*A.fc).toFixed(1)} GHz`, C.muted], [`at ${f} GHz: λ0 = ${A.lam.toFixed(2)} mm`, C.fg],
+    [prop ? `guide wavelength λg = ${A.lg.toFixed(2)} mm` : "f < fc: evanescent, no propagation", prop ? C.electron : C.hole],
+    [f > 2*A.fc ? "TE20 propagates too: more than one mode" : prop ? "single-mode: only TE10 propagates" : "", f > 2*A.fc ? C.hole : C.channel],
+    ["76–81 GHz radar band: single-mode in WR-12", C.muted]];
+  lines.forEach(([t, c], i) => txt(t, ax, 290 + i*24, {px:11, col:c, w: i === 3 ? 700 : 500}));
+}
+function drawPK(dt, T){ begin(PKC); ({wb: drawPKwb, fc: drawPKfc, fo: drawPKfo, rf: drawPKrf, ad: drawPKad, aip: drawPKaip, lip: drawPKlip})[PK.view](dt, T); }
 
 /* ---------------- DOM ---------------- */
 const PKINFO = {
@@ -13190,6 +13438,10 @@ const PKINFO = {
     text:"Fan-out wafer-level packaging (eWLB, InFO) skips the package substrate. Known-good dies are placed face down on a carrier and embedded in mold compound, which makes a new, larger 'reconstituted' wafer. After the carrier is removed, the RDL is built directly on the die faces and the surrounding mold, so the wiring can fan out beyond the die edge and leave room for solder balls at a relaxed pitch. The connections are only a few micrometres of copper with no wires or bumps in the RF path, so losses at 77 GHz are very low, and the same RDL layer can form the antennas: antenna-in-package (AiP). That is why many automotive radar chips are packaged this way."},
   ad:{pill:"3D", name:"2.5D and 3D packaging", sub:"Silicon interposers, TSVs, stacked HBM and hybrid bonding: chiplets talking as if they were one chip",
     text:"AI accelerators and high-end GPUs need far more memory bandwidth than a PCB can carry. 2.5D packaging (TSMC CoWoS, Intel EMIB) places the processor and several HBM memory stacks side by side on a silicon interposer: a slab of silicon with fab-grade copper wiring a few hundred nanometres wide and through-silicon vias (TSVs) that pass signals and power down to the package substrate. Micro-bumps at about 40 µm pitch give tens of thousands of connections, and the wires between chips are only a few millimetres long, so each HBM stack can use a 1024-bit bus at modest clock rates and low energy per bit. HBM itself is 3D: 8 to 16 thinned DRAM dies stacked on a logic base die and connected straight through by thousands of TSVs. The next step is hybrid bonding (TSMC SoIC, used for 3D V-Cache): two dies are pressed face to face, their oxide surfaces bond, and an anneal fuses the copper pads directly, with no bumps or solder, at under 10 µm pitch. Compared with wire bond and flip-chip, each step shrinks the pitch by about ten times and the energy per bit by several times."},
+  aip:{pill:"AiP", name:"Antenna in package (AiP)", sub:"The radar antennas are built into the package RDL: the 77 GHz signal never leaves the package",
+    text:"In a classic radar module the MMIC sits in a package on a PCB made of an expensive high-frequency laminate (for example Rogers RO3003), and the antennas are copper patches on that PCB. Every 77 GHz signal has to leave the package through a solder ball, run along a microstrip line and reach the antenna, losing power at each transition and on every millimetre of line. Antenna in package (AiP) moves the antennas into the package itself. In a fan-out package (eWLB) the RDL that already routes the signals out of the die also forms the patch antennas next to the die, and the metal plane on the PCB below acts as a reflector about a quarter wavelength away, so the antennas radiate up through the mold compound. Only DC, control and low-frequency signals go to the PCB, which can then be cheap FR-4. The module becomes smaller and cheaper, and the RF performance no longer depends on the PCB maker. The price is space: a package is only about 10 mm across and the patches must be about half a wavelength (≈ 2 mm) apart, so each antenna gets only a few elements. That limits the gain, the range and the angular resolution, which is why AiP is popular for corner radars, short-range sensors and in-cabin radar."},
+  lip:{pill:"LiP", name:"Launcher in package (LiP)", sub:"The package launches the wave straight into a waveguide antenna: low loss and high gain",
+    text:"Launcher in package (LiP), also called launch-on-package, puts only a small transition into the package: a patch or probe in the RDL, the launcher, which couples the 77 GHz signal into a hollow rectangular waveguide placed right above it. The waveguide is part of a plastic antenna block with a metal coating, mounted over the package on the PCB. Inside the air-filled waveguide the TE10 mode travels with very little loss, roughly a tenth of a microstrip line, so the antennas can sit centimetres away from the chip and still be efficient. At the end, slotted-waveguide arrays or horns radiate with high efficiency and with far larger apertures than fit in a package. The result is more gain and range than AiP and lower loss than antennas on the PCB, again on a cheap FR-4 board, at the cost of an extra 3D part that must be aligned to the package. The waveguide has to be wide enough for the radar band: the standard WR-12 (3.10 × 1.55 mm) has a TE10 cutoff of 48.4 GHz and carries only one mode from 76 to 81 GHz. LiP is used for long-range and imaging radars."},
   rf:{pill:"RF", name:"Interconnects at 77 GHz", sub:"Why a millimetre of bond wire is a problem and a bump is not",
     text:"At low frequency any connection is just a wire. At millimetre-wave frequencies the inductance of the connection matters: its reactance is X = 2πfL. A 1 mm bond wire has about 0.8–1 nH, which at 77 GHz is about 400–500 Ω in series with a 50 Ω line: most of the signal is reflected and the rest is distorted. Designers can partly tune it out with a matching network, multiple parallel wires or very short wires, but it only works over a narrow band and varies with the wire loop height. A flip-chip bump or a fan-out RDL via is only tens of micrometres long, around 20 pH, a few ohms at 77 GHz, and behaves almost like a continuation of the transmission line. That is the main reason radar transceivers use flip-chip or fan-out packages."}
 };
@@ -13204,13 +13456,30 @@ Object.assign(TIP, {
   "Transmission":"S21 of a series inductor with pad capacitance at each end, 50 Ω system.",
   "I/O count":"Pads on the die perimeter (wire bond) vs bumps over the whole area (flip-chip).",
   "CTE mismatch":"Silicon and organic substrate expand differently: underfill takes the stress.",
-  "Reflow":"Solder melts and wets the pads; surface tension self-aligns the die."
+  "Reflow":"Solder melts and wets the pads; surface tension self-aligns the die.",
+  "Patch length":"Resonant length of a patch antenna: half a wavelength in the substrate.",
+  "Reflector gap λ/4":"Spacing to the ground plane that makes the reflected wave add in phase.",
+  "Elements per antenna":"Elements that fit in the package for each of the 3 TX and 4 RX antennas, of those requested.",
+  "AiP realized gain":"Antenna gain after the feed and efficiency losses, antenna in package.",
+  "LiP realized gain":"Antenna gain after the launcher, waveguide and efficiency losses, launcher in package.",
+  "WR-12 cutoff":"Lowest frequency the WR-12 waveguide can carry (TE10 mode).",
+  "Guide wavelength λg":"Wavelength along the waveguide; longer than in free space.",
+  "Waveguide loss":"Loss of the air-filled waveguide from the launcher to the antenna.",
+  "Reflector spacing":"A quarter wavelength between the antenna and its ground plane.",
+  "Antenna array gain":"N elements in phase add about 10·log10 N dB to the gain of one element.",
+  "Realized gain":"Gain left after transitions, line loss and antenna efficiency.",
+  "TE10 cutoff":"Below this frequency the waveguide does not carry a wave.",
+  "Guide wavelength":"Wavelength of the TE10 mode inside the waveguide.",
+  "Line loss":"Loss along the line from the chip to the antenna.",
+  "Radar range":"Detection range scales with the fourth root of the received power, so 1 dB more gain on TX and RX gives about 12 % more range."
 });
 const PKLEG = {
   wb:[["si","Silicon die"],["metal","Lead frame / pads"],["accent","Gold/copper wire"],["channel","Die-attach epoxy"]],
   fc:[["metal","Al pad"],["oxide","Polyimide / underfill"],["accent","Copper RDL and pillars"],["muted","Solder"]],
   fo:[["si","Die"],["fg","Mold compound"],["accent","RDL (and antenna)"],["muted","Solder balls"]],
   rf:[["accent","Bond wire / bump"],["electron","Signal"],["hole","High reactance"]],
+  aip:[["si","Die"],["fg","Mold compound"],["accent","RDL feed and patch antennas"],["metal","Reflector / ground on the PCB"],["electron","77 GHz signal"]],
+  lip:[["si","Die"],["accent","Launcher in the RDL"],["metal","Metallized waveguide antenna"],["electron","TE10 wave"],["muted","Solder balls"]],
   ad:[["si","Silicon (interposer, dies)"],["accent","Copper TSV / RDL / pads"],["muted","Micro-bumps, C4, balls"],["electron","Data between chips"]]
 };
 let pkGlossKey = "";
@@ -13218,13 +13487,35 @@ function updatePK(){
   const v = PK.view, info = PKINFO[v], steps = pkSteps();
   $("pk-pill").textContent = info.pill; $("pk-name").textContent = info.name; $("pk-sub").textContent = info.sub; $("pk-explain").textContent = info.text;
   document.querySelectorAll("#pk-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
-  $("pk-c-flow").hidden = v === "rf"; $("pk-play").textContent = PK.play ? "❚❚ Pause" : "▶ Play";
+  const ANT = v === "aip" || v === "lip";
+  $("pk-c-flow").hidden = !PK_FLOWS[v]; $("pk-play").textContent = PK.play ? "❚❚ Pause" : "▶ Play";
   $("pk-step").max = steps.length - 1; $("pk-step").value = PK.s;
-  $("pk-step-v").textContent = v === "rf" ? "" : `${PK.s + 1} · ${steps[PK.s].name}`;
+  $("pk-step-v").textContent = !PK_FLOWS[v] ? "" : `${PK.s + 1} · ${steps[PK.s].name}`;
   $("pk-wl-v").textContent = `${PK.wl.toFixed(2)} mm`; $("pk-f-v").textContent = `${PK.f} GHz`; $("pk-die-v").textContent = `${PK.die} mm`;
   setHTML("pk-legend", PKLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
   const L = pkWireL(), sw = pkS21(L, PK.f), sb = pkS21(PK_BUMP_L, PK.f, 0.02);
-  ["pk-wl", "pk-f", "pk-die"].forEach(id => $(id).closest(".slider").hidden = v === "ad");
+  ["pk-wl", "pk-die"].forEach(id => $(id).closest(".slider").hidden = v === "ad" || ANT);
+  $("pk-f").closest(".slider").hidden = v === "ad";
+  $("pk-c-n").hidden = $("pk-c-feed").hidden = !ANT; $("pk-c-pkg").hidden = v !== "aip";
+  $("pk-n-v").textContent = `${PK.n}`; $("pk-feed-v").textContent = `${PK.feed} mm`; $("pk-pkg-v").textContent = `${PK.pkg} × ${PK.pkg} mm`;
+  if (ANT){
+    const A = pkAnt(), [ob, ai, li] = A.opts, prop = PK.f > A.fc;
+    renderRo($("pk-ro"), v === "aip"
+      ? [["Patch length", `${A.patch.toFixed(2)} mm`], ["Reflector gap λ/4", `${(A.lam/4).toFixed(2)} mm`], ["Elements per antenna", `${A.nA} of ${PK.n}`], ["AiP realized gain", `${ai.Gr.toFixed(1)} dBi`]]
+      : [["WR-12 cutoff", `${A.fc.toFixed(1)} GHz`], ["Guide wavelength λg", prop ? `${A.lg.toFixed(2)} mm` : "no propagation"], ["Waveguide loss", `${li.line.toFixed(2)} dB`], ["LiP realized gain", `${li.Gr.toFixed(1)} dBi`]]);
+    const real = {name:"Realized gain", f:"Gr = G − transition − line − efficiency", sub:`on PCB ${ob.Gr.toFixed(1)} dBi · AiP ${ai.Gr.toFixed(1)} dBi · LiP ${li.Gr.toFixed(1)} dBi`};
+    const rng = {name:"Radar range", f:"R ∝ (Gt·Gr)^(1/4) → R ∝ 10^(ΔG/20)", sub:`compared with antennas on the PCB: AiP ${ai.range.toFixed(0)} % · LiP ${li.range.toFixed(0)} %`};
+    renderEq($("pk-eq"), v === "aip" ? [
+      {name:"Patch length", f:"L ≈ c / (2f·√εeff)", sub:`εeff ≈ 3.0 → L = ${A.patch.toFixed(2)} mm at ${PK.f} GHz`},
+      {name:"Reflector spacing", f:"h ≈ λ0/4", sub:`= ${(A.lam/4).toFixed(2)} mm: the wave reflected by the ground adds in phase`},
+      {name:"Antenna array gain", f:"G ≈ G1 + 10·log10 N", sub:`AiP: 5 + 10·log10 ${A.nA} = ${ai.G.toFixed(1)} dBi; a ${PK.pkg} mm package fits ${A.cap} per antenna`},
+      real, rng] : [
+      {name:"TE10 cutoff", f:"fc = c / 2a", sub:`a = 3.10 mm → ${A.fc.toFixed(1)} GHz; TE20 at ${(2*A.fc).toFixed(1)} GHz`},
+      {name:"Guide wavelength", f:"λg = λ0 / √(1 − (fc/f)²)", sub: prop ? `λ0 = ${A.lam.toFixed(2)} mm → λg = ${A.lg.toFixed(2)} mm at ${PK.f} GHz` : `${PK.f} GHz is below cutoff: no wave propagates`},
+      {name:"Line loss", f:"loss = α·l", sub:`${PK.feed} mm: microstrip ${ob.line.toFixed(2)} dB vs waveguide ${li.line.toFixed(2)} dB`},
+      real, rng]);
+    drawPKPlots(); return;
+  }
   if (v === "ad"){
     renderRo($("pk-ro"), [["Assembly step", `${PK.s + 1} / ${steps.length}`], ["Micro-bump pitch", "40 µm"], ["HBM bus", "1024 bit"], ["Bandwidth / stack", "≈ 819 GB/s"]]);
     renderEq($("pk-eq"), [
@@ -13250,6 +13541,22 @@ function updatePK(){
   drawPKPlots();
 }
 function drawPKPlots(){
+  if (PK.view === "aip" || PK.view === "lip"){
+    const A = pkAnt(), hi = PK.view === "aip" ? 1 : 2, mx = Math.max(4, Math.ceil(Math.max(...A.opts.map(o => o.loss)) + 0.5));
+    const P = axesR(300, 230, {l:38,r:10,t:28,b:30}, 0, 3, 0, mx, 1, niceStep(mx/5), "", "loss (dB)");
+    let a = P.s;
+    A.opts.forEach((o, i) => { let y0 = 0; const x = P.X(i + 0.2), w = P.X(i + 0.8) - x;
+      [[o.tr, "muted"], [o.line, "hole"], [o.effdB, "oxide"]].forEach(([v, c]) => { if (v <= 0) return; a += `<rect x="${x.toFixed(1)}" y="${P.Y(y0 + v).toFixed(1)}" width="${w.toFixed(1)}" height="${(P.Y(y0) - P.Y(y0 + v)).toFixed(1)}" fill="var(--${c})"/>`; y0 += v; });
+      a += `<text x="${(x + w/2).toFixed(1)}" y="${(P.Y(y0) - 4).toFixed(1)}" text-anchor="middle" font-size="9">${o.loss.toFixed(1)} dB</text><text x="${(x + w/2).toFixed(1)}" y="${P.Y(0) + 14}" text-anchor="middle" style="${i === hi ? "fill:var(--accent);font-weight:700" : ""}">${o.name}</text>`; });
+    a += P.frame + `<text x="44" y="12" style="fill:var(--muted)">■ transition</text><text x="120" y="12" style="fill:var(--hole)">■ line</text><text x="160" y="12" style="fill:var(--oxide)">■ efficiency</text>`;
+    const rm = Math.max(150, Math.ceil(Math.max(...A.opts.map(o => o.range))/50)*50 + 20);
+    const Q = axesR(220, 230, {l:40,r:8,t:28,b:30}, 0, 3, 0, rm, 1, rm > 300 ? 100 : 50, "", "range vs on PCB (%)");
+    let b = Q.s + `<line x1="${Q.X(0)}" x2="${Q.X(3)}" y1="${Q.Y(100)}" y2="${Q.Y(100)}" stroke="var(--muted)" stroke-dasharray="3 3"/>`;
+    A.opts.forEach((o, i) => { const x = Q.X(i + 0.2), w = Q.X(i + 0.8) - x, y = Q.Y(o.range);
+      b += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${w.toFixed(1)}" height="${(Q.Y(0) - y).toFixed(1)}" fill="var(--${i === hi ? "accent" : "electron"})"/><text x="${(x + w/2).toFixed(1)}" y="${(y - 4).toFixed(1)}" text-anchor="middle" font-size="9">${o.range.toFixed(0)} %</text><text x="${(x + w/2).toFixed(1)}" y="${Q.Y(0) + 14}" text-anchor="middle">${o.name}</text>`; });
+    b += Q.frame + `<text x="46" y="12" style="fill:var(--electron)">${PK.n} elements, ${PK.feed} mm</text>`;
+    $("pk-p1").innerHTML = a; $("pk-p2").innerHTML = b; return;
+  }
   if (PK.view === "ad"){
     const tech = [["wire bond", 1/0.05*4/10], ["C4 bump", 1/0.15**2], ["micro-bump", 1/0.04**2], ["hybrid 9 µm", 1/0.009**2], ["hybrid 3 µm", 1/0.003**2]];
     const A = axesR(300, 230, {l:38,r:10,t:28,b:30}, 0, 5, 0, 6, 5, 1, "", "log10 connections / mm²");
@@ -13280,7 +13587,7 @@ $("pk-play").addEventListener("click", () => { PK.play = !PK.play; updatePK(); }
 $("pk-prev").addEventListener("click", () => { PK.s = Math.max(0, PK.s - 1); PK.p = 0; PK.play = false; updatePK(); });
 $("pk-next").addEventListener("click", () => { PK.s = Math.min(pkSteps().length - 1, PK.s + 1); PK.p = 0; PK.play = false; updatePK(); });
 $("pk-step").addEventListener("input", e => { PK.s = +e.target.value; PK.p = 0.999; PK.play = false; updatePK(); });
-[["pk-wl","wl"],["pk-f","f"],["pk-die","die"]].forEach(([id, k]) => $(id).addEventListener("input", e => { PK[k] = +e.target.value; updatePK(); }));
+[["pk-wl","wl"],["pk-f","f"],["pk-die","die"],["pk-n","n"],["pk-feed","feed"],["pk-pkg","pkg"]].forEach(([id, k]) => $(id).addEventListener("input", e => { PK[k] = +e.target.value; updatePK(); }));
 
 /* =========================================================
    TAB — yield & WAT: sparse WAT sites vs the CP wafer map, yield models, GDBN / PAT screening
