@@ -3880,7 +3880,7 @@ Object.assign(window.I18N_ZH, {
 "<b>Likely causes</b>: A damaged or dirty probe needle, contact resistance, or one tester channel.": "<b>可能原因</b>：探針損傷或髒污、接觸電阻，或某個測試機通道。",
 "<b>Next step</b>: Per-site yield from the tester log, clean or replace the card and retest: this is a test problem, not a fab problem.": "<b>下一步</b>：從測試紀錄看各 site 良率，清潔或更換探針卡後重測：這是測試問題，不是晶圓廠問題。"
 });
-Object.assign(window.I18N_ZH, {"Find": "搜尋", "Find (Ctrl+K or /)": "搜尋（Ctrl+K 或 /）", "Search every tab: terms, views, controls (e.g. TSV, GDBN, latch-up)": "搜尋所有分頁：名詞、視圖、控制項（例如 TSV、GDBN、閂鎖）", "Searches every tab, including the ones that are not open. ↑ ↓ to move, Enter to open, Esc to close.": "搜尋所有分頁，包括沒有開啟的。↑ ↓ 移動，Enter 開啟，Esc 關閉。", "Results": "結果", "No results for this search.": "找不到符合的結果。", "# results": "# 筆結果", "Tab": "分頁", "About": "說明", "Term": "名詞", "Table": "表格", "List": "清單", "Glossary": "名詞解釋", "Heading": "標題", "Control": "控制項", "Option": "選項", "Note": "附註", "Last updated:": "最後更新：", "Latest change:": "最新變更：", "Version history": "版本紀錄"});
+Object.assign(window.I18N_ZH, {"Find": "搜尋", "Find (Ctrl+K or /)": "搜尋（Ctrl+K 或 /）", "Search every tab: terms, views, controls (e.g. TSV, GDBN, latch-up)": "搜尋所有分頁：名詞、視圖、控制項（例如 TSV、GDBN、閂鎖）", "Searches every tab, including the ones that are not open. ↑ ↓ to move, Enter to open, Esc to close.": "搜尋所有分頁，包括沒有開啟的。↑ ↓ 移動，Enter 開啟，Esc 關閉。", "Results": "結果", "No results for this search.": "找不到符合的結果。", "# results": "# 筆結果", "Tab": "分頁", "About": "說明", "Term": "名詞", "Table": "表格", "List": "清單", "Glossary": "名詞解釋", "Heading": "標題", "Control": "控制項", "Option": "選項", "Note": "附註", "Last updated:": "最後更新："});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -6720,8 +6720,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
     </section>
   </section>
   <footer class="foot" id="site-foot">
-    <span>Last updated:</span> <b id="upd-time" data-i18n-skip>…</b><span id="upd-msg-wrap" hidden> · <span>Latest change:</span> <a id="upd-msg" data-i18n-skip href="https://github.com/SinLiongToo/mosfet-carrier-flow/commits/main" target="_blank" rel="noopener"></a></span>
-    · <a href="https://github.com/SinLiongToo/mosfet-carrier-flow/commits/main" target="_blank" rel="noopener">Version history</a>
+    <span>Last updated:</span> <b id="upd-time" data-i18n-skip>…</b>
   </footer>
 </div>
 
@@ -13857,7 +13856,7 @@ document.addEventListener("keydown", e => {
   else if (e.key === "Escape" && !$("find-ov").hidden){ e.preventDefault(); findClose(); if (findLast) findLast.focus(); }
 });
 
-/* ================= last updated ================= */
+/* ================= last updated (deploy time of this page) ================= */
 function updFmt(d){
   const p = n => String(n).padStart(2, "0"), off = -d.getTimezoneOffset(), sg = off >= 0 ? "+" : "−", ah = Math.floor(Math.abs(off)/60), am = Math.abs(off) % 60;
   return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())} (UTC${sg}${ah}${am ? ":" + p(am) : ""})`;
@@ -13865,15 +13864,6 @@ function updFmt(d){
 (() => {
   const lm = new Date(document.lastModified);
   if (!isNaN(lm)) $("upd-time").textContent = updFmt(lm);
-  if (!/^https?:/.test(location.protocol) || !window.fetch) return;
-  fetch("https://api.github.com/repos/SinLiongToo/mosfet-carrier-flow/commits?per_page=1", {headers:{Accept:"application/vnd.github+json"}})
-    .then(r => r.ok ? r.json() : Promise.reject(r.status))
-    .then(a => {
-      const c = a && a[0]; if (!c) return;
-      const d = new Date(c.commit.committer.date); if (!isNaN(d)) $("upd-time").textContent = updFmt(d);
-      const m = $("upd-msg"); m.textContent = c.commit.message.split("\n")[0]; m.href = c.html_url; $("upd-msg-wrap").hidden = false;
-    })
-    .catch(() => {});
 })();
 
 /* ================= plot zoom ================= */
