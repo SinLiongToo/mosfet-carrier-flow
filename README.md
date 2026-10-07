@@ -87,7 +87,7 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **ESD protection** – human-body-model zap into a pin, diodes to the rails and a power clamp vs gate-oxide breakdown
 
 ## Process flow tab (`#process-flow`)
-- 15 animated steps from a bare wafer to a CMOS inverter (STI, wells, gate, LDD/spacers, source/drain, anneal, silicide, contacts, copper), implant depth profiles and junction depth, Deal-Grove oxidation
+- 22 animated steps from a bare wafer to a CMOS inverter: FEOL (STI, wells, gate, LDD/spacers, source/drain, anneal, silicide, contacts, M1), then the BEOL seen zoomed out: six dual-damascene loops (low-k dielectric, via + trench etch, Cu plating, CMP) for M2–M7 with 1×/2×/4× pitches and a thick top metal, aluminium pad and passivation; 24 masks; implant depth profiles and junction depth, Deal-Grove oxidation, wire RC of thin vs thick metal
 
 ## Packaging tab (`#packaging`)
 - **Wire bond** – back-grinding, dicing, die attach (epoxy, pick-and-place, cure), thermosonic ball/stitch wire bonding with capillary and free-air ball, molding, marking, singulation, final test

@@ -4321,6 +4321,58 @@ Object.assign(window.I18N_ZH, {
 "s = #, T# = #^# h, n = # → > # years": "s = #，T# = #^# 小時，n = # → > # 年",
 "s = #, T# = #^# h, n = # → ∞": "s = #，T# = #^# 小時，n = # → ∞"
 });
+Object.assign(window.I18N_ZH, {
+"A chip is built layer by layer on a silicon wafer through hundreds of steps that repeat a few basic operations. Deposition adds a thin film (oxide, nitride, polysilicon, metal). Lithography coats the wafer with light-sensitive resist, exposes it through a mask (reticle) with deep-UV or extreme-UV light, and develops it so the pattern is left in resist. Etching removes material where the resist is open; plasma etching cuts straight down. Ion implantation shoots dopant ions (boron, phosphorus, arsenic) into the silicon, also through resist openings, and an anneal repairs the crystal and activates them. Oxidation grows SiO₂ from the silicon itself. Chemical-mechanical polishing (CMP) makes the surface flat again for the next layer. The front end (FEOL) builds the transistors: isolation trenches, wells, gate, source and drain. The back end (BEOL) adds contacts and the copper wiring: this flow builds seven copper levels with the dual-damascene loop (deposit a low-k dielectric, etch via and trench, plate copper, polish), with the finest pitch at the bottom for local connections and wider, thicker lines higher up for long signals, clocks and the power grid, then an aluminium bond pad and passivation. Advanced logic nodes use # to # or more metal layers. This simplified flow uses # masks; a modern logic process needs #–# masks and well over # process steps, taking about three months.": "晶片是在矽晶圓上一層一層做出來的，經過數百個步驟，反覆使用幾種基本操作。沉積加上一層薄膜（氧化物、氮化物、多晶矽、金屬）。微影先在晶圓塗上感光的光阻，透過光罩用深紫外光或極紫外光曝光，再顯影，讓圖形留在光阻上。蝕刻把光阻開口處的材料去掉；電漿蝕刻能筆直向下切。離子佈植把摻雜離子（硼、磷、砷）打進矽中，同樣透過光阻開口，再用退火修復晶格並活化摻雜。氧化直接從矽本身長出 SiO₂。化學機械研磨（CMP）把表面重新磨平，好做下一層。前段製程（FEOL）做出電晶體：隔離溝槽、井區、閘極、源極和汲極。後段製程（BEOL）加上接觸窗和銅導線：這個流程用雙鑲嵌循環（沉積低介電常數介電層、蝕刻導孔與溝槽、電鍍銅、研磨）做出七層銅導線，底層間距最細，用於局部連接；越往上線越寬越厚，用於長距離訊號、時脈與電源網路，最後做鋁銲墊與保護層。先進邏輯製程使用 # 到 # 層以上的金屬。這個簡化流程用了 # 道光罩；現代邏輯製程需要 #–# 道光罩、遠超過 # 個製程步驟，大約需要三個月。",
+"Via # + Metal # (dual damascene)": "導孔 # + 金屬 #（雙鑲嵌）",
+"Low-k ILD, masks #–# via + trench etch, barrier + Cu plating, CMP": "低介電常數 ILD、光罩 #–# 蝕刻導孔與溝槽、阻障層 + 電鍍銅、CMP",
+"Step #/#: Via # + Metal # (dual damascene)": "第 #/# 步：導孔 # + 金屬 #（雙鑲嵌）",
+"# · Via # + Metal # (dual damascene)": "# · 導孔 # + 金屬 #（雙鑲嵌）",
+"#. Via # + Metal # (dual damascene)": "#. 導孔 # + 金屬 #（雙鑲嵌）",
+"Via # + Metal #": "導孔 # + 金屬 #",
+"Same loop at the tightest pitch (multiple patterning or EUV), masks #–#": "以最細間距重複同一循環（多重曝光或 EUV），光罩 #–#",
+"Step #/#: Via # + Metal #": "第 #/# 步：導孔 # + 金屬 #",
+"# · Via # + Metal #": "# · 導孔 # + 金屬 #",
+"#. Via # + Metal #": "#. 導孔 # + 金屬 #",
+"Via # + Metal # (#× pitch)": "導孔 # + 金屬 #（#× 間距）",
+"Intermediate wiring, wider and thicker lines, masks #–#": "中層導線，線更寬更厚，光罩 #–#",
+"Step #/#: Via # + Metal # (#× pitch)": "第 #/# 步：導孔 # + 金屬 #（#× 間距）",
+"# · Via # + Metal # (#× pitch)": "# · 導孔 # + 金屬 #（#× 間距）",
+"#. Via # + Metal # (#× pitch)": "#. 導孔 # + 金屬 #（#× 間距）",
+"Intermediate wiring, masks #–#": "中層導線，光罩 #–#",
+"Via # + Metal # (semi-global)": "導孔 # + 金屬 #（半全域）",
+"#× pitch for longer signal routes and clocks, masks #–#": "# 倍間距，用於較長的訊號走線與時脈，光罩 #–#",
+"Step #/#: Via # + Metal # (semi-global)": "第 #/# 步：導孔 # + 金屬 #（半全域）",
+"# · Via # + Metal # (semi-global)": "# · 導孔 # + 金屬 #（半全域）",
+"#. Via # + Metal # (semi-global)": "#. 導孔 # + 金屬 #（半全域）",
+"Via # + Metal # (thick top metal)": "導孔 # + 金屬 #（厚頂層金屬）",
+"Several µm of copper for the power grid and inductors, masks #–#": "數 µm 厚的銅，用於電源網路與電感，光罩 #–#",
+"Step #/#: Via # + Metal # (thick top metal)": "第 #/# 步：導孔 # + 金屬 #（厚頂層金屬）",
+"# · Via # + Metal # (thick top metal)": "# · 導孔 # + 金屬 #（厚頂層金屬）",
+"#. Via # + Metal # (thick top metal)": "#. 導孔 # + 金屬 #（厚頂層金屬）",
+"Aluminium pad + passivation": "鋁銲墊 + 保護層",
+"Al pad layer (mask #), nitride + polyimide passivation, pad opening (mask #)": "鋁銲墊層（光罩 #）、氮化矽 + 聚醯亞胺保護層、銲墊開孔（光罩 #）",
+"Step #/#: Aluminium pad + passivation": "第 #/# 步：鋁銲墊 + 保護層",
+"# · Aluminium pad + passivation": "# · 鋁銲墊 + 保護層",
+"#. Aluminium pad + passivation": "#. 鋁銲墊 + 保護層",
+"# · deposit low-k dielectric": "# · 沉積低介電常數介電層",
+"# · litho + plasma etch of via holes and trenches": "# · 微影 + 電漿蝕刻導孔與溝槽",
+"# · barrier + copper electroplating": "# · 阻障層 + 電鍍銅",
+"# · CMP polishes off the excess copper": "# · CMP 磨掉多餘的銅",
+"aluminium pad deposited and patterned": "沉積並圖形化鋁銲墊",
+"nitride + polyimide passivation seals the chip": "氮化矽 + 聚醯亞胺保護層密封晶片",
+"pad opening: the wire bond or bump lands here": "銲墊開孔：打線或凸塊接在這裡",
+"← bond pad": "← 銲墊",
+"CMP pad": "CMP 研磨墊",
+"transistors, contacts and M# (FEOL)": "電晶體、接觸窗與 M#（前段製程）",
+"Metal layers": "金屬層數",
+"Copper wiring levels finished so far.": "目前完成的銅導線層數。",
+"Wire RC": "導線 RC",
+"Thin lower metals are resistive; long and global wires go on the thick upper metals.": "下層細金屬電阻大；長距離與全域導線放在上層的厚金屬。",
+"R = ρ·L/(W·H), delay ≈ #·R·C (distributed line)": "R = ρ·L/(W·H)，延遲 ≈ #·R·C（分布式導線）",
+"# mm of M# (# × # nm, ρ ≈ # µΩ·cm): R ≈ # kΩ, delay ≈ # ns · top metal (# × # µm): R ≈ # Ω, delay ≈ # ps": "# mm 的 M#（# × # nm，ρ ≈ # µΩ·cm）：R ≈ # kΩ，延遲 ≈ # ns · 頂層金屬（# × # µm）：R ≈ # Ω，延遲 ≈ # ps",
+"dual damascene: ILD + litho + etch + Cu plating + CMP": "雙鑲嵌：ILD + 微影 + 蝕刻 + 電鍍銅 + CMP",
+"Al pad + passivation + pad opening": "鋁銲墊 + 保護層 + 銲墊開孔"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -13189,8 +13241,16 @@ const FB_STEPS = [
   {k:"anneal", name:"Activation anneal", tool:"Rapid thermal anneal ≈ 1050 °C for ~1 s", mask:0},
   {k:"silicide", name:"Silicide", tool:"Nickel deposition + reaction anneal (NiSi)", mask:0},
   {k:"contact", name:"Dielectric + contacts", tool:"Oxide deposition, CMP, mask 9 contact etch, tungsten plugs", mask:9},
-  {k:"metal", name:"Metal 1 (copper damascene)", tool:"Mask 10 trench etch, Cu plating, CMP", mask:10}
+  {k:"metal", name:"Metal 1 (copper damascene)", tool:"Mask 10 trench etch, Cu plating, CMP", mask:10},
+  {k:"beol", name:"Via 1 + Metal 2 (dual damascene)", tool:"Low-k ILD, masks 11–12 via + trench etch, barrier + Cu plating, CMP", mask:12},
+  {k:"beol", name:"Via 2 + Metal 3", tool:"Same loop at the tightest pitch (multiple patterning or EUV), masks 13–14", mask:14},
+  {k:"beol", name:"Via 3 + Metal 4 (2× pitch)", tool:"Intermediate wiring, wider and thicker lines, masks 15–16", mask:16},
+  {k:"beol", name:"Via 4 + Metal 5 (2× pitch)", tool:"Intermediate wiring, masks 17–18", mask:18},
+  {k:"beol", name:"Via 5 + Metal 6 (semi-global)", tool:"4× pitch for longer signal routes and clocks, masks 19–20", mask:20},
+  {k:"beol", name:"Via 6 + Metal 7 (thick top metal)", tool:"Several µm of copper for the power grid and inductors, masks 21–22", mask:22},
+  {k:"pad", name:"Aluminium pad + passivation", tool:"Al pad layer (mask 23), nitride + polyimide passivation, pad opening (mask 24)", mask:24}
 ];
+const FB_NB = FB_STEPS.findIndex(q => q.k === "beol");
 const fbP = k => FB.s > k ? 1 : FB.s === k ? FB.p : 0;
 
 /* ---------------- implant profile and oxidation models ---------------- */
@@ -13220,10 +13280,64 @@ const FB_NG = [172, 212], FB_PG = [470, 510];                                 //
 function fbRain(x0, x1, yTop, yBot, col, p, n = 40, T){
   for (let i=0;i<n;i++){ const x = x0 + ((i*53.7) % (x1 - x0)), ph = ((T*1.6 + i*0.137) % 1), y = yTop + ph*(yBot - yTop); dot(x, y, col, false, 0.8, 2.2); }
 }
+
+/* ---------------- back end of line: copper levels M2–M7, pad, passivation ---------------- */
+const FB_Z = 0.45;                                                             // zoom-out of the transistor level for the BEOL steps
+const FB_LV = {2:{pitch:14, hm:9, hv:8}, 3:{pitch:14, hm:9, hv:8}, 4:{pitch:28, hm:14, hv:13}, 5:{pitch:28, hm:14, hv:13}, 6:{pitch:56, hm:22, hv:17}, 7:{pitch:112, hm:38, hv:22}};
+const fbZY = (y, z) => 450 - (450 - y)*z, fbZX = (x, z) => 340 + (x - 340)*z;
+function fbBase(n, z){ let b = fbZY(FBY - 130, z); for (let k=2;k<n;k++) b -= FB_LV[k].hv + FB_LV[k].hm; return b; }
+function fbChipBg(z){                                                          // the rest of the chip around the inverter
+  const ys = fbZY(FBY, z), yd = fbZY(FBY - 110, z), ym = fbZY(FBY - 130, z), l = fbZX(FBX0, z), r = fbZX(FBX1, z);
+  ctx.fillStyle = C.pplus; ctx.fillRect(70, ys, 550, 450 - ys);
+  ctx.fillStyle = C.oxide; ctx.globalAlpha = 0.22; ctx.fillRect(70, ym, 550, ys - ym); ctx.globalAlpha = 1;
+  const out = (x, w) => x + w < l || x > r;
+  ctx.fillStyle = C.accent; for (let x = 76; x < 614; x += 12) if (out(x, 6)) ctx.fillRect(x, ym, 6, yd - ym);
+  ctx.fillStyle = C.muted; for (let x = 82; x < 614; x += 24) if (out(x, 3)) ctx.fillRect(x, yd, 3, ys - yd);
+  ctx.fillStyle = C.metal; for (let x = 74; x < 614; x += 20) if (out(x, 8)) ctx.fillRect(x, ys - 14*z, 8, 14*z);
+}
+function fbLevel(n, base, q, T, cur){
+  const L = FB_LV[n], yv = base - L.hv, ym = yv - L.hm, w = L.pitch/2, dep = Math.min(1, q/0.25);
+  ctx.fillStyle = C.oxide; ctx.globalAlpha = 0.22; ctx.fillRect(70, base - (L.hv + L.hm)*dep, 550, (L.hv + L.hm)*dep); ctx.globalAlpha = 1;
+  if (q <= 0.25) return;
+  const lines = []; for (let x = 340 - Math.floor(250/L.pitch)*L.pitch; x <= 600; x += L.pitch) lines.push(x);
+  const vias = n === 2 ? [242, 340, 438].map(x => [x, 6]) : lines.filter(x => Math.abs(Math.round((x - 340)/L.pitch)) % 2 === 0).map(x => [x, 0.7*FB_LV[n - 1].pitch/2]);
+  const et = Math.min(1, (q - 0.25)/0.25), fill = q < 0.5 ? 0 : Math.min(1, (q - 0.5)/0.25), cmp = q < 0.75 ? 0 : Math.min(1, (q - 0.75)/0.25);
+  if (fill < 1){ ctx.fillStyle = C.panel2; lines.forEach(x => ctx.fillRect(x - w/2, ym, w, L.hm*Math.min(1, et*2))); if (et > 0.5) vias.forEach(([x, vw]) => ctx.fillRect(x - vw/2, yv, vw, L.hv*Math.min(1, (et - 0.5)*2))); }
+  if (fill > 0){ ctx.fillStyle = C.accent; ctx.globalAlpha = fill; lines.forEach(x => ctx.fillRect(x - w/2, ym, w, L.hm)); vias.forEach(([x, vw]) => ctx.fillRect(x - vw/2, yv, vw, L.hv)); const ob = 8*(1 - cmp); if (ob > 0) ctx.fillRect(70, ym - ob, 550, ob); ctx.globalAlpha = 1; }
+  if (cur && q > 0.25 && q < 0.5) fbRain(80, 610, ym - 46, ym + L.hm, C.oxide, q, 26, T);
+  if (cur && q > 0.75 && q < 1){ ctx.fillStyle = C.fg; ctx.globalAlpha = 0.5; ctx.fillRect(70 + ((T*140) % 330), ym - 24, 220, 12); ctx.globalAlpha = 1; txt("CMP pad", 340, ym - 32, {al:"center", col:C.fg, w:700, px:10}); }
+}
+function fbPad(top, p){
+  const a = Math.min(1, p/0.35), b = clamp((p - 0.35)/0.35, 0, 1), c = clamp((p - 0.7)/0.3, 0, 1);
+  ctx.fillStyle = C.metal; ctx.globalAlpha = a; ctx.fillRect(270, top - 14, 140, 14); ctx.globalAlpha = 1;
+  if (b > 0){ ctx.fillStyle = C.channel; ctx.globalAlpha = 0.75; ctx.fillRect(70, top - 10*b, 200, 10*b); ctx.fillRect(410, top - 10*b, 210, 10*b); ctx.fillRect(270, top - 14 - 10*b, 140, 10*b); ctx.globalAlpha = 1; }
+  if (c > 0){ ctx.fillStyle = C.panel2; ctx.fillRect(300, top - 24, 80, 10*c); }
+  if (c > 0.5) txt("← bond pad", 418, top - 22, {px:10, col:C.fg, w:700});
+  return p < 0.35 ? "aluminium pad deposited and patterned" : p < 0.7 ? "nitride + polyimide passivation seals the chip" : "pad opening: the wire bond or bump lands here";
+}
+function fbBEOL(s, p, z, T){
+  let msg = "";
+  for (let n=2;n<=7;n++){
+    const idx = FB_NB + n - 2; if (idx > s) break;
+    const q = idx < s ? 1 : idx === FB_NB ? Math.max(0, (p - 0.2)/0.8) : p;
+    fbLevel(n, fbBase(n, z), q, T, idx === s);
+    if (idx === s && (idx > FB_NB || p >= 0.2)) msg = q < 0.25 ? "1 · deposit low-k dielectric" : q < 0.5 ? "2 · litho + plasma etch of via holes and trenches" : q < 0.75 ? "3 · barrier + copper electroplating" : "4 · CMP polishes off the excess copper";
+  }
+  if (FB_STEPS[s].k === "pad") msg = fbPad(fbBase(8, z), p);
+  if (z <= FB_Z + 1e-6){
+    txt("M1", 52, fbZY(FBY - 120, z), {px:10, col:C.fg, w:700});
+    for (let n=2;n<=7;n++){ const idx = FB_NB + n - 2; if (idx > s || (idx === s && p < 0.6)) break; const L = FB_LV[n]; txt(`M${n}`, 52, fbBase(n, z) - L.hv - L.hm/2, {px:10, col:C.fg, w:700}); }
+    txt("transistors, contacts and M1 (FEOL)", 340, 442, {al:"center", px:10, col:C.fg, w:600});
+  }
+  if (msg) txt(msg, 340, 74, {al:"center", px:12, col:C.accent, w:700});
+}
 function drawFB(dt, T){
   begin(FBC);
   const s = FB.s, st = FB_STEPS[s], p = FB.p;
   ctx.fillStyle = C.panel2; ctx.fillRect(8, 8, 652, 472);
+  const z = s > FB_NB ? FB_Z : s === FB_NB ? 1 - (1 - FB_Z)*Math.min(1, p/0.2) : 1;
+  if (z < 1) fbChipBg(z);
+  ctx.save(); ctx.translate(340, 450); ctx.scale(z, z); ctx.translate(-340, -450);
   // substrate and wells
   ctx.fillStyle = C.pplus; ctx.fillRect(FBX0, FBY, FBX1 - FBX0, FBYB - FBY);
   if (fbP(5) > 0){ ctx.fillStyle = C.nplus; ctx.globalAlpha = Math.min(1, fbP(5)*1.4); ctx.fillRect(340, FBY, FBX1 - 340, 120); ctx.globalAlpha = 1; }
@@ -13271,7 +13385,7 @@ function drawFB(dt, T){
   if (fbP(14) > 0){
     const q = Math.min(1, fbP(14)*1.5); ctx.fillStyle = C.accent; ctx.globalAlpha = q;
     [[100, 150, "GND"], [240, 440, "out"], [530, 600, "VDD"], [170, 214, "in"], [468, 512, "in"]].forEach(([u, v]) => ctx.fillRect(u, FBY - 130, v - u, 20)); ctx.globalAlpha = 1;
-    if (q > 0.9){ txt("GND", 125, FBY - 142, {al:"center", col:C.fg, w:700, px:11}); txt("output", 340, FBY - 142, {al:"center", col:C.fg, w:700, px:11}); txt("VDD", 565, FBY - 142, {al:"center", col:C.fg, w:700, px:11}); txt("input (both gates)", 340, FBY - 166, {al:"center", col:C.fg, w:700, px:11}); }
+    if (q > 0.9 && z === 1){ txt("GND", 125, FBY - 142, {al:"center", col:C.fg, w:700, px:11}); txt("output", 340, FBY - 142, {al:"center", col:C.fg, w:700, px:11}); txt("VDD", 565, FBY - 142, {al:"center", col:C.fg, w:700, px:11}); txt("input (both gates)", 340, FBY - 166, {al:"center", col:C.fg, w:700, px:11}); }
   }
   // photoresist and process animations for the current step
   const resist = (segs, a) => { ctx.fillStyle = C.hole; ctx.globalAlpha = a; segs.forEach(([u, v]) => ctx.fillRect(u, FBY - 70, v - u, 50)); ctx.globalAlpha = 1; };
@@ -13290,26 +13404,28 @@ function drawFB(dt, T){
   if (s === 9 && p < 0.5){ fbRain(80, 610, 40, FBY + 8, p < 0.25 ? C.electron : C.hole, p, 30, T); }
   if (s === 10){ if (p < 0.5){ resist([[340, FBX1]], 0.55); fbRain(FBX0, 330, 40, FBY + 30, C.electron, p, 40, T); } else { resist([[FBX0, 330]], 0.55); fbRain(340, 650, 40, FBY + 30, C.hole, p, 40, T); } }
   if (s === 11){ ctx.fillStyle = C.hole; ctx.globalAlpha = 0.35*Math.sin(Math.PI*p); ctx.fillRect(8, 8, 652, 472); ctx.globalAlpha = 1; txt("≈ 1050 °C, about one second", 340, 120, {al:"center", col:C.hole, w:700, px:13}); }
+  ctx.restore();
+  if (z < 1) fbBEOL(s, p, z, T);
   // labels
-  if (s >= 8){ txt("NMOS", 192, FBYB - 14, {al:"center", col:C.electron, w:700, px:13}); txt("PMOS", 490, FBYB - 14, {al:"center", col:C.hole, w:700, px:13}); }
-  if (s >= 5) txt("n-well", 600, FBY + 106, {al:"center", col:C.electron, w:600, px:11});
-  if (s >= 4) txt("STI", 340, FBY + 60, {al:"center", col:C.oxide, w:700, px:11});
-  txt("p-substrate", 60, FBYB - 14, {col:C.hole, w:600, px:11});
+  if (z === 1 && s >= 8){ txt("NMOS", 192, FBYB - 14, {al:"center", col:C.electron, w:700, px:13}); txt("PMOS", 490, FBYB - 14, {al:"center", col:C.hole, w:700, px:13}); }
+  if (z === 1 && s >= 5) txt("n-well", 600, FBY + 106, {al:"center", col:C.electron, w:600, px:11});
+  if (z === 1 && s >= 4) txt("STI", 340, FBY + 60, {al:"center", col:C.oxide, w:700, px:11});
+  if (z === 1) txt("p-substrate", 60, FBYB - 14, {col:C.hole, w:600, px:11});
   txt(`Step ${s + 1}/${FB_STEPS.length}: ${st.name}`, 20, 30, {col:C.fg, w:700, px:14});
   txt(st.tool, 20, 50, {px:11, col:C.fg});
   // step list
   panel(670, 8, 322, 472, "Process flow");
   FB_STEPS.forEach((q, i) => {
-    const y = 40 + i*28.5, cur = i === s, done = i < s;
-    ctx.fillStyle = cur ? C.accent : done ? C.channel : C.line; ctx.beginPath(); ctx.arc(690, y, 6, 0, 6.283); ctx.fill();
-    txt(`${i + 1}. ${q.name}`, 704, y, {col: cur ? C.accent : C.fg, w: cur ? 700 : 500, px:11});
-    if (cur){ ctx.fillStyle = C.accent; ctx.globalAlpha = 0.2; ctx.fillRect(700, y - 8, 286*p, 16); ctx.globalAlpha = 1; }
+    const y = 38 + i*(434/FB_STEPS.length), cur = i === s, done = i < s;
+    ctx.fillStyle = cur ? C.accent : done ? C.channel : C.line; ctx.beginPath(); ctx.arc(690, y, 5, 0, 6.283); ctx.fill();
+    txt(`${i + 1}. ${q.name}`, 704, y, {col: cur ? C.accent : C.fg, w: cur ? 700 : 500, px:10});
+    if (cur){ ctx.fillStyle = C.accent; ctx.globalAlpha = 0.2; ctx.fillRect(700, y - 7, 286*p, 14); ctx.globalAlpha = 1; }
   });
 }
 
 /* ---------------- DOM ---------------- */
 const FBINFO = {
-  text:"A chip is built layer by layer on a silicon wafer through hundreds of steps that repeat a few basic operations. Deposition adds a thin film (oxide, nitride, polysilicon, metal). Lithography coats the wafer with light-sensitive resist, exposes it through a mask (reticle) with deep-UV or extreme-UV light, and develops it so the pattern is left in resist. Etching removes material where the resist is open; plasma etching cuts straight down. Ion implantation shoots dopant ions (boron, phosphorus, arsenic) into the silicon, also through resist openings, and an anneal repairs the crystal and activates them. Oxidation grows SiO₂ from the silicon itself. Chemical-mechanical polishing (CMP) makes the surface flat again for the next layer. The front end (FEOL) builds the transistors: isolation trenches, wells, gate, source and drain. The back end (BEOL) adds contacts and up to 15 layers of copper wiring. This simplified flow uses 10 masks; a modern logic process needs 60–80 masks and well over 1000 process steps, taking about three months."
+  text:"A chip is built layer by layer on a silicon wafer through hundreds of steps that repeat a few basic operations. Deposition adds a thin film (oxide, nitride, polysilicon, metal). Lithography coats the wafer with light-sensitive resist, exposes it through a mask (reticle) with deep-UV or extreme-UV light, and develops it so the pattern is left in resist. Etching removes material where the resist is open; plasma etching cuts straight down. Ion implantation shoots dopant ions (boron, phosphorus, arsenic) into the silicon, also through resist openings, and an anneal repairs the crystal and activates them. Oxidation grows SiO₂ from the silicon itself. Chemical-mechanical polishing (CMP) makes the surface flat again for the next layer. The front end (FEOL) builds the transistors: isolation trenches, wells, gate, source and drain. The back end (BEOL) adds contacts and the copper wiring: this flow builds seven copper levels with the dual-damascene loop (deposit a low-k dielectric, etch via and trench, plate copper, polish), with the finest pitch at the bottom for local connections and wider, thicker lines higher up for long signals, clocks and the power grid, then an aluminium bond pad and passivation. Advanced logic nodes use 10 to 15 or more metal layers. This simplified flow uses 24 masks; a modern logic process needs 60–80 masks and well over 1000 process steps, taking about three months."
 };
 Object.assign(TIP, {
   "Step":"Current step of the simplified flow.",
@@ -13319,12 +13435,15 @@ Object.assign(TIP, {
   "Implant profile":"Implanted ions form a roughly Gaussian profile around the projected range Rp.",
   "Junction depth":"xj = Rp + ΔRp·√(2·ln(Np/NB)).",
   "Oxidation":"Deal-Grove: linear growth for thin oxides, parabolic for thick ones.",
-  "Lithography":"Smallest printable feature CD = k1·λ/NA."
+  "Lithography":"Smallest printable feature CD = k1·λ/NA.",
+  "Metal layers":"Copper wiring levels finished so far.",
+  "Wire RC":"Thin lower metals are resistive; long and global wires go on the thick upper metals."
 });
 let fbGlossKey = "";
 function updateFB(){
   const st = FB_STEPS[FB.s], I = fbImplant(), ox = fbOx();
   $("fb-explain").textContent = FBINFO.text;
+  $("fb-step").max = FB_STEPS.length - 1;
   $("fb-pill").textContent = `${FB.s + 1}/${FB_STEPS.length}`; $("fb-name").textContent = st.name; $("fb-sub").textContent = st.tool;
   $("fb-play").textContent = FB.play ? "❚❚ Pause" : "▶ Play";
   document.querySelectorAll("#fb-sp button").forEach(b => b.setAttribute("aria-pressed", b.dataset.s === FB.sp));
@@ -13333,15 +13452,17 @@ function updateFB(){
   $("fb-oxT-v").textContent = `${FB.oxT} °C`; $("fb-oxMin-v").textContent = `${FB.oxMin} min`;
   setHTML("fb-legend", [["hole","Photoresist / boron (p)"],["electron","Phosphorus, arsenic (n)"],["oxide","Oxide / UV light / plasma"],["metal","Polysilicon gate"],["channel","Nitride"],["accent","Copper"]].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
   const masks = FB_STEPS.slice(0, FB.s + 1).reduce((m, q) => Math.max(m, q.mask), 0);
-  renderRo($("fb-ro"), [["Step", `${FB.s + 1} / ${FB_STEPS.length}`], ["Masks used", `${masks}`], ["Junction depth xj", `${I.xj.toFixed(0)} nm`], ["Oxide thickness", `${ox.toFixed(1)} nm`]]);
+  const metals = FB.s < FB_NB - 1 ? 0 : 1 + FB_STEPS.slice(0, FB.s + 1).filter(q => q.k === "beol").length;
+  renderRo($("fb-ro"), [["Step", `${FB.s + 1} / ${FB_STEPS.length}`], ["Masks used", `${masks}`], ["Metal layers", `${metals}`], ["Junction depth xj", `${I.xj.toFixed(0)} nm`]]);
   renderEq($("fb-eq"), [
     {name:"Implant profile", f:"N(x) = Q / (√(2π)·ΔRp) · exp(−(x − Rp)² / (2ΔRp²))", sub:`${FB_SP[FB.sp].name}, ${FB.E} keV: Rp = ${I.Rp.toFixed(0)} nm, ΔRp = ${I.dR.toFixed(0)} nm, peak ${sci(I.Np)} cm⁻³`},
     {name:"Junction depth", f:"xj = Rp + ΔRp · √(2·ln(Np/NB)),  NB = 1e15 cm⁻³", sub:`= ${I.xj.toFixed(0)} nm`},
     {name:"Oxidation", f:"x² + A·x = B·(t + τ)  (Deal-Grove)", sub:`${FB.wet ? "wet (H₂O)" : "dry (O₂)"}, ${FB.oxT} °C, ${FB.oxMin} min → ${ox.toFixed(1)} nm`},
-    {name:"Lithography", f:"CD = k1 · λ / NA", sub:"ArF immersion: 0.3·193 nm/1.35 = 43 nm · EUV: 0.3·13.5 nm/0.33 = 12 nm"}
+    {name:"Lithography", f:"CD = k1 · λ / NA", sub:"ArF immersion: 0.3·193 nm/1.35 = 43 nm · EUV: 0.3·13.5 nm/0.33 = 12 nm"},
+    {name:"Wire RC", f:"R = ρ·L/(W·H),  delay ≈ 0.38·R·C (distributed line)", sub:"1 mm of M1 (20 × 40 nm, ρ ≈ 5 µΩ·cm): R ≈ 62 kΩ, delay ≈ 4.7 ns · top metal (2 × 3 µm): R ≈ 3 Ω, delay ≈ 0.2 ps"}
   ]);
   if (fbGlossKey !== "x"){ fbGlossKey = "x";
-    $("fb-g-live").innerHTML = `<table><tr><th>#</th><th>Step</th><th>Operation</th><th>Mask</th></tr>` + FB_STEPS.map((q, i) => `<tr><td>${i + 1}</td><td>${q.name}</td><td>${({start:"—", depo:"deposition", litho:"lithography", etch:"etch", cmp:"deposition + CMP", implant:"litho + implant", oxid:"oxidation", gate:"deposition + litho + etch", ldd:"implant + spacer etch", sd:"litho + implant", anneal:"anneal", silicide:"deposition + anneal", contact:"deposition + litho + etch + fill", metal:"litho + etch + plating + CMP"})[q.k]}</td><td>${q.mask ? q.mask : ""}</td></tr>`).join("") + `</table>`; }
+    $("fb-g-live").innerHTML = `<table><tr><th>#</th><th>Step</th><th>Operation</th><th>Mask</th></tr>` + FB_STEPS.map((q, i) => `<tr><td>${i + 1}</td><td>${q.name}</td><td>${({start:"—", depo:"deposition", litho:"lithography", etch:"etch", cmp:"deposition + CMP", implant:"litho + implant", oxid:"oxidation", gate:"deposition + litho + etch", ldd:"implant + spacer etch", sd:"litho + implant", anneal:"anneal", silicide:"deposition + anneal", contact:"deposition + litho + etch + fill", metal:"litho + etch + plating + CMP", beol:"dual damascene: ILD + litho + etch + Cu plating + CMP", pad:"Al pad + passivation + pad opening"})[q.k]}</td><td>${q.mask ? q.mask : ""}</td></tr>`).join("") + `</table>`; }
   drawFBPlots();
 }
 function drawFBPlots(){
@@ -14605,7 +14726,7 @@ function showTab(t){
   else if (t === "bj"){ $("sub-top").textContent = "Bipolar transistors · silicon BJT and SiGe HBT for mm-wave"; BJC.resize(); updateBJ(); }
   else if (t === "an"){ $("sub-top").textContent = "Analog building blocks · bandgap reference and differential-pair op-amp"; ANC.resize(); updateAN(); }
   else if (t === "re"){ $("sub-top").textContent = "Reliability · parasitic thyristor latch-up and electrostatic discharge"; REC.resize(); updateRE(); }
-  else if (t === "fb"){ $("sub-top").textContent = "CMOS process flow · from a bare wafer to an inverter in 15 steps"; FBC.resize(); updateFB(); }
+  else if (t === "fb"){ $("sub-top").textContent = "CMOS process flow · from a bare wafer to an inverter in 22 steps"; FBC.resize(); updateFB(); }
   else if (t === "pk"){ $("sub-top").textContent = "Packaging and assembly · die attach, wire bond, RDL, bumps, fan-out"; PKC.resize(); updatePK(); }
   else if (t === "yd"){ $("sub-top").textContent = "Yield and WAT · wafer maps, sparse test sites, yield models, screening"; YDC.resize(); updateYD(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
