@@ -103,6 +103,10 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 
 Tabs are grouped into four topics (Devices · Circuits · Power & RF · Fab, package & reliability); the topic selector in the header shows that topic's tabs.
 
+**Find** (header button, Ctrl+K or /) searches every tab at once, open or not: tab and view names, the "How it works" text of every view, glossary terms, tables, lists and controls, in English and 繁體中文 whichever language is shown. Picking a result opens that tab and view, opens the glossary if needed, and highlights the match.
+
+The footer shows when the site was last updated (latest commit time and message from GitHub, falling back to the page's Last-Modified time) and links to the version history.
+
 Every tab has hover/tap explanations on its readouts and equations, plus an **Explain the terms** panel: a step-by-step walkthrough, live tables computed from the current settings, and a glossary.
 
 Light / dark theme toggle (follows the system by default).

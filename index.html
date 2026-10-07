@@ -3880,6 +3880,7 @@ Object.assign(window.I18N_ZH, {
 "<b>Likely causes</b>: A damaged or dirty probe needle, contact resistance, or one tester channel.": "<b>可能原因</b>：探針損傷或髒污、接觸電阻，或某個測試機通道。",
 "<b>Next step</b>: Per-site yield from the tester log, clean or replace the card and retest: this is a test problem, not a fab problem.": "<b>下一步</b>：從測試紀錄看各 site 良率，清潔或更換探針卡後重測：這是測試問題，不是晶圓廠問題。"
 });
+Object.assign(window.I18N_ZH, {"Find": "搜尋", "Find (Ctrl+K or /)": "搜尋（Ctrl+K 或 /）", "Search every tab: terms, views, controls (e.g. TSV, GDBN, latch-up)": "搜尋所有分頁：名詞、視圖、控制項（例如 TSV、GDBN、閂鎖）", "Searches every tab, including the ones that are not open. ↑ ↓ to move, Enter to open, Esc to close.": "搜尋所有分頁，包括沒有開啟的。↑ ↓ 移動，Enter 開啟，Esc 關閉。", "Results": "結果", "No results for this search.": "找不到符合的結果。", "# results": "# 筆結果", "Tab": "分頁", "About": "說明", "Term": "名詞", "Table": "表格", "List": "清單", "Glossary": "名詞解釋", "Heading": "標題", "Control": "控制項", "Option": "選項", "Note": "附註", "Last updated:": "最後更新：", "Latest change:": "最新變更：", "Version history": "版本紀錄"});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -4192,6 +4193,26 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
 .readouts.four{grid-template-columns:repeat(4,minmax(0,1fr))}
 .readouts.four .ro b{font-size:clamp(.95rem,2.1vw,1.2rem);white-space:normal;overflow-wrap:anywhere}
 @media (max-width:560px){.readouts.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---------- find ---------- */
+.find-ov{position:fixed;inset:0;z-index:80;background:color-mix(in srgb, var(--bg) 60%, transparent);backdrop-filter:blur(2px);display:flex;justify-content:center;align-items:flex-start;padding:8vh 16px 16px}
+.find-ov[hidden]{display:none}
+.find-box{width:min(700px,100%);max-height:80vh;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
+.find-in{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);color:var(--muted)}
+.find-in input{flex:1;min-width:0;font:500 1rem var(--f-body);color:var(--fg);background:transparent;border:0;outline:0}
+.find-in kbd{font:500 .7rem var(--f-mono);border:1px solid var(--line);border-radius:6px;padding:2px 6px;color:var(--muted)}
+.find-res{overflow-y:auto;padding:6px;display:grid;gap:2px}
+.find-r{display:grid;gap:3px;width:100%;text-align:left;background:none;border:0;border-radius:10px;padding:8px 10px;cursor:pointer;color:var(--fg);font:inherit}
+.find-r[aria-selected=true],.find-r:hover{background:var(--panel2)}
+.find-meta{display:flex;flex-wrap:wrap;gap:8px;font:600 .7rem var(--f-mono);color:var(--muted)}
+.find-meta .ty{color:var(--accent)}
+.find-tx{font:400 .9rem/1.45 var(--f-body);overflow-wrap:anywhere}
+.find-tx mark{background:color-mix(in srgb, var(--accent) 32%, transparent);color:inherit;border-radius:3px;padding:0 1px}
+.find-foot{margin:0;padding:8px 14px;border-top:1px solid var(--line);font:400 .75rem var(--f-body);color:var(--muted)}
+.find-hit{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px;animation:findflash 2.6s ease-out forwards}
+@keyframes findflash{0%,65%{outline-color:var(--accent)}100%{outline-color:transparent}}
+.foot{text-align:center;font:500 .75rem/1.6 var(--f-mono);color:var(--muted);padding-top:10px;border-top:1px solid var(--line)}
+.foot a{color:var(--accent)}
 </style>
 </head>
 <body>
@@ -4229,6 +4250,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button id="bt-n" aria-pressed="true">NMOS</button>
         <button id="bt-p" aria-pressed="false">PMOS</button>
       </div>
+      <button class="iconbtn" id="find-btn" aria-label="Find (Ctrl+K or /)" title="Find (Ctrl+K or /)"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><span>Find</span></button>
       <button class="iconbtn" id="lang" data-i18n-skip aria-label="切換為中文" title="中文"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.5 3.9 5.5 3.9 9s-1.3 6.5-3.9 9c-2.6-2.5-3.9-5.5-3.9-9S9.4 5.5 12 3z"/></svg><span id="lang-lab">中文</span></button>
       <button class="iconbtn" id="theme" aria-label="Switch colour theme"><span id="theme-ic">☀</span><span id="theme-lab">Light</span></button>
     </div>
@@ -6697,6 +6719,18 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
       </details>
     </section>
   </section>
+  <footer class="foot" id="site-foot">
+    <span>Last updated:</span> <b id="upd-time" data-i18n-skip>…</b><span id="upd-msg-wrap" hidden> · <span>Latest change:</span> <a id="upd-msg" data-i18n-skip href="https://github.com/SinLiongToo/mosfet-carrier-flow/commits/main" target="_blank" rel="noopener"></a></span>
+    · <a href="https://github.com/SinLiongToo/mosfet-carrier-flow/commits/main" target="_blank" rel="noopener">Version history</a>
+  </footer>
+</div>
+
+<div id="find-ov" class="find-ov" hidden>
+  <div class="find-box" role="dialog" aria-modal="true" aria-label="Find">
+    <div class="find-in"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><input id="find-q" type="search" placeholder="Search every tab: terms, views, controls (e.g. TSV, GDBN, latch-up)" autocomplete="off" spellcheck="false" aria-controls="find-res"><kbd>Esc</kbd></div>
+    <div id="find-res" class="find-res" role="listbox" aria-label="Results"></div>
+    <p class="find-foot" id="find-foot">Searches every tab, including the ones that are not open. ↑ ↓ to move, Enter to open, Esc to close.</p>
+  </div>
 </div>
 
 <script>
@@ -13689,6 +13723,158 @@ function frame(now){
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
 }
+
+/* ================= find (every tab, English and 中文) ================= */
+const FIND_SEL = "h3, summary, dt, li, tr, p.note, .term, .chipbtn[data-s], .chipbtn[data-l], .stepper .seg button[data-v]";
+const FIND_PRI = {Tab:12, View:8, About:5, Term:6, Option:4, Control:3, Heading:3, Glossary:2};
+const findIdx = [];
+const fClean = x => (x || "").replace(/\s+/g, " ").trim();
+function findParts(it){                        // current-language text of an entry
+  const el = it.el;
+  if (it.type === "Table") return [...el.cells].map(c => fClean(c.textContent)).join(" · ");
+  return [fClean(el.textContent), it.extra ? fClean(it.extra.textContent) : "", fClean(el.getAttribute("data-tip"))].filter(Boolean).join(" — ");
+}
+// the page is still in English while this script runs, so the English text is captured here
+TABS.forEach(k => {
+  const b = $("tab-btn-" + k), panel = $("tab-" + k); if (!b || !panel) return;
+  findIdx.push({k, el:b, type:"Tab", en:fClean(b.textContent)});
+  panel.querySelectorAll(FIND_SEL).forEach(el => {
+    if (el.closest(".readouts, .eq, .legend")) return;          // re-rendered on every update
+    const tg = el.tagName;
+    const type = el.matches(".stepper .seg button") ? "View" : tg === "DT" ? "Term" : tg === "TR" ? "Table" : tg === "LI" ? "List" : tg === "SUMMARY" ? "Glossary" : tg === "H3" ? "Heading" : el.classList.contains("term") ? "Control" : el.classList.contains("chipbtn") ? "Option" : "Note";
+    if (type === "Table" && el.querySelector("th")) return;
+    const extra = type === "Term" && el.nextElementSibling && el.nextElementSibling.tagName === "DD" ? el.nextElementSibling : null;
+    const it = {k, el, extra, type};
+    it.en = findParts(it);
+    if (it.en.length > 1) findIdx.push(it);
+  });
+});
+// each view's title, subtitle and "How it works" text exist only while that view is shown:
+// visit every view once (after load, or on the first search) and keep its English text
+const I18N_LANG = () => window.I18N ? window.I18N.lang : "en";
+let findViewsDone = false;
+function findCrawl(){
+  if (findViewsDone) return; findViewsDone = true;
+  TABS.forEach(k => {
+    const panel = $("tab-" + k), ex = panel && panel.querySelector('[id$="-explain"]'); if (!ex) return;
+    const h2 = panel.querySelector(".stagehead h2"), sub = panel.querySelector(".stagehead p");
+    const grab = view => { const parts = [h2 && h2.textContent, sub && sub.textContent, ex.textContent].map(fClean).filter(Boolean); findIdx.push({k, el: view || ex, view, ex, type:"About", parts, en: parts.join(" — ")}); };
+    const views = [...panel.querySelectorAll(".stepper .seg button[data-v]")];
+    if (!views.length){ if (I18N_LANG() !== "zh") grab(null); return; }   // no views: the text on screen is already this tab's
+    const was = views.find(b => b.getAttribute("aria-pressed") === "true") || views[0];
+    views.forEach(b => { try { b.click(); grab(b); } catch(e){} });
+    try { was.click(); } catch(e){}
+  });
+}
+setTimeout(() => (window.requestIdleCallback || (f => f()))(findCrawl), 1500);
+// Chinese for every entry, from the translation table (so 中文 search works in English mode too)
+function findZh(it){
+  if (it.zh !== undefined) return it.zh;
+  const T = window.I18N && window.I18N.tr, strip = h => fClean((h || "").replace(/<[^>]+>/g, ""));
+  const t = x => { if (!T || !x) return ""; const r = T(x); return r === null ? "" : strip(r); };
+  if (it.type === "About") return it.zh = it.parts.map(x => t(x)).filter(Boolean).join(" — ");
+  const el = it.el, parts = it.type === "Table" ? [...el.cells].map(c => t(fClean(c.textContent)) || t(c.innerHTML.trim()))
+    : [t(el.innerHTML.trim()) || t(fClean(el.textContent)), it.extra ? (t(it.extra.innerHTML.trim()) || t(fClean(it.extra.textContent))) : "", t(el.__i18nA && el.__i18nA["data-tip"] ? el.__i18nA["data-tip"].en : el.getAttribute("data-tip"))];
+  return it.zh = parts.filter(Boolean).join(" ");
+}
+const escH = x => x.replace(/[&<>"]/g, c => ({"&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;"}[c]));
+function findMark(txt, terms){
+  const low = txt.toLowerCase(), hits = [];
+  terms.forEach(t => { let i = low.indexOf(t); while (i >= 0 && t){ hits.push([i, i + t.length]); i = low.indexOf(t, i + t.length); } });
+  hits.sort((a, b) => a[0] - b[0]);
+  const first = hits.length ? hits[0][0] : 0, a = Math.max(0, first - 50), b = Math.min(txt.length, a + 170);
+  let h = a ? "…" : "", pos = a;
+  hits.forEach(([u, v]) => { if (u < pos || u >= b) return; h += escH(txt.slice(pos, u)) + "<mark>" + escH(txt.slice(u, Math.min(v, b))) + "</mark>"; pos = Math.min(v, b); });
+  return h + escH(txt.slice(pos, b)) + (b < txt.length ? "…" : "");
+}
+function findRun(q){
+  const terms = q.toLowerCase().split(/\s+/).filter(Boolean);
+  if (!terms.length) return [];
+  const out = [];
+  for (const it of findIdx){
+    if (!it.el.isConnected) continue;
+    const cur = it.type === "Tab" ? fClean(it.el.textContent) : it.type === "About" ? (I18N_LANG() === "zh" && findZh(it) ? findZh(it) : it.en) : findParts(it);
+    const hay = (it.en + " " + findZh(it) + " " + cur).toLowerCase();
+    if (!terms.every(t => hay.includes(t))) continue;
+    const head = fClean(it.type === "Term" || it.type === "Tab" || it.type === "View" ? it.el.textContent : cur.slice(0, 60)).toLowerCase() + " " + it.en.slice(0, 60).toLowerCase();
+    let sc = FIND_PRI[it.type] || 0;
+    terms.forEach(t => { if (head.includes(t)) sc += 10; if (head.startsWith(t)) sc += 5; });
+    out.push({it, cur, sc: sc - Math.min(5, cur.length/200)});
+  }
+  return out.sort((a, b) => b.sc - a.sc).slice(0, 40);
+}
+let findList = [], findSel = 0, findLast = null;
+function findRender(){
+  const q = $("find-q").value, terms = q.toLowerCase().split(/\s+/).filter(Boolean);
+  findList = findRun(q); findSel = 0;
+  const res = $("find-res");
+  if (!terms.length){ res.innerHTML = ""; return; }
+  if (!findList.length){ res.innerHTML = `<p class="find-foot" style="border:0">No results for this search.</p>`; return; }
+  res.innerHTML = `<div class="find-meta" style="padding:4px 10px">${findList.length} results</div>` + findList.map((r, n) =>
+    `<button class="find-r" role="option" data-n="${n}" aria-selected="${n === 0}"><span class="find-meta"><span data-i18n-skip>${escH(fClean($("tab-btn-" + r.it.k).textContent))}</span><span class="ty">${r.it.type}</span></span><span class="find-tx" data-i18n-skip>${findMark(r.cur, terms)}</span></button>`).join("");
+}
+function findMove(d){
+  const rows = [...$("find-res").querySelectorAll(".find-r")]; if (!rows.length) return;
+  findSel = (findSel + d + rows.length) % rows.length;
+  rows.forEach((r, n) => r.setAttribute("aria-selected", n === findSel)); rows[findSel].scrollIntoView({block:"nearest"});
+}
+function findOpen(){
+  findCrawl();
+  findLast = document.activeElement; $("find-ov").hidden = false;
+  const q = $("find-q"); q.focus(); q.select(); findRender();
+}
+function findClose(){ $("find-ov").hidden = true; }
+function findGo(it){
+  findClose();
+  showTab(it.k);
+  if (it.type === "Tab"){ window.scrollTo({top:0}); $("tab-btn-" + it.k).focus(); return; }
+  const el = it.el, panel = $("tab-" + it.k);
+  if (it.type === "View" || it.type === "Option") el.click();
+  if (it.type === "About"){ if (it.view) it.view.click(); requestAnimationFrame(() => { it.ex.scrollIntoView({block:"center"}); it.ex.classList.remove("find-hit"); void it.ex.offsetWidth; it.ex.classList.add("find-hit"); setTimeout(() => it.ex.classList.remove("find-hit"), 2700); }); return; }
+  const d = el.closest("details"); if (d) d.open = true;
+  // a control that only exists in another view: try the views until it shows up
+  if (!el.offsetParent){ for (const b of panel.querySelectorAll(".stepper .seg button[data-v]")){ b.click(); if (el.offsetParent) break; } }
+  requestAnimationFrame(() => {
+    const tgt = el.offsetParent ? el : it.extra && it.extra.offsetParent ? it.extra : null;
+    if (!tgt){ panel.scrollIntoView(); return; }
+    tgt.scrollIntoView({block:"center"});
+    [el, it.extra].forEach(x => { if (!x || !x.offsetParent) return; x.classList.remove("find-hit"); void x.offsetWidth; x.classList.add("find-hit"); setTimeout(() => x.classList.remove("find-hit"), 2700); });
+  });
+}
+$("find-btn").addEventListener("click", findOpen);
+$("find-q").addEventListener("input", findRender);
+$("find-q").addEventListener("keydown", e => {
+  if (e.key === "ArrowDown"){ e.preventDefault(); findMove(1); }
+  else if (e.key === "ArrowUp"){ e.preventDefault(); findMove(-1); }
+  else if (e.key === "Enter"){ e.preventDefault(); if (findList[findSel]) findGo(findList[findSel].it); }
+});
+$("find-res").addEventListener("click", e => { const b = e.target.closest(".find-r"); if (b) findGo(findList[+b.dataset.n].it); });
+$("find-ov").addEventListener("click", e => { if (e.target === $("find-ov")) { findClose(); if (findLast) findLast.focus(); } });
+document.addEventListener("keydown", e => {
+  const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement && document.activeElement.tagName) || (document.activeElement && document.activeElement.isContentEditable);
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k"){ e.preventDefault(); findOpen(); }
+  else if (e.key === "/" && !typing && $("find-ov").hidden){ e.preventDefault(); findOpen(); }
+  else if (e.key === "Escape" && !$("find-ov").hidden){ e.preventDefault(); findClose(); if (findLast) findLast.focus(); }
+});
+
+/* ================= last updated ================= */
+function updFmt(d){
+  const p = n => String(n).padStart(2, "0"), off = -d.getTimezoneOffset(), sg = off >= 0 ? "+" : "−", ah = Math.floor(Math.abs(off)/60), am = Math.abs(off) % 60;
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())} (UTC${sg}${ah}${am ? ":" + p(am) : ""})`;
+}
+(() => {
+  const lm = new Date(document.lastModified);
+  if (!isNaN(lm)) $("upd-time").textContent = updFmt(lm);
+  if (!/^https?:/.test(location.protocol) || !window.fetch) return;
+  fetch("https://api.github.com/repos/SinLiongToo/mosfet-carrier-flow/commits?per_page=1", {headers:{Accept:"application/vnd.github+json"}})
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(a => {
+      const c = a && a[0]; if (!c) return;
+      const d = new Date(c.commit.committer.date); if (!isNaN(d)) $("upd-time").textContent = updFmt(d);
+      const m = $("upd-msg"); m.textContent = c.commit.message.split("\n")[0]; m.href = c.html_url; $("upd-msg-wrap").hidden = false;
+    })
+    .catch(() => {});
+})();
 
 /* ================= plot zoom ================= */
 // every plot and every animated canvas gets a button that lifts it into a large overlay; it is the same
