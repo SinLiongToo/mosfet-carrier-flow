@@ -110,6 +110,12 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Multiple patterning** – single exposure, LELE, SADP and SAQP step by step, pitch walking from overlay or mandrel CD error, relative cost per layer
 - **OPC & EUV stochastics** – 2D optical blur of a layout with and without OPC (serifs, hammerheads, bias, line-end shortening); EUV photon shot noise in contact holes, 3σ CD noise and missing-contact probability vs dose
 
+## Unit processes tab (`#unit-processes`)
+- **Crystal to wafer** – Czochralski growth (seed, neck, shoulder, body), Voronkov v/G defect regimes, Scheil dopant segregation for B, P, As, Sb; wire-saw slicing, lapping and polishing, epitaxy reactor and step-flow growth, Smart Cut SOI in five steps
+- **Deposition** – film profile in a trench for PVD (line of sight, overhang, void), CVD (Thiele modulus, sticking coefficient) and ALD (self-limiting cycle), step coverage vs aspect ratio
+- **Etch** – ion vs radical etching, RIE lag (ARDE) across four trench widths, undercut, mask selectivity and erosion
+- **CMP** – Preston law, copper overburden clearing, over-polish, dishing of wide lines, erosion of dense arrays, dummy fill
+
 ## Metrology & SPC tab (`#metrology-spc`)
 - **Metrology tools** – CD-SEM image with live shot noise, linescan edge detection, LWR and precision vs frames; scatterometry (OCD) spectrum with library fit and χ²; overlay wafer map with translation, rotation and magnification fit and residuals
 - **SPC charts** – X̄ chart with phase I limits from the moving range, zones A/B/C, the four Western Electric rules, process events (shift, drift, more variation, outlier), R chart, Cp/Cpk and ppm out of spec

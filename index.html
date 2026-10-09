@@ -6888,6 +6888,427 @@ Object.assign(window.I18N_ZH, {
 "Thermal capacitance lets a chip burst above its sustained power for a while; when Tj reaches the limit, the clock comes down": "熱容讓晶片能短暫超過持續功率；當 Tj 到達上限時，時脈就會降低",
 "Temperature does not jump when power changes: each layer has heat capacity as well as resistance, so the thermal impedance Zth(t) rises in steps with time constants from milliseconds (the die) to seconds (the lid) to tens of seconds or minutes (the heat sink). A Foster network of RC pairs reproduces this. It is what makes turbo modes possible: a processor can run far above its sustained power for short bursts while the heat sink is still cool, and only throttle when Tj reaches the limit. Throttling lowers frequency and voltage together, and since dynamic power grows roughly with f·V², a small loss of clock saves a lot of power. Leakage grows exponentially with temperature, roughly doubling every # °C, so a hot chip burns more power for the same work; with poor cooling this feedback can run away, and the last line of defence is the thermal trip at about # °C that shuts the chip down. Compare short bursts, long bursts and sustained load, and see how the cooling solution decides the sustained performance.": "功率改變時溫度不會瞬間跳變：每一層除了熱阻還有熱容，因此熱阻抗 Zth(t) 隨時間分段上升，時間常數從毫秒（晶粒）到秒（上蓋），再到數十秒或數分鐘（散熱器）。由 RC 對組成的 Foster 網路可以重現這個行為。這正是加速模式可行的原因：散熱器還涼的時候，處理器可以短時間遠超過持續功率運行，直到 Tj 到達上限才降頻。降頻會同時降低頻率與電壓，而動態功率大約隨 f·V² 成長，所以時脈稍降就能省下很多功率。漏電隨溫度指數成長，大約每 # °C 加倍，因此熱的晶片做同樣的工作要耗更多功率；散熱不良時這個回饋可能失控，最後一道防線是約 # °C 的熱跳脫，會讓晶片關機。比較短脈衝、長脈衝與持續負載，看看散熱方案如何決定持續效能。"
 });
+Object.assign(window.I18N_ZH, {
+"Unit processes": "單元製程",
+"Unit processes · crystal growth to wafer, deposition, plasma etch and CMP": "單元製程 · 從長晶到晶圓、沉積、電漿蝕刻與 CMP",
+"From crystal to wafer": "從晶體到晶圓",
+"Unit process view": "單元製程視圖",
+"Crystal to wafer": "晶體到晶圓",
+"Deposition": "沉積",
+"Etch": "蝕刻",
+"CMP": "CMP",
+"Unit processes: Czochralski growth to finished wafer, film deposition in a trench, plasma etch profiles and chemical mechanical polishing": "單元製程：從柴氏長晶到成品晶圓、溝槽中的薄膜沉積、電漿蝕刻輪廓與化學機械研磨",
+"Wafer step": "晶圓步驟",
+"The steps that turn polysilicon into a polished, ready-to-use wafer.": "把多晶矽變成拋光、可直接使用的晶圓的各個步驟。",
+"Crystal growth": "長晶",
+"Slicing": "切片",
+"Lapping and polishing": "研磨與拋光",
+"Epitaxy": "磊晶",
+"Smart Cut SOI": "Smart Cut SOI",
+"Dopant in the melt": "熔湯中的摻雜物",
+"Dopant added to the melt. Each has its own segregation coefficient k₀: how much of it the growing crystal accepts.": "加入熔湯的摻雜物。每種都有自己的偏析係數 k₀：成長中的晶體能接受多少。",
+"Boron": "硼",
+"Phosphorus": "磷",
+"Arsenic": "砷",
+"Antimony": "銻",
+"Pull rate": "拉速",
+"Speed at which the crystal is pulled out of the melt. Together with the temperature gradient it decides which point defects survive.": "晶體從熔湯中拉出的速度。它與溫度梯度一起決定哪種點缺陷會留下來。",
+"Deposition method": "沉積方法",
+"How the film material reaches the surface: as a beam of atoms, as a reacting gas, or one self-limiting monolayer at a time.": "薄膜材料如何到達表面：原子束、反應氣體，或一次一層自我限制的單分子層。",
+"PVD (sputtering)": "PVD（濺鍍）",
+"CVD": "CVD",
+"ALD": "ALD",
+"Aspect ratio": "深寬比",
+"Depth of the trench divided by its width.": "溝槽深度除以寬度。",
+"Sticking coefficient": "黏附係數",
+"Probability that a precursor molecule reacts when it hits the wall. Low values let molecules bounce deep into the trench.": "前驅物分子撞到壁面時發生反應的機率。值低時分子可以彈跳到溝槽深處。",
+"Ion directionality": "離子方向性",
+"Share of the etching done by ions accelerated straight down, versus neutral radicals that etch in all directions.": "由垂直加速的離子完成的蝕刻比例，相對於向各方向蝕刻的中性自由基。",
+"Mask selectivity": "光罩選擇比",
+"How much faster the plasma etches the silicon than the hard mask.": "電漿蝕刻矽比蝕刻硬光罩快多少倍。",
+"ARDE half-rate aspect ratio": "ARDE 半速率深寬比",
+"Aspect ratio at which the etch rate has dropped to half, because ions and radicals struggle to reach the bottom of deep, narrow features.": "蝕刻速率降到一半時的深寬比，因為離子與自由基很難到達又深又窄結構的底部。",
+"Polish pressure": "研磨壓力",
+"Down force of the wafer carrier on the pad.": "晶圓載具壓在研磨墊上的下壓力。",
+"Platen speed": "平台轉速",
+"Rotation speed of the platen; sets the relative velocity between pad and wafer.": "平台的轉速；決定研磨墊與晶圓之間的相對速度。",
+"Over-polish": "過研磨",
+"Extra polishing after the copper has cleared from the field, to make sure no copper bridges remain.": "銅從場區清除後的額外研磨，確保不留下銅橋接。",
+"Dummy fill": "虛擬填充",
+"Dummy metal shapes added to empty areas so every region has a similar pattern density.": "在空白區域加入虛擬金屬圖形，讓每個區域的圖形密度相近。",
+"Without fill": "無填充",
+"With dummy fill": "有虛擬填充",
+"Resistivity along the ingot, step coverage versus aspect ratio, etch rate versus aspect ratio, or removal rate versus pressure times velocity": "沿晶棒的電阻率、階梯覆蓋率對深寬比、蝕刻速率對深寬比，或移除率對壓力乘速度",
+"Crystal defect regime, ALD saturation, etch depth versus time, or dishing versus line width": "晶體缺陷區、ALD 飽和、蝕刻深度對時間，或碟陷對線寬",
+"Explain the terms: Czochralski, segregation, epitaxy, SOI, conformality, ALD, anisotropy, ARDE, CMP, dishing, erosion": "名詞解釋：柴氏法、偏析、磊晶、SOI、順應性、ALD、非等向性、ARDE、CMP、碟陷、侵蝕",
+"The four building blocks of every process flow": "每個製程流程的四種基本步驟",
+"<b>Add</b>: deposition grows films: oxidation, PVD, CVD, ALD, epitaxy, electroplating.": "<b>增加</b>：沉積長出薄膜：氧化、PVD、CVD、ALD、磊晶、電鍍。",
+"<b>Pattern</b>: lithography defines where (see the Lithography tab).": "<b>圖形化</b>：微影決定位置（見微影分頁）。",
+"<b>Remove</b>: etch transfers the pattern; CMP flattens the surface.": "<b>移除</b>：蝕刻轉移圖形；CMP 使表面平坦。",
+"<b>Modify</b>: implantation and anneals change the doping and the crystal.": "<b>改質</b>：離子植入與退火改變摻雜與晶體。",
+"Deposition methods compared": "沉積方法比較",
+"Method": "方法",
+"Conformality": "順應性",
+"Typical use": "典型用途",
+"Poor, line of sight": "差，直線視線",
+"Barrier and seed layers, metal": "阻障層與晶種層、金屬",
+"Good to fair": "良好到普通",
+"Oxide, nitride, tungsten, polysilicon": "氧化物、氮化物、鎢、多晶矽",
+"Near perfect": "近乎完美",
+"High-k gate oxide, spacers, liners": "高介電閘極氧化層、側壁間隔層、襯層",
+"Follows the crystal": "延續晶格",
+"Strained SiGe, S/D, epi wafers": "應變 SiGe、源/汲極、磊晶晶圓",
+"Electroplating": "電鍍",
+"Bottom-up fill": "由下往上填充",
+"Copper interconnect": "銅導線",
+"Terms": "名詞",
+"Czochralski (CZ)": "柴氏法（CZ）",
+"Growing a single-crystal ingot by slowly pulling a rotating seed out of molten silicon.": "把旋轉的晶種從熔融矽中緩慢拉出，長成單晶晶棒。",
+"Segregation coefficient k₀": "偏析係數 k₀",
+"Ratio of dopant concentration in the crystal to that in the melt; below #, the melt gets richer as the ingot grows.": "晶體中與熔湯中摻雜濃度的比值；小於 # 時，隨晶棒成長熔湯越來越濃。",
+"Growing a crystalline layer that continues the lattice of the substrate.": "長出延續基板晶格的結晶層。",
+"SOI": "SOI",
+"Silicon on insulator: a thin silicon layer on a buried oxide, made by Smart Cut (hydrogen implant, bond, split).": "絕緣層上矽：埋入氧化層上的一層薄矽，以 Smart Cut 製作（氫植入、接合、剝離）。",
+"How evenly a film covers the top, sidewalls and bottom of a feature; step coverage is bottom over top thickness.": "薄膜覆蓋結構頂部、側壁與底部的均勻程度；階梯覆蓋率是底部除以頂部厚度。",
+"Atomic layer deposition: alternating self-limiting surface reactions add one monolayer per cycle.": "原子層沉積：交替的自我限制表面反應，每個循環增加一層單分子層。",
+"Anisotropy, ARDE": "非等向性、ARDE",
+"Etching straight down rather than sideways; aspect-ratio-dependent etching makes narrow features etch slower (RIE lag).": "往正下方而非側向蝕刻；深寬比相依蝕刻使窄結構蝕刻較慢（RIE 延遲）。",
+"Dishing, erosion": "碟陷、侵蝕",
+"CMP artefacts: wide metal lines sag in the middle, dense arrays lose oxide and metal together.": "CMP 造成的缺陷：寬金屬線中間下凹，密集陣列的氧化層與金屬一起變薄。",
+"v/G": "v/G",
+"Defect regime": "缺陷區",
+"Seed-to-tail resistivity": "晶種端到尾端電阻率",
+"vacancy-rich": "富空位",
+"interstitial-rich": "富間隙",
+"defect-free (perfect silicon)": "無缺陷（完美矽）",
+"vacancy-rich: voids (COPs)": "富空位：空洞（COP）",
+"interstitial-rich: dislocation loops": "富間隙：差排環",
+"Wire": "線材",
+"#–# µm": "#–# µm",
+"Kerf loss": "切口損失",
+"~# µm": "~# µm",
+"Wafers per metre": "每公尺晶圓數",
+"~#,#": "~#,#",
+"Wafer thickness": "晶圓厚度",
+"# µm": "# µm",
+"Roughness": "粗糙度",
+"< # nm": "< # nm",
+"Flatness": "平坦度",
+"< # nm per site": "每個區 < # nm",
+"Edge": "邊緣",
+"rounded bevel": "圓弧倒角",
+"Identification": "識別",
+"notch + laser ID": "凹口 + 雷射編號",
+"Temperature": "溫度",
+"~# °C": "~# °C",
+"Growth rate": "成長速率",
+"#–# µm/min": "#–# µm/min",
+"Layer": "層厚",
+"Precursor": "前驅物",
+"Hydrogen dose": "氫劑量",
+"Split": "剝離",
+"Top silicon": "頂層矽",
+"#–# nm": "#–# nm",
+"Buried oxide": "埋入氧化層",
+"Step coverage": "階梯覆蓋率",
+"Thinnest sidewall": "最薄側壁",
+"Gap fill": "填隙",
+"void": "空洞",
+"filled": "已填滿",
+"open (coating)": "未封口（僅披覆）",
+"Thiele modulus": "Thiele 模數",
+"Narrow trench depth": "窄溝槽深度",
+"Wide trench depth": "寬溝槽深度",
+"RIE lag": "RIE 延遲",
+"Undercut": "底切",
+"Removal rate": "移除率",
+"Polish time": "研磨時間",
+"Max dishing": "最大碟陷",
+"Max erosion": "最大侵蝕",
+"Speed at which the crystal is pulled from the melt.": "晶體從熔湯拉出的速度。",
+"Pull rate over the temperature gradient at the interface.": "拉速除以界面處的溫度梯度。",
+"Which point defect survives in the crystal.": "哪種點缺陷留在晶體中。",
+"Resistivity at # % of the ingot relative to the seed end.": "晶棒 # % 處相對於晶種端的電阻率。",
+"Diameter of the diamond-coated saw wire.": "鑽石鍍層鋸線的直徑。",
+"Silicon lost per cut.": "每一刀損失的矽。",
+"Wafers from one metre of ingot.": "一公尺晶棒可得的晶圓數。",
+"Final thickness of a # mm wafer.": "# mm 晶圓的最終厚度。",
+"Surface roughness after the final polish.": "最終拋光後的表面粗糙度。",
+"Site flatness over an exposure field.": "一個曝光場範圍內的局部平坦度。",
+"Edge profile of the wafer.": "晶圓的邊緣輪廓。",
+"How each wafer is tracked.": "如何追蹤每一片晶圓。",
+"Process temperature.": "製程溫度。",
+"Thickness grown per minute.": "每分鐘成長的厚度。",
+"Typical epi layer thickness.": "典型磊晶層厚度。",
+"Gas that supplies the silicon.": "提供矽的氣體。",
+"Implanted hydrogen that sets the split plane.": "植入的氫決定剝離面。",
+"Anneal that cleaves the donor wafer.": "使施體晶圓裂開的退火。",
+"Thickness of the device layer.": "元件層的厚度。",
+"Thickness of the insulator.": "絕緣層的厚度。",
+"Film thickness at the trench bottom over the top.": "溝槽底部薄膜厚度除以頂部厚度。",
+"Thinnest sidewall film over the top thickness.": "最薄的側壁薄膜除以頂部厚度。",
+"Whether the trench fills without a void.": "溝槽是否無空洞地填滿。",
+"Reaction versus diffusion inside the trench.": "溝槽內反應與擴散的比較。",
+"Depth of the # nm trench.": "# nm 溝槽的深度。",
+"How much shallower the narrowest trench is.": "最窄的溝槽淺了多少。",
+"Lateral etch under the mask edge.": "光罩邊緣下方的側向蝕刻。",
+"Copper removed per minute (Preston).": "每分鐘移除的銅（Preston）。",
+"Time including over-polish.": "包含過研磨的時間。",
+"Deepest sag in a wide copper line.": "寬銅線中最深的下凹。",
+"Largest thinning of a patterned region.": "圖形區域最大的變薄量。",
+"Segregation (Scheil)": "偏析（Scheil）",
+"Dopant in the crystal as the melt is used up.": "熔湯逐漸用掉時晶體中的摻雜。",
+"Defect type (Voronkov)": "缺陷類型（Voronkov）",
+"Vacancies or interstitials, set by v/G.": "由 v/G 決定是空位還是間隙原子。",
+"Wafers per ingot": "每根晶棒的晶圓數",
+"Silicon budget per wafer.": "每片晶圓的矽用量。",
+"Epitaxial growth": "磊晶成長",
+"Chemical reaction at the surface.": "表面上的化學反應。",
+"PVD bottom coverage": "PVD 底部覆蓋",
+"Line-of-sight flux into a trench.": "直線進入溝槽的通量。",
+"CVD in a trench": "溝槽中的 CVD",
+"Diffusion and reaction along the depth.": "沿深度的擴散與反應。",
+"ALD thickness": "ALD 厚度",
+"Self-limiting growth per cycle.": "每個循環的自我限制成長。",
+"Bottom over top thickness.": "底部厚度除以頂部厚度。",
+"ARDE": "ARDE",
+"Etch rate falls with aspect ratio.": "蝕刻速率隨深寬比下降。",
+"Anisotropy": "非等向性",
+"Vertical versus lateral etch.": "垂直與側向蝕刻的比較。",
+"Mask budget": "光罩預算",
+"Mask thickness needed for the etch.": "蝕刻所需的光罩厚度。",
+"Lateral etch under the mask.": "光罩下方的側向蝕刻。",
+"Preston law": "Preston 定律",
+"Removal rate grows with pressure and velocity.": "移除率隨壓力與速度增加。",
+"Overburden over removal rate plus over-polish.": "覆蓋層除以移除率再加上過研磨。",
+"Dishing": "碟陷",
+"Wide lines sag.": "寬線下凹。",
+"Erosion": "侵蝕",
+"Dense arrays thin down.": "密集陣列變薄。",
+"Silicon": "矽",
+"Quartz, oxide": "石英、氧化物",
+"Heater, hydrogen, damage": "加熱器、氫、損傷層",
+"Rotation, wire, active step": "旋轉、線鋸、目前步驟",
+"Epi layer, new atoms": "磊晶層、新原子",
+"Substrate": "基板",
+"PVD metal": "PVD 金屬",
+"CVD film": "CVD 薄膜",
+"ALD film": "ALD 薄膜",
+"Void": "空洞",
+"Hard mask": "硬光罩",
+"Ions (vertical)": "離子（垂直）",
+"Radicals (all directions)": "自由基（各方向）",
+"Depth": "深度",
+"Oxide": "氧化層",
+"Copper lines and overburden": "銅線與覆蓋層",
+"Slurry": "研磨液",
+"Dishing and erosion": "碟陷與侵蝕",
+"boron: k₀ = #": "硼：k₀ = #",
+"phosphorus: k₀ = #": "磷：k₀ = #",
+"arsenic: k₀ = #": "砷：k₀ = #",
+"antimony: k₀ = #": "銻：k₀ = #",
+"ξ = v / G, ξ_crit ≈ # mm²/(min·K)": "ξ = v / G，ξ_crit ≈ # mm²/(min·K)",
+"v/G = # → vacancy-rich: voids (COPs)": "v/G = # → 富空位：空洞（COP）",
+"v/G = # → interstitial-rich: dislocation loops": "v/G = # → 富間隙：差排環",
+"v/G = # → defect-free (perfect silicon)": "v/G = # → 無缺陷（完美矽）",
+"N ≈ L / (t_wafer + kerf + removal)": "N ≈ L / (t_wafer + 切口 + 移除量)",
+"surface-reaction limited below ~# °C, transport limited above": "約 # °C 以下受表面反應限制，以上受質傳限制",
+"≈ sin²α, tan α = W / #D": "≈ sin²α，tan α = W / #D",
+"AR #: # % of the top thickness": "AR #：頂部厚度的 # %",
+"t = GPC × cycles, GPC ≈ # nm/cycle": "t = GPC × 循環數，GPC ≈ # nm/循環",
+"# nm of HfO₂ takes about # cycles": "# nm 的 HfO₂ 約需 # 個循環",
+"PVD: # %": "PVD：# %",
+"CVD: # %": "CVD：# %",
+"ALD: # %": "ALD：# %",
+"AR₀ = #: the # nm trench ends at AR #": "AR₀ = #：# nm 溝槽最後達到 AR #",
+"ion share # % → A ≈ #": "離子比例 # % → A ≈ #",
+"t_mask > depth / selectivity": "t_mask > 深度 / 選擇比",
+"# nm / # = # nm of a # nm mask": "# nm / # = # nm（光罩 # nm）",
+"# nm at the top of each trench": "每個溝槽頂部 # nm",
+"# psi, # rpm → # nm/min": "# psi，# rpm → # nm/min",
+"t = t_overburden / RR × (# + over-polish)": "t = t_覆蓋層 / RR × (# + 過研磨)",
+"wide line: # nm of # nm copper": "寬線：# nm（銅厚 # nm）",
+"E ∝ RR · t_over · ρ (pattern density)": "E ∝ RR · t_over · ρ（圖形密度）",
+"range across the die: # nm": "晶粒內的範圍：# nm",
+"range across the die: # nm with dummy fill": "晶粒內的範圍：# nm（有虛擬填充）",
+"Czochralski crystal growth": "柴氏長晶",
+"seed": "晶種",
+"neck (removes dislocations)": "晶頸（排除差排）",
+"shoulder": "晶肩",
+"body: # mm diameter": "晶身：直徑 # mm",
+"molten Si, # °C": "熔融矽，# °C",
+"quartz crucible (oxygen source)": "石英坩堝（氧的來源）",
+"graphite heaters": "石墨加熱器",
+"argon flow ↓": "氬氣流 ↓",
+"↻ crystal # rpm": "↻ 晶體 # rpm",
+"↺ crucible # rpm": "↺ 坩堝 # rpm",
+"Defects and doping along the ingot": "沿晶棒的缺陷與摻雜",
+"pull rate v = # mm/min": "拉速 v = # mm/min",
+"axial gradient G = # K/mm at the interface": "界面軸向梯度 G = # K/mm",
+"v/G = # mm²/(min·K) (critical #)": "v/G = # mm²/(min·K)（臨界值 #）",
+"the crystal takes # % of the melt concentration": "晶體只吸收熔湯濃度的 # %",
+"resistivity at # % of the ingot: # % of the seed end": "晶棒 # % 處的電阻率：晶種端的 # %",
+"oxygen from the crucible: ~#¹⁸ cm⁻³": "來自坩堝的氧：~#¹⁸ cm⁻³",
+"it later forms precipitates that getter metals": "之後形成析出物來吸附金屬雜質",
+"magnetic fields (MCZ) slow the melt flow": "磁場（MCZ）減緩熔湯對流",
+"interstitials": "間隙原子",
+"perfect": "完美",
+"vacancies": "空位",
+"Wire-saw slicing: one ingot becomes about a thousand wafers": "線鋸切片：一根晶棒變成約一千片晶圓",
+"diamond wire web, slurry-free, #–# µm wire": "鑽石線網，不用研磨漿，線徑 #–# µm",
+"wire guide rollers": "導線滾輪",
+"ingot moves down through the moving wires": "晶棒往下穿過移動中的線",
+"as-cut wafers": "切割後的晶圓",
+"wafer thickness after polishing: # µm (# mm)": "拋光後晶圓厚度：# µm（# mm）",
+"kerf loss per cut: ~# µm of silicon turned to dust": "每刀切口損失：~# µm 的矽變成粉末",
+"removed later by lapping and polishing: ~# µm": "之後研磨與拋光再去除：~# µm",
+"→ about #,# wafers per metre of ingot": "→ 每公尺晶棒約 #,# 片晶圓",
+"damaged layer": "損傷層",
+"surface profile, strongly magnified vertically": "表面輪廓，垂直方向大幅放大",
+"edge grinding gives a rounded bevel; a laser mark and a notch identify each wafer": "邊緣研磨形成圓弧倒角；雷射標記與凹口識別每片晶圓",
+"Epitaxy reactor (single wafer)": "磊晶反應爐（單晶圓）",
+"halogen lamps": "鹵素燈",
+"susceptor": "承載盤",
+"wafer + growing epi layer": "晶圓 + 成長中的磊晶層",
+"SiHCl₃ + H₂ + dopant →": "SiHCl₃ + H₂ + 摻雜物 →",
+"→ HCl + H₂": "→ HCl + H₂",
+"# °C, #–# µm/min": "# °C，#–# µm/min",
+"Atoms join at surface steps": "原子在表面台階處加入",
+"new atoms continue the crystal lattice": "新原子延續晶格",
+"step edge": "台階邊緣",
+"why epi: a lightly doped, defect-free layer": "為何要磊晶：輕摻雜、無缺陷的一層",
+"on a heavily doped substrate (latch-up, CMOS sensors)": "長在重摻雜基板上（閂鎖效應、CMOS 感測器）",
+"also selective SiGe and Si:P for strained source/drain": "也用於應變源/汲極的選擇性 SiGe 與 Si:P",
+"Smart Cut: making silicon-on-insulator wafers": "Smart Cut：製作絕緣層上矽晶圓",
+"#. oxidize donor wafer": "#. 氧化施體晶圓",
+"thermal oxide becomes": "熱氧化層成為",
+"the buried oxide": "埋入氧化層",
+"#. implant hydrogen": "#. 植入氫",
+"~#×#¹⁶ H⁺/cm² sets": "~#×#¹⁶ H⁺/cm² 決定",
+"the split depth": "剝離深度",
+"#. flip and bond": "#. 翻面並接合",
+"donor bonded face down": "施體正面朝下接合",
+"to the handle wafer": "到承載晶圓上",
+"#. split anneal ~# °C": "#. 剝離退火 ~# °C",
+"hydrogen bubbles": "氫氣泡",
+"cleave the donor": "使施體裂開",
+"#. anneal and touch polish": "#. 退火與輕拋光",
+"thin top silicon on BOX;": "BOX 上的薄頂層矽；",
+"the donor is reused": "施體可重複使用",
+"donor": "施體",
+"handle": "承載",
+"split": "剝離",
+"top Si": "頂層矽",
+"BOX": "BOX",
+"H⁺": "H⁺",
+"FD-SOI: ~#–# nm top silicon on ~#–# nm buried oxide; RF-SOI: thicker layers on trap-rich handle wafers": "FD-SOI：~#–# nm 頂層矽在 ~#–# nm 埋入氧化層上；RF-SOI：較厚的層，長在富陷阱承載晶圓上",
+"the buried oxide isolates every transistor: no latch-up, less junction capacitance, back-gate biasing": "埋入氧化層隔離每顆電晶體：無閂鎖效應、接面電容較小、可背閘偏壓",
+"Film in a trench of aspect ratio # (CVD)": "深寬比 # 溝槽中的薄膜（CVD）",
+"Film in a trench of aspect ratio # (PVD)": "深寬比 # 溝槽中的薄膜（PVD）",
+"Film in a trench of aspect ratio # (ALD)": "深寬比 # 溝槽中的薄膜（ALD）",
+"substrate": "基板",
+"top film": "頂部薄膜",
+"Sputtering: atoms fly in straight lines": "濺鍍：原子直線飛行",
+"CVD: molecules bounce and react": "CVD：分子彈跳並反應",
+"ALD: one monolayer per cycle": "ALD：每循環一層單分子層",
+"target (Cu, Ta, Ti)": "靶材（Cu、Ta、Ti）",
+"cosine angular distribution: most atoms": "餘弦角分佈：大多數原子",
+"cannot see the trench bottom": "看不到溝槽底部",
+"sticking coefficient s = #": "黏附係數 s = #",
+"low s: molecules reach the bottom before reacting": "s 低：分子在反應前就到達底部",
+"#. precursor A pulse": "#. 前驅物 A 脈衝",
+"#. purge": "#. 吹淨",
+"#. co-reactant B pulse": "#. 共反應物 B 脈衝",
+"each step saturates: no site reacts twice": "每一步都會飽和：沒有位置會反應兩次",
+"Plasma etch through a hard mask (ion share # %)": "透過硬光罩的電漿蝕刻（離子比例 # %）",
+"ions ↓": "離子 ↓",
+"radicals ·": "自由基 ·",
+"Depth, lag and undercut": "深度、延遲與底切",
+"trench width → depth": "溝槽寬度 → 深度",
+"# nm → # nm (AR #)": "# nm → # nm（AR #）",
+"RIE lag: narrowest # % shallower": "RIE 延遲：最窄的淺 # %",
+"undercut below the mask: # nm": "光罩下的底切：# nm",
+"mask left: # of # nm": "剩餘光罩：# / # nm",
+"mask gone: the top is being etched": "光罩耗盡：頂部正被蝕刻",
+"modern etchers pulse the plasma and": "現代蝕刻機會脈衝電漿，",
+"alternate etch and passivation steps": "並交替進行蝕刻與鈍化步驟",
+"(Bosch process, atomic layer etch)": "（Bosch 製程、原子層蝕刻）",
+"Chemical mechanical polishing": "化學機械研磨",
+"platen and pad": "平台與研磨墊",
+"wafer carrier": "晶圓載具",
+"slurry": "研磨液",
+"Preston: RR = Kp · P · V = # nm/min": "Preston：RR = Kp · P · V = # nm/min",
+"clear # nm overburden: # s, then # % over-polish": "清除 # nm 覆蓋層：# s，再過研磨 # %",
+"time # s of # s: removing the copper overburden": "時間 # s / # s：移除銅覆蓋層",
+"time # s of # s: over-polish: dishing and erosion grow": "時間 # s / # s：過研磨，碟陷與侵蝕增加",
+"slurry: abrasive silica or alumina + oxidizer + inhibitor": "研磨液：二氧化矽或氧化鋁磨料 + 氧化劑 + 抑制劑",
+"pad conditioner keeps the pad surface rough and open": "研磨墊修整器保持墊面粗糙與開孔",
+"Cross-section across the die (without fill), vertical × #": "跨晶粒剖面（無填充），垂直 × #",
+"Cross-section across the die (with dummy fill), vertical × #": "跨晶粒剖面（有虛擬填充），垂直 × #",
+"isolated lines": "孤立線",
+"wide line # µm": "寬線 # µm",
+"dense array # %": "密集陣列 # %",
+"open field": "空曠區",
+"dishing # nm": "碟陷 # nm",
+"erosion # nm": "侵蝕 # nm",
+"original oxide surface": "原始氧化層表面",
+"fraction of melt solidified": "熔湯已凝固比例",
+"ρ / ρ_seed": "ρ / ρ_晶種",
+"pull rate (mm/min)": "拉速 (mm/min)",
+"I: interstitials · V: vacancies": "I：間隙原子 · V：空位",
+"step coverage": "階梯覆蓋率",
+"aspect ratio": "深寬比",
+"precursor dose (a.u.)": "前驅物劑量（任意單位）",
+"nm/cycle": "nm/循環",
+"ALD growth per cycle saturates": "ALD 每循環成長量會飽和",
+"ER / ER₀": "ER / ER₀",
+"aspect-ratio-dependent etch rate": "深寬比相依蝕刻速率",
+"time (a.u.)": "時間（任意單位）",
+"depth (nm)": "深度 (nm)",
+"depth: #, #, #, # nm": "深度：#、#、#、# nm",
+"P × V (psi · rpm)": "P × V (psi · rpm)",
+"Preston: removal rate": "Preston：移除率",
+"line width (µm)": "線寬 (µm)",
+"dishing (nm)": "碟陷 (nm)",
+"dishing vs line width": "碟陷對線寬",
+"resistivity along the ingot (B)": "沿晶棒的電阻率（B）",
+"resistivity along the ingot (P)": "沿晶棒的電阻率（P）",
+"resistivity along the ingot (As)": "沿晶棒的電阻率（As）",
+"resistivity along the ingot (Sb)": "沿晶棒的電阻率（Sb）",
+"boron in the melt, k₀ = #": "熔湯中的硼，k₀ = #",
+"phosphorus in the melt, k₀ = #": "熔湯中的磷，k₀ = #",
+"arsenic in the melt, k₀ = #": "熔湯中的砷，k₀ = #",
+"antimony in the melt, k₀ = #": "熔湯中的銻，k₀ = #",
+"Lapping, etching and polishing: as-cut": "研磨、蝕刻與拋光：切割後",
+"as-cut: saw marks, damage ~# µm deep": "切割後：鋸痕，損傷約 # µm 深",
+"as-cut": "切割後",
+"Lapping, etching and polishing: lapped": "研磨、蝕刻與拋光：研磨後",
+"lapped: flat and parallel, damage ~# µm": "研磨後：平坦且平行，損傷約 # µm",
+"lapped": "研磨後",
+"Lapping, etching and polishing: etched": "研磨、蝕刻與拋光：蝕刻後",
+"etched: damage removed chemically": "蝕刻後：以化學方式去除損傷",
+"etched": "蝕刻後",
+"Lapping, etching and polishing: double-side polished": "研磨、蝕刻與拋光：雙面拋光",
+"double-side polished: flatness < # µm": "雙面拋光：平坦度 < # µm",
+"double-side polished": "雙面拋光",
+"Lapping, etching and polishing: final polish": "研磨、蝕刻與拋光：最終拋光",
+"final polish: roughness < # nm, haze-free": "最終拋光：粗糙度 < # nm，無霧化",
+"final polish": "最終拋光",
+"Nearly every chip starts as a single crystal of silicon pulled from a melt, sliced and polished to atomic smoothness": "幾乎每顆晶片都從一塊由熔湯拉出的單晶矽開始，經過切片並拋光到原子級的平滑",
+"Purified polysilicon (eleven nines) is melted in a quartz crucible at # °C. A small seed crystal is dipped into the melt and slowly pulled up while rotating; silicon freezes onto it and continues its lattice, so the whole ingot becomes one crystal, up to # m long and # mm in diameter. First a thin neck is grown so that dislocations from the thermal shock grow out to the surface (the Dash neck), then the shoulder widens to the full diameter. Dopant is added to the melt, but the crystal accepts only a fraction k₀ of it, so the melt gets richer as it shrinks and the resistivity drifts along the ingot: almost not at all for boron (k₀ = #), strongly for phosphorus or antimony. The ratio of pull rate to temperature gradient, v/G, decides which point defect is left over: too fast leaves vacancies that cluster into tiny voids, too slow leaves interstitials that form dislocation loops; modern 'perfect silicon' is grown in the narrow window between. Oxygen dissolved from the crucible later forms precipitates that getter metal contamination away from the transistors.": "高純度多晶矽（十一個九）在 # °C 的石英坩堝中熔化。把一小塊晶種浸入熔湯，邊旋轉邊緩慢向上拉；矽在晶種上凝固並延續它的晶格，所以整根晶棒都是同一個晶體，長達 # m、直徑 # mm。先長出細的晶頸，讓熱衝擊產生的差排長到表面而消失（Dash 晶頸），再讓晶肩加寬到完整直徑。摻雜物加在熔湯中，但晶體只接受其中的一部分 k₀，所以熔湯隨著變少而越來越濃，電阻率沿著晶棒漂移：硼（k₀ = #）幾乎不變，磷或銻則變化很大。拉速與溫度梯度之比 v/G 決定留下哪種點缺陷：太快會留下空位並聚集成微小空洞，太慢會留下間隙原子並形成差排環；現代的「完美矽」就是在兩者之間的狹窄區間長成的。從坩堝溶入的氧之後會形成析出物，把金屬汙染吸離電晶體。",
+"The ingot is ground to an exact diameter, a notch is cut to mark the crystal orientation, and the ingot is sliced by a wire saw: a single diamond-coated wire, wound hundreds of times around grooved rollers, forms a web of parallel wires that moves at high speed while the ingot is pushed slowly through it. All wafers of an ingot section are cut at the same time. Every cut turns a slice of silicon as wide as the wire, the kerf, into dust, and later lapping and polishing remove another ~# µm, so a metre of ingot gives roughly a thousand # µm wafers. Thinner wire saves silicon, which matters even more for solar cells.": "晶棒先研磨成精確的直徑，再切出凹口標示晶向，然後用線鋸切片：一條鍍鑽石的鋼線在溝槽滾輪上繞數百圈，形成一張高速移動的平行線網，晶棒緩慢地被推過線網。一段晶棒的所有晶圓同時切出。每一刀都會把與線一樣寬的矽（切口）變成粉末，之後的研磨與拋光再去除約 # µm，所以一公尺晶棒約可得一千片 # µm 的晶圓。線越細越省矽，這對太陽能電池更加重要。",
+"Sawing leaves saw marks and a crystal damaged several micrometres deep. Lapping between two plates makes the wafer flat and parallel, a chemical etch removes the damaged layer, double-side polishing brings the flatness below # µm, and a final chemical mechanical polish leaves a surface whose roughness is below # nm, a fraction of an atomic layer. The edge is ground to a rounded bevel so it does not chip, and each wafer gets a laser-scribed ID. Lithography with a depth of focus below # nm needs this flatness over every exposure field; that is why wafer makers specify site flatness, nanotopography and edge roll-off.": "鋸切會留下鋸痕與好幾微米深的晶格損傷。在兩塊研磨盤之間研磨使晶圓平坦且平行，化學蝕刻去除損傷層，雙面拋光讓平坦度低於 # µm，最後的化學機械拋光留下粗糙度低於 # nm 的表面，不到一層原子的厚度。邊緣被磨成圓弧倒角以免崩裂，每片晶圓都有雷射刻印的編號。焦深低於 # nm 的微影需要在每個曝光場都有這樣的平坦度；這就是晶圓廠商要規定局部平坦度、奈米形貌與邊緣下塌的原因。",
+"Epitaxy grows a new crystalline silicon layer on the polished wafer: trichlorosilane and hydrogen flow over the wafer at about # °C, silicon atoms land on the surface, diffuse to the edges of atomic steps and join the lattice exactly where the substrate left off. The layer can have a different doping from the substrate and contains almost none of the oxygen or growth defects of CZ silicon. Epi wafers with a lightly doped layer on a heavily doped substrate suppress latch-up in CMOS and are standard for image sensors and power devices. Inside the process flow, selective epitaxy grows strained SiGe or phosphorus-doped silicon only in the source and drain regions.": "磊晶在拋光晶圓上長出一層新的結晶矽：三氯矽烷與氫氣在約 # °C 下流過晶圓，矽原子落在表面，擴散到原子台階的邊緣，並精確地接續基板的晶格。這一層可以有不同於基板的摻雜，而且幾乎不含柴氏矽的氧與成長缺陷。在重摻雜基板上有一層輕摻雜磊晶層的晶圓可以抑制 CMOS 的閂鎖效應，也是影像感測器與功率元件的標準。在製程流程中，選擇性磊晶只在源極與汲極區域長出應變 SiGe 或摻磷的矽。",
+"Silicon-on-insulator wafers put a thin single-crystal layer on top of a buried oxide. In the Smart Cut process a donor wafer is oxidized and implanted with hydrogen ions, which come to rest at a precise depth. The donor is flipped and bonded face down to a second, handle wafer. A low-temperature anneal makes the hydrogen form microscopic bubbles that cleave the donor along the implanted plane, leaving a thin layer of silicon and the oxide on the handle wafer; the rest of the donor is polished and reused. After a smoothing anneal and touch polish, the top silicon is uniform to a few tenths of a nanometre. Fully depleted SOI transistors use this thin layer as the channel, and RF switches in every phone are built on SOI.": "絕緣層上矽晶圓在埋入氧化層上放一層薄的單晶矽。在 Smart Cut 製程中，施體晶圓先氧化，再植入氫離子，使其停在精確的深度。施體翻面後正面朝下接合到第二片承載晶圓上。低溫退火讓氫形成微小氣泡，沿植入面把施體劈開，在承載晶圓上留下一層薄矽與氧化層；施體的其餘部分拋光後可重複使用。經過平滑退火與輕拋光後，頂層矽的均勻度可達零點幾奈米。全空乏 SOI 電晶體以這層薄矽作為通道，每支手機中的射頻開關也都做在 SOI 上。",
+"Deposition and conformality": "沉積與順應性",
+"How evenly a film covers the top, the walls and the bottom of a deep trench depends on how the atoms arrive": "薄膜如何均勻地覆蓋深溝槽的頂部、側壁與底部，取決於原子到達的方式",
+"Films are added in many ways, and the difference shows in deep features. In sputtering (PVD), atoms knocked out of a target fly in straight lines with a broad angular spread; the top surface and upper corners see most of the sky, the bottom of a deep trench sees almost none, so the film is thick on top, forms overhangs at the corners and is thin at the bottom; overhangs can close the trench before it is filled and leave a void. In CVD, gas molecules diffuse into the trench and react on the walls; if they react at the first collision, the film is thick near the top, but molecules with a low sticking coefficient bounce many times and coat the bottom too. The Thiele modulus φ ∝ AR·√s captures the balance. ALD splits the reaction into two self-limiting half-reactions separated by purges: each pulse saturates every surface site and stops, so the film grows exactly one layer per cycle everywhere, even in #:# holes, at the cost of being slow. That is why gate oxides, spacers and the liners of #D NAND are made by ALD.": "加入薄膜的方式很多，差異在深結構中最明顯。濺鍍（PVD）中，從靶材撞出的原子以很寬的角度分佈直線飛行；頂面與上方角落能看到大部分的天空，深溝槽底部幾乎看不到，所以薄膜頂部厚、角落形成懸突、底部很薄；懸突可能在溝槽填滿之前就把它封住，留下空洞。CVD 中，氣體分子擴散進溝槽並在壁面反應；如果第一次碰撞就反應，薄膜在上方會比較厚，但黏附係數低的分子會彈跳很多次，也能覆蓋底部。Thiele 模數 φ ∝ AR·√s 描述了這個平衡。ALD 把反應分成兩個以吹淨隔開的自我限制半反應：每次脈衝都會飽和所有表面位置後停止，所以薄膜在每處每循環都恰好長一層，即使在 #:# 的孔中也一樣，代價是速度慢。這就是閘極氧化層、側壁間隔層與 #D NAND 的襯層都用 ALD 製作的原因。",
+"Plasma etch": "電漿蝕刻",
+"Ions etch straight down, radicals etch in every direction, and deep narrow features etch slower": "離子往正下方蝕刻，自由基向各方向蝕刻，而又深又窄的結構蝕刻得比較慢",
+"Wet etches remove material equally in all directions and undercut the mask by as much as they etch down, which is useless for features smaller than the film thickness. Reactive ion etching uses a plasma: chemically reactive radicals etch in every direction, while ions accelerated across the sheath hit the wafer vertically and greatly speed up etching only where they land, on the bottom of the feature. The higher the ion share, the more anisotropic and vertical the profile; sidewall passivation from etch by-products helps too. In narrow, deep features fewer ions and radicals reach the bottom and by-products escape more slowly, so the etch rate drops with aspect ratio: aspect-ratio-dependent etching, or RIE lag, visible here as narrow trenches lagging behind wide ones. The mask is etched too, only slower: the selectivity sets how thick the mask must be. Etching #D NAND channel holes # to # deep is one of the hardest steps in the fab.": "濕蝕刻向各方向均勻移除材料，底切光罩的量與向下蝕刻的量一樣多，對小於膜厚的結構毫無用處。反應式離子蝕刻使用電漿：化學活性的自由基向各方向蝕刻，而經鞘層加速的離子垂直撞擊晶圓，只在它們落下的地方（結構底部）大幅加速蝕刻。離子比例越高，輪廓越非等向、越垂直；蝕刻副產物在側壁形成的鈍化層也有幫助。在又窄又深的結構中，到達底部的離子與自由基較少，副產物也較慢逸出，所以蝕刻速率隨深寬比下降：深寬比相依蝕刻，即 RIE 延遲，在這裡可以看到窄溝槽落後於寬溝槽。光罩也會被蝕刻，只是比較慢：選擇比決定光罩要多厚。蝕刻深寬比 # 比 # 的 #D NAND 通道孔是晶圓廠中最難的步驟之一。",
+"Polishing makes the wafer flat again after each layer, but the result depends on the pattern underneath": "研磨讓每一層之後的晶圓再次變平，但結果取決於下方的圖形",
+"Copper wires are made by damascene: trenches are etched into the oxide, copper is plated over everything, and CMP removes the excess until only the copper in the trenches remains. The wafer is pressed face down onto a rotating pad soaked with slurry: abrasive particles plus chemicals that oxidize and soften the copper. Removal follows Preston's law, RR = Kp·P·V: proportional to pressure and velocity. Once the copper overburden is gone, some over-polish is needed to clear every residue, and then the pattern matters: the pad bends into wide copper lines and scoops them out (dishing), and dense arrays of lines lose oxide and copper together (erosion), while open fields hardly change. Thinner copper means higher resistance, and the resulting topography eats into the depth of focus of the next lithography step. Designers therefore follow density rules, and tools add dummy fill shapes to empty areas so every region polishes the same.": "銅導線以鑲嵌製程製作：在氧化層中蝕刻溝槽，把銅電鍍在整片表面，再用 CMP 移除多餘的銅，直到只剩溝槽中的銅。晶圓正面朝下壓在浸滿研磨液的旋轉研磨墊上：研磨液含有磨料顆粒，以及能氧化並軟化銅的化學品。移除率遵循 Preston 定律 RR = Kp·P·V：與壓力及速度成正比。銅覆蓋層去除後，還需要一些過研磨來清除所有殘留，這時圖形就有影響：研磨墊會彎進寬銅線並把它挖下去（碟陷），密集的線陣列則氧化層與銅一起變薄（侵蝕），空曠區幾乎不變。銅變薄代表電阻變高，產生的高低差也會吃掉下一道微影的焦深。因此設計者要遵守密度規則，工具會在空白區域加入虛擬填充圖形，讓每個區域研磨得一樣。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -7259,6 +7680,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-rp" aria-selected="false" aria-controls="tab-rp">Radar DSP</button>
         <button role="tab" id="tab-btn-sp" aria-selected="false" aria-controls="tab-sp">Metrology & SPC</button>
         <button role="tab" id="tab-btn-th" aria-selected="false" aria-controls="tab-th">Thermal</button>
+        <button role="tab" id="tab-btn-up" aria-selected="false" aria-controls="tab-up">Unit processes</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -10580,6 +11002,156 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Hot spot</dt><dd>A small block with high power density, much hotter than the die average.</dd>
               <dt>Thermal impedance Zth(t)</dt><dd>Temperature rise after a power step, as a function of time; each layer adds a time constant τ = R·C.</dd>
               <dt>Throttling</dt><dd>Lowering clock frequency and voltage when Tj reaches its limit, to stay safe.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== UNIT PROCESSES TAB ===================== -->
+  <section id="tab-up" role="tabpanel" aria-labelledby="tab-btn-up" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="up-pill">CZ</span><h2 id="up-name">From crystal to wafer</h2></div>
+      <p id="up-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="up-view" role="group" aria-label="Unit process view" style="flex-wrap:wrap">
+        <button data-v="cz" aria-pressed="true">Crystal to wafer</button>
+        <button data-v="dep" aria-pressed="false">Deposition</button>
+        <button data-v="etch" aria-pressed="false">Etch</button>
+        <button data-v="cmp" aria-pressed="false">CMP</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvup" aria-label="Unit processes: Czochralski growth to finished wafer, film deposition in a trench, plasma etch profiles and chemical mechanical polishing"></canvas>
+      <div class="legend" id="up-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="up-ro"></div>
+        <div id="up-c-st" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="The steps that turn polysilicon into a polished, ready-to-use wafer.">Wafer step</span>
+          <div class="chips" id="up-st">
+            <button class="chipbtn" data-s="grow">Crystal growth</button>
+            <button class="chipbtn" data-s="slice">Slicing</button>
+            <button class="chipbtn" data-s="polish">Lapping and polishing</button>
+            <button class="chipbtn" data-s="epi">Epitaxy</button>
+            <button class="chipbtn" data-s="soi">Smart Cut SOI</button>
+          </div>
+        </div>
+        <div id="up-c-dop" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Dopant added to the melt. Each has its own segregation coefficient k₀: how much of it the growing crystal accepts.">Dopant in the melt</span>
+          <div class="chips" id="up-dop">
+            <button class="chipbtn" data-d="B">Boron</button>
+            <button class="chipbtn" data-d="P">Phosphorus</button>
+            <button class="chipbtn" data-d="As">Arsenic</button>
+            <button class="chipbtn" data-d="Sb">Antimony</button>
+          </div>
+        </div>
+        <div class="slider" id="up-c-v">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Speed at which the crystal is pulled out of the melt. Together with the temperature gradient it decides which point defects survive.">Pull rate</span><span id="up-v-v"></span></div>
+          <input id="up-v" type="range" min="0.2" max="1.2" step="0.02" value="0.6">
+        </div>
+        <div id="up-c-meth" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="How the film material reaches the surface: as a beam of atoms, as a reacting gas, or one self-limiting monolayer at a time.">Deposition method</span>
+          <div class="chips" id="up-meth">
+            <button class="chipbtn" data-m="pvd">PVD (sputtering)</button>
+            <button class="chipbtn" data-m="cvd">CVD</button>
+            <button class="chipbtn" data-m="ald">ALD</button>
+          </div>
+        </div>
+        <div class="slider" id="up-c-ar">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Depth of the trench divided by its width.">Aspect ratio</span><span id="up-ar-v"></span></div>
+          <input id="up-ar" type="range" min="1" max="15" step="0.5" value="6">
+        </div>
+        <div class="slider" id="up-c-stick">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Probability that a precursor molecule reacts when it hits the wall. Low values let molecules bounce deep into the trench.">Sticking coefficient</span><span id="up-stick-v"></span></div>
+          <input id="up-stick" type="range" min="-3" max="0" step="0.1" value="-1.5">
+        </div>
+        <div class="slider" id="up-c-an">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Share of the etching done by ions accelerated straight down, versus neutral radicals that etch in all directions.">Ion directionality</span><span id="up-an-v"></span></div>
+          <input id="up-an" type="range" min="0" max="1" step="0.05" value="0.9">
+        </div>
+        <div class="slider" id="up-c-sel">
+          <div class="lab"><span class="term" tabindex="0" data-tip="How much faster the plasma etches the silicon than the hard mask.">Mask selectivity</span><span id="up-sel-v"></span></div>
+          <input id="up-sel" type="range" min="2" max="40" step="1" value="12">
+        </div>
+        <div class="slider" id="up-c-ar0">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Aspect ratio at which the etch rate has dropped to half, because ions and radicals struggle to reach the bottom of deep, narrow features.">ARDE half-rate aspect ratio</span><span id="up-ar0-v"></span></div>
+          <input id="up-ar0" type="range" min="2" max="30" step="1" value="8">
+        </div>
+        <div class="slider" id="up-c-pr">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Down force of the wafer carrier on the pad.">Polish pressure</span><span id="up-pr-v"></span></div>
+          <input id="up-pr" type="range" min="1" max="6" step="0.25" value="3">
+        </div>
+        <div class="slider" id="up-c-spd">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Rotation speed of the platen; sets the relative velocity between pad and wafer.">Platen speed</span><span id="up-spd-v"></span></div>
+          <input id="up-spd" type="range" min="20" max="120" step="5" value="60">
+        </div>
+        <div class="slider" id="up-c-op">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Extra polishing after the copper has cleared from the field, to make sure no copper bridges remain.">Over-polish</span><span id="up-op-v"></span></div>
+          <input id="up-op" type="range" min="0" max="80" step="5" value="30">
+        </div>
+        <div id="up-c-fill" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Dummy metal shapes added to empty areas so every region has a similar pattern density.">Dummy fill</span>
+          <div class="chips" id="up-fill">
+            <button class="chipbtn" data-f="off">Without fill</button>
+            <button class="chipbtn" data-f="on">With dummy fill</button>
+          </div>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="up-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Analysis</p>
+        <div class="plots">
+          <div class="plot"><svg id="up-p1" viewBox="0 0 300 230" role="img" aria-label="Resistivity along the ingot, step coverage versus aspect ratio, etch rate versus aspect ratio, or removal rate versus pressure times velocity"></svg></div>
+          <div class="plot"><svg id="up-p2" viewBox="0 0 220 230" role="img" aria-label="Crystal defect regime, ALD saturation, etch depth versus time, or dishing versus line width"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="up-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: Czochralski, segregation, epitaxy, SOI, conformality, ALD, anisotropy, ARDE, CMP, dishing, erosion</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>The four building blocks of every process flow</h3>
+            <ol>
+              <li><b>Add</b>: deposition grows films: oxidation, PVD, CVD, ALD, epitaxy, electroplating.</li>
+              <li><b>Pattern</b>: lithography defines where (see the Lithography tab).</li>
+              <li><b>Remove</b>: etch transfers the pattern; CMP flattens the surface.</li>
+              <li><b>Modify</b>: implantation and anneals change the doping and the crystal.</li>
+            </ol>
+            <h3>Deposition methods compared</h3>
+            <div class="tbl"><table>
+              <tr><th>Method</th><th>Conformality</th><th>Typical use</th></tr>
+              <tr><td>PVD (sputtering)</td><td>Poor, line of sight</td><td>Barrier and seed layers, metal</td></tr>
+              <tr><td>CVD</td><td>Good to fair</td><td>Oxide, nitride, tungsten, polysilicon</td></tr>
+              <tr><td>ALD</td><td>Near perfect</td><td>High-k gate oxide, spacers, liners</td></tr>
+              <tr><td>Epitaxy</td><td>Follows the crystal</td><td>Strained SiGe, S/D, epi wafers</td></tr>
+              <tr><td>Electroplating</td><td>Bottom-up fill</td><td>Copper interconnect</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>Czochralski (CZ)</dt><dd>Growing a single-crystal ingot by slowly pulling a rotating seed out of molten silicon.</dd>
+              <dt>Segregation coefficient k₀</dt><dd>Ratio of dopant concentration in the crystal to that in the melt; below 1, the melt gets richer as the ingot grows.</dd>
+              <dt>Epitaxy</dt><dd>Growing a crystalline layer that continues the lattice of the substrate.</dd>
+              <dt>SOI</dt><dd>Silicon on insulator: a thin silicon layer on a buried oxide, made by Smart Cut (hydrogen implant, bond, split).</dd>
+              <dt>Conformality</dt><dd>How evenly a film covers the top, sidewalls and bottom of a feature; step coverage is bottom over top thickness.</dd>
+              <dt>ALD</dt><dd>Atomic layer deposition: alternating self-limiting surface reactions add one monolayer per cycle.</dd>
+              <dt>Anisotropy, ARDE</dt><dd>Etching straight down rather than sideways; aspect-ratio-dependent etching makes narrow features etch slower (RIE lag).</dd>
+              <dt>Dishing, erosion</dt><dd>CMP artefacts: wide metal lines sag in the middle, dense arrays lose oxide and metal together.</dd>
             </dl>
           </div>
         </div>
@@ -20295,12 +20867,373 @@ document.querySelectorAll("#th-wl button").forEach(b => b.addEventListener("clic
 document.querySelectorAll("#th-pat button").forEach(b => b.addEventListener("click", () => { THS.pat = b.dataset.p; THS.sim = null; updateTH(); }));
 [["th-p", "p"], ["th-ta", "ta"], ["th-t", "t"], ["th-lim", "lim"], ["th-pl", "pl"]].forEach(([id, k]) => $(id).addEventListener("input", e => { THS[k] = +e.target.value; updateTH(); }));
 
+/* ===================== UNIT PROCESSES TAB ===================== */
+// Crystal: Scheil segregation along the ingot, Voronkov v/G criterion for point defects.
+// Deposition: line-of-sight PVD, Knudsen-diffusion CVD (Thiele modulus), self-limiting ALD in a trench.
+// Etch: ion/radical mix, aspect-ratio-dependent etch rate, mask erosion. CMP: Preston law, dishing and erosion.
+const UPC = setupCanvas($("cvup"), 1000, 488);
+const UPS = {view:"cz", st:"grow", dop:"B", v:0.8, meth:"cvd", ar:6, stick:-1.5, an:0.9, sel:12, ar0:8, pr:3, spd:60, op:30, fill:"off", t:0, acc:0};
+const UP_K0 = {B:0.8, P:0.35, As:0.3, Sb:0.023}, UP_DN = {B:"Boron", P:"Phosphorus", As:"Arsenic", Sb:"Antimony"};
+const UP_G = 4.5, UP_XI = 0.13;
+const upRegime = v => { const r = v/(UP_XI*UP_G); return r > 1.05 ? "vacancy-rich: voids (COPs)" : r < 0.95 ? "interstitial-rich: dislocation loops" : "defect-free (perfect silicon)"; };
+const upProg = (period, hold) => Math.min(1, (UPS.t % (period + hold))/period);
+const UP_CU = "#c8743a";
+
+/* ---------------- crystal to wafer ---------------- */
+function drawUPgrow(T){
+  panel(20, 20, 560, 450, "Czochralski crystal growth");
+  const p = upProg(14, 3), L = 30 + p*240, yi = 330, xc = 290;
+  [[120, 250], [450, 250]].forEach(([x, y]) => { ctx.fillStyle = C.hole; ctx.globalAlpha = 0.5 + 0.15*Math.sin(T*3); ctx.fillRect(x, y, 16, 170); ctx.globalAlpha = 1; });
+  ctx.fillStyle = C.muted; ctx.fillRect(146, 292, 288, 140); ctx.fillStyle = C.oxide; ctx.fillRect(154, 298, 272, 126);
+  const g = ctx.createLinearGradient(0, yi, 0, 420); g.addColorStop(0, "#ffb347"); g.addColorStop(1, "#e2561c"); ctx.fillStyle = g; ctx.fillRect(160, yi, 260, 90);
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.2; pl([[xc, 30], [xc, yi - L - 12]]); ctx.fillStyle = C.muted; ctx.fillRect(xc - 10, yi - L - 14, 20, 8);
+  const wAt = s => s < 18 ? 10 : s < 48 ? 4 : s < 80 ? 4 + (s - 48)/32*136 : 140, left = [], right = [];
+  for (let s = 0; s <= L; s += 2){ const y = yi - L + s, h = wAt(s)/2; left.push([xc - h, y]); right.push([xc + h, y]); }
+  ctx.fillStyle = C.si; ctx.beginPath(); [...left, ...right.reverse()].forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.closePath(); ctx.fill(); ctx.strokeStyle = C.muted; ctx.stroke();
+  if (L > 90){ const off = Math.sin(T*2)*40; ctx.globalAlpha = .25; ctx.fillStyle = "#ffffff"; ctx.fillRect(xc + off - 6, yi - L + 82, 12, L - 84); ctx.globalAlpha = 1; }
+  const lab = (s, x, y, tx, ty, al) => { ctx.strokeStyle = C.muted; ctx.lineWidth = 1; pl([[x, y], [tx, ty]]); txt(s, tx + (al === "right" ? -4 : 4), ty, {px:10, al:al || "left", col:C.fg}); };
+  lab("seed", xc + 5, yi - L - 2, 360, Math.max(48, yi - L - 2));
+  if (L > 40) lab("neck (removes dislocations)", xc + 2, yi - L + 32, 360, Math.max(64, yi - L + 32));
+  if (L > 75) lab("shoulder", xc + 40, yi - L + 66, 380, Math.max(80, yi - L + 66));
+  if (L > 140) lab("body: 300 mm diameter", xc + 70, yi - 40, 420, yi - 70);
+  lab("molten Si, 1414 °C", 330, 370, 470, 446, "left"); lab("quartz crucible (oxygen source)", 158, 400, 40, 446, "left");
+  txt("graphite heaters", 128, 240, {al:"center", px:9}); txt("argon flow ↓", 60, 60, {px:10, col:C.electron});
+  txt("↻ crystal 10 rpm", 60, 120, {px:10, col:C.accent}); txt("↺ crucible 5 rpm", 430, 440, {al:"right", px:9, col:C.accent});
+  panel(600, 20, 380, 450, "Defects and doping along the ingot");
+  const r = UPS.v/(UP_XI*UP_G), reg = upRegime(UPS.v), k0 = UP_K0[UPS.dop];
+  const lines = [[`pull rate v = ${UPS.v.toFixed(2)} mm/min`, C.fg], [`axial gradient G = ${UP_G} K/mm at the interface`, C.fg], [`v/G = ${(UPS.v/UP_G).toFixed(3)} mm²/(min·K)  (critical 0.13)`, C.fg],
+    [reg, r > 1.05 ? C.electron : r < 0.95 ? C.hole : C.channel], ["", C.fg],
+    [`${UP_DN[UPS.dop].toLowerCase()} in the melt, k₀ = ${k0}`, C.fg], [`the crystal takes ${(k0*100).toFixed(k0 < 0.1 ? 1 : 0)} % of the melt concentration`, C.muted],
+    [`resistivity at 90 % of the ingot: ${(Math.pow(0.1, 1 - k0)*100).toFixed(0)} % of the seed end`, C.muted], ["", C.fg],
+    ["oxygen from the crucible: ~10¹⁸ cm⁻³", C.fg], ["it later forms precipitates that getter metals", C.muted], ["magnetic fields (MCZ) slow the melt flow", C.muted]];
+  lines.forEach(([t, c], i) => txt(t, 616, 56 + i*22, {px:11, w: i === 3 ? 700 : 500, col:c}));
+  const bx = 616, bw = 348, by = 340, sc = v => bx + (v - 0.2)/1.0*bw, vc = UP_XI*UP_G;
+  [[0.2, vc*0.95, C.hole], [vc*0.95, vc*1.05, C.channel], [vc*1.05, 1.2, C.electron]].forEach(([a, b, c]) => { ctx.globalAlpha = .35; ctx.fillStyle = c; ctx.fillRect(sc(a), by, sc(b) - sc(a), 22); ctx.globalAlpha = 1; });
+  ctx.fillStyle = C.fg; ctx.beginPath(); ctx.moveTo(sc(UPS.v), by - 2); ctx.lineTo(sc(UPS.v) - 6, by - 12); ctx.lineTo(sc(UPS.v) + 6, by - 12); ctx.closePath(); ctx.fill();
+  txt("interstitials", sc(0.35), by + 36, {al:"center", px:9}); txt("perfect", sc(vc), by + 36, {al:"center", px:9}); txt("vacancies", sc(0.95), by + 36, {al:"center", px:9});
+  txt("0.2", bx, by + 52, {px:9}); txt("1.2 mm/min", bx + bw, by + 52, {al:"right", px:9});
+}
+function drawUPslice(T){
+  panel(20, 20, 960, 450, "Wire-saw slicing: one ingot becomes about a thousand wafers");
+  const p = upProg(8, 2), x0 = 90, x1 = 560, yc = 250, R = 110;
+  ctx.fillStyle = C.si; ctx.fillRect(x0, yc - R, x1 - x0, 2*R); ctx.beginPath(); ctx.ellipse(x0, yc, 28, R, 0, 0, 6.283); ctx.fill(); ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(x1, yc, 28, R, 0, 0, 6.283); ctx.fillStyle = C.si; ctx.fill(); ctx.stroke();
+  const cut = yc - R + p*2*R;
+  for (let i = 0; i < 26; i++){ const x = x0 + 30 + i*17; ctx.strokeStyle = C.muted; ctx.lineWidth = 1.4; pl([[x, yc - R], [x, cut]]);
+    ctx.strokeStyle = C.accent; ctx.lineWidth = 1; ctx.setLineDash([6, 4]); ctx.lineDashOffset = -T*40; pl([[x, 70], [x, cut]]); ctx.setLineDash([]); ctx.lineDashOffset = 0; }
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2; pl([[x0 + 20, cut], [x0 + 30 + 25*17 + 10, cut]]);
+  ctx.fillStyle = C.muted; [[x0 + 10, 70], [x0 + 460, 70]].forEach(([x, y]) => { ctx.beginPath(); ctx.arc(x, y, 18, 0, 6.283); ctx.fill(); });
+  txt("diamond wire web, slurry-free, 60–120 µm wire", x0 + 230, 44, {al:"center", px:10, col:C.accent}); txt("wire guide rollers", x0 + 10, 100, {al:"center", px:9});
+  txt("ingot moves down through the moving wires", (x0 + x1)/2, yc + R + 26, {al:"center", px:10});
+  const n = Math.floor(p*14);
+  for (let i = 0; i < n; i++){ const x = 640 + i*22; ctx.fillStyle = C.si; ctx.beginPath(); ctx.ellipse(x, 250, 6, 90, 0, 0, 6.283); ctx.fill(); ctx.strokeStyle = C.muted; ctx.stroke(); }
+  txt("as-cut wafers", 780, 360, {al:"center", px:10});
+  [["wafer thickness after polishing: 775 µm (300 mm)", C.fg], ["kerf loss per cut: ~150 µm of silicon turned to dust", C.fg], ["removed later by lapping and polishing: ~100 µm", C.muted], ["→ about 1,000 wafers per metre of ingot", C.channel]].forEach(([t, c], i) => txt(t, 600, 392 + i*20, {px:11, w: i === 3 ? 700 : 500, col:c}));
+}
+const UP_POL = [["as-cut", "saw marks, damage ~10 µm deep", 8, 30], ["lapped", "flat and parallel, damage ~3 µm", 3.5, 14], ["etched", "damage removed chemically", 2.2, 0], ["double-side polished", "flatness < 0.1 µm", 0.8, 0], ["final polish", "roughness < 0.1 nm, haze-free", 0.15, 0]];
+function drawUPpolish(T){
+  const k = Math.floor((UPS.t/2.2) % UP_POL.length), [n, d, a, dmg] = UP_POL[k];
+  panel(20, 20, 960, 450, `Lapping, etching and polishing: ${n}`);
+  const x0 = 70, x1 = 930, y0 = 200, rnd = cmRand(5);
+  const prof = Array.from({length:173}, (_, i) => [x0 + i*5, y0 + a*(Math.sin(i*0.7 + rnd()*6) + 0.6*Math.sin(i*2.3 + rnd()*6))]);
+  ctx.fillStyle = C.si; ctx.beginPath(); ctx.moveTo(x0, 330); prof.forEach(([x, y]) => ctx.lineTo(x, y)); ctx.lineTo(x1, 330); ctx.closePath(); ctx.fill();
+  if (dmg){ ctx.globalAlpha = .45; ctx.fillStyle = C.hole; ctx.beginPath(); ctx.moveTo(x0, y0 + dmg + 10); prof.forEach(([x, y]) => ctx.lineTo(x, y)); ctx.lineTo(x1, y0 + dmg + 10); ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1; txt("damaged layer", x1, y0 + dmg + 22, {al:"right", px:10, col:C.hole}); }
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.2; pl(prof);
+  txt(`${n}: ${d}`, 500, 120, {al:"center", px:14, w:700, col:C.fg});
+  txt("surface profile, strongly magnified vertically", 500, 146, {al:"center", px:10});
+  UP_POL.forEach(([m], i) => { const x = 110 + i*190; ctx.fillStyle = i === k ? C.accent : C.panel; ctx.strokeStyle = C.accent; ctx.lineWidth = 1.5; ctx.fillRect(x - 80, 370, 160, 34); ctx.strokeRect(x - 79.5, 370.5, 160, 34);
+    txt(m, x, 387, {al:"center", px:10, w:700, col: i === k ? "#ffffff" : C.fg}); if (i < UP_POL.length - 1) txt("→", x + 95, 387, {al:"center", px:12, col:C.muted}); });
+  txt("edge grinding gives a rounded bevel; a laser mark and a notch identify each wafer", 500, 440, {al:"center", px:10});
+}
+function drawUPepi(T){
+  panel(20, 20, 560, 450, "Epitaxy reactor (single wafer)");
+  ctx.strokeStyle = C.oxide; ctx.lineWidth = 3; ctx.strokeRect(70, 150, 440, 150);
+  for (let i = 0; i < 9; i++){ ctx.fillStyle = C.hole; ctx.globalAlpha = 0.5 + 0.3*Math.sin(T*4 + i); ctx.beginPath(); ctx.arc(110 + i*45, 120, 12, 0, 6.283); ctx.fill(); ctx.beginPath(); ctx.arc(110 + i*45, 330, 12, 0, 6.283); ctx.fill(); } ctx.globalAlpha = 1;
+  txt("halogen lamps", 290, 98, {al:"center", px:10}); ctx.fillStyle = C.muted; ctx.fillRect(170, 250, 240, 18); ctx.fillStyle = C.si; ctx.fillRect(180, 240, 220, 10);
+  ctx.fillStyle = C.channel; ctx.fillRect(180, 236, 220, 4 + 6*upProg(6, 2)); txt("susceptor", 290, 282, {al:"center", px:9}); txt("wafer + growing epi layer", 290, 226, {al:"center", px:10, col:C.channel});
+  for (let i = 0; i < 12; i++){ const f = (T*0.4 + i/12) % 1, x = 80 + f*420, y = 175 + (i % 4)*12; ctx.fillStyle = C.electron; ctx.globalAlpha = 1 - f*0.6; ctx.beginPath(); ctx.arc(x, y, 3, 0, 6.283); ctx.fill(); } ctx.globalAlpha = 1;
+  txt("SiHCl₃ + H₂ + dopant →", 70, 140, {px:10, col:C.electron}); txt("→ HCl + H₂", 510, 140, {al:"right", px:10, col:C.muted});
+  txt("1100 °C, 1–5 µm/min", 290, 380, {al:"center", px:11, w:700, col:C.fg});
+  panel(600, 20, 380, 450, "Atoms join at surface steps");
+  const s = 22, ox = 640, oy = 380;
+  for (let j = 0; j < 6; j++) for (let i = 0; i < 14; i++){ const top = j === 5 ? (i < 7) : true; if (!top) continue; ctx.fillStyle = C.si; ctx.beginPath(); ctx.arc(ox + i*s, oy - j*s, 9, 0, 6.283); ctx.fill(); ctx.strokeStyle = C.muted; ctx.stroke(); }
+  const ph = (T*0.5) % 1, nx = 7 + Math.floor((UPS.t*0.5) % 7);
+  ctx.fillStyle = C.channel; for (let i = 7; i < nx; i++){ ctx.beginPath(); ctx.arc(ox + i*s, oy - 5*s, 9, 0, 6.283); ctx.fill(); }
+  ctx.beginPath(); ctx.arc(ox + nx*s, oy - 5*s - (1 - ph)*120, 9, 0, 6.283); ctx.fill();
+  txt("new atoms continue the crystal lattice", 790, 90, {al:"center", px:10, col:C.channel}); txt("step edge", ox + 7*s, oy - 5*s + 26, {al:"center", px:9});
+  [["why epi: a lightly doped, defect-free layer", C.fg], ["on a heavily doped substrate (latch-up, CMOS sensors)", C.muted], ["also selective SiGe and Si:P for strained source/drain", C.muted]].forEach(([t, c], i) => txt(t, 616, 410 + i*18, {px:10, col:c}));
+}
+const UP_SOI = [["1. oxidize donor wafer", "thermal oxide becomes", "the buried oxide"], ["2. implant hydrogen", "~5×10¹⁶ H⁺/cm² sets", "the split depth"], ["3. flip and bond", "donor bonded face down", "to the handle wafer"], ["4. split anneal ~500 °C", "hydrogen bubbles", "cleave the donor"], ["5. anneal and touch polish", "thin top silicon on BOX;", "the donor is reused"]];
+function drawUPsoi(T){
+  const k = Math.floor((UPS.t/2.2) % 5);
+  panel(20, 20, 960, 450, "Smart Cut: making silicon-on-insulator wafers");
+  UP_SOI.forEach(([n, d1, d2], i) => { const x = 40 + i*188, y = 70, w = 170; ctx.strokeStyle = i === k ? C.accent : C.line; ctx.lineWidth = i === k ? 2.5 : 1; ctx.strokeRect(x + .5, y + .5, w, 270);
+    const si = (yy, h) => { ctx.fillStyle = C.si; ctx.fillRect(x + 15, yy, w - 30, h); ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.strokeRect(x + 15.5, yy + .5, w - 31, h); }, ox = (yy, h) => { ctx.fillStyle = C.oxide; ctx.fillRect(x + 15, yy, w - 30, h); };
+    if (i === 0){ ox(150, 8); si(158, 70); ox(228, 8); }
+    if (i === 1){ ox(150, 8); si(158, 70); ctx.strokeStyle = C.hole; ctx.setLineDash([4, 3]); pl([[x + 15, 172], [x + w - 15, 172]]); ctx.setLineDash([]); for (let a = 0; a < 6; a++){ ctx.strokeStyle = C.hole; pl([[x + 30 + a*24, 110], [x + 30 + a*24, 140]]); } txt("H⁺", x + w/2, 98, {al:"center", px:11, w:700, col:C.hole}); }
+    if (i === 2){ si(95, 60); ctx.strokeStyle = C.hole; ctx.setLineDash([4, 3]); pl([[x + 15, 141], [x + w - 15, 141]]); ctx.setLineDash([]); ox(155, 8); si(170, 70); txt("donor", x + w/2, 88, {al:"center", px:9}); txt("handle", x + w/2, 252, {al:"center", px:9}); }
+    if (i === 3){ const lift = 10 + 10*Math.sin(T*3)*0 + 18; si(95 - lift, 46); ctx.fillStyle = C.si; ctx.fillRect(x + 15, 141, w - 30, 14); ox(155, 8); si(170, 70); txt("split", x + w - 12, 136 - lift/2, {al:"right", px:9, col:C.hole}); }
+    if (i === 4){ ctx.fillStyle = C.si; ctx.fillRect(x + 15, 145, w - 30, 10); ox(155, 8); si(170, 70); txt("top Si", x + w - 12, 136, {al:"right", px:9}); txt("BOX", x + w - 12, 180, {al:"right", px:9, col:C.fg}); }
+    txt(n, x + w/2, 300, {al:"center", px:10, w:700, col: i === k ? C.accent : C.fg}); txt(d1, x + w/2, 318, {al:"center", px:9}); txt(d2, x + w/2, 332, {al:"center", px:9}); });
+  [["FD-SOI: ~6–12 nm top silicon on ~20–25 nm buried oxide; RF-SOI: thicker layers on trap-rich handle wafers", C.fg], ["the buried oxide isolates every transistor: no latch-up, less junction capacitance, back-gate biasing", C.muted]].forEach(([t, c], i) => txt(t, 500, 384 + i*22, {al:"center", px:11, col:c}));
+}
+
+/* ---------------- deposition ---------------- */
+function upDepProfile(){
+  const AR = UPS.ar, s = Math.pow(10, UPS.stick), m = UPS.meth, phi = AR*Math.sqrt(s)*1.2;
+  const side = z => m === "ald" ? 1 : m === "cvd" ? Math.cosh(phi*(1 - z))/Math.cosh(phi) : 0.05 + 0.55*Math.exp(-z*AR/0.8);
+  const bot = m === "ald" ? 1 : m === "cvd" ? 1/Math.cosh(phi) : 1/(1 + 1.5*AR*AR);
+  return {side, bot, phi, over: m === "pvd"};
+}
+function drawUPdep(T){
+  const P = upDepProfile(), AR = UPS.ar, D = 290, W = D/AR, xc = 320, y0 = 150, p = upProg(6, 2), t0 = p*Math.min(0.62*W, 46);
+  panel(20, 20, 600, 450, `Film in a trench of aspect ratio ${AR} (${({pvd:"PVD", cvd:"CVD", ald:"ALD"})[UPS.meth]})`);
+  ctx.fillStyle = C.si; ctx.fillRect(40, y0, 560, 300); ctx.fillStyle = C.panel2; ctx.fillRect(xc - W/2, y0, W, D);
+  const film = UPS.meth === "pvd" ? C.metal : UPS.meth === "ald" ? C.channel : C.accent; ctx.fillStyle = film;
+  ctx.fillRect(40, y0 - t0, xc - W/2 - 40, t0); ctx.fillRect(xc + W/2, y0 - t0, 600 - xc - W/2, t0);
+  let pinch = -1, gapBelow = false;
+  for (let z = 0; z < D; z += 1){
+    const f = P.side(z/D) + (P.over && z < 0.3*W ? 0.9*(1 - z/(0.3*W)) : 0), t = Math.min(t0*f, W/2);
+    ctx.fillRect(xc - W/2 - (P.over && z < 0.3*W ? t0*0.9*(1 - z/(0.3*W)) : 0), y0 + z, t + (P.over && z < 0.3*W ? t0*0.9*(1 - z/(0.3*W)) : 0), 1.2);
+    ctx.fillRect(xc + W/2 - t, y0 + z, t + (P.over && z < 0.3*W ? t0*0.9*(1 - z/(0.3*W)) : 0), 1.2);
+    if (t >= W/2 - 0.01 && pinch < 0) pinch = z; if (pinch >= 0 && t < W/2 - 0.5) gapBelow = true;
+  }
+  if (P.over){ ctx.fillRect(xc - W/2 - t0*0.9, y0 - t0, t0*0.9, t0); ctx.fillRect(xc + W/2, y0 - t0, t0*0.9, t0); }
+  const tb = Math.min(t0*P.bot, D); ctx.fillRect(xc - W/2, y0 + D - tb, W, tb);
+  const voidy = pinch >= 0 && gapBelow && tb < D - pinch - 2;
+  if (voidy){ ctx.strokeStyle = C.hole; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]); ctx.strokeRect(xc - W/2 - 6, y0 + pinch + 4, W + 12, D - pinch - tb - 6); ctx.setLineDash([]); txt("void", xc + W/2 + 12, y0 + (pinch + D)/2, {px:11, w:700, col:C.hole}); }
+  txt("substrate", 60, 440, {px:10}); txt(`top film`, 60, y0 - t0 - 10, {px:10, col:film});
+  UPS.depRes = {sc:P.bot, side:P.side(1), void:voidy, pinch};
+  panel(640, 20, 340, 450, ({pvd:"Sputtering: atoms fly in straight lines", cvd:"CVD: molecules bounce and react", ald:"ALD: one monolayer per cycle"})[UPS.meth]);
+  const bx = 810, by0 = 360;
+  if (UPS.meth === "pvd"){
+    ctx.fillStyle = C.metal; ctx.fillRect(680, 60, 260, 22); txt("target (Cu, Ta, Ti)", 810, 98, {al:"center", px:9});
+    for (let i = 0; i < 30; i++){ const r = cmRand(i + 1), a = (r() - 0.5)*2.4, sp = 0.3 + r()*0.5, f = (T*sp + r()) % 1, x = 690 + r()*240, y = 84 + f*260, xx = x + Math.tan(a/2)*f*120;
+      ctx.fillStyle = C.metal; ctx.beginPath(); ctx.arc(xx, y, 2.5, 0, 6.283); ctx.fill(); }
+    txt("cosine angular distribution: most atoms", 810, 400, {al:"center", px:10}); txt("cannot see the trench bottom", 810, 416, {al:"center", px:10});
+  } else if (UPS.meth === "cvd"){
+    ctx.fillStyle = C.si; ctx.fillRect(700, 120, 80, 240); ctx.fillRect(840, 120, 80, 240); ctx.fillRect(700, 360, 220, 20);
+    for (let i = 0; i < 18; i++){ const r = cmRand(i + 3), sp = 0.15 + r()*0.2, f = (T*sp + r()) % 1, y = 110 + f*240*(0.5 + 0.5*r()), x = bx + Math.sin(T*3*r() + i)*25;
+      ctx.fillStyle = C.accent; ctx.beginPath(); ctx.arc(x, y, 3, 0, 6.283); ctx.fill(); }
+    txt(`sticking coefficient s = ${Math.pow(10, UPS.stick).toPrecision(2)}`, 810, 400, {al:"center", px:10}); txt(`low s: molecules reach the bottom before reacting`, 810, 416, {al:"center", px:10});
+  } else {
+    const ph = Math.floor(UPS.t/1.4) % 4, names = ["precursor A pulse", "purge", "co-reactant B pulse", "purge"];
+    ctx.fillStyle = C.si; ctx.fillRect(680, 300, 260, 30);
+    for (let i = 0; i < 12; i++){ const x = 692 + i*21; ctx.fillStyle = ph >= 1 ? C.channel : C.muted; ctx.beginPath(); ctx.arc(x, 294, 6, 0, 6.283); ctx.fill(); if (ph >= 2){ ctx.fillStyle = C.accent; ctx.beginPath(); ctx.arc(x, 282, 4, 0, 6.283); ctx.fill(); } }
+    if (ph === 0 || ph === 2) for (let i = 0; i < 14; i++){ const r = cmRand(i + 7), y = 80 + ((T*0.5 + r()) % 1)*180, x = 690 + r()*240; ctx.fillStyle = ph === 0 ? C.channel : C.accent; ctx.beginPath(); ctx.arc(x, y, 4, 0, 6.283); ctx.fill(); }
+    names.forEach((n, i) => txt(`${i + 1}. ${n}`, 680, 360 + i*18, {px:10, w: i === ph ? 700 : 500, col: i === ph ? C.accent : C.muted}));
+    txt("each step saturates: no site reacts twice", 680, 440, {px:10, col:C.fg});
+  }
+}
+
+/* ---------------- etch ---------------- */
+const UP_W = [20, 40, 80, 160];
+function upEtch(){
+  const ER0 = 400, N = 300, res = UP_W.map(w => { let d = 0; const ts = [0], ds = [0]; for (let i = 1; i <= N; i++){ const dt = 1/N; d += ER0*dt/(1 + d/w/UPS.ar0); ts.push(i*dt); ds.push(d); } return {w, ts, ds, d}; });
+  return {res, ER0, lat:(1 - UPS.an)*ER0*0.9};
+}
+function drawUPetch(T){
+  const E = upEtch(), p = upProg(7, 2), k = 0.75, y0 = 150, m0 = 50, mask = m0 - E.ER0*p/UPS.sel, top = mask < 0 ? -mask*0.6 : 0;
+  panel(20, 20, 640, 450, `Plasma etch through a hard mask (ion share ${(UPS.an*100).toFixed(0)} %)`);
+  const xs = [95, 190, 320, 520];
+  ctx.fillStyle = C.si; ctx.fillRect(40, y0 + top*k, 600, 460 - y0 - top*k);
+  if (mask > 0){ ctx.fillStyle = C.oxide; ctx.fillRect(40, y0 - mask*k, 600, mask*k); }
+  E.res.forEach((r, i) => {
+    const di = r.ds.findIndex((_, j) => r.ts[j] >= p), depth = r.ds[Math.max(0, di)], xc = xs[i], hw = r.w*k/2;
+    if (mask > 0){ ctx.fillStyle = C.panel2; ctx.fillRect(xc - hw, y0 - mask*k - 1, 2*hw, mask*k + 2); }
+    ctx.fillStyle = C.panel2; ctx.beginPath();
+    const pts = []; for (let z = 0; z <= depth; z += 4){ const j = r.ds.findIndex(d => d >= z), tz = r.ts[Math.max(0, j)], u = E.lat*Math.max(0, p - tz); pts.push([hw + u*k, y0 + z*k]); }
+    if (!pts.length) return;
+    ctx.moveTo(xc - pts[0][0], y0 + top*k - 1); pts.forEach(([h, y]) => ctx.lineTo(xc - h, y)); for (let a = 0; a <= 8; a++){ const last = pts[pts.length - 1]; ctx.lineTo(xc - last[0] + (2*last[0])*a/8, last[1] + Math.sin(Math.PI*a/8)*(1 - UPS.an)*last[0]*0.5); }
+    [...pts].reverse().forEach(([h, y]) => ctx.lineTo(xc + h, y)); ctx.lineTo(xc + pts[0][0], y0 + top*k - 1); ctx.closePath(); ctx.fill();
+    txt(`${r.w} nm`, xc, 458, {al:"center", px:10, col:C.fg}); txt(`${depth.toFixed(0)} nm`, xc, y0 + depth*k + 16 > 440 ? 440 : y0 + depth*k + 16, {al:"center", px:9, col:C.accent});
+  });
+  for (let i = 0; i < Math.round(UPS.an*24); i++){ const r = cmRand(i + 11), x = 50 + r()*580, f = (T*0.9 + r()) % 1, y = 40 + f*(y0 - 50 - Math.max(mask, 0)*k); ctx.strokeStyle = C.electron; ctx.lineWidth = 1.5; pl([[x, y], [x, y + 9]]); }
+  for (let i = 0; i < Math.round((1 - UPS.an)*24) + 2; i++){ const r = cmRand(i + 41), x = 50 + r()*580 + Math.sin(T*2 + i)*8, y = 50 + r()*(y0 - 70 - Math.max(mask, 0)*k) + Math.cos(T*2.3 + i)*6; ctx.fillStyle = C.hole; ctx.beginPath(); ctx.arc(x, y, 2.6, 0, 6.283); ctx.fill(); }
+  txt("ions ↓", 600, 44, {al:"right", px:9, col:C.electron}); txt("radicals ·", 600, 58, {al:"right", px:9, col:C.hole});
+  panel(680, 20, 300, 450, "Depth, lag and undercut");
+  const dn = E.res.map(r => r.ds[Math.max(0, r.ts.findIndex(t => t >= p))]), lag = (1 - dn[0]/dn[3])*100, uc = E.lat*p;
+  UPS.etchRes = {dn, lag, uc, mask};
+  [["trench width → depth", C.fg], ...E.res.map((r, i) => [`${r.w} nm → ${dn[i].toFixed(0)} nm (AR ${(dn[i]/r.w).toFixed(1)})`, C.muted]), ["", C.fg],
+   [`RIE lag: narrowest ${lag.toFixed(0)} % shallower`, C.fg], [`undercut below the mask: ${uc.toFixed(0)} nm`, uc > 10 ? C.hole : C.fg],
+   [mask > 0 ? `mask left: ${mask.toFixed(0)} of ${m0} nm` : "mask gone: the top is being etched", mask > 0 ? C.fg : C.hole], ["", C.fg],
+   ["modern etchers pulse the plasma and", C.muted], ["alternate etch and passivation steps", C.muted], ["(Bosch process, atomic layer etch)", C.muted]].forEach(([t, c], i) => txt(t, 696, 56 + i*22, {px:11, w: i === 0 ? 700 : 500, col:c}));
+}
+
+/* ---------------- CMP ---------------- */
+const UP_REG = [{n:"isolated lines", rho:0.1, w:0.2}, {n:"wide line 50 µm", rho:0.9, w:50}, {n:"dense array 50 %", rho:0.5, w:0.2}, {n:"open field", rho:0, w:0}];
+function upCmp(){
+  const RR = 300/(3*60)*UPS.pr*UPS.spd, tc = 600/RR, tt = tc*(1 + UPS.op/100), top = RR*(tt - tc);
+  const reg = UP_REG.map(r => { const rho = UPS.fill === "on" && r.rho < 0.3 ? 0.35 : r.rho, ero = top*(0.06 + 0.3*rho), dish = r.w ? top*0.5*(1 - Math.exp(-r.w/15)) : 0; return {...r, rho, ero, dish}; });
+  return {RR, tc, tt, top, reg, maxD:Math.max(...reg.map(r => r.dish)), maxE:Math.max(...reg.map(r => r.ero)), range:Math.max(...reg.map(r => r.ero)) - Math.min(...reg.map(r => r.ero))};
+}
+function drawUPcmp(T){
+  const Cm = upCmp(), p = upProg(8, 2.5), t = p*Cm.tt, sc = 4;
+  panel(20, 20, 960, 190, "Chemical mechanical polishing");
+  const pc = [180, 130], ang = T*UPS.spd/60*2;
+  ctx.fillStyle = C.panel; ctx.beginPath(); ctx.arc(pc[0], pc[1], 70, 0, 6.283); ctx.fill(); ctx.strokeStyle = C.muted; ctx.lineWidth = 1;
+  for (let r = 14; r < 70; r += 12){ ctx.beginPath(); ctx.arc(pc[0], pc[1], r, 0, 6.283); ctx.stroke(); }
+  for (let i = 0; i < 6; i++){ const a = ang + i*1.047; pl([[pc[0], pc[1]], [pc[0] + 70*Math.cos(a), pc[1] + 70*Math.sin(a)]]); }
+  ctx.fillStyle = C.si; ctx.beginPath(); ctx.arc(pc[0] + 40, pc[1] - 14, 30, 0, 6.283); ctx.fill(); ctx.strokeStyle = C.fg; ctx.stroke();
+  const ca = -ang*1.3; pl([[pc[0] + 40, pc[1] - 14], [pc[0] + 40 + 30*Math.cos(ca), pc[1] - 14 + 30*Math.sin(ca)]]);
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 4; pl([[300, 48], [228, 84]]);
+  for (let i = 0; i < 4; i++){ const f = (T*0.8 + i/4) % 1; ctx.fillStyle = C.electron; ctx.beginPath(); ctx.arc(228, 88 + f*26, 2.5, 0, 6.283); ctx.fill(); }
+  txt("platen and pad", pc[0] - 80, 200, {al:"center", px:9}); txt("wafer carrier", pc[0] + 40, pc[1] + 26, {al:"center", px:9}); txt("slurry", 304, 44, {px:9, col:C.electron});
+  const state = t < Cm.tc ? "removing the copper overburden" : "over-polish: dishing and erosion grow";
+  [[`Preston: RR = Kp · P · V = ${Cm.RR.toFixed(0)} nm/min`, C.fg], [`clear 600 nm overburden: ${(Cm.tc*60).toFixed(0)} s, then ${UPS.op} % over-polish`, C.fg],
+   [`time ${(t*60).toFixed(0)} s of ${(Cm.tt*60).toFixed(0)} s: ${state}`, t < Cm.tc ? C.accent : C.hole], ["slurry: abrasive silica or alumina + oxidizer + inhibitor", C.muted], ["pad conditioner keeps the pad surface rough and open", C.muted]].forEach(([s, c], i) => txt(s, 340, 60 + i*26, {px:11, w: i === 2 ? 700 : 500, col:c}));
+  panel(20, 220, 960, 250, `Cross-section across the die (${UPS.fill === "on" ? "with dummy fill" : "without fill"}), vertical × 250`);
+  const yo = 360, cut = Math.min(t, Cm.tc), over = Math.max(0, t - Cm.tc), frac = Cm.top > 0 ? over*Cm.RR/Cm.top : 0;
+  const ob = 600 - Cm.RR*cut;
+  Cm.reg.forEach((r, i) => {
+    const x0 = 40 + i*235, x1 = x0 + 220, ero = r.ero*frac, dish = r.dish*frac, oxTop = yo + ero/sc;
+    ctx.fillStyle = C.oxide; ctx.fillRect(x0, oxTop, x1 - x0, 460 - oxTop);
+    const nl = r.rho ? Math.round(r.rho*20) : 0, lines = r.w >= 50 ? [[x0 + 30, x1 - 30]] : Array.from({length:nl}, (_, j) => { const pitch = (x1 - x0 - 20)/nl, xl = x0 + 10 + j*pitch; return [xl, xl + Math.max(3, pitch*Math.min(0.5, r.rho*1.2))]; });
+    lines.forEach(([a, b]) => { ctx.fillStyle = UP_CU; ctx.beginPath(); ctx.moveTo(a, yo + 75); ctx.lineTo(a, oxTop); for (let s = 0; s <= 10; s++){ const x = a + (b - a)*s/10; ctx.lineTo(x, oxTop + (r.w >= 50 ? dish/sc*Math.sin(Math.PI*s/10) : 0)); } ctx.lineTo(b, yo + 75); ctx.closePath(); ctx.fill(); });
+    if (ob > 0){ ctx.fillStyle = UP_CU; ctx.fillRect(x0, yo - ob/sc, x1 - x0, ob/sc); }
+    txt(r.n, (x0 + x1)/2, 262, {al:"center", px:10, w:700, col:C.fg});
+    if (over > 0) txt(r.w >= 50 ? `dishing ${dish.toFixed(0)} nm` : `erosion ${ero.toFixed(0)} nm`, (x0 + x1)/2, 280, {al:"center", px:10, col:C.hole});
+  });
+  ctx.strokeStyle = C.muted; ctx.setLineDash([4, 3]); pl([[40, yo], [960, yo]]); ctx.setLineDash([]); txt("original oxide surface", 958, yo - 8, {al:"right", px:9});
+}
+function drawUP(dt, T){
+  begin(UPC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488);
+  const v = UPS.view;
+  if (v === "cz") ({grow:drawUPgrow, slice:drawUPslice, polish:drawUPpolish, epi:drawUPepi, soi:drawUPsoi})[UPS.st](T);
+  else if (v === "dep") drawUPdep(T); else if (v === "etch") drawUPetch(T); else drawUPcmp(T);
+}
+
+/* ---------------- DOM ---------------- */
+const UPINFO = {
+  grow:{pill:"CZ", name:"From crystal to wafer", sub:"Nearly every chip starts as a single crystal of silicon pulled from a melt, sliced and polished to atomic smoothness",
+    text:"Purified polysilicon (eleven nines) is melted in a quartz crucible at 1414 °C. A small seed crystal is dipped into the melt and slowly pulled up while rotating; silicon freezes onto it and continues its lattice, so the whole ingot becomes one crystal, up to 2 m long and 300 mm in diameter. First a thin neck is grown so that dislocations from the thermal shock grow out to the surface (the Dash neck), then the shoulder widens to the full diameter. Dopant is added to the melt, but the crystal accepts only a fraction k₀ of it, so the melt gets richer as it shrinks and the resistivity drifts along the ingot: almost not at all for boron (k₀ = 0.8), strongly for phosphorus or antimony. The ratio of pull rate to temperature gradient, v/G, decides which point defect is left over: too fast leaves vacancies that cluster into tiny voids, too slow leaves interstitials that form dislocation loops; modern 'perfect silicon' is grown in the narrow window between. Oxygen dissolved from the crucible later forms precipitates that getter metal contamination away from the transistors."},
+  slice:{pill:"SAW", name:"From crystal to wafer", sub:"Nearly every chip starts as a single crystal of silicon pulled from a melt, sliced and polished to atomic smoothness",
+    text:"The ingot is ground to an exact diameter, a notch is cut to mark the crystal orientation, and the ingot is sliced by a wire saw: a single diamond-coated wire, wound hundreds of times around grooved rollers, forms a web of parallel wires that moves at high speed while the ingot is pushed slowly through it. All wafers of an ingot section are cut at the same time. Every cut turns a slice of silicon as wide as the wire, the kerf, into dust, and later lapping and polishing remove another ~100 µm, so a metre of ingot gives roughly a thousand 775 µm wafers. Thinner wire saves silicon, which matters even more for solar cells."},
+  polish:{pill:"CMP", name:"From crystal to wafer", sub:"Nearly every chip starts as a single crystal of silicon pulled from a melt, sliced and polished to atomic smoothness",
+    text:"Sawing leaves saw marks and a crystal damaged several micrometres deep. Lapping between two plates makes the wafer flat and parallel, a chemical etch removes the damaged layer, double-side polishing brings the flatness below 0.1 µm, and a final chemical mechanical polish leaves a surface whose roughness is below 0.1 nm, a fraction of an atomic layer. The edge is ground to a rounded bevel so it does not chip, and each wafer gets a laser-scribed ID. Lithography with a depth of focus below 100 nm needs this flatness over every exposure field; that is why wafer makers specify site flatness, nanotopography and edge roll-off."},
+  epi:{pill:"EPI", name:"From crystal to wafer", sub:"Nearly every chip starts as a single crystal of silicon pulled from a melt, sliced and polished to atomic smoothness",
+    text:"Epitaxy grows a new crystalline silicon layer on the polished wafer: trichlorosilane and hydrogen flow over the wafer at about 1100 °C, silicon atoms land on the surface, diffuse to the edges of atomic steps and join the lattice exactly where the substrate left off. The layer can have a different doping from the substrate and contains almost none of the oxygen or growth defects of CZ silicon. Epi wafers with a lightly doped layer on a heavily doped substrate suppress latch-up in CMOS and are standard for image sensors and power devices. Inside the process flow, selective epitaxy grows strained SiGe or phosphorus-doped silicon only in the source and drain regions."},
+  soi:{pill:"SOI", name:"From crystal to wafer", sub:"Nearly every chip starts as a single crystal of silicon pulled from a melt, sliced and polished to atomic smoothness",
+    text:"Silicon-on-insulator wafers put a thin single-crystal layer on top of a buried oxide. In the Smart Cut process a donor wafer is oxidized and implanted with hydrogen ions, which come to rest at a precise depth. The donor is flipped and bonded face down to a second, handle wafer. A low-temperature anneal makes the hydrogen form microscopic bubbles that cleave the donor along the implanted plane, leaving a thin layer of silicon and the oxide on the handle wafer; the rest of the donor is polished and reused. After a smoothing anneal and touch polish, the top silicon is uniform to a few tenths of a nanometre. Fully depleted SOI transistors use this thin layer as the channel, and RF switches in every phone are built on SOI."},
+  dep:{pill:"DEP", name:"Deposition and conformality", sub:"How evenly a film covers the top, the walls and the bottom of a deep trench depends on how the atoms arrive",
+    text:"Films are added in many ways, and the difference shows in deep features. In sputtering (PVD), atoms knocked out of a target fly in straight lines with a broad angular spread; the top surface and upper corners see most of the sky, the bottom of a deep trench sees almost none, so the film is thick on top, forms overhangs at the corners and is thin at the bottom; overhangs can close the trench before it is filled and leave a void. In CVD, gas molecules diffuse into the trench and react on the walls; if they react at the first collision, the film is thick near the top, but molecules with a low sticking coefficient bounce many times and coat the bottom too. The Thiele modulus φ ∝ AR·√s captures the balance. ALD splits the reaction into two self-limiting half-reactions separated by purges: each pulse saturates every surface site and stops, so the film grows exactly one layer per cycle everywhere, even in 100:1 holes, at the cost of being slow. That is why gate oxides, spacers and the liners of 3D NAND are made by ALD."},
+  etch:{pill:"RIE", name:"Plasma etch", sub:"Ions etch straight down, radicals etch in every direction, and deep narrow features etch slower",
+    text:"Wet etches remove material equally in all directions and undercut the mask by as much as they etch down, which is useless for features smaller than the film thickness. Reactive ion etching uses a plasma: chemically reactive radicals etch in every direction, while ions accelerated across the sheath hit the wafer vertically and greatly speed up etching only where they land, on the bottom of the feature. The higher the ion share, the more anisotropic and vertical the profile; sidewall passivation from etch by-products helps too. In narrow, deep features fewer ions and radicals reach the bottom and by-products escape more slowly, so the etch rate drops with aspect ratio: aspect-ratio-dependent etching, or RIE lag, visible here as narrow trenches lagging behind wide ones. The mask is etched too, only slower: the selectivity sets how thick the mask must be. Etching 3D NAND channel holes 60 to 1 deep is one of the hardest steps in the fab."},
+  cmp:{pill:"CMP", name:"Chemical mechanical polishing", sub:"Polishing makes the wafer flat again after each layer, but the result depends on the pattern underneath",
+    text:"Copper wires are made by damascene: trenches are etched into the oxide, copper is plated over everything, and CMP removes the excess until only the copper in the trenches remains. The wafer is pressed face down onto a rotating pad soaked with slurry: abrasive particles plus chemicals that oxidize and soften the copper. Removal follows Preston's law, RR = Kp·P·V: proportional to pressure and velocity. Once the copper overburden is gone, some over-polish is needed to clear every residue, and then the pattern matters: the pad bends into wide copper lines and scoops them out (dishing), and dense arrays of lines lose oxide and copper together (erosion), while open fields hardly change. Thinner copper means higher resistance, and the resulting topography eats into the depth of focus of the next lithography step. Designers therefore follow density rules, and tools add dummy fill shapes to empty areas so every region polishes the same."}
+};
+Object.assign(TIP, {
+  "Pull rate":"Speed at which the crystal is pulled from the melt.", "v/G":"Pull rate over the temperature gradient at the interface.", "Defect regime":"Which point defect survives in the crystal.", "Seed-to-tail resistivity":"Resistivity at 90 % of the ingot relative to the seed end.",
+  "Wire":"Diameter of the diamond-coated saw wire.", "Kerf loss":"Silicon lost per cut.", "Wafers per metre":"Wafers from one metre of ingot.", "Wafer thickness":"Final thickness of a 300 mm wafer.",
+  "Roughness":"Surface roughness after the final polish.", "Flatness":"Site flatness over an exposure field.", "Edge":"Edge profile of the wafer.", "Identification":"How each wafer is tracked.",
+  "Temperature":"Process temperature.", "Growth rate":"Thickness grown per minute.", "Layer":"Typical epi layer thickness.", "Precursor":"Gas that supplies the silicon.",
+  "Hydrogen dose":"Implanted hydrogen that sets the split plane.", "Split":"Anneal that cleaves the donor wafer.", "Top silicon":"Thickness of the device layer.", "Buried oxide":"Thickness of the insulator.",
+  "Step coverage":"Film thickness at the trench bottom over the top.", "Thinnest sidewall":"Thinnest sidewall film over the top thickness.", "Gap fill":"Whether the trench fills without a void.", "Thiele modulus":"Reaction versus diffusion inside the trench.",
+  "Narrow trench depth":"Depth of the 20 nm trench.", "Wide trench depth":"Depth of the 160 nm trench.", "RIE lag":"How much shallower the narrowest trench is.", "Undercut":"Lateral etch under the mask edge.",
+  "Removal rate":"Copper removed per minute (Preston).", "Polish time":"Time including over-polish.", "Max dishing":"Deepest sag in a wide copper line.", "Max erosion":"Largest thinning of a patterned region.",
+  "Segregation (Scheil)":"Dopant in the crystal as the melt is used up.", "Defect type (Voronkov)":"Vacancies or interstitials, set by v/G.", "Wafers per ingot":"Silicon budget per wafer.", "Epitaxial growth":"Chemical reaction at the surface.",
+  "PVD bottom coverage":"Line-of-sight flux into a trench.", "CVD in a trench":"Diffusion and reaction along the depth.", "ALD thickness":"Self-limiting growth per cycle.", "Step coverage ":"Bottom over top thickness.",
+  "ARDE":"Etch rate falls with aspect ratio.", "Anisotropy":"Vertical versus lateral etch.", "Mask budget":"Mask thickness needed for the etch.", "Undercut ":"Lateral etch under the mask.",
+  "Preston law":"Removal rate grows with pressure and velocity.", "Polish time ":"Overburden over removal rate plus over-polish.", "Dishing":"Wide lines sag.", "Erosion":"Dense arrays thin down."
+});
+const UPLEG = {
+  cz:[["si","Silicon"],["oxide","Quartz, oxide"],["hole","Heater, hydrogen, damage"],["accent","Rotation, wire, active step"],["channel","Epi layer, new atoms"]],
+  dep:[["si","Substrate"],["metal","PVD metal"],["accent","CVD film"],["channel","ALD film"],["hole","Void"]],
+  etch:[["si","Silicon"],["oxide","Hard mask"],["electron","Ions (vertical)"],["hole","Radicals (all directions)"],["accent","Depth"]],
+  cmp:[["oxide","Oxide"],["accent","Copper lines and overburden"],["electron","Slurry"],["hole","Dishing and erosion"]]
+};
+const upChip = (sel, attr, on) => document.querySelectorAll(sel).forEach(b => { const o = on(b.dataset[attr]); b.setAttribute("aria-pressed", o); b.style.borderColor = o ? "var(--accent)" : ""; b.style.color = o ? "var(--accent)" : ""; });
+const UP_FACTS = {
+  slice:[["Wire", "60–120 µm"], ["Kerf loss", "~150 µm"], ["Wafers per metre", "~1,000"], ["Wafer thickness", "775 µm"]],
+  polish:[["Roughness", "< 0.1 nm"], ["Flatness", "< 20 nm per site"], ["Edge", "rounded bevel"], ["Identification", "notch + laser ID"]],
+  epi:[["Temperature", "~1100 °C"], ["Growth rate", "1–5 µm/min"], ["Layer", "2–10 µm"], ["Precursor", "SiHCl₃ + H₂"]],
+  soi:[["Hydrogen dose", "~5×10¹⁶ cm⁻²"], ["Split", "~500 °C"], ["Top silicon", "6–100 nm"], ["Buried oxide", "20–400 nm"]]
+};
+function updateUP(){
+  const v = UPS.view, key = v === "cz" ? UPS.st : v, info = UPINFO[key];
+  $("up-pill").textContent = info.pill; $("up-name").textContent = info.name; $("up-sub").textContent = info.sub; $("up-explain").textContent = info.text;
+  document.querySelectorAll("#up-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  upChip("#up-st button", "s", s => s === UPS.st); upChip("#up-dop button", "d", d => d === UPS.dop); upChip("#up-meth button", "m", m => m === UPS.meth); upChip("#up-fill button", "f", f => f === UPS.fill);
+  const vis = {st:v === "cz", dop:key === "grow", v:key === "grow", meth:v === "dep", ar:v === "dep", stick:v === "dep" && UPS.meth === "cvd", an:v === "etch", sel:v === "etch", ar0:v === "etch", pr:v === "cmp", spd:v === "cmp", op:v === "cmp", fill:v === "cmp"};
+  Object.entries(vis).forEach(([k, on]) => $(`up-c-${k}`).hidden = !on);
+  $("up-v-v").textContent = `${UPS.v.toFixed(2)} mm/min`; $("up-ar-v").textContent = `${UPS.ar} : 1`; $("up-stick-v").textContent = Math.pow(10, UPS.stick).toPrecision(2);
+  $("up-an-v").textContent = `${(UPS.an*100).toFixed(0)} %`; $("up-sel-v").textContent = `${UPS.sel} : 1`; $("up-ar0-v").textContent = `${UPS.ar0}`;
+  $("up-pr-v").textContent = `${UPS.pr} psi`; $("up-spd-v").textContent = `${UPS.spd} rpm`; $("up-op-v").textContent = `${UPS.op} %`;
+  setHTML("up-legend", UPLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  let ro, eq;
+  if (v === "cz"){ const k0 = UP_K0[UPS.dop];
+    ro = key === "grow" ? [["Pull rate", `${UPS.v.toFixed(2)} mm/min`], ["v/G", `${(UPS.v/UP_G).toFixed(3)}`], ["Defect regime", upRegime(UPS.v).split(":")[0]], ["Seed-to-tail resistivity", `${(Math.pow(0.1, 1 - k0)*100).toFixed(0)} %`]] : UP_FACTS[key];
+    eq = [{name:"Segregation (Scheil)", f:"C_s = k₀ · C₀ · (1 − f)^(k₀ − 1)", sub:`${UP_DN[UPS.dop].toLowerCase()}: k₀ = ${k0}`},
+      {name:"Defect type (Voronkov)", f:"ξ = v / G,  ξ_crit ≈ 0.13 mm²/(min·K)", sub:`v/G = ${(UPS.v/UP_G).toFixed(3)} → ${upRegime(UPS.v)}`},
+      {name:"Wafers per ingot", f:"N ≈ L / (t_wafer + kerf + removal)", sub:"1000 mm / (0.775 + 0.15 + 0.1) mm ≈ 980"},
+      {name:"Epitaxial growth", f:"SiHCl₃ + H₂ → Si + 3 HCl", sub:"surface-reaction limited below ~1000 °C, transport limited above"}];
+  } else if (v === "dep"){ const P = upDepProfile(), R = UPS.depRes || {sc:P.bot, side:P.side(1), void:false};
+    ro = [["Step coverage", `${(P.bot*100).toFixed(0)} %`], ["Thinnest sidewall", `${(Math.min(P.side(1), P.side(0.99))*100).toFixed(0)} %`], ["Gap fill", R.void ? "void" : R.pinch >= 0 ? "filled" : "open (coating)"], ["Thiele modulus", UPS.meth === "cvd" ? P.phi.toFixed(2) : "–"]];
+    eq = [{name:"PVD bottom coverage", f:"≈ sin²α,  tan α = W / 2D", sub:`AR ${UPS.ar}: ${(100/(1 + 1.5*UPS.ar*UPS.ar)).toFixed(1)} % of the top thickness`},
+      {name:"CVD in a trench", f:"t(z)/t_top = cosh(φ·(1 − z/D)) / cosh φ,  φ ∝ AR·√s", sub:`s = ${Math.pow(10, UPS.stick).toPrecision(2)} → φ = ${(UPS.ar*Math.sqrt(Math.pow(10, UPS.stick))*1.2).toFixed(2)}`},
+      {name:"ALD thickness", f:"t = GPC × cycles,  GPC ≈ 0.1 nm/cycle", sub:"10 nm of HfO₂ takes about 100 cycles"},
+      {name:"Step coverage ", f:"SC = t_bottom / t_top", sub:`${({pvd:"PVD", cvd:"CVD", ald:"ALD"})[UPS.meth]}: ${(P.bot*100).toFixed(0)} %`}];
+  } else if (v === "etch"){ const E = upEtch(), dn = E.res.map(r => r.d), lag = (1 - dn[0]/dn[3])*100;
+    ro = [["Narrow trench depth", `${dn[0].toFixed(0)} nm`], ["Wide trench depth", `${dn[3].toFixed(0)} nm`], ["RIE lag", `${lag.toFixed(0)} %`], ["Undercut", `${E.lat.toFixed(0)} nm`]];
+    eq = [{name:"ARDE", f:"ER(AR) = ER₀ / (1 + AR / AR₀)", sub:`AR₀ = ${UPS.ar0}: the 20 nm trench ends at AR ${(dn[0]/20).toFixed(1)}`},
+      {name:"Anisotropy", f:"A = 1 − r_lateral / r_vertical", sub:`ion share ${(UPS.an*100).toFixed(0)} % → A ≈ ${(1 - (1 - UPS.an)*0.9).toFixed(2)}`},
+      {name:"Mask budget", f:"t_mask > depth / selectivity", sub:`${dn[3].toFixed(0)} nm / ${UPS.sel} = ${(dn[3]/UPS.sel).toFixed(0)} nm of a 50 nm mask`},
+      {name:"Undercut ", f:"u = r_lateral · t", sub:`${E.lat.toFixed(0)} nm at the top of each trench`}];
+  } else { const Cm = upCmp();
+    ro = [["Removal rate", `${Cm.RR.toFixed(0)} nm/min`], ["Polish time", `${(Cm.tt*60).toFixed(0)} s`], ["Max dishing", `${Cm.maxD.toFixed(0)} nm`], ["Max erosion", `${Cm.maxE.toFixed(0)} nm`]];
+    eq = [{name:"Preston law", f:"RR = Kp · P · V", sub:`${UPS.pr} psi, ${UPS.spd} rpm → ${Cm.RR.toFixed(0)} nm/min`},
+      {name:"Polish time ", f:"t = t_overburden / RR × (1 + over-polish)", sub:`${(Cm.tc*60).toFixed(0)} s × ${(1 + UPS.op/100).toFixed(2)} = ${(Cm.tt*60).toFixed(0)} s`},
+      {name:"Dishing", f:"D ∝ RR · t_over · (1 − e^(−w/w₀))", sub:`wide line: ${Cm.maxD.toFixed(0)} nm of 300 nm copper`},
+      {name:"Erosion", f:"E ∝ RR · t_over · ρ  (pattern density)", sub:`range across the die: ${Cm.range.toFixed(0)} nm${UPS.fill === "on" ? " with dummy fill" : ""}`}];
+  }
+  renderRo($("up-ro"), ro); renderEq($("up-eq"), eq);
+  drawUPPlots(v, key);
+}
+function drawUPPlots(v, key){
+  let a, b; const m1 = {l:38,r:10,t:28,b:30}, m2 = {l:38,r:8,t:28,b:30};
+  if (v === "cz"){
+    const P = axesR(300, 230, m1, 0, 1, 0, 1.2, 0.25, 0.3, "fraction of melt solidified", "ρ / ρ_seed"), cols = {B:"accent", P:"electron", As:"channel", Sb:"hole"};
+    a = P.s + Object.keys(UP_K0).map(d => `<path d="${pathOf(range(0, 0.95, 38).map(f => [f, Math.pow(1 - f, 1 - UP_K0[d])]), P.X, P.Y)}" fill="none" stroke="var(--${cols[d]})" stroke-width="${d === UPS.dop ? 2.8 : 1.2}"/>`).join("") + P.frame + `<text x="44" y="12" style="fill:var(--${cols[UPS.dop]})">resistivity along the ingot (${UPS.dop})</text>`;
+    const vc = UP_XI*UP_G, Q = axesR(220, 230, m2, 0.2, 1.2, 0, 1, 0.25, 1, "pull rate (mm/min)", "");
+    b = Q.s + [[0.2, vc*0.95, "hole", "I"], [vc*0.95, vc*1.05, "channel", ""], [vc*1.05, 1.2, "electron", "V"]].map(([x0, x1, c, l]) => `<rect x="${Q.X(x0)}" y="${Q.Y(1)}" width="${Q.X(x1) - Q.X(x0)}" height="${Q.Y(0) - Q.Y(1)}" fill="var(--${c})" opacity=".3"/><text x="${(Q.X(x0) + Q.X(x1))/2}" y="${Q.Y(0.5)}" text-anchor="middle">${l}</text>`).join("")
+      + `<line x1="${Q.X(UPS.v)}" x2="${Q.X(UPS.v)}" y1="${Q.Y(1)}" y2="${Q.Y(0)}" stroke="var(--fg)" stroke-width="2"/>` + Q.frame + `<text x="44" y="12" style="fill:var(--fg)">I: interstitials · V: vacancies</text>`;
+  } else if (v === "dep"){
+    const P = axesR(300, 230, m1, 1, 15, 0, 1, 2, 0.25, "aspect ratio", "step coverage"), s = Math.pow(10, UPS.stick), cols = {pvd:"metal", cvd:"accent", ald:"channel"};
+    const sc = {pvd:ar => 1/(1 + 1.5*ar*ar), cvd:ar => 1/Math.cosh(ar*Math.sqrt(s)*1.2), ald:() => 1};
+    a = P.s + Object.keys(sc).map(m => `<path d="${pathOf(range(1, 15, 56).map(ar => [ar, sc[m](ar)]), P.X, P.Y)}" fill="none" stroke="var(--${cols[m]})" stroke-width="${m === UPS.meth ? 2.8 : 1.3}"/>`).join("") + dotSvg(P.X(UPS.ar), P.Y(sc[UPS.meth](UPS.ar))) + P.frame + `<text x="44" y="12" style="fill:var(--metal)">PVD</text><text x="80" y="12" style="fill:var(--accent)">CVD</text><text x="116" y="12" style="fill:var(--channel)">ALD</text>`;
+    const Q = axesR(220, 230, m2, 0, 5, 0, 0.12, 1, 0.03, "precursor dose (a.u.)", "nm/cycle");
+    b = Q.s + `<path d="${pathOf(range(0, 5, 50).map(x => [x, 0.1*(1 - Math.exp(-1.6*x))]), Q.X, Q.Y)}" fill="none" stroke="var(--channel)" stroke-width="2.4"/>` + Q.frame + `<text x="44" y="12" style="fill:var(--channel)">ALD growth per cycle saturates</text>`;
+  } else if (v === "etch"){
+    const E = upEtch(), P = axesR(300, 230, m1, 0, 25, 0, 1, 5, 0.25, "aspect ratio", "ER / ER₀");
+    a = P.s + `<path d="${pathOf(range(0, 25, 50).map(ar => [ar, 1/(1 + ar/UPS.ar0)]), P.X, P.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + E.res.map(r => `<circle cx="${P.X(r.d/r.w)}" cy="${P.Y(1/(1 + r.d/r.w/UPS.ar0))}" r="3.5" fill="var(--hole)"/>`).join("") + P.frame + `<text x="44" y="12" style="fill:var(--accent)">aspect-ratio-dependent etch rate</text>`;
+    const Q = axesR(220, 230, m2, 0, 1, 0, 400, 0.25, 100, "time (a.u.)", "depth (nm)"), cols = ["hole", "accent", "channel", "electron"];
+    b = Q.s + E.res.map((r, i) => `<path d="${pathOf(r.ts.map((t, j) => [t, r.ds[j]]).filter((_, j) => j % 6 === 0), Q.X, Q.Y)}" fill="none" stroke="var(--${cols[i]})" stroke-width="2"/>`).join("") + Q.frame + `<text x="44" y="12" style="fill:var(--fg)">depth: 20, 40, 80, 160 nm</text>`;
+  } else {
+    const Cm = upCmp(), P = axesR(300, 230, m1, 0, 720, 0, 1500, 180, 300, "P × V (psi · rpm)", "nm/min");
+    a = P.s + `<path d="${pathOf([[0, 0], [720, 720*300/180]], P.X, P.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + dotSvg(P.X(UPS.pr*UPS.spd), P.Y(Cm.RR)) + P.frame + `<text x="44" y="12" style="fill:var(--accent)">Preston: removal rate</text>`;
+    const top = Math.max(50, Math.ceil(Cm.top*0.5/50)*50), Q = axesR(220, 230, m2, 0, 100, 0, top, 25, top/4, "line width (µm)", "dishing (nm)");
+    b = Q.s + `<path d="${pathOf(range(0, 100, 50).map(w => [w, Cm.top*0.5*(1 - Math.exp(-w/15))]), Q.X, Q.Y)}" fill="none" stroke="var(--hole)" stroke-width="2.4"/>` + dotSvg(Q.X(50), Q.Y(Cm.maxD)) + Q.frame + `<text x="44" y="12" style="fill:var(--hole)">dishing vs line width</text>`;
+  }
+  $("up-p1").innerHTML = a; $("up-p2").innerHTML = b;
+}
+function upTick(dt){
+  if (!(dt >= 0)) return;
+  UPS.t += dt; UPS.acc += dt;
+  if (UPS.acc > 0.8 && UPS.view === "dep"){ UPS.acc = 0; updateUP(); }
+}
+document.querySelectorAll("#up-view button").forEach(b => b.addEventListener("click", () => { UPS.view = b.dataset.v; UPS.t = 0; updateUP(); }));
+document.querySelectorAll("#up-st button").forEach(b => b.addEventListener("click", () => { UPS.st = b.dataset.s; UPS.t = 0; updateUP(); }));
+document.querySelectorAll("#up-dop button").forEach(b => b.addEventListener("click", () => { UPS.dop = b.dataset.d; updateUP(); }));
+document.querySelectorAll("#up-meth button").forEach(b => b.addEventListener("click", () => { UPS.meth = b.dataset.m; UPS.t = 0; updateUP(); }));
+document.querySelectorAll("#up-fill button").forEach(b => b.addEventListener("click", () => { UPS.fill = b.dataset.f; updateUP(); }));
+[["up-v", "v"], ["up-ar", "ar"], ["up-stick", "stick"], ["up-an", "an"], ["up-sel", "sel"], ["up-ar0", "ar0"], ["up-pr", "pr"], ["up-spd", "spd"], ["up-op", "op"]].forEach(([id, k]) => $(id).addEventListener("input", e => { UPS[k] = +e.target.value; updateUP(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -20338,6 +21271,7 @@ function showTab(t){
   else if (t === "rp"){ $("sub-top").textContent = "Radar DSP · range-Doppler FFT, CFAR detection, angle FFT and point cloud"; RPC.resize(); updateRP(); }
   else if (t === "sp"){ $("sub-top").textContent = "Metrology & SPC · CD-SEM, scatterometry, overlay, control charts and run-to-run control"; SPX.resize(); updateSP(); }
   else if (t === "th"){ $("sub-top").textContent = "Thermal · package resistances, die hot spots, transient heating and throttling"; THC.resize(); updateTH(); }
+  else if (t === "up"){ $("sub-top").textContent = "Unit processes · crystal growth to wafer, deposition, plasma etch and CMP"; UPC.resize(); updateUP(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -20368,6 +21302,7 @@ function frame(now){
   else if (tab === "rp"){ rpTick(dt); if (RPC.cv.clientWidth) drawRP(dt, T); }
   else if (tab === "sp"){ spTick(dt); if (SPX.cv.clientWidth) drawSPM(dt, T); }
   else if (tab === "th"){ thTick(dt); if (THC.cv.clientWidth) drawTH(dt, T); }
+  else if (tab === "up"){ upTick(dt); if (UPC.cv.clientWidth) drawUP(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
