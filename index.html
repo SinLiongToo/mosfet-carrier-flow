@@ -6648,6 +6648,246 @@ Object.assign(window.I18N_ZH, {
 "Feedback from metrology adjusts each lot's recipe, so slow tool drift never reaches the product": "量測回饋調整每一批的配方，讓緩慢的機台漂移永遠不會影響產品",
 "Tools drift: lamps age, chambers collect deposits, consumables wear. Instead of waiting for SPC alarms, modern fabs use run-to-run (R#R) control: after each lot, the measured CD is compared with the target and the recipe of the next lot (here the exposure dose of the scanner) is adjusted. The controller needs an estimate of the disturbance that is not fooled by measurement noise, and the exponentially weighted moving average (EWMA) is the workhorse: each new measurement gets the weight λ, the old estimate # − λ. A small λ filters noise but lags behind a drift; a large λ follows the drift but passes lot-to-lot noise straight into the recipe and, with metrology delay, overshoots. The plot of σ against λ shows the best compromise for the current drift and delay. R#R is used for lithography dose and focus, overlay, etch time, CMP polish time and deposition thickness, often with feed-forward of measurements from earlier steps.": "機台會漂移：燈管老化、腔體累積沉積物、耗材磨損。現代晶圓廠不等 SPC 警報，而是使用批次間（R#R）控制：每批完成後，把量到的 CD 與目標比較，並調整下一批的配方（這裡是曝光機的曝光劑量）。控制器需要一個不會被量測雜訊誤導的擾動估計，指數加權移動平均（EWMA）是主力：每個新量測值的權重是 λ，舊的估計是 # − λ。λ 小能濾掉雜訊，但追不上漂移；λ 大能跟上漂移，卻會把批與批之間的雜訊直接傳進配方，若有量測延遲還會過衝。σ 對 λ 的圖顯示了目前漂移與延遲下的最佳折衷。R#R 用於微影劑量與焦距、疊對、蝕刻時間、CMP 研磨時間與沉積厚度，常常還結合前段步驟量測的前饋。"
 });
+Object.assign(window.I18N_ZH, {
+"Thermal": "熱設計",
+"Thermal · package resistances, die hot spots, transient heating and throttling": "熱設計 · 封裝熱阻、晶粒熱點、暫態升溫與降頻",
+"Package thermal network": "封裝熱網路",
+"Thermal view": "熱設計視圖",
+"Thermal network": "熱網路",
+"Die heat map": "晶粒熱分佈圖",
+"Transient & throttling": "暫態與降頻",
+"Transient &amp; throttling": "暫態與降頻",
+"Transient and throttling": "暫態與降頻",
+"Thermal design: package cross-section coloured by temperature with its resistor network, on-die temperature map, and junction temperature over time with throttling": "熱設計：依溫度著色的封裝剖面與其熱阻網路、晶粒上的溫度分佈，以及含降頻的接面溫度時間變化",
+"Cooling": "散熱",
+"What removes the heat from the top of the package to the air.": "把熱從封裝頂部帶到空氣中的方式。",
+"No heat sink": "無散熱器",
+"Passive fins": "被動鰭片",
+"Fan heat sink": "風扇散熱器",
+"Liquid cold plate": "液冷板",
+"Die-to-lid TIM": "晶粒到上蓋的 TIM",
+"Thermal interface material between the die and the lid (TIM#). It fills the microscopic gaps that would otherwise trap air.": "晶粒與上蓋之間的熱介面材料（TIM#），填補原本會困住空氣的微小間隙。",
+"Thermal grease": "導熱膏",
+"Indium solder": "銦焊料",
+"Liquid metal": "液態金屬",
+"Workload": "工作負載",
+"Which blocks of the chip are busy, and how hard.": "晶片的哪些區塊在忙，以及有多忙。",
+"Idle": "閒置",
+"One core turbo": "單核加速",
+"All cores": "全部核心",
+"Graphics": "繪圖",
+"Load pattern": "負載型態",
+"How the demand changes over time.": "需求隨時間的變化。",
+"Short bursts": "短脈衝",
+"Long bursts": "長脈衝",
+"Sustained": "持續",
+"Chip power": "晶片功率",
+"Total power dissipated by the chip.": "晶片消耗的總功率。",
+"Ambient temperature": "環境溫度",
+"Air temperature around the system.": "系統周圍的空氣溫度。",
+"Die thickness": "晶粒厚度",
+"Silicon thickness after back-grinding. Thick silicon spreads heat sideways and softens hot spots.": "背面研磨後的矽厚度。厚的矽能把熱往側向擴散，緩和熱點。",
+"Throttle temperature": "降頻溫度",
+"Junction temperature at which the chip starts to lower its clock frequency.": "晶片開始降低時脈頻率的接面溫度。",
+"Peak power": "峰值功率",
+"Power at full clock frequency when the chip is cool. Leakage adds more as it heats up.": "晶片冷的時候、全速時脈下的功率。變熱後漏電會再增加。",
+"Junction temperature versus power, temperature profile across the die, or thermal impedance versus time": "接面溫度對功率、跨晶粒的溫度剖面，或熱阻抗對時間",
+"Thermal resistance breakdown, hot spot versus die thickness, or sustained performance per cooling solution": "熱阻組成、熱點對晶粒厚度，或各散熱方案的持續效能",
+"Explain the terms: junction temperature, θJA, θJC, TIM, heat spreading, hot spot, thermal impedance, throttling": "名詞解釋：接面溫度、θJA、θJC、TIM、熱擴散、熱點、熱阻抗、降頻",
+"Where the heat goes": "熱往哪裡去",
+"<b>Transistors</b>: switching and leakage turn almost all electrical power into heat in a thin layer at the top of the silicon.": "<b>電晶體</b>：切換與漏電把幾乎所有電功率在矽頂部的薄層轉成熱。",
+"<b>Die and TIM#</b>: heat crosses the silicon and the thermal interface into the lid.": "<b>晶粒與 TIM#</b>：熱穿過矽與熱介面材料進入上蓋。",
+"<b>Lid and TIM#</b>: the copper lid spreads it out; a second interface couples it to the heat sink.": "<b>上蓋與 TIM#</b>：銅上蓋把熱擴散開；第二層介面把它耦合到散熱器。",
+"<b>Heat sink</b>: fins, a fan or a liquid loop hand it to the air or the coolant.": "<b>散熱器</b>：鰭片、風扇或液冷迴路把熱交給空氣或冷卻液。",
+"<b>Board path</b>: a smaller part flows down through the substrate, the solder balls and the board.": "<b>電路板路徑</b>：較小的一部分向下經過基板、錫球與電路板。",
+"Typical thermal resistances": "典型熱阻",
+"Part": "部位",
+"θ (°C/W)": "θ (°C/W)",
+"Die and lid (θJC)": "晶粒與上蓋（θJC）",
+"#–# for a large CPU": "大型 CPU 為 #–#",
+"Thermal paste (TIM#)": "散熱膏（TIM#）",
+"Tower heat sink with fan": "塔式散熱器加風扇",
+"Liquid cold plate and radiator": "液冷板與散熱排",
+"Phone SoC to ambient": "手機 SoC 到環境",
+"Terms": "名詞",
+"Junction temperature Tj": "接面溫度 Tj",
+"Temperature of the transistors; reliability and leakage depend on it, limits are #–# °C.": "電晶體的溫度；可靠度與漏電都取決於它，上限為 #–# °C。",
+"Thermal resistance θ": "熱阻 θ",
+"Temperature rise per watt of heat flow, in °C/W: the thermal version of Ohm's law.": "每瓦熱流造成的溫升，單位 °C/W：熱的歐姆定律。",
+"θJA, θJC": "θJA、θJC",
+"Junction to ambient, junction to case: the standard package figures in a data sheet.": "接面到環境、接面到外殼：資料表中的標準封裝數值。",
+"TIM": "TIM",
+"Thermal interface material: grease, solder or liquid metal that fills the gap between two surfaces.": "熱介面材料：填補兩個表面間隙的導熱膏、焊料或液態金屬。",
+"Heat spreading": "熱擴散",
+"Sideways conduction in the silicon and the lid that lowers the peak temperature of small hot blocks.": "矽與上蓋中的側向傳導，降低小型高熱區塊的峰值溫度。",
+"Hot spot": "熱點",
+"A small block with high power density, much hotter than the die average.": "功率密度高的小區塊，比晶粒平均溫度熱得多。",
+"Thermal impedance Zth(t)": "熱阻抗 Zth(t)",
+"Temperature rise after a power step, as a function of time; each layer adds a time constant τ = R·C.": "功率階躍後溫升隨時間的變化；每一層增加一個時間常數 τ = R·C。",
+"Throttling": "降頻",
+"Lowering clock frequency and voltage when Tj reaches its limit, to stay safe.": "Tj 到達上限時降低時脈頻率與電壓以保持安全。",
+"θJA": "θJA",
+"Junction temperature": "接面溫度",
+"Heat through the top": "經由頂部的熱",
+"Margin to # °C": "距 # °C 的餘裕",
+"Peak Tj": "峰值 Tj",
+"Die average": "晶粒平均",
+"Hot spot rise": "熱點溫升",
+"Hottest sensor": "最熱的感測器",
+"Tj now": "目前 Tj",
+"Clock now": "目前時脈",
+"Power now": "目前功率",
+"Leakage share": "漏電比例",
+"Junction-to-ambient thermal resistance of the whole system.": "整個系統的接面到環境熱阻。",
+"Temperature of the transistors.": "電晶體的溫度。",
+"Share of the heat that leaves through the lid and heat sink.": "經由上蓋與散熱器離開的熱所占比例。",
+"Distance to the usual junction limit.": "與一般接面溫度上限的距離。",
+"Hottest point of the die.": "晶粒最熱的點。",
+"Mean temperature of the die.": "晶粒的平均溫度。",
+"Peak minus average.": "峰值減平均。",
+"Highest reading of the on-die temperature sensors.": "晶粒上溫度感測器的最高讀數。",
+"Junction temperature at this moment.": "此刻的接面溫度。",
+"Frequency relative to the maximum.": "相對於最大值的頻率。",
+"Dynamic plus leakage power.": "動態功率加漏電功率。",
+"Part of the power that is leakage.": "功率中屬於漏電的部分。",
+"Junction temperature law": "接面溫度定律",
+"Thermal Ohm's law.": "熱的歐姆定律。",
+"Paths in parallel": "並聯路徑",
+"Top path and board path.": "頂部路徑與電路板路徑。",
+"Layer resistance": "層熱阻",
+"Conduction through a slab.": "穿過平板的傳導。",
+"Interface": "介面",
+"Bond line thickness over conductivity.": "接合層厚度除以導熱係數。",
+"Heat equation in the silicon with loss to the lid.": "矽中的熱方程式，熱流失到上蓋。",
+"Spreading length": "擴散長度",
+"Distance over which a hot spot spreads.": "熱點擴散的距離。",
+"Power density": "功率密度",
+"Watts per area of a block.": "區塊每單位面積的瓦數。",
+"Sensor guard band": "感測器保護帶",
+"Sensors read below the true peak.": "感測器讀數低於真實峰值。",
+"Thermal impedance": "熱阻抗",
+"Temperature rise after a power step.": "功率階躍後的溫升。",
+"Time constant": "時間常數",
+"Product of resistance and capacitance.": "熱阻與熱容的乘積。",
+"Dynamic power": "動態功率",
+"Switching power.": "切換功率。",
+"Leakage": "漏電",
+"Grows exponentially with temperature.": "隨溫度指數成長。",
+"Heat flow": "熱流",
+"Power source": "熱源",
+"Bumps": "凸塊",
+"Cool": "冷",
+"Resistor network": "熱阻網路",
+"Hot": "熱",
+"Block outline, sensor ◆, hot spot ⊕": "區塊輪廓、感測器 ◆、熱點 ⊕",
+"Power": "功率",
+"Clock frequency": "時脈頻率",
+"Shaded: throttled or tripped": "陰影：降頻或熱跳脫",
+"Tj = Ta + P · θJA": "Tj = Ta + P · θJA",
+"θ_TIM = BLT / (k_TIM · A) + contact resistance": "θ_TIM = BLT / (k_TIM · A) + 接觸熱阻",
+"die # µm of silicon over # cm²: # °C/W": "晶粒：# µm 厚、# cm² 的矽：# °C/W",
+"thermal grease: # °C/W": "導熱膏：# °C/W",
+"indium solder: # °C/W": "銦焊料：# °C/W",
+"liquid metal: # °C/W": "液態金屬：# °C/W",
+"core #: # W/cm² (a hot plate is about # W/cm²)": "核心 #：# W/cm²（電爐約 # W/cm²）",
+"GPU: # W/cm² (a hot plate is about # W/cm²)": "GPU：# W/cm²（電爐約 # W/cm²）",
+"L# cache: # W/cm² (a hot plate is about # W/cm²)": "L# 快取：# W/cm²（電爐約 # W/cm²）",
+"I/O and memory: # W/cm² (a hot plate is about # W/cm²)": "I/O 與記憶體：# W/cm²（電爐約 # W/cm²）",
+"# °C here: the throttle point is set lower to cover it": "這裡是 # °C：降頻點要設低一些來涵蓋它",
+"die # ms, lid # s, heat sink # s": "晶粒 # ms，上蓋 # s，散熱器 # s",
+"P_dyn = α·C·V²·f ∝ f³ (V scales with f)": "P_dyn = α·C·V²·f ∝ f³（V 隨 f 縮放）",
+"clock # % → # % of the dynamic power": "時脈 # % → 動態功率的 # %",
+"# W at # °C": "# °C 時 # W",
+"Thermal resistor network": "熱阻網路",
+"heat sink": "散熱器",
+"lid": "上蓋",
+"die (Tj)": "晶粒（Tj）",
+"substrate": "基板",
+"board": "電路板",
+"fan": "風扇",
+"coolant in": "冷卻液入",
+"out": "出",
+"Tj = Ta + P·θJA = # + # × # = # °C": "Tj = Ta + P·θJA = # + # × # = # °C",
+"heat up through the lid: # W (# %) · down into the board: # W": "經上蓋向上的熱：# W（# %）· 向下進入電路板：# W",
+"far above the limit: the chip would shut down (thermal trip)": "遠超過上限：晶片會關機（熱跳脫）",
+"above the # °C limit: the chip has to throttle": "超過 # °C 上限：晶片必須降頻",
+"margin to the # °C limit: # °C": "距 # °C 上限的餘裕：# °C",
+"the board path matters for phones and small packages without a heat sink": "對手機與沒有散熱器的小封裝，電路板路徑很重要",
+"ambient: # °C": "環境：# °C",
+"heat sink: # °C": "散熱器：# °C",
+"case (lid): # °C": "外殼（上蓋）：# °C",
+"junction Tj: # °C": "接面 Tj：# °C",
+"board: # °C": "電路板：# °C",
+"θSA heat sink": "θSA 散熱器",
+"θCS TIM#": "θCS TIM#",
+"θJC die+TIM#+lid": "θJC 晶粒+TIM#+上蓋",
+"θJB package": "θJB 封裝",
+"θBA board": "θBA 電路板",
+"Blocks, power and temperature": "區塊、功率與溫度",
+"block": "區塊",
+"max °C": "最高 °C",
+"core #": "核心 #",
+"L# cache": "L# 快取",
+"GPU": "GPU",
+"I/O and memory": "I/O 與記憶體",
+"peak # °C": "峰值 # °C",
+"# °C (lid)": "# °C（上蓋）",
+"total # W · lid # °C": "總計 # W · 上蓋 # °C",
+"die average # °C, peak # °C": "晶粒平均 # °C，峰值 # °C",
+"hot spot # °C above the average": "熱點比平均高 # °C",
+"hottest sensor (◆) reads # °C:": "最熱的感測器（◆）讀數 # °C：",
+"# °C below the real peak": "比真實峰值低 # °C",
+"thermal trip # °C": "熱跳脫 # °C",
+"throttle # °C": "降頻 # °C",
+"power (#–# W)": "功率（#–# W）",
+"clock (% of maximum)": "時脈（最大值的 %）",
+"Foster thermal model": "Foster 熱模型",
+"die + TIM#": "晶粒 + TIM#",
+"lid + TIM#": "上蓋 + TIM#",
+"Tj = Ta + ΣΔT = # °C": "Tj = Ta + ΣΔT = # °C",
+"clock # %, power # W": "時脈 # %，功率 # W",
+"leakage # W (doubles every # °C)": "漏電 # W（每 # °C 加倍）",
+"THERMAL TRIP: chip shut down": "熱跳脫：晶片關機",
+"thermal trips so far: #": "目前熱跳脫次數：#",
+"Tj vs power, # cooling options": "Tj 對功率，# 種散熱方案",
+"power (W)": "功率 (W)",
+"Tj (°C)": "Tj (°C)",
+"where the top θ sits": "頂部熱阻的分佈",
+"% of θ top": "頂部 θ 的 %",
+"die # %": "晶粒 # %",
+"TIM# # %": "TIM# # %",
+"lid # %": "上蓋 # %",
+"sink # %": "散熱器 # %",
+"profile through the hot spot": "通過熱點的剖面",
+"x across the die (mm)": "跨晶粒的 x (mm)",
+"hot spot above average": "熱點高於平均",
+"die thickness (µm)": "晶粒厚度 (µm)",
+"thermal impedance after a power step": "功率階躍後的熱阻抗",
+"log# time (s)": "log# 時間 (s)",
+"log# Zth (°C/W)": "log# Zth (°C/W)",
+"sustained clock per cooling": "各散熱方案的持續時脈",
+"% clock": "時脈 %",
+"none": "無",
+"fins": "鰭片",
+"liquid": "液冷",
+"Package cross-section, coloured by temperature (No heat sink)": "封裝剖面，依溫度著色（無散熱器）",
+"Package cross-section, coloured by temperature (Passive fins)": "封裝剖面，依溫度著色（被動鰭片）",
+"Package cross-section, coloured by temperature (Fan heat sink)": "封裝剖面，依溫度著色（風扇散熱器）",
+"Package cross-section, coloured by temperature (Liquid cold plate)": "封裝剖面，依溫度著色（液冷板）",
+"Die temperature map (# × # mm, idle)": "晶粒溫度分佈（# × # mm，閒置）",
+"Die temperature map (# × # mm, one core turbo)": "晶粒溫度分佈（# × # mm，單核加速）",
+"Die temperature map (# × # mm, all cores)": "晶粒溫度分佈（# × # mm，全部核心）",
+"Die temperature map (# × # mm, graphics)": "晶粒溫度分佈（# × # mm，繪圖）",
+"Junction temperature and clock over time (×# speed, short bursts)": "接面溫度與時脈隨時間變化（× # 倍速，短脈衝）",
+"Junction temperature and clock over time (×# speed, long bursts)": "接面溫度與時脈隨時間變化（× # 倍速，長脈衝）",
+"Junction temperature and clock over time (×# speed, sustained load)": "接面溫度與時脈隨時間變化（× # 倍速，持續負載）",
+"Heat flows from the transistors through the die, the interface materials, the lid and the heat sink to the air, just like current through resistors": "熱從電晶體經過晶粒、介面材料、上蓋與散熱器流到空氣，就像電流流過電阻",
+"Almost every watt a chip consumes becomes heat in the top few micrometres of the silicon, and the junction temperature Tj must stay below about # °C for reliability and leakage. Heat flow follows a thermal version of Ohm's law: a temperature difference drives heat through thermal resistances measured in °C/W, so Tj = Ta + P·θJA. The main path goes up: through the silicon, the first thermal interface material (TIM#) into the copper lid, which spreads the heat, through a second interface (TIM#, the paste you apply) into the heat sink, and from its fins into the air. A smaller path goes down through the package substrate, the solder balls and the circuit board. The resistances add in series along each path, and the two paths act in parallel. For a desktop processor the heat sink usually dominates, so moving from passive fins to a fan or a liquid loop changes the most; the TIM matters next, which is why high-end chips solder the lid to the die with indium. Without a heat sink, a # W chip would be destroyed in seconds, while a phone chip of # W relies mostly on the board path and the case.": "晶片消耗的幾乎每一瓦都在矽頂部幾微米內變成熱，而接面溫度 Tj 必須保持在約 # °C 以下，以確保可靠度並控制漏電。熱流遵循熱版的歐姆定律：溫差驅動熱流通過以 °C/W 計的熱阻，因此 Tj = Ta + P·θJA。主要路徑向上：穿過矽、第一層熱介面材料（TIM#）進入銅上蓋，上蓋把熱擴散開，再經過第二層介面（TIM#，也就是你塗的散熱膏）進入散熱器，最後從鰭片散到空氣中。較小的路徑向下，經過封裝基板、錫球與電路板。每條路徑上的熱阻串聯相加，兩條路徑則是並聯。桌上型處理器通常由散熱器主導，所以從被動鰭片換成風扇或液冷變化最大；其次是 TIM，這就是高階晶片用銦把上蓋焊在晶粒上的原因。沒有散熱器時，# W 的晶片幾秒內就會損壞，而 # W 的手機晶片主要靠電路板路徑與外殼散熱。",
+"Power is not spread evenly: small, busy blocks become hot spots, and the silicon itself spreads the heat sideways": "功率分佈並不平均：小而忙碌的區塊變成熱點，而矽本身會把熱往側向擴散",
+"The package numbers describe the average die temperature, but power is concentrated: a busy core or arithmetic unit can dissipate more than # W/cm², while caches stay cool. Silicon conducts heat well (about # W/m·K), so heat spreads sideways before it crosses the interface into the lid; the spreading distance is roughly √(k·t/g), a few millimetres for a full-thickness wafer of # µm. Thinning the die for #D stacking or for backside power delivery shrinks the spreading and makes hot spots sharper, which is why stacked chips are thermally hard. The map is solved here as a #D heat equation on a # × # grid. Chips carry dozens of digital temperature sensors, but they cannot sit on every hot spot: the sensor closest to the peak may read a few degrees low, so the throttling threshold includes a guard band. Run one core at turbo and compare it with all cores: the single core reaches a higher local peak at a much lower total power, because its heat cannot spread far enough.": "封裝數值描述的是晶粒平均溫度，但功率是集中的：忙碌的核心或運算單元可能超過 # W/cm²，快取則保持低溫。矽的導熱很好（約 # W/m·K），所以熱在穿過介面進入上蓋之前會先往側向擴散；擴散距離大約是 √(k·t/g)，對 # µm 的全厚度晶圓是幾毫米。為了 #D 堆疊或背面供電而把晶粒薄化，會縮短擴散距離、使熱點更尖銳，這就是堆疊晶片散熱困難的原因。這裡的分佈圖是以 #D 熱方程式在 # × # 網格上求解。晶片上有數十個數位溫度感測器，但它們不可能放在每個熱點上：最接近峰值的感測器讀數可能低好幾度，所以降頻門檻要包含保護帶。讓單一核心加速並與全部核心比較：單一核心的總功率低得多，局部峰值卻更高，因為它的熱擴散不夠遠。",
+"Thermal capacitance lets a chip burst above its sustained power for a while; when Tj reaches the limit, the clock comes down": "熱容讓晶片能短暫超過持續功率；當 Tj 到達上限時，時脈就會降低",
+"Temperature does not jump when power changes: each layer has heat capacity as well as resistance, so the thermal impedance Zth(t) rises in steps with time constants from milliseconds (the die) to seconds (the lid) to tens of seconds or minutes (the heat sink). A Foster network of RC pairs reproduces this. It is what makes turbo modes possible: a processor can run far above its sustained power for short bursts while the heat sink is still cool, and only throttle when Tj reaches the limit. Throttling lowers frequency and voltage together, and since dynamic power grows roughly with f·V², a small loss of clock saves a lot of power. Leakage grows exponentially with temperature, roughly doubling every # °C, so a hot chip burns more power for the same work; with poor cooling this feedback can run away, and the last line of defence is the thermal trip at about # °C that shuts the chip down. Compare short bursts, long bursts and sustained load, and see how the cooling solution decides the sustained performance.": "功率改變時溫度不會瞬間跳變：每一層除了熱阻還有熱容，因此熱阻抗 Zth(t) 隨時間分段上升，時間常數從毫秒（晶粒）到秒（上蓋），再到數十秒或數分鐘（散熱器）。由 RC 對組成的 Foster 網路可以重現這個行為。這正是加速模式可行的原因：散熱器還涼的時候，處理器可以短時間遠超過持續功率運行，直到 Tj 到達上限才降頻。降頻會同時降低頻率與電壓，而動態功率大約隨 f·V² 成長，所以時脈稍降就能省下很多功率。漏電隨溫度指數成長，大約每 # °C 加倍，因此熱的晶片做同樣的工作要耗更多功率；散熱不良時這個回饋可能失控，最後一道防線是約 # °C 的熱跳脫，會讓晶片關機。比較短脈衝、長脈衝與持續負載，看看散熱方案如何決定持續效能。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -7018,6 +7258,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-ly" aria-selected="false" aria-controls="tab-ly">Layout</button>
         <button role="tab" id="tab-btn-rp" aria-selected="false" aria-controls="tab-rp">Radar DSP</button>
         <button role="tab" id="tab-btn-sp" aria-selected="false" aria-controls="tab-sp">Metrology & SPC</button>
+        <button role="tab" id="tab-btn-th" aria-selected="false" aria-controls="tab-th">Thermal</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -10205,6 +10446,140 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Western Electric rules</dt><dd>Patterns on a control chart that are unlikely by chance and signal a change in the process.</dd>
               <dt>Cp / Cpk</dt><dd>Process capability: how many 3σ fit between the mean and the nearest spec limit.</dd>
               <dt>Run-to-run (R2R)</dt><dd>Feedback that adjusts the recipe of the next lot from the measurements of earlier lots.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== THERMAL TAB ===================== -->
+  <section id="tab-th" role="tabpanel" aria-labelledby="tab-btn-th" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="th-pill">θJA</span><h2 id="th-name">Package thermal network</h2></div>
+      <p id="th-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="th-view" role="group" aria-label="Thermal view" style="flex-wrap:wrap">
+        <button data-v="net" aria-pressed="true">Thermal network</button>
+        <button data-v="map" aria-pressed="false">Die heat map</button>
+        <button data-v="tr" aria-pressed="false">Transient &amp; throttling</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvth" aria-label="Thermal design: package cross-section coloured by temperature with its resistor network, on-die temperature map, and junction temperature over time with throttling"></canvas>
+      <div class="legend" id="th-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="th-ro"></div>
+        <div id="th-c-cool" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="What removes the heat from the top of the package to the air.">Cooling</span>
+          <div class="chips" id="th-cool">
+            <button class="chipbtn" data-c="none">No heat sink</button>
+            <button class="chipbtn" data-c="fin">Passive fins</button>
+            <button class="chipbtn" data-c="fan">Fan heat sink</button>
+            <button class="chipbtn" data-c="liq">Liquid cold plate</button>
+          </div>
+        </div>
+        <div id="th-c-tim" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Thermal interface material between the die and the lid (TIM1). It fills the microscopic gaps that would otherwise trap air.">Die-to-lid TIM</span>
+          <div class="chips" id="th-tim">
+            <button class="chipbtn" data-t="grease">Thermal grease</button>
+            <button class="chipbtn" data-t="solder">Indium solder</button>
+            <button class="chipbtn" data-t="lm">Liquid metal</button>
+          </div>
+        </div>
+        <div id="th-c-wl" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Which blocks of the chip are busy, and how hard.">Workload</span>
+          <div class="chips" id="th-wl">
+            <button class="chipbtn" data-w="idle">Idle</button>
+            <button class="chipbtn" data-w="one">One core turbo</button>
+            <button class="chipbtn" data-w="all">All cores</button>
+            <button class="chipbtn" data-w="gpu">Graphics</button>
+          </div>
+        </div>
+        <div id="th-c-pat" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="How the demand changes over time.">Load pattern</span>
+          <div class="chips" id="th-pat">
+            <button class="chipbtn" data-p="short">Short bursts</button>
+            <button class="chipbtn" data-p="long">Long bursts</button>
+            <button class="chipbtn" data-p="sus">Sustained</button>
+          </div>
+        </div>
+        <div class="slider" id="th-c-p">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Total power dissipated by the chip.">Chip power</span><span id="th-p-v"></span></div>
+          <input id="th-p" type="range" min="5" max="300" step="5" value="125">
+        </div>
+        <div class="slider" id="th-c-ta">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Air temperature around the system.">Ambient temperature</span><span id="th-ta-v"></span></div>
+          <input id="th-ta" type="range" min="0" max="55" step="1" value="25">
+        </div>
+        <div class="slider" id="th-c-t">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Silicon thickness after back-grinding. Thick silicon spreads heat sideways and softens hot spots.">Die thickness</span><span id="th-t-v"></span></div>
+          <input id="th-t" type="range" min="50" max="775" step="25" value="775">
+        </div>
+        <div class="slider" id="th-c-lim">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Junction temperature at which the chip starts to lower its clock frequency.">Throttle temperature</span><span id="th-lim-v"></span></div>
+          <input id="th-lim" type="range" min="70" max="110" step="1" value="100">
+        </div>
+        <div class="slider" id="th-c-pl">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Power at full clock frequency when the chip is cool. Leakage adds more as it heats up.">Peak power</span><span id="th-pl-v"></span></div>
+          <input id="th-pl" type="range" min="50" max="300" step="5" value="200">
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="th-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Analysis</p>
+        <div class="plots">
+          <div class="plot"><svg id="th-p1" viewBox="0 0 300 230" role="img" aria-label="Junction temperature versus power, temperature profile across the die, or thermal impedance versus time"></svg></div>
+          <div class="plot"><svg id="th-p2" viewBox="0 0 220 230" role="img" aria-label="Thermal resistance breakdown, hot spot versus die thickness, or sustained performance per cooling solution"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="th-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: junction temperature, θJA, θJC, TIM, heat spreading, hot spot, thermal impedance, throttling</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>Where the heat goes</h3>
+            <ol>
+              <li><b>Transistors</b>: switching and leakage turn almost all electrical power into heat in a thin layer at the top of the silicon.</li>
+              <li><b>Die and TIM1</b>: heat crosses the silicon and the thermal interface into the lid.</li>
+              <li><b>Lid and TIM2</b>: the copper lid spreads it out; a second interface couples it to the heat sink.</li>
+              <li><b>Heat sink</b>: fins, a fan or a liquid loop hand it to the air or the coolant.</li>
+              <li><b>Board path</b>: a smaller part flows down through the substrate, the solder balls and the board.</li>
+            </ol>
+            <h3>Typical thermal resistances</h3>
+            <div class="tbl"><table>
+              <tr><th>Part</th><th>θ (°C/W)</th></tr>
+              <tr><td>Die and lid (θJC)</td><td>0.05–0.3 for a large CPU</td></tr>
+              <tr><td>Thermal paste (TIM2)</td><td>0.05–0.1</td></tr>
+              <tr><td>Tower heat sink with fan</td><td>0.15–0.3</td></tr>
+              <tr><td>Liquid cold plate and radiator</td><td>0.08–0.15</td></tr>
+              <tr><td>Phone SoC to ambient</td><td>10–20</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>Junction temperature Tj</dt><dd>Temperature of the transistors; reliability and leakage depend on it, limits are 85–125 °C.</dd>
+              <dt>Thermal resistance θ</dt><dd>Temperature rise per watt of heat flow, in °C/W: the thermal version of Ohm's law.</dd>
+              <dt>θJA, θJC</dt><dd>Junction to ambient, junction to case: the standard package figures in a data sheet.</dd>
+              <dt>TIM</dt><dd>Thermal interface material: grease, solder or liquid metal that fills the gap between two surfaces.</dd>
+              <dt>Heat spreading</dt><dd>Sideways conduction in the silicon and the lid that lowers the peak temperature of small hot blocks.</dd>
+              <dt>Hot spot</dt><dd>A small block with high power density, much hotter than the die average.</dd>
+              <dt>Thermal impedance Zth(t)</dt><dd>Temperature rise after a power step, as a function of time; each layer adds a time constant τ = R·C.</dd>
+              <dt>Throttling</dt><dd>Lowering clock frequency and voltage when Tj reaches its limit, to stay safe.</dd>
             </dl>
           </div>
         </div>
@@ -19654,12 +20029,278 @@ document.querySelectorAll("#sp-inst button").forEach(b => b.addEventListener("cl
 document.querySelectorAll("#sp-sc button").forEach(b => b.addEventListener("click", () => { SPS.sc = b.dataset.s; SPS.t = 0; updateSP(); }));
 [["sp-cd", "cd"], ["sp-frames", "frames"], ["sp-ler", "ler"], ["sp-h", "h"], ["sp-tr", "tr"], ["sp-rot", "rot"], ["sp-mag", "mag"], ["sp-spec", "spec"], ["sp-drift", "drift"], ["sp-lam", "lam"], ["sp-delay", "delay"]].forEach(([id, k]) => $(id).addEventListener("input", e => { SPS[k] = +e.target.value; updateSP(); }));
 
+/* ===================== THERMAL TAB ===================== */
+// Package: series/parallel thermal resistances (top path through TIM1, lid, TIM2, heat sink; bottom path through the board).
+// Die map: 2D heat spreading in the silicon (k·t) with vertical conductance to the lid, solved by SOR on a 64 × 48 grid.
+// Transient: Foster RC network with leakage that grows with temperature, DVFS throttling and thermal trip.
+const THC = setupCanvas($("cvth"), 1000, 488);
+const THS = {view:"net", cool:"fan", tim:"grease", wl:"all", pat:"long", p:125, ta:25, t:775, lim:100, pl:200, sim:null, acc:0, map:null, Tw:null};
+const TH_COOL = {none:{n:"No heat sink", sa:6, tau:300}, fin:{n:"Passive fins", sa:0.9, tau:150}, fan:{n:"Fan heat sink", sa:0.25, tau:40}, liq:{n:"Liquid cold plate", sa:0.12, tau:60}};
+const TH_TIM = {grease:{n:"Thermal grease", r:0.15}, solder:{n:"Indium solder", r:0.04}, lm:{n:"Liquid metal", r:0.03}};
+const TH_AREA = 3e-4, TH_K = 130, TH_LID = 0.02, TH_TIM2 = 0.08, TH_JB = 2.5, TH_BA = 6;
+const thDie = () => THS.t*1e-6/(TH_K*TH_AREA);
+function thNet(P, cool){
+  const sa = TH_COOL[cool || THS.cool].sa, top = thDie() + TH_TIM[THS.tim].r + TH_LID + TH_TIM2 + sa, bot = TH_JB + TH_BA, ja = 1/(1/top + 1/bot);
+  const Tj = THS.ta + P*ja, Pt = (Tj - THS.ta)/top, Pb = P - Pt, Ts = THS.ta + Pt*sa, Tc = Ts + Pt*TH_TIM2, Tl = Tc + Pt*TH_LID, Td = Tl + Pt*TH_TIM[THS.tim].r, Tbd = THS.ta + Pb*TH_BA;
+  return {top, bot, ja, jc:thDie() + TH_TIM[THS.tim].r + TH_LID, sa, Tj, Pt, Pb, Ts, Tc, Tl, Td, Tbd, Tsub:Tbd + Pb*TH_JB*0.5};
+}
+function thCol(T, lo = 20, hi = 120){
+  const v = clamp((T - lo)/(hi - lo), 0, 1), S = [[0, [40, 70, 200]], [0.35, [40, 190, 210]], [0.6, [240, 210, 60]], [0.8, [240, 120, 40]], [1, [200, 30, 40]]];
+  let i = 0; while (i < S.length - 2 && v > S[i + 1][0]) i++;
+  const [a, ca] = S[i], [b, cb] = S[i + 1], f = (v - a)/(b - a); return `rgb(${ca.map((x, j) => Math.round(x + (cb[j] - x)*f))})`;
+}
+
+/* ---------------- die heat map ---------------- */
+const TH_NX = 64, TH_NY = 48, TH_DX = 20/TH_NX;
+const TH_BLK = [
+  ...[0, 1, 2, 3].flatMap(i => [{n:`core ${i + 1}`, k:"core", x:0.8 + 3.2*i, y:0.8, w:2.8, h:3.5}, {n:`core ${i + 5}`, k:"core", x:0.8 + 3.2*i, y:10.7, w:2.8, h:3.5}]),
+  {n:"L3 cache", k:"cache", x:0.8, y:4.8, w:12.4, h:5.4}, {n:"GPU", k:"gpu", x:13.8, y:0.8, w:5.4, h:9.4}, {n:"I/O and memory", k:"io", x:13.8, y:10.7, w:5.4, h:3.5}];
+const TH_WL = {idle:{n:"Idle", core:[0.6], cache:1.5, gpu:1, io:2}, one:{n:"One core turbo", core:[16, 1, 1, 1, 1, 1, 1, 1], cache:5, gpu:1, io:4},
+  all:{n:"All cores", core:[13], cache:9, gpu:2, io:6}, gpu:{n:"Graphics", core:[2.5], cache:6, gpu:70, io:8}};
+function thBlockP(b, i){ const w = TH_WL[THS.wl]; if (b.k === "core"){ const c = w.core; return c.length > 1 ? c[i] : c[0]; } return w[b.k]; }
+function thSolve(tUm, Tb, warm){
+  const NX = TH_NX, NY = TH_NY, dx = TH_DX*1e-3, q = new Float64Array(NX*NY), a = TH_K*tUm*1e-6;
+  const R2 = TH_TIM[THS.tim].r*TH_AREA + tUm*1e-6/TH_K, G = dx*dx/R2, cell = (x, y) => [Math.floor(x/TH_DX), Math.floor(y/TH_DX)];
+  const add = (x, y, w, h, P) => { const [i0, j0] = cell(x, y), [i1, j1] = cell(x + w, y + h), n = (i1 - i0)*(j1 - j0); for (let j = j0; j < j1; j++) for (let i = i0; i < i1; i++) q[j*NX + i] += P/n; };
+  TH_BLK.forEach((b, i) => { const P = thBlockP(b, i);
+    if (b.k === "core"){ add(b.x, b.y, b.w, b.h, 0.6*P); add(b.x + 0.9, b.y + (b.y < 5 ? 1.8 : 0.5), 1.0, 1.2, 0.4*P); } else add(b.x, b.y, b.w, b.h, P); });
+  const T = warm && warm.length === NX*NY ? Float64Array.from(warm) : new Float64Array(NX*NY).fill(Tb), w = 1.9;
+  for (let it = 0; it < 450; it++) for (let j = 0; j < NY; j++) for (let i = 0; i < NX; i++){
+    const k = j*NX + i; let s = 0, n = 0;
+    if (i > 0){ s += T[k - 1]; n++; } if (i < NX - 1){ s += T[k + 1]; n++; } if (j > 0){ s += T[k - NX]; n++; } if (j < NY - 1){ s += T[k + NX]; n++; }
+    const Tn = (a*s + G*Tb + q[k])/(n*a + G); T[k] += w*(Tn - T[k]);
+  }
+  let mx = 0, mi = 0, sum = 0; for (let k = 0; k < NX*NY; k++){ sum += T[k]; if (T[k] > mx){ mx = T[k]; mi = k; } }
+  return {T, q, max:mx, mi, avg:sum/(NX*NY), Ptot:q.reduce((s, x) => s + x, 0)};
+}
+function thMap(){
+  const Ptot = TH_BLK.reduce((s, b, i) => s + thBlockP(b, i), 0), sa = TH_COOL[THS.cool].sa, Tb = THS.ta + Ptot*(TH_LID + TH_TIM2 + sa);
+  const S = thSolve(THS.t, Tb, THS.Tw); THS.Tw = S.T; S.Tb = Tb;
+  S.blocks = TH_BLK.map((b, i) => { let m = -1e9; const i0 = Math.floor(b.x/TH_DX), i1 = Math.floor((b.x + b.w)/TH_DX), j0 = Math.floor(b.y/TH_DX), j1 = Math.floor((b.y + b.h)/TH_DX);
+    for (let j = j0; j < j1; j++) for (let ii = i0; ii < i1; ii++) m = Math.max(m, S.T[j*TH_NX + ii]); return {...b, P:thBlockP(b, i), Tmax:m}; });
+  S.sensors = TH_BLK.map(b => b.k === "core" ? [b.x + 0.35, b.y + (b.y < 5 ? 0.35 : b.h - 0.35)] : [b.x + b.w/2, b.y + b.h/2]).map(([x, y]) => ({x, y, T:S.T[Math.floor(y/TH_DX)*TH_NX + Math.floor(x/TH_DX)]}));
+  S.sweep = [50, 100, 200, 400, 775].map(t => { const r = thSolve(t, Tb, THS.Tw); return [t, r.max - r.avg]; });
+  return S;
+}
+const TH_OFF = document.createElement("canvas");
+function thPaintMap(S, lo, hi){
+  TH_OFF.width = TH_NX; TH_OFF.height = TH_NY; const c = TH_OFF.getContext("2d"), im = c.createImageData(TH_NX, TH_NY);
+  for (let k = 0; k < TH_NX*TH_NY; k++){ const m = thCol(S.T[k], lo, hi).match(/\d+/g); im.data[4*k] = +m[0]; im.data[4*k + 1] = +m[1]; im.data[4*k + 2] = +m[2]; im.data[4*k + 3] = 255; }
+  c.putImageData(im, 0, 0);
+}
+
+/* ---------------- transient ---------------- */
+function thFoster(cool){ const c = TH_COOL[cool || THS.cool]; return [[thDie() + TH_TIM[THS.tim].r, 0.05], [TH_LID + TH_TIM2, 2], [c.sa, c.tau]]; }
+function thBusy(t){ const p = THS.pat; if (p === "sus") return true; const [on, off] = p === "short" ? [2, 4] : [30, 30]; return (t % (on + off)) < on; }
+function thStep(s, h, cool){
+  const F = thFoster(cool), Tj = THS.ta + s.T.reduce((a, b) => a + b, 0), busy = thBusy(s.t);
+  if (s.trip > 0){ s.trip -= h; s.f = 0; } else if (Tj > 125){ s.trip = 8; s.f = 0; s.trips++; }
+  else if (busy) s.f = clamp(s.f + h*0.08*(THS.lim - Tj), 0.35, 1); else s.f = 0.3;
+  const leak = s.trip > 0 ? 0 : 0.15*THS.pl*Math.max(s.f, 0.3)*Math.pow(2, (Tj - 80)/20), dyn = s.trip > 0 ? 0 : busy ? 0.85*THS.pl*s.f*s.f*s.f : 0.04*THS.pl, P = dyn + leak;
+  s.T = s.T.map((Ti, i) => Ti + (P*F[i][0] - Ti)*(1 - Math.exp(-h/F[i][1])));
+  s.t += h; s.P = P; s.leak = leak; s.Tj = THS.ta + s.T.reduce((a, b) => a + b, 0); s.busy = busy;
+  return s;
+}
+const thNewSim = () => ({t:0, T:[0, 0, 0], f:1, trip:0, trips:0, P:0, leak:0, Tj:THS.ta, busy:true, hist:[]});
+function thSustained(cool){
+  const s = thNewSim(); let fs = 0, n = 0; const pat = THS.pat; THS.pat = "sus";
+  for (let k = 0; k < 6000; k++){ thStep(s, 0.1, cool); if (k >= 3000){ fs += s.f; n++; } }
+  THS.pat = pat; return fs/n;
+}
+
+/* ---------------- drawing ---------------- */
+function drawTHnet(T){
+  const N = THS.net, cool = THS.cool, hot = Math.max(120, N.Tj);
+  panel(20, 20, 520, 450, `Package cross-section, coloured by temperature (${TH_COOL[cool].n})`);
+  const lay = (x, y, w, h, Tt) => { ctx.fillStyle = thCol(Tt, THS.ta, hot); ctx.fillRect(x, y, w, h); ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.strokeRect(x + .5, y + .5, w, h); };
+  if (cool === "fin" || cool === "fan"){ for (let i = 0; i < 16; i++) lay(110 + i*22, 52, 8, 46, N.Ts); lay(100, 96, 360, 16, N.Ts);
+    if (cool === "fan"){ ctx.strokeStyle = C.fg; ctx.lineWidth = 2; const a = T*12; for (let b = 0; b < 3; b++){ const ang = a + b*2.094; pl([[470, 60], [470 + 22*Math.cos(ang), 60 + 8*Math.sin(ang)]]); } txt("fan", 500, 60, {px:9}); } }
+  else if (cool === "liq"){ lay(140, 74, 280, 38, N.Ts); ctx.strokeStyle = C.electron; ctx.lineWidth = 6; pl([[160, 74], [160, 50], [70, 50]]); pl([[400, 74], [400, 50], [500, 50]]); txt("coolant in", 72, 40, {px:9}); txt("out", 500, 40, {al:"right", px:9}); }
+  lay(140, 112, 280, 5, N.Tc);
+  lay(100, 117, 360, 30, N.Tl); lay(100, 147, 18, 58, N.Tl); lay(442, 147, 18, 58, N.Tl);
+  lay(190, 147, 180, 5, N.Td); lay(190, 152, 180, 26, N.Tj);
+  for (let i = 0; i < 18; i++){ ctx.fillStyle = C.metal; ctx.beginPath(); ctx.arc(196 + i*10, 182, 3, 0, 6.283); ctx.fill(); }
+  lay(80, 186, 400, 22, N.Tsub); for (let i = 0; i < 14; i++){ ctx.fillStyle = thCol((N.Tsub + N.Tbd)/2, THS.ta, hot); ctx.beginPath(); ctx.arc(100 + i*28, 216, 7, 0, 6.283); ctx.fill(); ctx.strokeStyle = C.muted; ctx.stroke(); }
+  lay(40, 224, 480, 26, N.Tbd);
+  const L = (s, y, Tt) => { txt(s, 530, y, {al:"right", px:10, col:C.fg}); txt(`${Tt.toFixed(0)} °C`, 530, y + 13, {al:"right", px:10, w:700, col:thCol(Tt, THS.ta, hot)}); };
+  if (cool !== "none") L("heat sink", 76, N.Ts); L("lid", 124, N.Tl); L("die (Tj)", 160, N.Tj); L("substrate", 190, N.Tsub); L("board", 260, N.Tbd);
+  // heat flow particles
+  const up = Math.round(N.Pt/12), dn = Math.round(N.Pb/12);
+  for (let i = 0; i < Math.min(14, up); i++){ const f = (T*0.6 + i/Math.max(1, up)) % 1, x = 205 + (i*37) % 150, y = 165 - f*(cool === "none" ? 60 : 120); ctx.fillStyle = C.hole; ctx.globalAlpha = 1 - f*0.7; ctx.beginPath(); ctx.arc(x, y, 2.6, 0, 6.283); ctx.fill(); }
+  for (let i = 0; i < Math.min(8, dn); i++){ const f = (T*0.6 + i/Math.max(1, dn)) % 1, x = 215 + (i*41) % 140, y = 175 + f*70; ctx.fillStyle = C.hole; ctx.globalAlpha = 1 - f*0.7; ctx.beginPath(); ctx.arc(x, y, 2.4, 0, 6.283); ctx.fill(); }
+  ctx.globalAlpha = 1;
+  const Tj = N.Tj;
+  txt(`Tj = Ta + P·θJA = ${THS.ta} + ${THS.p} × ${N.ja.toFixed(3)} = ${Tj.toFixed(1)} °C`, 40, 296, {px:12, w:700, col: Tj > 105 ? C.hole : C.fg});
+  txt(`heat up through the lid: ${N.Pt.toFixed(0)} W (${(N.Pt/THS.p*100).toFixed(0)} %) · down into the board: ${N.Pb.toFixed(1)} W`, 40, 320, {px:11});
+  txt(Tj > 125 ? "far above the limit: the chip would shut down (thermal trip)" : Tj > 105 ? "above the 105 °C limit: the chip has to throttle" : `margin to the 105 °C limit: ${(105 - Tj).toFixed(0)} °C`, 40, 344, {px:11, w:700, col: Tj > 105 ? C.hole : C.channel});
+  for (let i = 0; i < 50; i++){ ctx.fillStyle = thCol(THS.ta + (hot - THS.ta)*i/49, THS.ta, hot); ctx.fillRect(40 + i*9, 380, 9.5, 12); }
+  txt(`${THS.ta} °C`, 40, 404, {px:9}); txt(`${hot.toFixed(0)} °C`, 490, 404, {al:"right", px:9});
+  txt("the board path matters for phones and small packages without a heat sink", 40, 440, {px:10});
+  // resistor network
+  panel(560, 20, 420, 450, "Thermal resistor network");
+  const x = 700, nodes = [[60, "ambient", THS.ta], [150, "heat sink", N.Ts], [225, "case (lid)", N.Tc], [300, "junction Tj", N.Tj], [380, "board", N.Tbd], [455, "ambient", THS.ta]];
+  const res = (y0, y1, name, val) => { const m = (y0 + y1)/2; ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; pl([[x, y0], [x, m - 18]]); const zz = []; for (let i = 0; i <= 6; i++) zz.push([x + (i % 2 ? 8 : -8)*(i > 0 && i < 6 ? 1 : 0), m - 18 + i*6]); pl(zz); pl([[x, m + 18], [x, y1]]);
+    txt(name, x - 18, m - 6, {al:"right", px:10, col:C.fg}); txt(`${val.toFixed(val < 1 ? 3 : 1)} °C/W`, x - 18, m + 8, {al:"right", px:10}); };
+  res(60, 150, "θSA heat sink", N.sa); res(150, 225, "θCS TIM2", TH_TIM2); res(225, 300, "θJC die+TIM1+lid", N.jc); res(300, 380, "θJB package", TH_JB); res(380, 455, "θBA board", TH_BA);
+  nodes.forEach(([y, n, Tn]) => { ctx.fillStyle = thCol(Tn, THS.ta, hot); ctx.beginPath(); ctx.arc(x, y, 6, 0, 6.283); ctx.fill(); txt(`${n}: ${Tn.toFixed(1)} °C`, x + 14, y, {px:10, w:700, col:C.fg}); });
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x - 90, 300, 14, 0, 6.283); ctx.stroke(); pl([[x - 90, 308], [x - 90, 292]]); pl([[x - 95, 297], [x - 90, 292], [x - 85, 297]]); pl([[x - 76, 300], [x - 6, 300]]);
+  txt(`P = ${THS.p} W`, x - 90, 326, {al:"center", px:11, w:700, col:C.accent});
+  txt(`↑ ${N.Pt.toFixed(0)} W`, x + 80, 190, {px:11, w:700, col:C.hole}); txt(`↓ ${N.Pb.toFixed(1)} W`, x + 80, 415, {px:11, w:700, col:C.hole});
+}
+function drawTHmap(T){
+  const S = THS.map, k = 26, x0 = 40, y0 = 52, lo = S.Tb, hi = Math.max(S.max, lo + 5);
+  panel(20, 20, 560, 450, `Die temperature map (20 × 15 mm, ${TH_WL[THS.wl].n.toLowerCase()})`);
+  ctx.imageSmoothingEnabled = true; ctx.drawImage(TH_OFF, x0, y0, 20*k, 15*k);
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, y0 + .5, 20*k, 15*k);
+  S.blocks.forEach(b => { ctx.strokeStyle = "rgba(255,255,255,.75)"; ctx.lineWidth = 1.2; ctx.strokeRect(x0 + b.x*k, y0 + b.y*k, b.w*k, b.h*k);
+    txt(b.n, x0 + (b.x + b.w/2)*k, y0 + (b.y + b.h/2)*k + (b.k === "core" ? (b.y < 5 ? 26 : -26) : -16), {al:"center", px:10, w:700, col:"#ffffff"}); });
+  S.sensors.forEach(s => { const sx = x0 + s.x*k, sy = y0 + s.y*k; ctx.fillStyle = "#ffffff"; ctx.beginPath(); ctx.moveTo(sx, sy - 5); ctx.lineTo(sx + 5, sy); ctx.lineTo(sx, sy + 5); ctx.lineTo(sx - 5, sy); ctx.closePath(); ctx.fill(); });
+  const hx = x0 + ((S.mi % TH_NX) + 0.5)*TH_DX*k, hy = y0 + (Math.floor(S.mi/TH_NX) + 0.5)*TH_DX*k;
+  ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(hx, hy, 10, 0, 6.283); ctx.stroke(); pl([[hx - 16, hy], [hx - 6, hy]]); pl([[hx + 6, hy], [hx + 16, hy]]);
+  txt(`peak ${S.max.toFixed(1)} °C`, hx + (hx > 400 ? -18 : 18), hy - 14, {al: hx > 400 ? "right" : "left", px:11, w:700, col:"#ffffff"});
+  for (let i = 0; i < 50; i++){ ctx.fillStyle = thCol(lo + (hi - lo)*i/49, lo, hi); ctx.fillRect(x0 + i*10.4, 452, 10.6, 10); }
+  txt(`${lo.toFixed(0)} °C (lid)`, x0, 444, {px:9}); txt(`${hi.toFixed(0)} °C`, x0 + 520, 444, {al:"right", px:9});
+  panel(600, 20, 380, 450, "Blocks, power and temperature");
+  txt("block", 616, 52, {px:10, w:700, col:C.fg}); txt("W", 800, 52, {al:"right", px:10, w:700, col:C.fg}); txt("W/cm²", 870, 52, {al:"right", px:10, w:700, col:C.fg}); txt("max °C", 960, 52, {al:"right", px:10, w:700, col:C.fg});
+  S.blocks.forEach((b, i) => { const y = 74 + i*20; txt(b.n, 616, y, {px:10}); txt(b.P.toFixed(1), 800, y, {al:"right", px:10}); txt((b.P/(b.w*b.h)*100).toFixed(0), 870, y, {al:"right", px:10}); txt(b.Tmax.toFixed(1), 960, y, {al:"right", px:10, w:700, col:thCol(b.Tmax, lo, hi)}); });
+  const sMax = Math.max(...S.sensors.map(s => s.T)), y = 74 + S.blocks.length*20 + 14;
+  [[`total ${S.Ptot.toFixed(0)} W · lid ${S.Tb.toFixed(1)} °C`, C.fg], [`die average ${S.avg.toFixed(1)} °C, peak ${S.max.toFixed(1)} °C`, C.fg],
+   [`hot spot ${(S.max - S.avg).toFixed(1)} °C above the average`, C.hole], [`hottest sensor (◆) reads ${sMax.toFixed(1)} °C:`, C.fg], [`${(S.max - sMax).toFixed(1)} °C below the real peak`, C.muted]].forEach(([t, c], i) => txt(t, 616, y + i*20, {px:10, w: i === 2 ? 700 : 500, col:c}));
+}
+function drawTHtr(T){
+  const s = THS.sim, H = s.hist, tn = s.t, t0 = Math.max(0, tn - 120);
+  panel(20, 20, 640, 450, `Junction temperature and clock over time (×4 speed, ${({short:"short bursts", long:"long bursts", sus:"sustained load"})[THS.pat]})`);
+  const x0 = 70, w = 560, X = t => x0 + (t - t0)/120*w, yTop = 50, hT = 200, Thi = Math.max(THS.lim + 25, 130), Y = v => yTop + hT - (clamp(v, THS.ta, Thi) - THS.ta)/(Thi - THS.ta)*hT;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, yTop + .5, w, hT);
+  H.forEach((p, i) => { if (i && p.trip){ ctx.globalAlpha = .15; ctx.fillStyle = C.hole; ctx.fillRect(X(H[i - 1].t), yTop, X(p.t) - X(H[i - 1].t) + 0.5, hT); ctx.globalAlpha = 1; }
+    else if (i && p.busy && p.f < 0.99){ ctx.globalAlpha = .08; ctx.fillStyle = C.accent; ctx.fillRect(X(H[i - 1].t), yTop, X(p.t) - X(H[i - 1].t) + 0.5, hT); ctx.globalAlpha = 1; } });
+  for (let v = Math.ceil(THS.ta/20)*20; v <= Thi; v += 20) txt(`${v}`, x0 - 5, Y(v), {al:"right", px:9});
+  ctx.strokeStyle = C.hole; ctx.setLineDash([5, 3]); pl([[x0, Y(THS.lim)], [x0 + w, Y(THS.lim)]]); pl([[x0, Y(125)], [x0 + w, Y(125)]]); ctx.setLineDash([]);
+  txt(`throttle ${THS.lim} °C`, x0 + w - 4, Y(THS.lim) - 8, {al:"right", px:9, col:C.hole}); txt("thermal trip 125 °C", x0 + w - 4, Y(125) - 8, {al:"right", px:9, col:C.hole});
+  ctx.strokeStyle = C.hole; ctx.lineWidth = 2; pl(H.map(p => [X(p.t), Y(p.Tj)]));
+  const y1 = 290, h1 = 140, Pm = Math.max(THS.pl*1.6, 50), Yp = v => y1 + h1 - clamp(v/Pm, 0, 1)*h1, Yf = v => y1 + h1 - v*h1;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, y1 + .5, w, h1);
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 1.8; pl(H.map(p => [X(p.t), Yp(p.P)]));
+  ctx.strokeStyle = C.channel; ctx.lineWidth = 1.8; pl(H.map(p => [X(p.t), Yf(p.f)]));
+  txt(`power (0–${Pm.toFixed(0)} W)`, x0, y1 - 10, {px:10, col:C.accent}); txt("clock (% of maximum)", x0 + w, y1 - 10, {al:"right", px:10, col:C.channel});
+  txt("100 %", x0 - 5, y1 + 4, {al:"right", px:9}); txt("0", x0 - 5, y1 + h1 - 4, {al:"right", px:9});
+  for (let k2 = Math.ceil(t0/20)*20; k2 <= tn; k2 += 20) txt(`${k2} s`, X(k2), y1 + h1 + 12, {al:"center", px:9});
+  panel(680, 20, 300, 450, "Foster thermal model");
+  const F = thFoster(), names = ["die + TIM1", "lid + TIM2", "heat sink"], yy = [90, 190, 290];
+  let Tacc = THS.ta + s.T[0] + s.T[1] + s.T[2];
+  F.forEach(([R, tau], i) => { const y = yy[i]; ctx.strokeStyle = C.fg; ctx.lineWidth = 1.5; ctx.strokeRect(710.5, y - 22.5, 70, 45); ctx.strokeRect(800.5, y - 22.5, 40, 45);
+    txt("R", 745, y, {al:"center", px:12, w:700, col:C.fg}); txt("C", 820, y, {al:"center", px:12, w:700, col:C.fg});
+    txt(names[i], 852, y - 14, {px:10, w:700, col:C.fg}); txt(`R ${R.toFixed(R < 1 ? 3 : 2)} °C/W`, 852, y + 2, {px:9}); txt(`τ ${tau < 1 ? (tau*1000).toFixed(0) + " ms" : tau + " s"}`, 852, y + 16, {px:9});
+    txt(`ΔT ${s.T[i].toFixed(1)} °C`, 745, y + 36, {al:"center", px:10, col:C.hole}); });
+  ctx.strokeStyle = C.muted; pl([[745, 112], [745, 168]]); pl([[745, 212], [745, 268]]);
+  [[`Tj = Ta + ΣΔT = ${Tacc.toFixed(1)} °C`, C.fg], [`clock ${(s.f*100).toFixed(0)} %, power ${s.P.toFixed(0)} W`, C.fg], [`leakage ${s.leak.toFixed(0)} W (doubles every 20 °C)`, C.muted], [s.trip > 0 ? "THERMAL TRIP: chip shut down" : `thermal trips so far: ${s.trips}`, s.trip > 0 || s.trips ? C.hole : C.muted]].forEach(([t2, c], i) => txt(t2, 700, 360 + i*22, {px:10, w: i === 0 || (i === 3 && s.trip > 0) ? 700 : 500, col:c}));
+}
+function drawTH(dt, T){
+  begin(THC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488);
+  if (THS.view === "net") drawTHnet(T); else if (THS.view === "map") drawTHmap(T); else drawTHtr(T);
+}
+
+/* ---------------- DOM ---------------- */
+const THINFO = {
+  net:{pill:"θJA", name:"Package thermal network", sub:"Heat flows from the transistors through the die, the interface materials, the lid and the heat sink to the air, just like current through resistors",
+    text:"Almost every watt a chip consumes becomes heat in the top few micrometres of the silicon, and the junction temperature Tj must stay below about 105 °C for reliability and leakage. Heat flow follows a thermal version of Ohm's law: a temperature difference drives heat through thermal resistances measured in °C/W, so Tj = Ta + P·θJA. The main path goes up: through the silicon, the first thermal interface material (TIM1) into the copper lid, which spreads the heat, through a second interface (TIM2, the paste you apply) into the heat sink, and from its fins into the air. A smaller path goes down through the package substrate, the solder balls and the circuit board. The resistances add in series along each path, and the two paths act in parallel. For a desktop processor the heat sink usually dominates, so moving from passive fins to a fan or a liquid loop changes the most; the TIM matters next, which is why high-end chips solder the lid to the die with indium. Without a heat sink, a 125 W chip would be destroyed in seconds, while a phone chip of 5 W relies mostly on the board path and the case."},
+  map:{pill:"MAP", name:"Die heat map", sub:"Power is not spread evenly: small, busy blocks become hot spots, and the silicon itself spreads the heat sideways",
+    text:"The package numbers describe the average die temperature, but power is concentrated: a busy core or arithmetic unit can dissipate more than 100 W/cm², while caches stay cool. Silicon conducts heat well (about 130 W/m·K), so heat spreads sideways before it crosses the interface into the lid; the spreading distance is roughly √(k·t/g), a few millimetres for a full-thickness wafer of 775 µm. Thinning the die for 3D stacking or for backside power delivery shrinks the spreading and makes hot spots sharper, which is why stacked chips are thermally hard. The map is solved here as a 2D heat equation on a 64 × 48 grid. Chips carry dozens of digital temperature sensors, but they cannot sit on every hot spot: the sensor closest to the peak may read a few degrees low, so the throttling threshold includes a guard band. Run one core at turbo and compare it with all cores: the single core reaches a higher local peak at a much lower total power, because its heat cannot spread far enough."},
+  tr:{pill:"Zth", name:"Transient and throttling", sub:"Thermal capacitance lets a chip burst above its sustained power for a while; when Tj reaches the limit, the clock comes down",
+    text:"Temperature does not jump when power changes: each layer has heat capacity as well as resistance, so the thermal impedance Zth(t) rises in steps with time constants from milliseconds (the die) to seconds (the lid) to tens of seconds or minutes (the heat sink). A Foster network of RC pairs reproduces this. It is what makes turbo modes possible: a processor can run far above its sustained power for short bursts while the heat sink is still cool, and only throttle when Tj reaches the limit. Throttling lowers frequency and voltage together, and since dynamic power grows roughly with f·V², a small loss of clock saves a lot of power. Leakage grows exponentially with temperature, roughly doubling every 20 °C, so a hot chip burns more power for the same work; with poor cooling this feedback can run away, and the last line of defence is the thermal trip at about 125 °C that shuts the chip down. Compare short bursts, long bursts and sustained load, and see how the cooling solution decides the sustained performance."}
+};
+Object.assign(TIP, {
+  "θJA":"Junction-to-ambient thermal resistance of the whole system.", "Junction temperature":"Temperature of the transistors.", "Heat through the top":"Share of the heat that leaves through the lid and heat sink.", "Margin to 105 °C":"Distance to the usual junction limit.",
+  "Peak Tj":"Hottest point of the die.", "Die average":"Mean temperature of the die.", "Hot spot rise":"Peak minus average.", "Hottest sensor":"Highest reading of the on-die temperature sensors.",
+  "Tj now":"Junction temperature at this moment.", "Clock now":"Frequency relative to the maximum.", "Power now":"Dynamic plus leakage power.", "Leakage share":"Part of the power that is leakage.",
+  "Junction temperature law":"Thermal Ohm's law.", "Paths in parallel":"Top path and board path.", "Layer resistance":"Conduction through a slab.", "Interface":"Bond line thickness over conductivity.",
+  "Heat spreading":"Heat equation in the silicon with loss to the lid.", "Spreading length":"Distance over which a hot spot spreads.", "Power density":"Watts per area of a block.", "Sensor guard band":"Sensors read below the true peak.",
+  "Thermal impedance":"Temperature rise after a power step.", "Time constant":"Product of resistance and capacitance.", "Dynamic power":"Switching power.", "Leakage":"Grows exponentially with temperature."
+});
+const THLEG = {
+  net:[["hole","Heat flow"],["accent","Power source"],["metal","Bumps"],["electron","Cool"],["fg","Resistor network"]],
+  map:[["hole","Hot"],["electron","Cool"],["fg","Block outline, sensor ◆, hot spot ⊕"]],
+  tr:[["hole","Junction temperature"],["accent","Power"],["channel","Clock frequency"],["muted","Shaded: throttled or tripped"]]
+};
+const thChip = (sel, attr, on) => document.querySelectorAll(sel).forEach(b => { const o = on(b.dataset[attr]); b.setAttribute("aria-pressed", o); b.style.borderColor = o ? "var(--accent)" : ""; b.style.color = o ? "var(--accent)" : ""; });
+function updateTH(){
+  const v = THS.view, info = THINFO[v];
+  $("th-pill").textContent = info.pill; $("th-name").textContent = info.name; $("th-sub").textContent = info.sub; $("th-explain").textContent = info.text;
+  document.querySelectorAll("#th-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  thChip("#th-cool button", "c", c => c === THS.cool); thChip("#th-tim button", "t", t => t === THS.tim); thChip("#th-wl button", "w", w => w === THS.wl); thChip("#th-pat button", "p", p => p === THS.pat);
+  const vis = {cool:true, tim:true, wl:v === "map", pat:v === "tr", p:v === "net", ta:true, t:v === "map", lim:v === "tr", pl:v === "tr"};
+  Object.entries(vis).forEach(([k, on]) => $(`th-c-${k}`).hidden = !on);
+  $("th-p-v").textContent = `${THS.p} W`; $("th-ta-v").textContent = `${THS.ta} °C`; $("th-t-v").textContent = `${THS.t} µm`; $("th-lim-v").textContent = `${THS.lim} °C`; $("th-pl-v").textContent = `${THS.pl} W`;
+  setHTML("th-legend", THLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  let ro, eq;
+  if (v === "net"){ const N = THS.net = thNet(THS.p);
+    ro = [["θJA", `${N.ja.toFixed(3)} °C/W`], ["Junction temperature", `${N.Tj.toFixed(1)} °C`], ["Heat through the top", `${(N.Pt/THS.p*100).toFixed(0)} %`], ["Margin to 105 °C", `${(105 - N.Tj).toFixed(0)} °C`]];
+    eq = [{name:"Junction temperature law", f:"Tj = Ta + P · θJA", sub:`${THS.ta} + ${THS.p} × ${N.ja.toFixed(3)} = ${N.Tj.toFixed(1)} °C`},
+      {name:"Paths in parallel", f:"θJA = (θJC + θCS + θSA) ∥ (θJB + θBA)", sub:`${N.top.toFixed(3)} ∥ ${N.bot.toFixed(1)} °C/W`},
+      {name:"Layer resistance", f:"θ = t / (k · A)", sub:`die ${THS.t} µm of silicon over 3 cm²: ${thDie().toFixed(3)} °C/W`},
+      {name:"Interface", f:"θ_TIM = BLT / (k_TIM · A) + contact resistance", sub:`${TH_TIM[THS.tim].n.toLowerCase()}: ${TH_TIM[THS.tim].r} °C/W`}];
+  } else if (v === "map"){ const S = THS.map = thMap(); thPaintMap(S, S.Tb, Math.max(S.max, S.Tb + 5));
+    const sMax = Math.max(...S.sensors.map(s => s.T)), g = 1/(TH_TIM[THS.tim].r*TH_AREA), Ls = Math.sqrt(TH_K*THS.t*1e-6/g)*1e3, hotB = S.blocks.reduce((a, b) => b.P/(b.w*b.h) > a.P/(a.w*a.h) ? b : a);
+    ro = [["Peak Tj", `${S.max.toFixed(1)} °C`], ["Die average", `${S.avg.toFixed(1)} °C`], ["Hot spot rise", `${(S.max - S.avg).toFixed(1)} °C`], ["Hottest sensor", `${sMax.toFixed(1)} °C`]];
+    eq = [{name:"Heat spreading", f:"k·t·∇²T − g·(T − T_lid) + q = 0", sub:`k = 130 W/m·K, t = ${THS.t} µm, g = 1/R″_TIM1`},
+      {name:"Spreading length", f:"L = √(k · t / g)", sub:`L ≈ ${Ls.toFixed(1)} mm`},
+      {name:"Power density", f:"q = P_block / A_block", sub:`${hotB.n}: ${(hotB.P/(hotB.w*hotB.h)*100).toFixed(0)} W/cm² (a hot plate is about 10 W/cm²)`},
+      {name:"Sensor guard band", f:"T_peak − T_sensor", sub:`${(S.max - sMax).toFixed(1)} °C here: the throttle point is set lower to cover it`}];
+  } else { if (!THS.sim) THS.sim = thNewSim(); const s = THS.sim, F = thFoster();
+    ro = [["Tj now", `${s.Tj.toFixed(1)} °C`], ["Clock now", `${(s.f*100).toFixed(0)} %`], ["Power now", `${s.P.toFixed(0)} W`], ["Leakage share", `${s.P > 0 ? (s.leak/s.P*100).toFixed(0) : 0} %`]];
+    eq = [{name:"Thermal impedance", f:"Zth(t) = Σ R_i · (1 − e^(−t/τ_i))", sub:`R = ${F.map(f => f[0].toFixed(2)).join(" + ")} °C/W`},
+      {name:"Time constant", f:"τ = R · C", sub:`die ${F[0][1]*1000} ms, lid ${F[1][1]} s, heat sink ${F[2][1]} s`},
+      {name:"Dynamic power", f:"P_dyn = α·C·V²·f ∝ f³  (V scales with f)", sub:`clock ${(s.f*100).toFixed(0)} % → ${(Math.pow(s.f, 3)*100).toFixed(0)} % of the dynamic power`},
+      {name:"Leakage", f:"P_leak ∝ V · 2^((Tj − 80 °C) / 20 °C)", sub:`${s.leak.toFixed(0)} W at ${s.Tj.toFixed(0)} °C`}];
+    if (!THS.sus || THS.susKey !== [THS.cool, THS.tim, THS.pl, THS.lim, THS.ta].join()){ THS.sus = Object.keys(TH_COOL).map(c => [c, thSustained(c)]); THS.susKey = [THS.cool, THS.tim, THS.pl, THS.lim, THS.ta].join(); }
+  }
+  renderRo($("th-ro"), ro); renderEq($("th-eq"), eq);
+  drawTHPlots(v);
+}
+function drawTHPlots(v){
+  let a, b; const m1 = {l:38,r:10,t:28,b:30}, m2 = {l:38,r:8,t:28,b:30};
+  if (v === "net"){
+    const P = axesR(300, 230, m1, 0, 300, 0, 150, 50, 25, "power (W)", "Tj (°C)"), cols = {none:"muted", fin:"electron", fan:"accent", liq:"channel"};
+    a = P.s + `<line x1="${P.X(0)}" x2="${P.X(300)}" y1="${P.Y(105)}" y2="${P.Y(105)}" stroke="var(--hole)" stroke-dasharray="4 3"/>`
+      + Object.keys(TH_COOL).map(c => `<path d="${pathOf(range(0, 300, 60).map(p => [p, thNet(p, c).Tj]), P.X, P.Y)}" fill="none" stroke="var(--${cols[c]})" stroke-width="${c === THS.cool ? 2.6 : 1.4}"/>`).join("")
+      + dotSvg(P.X(THS.p), P.Y(THS.net.Tj)) + P.frame + `<text x="44" y="12" style="fill:var(--fg)">Tj vs power, 4 cooling options</text>`;
+    const N = THS.net, parts = [["die", thDie(), "si"], ["TIM1", TH_TIM[THS.tim].r, "accent"], ["lid", TH_LID, "metal"], ["TIM2", TH_TIM2, "channel"], ["sink", N.sa, "electron"]], tot = parts.reduce((s, p) => s + p[1], 0);
+    const Q = axesR(220, 230, m2, 0, 1, 0, 100, 1, 25, "", "% of θ top");
+    let acc = 0; b = Q.s + parts.map(([n, r, c]) => { const y0 = acc; acc += r/tot*100; return `<rect x="${Q.X(0.2)}" y="${Q.Y(acc)}" width="${Q.X(0.6) - Q.X(0.2)}" height="${Q.Y(y0) - Q.Y(acc)}" fill="var(--${c})" opacity=".85"/><text x="${Q.X(0.65)}" y="${(Q.Y(y0) + Q.Y(acc))/2 + 3}">${n} ${(r/tot*100).toFixed(0)} %</text>`; }).join("") + Q.frame + `<text x="44" y="12" style="fill:var(--fg)">where the top θ sits</text>`;
+  } else if (v === "map"){
+    const S = THS.map, row = Math.floor(S.mi/TH_NX), prof = Array.from({length:TH_NX}, (_, i) => [(i + 0.5)*TH_DX, S.T[row*TH_NX + i]]), lo = Math.floor(S.Tb/5)*5, hi = Math.ceil((S.max + 1)/5)*5;
+    const P = axesR(300, 230, m1, 0, 20, lo, hi, 5, Math.max(1, (hi - lo)/5), "x across the die (mm)", "°C");
+    a = P.s + `<path d="${pathOf(prof, P.X, P.Y)}" fill="none" stroke="var(--hole)" stroke-width="2.4"/>` + P.frame + `<text x="44" y="12" style="fill:var(--hole)">profile through the hot spot</text>`;
+    const top = Math.max(5, Math.ceil(Math.max(...S.sweep.map(d => d[1]))/5)*5), Q = axesR(220, 230, m2, 0, 800, 0, top, 200, top/5, "die thickness (µm)", "°C");
+    b = Q.s + `<path d="${pathOf(S.sweep, Q.X, Q.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + S.sweep.map(([t, d]) => `<circle cx="${Q.X(t)}" cy="${Q.Y(d)}" r="2.5" fill="var(--accent)"/>`).join("") + dotSvg(Q.X(THS.t), Q.Y(S.sweep.reduce((p, c) => Math.abs(c[0] - THS.t) < Math.abs(p[0] - THS.t) ? c : p)[1])) + Q.frame + `<text x="44" y="12" style="fill:var(--accent)">hot spot above average</text>`;
+  } else {
+    const Fz = c => thFoster(c), z = (F, t) => F.reduce((s, [R, tau]) => s + R*(1 - Math.exp(-t/tau)), 0), cols = {none:"muted", fin:"electron", fan:"accent", liq:"channel"};
+    const P = axesR(300, 230, m1, -3, 3, -2, 1, 1, 1, "log10 time (s)", "log10 Zth (°C/W)");
+    a = P.s + Object.keys(TH_COOL).map(c => `<path d="${pathOf(range(-3, 3, 60).map(l => [l, Math.log10(z(Fz(c), Math.pow(10, l)))]), P.X, P.Y)}" fill="none" stroke="var(--${cols[c]})" stroke-width="${c === THS.cool ? 2.6 : 1.3}"/>`).join("") + P.frame + `<text x="44" y="12" style="fill:var(--fg)">thermal impedance after a power step</text>`;
+    const Q = axesR(220, 230, m2, 0, 4, 0, 100, 1, 25, "", "% clock"), labs = {none:"none", fin:"fins", fan:"fan", liq:"liquid"};
+    b = Q.s + THS.sus.map(([c, f], i) => `<rect x="${Q.X(i + 0.2)}" y="${Q.Y(f*100)}" width="${Q.X(0.6) - Q.X(0)}" height="${Q.Y(0) - Q.Y(f*100)}" fill="var(--${cols[c]})" opacity="${c === THS.cool ? 1 : .55}"/><text x="${Q.X(i + 0.5)}" y="${Q.Y(0) + 14}" text-anchor="middle">${labs[c]}</text><text x="${Q.X(i + 0.5)}" y="${Q.Y(f*100) - 4}" text-anchor="middle">${(f*100).toFixed(0)}</text>`).join("") + Q.frame + `<text x="44" y="12" style="fill:var(--fg)">sustained clock per cooling</text>`;
+  }
+  $("th-p1").innerHTML = a; $("th-p2").innerHTML = b;
+}
+function thTick(dt){
+  if (!(dt >= 0)) return;
+  if (THS.view === "tr"){ if (!THS.sim) THS.sim = thNewSim(); const s = THS.sim, h = dt*4;
+    thStep(s, h); s.hist.push({t:s.t, Tj:s.Tj, P:s.P, f:s.f, busy:s.busy, trip:s.trip > 0}); while (s.hist.length && s.hist[0].t < s.t - 120) s.hist.shift();
+    THS.acc += dt; if (THS.acc > 0.5){ THS.acc = 0; updateTH(); } }
+}
+document.querySelectorAll("#th-view button").forEach(b => b.addEventListener("click", () => { THS.view = b.dataset.v; updateTH(); }));
+document.querySelectorAll("#th-cool button").forEach(b => b.addEventListener("click", () => { THS.cool = b.dataset.c; updateTH(); }));
+document.querySelectorAll("#th-tim button").forEach(b => b.addEventListener("click", () => { THS.tim = b.dataset.t; updateTH(); }));
+document.querySelectorAll("#th-wl button").forEach(b => b.addEventListener("click", () => { THS.wl = b.dataset.w; updateTH(); }));
+document.querySelectorAll("#th-pat button").forEach(b => b.addEventListener("click", () => { THS.pat = b.dataset.p; THS.sim = null; updateTH(); }));
+[["th-p", "p"], ["th-ta", "ta"], ["th-t", "t"], ["th-lim", "lim"], ["th-pl", "pl"]].forEach(([id, k]) => $(id).addEventListener("input", e => { THS[k] = +e.target.value; updateTH(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -19696,6 +20337,7 @@ function showTab(t){
   else if (t === "ly"){ $("sub-top").textContent = "Layout · standard cell, cross-section along a cut line, DRC and LVS"; LYC.resize(); updateLY(); }
   else if (t === "rp"){ $("sub-top").textContent = "Radar DSP · range-Doppler FFT, CFAR detection, angle FFT and point cloud"; RPC.resize(); updateRP(); }
   else if (t === "sp"){ $("sub-top").textContent = "Metrology & SPC · CD-SEM, scatterometry, overlay, control charts and run-to-run control"; SPX.resize(); updateSP(); }
+  else if (t === "th"){ $("sub-top").textContent = "Thermal · package resistances, die hot spots, transient heating and throttling"; THC.resize(); updateTH(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -19725,6 +20367,7 @@ function frame(now){
   else if (tab === "ly"){ lyTick(dt); if (LYC.cv.clientWidth) drawLY(dt, T); }
   else if (tab === "rp"){ rpTick(dt); if (RPC.cv.clientWidth) drawRP(dt, T); }
   else if (tab === "sp"){ spTick(dt); if (SPX.cv.clientWidth) drawSPM(dt, T); }
+  else if (tab === "th"){ thTick(dt); if (THC.cv.clientWidth) drawTH(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);

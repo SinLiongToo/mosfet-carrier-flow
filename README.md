@@ -125,6 +125,11 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - AiP and LiP views compare antennas on the PCB, AiP and LiP: loss budget (transition, line, antenna efficiency), realized gain and relative radar range vs elements per antenna and chip-to-antenna distance
 - **Interconnects at 77 GHz** – bond-wire inductance vs bump: reactance, |S21| vs frequency, I/O count of edge pads vs area bumps
 
+## Thermal tab (`#thermal`)
+- **Thermal network** – package cross-section coloured by temperature, heat flow up through TIM1, lid, TIM2 and heat sink and down through the board, resistor network with node temperatures, four cooling options and three TIMs, Tj vs power
+- **Die heat map** – 2D heat-spreading solution on a CPU floorplan (cores, cache, GPU, I/O) for four workloads, hot spot vs die thickness, on-die sensors reading below the true peak
+- **Transient & throttling** – Foster RC model, live Tj, power and clock under burst or sustained load, leakage feedback, DVFS throttling, thermal trip at 125 °C, Zth(t) and sustained clock per cooling solution
+
 ## Yield & WAT tab (`#yield`)
 - **Wafer map & WAT sites** – CP bin map of every die next to 5/9/13/21 WAT sites; eight failure signatures (random, edge ring, donut, center, gradient, reticle repeat, scratch, probe-card site); right-hand map of the true ΔVth, the WAT surface fit, a ring-oscillator proxy calibrated on WAT, or the inline defect scan; radial profile, RO calibration, and a diagnosis with edge / per-tester-site / per-reticle-position yields
 - **Yield models** – clustered random defects on a wafer vs Poisson, Murphy and negative binomial; dies per wafer and good dies vs die size
