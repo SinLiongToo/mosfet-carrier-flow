@@ -96,6 +96,10 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Transistor aging** – NBTI interface traps, HCI damage near the drain, TDDB oxide traps; ΔVth vs time, ring-oscillator slowdown, Weibull TDDB and the maximum VDD for 10 years / 100 ppm
 - **Qualification** – HTOL oven with a burn-in board, Arrhenius and voltage acceleration, chi-square FIT bound at 60/90/95 % confidence, MTTF, Weibull plot with β, AEC-Q100 grades
 
+## Layout tab (`#layout`)
+- **Layout ↔ cross-section** – CMOS inverter standard cell in λ (n-well, active, n+/p+, poly, contacts, metal 1, VDD/VSS rails, well taps); drag a horizontal or vertical cut line and the wafer cross-section along it is computed live from the layers; layer visibility toggles
+- **Design rules (DRC, LVS)** – λ rules (poly width and endcap, contact-to-gate, metal spacing, enclosures), switchable layout errors flagged on the layout, LVS net extraction compared with the schematic; transistor density and number of design rules vs node
+
 ## Lithography tab (`#lithography`)
 - **Aerial image & resolution** – diffraction orders through the lens pupil (KrF, ArF immersion, EUV, High-NA EUV), partially coherent 1D imaging, resist threshold and printed CD, k1, smallest pitch λ/(NA(1+σ)), depth of focus; contrast vs pitch and Bossung curves
 - **Multiple patterning** – single exposure, LELE, SADP and SAQP step by step, pitch walking from overlay or mandrel CD error, relative cost per layer

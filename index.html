@@ -5972,6 +5972,162 @@ Object.assign(window.I18N_ZH, {
 "Nobody can wait # years to find out whether a chip lasts. Qualification instead accelerates the wear-out mechanisms. In the high-temperature operating life test (HTOL) a sample of parts, for AEC-Q# three lots of #, runs at # °C and raised voltage for # hours. The Arrhenius law with the activation energy of the expected mechanism, and a voltage term, turn each test hour into many hours of use: the acceleration factor. Multiplying parts, hours and acceleration gives equivalent device-hours. With zero failures, the chi-square distribution gives an upper bound on the failure rate at a chosen confidence: λ ≤ χ²(CL, #f + #)/(#·N·t·AF), expressed in FIT, failures per #⁹ device-hours. Every failure that does occur pushes the bound up. Field and test failures are analysed on a Weibull plot, where the slope β tells the story: β < # means early (infant) failures that burn-in should remove, β ≈ # random failures and β > # wear-out. AEC-Q# adds many more stresses: temperature cycling, humidity (HAST), ESD, latch-up and early-life failure rate.": "沒有人能等 # 年才知道晶片能撐多久。驗證改為加速老化機制。在高溫操作壽命測試（HTOL）中，一批樣品（AEC-Q# 為三批、每批 # 顆）在 # °C 與提高的電壓下運作 # 小時。用預期機制的活化能代入阿瑞尼斯定律，再加上電壓項，就能把每個測試小時換算成許多使用小時：這就是加速因子。元件數、時數與加速因子相乘，得到等效元件小時。若零失效，卡方分布可在選定信賴度下給出失效率上限：λ ≤ χ²(CL, #f + #)/(#·N·t·AF)，以 FIT（每 #⁹ 元件小時的失效數）表示。每多一個失效，上限就提高。測試與現場失效會畫在 Weibull 圖上分析，斜率 β 說明一切：β < # 代表早期（早夭）失效，應由預燒移除；β ≈ # 是隨機失效；β > # 是老化。AEC-Q# 還包含許多其他應力：溫度循環、濕度（HAST）、ESD、閂鎖與早期失效率。"
 });
 Object.assign(window.I18N_ZH, {"Fab & yield": "製程與良率", "Package & reliability": "封裝與可靠度"});
+Object.assign(window.I18N_ZH, {
+"Layout": "佈局",
+"Layout · standard cell, cross-section along a cut line, DRC and LVS": "佈局 · 標準單元、沿切線的剖面、DRC 與 LVS",
+"Layout and cross-section": "佈局與剖面",
+"Layout ↔ cross-section": "佈局 ↔ 剖面",
+"Design rules (DRC, LVS)": "設計規則（DRC、LVS）",
+"Design rules (DRC and LVS)": "設計規則（DRC 與 LVS）",
+"Layout view": "佈局視圖",
+"Top-view layout of a CMOS inverter cell with a movable cut line, and the cross-section of the wafer along that line": "CMOS 反相器單元的俯視佈局，可移動的切線，以及沿該線的晶圓剖面",
+"Cut direction": "切線方向",
+"Direction of the cut line. Drag it on the layout or use the slider.": "切線的方向。可在佈局上拖曳，或用滑桿調整。",
+"Horizontal cut": "水平切線",
+"Vertical cut": "垂直切線",
+"Cut position": "切線位置",
+"Position of the cut line in units of λ (half the minimum gate length).": "切線位置，以 λ（最小閘極長度的一半）為單位。",
+"Layers shown": "顯示的層",
+"Each layer of the layout becomes one mask. Hide layers to see what is underneath.": "佈局的每一層都變成一道光罩。隱藏某些層可以看到下面的內容。",
+"n-well": "n 井",
+"Active": "主動區",
+"Poly": "多晶矽",
+"Contact": "接觸窗",
+"Metal #": "金屬 #",
+"Layout errors": "佈局錯誤",
+"Introduce typical layout mistakes and watch the design-rule check (DRC) and layout-versus-schematic check (LVS) catch them.": "加入典型的佈局錯誤，看設計規則檢查（DRC）與佈局對電路圖檢查（LVS）如何抓到它們。",
+"Short poly endcap": "多晶矽端蓋太短",
+"Contact too close to gate": "接觸窗離閘極太近",
+"Missing drain contact": "缺少汲極接觸窗",
+"Metal spacing too small": "金屬間距太小",
+"Logic transistor density versus process node": "邏輯電晶體密度對製程節點",
+"Number of design rules versus process node": "設計規則數量對製程節點",
+"Explain the terms: layout, GDS, mask layer, λ rules, standard cell, DRC, LVS, well tap": "名詞解釋：佈局、GDS、光罩層、λ 規則、標準單元、DRC、LVS、井接點",
+"From layout to masks": "從佈局到光罩",
+"<b>Draw</b>: each layer of the layout is a set of polygons (the GDSII or OASIS file).": "<b>繪製</b>：佈局的每一層是一組多邊形（GDSII 或 OASIS 檔）。",
+"<b>Check</b>: DRC checks every width, space and enclosure; LVS extracts the circuit and compares it with the schematic.": "<b>檢查</b>：DRC 檢查每個寬度、間距與包覆；LVS 萃取電路並與電路圖比較。",
+"<b>Tape out</b>: the checked layout goes to the mask shop, often after OPC.": "<b>下線</b>：檢查過的佈局送到光罩廠，通常會先做 OPC。",
+"<b>Masks</b>: each layer becomes one or more photomasks, used in the process flow.": "<b>光罩</b>：每一層變成一道或多道光罩，用在製程流程中。",
+"Layers of this cell": "這個單元的層",
+"Layer": "層",
+"Becomes": "變成",
+"Process step": "製程步驟",
+"n-type region for the PMOS": "PMOS 的 n 型區域",
+"Well implant": "井區植入",
+"Silicon islands (everything else is STI)": "矽島（其餘都是 STI）",
+"STI litho and etch": "STI 微影與蝕刻",
+"Gates and short wires": "閘極與短導線",
+"Gate patterning": "閘極圖形化",
+"Source/drain doping": "源/汲極摻雜",
+"S/D implants": "源/汲極植入",
+"Tungsten plugs to active and poly": "連到主動區與多晶矽的鎢栓",
+"Contact etch and fill": "接觸窗蝕刻與填充",
+"First copper wiring, VDD and VSS rails": "第一層銅導線、VDD 與 VSS 電源線",
+"M# damascene": "M# 鑲嵌",
+"Terms": "名詞",
+"The top-view drawing of every layer of a chip; a transistor is where poly crosses active.": "晶片每一層的俯視圖；多晶矽跨過主動區的地方就是一顆電晶體。",
+"File formats that hold the polygons of a layout.": "存放佈局多邊形的檔案格式。",
+"λ rules": "λ 規則",
+"Scalable design rules: every width and space is a multiple of λ, half the minimum gate length.": "可縮放的設計規則：每個寬度與間距都是 λ（最小閘極長度的一半）的倍數。",
+"Standard cell": "標準單元",
+"A small fixed-height layout (inverter, NAND, flip-flop) with VDD and VSS rails at the top and bottom, so cells abut in rows.": "固定高度的小佈局（反相器、NAND、正反器），上下有 VDD 與 VSS 電源線，讓單元能並排成列。",
+"Poly endcap": "多晶矽端蓋",
+"Extension of the gate beyond the active area, so the gate still cuts the channel if the masks are slightly misaligned.": "閘極延伸超出主動區的部分，即使光罩稍有錯位，閘極仍能切斷通道。",
+"Design-rule check: thousands of geometric rules that keep the layout manufacturable.": "設計規則檢查：數千條幾何規則，確保佈局能製造。",
+"Layout versus schematic: the extracted devices and connections must match the circuit.": "佈局對電路圖：萃取出的元件與連接必須與電路一致。",
+"Well tap": "井接點",
+"Contacts that tie the n-well to VDD and the substrate to VSS, against latch-up.": "把 n 井接到 VDD、基板接到 VSS 的接觸，用來防止閂鎖。",
+"A chip is drawn from the top, layer by layer; the process flow turns each layer into a mask. Drag the cut line to see the wafer underneath": "晶片從上方一層一層畫出來；製程流程把每一層變成一道光罩。拖曳切線看下面的晶圓",
+"Every width, space and overlap must follow the rules of the process, and the drawn circuit must match the schematic": "每個寬度、間距與重疊都必須符合製程規則，畫出的電路也必須與電路圖一致",
+"Active (silicon)": "主動區（矽）",
+"n+ / n-well": "n+ / n 井",
+"p+ / cut line": "p+ / 切線",
+"STI and dielectric": "STI 與介電層",
+"DRC violation": "DRC 違規",
+"Cut line": "切線",
+"Transistors crossed": "經過的電晶體",
+"Mask layers": "光罩層數",
+"Cell size": "單元尺寸",
+"DRC violations": "DRC 違規數",
+"LVS result": "LVS 結果",
+"Gate length": "閘極長度",
+"Transistor widths": "電晶體寬度",
+"Lambda rules": "λ 規則",
+"Transistor from layout": "從佈局看電晶體",
+"Rules checked": "檢查的規則",
+"Extracted netlist": "萃取的網表",
+"Position and direction of the cut.": "切線的位置與方向。",
+"Gates (poly over active) that the cut line passes.": "切線經過的閘極（主動區上的多晶矽）。",
+"Layers in this cell; each one becomes a photomask.": "這個單元的層數；每一層變成一道光罩。",
+"Width × height of the cell in λ.": "單元的寬 × 高（λ）。",
+"Number of design-rule violations in the layout.": "佈局中的設計規則違規數。",
+"Whether the extracted circuit matches the schematic.": "萃取出的電路是否與電路圖一致。",
+"Width of the poly line over the active area.": "主動區上方多晶矽線的寬度。",
+"Height of the active area under the gate for each device.": "每個元件閘極下方主動區的高度。",
+"Scalable design rules in units of λ.": "以 λ 為單位的可縮放設計規則。",
+"How W and L are read from the layout.": "如何從佈局讀出 W 與 L。",
+"Kinds of geometric rules a DRC deck contains.": "DRC 規則集包含的幾何規則種類。",
+"Devices and connections that LVS reads from the layout.": "LVS 從佈局讀出的元件與連接。",
+"y = # λ": "y = # λ",
+"x = # λ": "x = # λ",
+"none": "無",
+"# × # λ": "# × # λ",
+"match": "一致",
+"mismatch": "不一致",
+"# λ": "# λ",
+"N # λ · P # λ": "N # λ · P # λ",
+"every dimension = n · λ, λ = L_min / #": "每個尺寸 = n · λ，λ = L_min / #",
+"λ = # µm for a # µm process: this cell is # × # µm": "{1} µm 製程的 λ = {0} µm：這個單元為 {2} × {3} µm",
+"L = poly width, W = active width under the gate": "L = 多晶矽寬度，W = 閘極下方的主動區寬度",
+"NMOS W/L = #λ / #λ, PMOS #λ / #λ: the PMOS is wider because holes are slower": "NMOS W/L = #λ / #λ，PMOS #λ / #λ：電洞較慢，所以 PMOS 較寬",
+"width · spacing · enclosure · extension · density": "寬度 · 間距 · 包覆 · 延伸 · 密度",
+"all rules met": "符合所有規則",
+"MN: D = out, G = in, S = VSS · MP: D = out, G = in, S = VDD": "MN：D = out，G = in，S = VSS · MP：D = out，G = in，S = VDD",
+"LVS clean: layout matches the schematic": "LVS 通過：佈局與電路圖一致",
+"poly endcap ≥ # λ: # λ": "多晶矽端蓋 ≥ # λ：# λ",
+"contact to gate ≥ # λ: # λ": "接觸窗到閘極 ≥ # λ：# λ",
+"metal # spacing ≥ # λ: # λ": "金屬 # 間距 ≥ # λ：# λ",
+"MP D: floating instead of out": "MP D：浮接，應為 out",
+"Layout (top view)": "佈局（俯視圖）",
+"drag the cut line": "拖曳切線",
+"Cross-section along the horizontal cut at # λ": "沿 # λ 水平切線的剖面",
+"Cross-section along the vertical cut at # λ": "沿 # λ 垂直切線的剖面",
+"NMOS gate": "NMOS 閘極",
+"PMOS gate": "PMOS 閘極",
+"metal #": "金屬 #",
+"contacts": "接觸窗",
+"p-substrate": "p 型基板",
+"n-well (upper half of the cell)": "n 井（單元上半部）",
+"left edge of the cell": "單元左緣",
+"right edge": "右緣",
+"bottom edge of the cell": "單元下緣",
+"top edge": "上緣",
+"Design-rule check and layout versus schematic": "設計規則檢查與佈局對電路圖",
+"DRC: clean": "DRC：通過",
+"DRC: # violations": "DRC：# 個違規",
+"DRC: # violation": "DRC：# 個違規",
+"poly width ≥ # λ": "多晶矽寬度 ≥ # λ",
+"poly endcap ≥ # λ": "多晶矽端蓋 ≥ # λ",
+"contact to gate ≥ # λ": "接觸窗到閘極 ≥ # λ",
+"metal # spacing ≥ # λ": "金屬 # 間距 ≥ # λ",
+"active encloses contact ≥ # λ": "主動區包覆接觸窗 ≥ # λ",
+"n-well encloses p+ active ≥ # λ": "n 井包覆 p+ 主動區 ≥ # λ",
+"→ poly endcap ≥ # λ: measured # λ": "→ 多晶矽端蓋 ≥ # λ：量到 # λ",
+"→ contact to gate ≥ # λ: measured # λ": "→ 接觸窗到閘極 ≥ # λ：量到 # λ",
+"→ metal # spacing ≥ # λ: measured # λ": "→ 金屬 # 間距 ≥ # λ：量到 # λ",
+"LVS: match": "LVS：一致",
+"LVS: mismatch": "LVS：不一致",
+"extracted from the layout:": "從佈局萃取：",
+"MP (pmos) D = floating G = in S = VDD": "MP（pmos） D = 浮接 G = in S = VDD",
+"schematic: MN D = out G = in S = VSS · MP D = out G = in S = VDD": "電路圖：MN D = out G = in S = VSS · MP D = out G = in S = VDD",
+"→ MP D: floating instead of out": "→ MP D：浮接，應為 out",
+"log# node (nm)": "log# 節點 (nm)",
+"logic transistor density": "邏輯電晶體密度",
+"log# rules": "log# 規則數",
+"design rules (approx.)": "設計規則（約）",
+"Designers never draw cross-sections: they draw the layout, a top view made of polygons on separate layers, saved as a GDSII or OASIS file. Each layer becomes a photomask used in one step of the process flow. Active marks the silicon islands, everything else becomes shallow-trench oxide; poly crossing active makes a transistor whose channel length is the poly width and whose width is the active width under it; n+ and p+ implant layers decide which transistors are NMOS and PMOS; the n-well holds the PMOS; contacts connect metal # to active and poly; and metal # carries the VDD and VSS rails and the wiring. This inverter is a standard cell: fixed height, power rails at the top and bottom, input and output pins in metal, and well taps that tie the n-well to VDD and the substrate to VSS. Thousands of such cells are placed in rows by software and wired together in the metal layers above. The cross-section on the right is computed from the layout under the cut line, exactly the way the fab builds it: drag the line across the gate, the contacts or the taps to see each layer stack.": "設計者從不畫剖面圖：他們畫的是佈局，一張由多邊形組成、分成許多層的俯視圖，存成 GDSII 或 OASIS 檔。每一層變成製程流程中某個步驟用的光罩。主動區標出矽島，其餘地方都變成淺溝槽氧化層；多晶矽跨過主動區就形成一顆電晶體，通道長度是多晶矽的寬度，通道寬度是下方主動區的寬度；n+ 與 p+ 植入層決定哪些是 NMOS、哪些是 PMOS；n 井容納 PMOS；接觸窗把金屬 # 連到主動區與多晶矽；金屬 # 則承載 VDD、VSS 電源線與導線。這個反相器是一個標準單元：高度固定，上下是電源線，輸入與輸出接腳在金屬層，井接點把 n 井接到 VDD、基板接到 VSS。數千個這樣的單元由軟體排成列，再用上方的金屬層連接。右邊的剖面是由切線下方的佈局計算出來的，就像晶圓廠製作它的方式一樣：把切線拖過閘極、接觸窗或井接點，看看每一層的堆疊。",
+"A layout can only be manufactured reliably if it respects the design rules of the process: minimum widths and spaces for each layer, enclosures (a contact must sit inside the active area with some margin), extensions (the gate must extend past the active area, the endcap, so a small misalignment does not leave a leaking path next to the channel) and many more. Old processes expressed them in units of λ, half the minimum gate length, so a layout could be scaled; modern nodes have thousands of rules, many of them context-dependent, plus restrictions from multiple patterning and density requirements for CMP. The design-rule check (DRC) runs all of them over billions of shapes. Layout versus schematic (LVS) extracts the transistors and their connections from the layout and compares them with the circuit the designer simulated; a missing contact, a short between two nets or a swapped pin shows up as a mismatch. Only a layout that is DRC and LVS clean is taped out to the mask shop. Try the error buttons: each introduces a typical mistake.": "佈局必須遵守製程的設計規則，才能可靠地製造：每一層的最小寬度與間距、包覆（接觸窗必須留一點餘裕地落在主動區內）、延伸（閘極必須超出主動區一段端蓋，避免光罩稍有錯位時在通道旁留下漏電路徑）等等。舊製程用 λ（最小閘極長度的一半）為單位表示規則，讓佈局可以縮放；先進節點則有數千條規則，許多還與周圍環境有關，加上多重圖形化的限制與 CMP 的密度要求。設計規則檢查（DRC）把所有規則套用到數十億個圖形上。佈局對電路圖（LVS）從佈局萃取電晶體與它們的連接，並與設計者模擬過的電路比較；少一個接觸窗、兩個網路短路或接腳接反，都會顯示為不一致。只有 DRC 與 LVS 都通過的佈局才會下線送到光罩廠。試試錯誤按鈕：每個都會加入一個典型的錯誤。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -6339,6 +6495,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-yd" aria-selected="false" aria-controls="tab-yd">Yield &amp; WAT</button>
         <button role="tab" id="tab-btn-lt" aria-selected="false" aria-controls="tab-lt">Lithography</button>
         <button role="tab" id="tab-btn-rl" aria-selected="false" aria-controls="tab-rl">Reliability (lifetime)</button>
+        <button role="tab" id="tab-btn-ly" aria-selected="false" aria-controls="tab-ly">Layout</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -9150,6 +9307,116 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>FIT</dt><dd>Failures in time: failures per 10⁹ device-hours. 1 FIT ≈ one failure in 114 000 device-years.</dd>
               <dt>Weibull β</dt><dd>Shape of the failure distribution: &lt; 1 early failures, 1 random, &gt; 1 wear-out.</dd>
               <dt>AEC-Q100</dt><dd>Stress-test qualification for automotive ICs from the Automotive Electronics Council.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== LAYOUT TAB ===================== -->
+  <section id="tab-ly" role="tabpanel" aria-labelledby="tab-btn-ly" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="ly-pill">GDS</span><h2 id="ly-name">Layout and cross-section</h2></div>
+      <p id="ly-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="ly-view" role="group" aria-label="Layout view" style="flex-wrap:wrap">
+        <button data-v="cut" aria-pressed="true">Layout ↔ cross-section</button>
+        <button data-v="drc" aria-pressed="false">Design rules (DRC, LVS)</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvly" aria-label="Top-view layout of a CMOS inverter cell with a movable cut line, and the cross-section of the wafer along that line"></canvas>
+      <div class="legend" id="ly-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="ly-ro"></div>
+        <div id="ly-c-dir" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Direction of the cut line. Drag it on the layout or use the slider.">Cut direction</span>
+          <div class="chips" id="ly-dir">
+            <button class="chipbtn" data-d="h">Horizontal cut</button>
+            <button class="chipbtn" data-d="v">Vertical cut</button>
+          </div>
+        </div>
+        <div class="slider" id="ly-c-pos">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Position of the cut line in units of λ (half the minimum gate length).">Cut position</span><span id="ly-pos-v"></span></div>
+          <input id="ly-pos" type="range" min="0" max="60" step="0.5" value="16">
+        </div>
+        <div id="ly-c-layers" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Each layer of the layout becomes one mask. Hide layers to see what is underneath.">Layers shown</span>
+          <div class="chips" id="ly-layers">
+            <button class="chipbtn" data-l="well">n-well</button>
+            <button class="chipbtn" data-l="act">Active</button>
+            <button class="chipbtn" data-l="imp">n+ / p+</button>
+            <button class="chipbtn" data-l="poly">Poly</button>
+            <button class="chipbtn" data-l="cont">Contact</button>
+            <button class="chipbtn" data-l="m1">Metal 1</button>
+          </div>
+        </div>
+        <div id="ly-c-err" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Introduce typical layout mistakes and watch the design-rule check (DRC) and layout-versus-schematic check (LVS) catch them.">Layout errors</span>
+          <div class="chips" id="ly-err">
+            <button class="chipbtn" data-e="endcap">Short poly endcap</button>
+            <button class="chipbtn" data-e="cgate">Contact too close to gate</button>
+            <button class="chipbtn" data-e="nocont">Missing drain contact</button>
+            <button class="chipbtn" data-e="m1sp">Metal spacing too small</button>
+          </div>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="ly-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Analysis</p>
+        <div class="plots">
+          <div class="plot"><svg id="ly-p1" viewBox="0 0 300 230" role="img" aria-label="Logic transistor density versus process node"></svg></div>
+          <div class="plot"><svg id="ly-p2" viewBox="0 0 220 230" role="img" aria-label="Number of design rules versus process node"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="ly-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: layout, GDS, mask layer, λ rules, standard cell, DRC, LVS, well tap</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>From layout to masks</h3>
+            <ol>
+              <li><b>Draw</b>: each layer of the layout is a set of polygons (the GDSII or OASIS file).</li>
+              <li><b>Check</b>: DRC checks every width, space and enclosure; LVS extracts the circuit and compares it with the schematic.</li>
+              <li><b>Tape out</b>: the checked layout goes to the mask shop, often after OPC.</li>
+              <li><b>Masks</b>: each layer becomes one or more photomasks, used in the process flow.</li>
+            </ol>
+            <h3>Layers of this cell</h3>
+            <div class="tbl"><table>
+              <tr><th>Layer</th><th>Becomes</th><th>Process step</th></tr>
+              <tr><td>n-well</td><td>n-type region for the PMOS</td><td>Well implant</td></tr>
+              <tr><td>Active</td><td>Silicon islands (everything else is STI)</td><td>STI litho and etch</td></tr>
+              <tr><td>Poly</td><td>Gates and short wires</td><td>Gate patterning</td></tr>
+              <tr><td>n+ / p+</td><td>Source/drain doping</td><td>S/D implants</td></tr>
+              <tr><td>Contact</td><td>Tungsten plugs to active and poly</td><td>Contact etch and fill</td></tr>
+              <tr><td>Metal 1</td><td>First copper wiring, VDD and VSS rails</td><td>M1 damascene</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>Layout</dt><dd>The top-view drawing of every layer of a chip; a transistor is where poly crosses active.</dd>
+              <dt>GDSII / OASIS</dt><dd>File formats that hold the polygons of a layout.</dd>
+              <dt>λ rules</dt><dd>Scalable design rules: every width and space is a multiple of λ, half the minimum gate length.</dd>
+              <dt>Standard cell</dt><dd>A small fixed-height layout (inverter, NAND, flip-flop) with VDD and VSS rails at the top and bottom, so cells abut in rows.</dd>
+              <dt>Poly endcap</dt><dd>Extension of the gate beyond the active area, so the gate still cuts the channel if the masks are slightly misaligned.</dd>
+              <dt>DRC</dt><dd>Design-rule check: thousands of geometric rules that keep the layout manufacturable.</dd>
+              <dt>LVS</dt><dd>Layout versus schematic: the extracted devices and connections must match the circuit.</dd>
+              <dt>Well tap</dt><dd>Contacts that tie the n-well to VDD and the substrate to VSS, against latch-up.</dd>
             </dl>
           </div>
         </div>
@@ -17609,12 +17876,210 @@ document.querySelectorAll("#rl-cl button").forEach(b => b.addEventListener("clic
 $("rl-t").addEventListener("input", e => { RLB[RLB.view === "qual" ? "tq" : "t"] = +e.target.value; updateRL(); });
 [["rl-j","j"],["rl-len","len"],["rl-v","v"],["rl-yr","yr"],["rl-n","n"],["rl-h","h"],["rl-f","f"],["rl-b","b"]].forEach(([id, k]) => $(id).addEventListener("input", e => { RLB[k] = +e.target.value; updateRL(); }));
 
+/* =========================================================
+   TAB — layout: inverter standard cell, live cross-section along a cut line, DRC and LVS
+   ========================================================= */
+const LYC = setupCanvas($("cvly"), 1000, 488);
+const LYO = {view:"cut", dir:"h", pos:16, show:{well:true, act:true, imp:true, poly:true, cont:true, m1:true}, err:{endcap:false, cgate:false, nocont:false, m1sp:false}};
+// layout in λ: x to the right, y up; cell 40 × 60 λ
+function lyShapes(){
+  const e = LYO.err;
+  return {
+    well:[[0, 30, 40, 60]],
+    act:[[8, 11, 32, 21, "n"], [8, 37, 32, 51, "p"], [34, 50, 38, 54, "ntap"], [34, 6, 38, 10, "ptap"]],
+    nimp:[[6, 9, 33, 23], [33.5, 49, 38.5, 55]],
+    pimp:[[6, 35, 33, 53], [33.5, 5, 38.5, 11]],
+    poly:[[18, e.endcap ? 10 : 7, 22, 54], [6, 28, 22, 32]],
+    cont:[[11, 15, 13, 17, "nS"], e.cgate ? [23, 15, 25, 17, "nD"] : [27, 15, 29, 17, "nD"], [11, 43, 13, 45, "pS"], ...(e.nocont ? [] : [[27, 43, 29, 45, "pD"]]), [8, 29, 10, 31, "in"], [35, 51, 37, 53, "ntap"], [35, 7, 37, 9, "ptap"]],
+    m1:[[0, 54, 40, 60, "VDD"], [0, 0, 40, 6, "VSS"], [10, 42, 14, 60, ""], [10, 0, e.m1sp ? 24 : 14, 18, ""], [26, 14, 30, 46, "out"], [7, 28, 11, 32, "in"], [34, 50, 38, 60, ""], [34, 0, 38, 10, ""]]
+  };
+}
+const lyIn = (r, x, y) => x >= r[0] && x <= r[2] && y >= r[1] && y <= r[3];
+function lyAt(S, x, y){
+  const act = S.act.find(r => lyIn(r, x, y)), poly = S.poly.some(r => lyIn(r, x, y));
+  return {well: S.well.some(r => lyIn(r, x, y)), act, poly, n: S.nimp.some(r => lyIn(r, x, y)), p: S.pimp.some(r => lyIn(r, x, y)), cont: S.cont.find(r => lyIn(r, x, y)), m1: S.m1.some(r => lyIn(r, x, y))};
+}
+/* ---------------- DRC and LVS ---------------- */
+function lyCheck(){
+  const S = lyShapes(), errs = [];
+  const gate = S.poly[0];
+  S.act.filter(a => a[4] === "n" || a[4] === "p").forEach(a => {
+    const lo = a[1] - gate[1], hi = gate[3] - a[3];
+    if (lo < 2) errs.push({rule:"poly endcap ≥ 2 λ", at:[(gate[0] + gate[2])/2, a[1] - 1], val:`${lo} λ`});
+    if (hi < 2) errs.push({rule:"poly endcap ≥ 2 λ", at:[(gate[0] + gate[2])/2, a[3] + 1], val:`${hi} λ`});
+  });
+  S.cont.filter(c => c[4] && c[4][0] !== "i" && c[4].length === 2).forEach(c => {
+    const gap = Math.max(gate[0] - c[2], c[0] - gate[2]);
+    if (gap < 2) errs.push({rule:"contact to gate ≥ 2 λ", at:[(c[0] + c[2])/2, (c[1] + c[3])/2], val:`${gap} λ`});
+  });
+  for (let i=0;i<S.m1.length;i++) for (let j=i+1;j<S.m1.length;j++){
+    const a = S.m1[i], b = S.m1[j], dx = Math.max(b[0] - a[2], a[0] - b[2]), dy = Math.max(b[1] - a[3], a[1] - b[3]), gap = Math.max(dx, dy);
+    if (gap > 0 && gap < 3) errs.push({rule:"metal 1 spacing ≥ 3 λ", at:[dx > dy ? (a[2] < b[0] ? (a[2] + b[0])/2 : (b[2] + a[0])/2) : (a[0] + a[2])/2, dy >= dx ? (a[3] < b[1] ? (a[3] + b[1])/2 : (b[3] + a[1])/2) : Math.max(a[1], b[1]) + 2], val:`${gap} λ`});
+  }
+  // LVS: nets of touching metal-1 shapes, named after the pins
+  const par = S.m1.map((_, i) => i), find = i => par[i] === i ? i : (par[i] = find(par[i]));
+  for (let i=0;i<S.m1.length;i++) for (let j=0;j<S.m1.length;j++){ const a = S.m1[i], b = S.m1[j]; if (a[0] <= b[2] && b[0] <= a[2] && a[1] <= b[3] && b[1] <= a[3]) par[find(i)] = find(j); }
+  const netName = i => { const root = find(i); const named = S.m1.find((r, k) => find(k) === root && r[4]); return named ? named[4] : "n" + root; };
+  const term = id => { const c = S.cont.find(q => q[4] === id); if (!c) return "floating"; const k = S.m1.findIndex(r => lyIn(r, (c[0] + c[2])/2, (c[1] + c[3])/2)); return k < 0 ? "floating" : netName(k); };
+  const ext = {MN:{D:term("nD"), G:term("in"), S:term("nS")}, MP:{D:term("pD"), G:term("in"), S:term("pS")}};
+  const want = {MN:{D:"out", G:"in", S:"VSS"}, MP:{D:"out", G:"in", S:"VDD"}};
+  const lvs = ["MN", "MP"].flatMap(m => ["D", "G", "S"].filter(t => ext[m][t] !== want[m][t]).map(t => `${m} ${t}: ${ext[m][t]} instead of ${want[m][t]}`));
+  return {S, errs, lvs, ext};
+}
+/* ---------------- drawing ---------------- */
+const LY_X0 = 46, LY_Y0 = 460, LY_S = 6.5;
+const lyX = x => LY_X0 + x*LY_S, lyY = y => LY_Y0 - y*LY_S;
+function lyRect(r, fill, alpha, stroke, dash){
+  const x = lyX(r[0]), y = lyY(r[3]), w = (r[2] - r[0])*LY_S, h = (r[3] - r[1])*LY_S;
+  if (fill){ ctx.fillStyle = fill; ctx.globalAlpha = alpha; ctx.fillRect(x, y, w, h); ctx.globalAlpha = 1; }
+  if (stroke){ ctx.strokeStyle = stroke; ctx.lineWidth = 1.5; if (dash) ctx.setLineDash(dash); ctx.strokeRect(x + .5, y + .5, w - 1, h - 1); ctx.setLineDash([]); }
+}
+function drawLYlayout(S, T, chk){
+  const sh = LYO.show;
+  panel(20, 20, 320, 450, "Layout (top view)");
+  ctx.fillStyle = C.pplus; ctx.fillRect(lyX(0), lyY(60), 40*LY_S, 60*LY_S);
+  if (sh.well) S.well.forEach(r => lyRect(r, C.nplus, 1, C.electron, [6, 4]));
+  if (sh.act) S.act.forEach(r => lyRect(r, C.channel, 0.55));
+  if (sh.imp){ S.nimp.forEach(r => lyRect(r, null, 1, C.electron, [3, 3])); S.pimp.forEach(r => lyRect(r, null, 1, C.hole, [3, 3])); }
+  if (sh.poly) S.poly.forEach(r => lyRect(r, C.metal, 0.9));
+  if (sh.m1) S.m1.forEach(r => lyRect(r, C.accent, 0.45, C.accent));
+  if (sh.cont) S.cont.forEach(r => { lyRect(r, C.fg, 1); ctx.strokeStyle = C.panel; ctx.lineWidth = 1; pl([[lyX(r[0]), lyY(r[1])], [lyX(r[2]), lyY(r[3])]]); pl([[lyX(r[0]), lyY(r[3])], [lyX(r[2]), lyY(r[1])]]); });
+  [["VDD", 20, 57], ["VSS", 20, 3], ["in", 4, 30], ["out", 28, 30]].forEach(([l, x, y]) => txt(l, lyX(x), lyY(y), {al:"center", px:11, w:700, col:C.fg}));
+  txt("PMOS", lyX(25), lyY(36), {px:10, col:C.hole, w:700}); txt("NMOS", lyX(25), lyY(24), {px:10, col:C.electron, w:700});
+  if (chk) chk.errs.forEach(e => { const x = lyX(e.at[0]), y = lyY(e.at[1]), r = 9 + 2*Math.sin(T*5); ctx.strokeStyle = C.hole; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.stroke(); });
+  // cut line
+  if (LYO.view === "cut"){
+    ctx.strokeStyle = C.hole; ctx.lineWidth = 2; ctx.setLineDash([8, 5]);
+    if (LYO.dir === "h") pl([[lyX(-1), lyY(LYO.pos)], [lyX(41), lyY(LYO.pos)]]); else pl([[lyX(LYO.pos), lyY(-1)], [lyX(LYO.pos), lyY(61)]]);
+    ctx.setLineDash([]);
+    txt("drag the cut line", 180, 52, {al:"center", px:10, col:C.hole, w:700});
+  }
+}
+function drawLYcut(S, T){
+  panel(355, 20, 625, 450, `Cross-section along the ${LYO.dir === "h" ? "horizontal" : "vertical"} cut at ${LYO.pos} λ`);
+  const len = LYO.dir === "h" ? 40 : 60, x0 = 380, w = 580, sc = w/len, dx = 0.25, labels = [];
+  ctx.fillStyle = C.oxide; ctx.globalAlpha = 0.16; ctx.fillRect(x0, 140, w, 160); ctx.globalAlpha = 1;
+  let prevGate = false;
+  for (let u = 0; u < len; u += dx){
+    const [x, y] = LYO.dir === "h" ? [u + dx/2, LYO.pos] : [LYO.pos, u + dx/2], f = lyAt(S, x, y), X = x0 + u*sc, W = dx*sc + 0.6;
+    ctx.fillStyle = C.si; ctx.fillRect(X, 300, W, 150);
+    ctx.fillStyle = f.well ? C.nplus : C.pplus; ctx.fillRect(X, 300, W, f.well ? 90 : 150);
+    if (!f.act){ ctx.fillStyle = C.oxide; ctx.globalAlpha = 0.75; ctx.fillRect(X, 296, W, 44); ctx.globalAlpha = 1; }
+    else if (!f.poly){ if (f.n || f.p){ ctx.fillStyle = f.n ? C.electron : C.hole; ctx.globalAlpha = 0.8; ctx.fillRect(X, 300, W, 18); ctx.globalAlpha = 1; } }
+    if (f.poly){ ctx.fillStyle = C.metal; ctx.fillRect(X, 256, W, 40); if (f.act){ ctx.fillStyle = C.oxide; ctx.fillRect(X, 296, W, 4); } }
+    if (f.cont){ ctx.fillStyle = C.fg; ctx.fillRect(X, 170, W, (f.poly ? 256 : 300) - 170); }
+    if (f.m1){ ctx.fillStyle = C.accent; ctx.fillRect(X, 150, W, 20); }
+    const gate = f.poly && f.act;
+    if (gate && !prevGate) labels.push([X, f.act[4] === "p" ? "PMOS gate" : "NMOS gate"]);
+    prevGate = gate;
+  }
+  labels.forEach(([X, l]) => txt(l, X + 10, 244, {px:10, col:C.fg, w:700}));
+  txt("metal 1", x0 + 4, 140, {px:10, col:C.accent, w:700}); txt("contacts", x0 + 4, 186, {px:10, col:C.fg}); txt("STI", x0 + w - 4, 330, {al:"right", px:10, col:C.fg});
+  txt("p-substrate", x0 + 4, 440, {px:10, col:C.hole}); txt(LYO.dir === "v" ? "n-well (upper half of the cell)" : "", x0 + w - 4, 380, {al:"right", px:10, col:C.electron});
+  txt(`${LYO.dir === "h" ? "left" : "bottom"} edge of the cell`, x0, 462, {px:9}); txt(`${LYO.dir === "h" ? "right" : "top"} edge`, x0 + w, 462, {al:"right", px:9});
+}
+function drawLYdrc(S, T, chk){
+  panel(355, 20, 625, 450, "Design-rule check and layout versus schematic");
+  let y = 60;
+  txt(`DRC: ${chk.errs.length ? chk.errs.length + " violation" + (chk.errs.length > 1 ? "s" : "") : "clean"}`, 375, y, {px:14, w:700, col: chk.errs.length ? C.hole : C.channel}); y += 26;
+  const rules = [["poly width ≥ 2 λ", true], ["poly endcap ≥ 2 λ", !chk.errs.some(e => e.rule.startsWith("poly endcap"))], ["contact to gate ≥ 2 λ", !chk.errs.some(e => e.rule.startsWith("contact"))], ["metal 1 spacing ≥ 3 λ", !chk.errs.some(e => e.rule.startsWith("metal"))], ["active encloses contact ≥ 1 λ", true], ["n-well encloses p+ active ≥ 6 λ", true]];
+  rules.forEach(([r, ok]) => { txt(ok ? "✓" : "✗", 380, y, {px:13, w:700, col: ok ? C.channel : C.hole}); txt(r, 400, y, {px:11, col:C.fg}); y += 22; });
+  chk.errs.forEach(e => { txt(`→ ${e.rule}: measured ${e.val}`, 400, y, {px:10, col:C.hole}); y += 18; });
+  y += 16;
+  txt(`LVS: ${chk.lvs.length ? "mismatch" : "match"}`, 375, y, {px:14, w:700, col: chk.lvs.length ? C.hole : C.channel}); y += 26;
+  txt("extracted from the layout:", 380, y, {px:11, col:C.muted}); y += 20;
+  [["MN (nmos)", chk.ext.MN], ["MP (pmos)", chk.ext.MP]].forEach(([n, t]) => { txt(`${n}  D = ${t.D}  G = ${t.G}  S = ${t.S}`, 380, y, {px:11, col:C.fg, w:600}); y += 20; });
+  txt("schematic: MN D = out G = in S = VSS · MP D = out G = in S = VDD", 380, y, {px:10, col:C.muted}); y += 22;
+  chk.lvs.forEach(l => { txt(`→ ${l}`, 380, y, {px:10, col:C.hole}); y += 18; });
+}
+function drawLY(dt, T){
+  begin(LYC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488);
+  const chk = lyCheck();
+  drawLYlayout(chk.S, T, LYO.view === "drc" ? chk : null);
+  if (LYO.view === "drc") drawLYdrc(chk.S, T, chk); else drawLYcut(chk.S, T);
+}
+// drag the cut line on the layout
+(() => {
+  const cv = $("cvly"); let drag = false;
+  const move = e => { const r = cv.getBoundingClientRect(), s = r.width/1000, x = (e.clientX - r.left)/s, y = (e.clientY - r.top)/s;
+    if (x < 20 || x > 340) return;
+    LYO.pos = LYO.dir === "h" ? clamp(Math.round((LY_Y0 - y)/LY_S*2)/2, 0, 60) : clamp(Math.round((x - LY_X0)/LY_S*2)/2, 0, 40);
+    $("ly-pos").value = LYO.pos; updateLY(); };
+  cv.addEventListener("pointerdown", e => { if (LYO.view !== "cut") return; drag = true; cv.setPointerCapture(e.pointerId); move(e); });
+  cv.addEventListener("pointermove", e => { if (drag) move(e); });
+  cv.addEventListener("pointerup", () => { drag = false; });
+})();
+
+/* ---------------- DOM ---------------- */
+const LYINFO = {
+  cut:{pill:"GDS", name:"Layout and cross-section", sub:"A chip is drawn from the top, layer by layer; the process flow turns each layer into a mask. Drag the cut line to see the wafer underneath",
+    text:"Designers never draw cross-sections: they draw the layout, a top view made of polygons on separate layers, saved as a GDSII or OASIS file. Each layer becomes a photomask used in one step of the process flow. Active marks the silicon islands, everything else becomes shallow-trench oxide; poly crossing active makes a transistor whose channel length is the poly width and whose width is the active width under it; n+ and p+ implant layers decide which transistors are NMOS and PMOS; the n-well holds the PMOS; contacts connect metal 1 to active and poly; and metal 1 carries the VDD and VSS rails and the wiring. This inverter is a standard cell: fixed height, power rails at the top and bottom, input and output pins in metal, and well taps that tie the n-well to VDD and the substrate to VSS. Thousands of such cells are placed in rows by software and wired together in the metal layers above. The cross-section on the right is computed from the layout under the cut line, exactly the way the fab builds it: drag the line across the gate, the contacts or the taps to see each layer stack."},
+  drc:{pill:"DRC", name:"Design rules (DRC and LVS)", sub:"Every width, space and overlap must follow the rules of the process, and the drawn circuit must match the schematic",
+    text:"A layout can only be manufactured reliably if it respects the design rules of the process: minimum widths and spaces for each layer, enclosures (a contact must sit inside the active area with some margin), extensions (the gate must extend past the active area, the endcap, so a small misalignment does not leave a leaking path next to the channel) and many more. Old processes expressed them in units of λ, half the minimum gate length, so a layout could be scaled; modern nodes have thousands of rules, many of them context-dependent, plus restrictions from multiple patterning and density requirements for CMP. The design-rule check (DRC) runs all of them over billions of shapes. Layout versus schematic (LVS) extracts the transistors and their connections from the layout and compares them with the circuit the designer simulated; a missing contact, a short between two nets or a swapped pin shows up as a mismatch. Only a layout that is DRC and LVS clean is taped out to the mask shop. Try the error buttons: each introduces a typical mistake."}
+};
+Object.assign(TIP, {
+  "Cut line":"Position and direction of the cut.",
+  "Transistors crossed":"Gates (poly over active) that the cut line passes.",
+  "Mask layers":"Layers in this cell; each one becomes a photomask.",
+  "Cell size":"Width × height of the cell in λ.",
+  "DRC violations":"Number of design-rule violations in the layout.",
+  "LVS result":"Whether the extracted circuit matches the schematic.",
+  "Gate length":"Width of the poly line over the active area.",
+  "Transistor widths":"Height of the active area under the gate for each device.",
+  "Lambda rules":"Scalable design rules in units of λ.",
+  "Transistor from layout":"How W and L are read from the layout.",
+  "Rules checked":"Kinds of geometric rules a DRC deck contains.",
+  "Extracted netlist":"Devices and connections that LVS reads from the layout."
+});
+const LYLEG = {
+  cut:[["channel","Active (silicon)"],["metal","Poly"],["accent","Metal 1"],["fg","Contact"],["electron","n+ / n-well"],["hole","p+ / cut line"],["oxide","STI and dielectric"]],
+  drc:[["channel","Active"],["metal","Poly"],["accent","Metal 1"],["fg","Contact"],["hole","DRC violation"]]
+};
+const lyChip = (sel, attr, on) => document.querySelectorAll(sel).forEach(b => { const o = on(b.dataset[attr]); b.setAttribute("aria-pressed", o); b.style.borderColor = o ? "var(--accent)" : ""; b.style.color = o ? "var(--accent)" : ""; });
+function updateLY(){
+  const v = LYO.view, info = LYINFO[v], chk = lyCheck();
+  $("ly-pill").textContent = info.pill; $("ly-name").textContent = info.name; $("ly-sub").textContent = info.sub; $("ly-explain").textContent = info.text;
+  document.querySelectorAll("#ly-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  lyChip("#ly-dir button", "d", d => d === LYO.dir); lyChip("#ly-layers button", "l", l => LYO.show[l]); lyChip("#ly-err button", "e", e => LYO.err[e]);
+  $("ly-c-dir").hidden = $("ly-c-pos").hidden = $("ly-c-layers").hidden = v !== "cut"; $("ly-c-err").hidden = v !== "drc";
+  $("ly-pos").max = LYO.dir === "h" ? 60 : 40; $("ly-pos").value = LYO.pos; $("ly-pos-v").textContent = `${LYO.dir === "h" ? "y" : "x"} = ${LYO.pos} λ`;
+  setHTML("ly-legend", LYLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  if (v === "cut"){
+    const S = chk.S, len = LYO.dir === "h" ? 40 : 60, gates = new Set();
+    for (let u = 0; u < len; u += 0.5){ const [x, y] = LYO.dir === "h" ? [u, LYO.pos] : [LYO.pos, u], f = lyAt(S, x, y); if (f.poly && f.act && (f.act[4] === "n" || f.act[4] === "p")) gates.add(f.act[4] === "n" ? "NMOS" : "PMOS"); }
+    renderRo($("ly-ro"), [["Cut line", `${LYO.dir === "h" ? "y" : "x"} = ${LYO.pos} λ`], ["Transistors crossed", gates.size ? [...gates].join(" + ") : "none"], ["Mask layers", "7"], ["Cell size", "40 × 60 λ"]]);
+  } else renderRo($("ly-ro"), [["DRC violations", `${chk.errs.length}`], ["LVS result", chk.lvs.length ? "mismatch" : "match"], ["Gate length", "4 λ"], ["Transistor widths", "N 10 λ · P 14 λ"]]);
+  renderEq($("ly-eq"), [
+    {name:"Lambda rules", f:"every dimension = n · λ,  λ = L_min / 2", sub:"λ = 0.09 µm for a 0.18 µm process: this cell is 3.6 × 5.4 µm"},
+    {name:"Transistor from layout", f:"L = poly width,  W = active width under the gate", sub:"NMOS W/L = 10λ / 4λ, PMOS 14λ / 4λ: the PMOS is wider because holes are slower"},
+    {name:"Rules checked", f:"width · spacing · enclosure · extension · density", sub: chk.errs.length ? chk.errs.map(e => `${e.rule}: ${e.val}`).join(" · ") : "all rules met"},
+    {name:"Extracted netlist", f:"MN: D = out, G = in, S = VSS · MP: D = out, G = in, S = VDD", sub: chk.lvs.length ? chk.lvs.join(" · ") : "LVS clean: layout matches the schematic"}
+  ]);
+  drawLYPlots();
+}
+function drawLYPlots(){
+  const dens = [[180, 0.3], [130, 0.8], [90, 1.6], [65, 3], [40, 7], [28, 15], [16, 30], [10, 52], [7, 95], [5, 138], [3, 200]];
+  const P = axesR(300, 230, {l:38,r:10,t:28,b:30}, 0, 2.4, -1, 2.5, 0.4, 0.5, "log10 node (nm)", "log10 MTr/mm²");
+  let a = P.s + `<path d="${pathOf(dens.map(([n, d]) => [Math.log10(n), Math.log10(d)]), P.X, P.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>`
+    + dens.map(([n, d]) => `<circle cx="${P.X(Math.log10(n)).toFixed(1)}" cy="${P.Y(Math.log10(d)).toFixed(1)}" r="2.5" fill="var(--accent)"/>`).join("") + P.frame + `<text x="44" y="12" style="fill:var(--accent)">logic transistor density</text>`;
+  const rules = [[180, 250], [90, 600], [45, 1300], [28, 2200], [16, 3800], [7, 6500], [3, 9500]];
+  const Q = axesR(220, 230, {l:38,r:8,t:28,b:30}, 0, 2.4, 2, 4.2, 0.4, 0.5, "log10 node (nm)", "log10 rules");
+  let b = Q.s + `<path d="${pathOf(rules.map(([n, r]) => [Math.log10(n), Math.log10(r)]), Q.X, Q.Y)}" fill="none" stroke="var(--hole)" stroke-width="2.4"/>` + Q.frame + `<text x="44" y="12" style="fill:var(--hole)">design rules (approx.)</text>`;
+  $("ly-p1").innerHTML = a; $("ly-p2").innerHTML = b;
+}
+function lyTick(dt){}
+document.querySelectorAll("#ly-view button").forEach(b => b.addEventListener("click", () => { LYO.view = b.dataset.v; updateLY(); }));
+document.querySelectorAll("#ly-dir button").forEach(b => b.addEventListener("click", () => { LYO.dir = b.dataset.d; LYO.pos = LYO.dir === "h" ? 16 : 20; updateLY(); }));
+document.querySelectorAll("#ly-layers button").forEach(b => b.addEventListener("click", () => { LYO.show[b.dataset.l] = !LYO.show[b.dataset.l]; updateLY(); }));
+document.querySelectorAll("#ly-err button").forEach(b => b.addEventListener("click", () => { LYO.err[b.dataset.e] = !LYO.err[b.dataset.e]; updateLY(); }));
+$("ly-pos").addEventListener("input", e => { LYO.pos = +e.target.value; updateLY(); });
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -17648,6 +18113,7 @@ function showTab(t){
   else if (t === "yd"){ $("sub-top").textContent = "Yield and WAT · wafer maps, sparse test sites, yield models, screening"; YDC.resize(); updateYD(); }
   else if (t === "lt"){ $("sub-top").textContent = "Lithography · resolution, multiple patterning, OPC and EUV"; LTC.resize(); updateLT(); }
   else if (t === "rl"){ $("sub-top").textContent = "Reliability · electromigration, transistor aging, qualification"; RLC.resize(); updateRL(); }
+  else if (t === "ly"){ $("sub-top").textContent = "Layout · standard cell, cross-section along a cut line, DRC and LVS"; LYC.resize(); updateLY(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -17674,6 +18140,7 @@ function frame(now){
   else if (tab === "yd"){ ydTick(dt); if (YDC.cv.clientWidth) drawYD(dt, T); }
   else if (tab === "lt"){ ltTick(dt); if (LTC.cv.clientWidth) drawLT(dt, T); }
   else if (tab === "rl"){ rlTick(dt); if (RLC.cv.clientWidth) drawRL(dt, T); }
+  else if (tab === "ly"){ lyTick(dt); if (LYC.cv.clientWidth) drawLY(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
