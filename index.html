@@ -8060,6 +8060,7 @@ Object.assign(window.I18N_ZH, {
 "Between chiplets in one package, thousands of short, slow, simple wires beat a few fast SerDes lanes": "在同一個封裝內的小晶片之間，成千上萬條短、慢、簡單的導線勝過少數幾條高速 SerDes",
 "When a big chip is split into chiplets, the dies must talk to each other almost as if they were one. A long-reach SerDes is overkill here: across a few millimetres there is little loss, so die-to-die interfaces like UCIe use many parallel lanes at moderate rates (up to # GT/s), single-ended, with no or very light equalization and a forwarded clock instead of a CDR. Bandwidth then comes from density: how many signal bumps fit along each millimetre of die edge, the shoreline. On an organic package substrate the bumps are # to # µm apart and the reach is up to about # mm; on a silicon interposer or bridge, micro-bumps at # to # µm pitch pack several times more lanes per millimetre, at a reach of about # mm. The energy cost falls to a fraction of a picojoule per bit, compared with several picojoules for a long-reach link, so moving a terabyte per second between chiplets costs a few watts instead of tens. Hybrid bonding at below # µm pitch pushes this further.": "把大晶片拆成小晶片時，晶粒之間必須像同一顆晶片一樣溝通。長距離 SerDes 在這裡太過頭了：幾毫米的距離幾乎沒有損耗，所以 UCIe 這類晶粒對晶粒介面使用許多中等速率（最高 # GT/s）的平行通道，單端傳輸，幾乎不需要等化，並以隨路時脈取代 CDR。頻寬來自密度：每毫米晶粒邊緣（邊緣線）能放多少訊號凸塊。在有機封裝基板上凸塊間距為 # 到 # µm，距離可達約 # mm；在矽中介層或橋接上，# 到 # µm 間距的微凸塊讓每毫米的通道數多好幾倍，距離約 # mm。能量降到每位元零點幾皮焦耳，相較於長距離連線的數皮焦耳，所以在小晶片間每秒傳一 TB 只要幾瓦而不是幾十瓦。間距小於 # µm 的混合鍵合更進一步推進了這一點。"
 });
+Object.assign(window.I18N_ZH, {"Quiz on this tab": "本分頁測驗", "Glossary of all terms": "全站名詞表", "Quiz": "測驗", "Quiz scope": "測驗範圍", "This tab": "本分頁", "All tabs": "全部分頁", "all tabs": "全部分頁", "Close quiz": "關閉測驗", "Glossary": "名詞表", "Filter the glossary (e.g. CFAR, Cpk, overlay)": "篩選名詞表（例如 CFAR、Cpk、疊對）", "Every term explained on the site, in alphabetical order. Click a tab name to open it there.": "全站所有解釋過的名詞，依字母排序。點分頁名稱即可在該分頁打開。", "terms": "個名詞", "Which term matches this definition?": "哪個名詞符合這個定義？", "Correct!": "答對了！", "Not quite.": "不太對。", "The answer is": "答案是", "correct": "答對", "Show in": "顯示於", "Next question": "下一題", "Skip": "跳過", "Not enough terms for a quiz.": "名詞不足，無法出題。", "This tab has few terms, so the questions come from all tabs.": "本分頁的名詞較少，所以題目來自全部分頁。"});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -8388,6 +8389,25 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
 .find-tx{font:400 .9rem/1.45 var(--f-body);overflow-wrap:anywhere}
 .find-tx mark{background:color-mix(in srgb, var(--accent) 32%, transparent);color:inherit;border-radius:3px;padding:0 1px}
 .find-foot{margin:0;padding:8px 14px;border-top:1px solid var(--line);font:400 .75rem var(--f-body);color:var(--muted)}
+.qz-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.qz-head h3{margin:0;font:700 1rem var(--f-body);color:var(--fg);flex:1;min-width:0}
+.qz-body{overflow-y:auto;padding:14px 16px;display:grid;gap:12px}
+.qz-q{font:400 1rem/1.5 var(--f-body);color:var(--fg);background:var(--panel2);border-radius:10px;padding:12px 14px}
+.qz-lab{font:600 .72rem var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.qz-opts{display:grid;gap:8px}
+.qz-opt{text-align:left;font:600 .95rem var(--f-body);color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.qz-opt:hover:not(:disabled){border-color:var(--accent)}
+.qz-opt.ok{border-color:var(--channel);background:color-mix(in srgb, var(--channel) 16%, var(--panel))}
+.qz-opt.bad{border-color:var(--hole);background:color-mix(in srgb, var(--hole) 14%, var(--panel))}
+.qz-fb{font:500 .9rem/1.45 var(--f-body);color:var(--fg)}
+.qz-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.qz-score{font:600 .8rem var(--f-mono);color:var(--muted)}
+.gl-item{display:grid;gap:3px;padding:8px 10px;border-radius:10px}
+.gl-item:hover{background:var(--panel2)}
+.gl-term{font:700 .95rem var(--f-body);color:var(--fg)}
+.gl-def{font:400 .88rem/1.45 var(--f-body);color:var(--fg)}
+.gl-tab{justify-self:start;font:600 .7rem var(--f-mono);color:var(--accent);background:none;border:0;padding:0;cursor:pointer}
+.gl-letter{font:700 .8rem var(--f-mono);color:var(--muted);padding:8px 10px 2px}
 .find-hit{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px;animation:findflash 2.6s ease-out forwards}
 @keyframes findflash{0%,65%{outline-color:var(--accent)}100%{outline-color:transparent}}
 .foot{text-align:center;font:500 .75rem/1.6 var(--f-mono);color:var(--muted);padding-top:10px;border-top:1px solid var(--line)}
@@ -8441,6 +8461,8 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button id="bt-p" aria-pressed="false">PMOS</button>
       </div>
       <button class="iconbtn" id="find-btn" aria-label="Find (Ctrl+K or /)" title="Find (Ctrl+K or /)"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg></button>
+      <button class="iconbtn" id="quiz-btn" aria-label="Quiz on this tab" title="Quiz on this tab"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14"/><circle cx="12" cy="17.2" r=".6" fill="currentColor"/></svg></button>
+      <button class="iconbtn" id="gloss-btn" aria-label="Glossary of all terms" title="Glossary of all terms"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h10"/></svg></button>
       <button class="iconbtn" id="lang" data-i18n-skip aria-label="切換為中文" title="中文"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.5 3.9 5.5 3.9 9s-1.3 6.5-3.9 9c-2.6-2.5-3.9-5.5-3.9-9S9.4 5.5 12 3z"/></svg><span id="lang-lab">中文</span></button>
       <button class="iconbtn" id="theme" aria-label="Switch colour theme"><span id="theme-ic">☀</span><span id="theme-lab">Light</span></button>
     </div>
@@ -12305,6 +12327,21 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
   </footer>
 </div>
 
+<div id="quiz-ov" class="find-ov" hidden>
+  <div class="find-box" role="dialog" aria-modal="true" aria-label="Quiz">
+    <div class="qz-head"><h3 id="qz-title">Quiz</h3>
+      <div class="seg" id="qz-scope" role="group" aria-label="Quiz scope"><button data-q="tab" aria-pressed="true">This tab</button><button data-q="all" aria-pressed="false">All tabs</button></div>
+      <button class="iconbtn" id="qz-close" aria-label="Close quiz">✕</button></div>
+    <div class="qz-body" id="qz-body"></div>
+  </div>
+</div>
+<div id="gloss-ov" class="find-ov" hidden>
+  <div class="find-box" role="dialog" aria-modal="true" aria-label="Glossary">
+    <div class="find-in"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h10"/></svg><input id="gl-q" type="search" placeholder="Filter the glossary (e.g. CFAR, Cpk, overlay)" autocomplete="off" spellcheck="false" aria-controls="gl-res"><kbd>Esc</kbd></div>
+    <div id="gl-res" class="find-res"></div>
+    <p class="find-foot" id="gl-foot">Every term explained on the site, in alphabetical order. Click a tab name to open it there.</p>
+  </div>
+</div>
 <div id="find-ov" class="find-ov" hidden>
   <div class="find-box" role="dialog" aria-modal="true" aria-label="Find">
     <div class="find-in"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><input id="find-q" type="search" placeholder="Search every tab: terms, views, controls (e.g. TSV, GDBN, latch-up)" autocomplete="off" spellcheck="false" aria-controls="find-res"><kbd>Esc</kbd></div>
@@ -23237,6 +23274,80 @@ document.addEventListener("keydown", e => {
   if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k"){ e.preventDefault(); findOpen(); }
   else if (e.key === "/" && !typing && $("find-ov").hidden){ e.preventDefault(); findOpen(); }
   else if (e.key === "Escape" && !$("find-ov").hidden){ e.preventDefault(); findClose(); if (findLast) findLast.focus(); }
+});
+
+/* ================= glossary and quiz (built from every tab's "Explain the terms" lists) ================= */
+function glTerms(){
+  const out = [];
+  TABS.forEach(k => { const panel = $("tab-" + k); if (!panel) return;
+    panel.querySelectorAll("details.gloss dl dt").forEach(dt => { const dd = dt.nextElementSibling; if (!dd || dd.tagName !== "DD") return;
+      out.push({k, dt, term:fClean(dt.textContent), def:fClean(dd.textContent), tabName:fClean($("tab-btn-" + k).textContent)}); }); });
+  return out;
+}
+function glGo(t){
+  [$("gloss-ov"), $("quiz-ov")].forEach(o => o.hidden = true);
+  showTab(t.k);
+  const d = t.dt.closest("details"); if (d) d.open = true;
+  requestAnimationFrame(() => { t.dt.scrollIntoView({block:"center"}); t.dt.classList.remove("find-hit"); void t.dt.offsetWidth; t.dt.classList.add("find-hit"); setTimeout(() => t.dt.classList.remove("find-hit"), 2700); });
+}
+let glList = [], glLast = null;
+function glRender(){
+  const q = $("gl-q").value.toLowerCase().trim(), zh = I18N_LANG() === "zh";
+  const all = glTerms().sort((a, b) => a.term.localeCompare(b.term, zh ? "zh-Hant" : "en", {sensitivity:"base"}));
+  glList = q ? all.filter(t => (t.term + " " + t.def + " " + t.tabName).toLowerCase().includes(q)) : all;
+  let last = "", h = `<div class="find-meta" style="padding:4px 10px"><span>${glList.length}</span> <span>terms</span></div>`;
+  glList.forEach((t, n) => { const L = zh ? "" : t.term.charAt(0).toUpperCase(); if (L && L !== last && /[A-Z]/.test(L)){ h += `<div class="gl-letter" data-i18n-skip>${L}</div>`; last = L; }
+    h += `<div class="gl-item"><span class="gl-term" data-i18n-skip>${escH(t.term)}</span><span class="gl-def" data-i18n-skip>${escH(t.def)}</span><button class="gl-tab" data-n="${n}" data-i18n-skip>→ ${escH(t.tabName)}</button></div>`; });
+  $("gl-res").innerHTML = h;
+}
+function glOpen(){ glLast = document.activeElement; $("gloss-ov").hidden = false; $("gl-q").value = ""; glRender(); $("gl-q").focus(); }
+$("gloss-btn").addEventListener("click", glOpen);
+$("gl-q").addEventListener("input", glRender);
+$("gl-res").addEventListener("click", e => { const b = e.target.closest(".gl-tab"); if (b) glGo(glList[+b.dataset.n]); });
+$("gloss-ov").addEventListener("click", e => { if (e.target === $("gloss-ov")){ $("gloss-ov").hidden = true; if (glLast) glLast.focus(); } });
+
+const QZ = {scope:"tab", q:null, n:0, ok:0, used:new Set(), last:null};
+function qzPool(){ const all = glTerms(), mine = all.filter(t => t.k === tab); return {all, pool: QZ.scope === "tab" && mine.length >= 3 ? mine : all, fallback: QZ.scope === "tab" && mine.length < 3}; }
+function qzNew(){
+  const {all, pool, fallback} = qzPool();
+  if (all.length < 4){ $("qz-body").innerHTML = `<p class="qz-fb">Not enough terms for a quiz.</p>`; return; }
+  let cand = pool.filter(t => !QZ.used.has(t.term + t.k)); if (!cand.length){ QZ.used.clear(); cand = pool; }
+  const ans = cand[Math.floor(Math.random()*cand.length)]; QZ.used.add(ans.term + ans.k);
+  const near = pool.filter(t => t.term !== ans.term), far = all.filter(t => t.term !== ans.term && !near.includes(t)), opts = [ans];
+  const pick = arr => { const c = arr.filter(t => !opts.some(o => o.term === t.term)); return c.length ? c[Math.floor(Math.random()*c.length)] : null; };
+  while (opts.length < 4){ const t = pick(near) || pick(far); if (!t) break; opts.push(t); }
+  opts.sort(() => Math.random() - 0.5);
+  QZ.q = {ans, opts, done:false, fallback}; qzDraw();
+}
+function qzDraw(){
+  const Q = QZ.q, tn = fClean($("tab-btn-" + tab).textContent);
+  $("qz-title").innerHTML = QZ.scope === "tab" && !Q.fallback ? `<span>Quiz</span>: <span data-i18n-skip>${escH(tn)}</span>` : `<span>Quiz</span>: <span>all tabs</span>`;
+  document.querySelectorAll("#qz-scope button").forEach(b => b.setAttribute("aria-pressed", b.dataset.q === QZ.scope));
+  let h = `<div class="qz-lab">Which term matches this definition?</div><div class="qz-q" data-i18n-skip>${escH(Q.ans.def)}</div><div class="qz-opts">`
+    + Q.opts.map((o, i) => `<button class="qz-opt${Q.done ? (o === Q.ans ? " ok" : i === Q.pick ? " bad" : "") : ""}" data-i="${i}" data-i18n-skip ${Q.done ? "disabled" : ""}>${escH(o.term)}</button>`).join("") + `</div>`;
+  if (Q.done) h += `<p class="qz-fb">${Q.opts[Q.pick] === Q.ans ? `<b style="color:var(--channel)">Correct!</b>` : `<b style="color:var(--hole)">Not quite.</b> <span>The answer is</span> <b data-i18n-skip>${escH(Q.ans.term)}</b>.`}</p>`;
+  if (Q.fallback) h += `<p class="find-foot" style="border:0;padding:0">This tab has few terms, so the questions come from all tabs.</p>`;
+  h += `<div class="qz-row"><span class="qz-score"><span data-i18n-skip>${QZ.ok} / ${QZ.n}</span> <span>correct</span></span><span style="display:flex;gap:8px">`
+    + (Q.done ? `<button class="chipbtn" id="qz-show"><span>Show in</span> <span data-i18n-skip>${escH(Q.ans.tabName)}</span></button>` : "")
+    + `<button class="chipbtn" id="qz-next" style="border-color:var(--accent);color:var(--accent)">${Q.done ? "Next question" : "Skip"}</button></span></div>`;
+  $("qz-body").innerHTML = h;
+}
+function qzOpen(){ QZ.last = document.activeElement; QZ.n = 0; QZ.ok = 0; QZ.used.clear(); $("quiz-ov").hidden = false; qzNew(); const b = $("qz-body").querySelector(".qz-opt"); if (b) b.focus(); }
+$("quiz-btn").addEventListener("click", qzOpen);
+$("qz-close").addEventListener("click", () => { $("quiz-ov").hidden = true; if (QZ.last) QZ.last.focus(); });
+document.querySelectorAll("#qz-scope button").forEach(b => b.addEventListener("click", () => { QZ.scope = b.dataset.q; QZ.used.clear(); qzNew(); }));
+$("qz-body").addEventListener("click", e => {
+  const o = e.target.closest(".qz-opt"), Q = QZ.q;
+  if (o && Q && !Q.done){ Q.pick = +o.dataset.i; Q.done = true; QZ.n++; if (Q.opts[Q.pick] === Q.ans) QZ.ok++; qzDraw(); const nx = $("qz-next"); if (nx) nx.focus(); return; }
+  if (e.target.closest("#qz-next")){ qzNew(); const b = $("qz-body").querySelector(".qz-opt"); if (b) b.focus(); return; }
+  if (e.target.closest("#qz-show") && Q) glGo(Q.ans);
+});
+$("quiz-ov").addEventListener("click", e => { if (e.target === $("quiz-ov")){ $("quiz-ov").hidden = true; if (QZ.last) QZ.last.focus(); } });
+document.addEventListener("keydown", e => {
+  if (e.key !== "Escape") return;
+  if (!$("quiz-ov").hidden){ e.preventDefault(); $("quiz-ov").hidden = true; if (QZ.last) QZ.last.focus(); }
+  else if (!$("gloss-ov").hidden){ e.preventDefault(); $("gloss-ov").hidden = true; if (glLast) glLast.focus(); }
+  else return;
 });
 
 /* ================= last updated (deploy time of this page) ================= */

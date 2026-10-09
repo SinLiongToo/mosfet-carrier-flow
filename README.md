@@ -157,6 +157,10 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Screening** – GDBN with a neighbourhood close-up, PAT on IDDQ with robust limits, latent defects caught vs escaped, yield loss vs DPPM
 - **Latent defects from the fab** – foreign-material drop, gate-oxide thin spot, via void, etch residue, CMP micro-scratch, mobile ions and plasma (antenna) damage, each animated in three acts (how it forms in the fab, why it passes the wafer test, how it fails in the field); the life of one die through test, burn-in and use; burn-in acceleration AF_T·AF_V (Arrhenius, voltage), bathtub curve with and without burn-in, parameter drift vs the test limit, first-year field ppm
 
+## Quiz and glossary
+- **Quiz** (? button in the header) – multiple-choice questions generated from the "Explain the terms" list of the open tab, or of all tabs; score, feedback and a link to the term in its tab
+- **Glossary** (book button) – every term explained on the site (about 390) in one filterable alphabetical list, each linked to its tab; works in English and Chinese
+
 Tabs are grouped into five topics (Devices · Circuits · Power & RF · Fab & yield · Package & reliability); the topic selector in the header shows that topic's tabs.
 
 **Find** (magnifier button in the header, Ctrl+K or /) searches every tab at once, open or not: tab and view names, the "How it works" text of every view, glossary terms, tables, lists and controls, in English and 繁體中文 whichever language is shown. Picking a result opens that tab and view, opens the glossary if needed, and highlights the match.
