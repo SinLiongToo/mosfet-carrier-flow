@@ -110,6 +110,11 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Multiple patterning** – single exposure, LELE, SADP and SAQP step by step, pitch walking from overlay or mandrel CD error, relative cost per layer
 - **OPC & EUV stochastics** – 2D optical blur of a layout with and without OPC (serifs, hammerheads, bias, line-end shortening); EUV photon shot noise in contact holes, 3σ CD noise and missing-contact probability vs dose
 
+## Metrology & SPC tab (`#metrology-spc`)
+- **Metrology tools** – CD-SEM image with live shot noise, linescan edge detection, LWR and precision vs frames; scatterometry (OCD) spectrum with library fit and χ²; overlay wafer map with translation, rotation and magnification fit and residuals
+- **SPC charts** – X̄ chart with phase I limits from the moving range, zones A/B/C, the four Western Electric rules, process events (shift, drift, more variation, outlier), R chart, Cp/Cpk and ppm out of spec
+- **Run-to-run control** – EWMA feedback of exposure dose against tool drift, metrology delay, σ and Cpk with and without control, σ vs λ trade-off
+
 ## Packaging tab (`#packaging`)
 - **Wire bond** – back-grinding, dicing, die attach (epoxy, pick-and-place, cure), thermosonic ball/stitch wire bonding with capillary and free-air ball, molding, marking, singulation, final test
 - **Flip-chip (RDL + bumps)** – passivation, polyimide, RDL copper plating, UBM, Cu pillar + solder cap, flip and place, reflow, underfill

@@ -6338,6 +6338,316 @@ Object.assign(window.I18N_ZH, {
 "An FFT across the virtual antenna array gives the direction of each detection; together they form the point cloud": "跨越虛擬天線陣列做 FFT 得到每個偵測的方向；所有偵測合起來形成點雲",
 "Range and speed are not enough: the car must know whether the object is in its own lane. The radar chip has several transmitters and receivers, and with MIMO each transmitter-receiver pair acts as one virtual channel, so # TX × # RX gives # channels and imaging radars reach # or more. With the virtual antennas half a wavelength apart, an echo from angle θ reaches each channel with an extra phase of π·sin θ, so a third FFT across the channels of a detected range-Doppler cell gives an angle spectrum whose peak is the direction of the target. Its resolution is set by the aperture: about #/N radians for N channels, #° for # channels without a window. Two cars side by side at the same range and speed fall into the same range-Doppler cell and can only be separated by angle; at # m a lane is about #° wide, so a small radar merges the two cars into one object. Add channels and the peaks separate. Each detection with its range, velocity and angle becomes one point of the point cloud, which the tracker turns into objects and the sensor fusion combines with the camera.": "只有距離與速度還不夠：車子必須知道物體是否在自己的車道上。雷達晶片有數個發射機與接收機，使用 MIMO 時每一對發射機-接收機就相當於一個虛擬通道，因此 {0} TX × {1} RX 給出 {2} 個通道，成像雷達則可達 {3} 個以上。虛擬天線間隔半個波長時，來自角度 θ 的回波到達每個通道會多出 π·sin θ 的相位，因此對一個偵測到的距離-都卜勒單元跨通道做第三次 FFT，就得到角度頻譜，其峰值就是目標的方向。解析度由孔徑決定：N 個通道約 {4}/N 弧度，不加視窗的 {6} 個通道約 {5}°。以相同距離與速度並排的兩輛車落在同一個距離-都卜勒單元，只能靠角度分開；在 {7} m 處一條車道約 {8}° 寬，因此小雷達會把兩輛車合併成一個物體。增加通道，兩個峰就會分開。每個帶有距離、速度與角度的偵測成為點雲中的一個點，追蹤器再把點雲變成物體，感測器融合則將它與攝影機結合。"
 });
+Object.assign(window.I18N_ZH, {
+"Metrology & SPC": "量測與 SPC",
+"Metrology &amp; SPC": "量測與 SPC",
+"Metrology & SPC · CD-SEM, scatterometry, overlay, control charts and run-to-run control": "量測與 SPC · CD-SEM、散射量測、疊對、管制圖與批次間控制",
+"Inline metrology": "線上量測",
+"Metrology and SPC view": "量測與 SPC 視圖",
+"Metrology tools": "量測工具",
+"SPC charts": "SPC 管制圖",
+"Run-to-run control": "批次間控制",
+"Metrology and statistical process control: CD-SEM image, scatterometry spectrum, overlay map, control chart and run-to-run feedback loop": "量測與統計製程管制：CD-SEM 影像、散射量測光譜、疊對圖、管制圖與批次間回饋迴路",
+"Measurement": "量測",
+"Three workhorse inline measurements: line width from top-down electron images, line shape from optical spectra, and layer-to-layer alignment.": "三種主力線上量測：由俯視電子影像得線寬、由光學光譜得線形，以及層與層之間的對準。",
+"Scatterometry (OCD)": "散射量測（OCD）",
+"Overlay": "疊對",
+"Line width (true CD)": "線寬（真實 CD）",
+"True width of the lines on the wafer.": "晶圓上線條的真實寬度。",
+"Frames averaged": "平均幀數",
+"Number of electron-beam scans averaged into one image. More frames lower the noise but take longer and can shrink resist lines.": "平均成一張影像的電子束掃描次數。幀數越多雜訊越低，但更耗時，也可能使光阻線條收縮。",
+"Line-edge roughness": "線邊緣粗糙度",
+"Roughness of each line edge (#σ). Comes from resist chemistry and photon shot noise.": "每條線邊緣的粗糙度（#σ），來自光阻化學與光子散粒雜訊。",
+"Line height": "線高",
+"True height of the silicon lines.": "矽線條的真實高度。",
+"Translation": "平移",
+"Shift of the whole layer relative to the layer below.": "整層相對於下層的位移。",
+"Rotation": "旋轉",
+"Rotation of the wafer relative to the previous layer, in nanoradians: # nrad moves the wafer edge by # nm.": "晶圓相對前一層的旋轉，以奈弧度表示：# nrad 使晶圓邊緣移動 # nm。",
+"Magnification": "放大率",
+"Wafer expansion relative to the previous layer, in parts per billion, for example from heating during exposure.": "晶圓相對前一層的膨脹，以十億分率表示，例如曝光時受熱造成。",
+"Process event": "製程事件",
+"What happens to the process from lot # on.": "從第 # 批起製程發生的變化。",
+"In control": "受控",
+"Mean shift": "平均值偏移",
+"Drift": "漂移",
+"More variation": "變異變大",
+"Single outlier": "單一離群值",
+"Spec limits": "規格界限",
+"Specification limits around the # nm target, set by the product design.": "以 # nm 目標為中心的規格界限，由產品設計決定。",
+"Tool drift per lot": "每批機台漂移",
+"How fast the tool drifts from lot to lot, for example from lamp ageing or chamber deposits.": "機台每批漂移的速度，例如燈管老化或腔體沉積物。",
+"EWMA weight λ": "EWMA 權重 λ",
+"Weight of the newest measurement in the EWMA filter. High values react fast but pass more noise to the recipe.": "EWMA 濾波器中最新量測值的權重。值高反應快，但會把更多雜訊傳給配方。",
+"Metrology delay": "量測延遲",
+"Lots processed before the measurement of a lot reaches the controller.": "某批的量測結果送達控制器之前，已加工的批數。",
+"Measurement noise, fit quality, overlay residuals, process capability histogram or CD distribution": "量測雜訊、擬合品質、疊對殘差、製程能力直方圖或 CD 分佈",
+"Precision, fit quality, overlay requirement, range chart or controller tuning": "精密度、擬合品質、疊對要求、全距管制圖或控制器調整",
+"Explain the terms: CD-SEM, OCD, overlay, control chart, Western Electric rules, Cpk, run-to-run control": "名詞解釋：CD-SEM、OCD、疊對、管制圖、西方電氣規則、Cpk、批次間控制",
+"From measurement to action": "從量測到行動",
+"<b>Sample</b>: a few wafers per lot and a few sites per wafer are measured after key steps.": "<b>抽樣</b>：關鍵步驟後，每批量測幾片晶圓、每片量測幾個點。",
+"<b>Measure</b>: CD-SEM, scatterometry, overlay, film thickness and defect inspection.": "<b>量測</b>：CD-SEM、散射量測、疊對、膜厚與缺陷檢測。",
+"<b>Chart</b>: each result goes on a control chart with limits from the normal behaviour of the process.": "<b>繪圖</b>：每個結果畫在管制圖上，界限來自製程的正常表現。",
+"<b>React</b>: a rule violation holds the lot or the tool (out-of-control action plan).": "<b>反應</b>：違反規則就暫停該批或機台（失控行動計畫）。",
+"<b>Correct</b>: run-to-run controllers feed the measurements back into the next lot's recipe.": "<b>修正</b>：批次間控制器把量測結果回饋到下一批的配方。",
+"Typical inline measurements": "典型的線上量測",
+"Tool": "機台",
+"Measures": "量測項目",
+"Precision (#σ)": "精密度（#σ）",
+"Line width, roughness, contact size": "線寬、粗糙度、接觸窗尺寸",
+"~#–# nm": "~#–# nm",
+"Width, height, sidewall angle, profile": "寬度、高度、側壁角、輪廓",
+"Overlay (image or diffraction)": "疊對（影像式或繞射式）",
+"Layer-to-layer alignment": "層間對準",
+"Ellipsometry": "橢圓偏光儀",
+"Film thickness and optical constants": "膜厚與光學常數",
+"~# nm": "~# nm",
+"Defect inspection": "缺陷檢測",
+"Particles and pattern defects": "微粒與圖形缺陷",
+"sensitivity ~#–# nm": "靈敏度 ~#–# nm",
+"Terms": "名詞",
+"Critical dimension: the width of the smallest lines or holes of a layer.": "關鍵尺寸：一層中最小線條或孔洞的寬度。",
+"LER / LWR": "LER / LWR",
+"Line-edge and line-width roughness: the #σ variation of an edge or of the width along a line.": "線邊緣與線寬粗糙度：沿著線條，邊緣或寬度的 #σ 變異。",
+"Scatterometry": "散射量測",
+"Optical CD: measure the spectrum reflected by a grating and find the profile whose simulated spectrum fits it.": "光學 CD：量測光柵反射的光譜，找出模擬光譜與之吻合的輪廓。",
+"Misalignment between two patterned layers, corrected by the scanner per lot.": "兩層圖形之間的錯位，由掃描式曝光機逐批修正。",
+"Control limits": "管制界限",
+"±#σ of the process when it is stable; not the same as the specification limits.": "製程穩定時的 ±#σ；與規格界限不同。",
+"Western Electric rules": "西方電氣規則",
+"Patterns on a control chart that are unlikely by chance and signal a change in the process.": "管制圖上不太可能偶然出現、代表製程改變的樣式。",
+"Cp / Cpk": "Cp / Cpk",
+"Process capability: how many #σ fit between the mean and the nearest spec limit.": "製程能力：平均值到最近規格界限之間能容納幾個 #σ。",
+"Run-to-run (R#R)": "批次間控制（R#R）",
+"Feedback that adjusts the recipe of the next lot from the measurements of earlier lots.": "依先前批次的量測結果調整下一批配方的回饋。",
+"# lot": "# 批",
+"# lots": "# 批",
+"# ± # nm": "# ± # nm",
+"Measured CD": "量測 CD",
+"LWR (#σ)": "LWR（#σ）",
+"P/T ratio": "P/T 比",
+"Fitted CD": "擬合 CD",
+"Fitted height": "擬合高度",
+"Reduced χ²": "約化 χ²",
+"Library size": "資料庫大小",
+"Raw overlay": "原始疊對",
+"After correction": "修正後",
+"Rotation fit": "旋轉擬合",
+"Magnification fit": "放大率擬合",
+"Lots shown": "已顯示批數",
+"Signals": "訊號",
+"σ open loop": "開迴路 σ",
+"σ with R#R": "R#R 下的 σ",
+"Cpk open loop": "開迴路 Cpk",
+"Cpk with R#R": "R#R 下的 Cpk",
+"Width from the distance between the edge peaks of the linescan.": "由線掃描兩個邊緣峰之間的距離得到寬度。",
+"Variation of the width along the line, from the image rows.": "由影像各列得到的沿線寬度變異。",
+"Spread of repeated measurements of the same line.": "對同一條線重複量測的分散。",
+"#σ of the measurement over the tolerance; should stay below #.": "量測的 #σ 除以公差；應低於 #。",
+"Width of the library profile that fits the spectrum best.": "與光譜最吻合的資料庫輪廓寬度。",
+"Height of the best-fitting profile.": "最佳擬合輪廓的高度。",
+"Misfit per wavelength in units of the noise; about # for a good model.": "每個波長的不吻合程度，以雜訊為單位；好的模型約為 #。",
+"Simulated profiles searched.": "搜尋過的模擬輪廓數。",
+"|mean| + #σ of the measured shifts, worst axis.": "量測位移的 |平均| + #σ，取較差的軸。",
+"|mean| + #σ of the residual after the model terms are removed.": "移除模型項後殘差的 |平均| + #σ。",
+"Rotation found by the least-squares fit.": "最小平方擬合得到的旋轉。",
+"Magnification found by the fit.": "擬合得到的放大率。",
+"Lots plotted so far.": "目前已畫出的批數。",
+"Lots that break at least one Western Electric rule after phase I.": "第一階段之後違反至少一條西方電氣規則的批次。",
+"Cp": "Cp",
+"Spec width over #σ: what the process could reach if centred.": "規格寬度除以 #σ：製程置中時可達到的能力。",
+"Cpk": "Cpk",
+"Distance from the mean to the nearest spec limit over #σ.": "平均值到最近規格界限的距離除以 #σ。",
+"Spread of the lot CD without feedback.": "無回饋時批次 CD 的分散。",
+"Spread with EWMA feedback.": "有 EWMA 回饋時的分散。",
+"Capability without feedback.": "無回饋時的製程能力。",
+"Capability with feedback.": "有回饋時的製程能力。",
+"CD from linescan": "由線掃描得 CD",
+"Edge detection on the averaged signal.": "在平均訊號上做邊緣偵測。",
+"Roughness with noise": "含雜訊的粗糙度",
+"Measured roughness includes the measurement noise.": "量到的粗糙度包含量測雜訊。",
+"Averaging": "平均",
+"Noise falls with the square root of the frames.": "雜訊隨幀數的平方根下降。",
+"Precision to tolerance": "精密度對公差比",
+"How much of the spec the measurement uses up.": "量測用掉多少規格範圍。",
+"Thin-film model": "薄膜模型",
+"Reflection of a layer on silicon.": "矽上一層膜的反射。",
+"Effective medium": "等效介質",
+"Grating replaced by a layer with an averaged index.": "以平均折射率的膜層取代光柵。",
+"Fit quality": "擬合品質",
+"Weighted squared difference between spectra.": "光譜之間的加權平方差。",
+"Library search": "資料庫搜尋",
+"Grid of simulated spectra, then refinement.": "模擬光譜網格，再加以細化。",
+"Overlay model": "疊對模型",
+"Translation, rotation and magnification across the wafer.": "整片晶圓上的平移、旋轉與放大率。",
+"Overlay metric": "疊對指標",
+"Mean plus three sigma, per axis.": "每個軸的平均值加三個標準差。",
+"Correction": "修正",
+"Fitted terms sent back to the scanner.": "擬合出的項回傳給曝光機。",
+"Overlay budget": "疊對預算",
+"Allowed overlay for the node.": "該節點允許的疊對誤差。",
+"From the mean range of the subgroups.": "由子群的平均全距求得。",
+"Range chart": "全距管制圖",
+"Watches the within-lot spread.": "監看批內分散。",
+"Capability": "製程能力",
+"Cp and Cpk from the spec and the process σ.": "由規格與製程 σ 求 Cp 與 Cpk。",
+"Out of spec": "超出規格",
+"Fraction of sites outside the spec limits.": "超出規格界限的量測點比例。",
+"EWMA estimate": "EWMA 估計",
+"Filtered estimate of the tool disturbance.": "機台擾動的濾波估計值。",
+"Recipe update": "配方更新",
+"Dose for the next lot.": "下一批的劑量。",
+"Trade-off": "取捨",
+"Noise against lag.": "雜訊與延遲之間。",
+"Dose sensitivity": "劑量靈敏度",
+"CD change per percent of dose.": "每百分之一劑量的 CD 變化。",
+"Measurement box and detected edges": "量測框與偵測到的邊緣",
+"Width along the line": "沿線寬度",
+"Linescan": "線掃描",
+"Measured spectrum": "量測光譜",
+"Best-fit model": "最佳擬合模型",
+"Model with CD ± # nm": "CD ± # nm 的模型",
+"Silicon": "矽",
+"Measured overlay": "量測疊對",
+"Residual after correction": "修正後殘差",
+"Layer # mark": "第 # 層標記",
+"Lot mean": "批平均",
+"Control limits and rule violations": "管制界限與違規點",
+"Zone C (±#σ)": "C 區（±#σ）",
+"Zone B (±#σ)": "B 區（±#σ）",
+"With run-to-run control": "有批次間控制",
+"Open loop": "開迴路",
+"Dose correction, spec band": "劑量修正、規格帶",
+"CD = x_right − x_left (edge peaks of the averaged signal)": "CD = x_right − x_left（平均訊號的邊緣峰）",
+"# frames → precision # nm (#σ)": "# 幀 → 精密度 # nm（#σ）",
+"tolerance ±# nm → P/T = #": "公差 ±# nm → P/T = #",
+"interference between the top of the lines and the silicon below": "線條頂部與下方矽之間的干涉",
+"f = # → n_eff ≈ # at # nm": "f = {0} → 在 {2} nm 時 n_eff ≈ {1}",
+"# wavelengths, σ = # → χ² = #": "# 個波長，σ = # → χ² = #",
+"min over CD, h of χ²(CD, h), then local refinement": "對 CD、h 求 χ²(CD, h) 的最小值，再局部細化",
+"OVL = |mean| + #σ per axis": "OVL = |平均| + #σ（每個軸）",
+"raw # nm → residual # nm": "原始 # nm → 殘差 # nm",
+"scanner offset = − (T, θ, M) for the next lot": "下一批的曝光機補償 = − (T, θ, M)",
+"advanced fabs also correct higher-order terms per field": "先進晶圓廠還會逐場修正高階項",
+"OVL ≲ ¼ to ⅓ of the smallest feature": "OVL ≲ 最小特徵的 ¼ 到 ⅓",
+"about # nm at the # nm node, # nm at # nm": "{1} nm 節點約 {0} nm，{3} nm 節點約 {2} nm",
+"UCL, LCL = X̿ ± #·MR̄ / # (moving range of the lot means)": "UCL, LCL = X̿ ± #·MR̄ / #（批平均的移動全距）",
+"# ppm of sites outside # ± # nm": "# ppm 的量測點超出 # ± # nm",
+"a_k = λ·(y_k − b·u_k) + (# − λ)·a_(k−#)": "a_k = λ·(y_k − b·u_k) + (# − λ)·a_(k−#)",
+"λ = #, delay # → estimate after # lots # nm": "λ = #，延遲 # → # 批後的估計 # nm",
+"b = #: the dose offset is expressed in nm of CD": "b = #：劑量補償以 CD 的 nm 表示",
+"small λ: lags a drift · large λ: passes noise": "λ 小：追不上漂移 · λ 大：放過雜訊",
+"drift # nm per lot, noise # nm": "漂移每批 # nm，雜訊 # nm",
+"ΔCD ≈ −# nm per +# % dose": "ΔCD ≈ 每 +{1} % 劑量 −{0} nm",
+"largest correction # nm = # % dose": "最大修正 # nm = # % 劑量",
+"CD-SEM image (top view), # nm per pixel": "CD-SEM 影像（俯視），每像素 # nm",
+"width along the line (each row): LWR = # nm (#σ)": "沿線寬度（每一列）：LWR = # nm（#σ）",
+"Linescan: average of # rows": "線掃描：# 列的平均",
+"position (nm)": "位置 (nm)",
+"bright peaks = edges (more secondary electrons escape)": "亮峰 = 邊緣（逸出的二次電子較多）",
+"measured CD: # nm (true # nm, bias -# nm)": "量測 CD：# nm（真實 # nm，偏差 -# nm）",
+"measured CD: # nm (true # nm, bias +# nm)": "量測 CD：# nm（真實 # nm，偏差 +# nm）",
+"precision (#σ, repeated scans): # nm": "精密度（#σ，重複掃描）：# nm",
+"LWR measured # nm, true # nm": "LWR 量測 # nm，真實 # nm",
+"image noise adds √(LWR² − LWR_true²) = # nm": "影像雜訊貢獻 √(LWR² − LWR_true²) = # nm",
+"# frames: noise σ ∝ #/√frames, but more dose shrinks resist": "# 幀：雜訊 σ ∝ #/√幀數，但劑量越多光阻越會收縮",
+"Grating cross-section": "光柵剖面",
+"pitch # nm": "週期 # nm",
+"broadband light #–# nm": "寬頻光 #–# nm",
+"spectrometer": "光譜儀",
+"Reflectance spectrum: measured vs best fit": "反射光譜：量測與最佳擬合",
+"wavelength (nm)": "波長 (nm)",
+"fitted CD: # nm (true #)": "擬合 CD：# nm（真實 #）",
+"fitted height: # nm (true #)": "擬合高度：# nm（真實 #）",
+"reduced χ² = # (≈ # means the fit is as good as the noise)": "約化 χ² = #（≈ # 表示擬合已達雜訊極限）",
+"library search: #,# simulated profiles, then local refinement": "資料庫搜尋：#,# 個模擬輪廓，再局部細化",
+"dashed: spectra for CD ± # nm, the sensitivity the fit relies on": "虛線：CD ± # nm 的光譜，即擬合所依賴的靈敏度",
+"Overlay map: one mark per field (arrows greatly enlarged)": "疊對圖：每個曝光場一個標記（箭頭大幅放大）",
+"Box-in-box mark and model fit": "框中框標記與模型擬合",
+"outer box: layer #": "外框：第 # 層",
+"inner box: layer # (shift × #)": "內框：第 # 層（位移 × #）",
+"translation x: # nm": "平移 x：# nm",
+"translation y: -# nm": "平移 y：-# nm",
+"rotation: # nrad": "旋轉：# nrad",
+"rotation: -# nrad": "旋轉：-# nrad",
+"magnification: -# ppb": "放大率：-# ppb",
+"magnification: # ppb": "放大率：# ppb",
+"translation y: # nm": "平移 y：# nm",
+"raw overlay |m|+#σ: x # nm, y # nm": "原始疊對 |m|+#σ：x # nm，y # nm",
+"after correction: x # nm, y # nm": "修正後：x # nm，y # nm",
+"the scanner applies the fitted terms to the next lot": "曝光機把擬合出的項套用到下一批",
+"X̄ chart of line CD: lot means of # sites (# of # lots)": "線寬 CD 的 X̄ 管制圖：# 個點的批平均（# / # 批）",
+"lot": "批",
+"phase I: limits": "第一階段：界限",
+"event →": "事件 →",
+"first signal: lot #, rule # → hold the tool and find the cause": "第一個訊號：第 # 批，規則 # → 暫停機台並找出原因",
+"first signal: lot #, rule # and # → hold the tool and find the cause": "第一個訊號：第 # 批，規則 # 與 # → 暫停機台並找出原因",
+"no signal: the process is in statistical control": "沒有訊號：製程處於統計管制狀態",
+"control limits come from the process itself (±#σ of the lot means), not from the spec limits": "管制界限來自製程本身（批平均的 ±#σ），而非規格界限",
+"green, amber, red bands: zones C, B, A (#σ, #σ, #σ)": "綠、黃、紅帶：C、B、A 區（#σ、#σ、#σ）",
+"rule #": "規則 #",
+"# signals": "# 個訊號",
+"# signal": "# 個訊號",
+"ok": "正常",
+"# point beyond #σ": "# 點超出 #σ",
+"# of # points beyond #σ,": "{1} 點中有 {0} 點超出 {2}σ，",
+"same side": "同一側",
+"# points in a row on one side": "連續 # 點在同一側",
+"chance of a false signal": "誤報的機率",
+"per point ≈ #–# %": "每點 ≈ #–# %",
+"(only after lot # counted)": "（只計第 # 批之後）",
+"Lot CD with and without run-to-run control (# of # lots)": "有無批次間控制的批次 CD（# / # 批）",
+"open loop (no correction)": "開迴路（無修正）",
+"with EWMA run-to-run": "使用 EWMA 批次間控制",
+"exposure dose correction sent to the scanner (−# nm CD per +# % dose)": "送到曝光機的曝光劑量修正（每 +{1} % 劑量 CD −{0} nm）",
+"Feedback loop": "回饋迴路",
+"Scanner: dose": "曝光機：劑量",
+"Lot of # wafers": "# 片晶圓的一批",
+"CD metrology": "CD 量測",
+"EWMA controller": "EWMA 控制器",
+"delay: # lot": "延遲：# 批",
+"delay: # lots": "延遲：# 批",
+"a = λ·(y − u) + (# − λ)·a": "a = λ·(y − u) + (# − λ)·a",
+"next u = target − a": "下一個 u = 目標 − a",
+"estimated drift now: # nm": "目前估計的漂移：# nm",
+"estimated drift now: -# nm": "目前估計的漂移：-# nm",
+"measured LWR": "量測 LWR",
+"true LWR": "真實 LWR",
+"frames averaged": "平均幀數",
+"CD precision (#σ)": "CD 精密度（#σ）",
+"fit quality vs CD": "擬合品質對 CD",
+"fit quality vs height": "擬合品質對高度",
+"height (nm)": "高度 (nm)",
+"CD (nm)": "CD (nm)",
+"raw x": "原始 x",
+"raw y": "原始 y",
+"corr. x": "修正 x",
+"corr. y": "修正 y",
+"overlay |m| + #σ": "疊對 |m| + #σ",
+"overlay budget (approx.)": "疊對預算（約）",
+"log# node (nm)": "log# 節點 (nm)",
+"log# nm": "log# nm",
+"capability: Cpk #": "製程能力：Cpk #",
+"spec": "規格",
+"sites": "量測點",
+"R chart (within-lot range)": "R 管制圖（批內全距）",
+"range (nm)": "全距 (nm)",
+"CD − target (nm)": "CD − 目標 (nm)",
+"lots": "批數",
+"with R#R": "有 R#R",
+"open loop (# lots)": "開迴路（# 批）",
+"σ (nm)": "σ (nm)",
+"σ with R#R vs λ": "R#R 下 σ 對 λ",
+"Every critical step is measured: line widths from electron images, profiles from optical spectra, alignment from overlay marks": "每個關鍵步驟都要量測：由電子影像得線寬，由光學光譜得輪廓，由疊對標記得對準",
+"A CD-SEM scans a focused electron beam over the wafer and counts the secondary electrons that escape. Edges look bright because more electrons escape where the surface is tilted, so a line appears as two bright stripes and its width (the critical dimension, CD) is the distance between the edge peaks of the averaged linescan. Each row of the image gives its own width; their spread is the line-width roughness (LWR), which matters more and more as lines shrink because it changes the transistor's threshold voltage along the gate. The image is noisy because only a few electrons arrive per pixel: averaging more frames lowers the noise, but the beam also shrinks resist lines and takes time. Noise even inflates the measured roughness, since the noise of the edge detection adds to the true LWR in quadrature. A measurement is only useful if its precision is much smaller than the tolerance: the precision-to-tolerance ratio P/T = #σ_meas/(USL − LSL) should stay below about #.": "CD-SEM 讓聚焦的電子束掃過晶圓，並計數逸出的二次電子。邊緣看起來較亮，因為表面傾斜處逸出的電子較多，因此一條線會呈現兩條亮帶，它的寬度（關鍵尺寸，CD）就是平均線掃描中兩個邊緣峰之間的距離。影像的每一列都有自己的寬度，它們的分散就是線寬粗糙度（LWR）；線條越小它越重要，因為它會沿著閘極改變電晶體的臨界電壓。影像有雜訊是因為每個像素只收到少數電子：平均更多幀可降低雜訊，但電子束也會使光阻線條收縮，而且耗時。雜訊甚至會使量到的粗糙度變大，因為邊緣偵測的雜訊會與真實 LWR 以平方和相加。量測只有在精密度遠小於公差時才有用：精密度對公差比 P/T = #σ_meas/(USL − LSL) 應保持在約 # 以下。",
+"Scatterometry, or optical CD (OCD), shines broadband light on a periodic test grating and measures the reflected spectrum. The grating is too small to image with light, but its width, height and sidewall angle change how the light interferes in the layer, so the spectrum carries a fingerprint of the profile. A computer solves Maxwell's equations (here: an effective-medium film, real tools use rigorous coupled-wave analysis) for thousands of candidate profiles, stores them in a library and picks the one whose spectrum fits the measurement best, then refines it. OCD is fast, non-destructive and very precise, and it measures height and shape that a top-down SEM cannot see, but it needs a good model: if the real profile has a feature the model lacks, the fit is precise but wrong. The reduced χ² tells how well the best model explains the data; a value near # means the remaining difference is just noise.": "散射量測，又稱光學 CD（OCD），把寬頻光照在週期性的測試光柵上並量測反射光譜。光柵太小，無法用光成像，但它的寬度、高度與側壁角會改變光在膜層中的干涉，因此光譜帶有輪廓的指紋。電腦為數千個候選輪廓求解馬克士威方程式（這裡用等效介質薄膜，實際機台用嚴格耦合波分析），存成資料庫，挑出光譜與量測最吻合的那一個，再加以細化。OCD 快速、非破壞且非常精密，還能量到俯視 SEM 看不到的高度與形狀，但它需要好的模型：如果實際輪廓有模型沒有的特徵，擬合會很精密卻是錯的。約化 χ² 表示最佳模型解釋資料的程度；接近 # 表示剩下的差異只是雜訊。",
+"Every layer must land on the layer below within a few nanometres, so after each critical exposure the overlay between the new resist pattern and the previous layer is measured on marks in every field: here a box-in-box mark, where the inner box is printed with the new layer. The shifts across the wafer are fitted with a simple model: translation (the whole layer shifted), rotation (the wafer slightly turned on the chuck) and magnification (the wafer expanded or shrunk, for example by heating). These terms are fed back to the scanner, which corrects them for the next lot; what remains is the residual, set by field-to-field noise, lens distortions and wafer deformation, which advanced fabs model with many more terms, even per exposure field. A # nm node needs total overlay below about # nm, so a rotation of only # nanoradians, # nm at the wafer edge, already matters.": "每一層都必須落在下一層上，誤差只能有幾奈米，因此每次關鍵曝光後，都要在每個曝光場的標記上量測新光阻圖形與前一層之間的疊對：這裡用的是框中框標記，內框由新的一層印出。整片晶圓上的位移用簡單模型擬合：平移（整層移動）、旋轉（晶圓在載台上稍微轉動）與放大率（晶圓膨脹或收縮，例如受熱）。這些項回饋給曝光機，在下一批修正；剩下的是殘差，來自場與場之間的雜訊、透鏡畸變與晶圓變形，先進晶圓廠會用更多項來建模，甚至逐場修正。# nm 節點需要總疊對低於約 # nm，因此只有 # 奈弧度的旋轉，在晶圓邊緣造成 # nm，就已經很重要。",
+"Statistical process control": "統計製程管制",
+"Control charts separate the normal noise of a process from real changes, so a drifting tool is stopped before it scraps wafers": "管制圖把製程的正常雜訊與真正的變化分開，在機台漂移報廢晶圓之前就把它停下來",
+"Every process varies a little from lot to lot. Statistical process control (SPC) first learns this normal variation from a stable period (phase I: here the first # lots) and draws control limits at ±#σ around the mean of the lot averages, X̄. The σ must come from the moving range between consecutive lot means, which includes the lot-to-lot variation; limits from the site-to-site range alone would be too tight and raise false alarms. A separate R chart watches the spread between the sites of each lot. Afterwards every new lot is plotted (phase II). A point outside the limits is the classic out-of-control signal, but slower changes are caught by patterns that are unlikely by chance: the Western Electric rules, such as two of three points beyond #σ or eight points in a row on one side. A signal triggers the out-of-control action plan: hold the lot, check the tool and the metrology, find and remove the cause. Control limits describe the process, specification limits describe the product: a process can be in control and still not capable. Capability is measured by Cp, the spec width over #σ, and Cpk, the distance from the mean to the nearest spec limit over #σ; fabs ask for Cpk ≥ # (# ppm outside spec) or ≥ # for critical parameters. Try each process event and see which rule fires first.": "每個製程在批與批之間都會有些微變化。統計製程管制（SPC）先從一段穩定期間學習這個正常變異（第一階段：這裡是前 # 批），並在批平均 X̄ 的平均值兩側 ±#σ 畫出管制界限。這個 σ 必須來自相鄰批平均之間的移動全距，它包含了批與批之間的變異；只用點與點之間的全距算出的界限會太窄，造成誤報。另外的 R 管制圖監看每批各量測點之間的分散。之後每一批新資料都畫上去（第二階段）。超出界限的點是典型的失控訊號，但較慢的變化要靠不太可能偶然出現的樣式來抓：西方電氣規則，例如三點中有兩點超出 #σ，或連續八點在同一側。訊號會觸發失控行動計畫：暫停該批、檢查機台與量測、找出並排除原因。管制界限描述製程，規格界限描述產品：製程可能受控卻仍然能力不足。製程能力用 Cp（規格寬度除以 #σ）與 Cpk（平均值到最近規格界限的距離除以 #σ）衡量；晶圓廠要求 Cpk ≥ #（# ppm 超出規格），關鍵參數則要 ≥ #。試試每一種製程事件，看哪一條規則最先觸發。",
+"Feedback from metrology adjusts each lot's recipe, so slow tool drift never reaches the product": "量測回饋調整每一批的配方，讓緩慢的機台漂移永遠不會影響產品",
+"Tools drift: lamps age, chambers collect deposits, consumables wear. Instead of waiting for SPC alarms, modern fabs use run-to-run (R#R) control: after each lot, the measured CD is compared with the target and the recipe of the next lot (here the exposure dose of the scanner) is adjusted. The controller needs an estimate of the disturbance that is not fooled by measurement noise, and the exponentially weighted moving average (EWMA) is the workhorse: each new measurement gets the weight λ, the old estimate # − λ. A small λ filters noise but lags behind a drift; a large λ follows the drift but passes lot-to-lot noise straight into the recipe and, with metrology delay, overshoots. The plot of σ against λ shows the best compromise for the current drift and delay. R#R is used for lithography dose and focus, overlay, etch time, CMP polish time and deposition thickness, often with feed-forward of measurements from earlier steps.": "機台會漂移：燈管老化、腔體累積沉積物、耗材磨損。現代晶圓廠不等 SPC 警報，而是使用批次間（R#R）控制：每批完成後，把量到的 CD 與目標比較，並調整下一批的配方（這裡是曝光機的曝光劑量）。控制器需要一個不會被量測雜訊誤導的擾動估計，指數加權移動平均（EWMA）是主力：每個新量測值的權重是 λ，舊的估計是 # − λ。λ 小能濾掉雜訊，但追不上漂移；λ 大能跟上漂移，卻會把批與批之間的雜訊直接傳進配方，若有量測延遲還會過衝。σ 對 λ 的圖顯示了目前漂移與延遲下的最佳折衷。R#R 用於微影劑量與焦距、疊對、蝕刻時間、CMP 研磨時間與沉積厚度，常常還結合前段步驟量測的前饋。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -6707,6 +7017,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-rl" aria-selected="false" aria-controls="tab-rl">Reliability (lifetime)</button>
         <button role="tab" id="tab-btn-ly" aria-selected="false" aria-controls="tab-ly">Layout</button>
         <button role="tab" id="tab-btn-rp" aria-selected="false" aria-controls="tab-rp">Radar DSP</button>
+        <button role="tab" id="tab-btn-sp" aria-selected="false" aria-controls="tab-sp">Metrology & SPC</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -9752,6 +10063,148 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Clutter</dt><dd>Echoes from things that are not targets: road, guardrails, buildings; mostly at zero speed.</dd>
               <dt>Point cloud</dt><dd>The list of detections with range, speed, angle and amplitude for each frame.</dd>
               <dt>Integration gain</dt><dd>Coherent FFTs over N samples raise the signal-to-noise ratio by 10·log10 N.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== METROLOGY & SPC TAB ===================== -->
+  <section id="tab-sp" role="tabpanel" aria-labelledby="tab-btn-sp" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="sp-pill">CD</span><h2 id="sp-name">Inline metrology</h2></div>
+      <p id="sp-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="sp-view" role="group" aria-label="Metrology and SPC view" style="flex-wrap:wrap">
+        <button data-v="mt" aria-pressed="true">Metrology tools</button>
+        <button data-v="spc" aria-pressed="false">SPC charts</button>
+        <button data-v="r2r" aria-pressed="false">Run-to-run control</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvsp" aria-label="Metrology and statistical process control: CD-SEM image, scatterometry spectrum, overlay map, control chart and run-to-run feedback loop"></canvas>
+      <div class="legend" id="sp-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="sp-ro"></div>
+        <div id="sp-c-inst" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Three workhorse inline measurements: line width from top-down electron images, line shape from optical spectra, and layer-to-layer alignment.">Measurement</span>
+          <div class="chips" id="sp-inst">
+            <button class="chipbtn" data-i="sem">CD-SEM</button>
+            <button class="chipbtn" data-i="ocd">Scatterometry (OCD)</button>
+            <button class="chipbtn" data-i="ovl">Overlay</button>
+          </div>
+        </div>
+        <div class="slider" id="sp-c-cd">
+          <div class="lab"><span class="term" tabindex="0" data-tip="True width of the lines on the wafer.">Line width (true CD)</span><span id="sp-cd-v"></span></div>
+          <input id="sp-cd" type="range" min="20" max="70" step="0.5" value="45">
+        </div>
+        <div class="slider" id="sp-c-frames">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Number of electron-beam scans averaged into one image. More frames lower the noise but take longer and can shrink resist lines.">Frames averaged</span><span id="sp-frames-v"></span></div>
+          <input id="sp-frames" type="range" min="1" max="32" step="1" value="8">
+        </div>
+        <div class="slider" id="sp-c-ler">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Roughness of each line edge (3σ). Comes from resist chemistry and photon shot noise.">Line-edge roughness</span><span id="sp-ler-v"></span></div>
+          <input id="sp-ler" type="range" min="0" max="6" step="0.25" value="2.5">
+        </div>
+        <div class="slider" id="sp-c-h">
+          <div class="lab"><span class="term" tabindex="0" data-tip="True height of the silicon lines.">Line height</span><span id="sp-h-v"></span></div>
+          <input id="sp-h" type="range" min="50" max="120" step="1" value="80">
+        </div>
+        <div class="slider" id="sp-c-tr">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Shift of the whole layer relative to the layer below.">Translation</span><span id="sp-tr-v"></span></div>
+          <input id="sp-tr" type="range" min="0" max="8" step="0.25" value="3">
+        </div>
+        <div class="slider" id="sp-c-rot">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Rotation of the wafer relative to the previous layer, in nanoradians: 10 nrad moves the wafer edge by 1.5 nm.">Rotation</span><span id="sp-rot-v"></span></div>
+          <input id="sp-rot" type="range" min="-60" max="60" step="1" value="25">
+        </div>
+        <div class="slider" id="sp-c-mag">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Wafer expansion relative to the previous layer, in parts per billion, for example from heating during exposure.">Magnification</span><span id="sp-mag-v"></span></div>
+          <input id="sp-mag" type="range" min="-60" max="60" step="1" value="-20">
+        </div>
+        <div id="sp-c-sc" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="What happens to the process from lot 30 on.">Process event</span>
+          <div class="chips" id="sp-sc">
+            <button class="chipbtn" data-s="ok">In control</button>
+            <button class="chipbtn" data-s="shift">Mean shift</button>
+            <button class="chipbtn" data-s="drift">Drift</button>
+            <button class="chipbtn" data-s="spread">More variation</button>
+            <button class="chipbtn" data-s="outlier">Single outlier</button>
+          </div>
+        </div>
+        <div class="slider" id="sp-c-spec">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Specification limits around the 45 nm target, set by the product design.">Spec limits</span><span id="sp-spec-v"></span></div>
+          <input id="sp-spec" type="range" min="1" max="6" step="0.25" value="3">
+        </div>
+        <div class="slider" id="sp-c-drift">
+          <div class="lab"><span class="term" tabindex="0" data-tip="How fast the tool drifts from lot to lot, for example from lamp ageing or chamber deposits.">Tool drift per lot</span><span id="sp-drift-v"></span></div>
+          <input id="sp-drift" type="range" min="0" max="0.3" step="0.01" value="0.08">
+        </div>
+        <div class="slider" id="sp-c-lam">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Weight of the newest measurement in the EWMA filter. High values react fast but pass more noise to the recipe.">EWMA weight λ</span><span id="sp-lam-v"></span></div>
+          <input id="sp-lam" type="range" min="0.05" max="1" step="0.05" value="0.3">
+        </div>
+        <div class="slider" id="sp-c-delay">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Lots processed before the measurement of a lot reaches the controller.">Metrology delay</span><span id="sp-delay-v"></span></div>
+          <input id="sp-delay" type="range" min="0" max="4" step="1" value="1">
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="sp-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Analysis</p>
+        <div class="plots">
+          <div class="plot"><svg id="sp-p1" viewBox="0 0 300 230" role="img" aria-label="Measurement noise, fit quality, overlay residuals, process capability histogram or CD distribution"></svg></div>
+          <div class="plot"><svg id="sp-p2" viewBox="0 0 220 230" role="img" aria-label="Precision, fit quality, overlay requirement, range chart or controller tuning"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="sp-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: CD-SEM, OCD, overlay, control chart, Western Electric rules, Cpk, run-to-run control</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>From measurement to action</h3>
+            <ol>
+              <li><b>Sample</b>: a few wafers per lot and a few sites per wafer are measured after key steps.</li>
+              <li><b>Measure</b>: CD-SEM, scatterometry, overlay, film thickness and defect inspection.</li>
+              <li><b>Chart</b>: each result goes on a control chart with limits from the normal behaviour of the process.</li>
+              <li><b>React</b>: a rule violation holds the lot or the tool (out-of-control action plan).</li>
+              <li><b>Correct</b>: run-to-run controllers feed the measurements back into the next lot's recipe.</li>
+            </ol>
+            <h3>Typical inline measurements</h3>
+            <div class="tbl"><table>
+              <tr><th>Tool</th><th>Measures</th><th>Precision (3σ)</th></tr>
+              <tr><td>CD-SEM</td><td>Line width, roughness, contact size</td><td>~0.2–0.5 nm</td></tr>
+              <tr><td>Scatterometry (OCD)</td><td>Width, height, sidewall angle, profile</td><td>~0.1–0.3 nm</td></tr>
+              <tr><td>Overlay (image or diffraction)</td><td>Layer-to-layer alignment</td><td>~0.2–0.5 nm</td></tr>
+              <tr><td>Ellipsometry</td><td>Film thickness and optical constants</td><td>~0.05 nm</td></tr>
+              <tr><td>Defect inspection</td><td>Particles and pattern defects</td><td>sensitivity ~10–20 nm</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>CD</dt><dd>Critical dimension: the width of the smallest lines or holes of a layer.</dd>
+              <dt>LER / LWR</dt><dd>Line-edge and line-width roughness: the 3σ variation of an edge or of the width along a line.</dd>
+              <dt>Scatterometry</dt><dd>Optical CD: measure the spectrum reflected by a grating and find the profile whose simulated spectrum fits it.</dd>
+              <dt>Overlay</dt><dd>Misalignment between two patterned layers, corrected by the scanner per lot.</dd>
+              <dt>Control limits</dt><dd>±3σ of the process when it is stable; not the same as the specification limits.</dd>
+              <dt>Western Electric rules</dt><dd>Patterns on a control chart that are unlikely by chance and signal a change in the process.</dd>
+              <dt>Cp / Cpk</dt><dd>Process capability: how many 3σ fit between the mean and the nearest spec limit.</dd>
+              <dt>Run-to-run (R2R)</dt><dd>Feedback that adjusts the recipe of the next lot from the measurements of earlier lots.</dd>
             </dl>
           </div>
         </div>
@@ -18797,12 +19250,416 @@ document.querySelectorAll("#rp-win button").forEach(b => b.addEventListener("cli
 document.querySelectorAll("#rp-cut button").forEach(b => b.addEventListener("click", () => { RPS.cut = b.dataset.s; updateRP(); }));
 [["rp-nd", "nd"], ["rp-noise", "noise"], ["rp-guard", "guard"], ["rp-train", "train"], ["rp-pfa", "pfa"], ["rp-ch", "ch"], ["rp-sep", "sep"]].forEach(([id, k]) => $(id).addEventListener("input", e => { RPS[k] = +e.target.value; updateRP(); }));
 
+/* ===================== METROLOGY & SPC TAB ===================== */
+// CD-SEM: synthetic top-down image (bright edges, rough edges, shot noise) measured with peak detection.
+// OCD: grating as an effective-medium film on silicon, fitted by a library search. Overlay: 4-parameter wafer model.
+// SPC: X-bar / R charts with Western Electric rules. R2R: EWMA feedback with metrology delay.
+const SPX = setupCanvas($("cvsp"), 1000, 488);
+const SPS = {view:"mt", inst:"sem", cd:45, frames:8, ler:2.5, h:80, tr:3, rot:25, mag:-20, sc:"shift", spec:3, drift:0.08, lam:0.3, delay:1, t:0, acc:0, nseed:1};
+const spGauss = rnd => Math.sqrt(-2*Math.log(rnd() + 1e-12))*Math.cos(2*Math.PI*rnd());
+const spF2 = x => (Math.abs(x) < 0.005 ? 0 : x).toFixed(2);
+const spMean = a => a.reduce((s, x) => s + x, 0)/a.length;
+const spStd = a => { const m = spMean(a); return Math.sqrt(a.reduce((s, x) => s + (x - m)*(x - m), 0)/Math.max(1, a.length - 1)); };
+function spPhi(z){ const t = 1/(1 + 0.3275911*Math.abs(z)/Math.SQRT2), y = 1 - (((((1.061405429*t - 1.453152027)*t) + 1.421413741)*t - 0.284496736)*t + 0.254829592)*t*Math.exp(-z*z/2); return z >= 0 ? 0.5*(1 + y) : 0.5*(1 - y); }
+
+/* ---------------- CD-SEM ---------------- */
+const SP_PX = 1.5, SP_W = 200, SP_H = 150, SP_PITCH = 100;
+const SP_E = (() => { const rnd = cmRand(4242), E = [];
+  for (let e = 0; e < 6; e++){
+    const comps = Array.from({length:7}, (_, j) => ({f:(j + 1)*1.1 + rnd()*0.9, p:rnd()*6.283, a:1/Math.sqrt(j + 1)}));
+    const raw = Array.from({length:SP_H}, (_, y) => comps.reduce((s, c) => s + c.a*Math.sin(2*Math.PI*c.f*y/SP_H + c.p), 0));
+    const m = spMean(raw), sd = Math.sqrt(raw.reduce((s, x) => s + (x - m)*(x - m), 0)/SP_H); E.push(raw.map(x => (x - m)/sd)); }
+  return E; })();
+function spSem(seed){
+  const rnd = cmRand(seed), se = SPS.ler/3, sn = 0.3/Math.sqrt(SPS.frames), img = new Float32Array(SP_W*SP_H), trueW = [];
+  for (let y = 0; y < SP_H; y++){
+    const ed = [0, 1, 2].map(j => [50 + 100*j - SPS.cd/2 + se*SP_E[2*j][y], 50 + 100*j + SPS.cd/2 + se*SP_E[2*j + 1][y]]);
+    trueW.push(ed[1][1] - ed[1][0]);
+    for (let x = 0; x < SP_W; x++){
+      const xn = (x + 0.5)*SP_PX; let I = 0.22;
+      for (const [l, r] of ed){ const inside = xn > l && xn < r, d = Math.min(Math.abs(xn - l), Math.abs(xn - r));
+        if (inside) I += 0.18*(1 - Math.exp(-(d/4)*(d/4))); I += 0.75*Math.exp(-(d/2.5)*(d/2.5)); }
+      img[y*SP_W + x] = I + sn*spGauss(rnd);
+    }
+  }
+  const peak = (p, a, b) => { let k = a; for (let x = a; x <= b; x++) if (p[x] > p[k]) k = x; const A = p[k - 1], B = p[k], Cc = p[k + 1], den = A - 2*B + Cc; return (k + (den < 0 ? 0.5*(A - Cc)/den : 0) + 0.5)*SP_PX; };
+  const scan = new Float64Array(SP_W); for (let y = 0; y < SP_H; y++) for (let x = 0; x < SP_W; x++) scan[x] += img[y*SP_W + x]/SP_H;
+  const L0 = 73, L1 = 99, R0 = 101, R1 = 127, le = peak(scan, L0, L1), re = peak(scan, R0, R1), widths = [];
+  for (let y = 0; y < SP_H; y++){ const p = new Float64Array(SP_W), y0 = Math.max(0, y - 1), y1 = Math.min(SP_H - 1, y + 1);
+    for (let yy = y0; yy <= y1; yy++) for (let x = L0 - 1; x <= R1 + 1; x++) p[x] += img[yy*SP_W + x]/(y1 - y0 + 1);
+    widths.push(peak(p, R0, R1) - peak(p, L0, L1)); }
+  return {img, scan, le, re, cd:re - le, widths, lwr:3*spStd(widths), lwrTrue:3*spStd(trueW)};
+}
+const SP_OFF = document.createElement("canvas");
+function spPaintSem(s){
+  SP_OFF.width = SP_W; SP_OFF.height = SP_H; const c = SP_OFF.getContext("2d"), im = c.createImageData(SP_W, SP_H);
+  for (let i = 0; i < SP_W*SP_H; i++){ const g = Math.round(clamp(s.img[i], 0, 1.1)/1.1*255); im.data[4*i] = im.data[4*i + 1] = im.data[4*i + 2] = g; im.data[4*i + 3] = 255; }
+  c.putImageData(im, 0, 0);
+}
+
+/* ---------------- scatterometry ---------------- */
+const SP_LAMS = Array.from({length:60}, (_, i) => 250 + i*550/59);
+function spR(cd, h, lam){
+  const nsi = 3.9 + 2e4/(lam*lam), f = cd/SP_PITCH, n1 = Math.sqrt(f*nsi*nsi + 1 - f), r01 = (1 - n1)/(1 + n1), r12 = (n1 - nsi)/(n1 + nsi), d2 = 4*Math.PI*n1*h/lam, c = Math.cos(d2), s = Math.sin(d2);
+  const nr = r01 + r12*c, ni = -r12*s, dr = 1 + r01*r12*c, di = -r01*r12*s; return (nr*nr + ni*ni)/(dr*dr + di*di);
+}
+function spOcd(){
+  const rnd = cmRand(99 + SPS.nseed), sig = 0.004, meas = SP_LAMS.map(l => spR(SPS.cd, SPS.h, l) + sig*spGauss(rnd));
+  const chi = (cd, h) => { let s = 0; for (let i = 0; i < SP_LAMS.length; i++){ const d = (meas[i] - spR(cd, h, SP_LAMS[i]))/sig; s += d*d; } return s/(SP_LAMS.length - 2); };
+  let best = [45, 80, Infinity];
+  for (let cd = 20; cd <= 70; cd += 0.5) for (let h = 50; h <= 120; h += 1){ const c = chi(cd, h); if (c < best[2]) best = [cd, h, c]; }
+  const [c0, h0] = best;
+  for (let cd = c0 - 0.5; cd <= c0 + 0.5; cd += 0.05) for (let h = h0 - 1; h <= h0 + 1; h += 0.1){ const c = chi(cd, h); if (c < best[2]) best = [cd, h, c]; }
+  const [cf, hf, cm] = best;
+  return {meas, cd:cf, h:hf, chi:cm, fit:SP_LAMS.map(l => spR(cf, hf, l)), cdCut:range(Math.round(cf) - 6, Math.round(cf) + 6, 48).map(c => [c, chi(c, hf)]), hCut:range(Math.round(hf) - 12, Math.round(hf) + 12, 48).map(h => [h, chi(cf, h)])};
+}
+
+/* ---------------- overlay ---------------- */
+const SP_FIELDS = []; for (let i = -5; i <= 5; i++) for (let j = -4; j <= 4; j++){ const x = i*26, y = j*33; if (Math.hypot(Math.abs(x) + 13, Math.abs(y) + 16.5) < 150) SP_FIELDS.push([x, y]); }
+function spOvl(){
+  const rnd = cmRand(31 + SPS.nseed), tx = SPS.tr, ty = -0.6*SPS.tr, th = SPS.rot*1e-3, mg = SPS.mag*1e-3;
+  const raw = SP_FIELDS.map(([x, y]) => [tx - th*y + mg*x + 0.7*spGauss(rnd), ty + th*x + mg*y + 0.7*spGauss(rnd)]);
+  const Tx = spMean(raw.map(d => d[0])), Ty = spMean(raw.map(d => d[1])); let S = 0, R = 0, M = 0;
+  SP_FIELDS.forEach(([x, y], i) => { const dx = raw[i][0] - Tx, dy = raw[i][1] - Ty; S += x*x + y*y; R += -dx*y + dy*x; M += dx*x + dy*y; });
+  const fr = R/S, fm = M/S, res = SP_FIELDS.map(([x, y], i) => [raw[i][0] - (Tx - fr*y + fm*x), raw[i][1] - (Ty + fr*x + fm*y)]);
+  const m3 = (a, k) => Math.abs(spMean(a.map(d => d[k]))) + 3*spStd(a.map(d => d[k]));
+  return {raw, res, Tx, Ty, rot:fr*1e3, mag:fm*1e3, rawX:m3(raw, 0), rawY:m3(raw, 1), resX:m3(res, 0), resY:m3(res, 1)};
+}
+
+/* ---------------- SPC ---------------- */
+const SP_N = 60, SP_D4 = 2.114;
+const SP_RULES = [["1", "1 point beyond 3σ"], ["2", "2 of 3 points beyond 2σ, same side"], ["3", "4 of 5 points beyond 1σ, same side"], ["4", "8 points in a row on one side"]];
+function spSpc(){
+  const rnd = cmRand(19), lots = [];
+  for (let i = 0; i < SP_N; i++){
+    let mu = 45 + 0.3*spGauss(rnd), s = 0.8; const ev = i >= 30 ? SPS.sc : "ok";
+    if (ev === "shift") mu += 1.1; if (ev === "drift") mu += 0.07*(i - 29); if (ev === "spread") s *= 2.4; if (ev === "outlier" && i === 38) mu += 2.6;
+    const v = Array.from({length:5}, () => mu + s*spGauss(rnd));
+    lots.push({v, m:spMean(v), r:Math.max(...v) - Math.min(...v), f:[]});
+  }
+  const ph1 = lots.slice(0, 25), X = spMean(ph1.map(l => l.m)), Rb = spMean(ph1.map(l => l.r)), MR = spMean(ph1.slice(1).map((l, i) => Math.abs(l.m - ph1[i].m))), sx = MR/1.128;
+  lots.forEach((l, i) => {
+    const z = j => (lots[j].m - X)/sx, zi = z(i), sd = Math.sign(zi);
+    if (Math.abs(zi) > 3) l.f.push(1);
+    if (i >= 2 && Math.abs(zi) > 2 && [i - 2, i - 1, i].filter(j => z(j)*sd > 2).length >= 2) l.f.push(2);
+    if (i >= 4 && Math.abs(zi) > 1 && [0, 1, 2, 3, 4].filter(k => z(i - k)*sd > 1).length >= 4) l.f.push(3);
+    if (i >= 7 && [0, 1, 2, 3, 4, 5, 6, 7].every(k => z(i - k)*sd > 0)) l.f.push(4);
+  });
+  return {lots, X, Rb, MR, sx, ucl:X + 3*sx, lcl:X - 3*sx, uclR:SP_D4*Rb};
+}
+function spCap(vals){
+  const m = spMean(vals), s = spStd(vals), U = 45 + SPS.spec, L = 45 - SPS.spec;
+  return {m, s, cp:(U - L)/(6*s), cpk:Math.min(U - m, m - L)/(3*s), ppm:1e6*(spPhi((L - m)/s) + 1 - spPhi((U - m)/s))};
+}
+
+/* ---------------- run-to-run ---------------- */
+function spR2R(lam){
+  const rnd = cmRand(555), K = 80, D = SPS.delay, ol = [], cl = [], u = [], ah = []; let a = 0, w = 0;
+  for (let k = 0; k < K; k++){
+    w += 0.05*spGauss(rnd); const d = SPS.drift*k + w, n = 0.35*spGauss(rnd), uk = -a;
+    u.push(uk); ol.push(45 + d + n); cl.push(45 + d + uk + n);
+    const j = k - D; if (j >= 0) a = lam*(cl[j] - 45 - u[j]) + (1 - lam)*a; ah.push(a);
+  }
+  return {ol, cl, u, a, ah};
+}
+
+/* ---------------- drawing ---------------- */
+function spAxes(x0, y0, w, h, xa, xb, ya, yb, xs, ys, fx, fy){
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, y0 + .5, w, h);
+  const X = v => x0 + (v - xa)/(xb - xa)*w, Y = v => y0 + h - (clamp(v, ya, yb) - ya)/(yb - ya)*h;
+  for (let v = ya; v <= yb + 1e-9; v += ys) txt(fy(v), x0 - 5, Y(v), {al:"right", px:9});
+  for (let v = xa; v <= xb + 1e-9; v += xs) txt(fx(v), X(v), y0 + h + 11, {al:"center", px:9});
+  return {X, Y};
+}
+function drawSPsem(T){
+  const s = SPS.sem;
+  panel(20, 20, 470, 450, "CD-SEM image (top view), 1.5 nm per pixel");
+  ctx.imageSmoothingEnabled = false; ctx.drawImage(SP_OFF, 45, 48, 400, 300); ctx.imageSmoothingEnabled = true;
+  const xi = nm => 45 + nm/SP_PX*2;
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 1.2; ctx.setLineDash([4, 3]); ctx.strokeRect(xi(100) + .5, 50.5, xi(200) - xi(100), 296); ctx.setLineDash([]);
+  ctx.lineWidth = 2; [s.le, s.re].forEach(e => pl([[xi(e), 48], [xi(e), 348]]));
+  txt(`CD = ${s.cd.toFixed(2)} nm`, xi(150), 360, {al:"center", px:12, w:700, col:C.accent});
+  const gx = 60, gw = 380, gy = 386, gh = 60, mw = spMean(s.widths), span = Math.max(3, SPS.ler*1.2 + 1.5);
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(gx + .5, gy + .5, gw, gh);
+  const yW = v => gy + gh/2 - (v - mw)/span*gh/2;
+  ctx.strokeStyle = C.muted; ctx.setLineDash([3, 3]); pl([[gx, yW(mw)], [gx + gw, yW(mw)]]); ctx.setLineDash([]);
+  ctx.strokeStyle = C.hole; ctx.lineWidth = 1.3; pl(s.widths.map((v, y) => [gx + y/(SP_H - 1)*gw, clamp(yW(v), gy, gy + gh)]));
+  txt(`width along the line (each row): LWR = ${s.lwr.toFixed(2)} nm (3σ)`, gx, gy - 10, {px:10, col:C.fg});
+  txt(`±${span.toFixed(1)} nm`, gx - 4, gy + 6, {al:"right", px:9});
+  panel(510, 20, 470, 450, `Linescan: average of ${SP_H} rows`);
+  const P = spAxes(560, 52, 400, 220, 0, 300, 0, 1.2, 50, 0.3, v => `${v}`, v => v.toFixed(1));
+  ctx.globalAlpha = .12; ctx.fillStyle = C.accent; ctx.fillRect(P.X(100), 52, P.X(200) - P.X(100), 220); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.4; pl([...s.scan].map((v, x) => [P.X((x + 0.5)*SP_PX), P.Y(v)]));
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 1.6; [s.le, s.re].forEach(e => pl([[P.X(e), 52], [P.X(e), 272]]));
+  txt("position (nm)", 960, 300, {al:"right", px:9});
+  txt("bright peaks = edges (more secondary electrons escape)", 560, 318, {px:10});
+  const prec = SPS.semPrec;
+  [[`measured CD: ${s.cd.toFixed(2)} nm (true ${SPS.cd.toFixed(1)} nm, bias ${(s.cd - SPS.cd >= 0 ? "+" : "") + (s.cd - SPS.cd).toFixed(2)} nm)`, C.fg],
+   [`precision (3σ, repeated scans): ${prec.toFixed(2)} nm`, C.fg],
+   [`LWR measured ${s.lwr.toFixed(2)} nm, true ${s.lwrTrue.toFixed(2)} nm`, C.fg],
+   [`image noise adds √(LWR² − LWR_true²) = ${Math.sqrt(Math.max(0, s.lwr*s.lwr - s.lwrTrue*s.lwrTrue)).toFixed(2)} nm`, C.muted],
+   [`${SPS.frames} frames: noise σ ∝ 1/√frames, but more dose shrinks resist`, C.muted]].forEach(([t, c], i) => txt(t, 530, 346 + i*24, {px:11, col:c}));
+}
+function drawSPocd(T){
+  const o = SPS.ocd;
+  panel(20, 20, 420, 450, "Grating cross-section");
+  const k = 1.3, base = 400, x0 = 45, sw = Math.tan(2*Math.PI/180)*SPS.h*k;
+  ctx.fillStyle = C.si; ctx.fillRect(22, base, 416, 66); ctx.strokeStyle = C.muted; ctx.lineWidth = 1; pl([[22, base], [438, base]]);
+  for (let j = 0; j < 3; j++){ const c = x0 + (50 + 100*j)*k, w = SPS.cd*k, hh = SPS.h*k;
+    ctx.fillStyle = C.si; ctx.beginPath(); ctx.moveTo(c - w/2 - sw/2, base); ctx.lineTo(c - w/2 + sw/2, base - hh); ctx.lineTo(c + w/2 - sw/2, base - hh); ctx.lineTo(c + w/2 + sw/2, base); ctx.closePath(); ctx.fill(); ctx.strokeStyle = C.muted; ctx.lineWidth = 1.2; ctx.stroke(); }
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1; const c1 = x0 + 150*k;
+  pl([[c1 - SPS.cd*k/2, base - SPS.h*k - 12], [c1 + SPS.cd*k/2, base - SPS.h*k - 12]]); txt(`CD ${SPS.cd.toFixed(1)} nm`, c1, base - SPS.h*k - 22, {al:"center", px:10, col:C.fg});
+  const hx = x0 + 300*k - 6; pl([[hx, base], [hx, base - SPS.h*k]]); txt(`h ${SPS.h} nm`, hx - 6, base - SPS.h*k/2, {al:"right", px:10, col:C.fg});
+  pl([[x0 + 50*k, base + 20], [x0 + 150*k, base + 20]]); txt("pitch 100 nm", x0 + 100*k, base + 34, {al:"center", px:10, col:C.fg});
+  const cols = ["#7b3fe4", "#2f6fe4", "#18a058", "#e3b505", "#e06c1b", "#d42a2a"], ph = (T*0.6) % 1;
+  cols.forEach((c, i) => { ctx.strokeStyle = c; ctx.lineWidth = 2; const o2 = i*5; pl([[60 + o2, 60], [200 + o2/2, base - SPS.h*k - 50]]); pl([[220 + o2/2, base - SPS.h*k - 50], [370 - o2, 60]]); });
+  ctx.fillStyle = C.accent; const tt = ph < .5 ? ph*2 : (ph - .5)*2, [ax, ay] = ph < .5 ? [60 + 140*tt, 60 + (base - SPS.h*k - 110)*tt] : [220 + 150*tt, base - SPS.h*k - 50 - (base - SPS.h*k - 110)*tt];
+  ctx.beginPath(); ctx.arc(ax, ay, 4, 0, 6.283); ctx.fill();
+  txt("broadband light 250–800 nm", 40, 48, {px:10}); txt("spectrometer", 420, 48, {al:"right", px:10});
+  panel(460, 20, 520, 450, "Reflectance spectrum: measured vs best fit");
+  const all = [...o.meas, ...o.fit], lo = Math.floor(Math.min(...all)*10)/10, hi = Math.ceil(Math.max(...all)*10)/10;
+  const P = spAxes(510, 52, 440, 250, 250, 800, lo, hi, 100, (hi - lo)/4, v => `${v}`, v => v.toFixed(2));
+  [-3, 3].forEach(d => { ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.setLineDash([3, 3]); pl(SP_LAMS.map(l => [P.X(l), P.Y(spR(o.cd + d, o.h, l))])); ctx.setLineDash([]); });
+  ctx.strokeStyle = C.channel; ctx.lineWidth = 2; pl(SP_LAMS.map((l, i) => [P.X(l), P.Y(o.fit[i])]));
+  o.meas.forEach((m, i) => { ctx.fillStyle = C.accent; ctx.beginPath(); ctx.arc(P.X(SP_LAMS[i]), P.Y(m), 2.6, 0, 6.283); ctx.fill(); });
+  txt("wavelength (nm)", 950, 330, {al:"right", px:9});
+  [[`fitted CD: ${o.cd.toFixed(2)} nm (true ${SPS.cd.toFixed(1)})`, C.fg], [`fitted height: ${o.h.toFixed(1)} nm (true ${SPS.h})`, C.fg],
+   [`reduced χ² = ${o.chi.toFixed(2)} (≈ 1 means the fit is as good as the noise)`, C.fg], ["library search: 7,171 simulated profiles, then local refinement", C.muted],
+   ["dashed: spectra for CD ± 3 nm, the sensitivity the fit relies on", C.muted]].forEach(([t, c], i) => txt(t, 480, 356 + i*22, {px:11, col:c}));
+}
+function drawSPovl(T){
+  const o = SPS.ovl, cx = 290, cy = 250, k = 1.33, s = 6;
+  panel(20, 20, 560, 450, "Overlay map: one mark per field (arrows greatly enlarged)");
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(cx, cy, 150*k, 0, 6.283); ctx.stroke();
+  ctx.fillStyle = C.panel2; ctx.beginPath(); ctx.arc(cx, cy + 150*k, 6, 0, 6.283); ctx.fill();
+  SP_FIELDS.forEach(([x, y], i) => {
+    const px = cx + x*k, py = cy - y*k; ctx.strokeStyle = C.line; ctx.strokeRect(px - 13*k, py - 16.5*k, 26*k, 33*k);
+    const arrow = (d, col) => { const ex = px + d[0]*s, ey = py - d[1]*s; ctx.strokeStyle = col; ctx.lineWidth = 1.6; pl([[px, py], [ex, ey]]); ctx.fillStyle = col; ctx.beginPath(); ctx.arc(ex, ey, 1.8, 0, 6.283); ctx.fill(); };
+    arrow(o.raw[i], C.hole); arrow(o.res[i], C.channel);
+  });
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 2; pl([[40, 450], [40 + 5*s, 450]]); txt("5 nm", 40 + 5*s + 6, 450, {px:10, col:C.fg});
+  panel(600, 20, 380, 450, "Box-in-box mark and model fit");
+  const bx = 790, by = 110, ox = o.Tx*s*2, oy = -o.Ty*s*2;
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 6; ctx.strokeRect(bx - 50, by - 50, 100, 100);
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 5; ctx.strokeRect(bx - 22 + ox, by - 22 + oy, 44, 44);
+  txt("outer box: layer 1", 640, 186, {px:10}); txt("inner box: layer 2 (shift × 2)", 640, 202, {px:10, col:C.accent});
+  [[`translation x: ${o.Tx.toFixed(2)} nm`, C.fg], [`translation y: ${o.Ty.toFixed(2)} nm`, C.fg], [`rotation: ${o.rot.toFixed(1)} nrad`, C.fg], [`magnification: ${o.mag.toFixed(1)} ppb`, C.fg],
+   [`raw overlay |m|+3σ: x ${o.rawX.toFixed(2)} nm, y ${o.rawY.toFixed(2)} nm`, C.hole], [`after correction: x ${o.resX.toFixed(2)} nm, y ${o.resY.toFixed(2)} nm`, C.channel],
+   ["the scanner applies the fitted terms to the next lot", C.muted]].forEach(([t, c], i) => txt(t, 620, 238 + i*28, {px:11, col:c}));
+}
+function drawSPspc(T){
+  const S = SPS.spc, shown = Math.min(SP_N, Math.floor((SPS.t % 14)*6) + 1), L = S.lots;
+  panel(20, 20, 720, 450, `X̄ chart of line CD: lot means of 5 sites (${shown} of ${SP_N} lots)`);
+  const x0 = 76, w = 600, y0 = 56, h = 300, span = Math.max(4.5*S.sx, ...L.map(l => Math.abs(l.m - S.X) + 0.2));
+  const X = i => x0 + (i + 0.5)/SP_N*w, Y = v => y0 + h/2 - (v - S.X)/span*h/2;
+  [[3, C.hole, .1], [2, C.accent, .1], [1, C.channel, .1]].forEach(([z, c, a]) => { ctx.globalAlpha = a; ctx.fillStyle = c; ctx.fillRect(x0, Y(S.X + z*S.sx), w, Y(S.X - z*S.sx) - Y(S.X + z*S.sx)); }); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, y0 + .5, w, h);
+  [[3, "UCL"], [0, "CL"], [-3, "LCL"]].forEach(([z, n]) => { const y = Y(S.X + z*S.sx); ctx.strokeStyle = z ? C.hole : C.fg; ctx.setLineDash(z ? [5, 3] : []); pl([[x0, y], [x0 + w, y]]); ctx.setLineDash([]); txt(`${n} ${(S.X + z*S.sx).toFixed(2)}`, x0 + w + 4, y, {px:9, col: z ? C.hole : C.fg}); });
+  [2, 1, -1, -2].forEach(z => txt(`${z > 0 ? "+" : "−"}${Math.abs(z)}σ`, x0 + w + 4, Y(S.X + z*S.sx), {px:9}));
+  for (let v = Math.ceil((S.X - span)*2)/2; v <= S.X + span; v += 0.5) txt(v.toFixed(1), x0 - 5, Y(v), {al:"right", px:9});
+  for (let i = 0; i <= SP_N; i += 10) txt(`${i}`, X(i) - w/SP_N/2, y0 + h + 11, {al:"center", px:9});
+  txt("lot", x0 + w, y0 + h + 24, {al:"right", px:9});
+  ctx.strokeStyle = C.muted; ctx.setLineDash([2, 3]); pl([[X(24.5), y0], [X(24.5), y0 + h]]); pl([[X(29.5), y0], [X(29.5), y0 + h]]); ctx.setLineDash([]);
+  txt("phase I: limits", X(12), y0 + 12, {al:"center", px:9}); txt("event →", X(29.5) + 4, y0 + 12, {px:9});
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.2; pl(L.slice(0, shown).map((l, i) => [X(i), Y(l.m)]));
+  L.slice(0, shown).forEach((l, i) => { const bad = l.f.length > 0; ctx.fillStyle = bad ? C.hole : C.fg; ctx.beginPath(); ctx.arc(X(i), Y(l.m), bad ? 4.5 : 3, 0, 6.283); ctx.fill();
+    if (bad){ ctx.strokeStyle = C.hole; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(X(i), Y(l.m), 8, 0, 6.283); ctx.stroke(); txt(`${l.f[0]}`, X(i), Y(l.m) - (l.m > S.X ? -16 : 16), {al:"center", px:9, w:700, col:C.hole}); } });
+  const first = L.slice(0, shown).findIndex((l, i) => i >= 25 && l.f.length);
+  txt(first >= 0 ? `first signal: lot ${first + 1}, rule ${L[first].f.join(" and ")} → hold the tool and find the cause` : "no signal: the process is in statistical control", 40, 400, {px:11, w:700, col: first >= 0 ? C.hole : C.channel});
+  txt("control limits come from the process itself (±3σ of the lot means), not from the spec limits", 40, 424, {px:10});
+  txt("green, amber, red bands: zones C, B, A (1σ, 2σ, 3σ)", 40, 444, {px:10});
+  panel(760, 20, 220, 450, "Western Electric rules");
+  SP_RULES.forEach(([n, d], i) => { const c = L.slice(0, shown).filter((l, j) => j >= 25 && l.f.includes(+n)).length, y = 70 + i*80;
+    txt(`rule ${n}`, 776, y, {px:12, w:700, col: c ? C.hole : C.channel}); txt(c ? `${c} signal${c > 1 ? "s" : ""}` : "ok", 964, y, {al:"right", px:11, w:700, col: c ? C.hole : C.channel});
+    const words = d.split(", "); words.forEach((s2, k2) => txt(s2 + (k2 < words.length - 1 ? "," : ""), 776, y + 20 + k2*16, {px:10})); });
+  txt("chance of a false signal", 776, 400, {px:10}); txt("per point ≈ 0.3–0.5 %", 776, 416, {px:10}); txt("(only after lot 25 counted)", 776, 440, {px:9});
+}
+function drawSPr2r(T){
+  const shown = Math.min(80, Math.floor((SPS.t % 16)*7) + 1), R = SPS.r2r, U = 45 + SPS.spec, Lo = 45 - SPS.spec;
+  panel(20, 20, 640, 450, `Lot CD with and without run-to-run control (${shown} of 80 lots)`);
+  const x0 = 76, w = 560, X = k => x0 + (k + 0.5)/80*w, lim = Math.max(SPS.spec*1.6, 3), y0 = 52, h = 200, Y = v => y0 + h/2 - clamp((v - 45)/lim, -1, 1)*h/2;
+  ctx.globalAlpha = .1; ctx.fillStyle = C.channel; ctx.fillRect(x0, Y(U), w, Y(Lo) - Y(U)); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, y0 + .5, w, h);
+  ctx.strokeStyle = C.hole; ctx.setLineDash([5, 3]); [U, Lo].forEach(v => pl([[x0, Y(v)], [x0 + w, Y(v)]])); ctx.setLineDash([]);
+  txt(`USL ${U.toFixed(1)}`, x0 + w + 4, Y(U), {px:9, col:C.hole}); txt(`LSL ${Lo.toFixed(1)}`, x0 + w + 4, Y(Lo), {px:9, col:C.hole}); txt("45.0", x0 + w + 4, Y(45), {px:9});
+  [-lim, 0, lim].forEach(d => txt((45 + d).toFixed(1), x0 - 5, Y(45 + d), {al:"right", px:9}));
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1.4; pl(R.ol.slice(0, shown).map((v, k) => [X(k), Y(v)]));
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2; pl(R.cl.slice(0, shown).map((v, k) => [X(k), Y(v)]));
+  txt("open loop (no correction)", x0 + 8, y0 + 14, {px:10, col:C.muted}); txt("with EWMA run-to-run", x0 + 8, y0 + 30, {px:10, w:700, col:C.accent});
+  const y1 = 296, h1 = 130, um = Math.max(1, ...R.u.map(v => Math.abs(v/1.5))), Y1 = v => y1 + h1/2 - v/um*h1/2;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, y1 + .5, w, h1); pl([[x0, Y1(0)], [x0 + w, Y1(0)]]);
+  ctx.strokeStyle = C.channel; ctx.lineWidth = 1.8; pl(R.u.slice(0, shown).map((v, k) => [X(k), Y1(-v/1.5)]));
+  txt(`+${um.toFixed(1)} %`, x0 - 5, y1 + 6, {al:"right", px:9}); txt(`−${um.toFixed(1)} %`, x0 - 5, y1 + h1 - 6, {al:"right", px:9});
+  txt("exposure dose correction sent to the scanner (−1.5 nm CD per +1 % dose)", x0, y1 - 12, {px:10, col:C.channel});
+  for (let k = 0; k <= 80; k += 10) txt(`${k}`, X(k) - w/160, y1 + h1 + 11, {al:"center", px:9}); txt("lot", x0 + w, y1 + h1 + 24, {al:"right", px:9});
+  panel(680, 20, 300, 450, "Feedback loop");
+  const B = [["Scanner: dose", 92], ["Lot of 25 wafers", 172], ["CD metrology", 252], ["EWMA controller", 332]];
+  B.forEach(([n, y]) => { ctx.fillStyle = C.panel; ctx.strokeStyle = C.accent; ctx.lineWidth = 1.5; ctx.fillRect(740, y - 18, 180, 36); ctx.strokeRect(740.5, y - 17.5, 180, 36); txt(n, 830, y, {al:"center", px:11, w:700, col:C.fg}); });
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1.5; [[110, 154], [190, 234], [270, 314]].forEach(([a, b]) => { pl([[830, a], [830, b]]); pl([[825, b - 6], [830, b], [835, b - 6]]); });
+  pl([[740, 332], [712, 332], [712, 92], [740, 92]]); pl([[734, 87], [740, 92], [734, 97]]);
+  const ph = (T*0.5) % 1, pts = [[830, 110], [830, 314], [712, 332], [712, 92], [740, 92]], seg = ph*4, si = Math.min(3, Math.floor(seg)), f = seg - si;
+  const pa = pts[si], pb = pts[si + 1]; ctx.fillStyle = C.accent; ctx.beginPath(); ctx.arc(pa[0] + (pb[0] - pa[0])*f, pa[1] + (pb[1] - pa[1])*f, 4.5, 0, 6.283); ctx.fill();
+  txt(`delay: ${SPS.delay} lot${SPS.delay === 1 ? "" : "s"}`, 840, 292, {px:9});
+  [`a = λ·(y − u) + (1 − λ)·a`, `next u = target − a`, `λ = ${SPS.lam.toFixed(2)}`, `estimated drift now: ${R.ah[shown - 1].toFixed(2)} nm`].forEach((t, i) => txt(t, 700, 380 + i*20, {px:10, col: i < 2 ? C.fg : C.muted}));
+}
+function drawSPM(dt, T){
+  begin(SPX); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488);
+  if (SPS.view === "mt"){ if (SPS.inst === "sem") drawSPsem(T); else if (SPS.inst === "ocd") drawSPocd(T); else drawSPovl(T); }
+  else if (SPS.view === "spc") drawSPspc(T); else drawSPr2r(T);
+}
+
+/* ---------------- DOM ---------------- */
+const SPINFO = {
+  sem:{pill:"CD", name:"Inline metrology", sub:"Every critical step is measured: line widths from electron images, profiles from optical spectra, alignment from overlay marks",
+    text:"A CD-SEM scans a focused electron beam over the wafer and counts the secondary electrons that escape. Edges look bright because more electrons escape where the surface is tilted, so a line appears as two bright stripes and its width (the critical dimension, CD) is the distance between the edge peaks of the averaged linescan. Each row of the image gives its own width; their spread is the line-width roughness (LWR), which matters more and more as lines shrink because it changes the transistor's threshold voltage along the gate. The image is noisy because only a few electrons arrive per pixel: averaging more frames lowers the noise, but the beam also shrinks resist lines and takes time. Noise even inflates the measured roughness, since the noise of the edge detection adds to the true LWR in quadrature. A measurement is only useful if its precision is much smaller than the tolerance: the precision-to-tolerance ratio P/T = 6σ_meas/(USL − LSL) should stay below about 0.2."},
+  ocd:{pill:"OCD", name:"Inline metrology", sub:"Every critical step is measured: line widths from electron images, profiles from optical spectra, alignment from overlay marks",
+    text:"Scatterometry, or optical CD (OCD), shines broadband light on a periodic test grating and measures the reflected spectrum. The grating is too small to image with light, but its width, height and sidewall angle change how the light interferes in the layer, so the spectrum carries a fingerprint of the profile. A computer solves Maxwell's equations (here: an effective-medium film, real tools use rigorous coupled-wave analysis) for thousands of candidate profiles, stores them in a library and picks the one whose spectrum fits the measurement best, then refines it. OCD is fast, non-destructive and very precise, and it measures height and shape that a top-down SEM cannot see, but it needs a good model: if the real profile has a feature the model lacks, the fit is precise but wrong. The reduced χ² tells how well the best model explains the data; a value near 1 means the remaining difference is just noise."},
+  ovl:{pill:"OVL", name:"Inline metrology", sub:"Every critical step is measured: line widths from electron images, profiles from optical spectra, alignment from overlay marks",
+    text:"Every layer must land on the layer below within a few nanometres, so after each critical exposure the overlay between the new resist pattern and the previous layer is measured on marks in every field: here a box-in-box mark, where the inner box is printed with the new layer. The shifts across the wafer are fitted with a simple model: translation (the whole layer shifted), rotation (the wafer slightly turned on the chuck) and magnification (the wafer expanded or shrunk, for example by heating). These terms are fed back to the scanner, which corrects them for the next lot; what remains is the residual, set by field-to-field noise, lens distortions and wafer deformation, which advanced fabs model with many more terms, even per exposure field. A 5 nm node needs total overlay below about 2.5 nm, so a rotation of only 20 nanoradians, 3 nm at the wafer edge, already matters."},
+  spc:{pill:"SPC", name:"Statistical process control", sub:"Control charts separate the normal noise of a process from real changes, so a drifting tool is stopped before it scraps wafers",
+    text:"Every process varies a little from lot to lot. Statistical process control (SPC) first learns this normal variation from a stable period (phase I: here the first 25 lots) and draws control limits at ±3σ around the mean of the lot averages, X̄. The σ must come from the moving range between consecutive lot means, which includes the lot-to-lot variation; limits from the site-to-site range alone would be too tight and raise false alarms. A separate R chart watches the spread between the sites of each lot. Afterwards every new lot is plotted (phase II). A point outside the limits is the classic out-of-control signal, but slower changes are caught by patterns that are unlikely by chance: the Western Electric rules, such as two of three points beyond 2σ or eight points in a row on one side. A signal triggers the out-of-control action plan: hold the lot, check the tool and the metrology, find and remove the cause. Control limits describe the process, specification limits describe the product: a process can be in control and still not capable. Capability is measured by Cp, the spec width over 6σ, and Cpk, the distance from the mean to the nearest spec limit over 3σ; fabs ask for Cpk ≥ 1.33 (63 ppm outside spec) or ≥ 1.67 for critical parameters. Try each process event and see which rule fires first."},
+  r2r:{pill:"R2R", name:"Run-to-run control", sub:"Feedback from metrology adjusts each lot's recipe, so slow tool drift never reaches the product",
+    text:"Tools drift: lamps age, chambers collect deposits, consumables wear. Instead of waiting for SPC alarms, modern fabs use run-to-run (R2R) control: after each lot, the measured CD is compared with the target and the recipe of the next lot (here the exposure dose of the scanner) is adjusted. The controller needs an estimate of the disturbance that is not fooled by measurement noise, and the exponentially weighted moving average (EWMA) is the workhorse: each new measurement gets the weight λ, the old estimate 1 − λ. A small λ filters noise but lags behind a drift; a large λ follows the drift but passes lot-to-lot noise straight into the recipe and, with metrology delay, overshoots. The plot of σ against λ shows the best compromise for the current drift and delay. R2R is used for lithography dose and focus, overlay, etch time, CMP polish time and deposition thickness, often with feed-forward of measurements from earlier steps."}
+};
+Object.assign(TIP, {
+  "Measured CD":"Width from the distance between the edge peaks of the linescan.", "LWR (3σ)":"Variation of the width along the line, from the image rows.",
+  "Precision (3σ)":"Spread of repeated measurements of the same line.", "P/T ratio":"6σ of the measurement over the tolerance; should stay below 0.2.",
+  "Fitted CD":"Width of the library profile that fits the spectrum best.", "Fitted height":"Height of the best-fitting profile.",
+  "Reduced χ²":"Misfit per wavelength in units of the noise; about 1 for a good model.", "Library size":"Simulated profiles searched.",
+  "Raw overlay":"|mean| + 3σ of the measured shifts, worst axis.", "After correction":"|mean| + 3σ of the residual after the model terms are removed.",
+  "Rotation fit":"Rotation found by the least-squares fit.", "Magnification fit":"Magnification found by the fit.",
+  "Lots shown":"Lots plotted so far.", "Signals":"Lots that break at least one Western Electric rule after phase I.",
+  "Cp":"Spec width over 6σ: what the process could reach if centred.", "Cpk":"Distance from the mean to the nearest spec limit over 3σ.",
+  "σ open loop":"Spread of the lot CD without feedback.", "σ with R2R":"Spread with EWMA feedback.", "Cpk open loop":"Capability without feedback.", "Cpk with R2R":"Capability with feedback.",
+  "CD from linescan":"Edge detection on the averaged signal.", "Roughness with noise":"Measured roughness includes the measurement noise.", "Averaging":"Noise falls with the square root of the frames.", "Precision to tolerance":"How much of the spec the measurement uses up.",
+  "Thin-film model":"Reflection of a layer on silicon.", "Effective medium":"Grating replaced by a layer with an averaged index.", "Fit quality":"Weighted squared difference between spectra.", "Library search":"Grid of simulated spectra, then refinement.",
+  "Overlay model":"Translation, rotation and magnification across the wafer.", "Overlay metric":"Mean plus three sigma, per axis.", "Correction":"Fitted terms sent back to the scanner.", "Overlay budget":"Allowed overlay for the node.",
+  "Control limits":"From the mean range of the subgroups.", "Range chart":"Watches the within-lot spread.", "Capability":"Cp and Cpk from the spec and the process σ.", "Out of spec":"Fraction of sites outside the spec limits.",
+  "EWMA estimate":"Filtered estimate of the tool disturbance.", "Recipe update":"Dose for the next lot.", "Trade-off":"Noise against lag.", "Dose sensitivity":"CD change per percent of dose."
+});
+const SPLEG = {
+  sem:[["accent","Measurement box and detected edges"],["hole","Width along the line"],["fg","Linescan"]],
+  ocd:[["accent","Measured spectrum"],["channel","Best-fit model"],["muted","Model with CD ± 3 nm"],["si","Silicon"]],
+  ovl:[["hole","Measured overlay"],["channel","Residual after correction"],["accent","Layer 2 mark"],["muted","Layer 1 mark"]],
+  spc:[["fg","Lot mean"],["hole","Control limits and rule violations"],["channel","Zone C (±1σ)"],["accent","Zone B (±2σ)"]],
+  r2r:[["accent","With run-to-run control"],["muted","Open loop"],["channel","Dose correction, spec band"],["hole","Spec limits"]]
+};
+const spChip = (sel, attr, on) => document.querySelectorAll(sel).forEach(b => { const o = on(b.dataset[attr]); b.setAttribute("aria-pressed", o); b.style.borderColor = o ? "var(--accent)" : ""; b.style.color = o ? "var(--accent)" : ""; });
+function spCompute(){
+  const v = SPS.view;
+  if (v === "mt" && SPS.inst === "sem"){ SPS.sem = spSem(SPS.nseed); spPaintSem(SPS.sem); SPS.semPrec = 3*spStd([1, 2, 3, 4, 5, 6].map(i => spSem(1000 + i).cd)); }
+  if (v === "mt" && SPS.inst === "ocd") SPS.ocd = spOcd();
+  if (v === "mt" && SPS.inst === "ovl") SPS.ovl = spOvl();
+  if (v === "spc") SPS.spc = spSpc();
+  if (v === "r2r") SPS.r2r = spR2R(SPS.lam);
+}
+function updateSP(){
+  spCompute();
+  const v = SPS.view, key = v === "mt" ? SPS.inst : v, info = SPINFO[key];
+  $("sp-pill").textContent = info.pill; $("sp-name").textContent = info.name; $("sp-sub").textContent = info.sub; $("sp-explain").textContent = info.text;
+  document.querySelectorAll("#sp-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  spChip("#sp-inst button", "i", i => i === SPS.inst); spChip("#sp-sc button", "s", s => s === SPS.sc);
+  const vis = {inst:v === "mt", cd:v === "mt" && SPS.inst !== "ovl", frames:key === "sem", ler:key === "sem", h:key === "ocd", tr:key === "ovl", rot:key === "ovl", mag:key === "ovl", sc:v === "spc", spec:v !== "mt", drift:v === "r2r", lam:v === "r2r", delay:v === "r2r"};
+  Object.entries(vis).forEach(([k, on]) => $(`sp-c-${k}`).hidden = !on);
+  $("sp-cd-v").textContent = `${SPS.cd} nm`; $("sp-frames-v").textContent = `${SPS.frames}`; $("sp-ler-v").textContent = `${SPS.ler} nm`; $("sp-h-v").textContent = `${SPS.h} nm`;
+  $("sp-tr-v").textContent = `${SPS.tr} nm`; $("sp-rot-v").textContent = `${SPS.rot} nrad`; $("sp-mag-v").textContent = `${SPS.mag} ppb`; $("sp-spec-v").textContent = `45 ± ${SPS.spec} nm`;
+  $("sp-drift-v").textContent = `${SPS.drift.toFixed(2)} nm`; $("sp-lam-v").textContent = SPS.lam.toFixed(2); $("sp-delay-v").textContent = `${SPS.delay} lot${SPS.delay === 1 ? "" : "s"}`;
+  setHTML("sp-legend", SPLEG[key].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  let ro, eq;
+  if (key === "sem"){ const s = SPS.sem;
+    ro = [["Measured CD", `${s.cd.toFixed(2)} nm`], ["LWR (3σ)", `${s.lwr.toFixed(2)} nm`], ["Precision (3σ)", `${SPS.semPrec.toFixed(2)} nm`], ["P/T ratio", `${(2*SPS.semPrec/6).toFixed(2)}`]];
+    eq = [{name:"CD from linescan", f:"CD = x_right − x_left  (edge peaks of the averaged signal)", sub:`${s.re.toFixed(1)} − ${s.le.toFixed(1)} = ${s.cd.toFixed(2)} nm`},
+      {name:"Roughness with noise", f:"LWR_meas² = LWR_true² + LWR_noise²", sub:`${s.lwr.toFixed(2)}² ≈ ${s.lwrTrue.toFixed(2)}² + ${Math.sqrt(Math.max(0, s.lwr*s.lwr - s.lwrTrue*s.lwrTrue)).toFixed(2)}²`},
+      {name:"Averaging", f:"σ_noise ∝ 1 / √(frames)", sub:`${SPS.frames} frames → precision ${SPS.semPrec.toFixed(2)} nm (3σ)`},
+      {name:"Precision to tolerance", f:"P/T = 6σ_meas / (USL − LSL) < 0.2", sub:`tolerance ±3 nm → P/T = ${(2*SPS.semPrec/6).toFixed(2)}`}];
+  } else if (key === "ocd"){ const o = SPS.ocd;
+    ro = [["Fitted CD", `${o.cd.toFixed(2)} nm`], ["Fitted height", `${o.h.toFixed(1)} nm`], ["Reduced χ²", o.chi.toFixed(2)], ["Library size", "7,171"]];
+    eq = [{name:"Thin-film model", f:"R = |(r₀₁ + r₁₂·e^(−2iδ)) / (1 + r₀₁·r₁₂·e^(−2iδ))|²,  δ = 2π·n_eff·h / λ", sub:"interference between the top of the lines and the silicon below"},
+      {name:"Effective medium", f:"n_eff² = f·n_Si² + (1 − f),  f = CD / pitch", sub:`f = ${(SPS.cd/SP_PITCH).toFixed(2)} → n_eff ≈ ${Math.sqrt(SPS.cd/SP_PITCH*16 + 1 - SPS.cd/SP_PITCH).toFixed(2)} at 600 nm`},
+      {name:"Fit quality", f:"χ² = Σ (R_meas − R_model)² / σ² / (N − 2)", sub:`${SP_LAMS.length} wavelengths, σ = 0.004 → χ² = ${o.chi.toFixed(2)}`},
+      {name:"Library search", f:"min over CD, h of χ²(CD, h), then local refinement", sub:`CD ${o.cd.toFixed(2)} nm, h ${o.h.toFixed(1)} nm`}];
+  } else if (key === "ovl"){ const o = SPS.ovl;
+    ro = [["Raw overlay", `${Math.max(o.rawX, o.rawY).toFixed(2)} nm`], ["After correction", `${Math.max(o.resX, o.resY).toFixed(2)} nm`], ["Rotation fit", `${o.rot.toFixed(1)} nrad`], ["Magnification fit", `${o.mag.toFixed(1)} ppb`]];
+    eq = [{name:"Overlay model", f:"dx = T_x − θ·y + M·x + r_x,  dy = T_y + θ·x + M·y + r_y", sub:`T = (${o.Tx.toFixed(2)}, ${o.Ty.toFixed(2)}) nm, θ = ${o.rot.toFixed(1)} nrad, M = ${o.mag.toFixed(1)} ppb`},
+      {name:"Overlay metric", f:"OVL = |mean| + 3σ  per axis", sub:`raw ${Math.max(o.rawX, o.rawY).toFixed(2)} nm → residual ${Math.max(o.resX, o.resY).toFixed(2)} nm`},
+      {name:"Correction", f:"scanner offset = − (T, θ, M) for the next lot", sub:"advanced fabs also correct higher-order terms per field"},
+      {name:"Overlay budget", f:"OVL ≲ ¼ to ⅓ of the smallest feature", sub:"about 2.5 nm at the 5 nm node, 2 nm at 3 nm"}];
+  } else if (key === "spc"){ const S = SPS.spc, shown = Math.min(SP_N, Math.floor((SPS.t % 14)*6) + 1), sl = S.lots.slice(0, shown), cap = spCap(sl.flatMap(l => l.v));
+    ro = [["Lots shown", `${shown} / ${SP_N}`], ["Signals", `${sl.filter((l, i) => i >= 25 && l.f.length).length}`], ["Cp", spF2(cap.cp)], ["Cpk", spF2(cap.cpk)]];
+    eq = [{name:"Control limits", f:"UCL, LCL = X̿ ± 3·MR̄ / 1.128  (moving range of the lot means)", sub:`X̿ = ${S.X.toFixed(2)} nm, MR̄ = ${S.MR.toFixed(2)} nm → ±${(3*S.sx).toFixed(2)} nm`},
+      {name:"Range chart", f:"UCL_R = D₄·R̄  (D₄ = 2.114)", sub:`UCL_R = ${S.uclR.toFixed(2)} nm`},
+      {name:"Capability", f:"Cp = (USL − LSL) / 6σ,  Cpk = min(USL − μ, μ − LSL) / 3σ", sub:`μ = ${cap.m.toFixed(2)} nm, σ = ${cap.s.toFixed(2)} nm → Cpk ${cap.cpk.toFixed(2)}`},
+      {name:"Out of spec", f:"p = Φ((LSL − μ)/σ) + 1 − Φ((USL − μ)/σ)", sub:`${cap.ppm < 1 ? cap.ppm.toFixed(2) : cap.ppm.toFixed(0)} ppm of sites outside 45 ± ${SPS.spec} nm`}];
+    SPS.cap = cap;
+  } else { const R = SPS.r2r, o = spCap(R.ol.slice(10)), c = spCap(R.cl.slice(10));
+    ro = [["σ open loop", `${o.s.toFixed(2)} nm`], ["σ with R2R", `${c.s.toFixed(2)} nm`], ["Cpk open loop", spF2(o.cpk)], ["Cpk with R2R", spF2(c.cpk)]];
+    eq = [{name:"EWMA estimate", f:"a_k = λ·(y_k − b·u_k) + (1 − λ)·a_(k−1)", sub:`λ = ${SPS.lam.toFixed(2)}, delay ${SPS.delay} → estimate after 80 lots ${R.a.toFixed(2)} nm`},
+      {name:"Recipe update", f:"u_(k+1) = (target − a_k) / b", sub:"b = 1: the dose offset is expressed in nm of CD"},
+      {name:"Trade-off", f:"small λ: lags a drift · large λ: passes noise", sub:`drift ${SPS.drift.toFixed(2)} nm per lot, noise 0.35 nm`},
+      {name:"Dose sensitivity", f:"ΔCD ≈ −1.5 nm per +1 % dose", sub:`largest correction ${Math.max(...R.u.map(Math.abs)).toFixed(1)} nm = ${(Math.max(...R.u.map(Math.abs))/1.5).toFixed(1)} % dose`}];
+    SPS.capO = o; SPS.capC = c;
+  }
+  renderRo($("sp-ro"), ro); renderEq($("sp-eq"), eq);
+  drawSPPlots(key);
+}
+function drawSPPlots(key){
+  let a, b;
+  const m1 = {l:38,r:10,t:28,b:30}, m2 = {l:38,r:8,t:28,b:30};
+  if (key === "sem"){ const s = SPS.sem, nz = Math.sqrt(Math.max(0, s.lwr*s.lwr - s.lwrTrue*s.lwrTrue))*Math.sqrt(SPS.frames), top = Math.max(2, Math.ceil(Math.hypot(s.lwrTrue, nz) + 0.5));
+    const P = axesR(300, 230, m1, 0, 32, 0, top, 8, top/4, "frames averaged", "nm"), f = n => Math.hypot(s.lwrTrue, nz/Math.sqrt(n));
+    a = P.s + `<line x1="${P.X(0)}" x2="${P.X(32)}" y1="${P.Y(s.lwrTrue)}" y2="${P.Y(s.lwrTrue)}" stroke="var(--muted)" stroke-dasharray="4 3"/>` + `<path d="${pathOf(range(1, 32, 62).map(n => [n, f(n)]), P.X, P.Y)}" fill="none" stroke="var(--hole)" stroke-width="2.4"/>` + dotSvg(P.X(SPS.frames), P.Y(f(SPS.frames))) + P.frame + `<text x="44" y="12" style="fill:var(--hole)">measured LWR</text><text x="150" y="12" style="fill:var(--muted)">true LWR</text>`;
+    const pr = SPS.semPrec*Math.sqrt(SPS.frames), tp = Math.max(1, Math.ceil(pr*1.1*2)/2), Q = axesR(220, 230, m2, 0, 32, 0, tp, 8, tp/4, "frames averaged", "nm");
+    b = Q.s + `<path d="${pathOf(range(1, 32, 62).map(n => [n, pr/Math.sqrt(n)]), Q.X, Q.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + dotSvg(Q.X(SPS.frames), Q.Y(SPS.semPrec)) + Q.frame + `<text x="44" y="12" style="fill:var(--accent)">CD precision (3σ)</text>`;
+  } else if (key === "ocd"){ const o = SPS.ocd, lg = c => Math.log10(Math.max(0.1, c)), t1 = Math.ceil(Math.max(...o.cdCut.map(d => lg(d[1])))), t2 = Math.ceil(Math.max(...o.hCut.map(d => lg(d[1]))));
+    const c0 = Math.round(o.cd), P = axesR(300, 230, m1, c0 - 6, c0 + 6, -1, Math.max(1, t1), 3, 1, "CD (nm)", "log10 χ²");
+    a = P.s + `<path d="${pathOf(o.cdCut.map(([c, v]) => [c, lg(v)]), P.X, P.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + dotSvg(P.X(o.cd), P.Y(lg(o.chi))) + P.frame + `<text x="44" y="12" style="fill:var(--accent)">fit quality vs CD</text>`;
+    const h0 = Math.round(o.h), Q = axesR(220, 230, m2, h0 - 12, h0 + 12, -1, Math.max(1, t2), 6, 1, "height (nm)", "log10 χ²");
+    b = Q.s + `<path d="${pathOf(o.hCut.map(([h, v]) => [h, lg(v)]), Q.X, Q.Y)}" fill="none" stroke="var(--channel)" stroke-width="2.4"/>` + dotSvg(Q.X(o.h), Q.Y(lg(o.chi))) + Q.frame + `<text x="44" y="12" style="fill:var(--channel)">fit quality vs height</text>`;
+  } else if (key === "ovl"){ const o = SPS.ovl, top = Math.max(4, Math.ceil(Math.max(o.rawX, o.rawY))), bw = 26;
+    const P = axesR(300, 230, m1, 0, 4, 0, top, 1, top/4, "", "nm"), bars = [["raw x", o.rawX, "hole", 0.5], ["raw y", o.rawY, "hole", 1.5], ["corr. x", o.resX, "channel", 2.5], ["corr. y", o.resY, "channel", 3.5]];
+    a = P.s + bars.map(([n, v, c, x]) => `<rect x="${P.X(x) - bw/2}" y="${P.Y(v)}" width="${bw}" height="${P.Y(0) - P.Y(v)}" fill="var(--${c})" opacity=".8"/><text x="${P.X(x)}" y="${P.Y(0) + 14}" text-anchor="middle">${n}</text>`).join("") + P.frame + `<text x="44" y="12" style="fill:var(--hole)">overlay |m| + 3σ</text>`;
+    const nd = [[45, 12], [28, 8], [16, 6], [10, 4.5], [7, 3.5], [5, 2.5], [3, 2]];
+    const Q = axesR(220, 230, m2, 0.4, 1.7, 0, 1.2, 0.4, 0.4, "log10 node (nm)", "log10 nm");
+    b = Q.s + `<path d="${pathOf(nd.map(([n, v]) => [Math.log10(n), Math.log10(v)]), Q.X, Q.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + nd.map(([n, v]) => `<circle cx="${Q.X(Math.log10(n)).toFixed(1)}" cy="${Q.Y(Math.log10(v)).toFixed(1)}" r="2.5" fill="var(--accent)"/>`).join("") + Q.frame + `<text x="44" y="12" style="fill:var(--accent)">overlay budget (approx.)</text>`;
+  } else if (key === "spc"){ const S = SPS.spc, shown = Math.min(SP_N, Math.floor((SPS.t % 14)*6) + 1), vals = S.lots.slice(0, shown).flatMap(l => l.v), cap = SPS.cap, lo = 45 - 6, hi = 45 + 6;
+    const bins = new Array(24).fill(0); vals.forEach(v => { const i = Math.floor((v - lo)/0.5); if (i >= 0 && i < 24) bins[i]++; });
+    const mx = Math.max(...bins, 1), top = Math.ceil(mx/5)*5 || 5, P = axesR(300, 230, m1, lo, hi, 0, top, 3, top/5, "CD (nm)", "sites");
+    a = P.s + bins.map((c, i) => `<rect x="${P.X(lo + i*0.5) + 0.5}" y="${P.Y(c)}" width="${P.X(0.5) - P.X(0) - 1}" height="${P.Y(0) - P.Y(c)}" fill="var(--accent)" opacity=".7"/>`).join("")
+      + `<path d="${pathOf(range(lo, hi, 96).map(x => [x, vals.length*0.5*Math.exp(-0.5*((x - cap.m)/cap.s)**2)/(cap.s*Math.sqrt(2*Math.PI))]), P.X, P.Y)}" fill="none" stroke="var(--fg)" stroke-width="1.6"/>`
+      + [45 - SPS.spec, 45 + SPS.spec].map(x => `<line x1="${P.X(x)}" x2="${P.X(x)}" y1="${P.Y(top)}" y2="${P.Y(0)}" stroke="var(--hole)" stroke-width="1.8" stroke-dasharray="5 3"/>`).join("") + P.frame
+      + `<text x="44" y="12" style="fill:var(--accent)">capability: Cpk ${cap.cpk.toFixed(2)}</text><text x="210" y="12" style="fill:var(--hole)">spec</text>`;
+    const rt = Math.ceil(Math.max(S.uclR, ...S.lots.slice(0, shown).map(l => l.r)) + 0.5), Q = axesR(220, 230, m2, 0, 60, 0, rt, 20, Math.max(1, Math.round(rt/4)), "lot", "range (nm)");
+    b = Q.s + `<line x1="${Q.X(0)}" x2="${Q.X(60)}" y1="${Q.Y(S.uclR)}" y2="${Q.Y(S.uclR)}" stroke="var(--hole)" stroke-dasharray="4 3"/><line x1="${Q.X(0)}" x2="${Q.X(60)}" y1="${Q.Y(S.Rb)}" y2="${Q.Y(S.Rb)}" stroke="var(--muted)"/>`
+      + `<path d="${pathOf(S.lots.slice(0, shown).map((l, i) => [i + 0.5, l.r]), Q.X, Q.Y)}" fill="none" stroke="var(--fg)" stroke-width="1.4"/>`
+      + S.lots.slice(0, shown).map((l, i) => l.r > S.uclR ? `<circle cx="${Q.X(i + 0.5)}" cy="${Q.Y(l.r)}" r="3.5" fill="var(--hole)"/>` : "").join("") + Q.frame + `<text x="44" y="12" style="fill:var(--fg)">R chart (within-lot range)</text>`;
+  } else { const R = SPS.r2r, shown = 80, lo = -6, hi = 6, h1 = new Array(24).fill(0), h2 = new Array(24).fill(0);
+    R.ol.slice(0, shown).forEach(v => { const i = Math.floor((clamp(v - 45, lo, hi - 0.01) - lo)/0.5); h1[i]++; }); R.cl.slice(0, shown).forEach(v => { const i = Math.floor((clamp(v - 45, lo, hi - 0.01) - lo)/0.5); h2[i]++; });
+    const top = Math.max(5, Math.ceil(Math.max(...h1, ...h2)/5)*5), P = axesR(300, 230, m1, lo, hi, 0, top, 3, top/5, "CD − target (nm)", "lots"), bw = P.X(0.5) - P.X(0);
+    a = P.s + h1.map((c, i) => `<rect x="${P.X(lo + i*0.5)}" y="${P.Y(c)}" width="${bw - 1}" height="${P.Y(0) - P.Y(c)}" fill="var(--muted)" opacity=".55"/>`).join("") + h2.map((c, i) => `<rect x="${P.X(lo + i*0.5) + 2}" y="${P.Y(c)}" width="${bw - 4}" height="${P.Y(0) - P.Y(c)}" fill="var(--accent)" opacity=".8"/>`).join("")
+      + [-SPS.spec, SPS.spec].map(x => `<line x1="${P.X(x)}" x2="${P.X(x)}" y1="${P.Y(top)}" y2="${P.Y(0)}" stroke="var(--hole)" stroke-dasharray="5 3"/>`).join("") + P.frame + `<text x="44" y="12" style="fill:var(--accent)">with R2R</text><text x="120" y="12" style="fill:var(--muted)">open loop (80 lots)</text>`;
+    const sw = range(0.05, 1, 19).map(l => [l, spStd(spR2R(l).cl.slice(10))]), top2 = Math.ceil(Math.max(...sw.map(d => d[1]))*2 + 0.5)/2, Q = axesR(220, 230, m2, 0, 1, 0, top2, 0.25, top2/4, "EWMA weight λ", "σ (nm)");
+    b = Q.s + `<path d="${pathOf(sw, Q.X, Q.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + dotSvg(Q.X(SPS.lam), Q.Y(spStd(R.cl.slice(10)))) + Q.frame + `<text x="44" y="12" style="fill:var(--accent)">σ with R2R vs λ</text>`;
+  }
+  $("sp-p1").innerHTML = a; $("sp-p2").innerHTML = b;
+}
+function spTick(dt){
+  if (!(dt >= 0)) return;
+  SPS.t += dt; SPS.acc += dt;
+  if (SPS.acc > 0.7){ SPS.acc = 0;
+    if (SPS.view === "mt" && SPS.inst === "sem"){ SPS.nseed++; updateSP(); }
+    else if (SPS.view !== "mt") updateSP(); }
+}
+document.querySelectorAll("#sp-view button").forEach(b => b.addEventListener("click", () => { SPS.view = b.dataset.v; SPS.t = 0; updateSP(); }));
+document.querySelectorAll("#sp-inst button").forEach(b => b.addEventListener("click", () => { SPS.inst = b.dataset.i; updateSP(); }));
+document.querySelectorAll("#sp-sc button").forEach(b => b.addEventListener("click", () => { SPS.sc = b.dataset.s; SPS.t = 0; updateSP(); }));
+[["sp-cd", "cd"], ["sp-frames", "frames"], ["sp-ler", "ler"], ["sp-h", "h"], ["sp-tr", "tr"], ["sp-rot", "rot"], ["sp-mag", "mag"], ["sp-spec", "spec"], ["sp-drift", "drift"], ["sp-lam", "lam"], ["sp-delay", "delay"]].forEach(([id, k]) => $(id).addEventListener("input", e => { SPS[k] = +e.target.value; updateSP(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -18838,6 +19695,7 @@ function showTab(t){
   else if (t === "rl"){ $("sub-top").textContent = "Reliability · electromigration, transistor aging, qualification"; RLC.resize(); updateRL(); }
   else if (t === "ly"){ $("sub-top").textContent = "Layout · standard cell, cross-section along a cut line, DRC and LVS"; LYC.resize(); updateLY(); }
   else if (t === "rp"){ $("sub-top").textContent = "Radar DSP · range-Doppler FFT, CFAR detection, angle FFT and point cloud"; RPC.resize(); updateRP(); }
+  else if (t === "sp"){ $("sub-top").textContent = "Metrology & SPC · CD-SEM, scatterometry, overlay, control charts and run-to-run control"; SPX.resize(); updateSP(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -18866,6 +19724,7 @@ function frame(now){
   else if (tab === "rl"){ rlTick(dt); if (RLC.cv.clientWidth) drawRL(dt, T); }
   else if (tab === "ly"){ lyTick(dt); if (LYC.cv.clientWidth) drawLY(dt, T); }
   else if (tab === "rp"){ rpTick(dt); if (RPC.cv.clientWidth) drawRP(dt, T); }
+  else if (tab === "sp"){ spTick(dt); if (SPX.cv.clientWidth) drawSPM(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
