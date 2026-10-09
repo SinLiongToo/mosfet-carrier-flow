@@ -33,6 +33,11 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Cascode mirror** – four transistors, node X held still: Rout ≈ gm·ro² vs basic, and the extra headroom it costs
 - **Current DAC** – one reference driving 1×/2×/4×/8× branches of unit transistors with random Vth (seeded "new chip"), common-centroid layout view, staircase, INL / DNL
 
+## Variability tab (`#variability`)
+- **Mismatch (Pelgrom)** – random dopants in two matched transistors, live Monte Carlo of ΔVt, σ = A_Vt/√(WL) for four technologies, offset and area cost
+- **Process corners (PVT)** – die-to-die scatter with TT/FF/SS/FS/SF corners, delay and leakage per corner vs supply and temperature, temperature inversion at low voltage
+- **SRAM sigma** – read butterfly curves with Monte Carlo cells, static noise margin, cell sigma, required sigma and yield for arrays from 1 kb to 8 Gb
+
 ## Power tab (`#power`) – how a chip's supply voltage is set
 - **LDO** – error amplifier drives a pass PMOS (live cross-section): Vout = Vref·(1 + R1/R2); animated load-step transient on a scope, dropout and efficiency ≈ Vout/Vin
 - **Buck (DC-DC)** – high-side PMOS / low-side NMOS switching (live cross-sections), Vout = D·Vin, PWM ramp/SW/iL/ripple waveforms, efficiency vs load

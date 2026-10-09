@@ -7309,6 +7309,235 @@ Object.assign(window.I18N_ZH, {
 "Polishing makes the wafer flat again after each layer, but the result depends on the pattern underneath": "研磨讓每一層之後的晶圓再次變平，但結果取決於下方的圖形",
 "Copper wires are made by damascene: trenches are etched into the oxide, copper is plated over everything, and CMP removes the excess until only the copper in the trenches remains. The wafer is pressed face down onto a rotating pad soaked with slurry: abrasive particles plus chemicals that oxidize and soften the copper. Removal follows Preston's law, RR = Kp·P·V: proportional to pressure and velocity. Once the copper overburden is gone, some over-polish is needed to clear every residue, and then the pattern matters: the pad bends into wide copper lines and scoops them out (dishing), and dense arrays of lines lose oxide and copper together (erosion), while open fields hardly change. Thinner copper means higher resistance, and the resulting topography eats into the depth of focus of the next lithography step. Designers therefore follow density rules, and tools add dummy fill shapes to empty areas so every region polishes the same.": "銅導線以鑲嵌製程製作：在氧化層中蝕刻溝槽，把銅電鍍在整片表面，再用 CMP 移除多餘的銅，直到只剩溝槽中的銅。晶圓正面朝下壓在浸滿研磨液的旋轉研磨墊上：研磨液含有磨料顆粒，以及能氧化並軟化銅的化學品。移除率遵循 Preston 定律 RR = Kp·P·V：與壓力及速度成正比。銅覆蓋層去除後，還需要一些過研磨來清除所有殘留，這時圖形就有影響：研磨墊會彎進寬銅線並把它挖下去（碟陷），密集的線陣列則氧化層與銅一起變薄（侵蝕），空曠區幾乎不變。銅變薄代表電阻變高，產生的高低差也會吃掉下一道微影的焦深。因此設計者要遵守密度規則，工具會在空白區域加入虛擬填充圖形，讓每個區域研磨得一樣。"
 });
+Object.assign(window.I18N_ZH, {
+"Variability": "變異",
+"Variability · Pelgrom mismatch, process corners and PVT, SRAM sigma and yield": "變異 · Pelgrom 失配、製程角落與 PVT、SRAM sigma 與良率",
+"Local mismatch": "局部失配",
+"Variability view": "變異視圖",
+"Mismatch (Pelgrom)": "失配（Pelgrom）",
+"Process corners (PVT)": "製程角落（PVT）",
+"SRAM sigma": "SRAM sigma",
+"Variability: random dopants in two matched transistors with a Monte Carlo of their threshold difference, die-to-die scatter with process corners, and SRAM butterfly curves with array yield": "變異：兩顆匹配電晶體中的隨機摻雜與其臨界電壓差的蒙地卡羅、晶粒間散佈與製程角落，以及 SRAM 蝴蝶曲線與陣列良率",
+"Technology": "製程技術",
+"Technology generation. The Pelgrom coefficient A_Vt has improved with thinner gate oxides, high-k metal gates and undoped fin channels.": "製程世代。Pelgrom 係數 A_Vt 隨著更薄的閘極氧化層、高介電金屬閘極與無摻雜鰭式通道而改善。",
+"# nm": "# nm",
+"# nm HKMG": "# nm HKMG",
+"FinFET": "FinFET",
+"Width W": "寬度 W",
+"Width of each transistor of the matched pair.": "匹配對中每顆電晶體的寬度。",
+"Length L": "長度 L",
+"Gate length of each transistor of the matched pair.": "匹配對中每顆電晶體的閘極長度。",
+"Process corner": "製程角落",
+"Process corners: NMOS and PMOS both typical, fast or slow, or one fast and one slow (first letter NMOS, second PMOS).": "製程角落：NMOS 與 PMOS 同為典型、快或慢，或一快一慢（第一個字母是 NMOS，第二個是 PMOS）。",
+"Supply voltage": "供應電壓",
+"Supply voltage. Sign-off covers the regulator tolerance, typically ±# %.": "供應電壓。簽核涵蓋穩壓器的容差，通常為 ±# %。",
+"Temperature": "溫度",
+"Junction temperature: automotive parts must work from −# to # °C or more.": "接面溫度：車用元件必須在 −# 到 # °C 甚至更寬的範圍內工作。",
+"Array size": "陣列大小",
+"Number of SRAM cells on the chip; every one of them must work.": "晶片上的 SRAM 單元數；每一個都必須正常工作。",
+"Cell supply": "單元電壓",
+"Supply of the SRAM array during a read. Lower supply saves power but shrinks the noise margin.": "讀取時 SRAM 陣列的供應電壓。電壓越低越省電，但雜訊邊限也越小。",
+"σVt of cell transistors": "單元電晶體的 σVt",
+"Threshold-voltage spread of the tiny SRAM transistors, from the Pelgrom law.": "微小 SRAM 電晶體的臨界電壓分散，來自 Pelgrom 定律。",
+"Pelgrom plot, delay versus supply per corner, or noise margin histogram": "Pelgrom 圖、各角落延遲對電壓，或雜訊邊限直方圖",
+"Monte Carlo histogram, leakage versus temperature per corner, or array yield versus cell sigma": "蒙地卡羅直方圖、各角落漏電對溫度，或陣列良率對單元 sigma",
+"Explain the terms: global and local variation, Pelgrom law, corners, PVT, Monte Carlo, SNM, sigma": "名詞解釋：全域與局部變異、Pelgrom 定律、角落、PVT、蒙地卡羅、SNM、sigma",
+"Where variation comes from": "變異從哪裡來",
+"<b>Wafer to wafer, lot to lot</b>: tool drift, chamber differences: global shifts of all transistors.": "<b>晶圓間、批次間</b>：機台漂移、腔體差異：所有電晶體的全域偏移。",
+"<b>Across the wafer</b>: thickness and dose gradients from centre to edge.": "<b>晶圓內</b>：從中心到邊緣的厚度與劑量梯度。",
+"<b>Within the die</b>: layout context, stress, density effects.": "<b>晶粒內</b>：佈局環境、應力、密度效應。",
+"<b>Device to device</b>: random dopants, line-edge roughness, metal-gate grains: pure chance, uncorrelated even for neighbours.": "<b>元件間</b>：隨機摻雜、線邊緣粗糙度、金屬閘極晶粒：純屬機率，即使相鄰也不相關。",
+"Typical sign-off corners": "典型簽核角落",
+"Check": "檢查",
+"Worst corner": "最差角落",
+"Setup timing (too slow)": "建立時間（太慢）",
+"SS, low V, hot or cold": "SS、低電壓、高溫或低溫",
+"Hold timing (too fast)": "保持時間（太快）",
+"FF, high V, cold": "FF、高電壓、低溫",
+"Leakage, power": "漏電、功耗",
+"FF, high V, hot": "FF、高電壓、高溫",
+"Analog offset": "類比偏移",
+"Monte Carlo of mismatch": "失配蒙地卡羅",
+"SRAM stability": "SRAM 穩定性",
+"FS / SF, low V, local #σ": "FS / SF、低電壓、局部 #σ",
+"Terms": "名詞",
+"Global variation": "全域變異",
+"Shifts every transistor on a die the same way; captured by process corners.": "使晶粒上每顆電晶體往同方向偏移；以製程角落描述。",
+"Random differences between identical neighbouring transistors.": "相同且相鄰電晶體之間的隨機差異。",
+"Pelgrom law": "Pelgrom 定律",
+"σ(ΔVt) = A_Vt / √(W·L): mismatch averages out over a larger area.": "σ(ΔVt) = A_Vt / √(W·L)：面積越大，失配越被平均掉。",
+"A model file at about ±#σ of the global spread, such as SS or FF.": "位於全域分散約 ±#σ 的模型檔，例如 SS 或 FF。",
+"PVT": "PVT",
+"Process, voltage and temperature: the three axes of sign-off.": "製程、電壓與溫度：簽核的三個軸。",
+"Monte Carlo": "蒙地卡羅",
+"Simulating many random samples of the device parameters to get a distribution.": "模擬許多元件參數的隨機樣本以得到分佈。",
+"SNM": "SNM",
+"Static noise margin: how much noise an SRAM cell tolerates before it flips; the largest square in the butterfly curve.": "靜態雜訊邊限：SRAM 單元翻轉前能容忍的雜訊；蝴蝶曲線中最大的正方形。",
+"Sigma": "Sigma",
+"Mean over standard deviation of a margin; a gigabit memory needs more than #σ per cell.": "邊限的平均值除以標準差；十億位元的記憶體每個單元需要超過 #σ。",
+"σ(ΔVt)": "σ(ΔVt)",
+"Gate area": "閘極面積",
+"Dopants per channel": "每個通道的摻雜原子",
+"Area for # mV": "達到 # mV 所需面積",
+"< #": "< #",
+"Corner": "角落",
+"Relative delay": "相對延遲",
+"Relative leakage": "相對漏電",
+"Slowest temperature": "最慢的溫度",
+"Mean SNM": "平均 SNM",
+"σ of SNM": "SNM 的 σ",
+"Cell sigma": "單元 sigma",
+"Array yield": "陣列良率",
+"Spread of the threshold difference between two matched transistors.": "兩顆匹配電晶體臨界電壓差的分散。",
+"W × L of each transistor.": "每顆電晶體的 W × L。",
+"Expected number of dopant atoms under each gate.": "每個閘極下預期的摻雜原子數。",
+"Gate area needed for σ(ΔVt) = # mV.": "σ(ΔVt) = # mV 所需的閘極面積。",
+"Selected process corner, supply and temperature.": "選定的製程角落、電壓與溫度。",
+"Delay relative to TT, # V, # °C.": "相對於 TT、# V、# °C 的延遲。",
+"Leakage relative to TT, # V, # °C.": "相對於 TT、# V、# °C 的漏電。",
+"Temperature at which the SS corner is slowest at this supply.": "在此電壓下 SS 角落最慢的溫度。",
+"Average static noise margin of the cells.": "單元的平均靜態雜訊邊限。",
+"Spread of the noise margin.": "雜訊邊限的分散。",
+"Mean over sigma of the margin.": "邊限的平均值除以 sigma。",
+"Chance that every cell of the array works.": "陣列中每個單元都正常的機率。",
+"Mismatch falls with the square root of area.": "失配隨面積的平方根下降。",
+"Random dopants": "隨機摻雜",
+"Poisson statistics of the dopant count.": "摻雜原子數的卜瓦松統計。",
+"Offset": "偏移",
+"Input offset of a differential pair.": "差動對的輸入偏移。",
+"Area cost": "面積代價",
+"Area grows with the square of the precision.": "面積隨精度的平方增加。",
+"Drain current": "汲極電流",
+"Alpha-power law.": "α 次方定律。",
+"Temperature effects": "溫度效應",
+"Mobility and threshold both fall with temperature.": "遷移率與臨界電壓都隨溫度下降。",
+"Gate delay": "閘延遲",
+"Charge over current.": "電荷除以電流。",
+"Leakage current": "漏電流",
+"Subthreshold leakage.": "次臨界漏電。",
+"Noise margin": "雜訊邊限",
+"Largest square in the butterfly.": "蝴蝶曲線中最大的正方形。",
+"Margin in units of its spread.": "以分散為單位的邊限。",
+"Failure probability": "失效機率",
+"Gaussian tail beyond the mean.": "超過平均值的高斯尾端。",
+"All cells must work.": "所有單元都必須正常。",
+"Dopant atom, sample beyond #σ": "摻雜原子、超過 #σ 的樣本",
+"Channel": "通道",
+"Gate": "閘極",
+"±#σ, ±#σ, ±#σ bands": "±#σ、±#σ、±#σ 帶",
+"Monte Carlo sample": "蒙地卡羅樣本",
+"Die": "晶粒",
+"Corner, delay": "角落、延遲",
+"Selected corner": "選定角落",
+"Leakage": "漏電",
+"Nominal butterfly": "標稱蝴蝶曲線",
+"Monte Carlo cells": "蒙地卡羅單元",
+"Largest square, working cell": "最大正方形、正常單元",
+"Failing cell": "失效單元",
+"A_Vt = # mV·µm (# nm) → # mV": "A_Vt = # mV·µm（# nm）→ # mV",
+"A_Vt = # mV·µm (# nm HKMG) → # mV": "A_Vt = # mV·µm（# nm HKMG）→ # mV",
+"A_Vt = # mV·µm (FinFET) → # mV": "A_Vt = # mV·µm（FinFET）→ # mV",
+"# ± # dopants": "# ± # 個摻雜原子",
+"#σ offset ≈ # mV from Vt alone": "僅 Vt 造成的 #σ 偏移 ≈ # mV",
+"σ ∝ #/√area → ½ σ needs # × area": "σ ∝ #/√面積 → ½ σ 需要 # × 面積",
+"for σ = # mV: W·L = # µm²": "σ = # mV 時：W·L = # µm²",
+"Vt: NMOS # mV, PMOS # mV": "Vt：NMOS # mV，PMOS # mV",
+"mobility slows hot chips, lower Vt speeds them up": "遷移率下降使高溫晶片變慢，較低的 Vt 使它變快",
+"#× of TT at # °C": "# °C 時 TT 的 #×",
+"SNM = side of the largest square inside the smaller lobe": "SNM = 較小瓣內最大正方形的邊長",
+"nominal # mV at # V": "# V 時標稱 # mV",
+"#e-# per cell": "每個單元 #e-#",
+"N = # Mb → # %; # % needs # σ": "N = # Mb → # %；# % 需要 # σ",
+"N = # Gb → # %; # % needs # σ": "N = # Gb → # %；# % 需要 # σ",
+"N = # kb → # %; # % needs # σ": "N = # kb → # %；# % 需要 # σ",
+"W = # nm, L = # nm (top view, gate shaded)": "W = # nm，L = # nm（俯視，陰影為閘極）",
+"M#: # dopants": "M#：# 個摻雜原子",
+"(# dot = #)": "（# 點 = #）",
+"expected # dopants under each gate, ±√N = # by chance": "每個閘極下預期 # 個摻雜原子，機率造成 ±√N = #",
+"FinFET channels are undoped: metal-gate grains and fin width dominate": "FinFET 通道無摻雜：金屬閘極晶粒與鰭寬為主因",
+"a few dopants more or less shift the threshold voltage": "多幾個或少幾個摻雜原子就會改變臨界電壓",
+"other sources: line-edge roughness, oxide thickness, gate grains": "其他來源：線邊緣粗糙度、氧化層厚度、閘極晶粒",
+"Monte Carlo: ΔVt of # matched pairs": "蒙地卡羅：# 對匹配電晶體的 ΔVt",
+"Pelgrom: σ(ΔVt) = # mV·µm / √(W·L) = # mV": "Pelgrom：σ(ΔVt) = # mV·µm / √(W·L) = # mV",
+"measured from the samples: # mV": "由樣本量得：# mV",
+"a differential pair built from them has ~# mV offset (#σ)": "用它們做的差動對約有 # mV 偏移（#σ）",
+"Die-to-die spread: NMOS vs PMOS speed": "晶粒間散佈：NMOS 對 PMOS 速度",
+"NMOS speed vs typical (%)": "NMOS 速度相對典型值 (%)",
+"PMOS speed (%)": "PMOS 速度 (%)",
+"dies (global + within-die spread)": "晶粒（全域 + 晶粒內分散）",
+"corner box ≈ ±#σ": "角落框 ≈ ±#σ",
+"inverter-chain delay relative to TT, # V, # °C": "反相器鏈延遲，相對於 TT、# V、# °C",
+"leakage relative to TT, # V, # °C (log scale)": "漏電，相對於 TT、# V、# °C（對數刻度）",
+"SS at −# °C: #× · at # °C: #×": "SS 在 −# °C：#× · 在 # °C：#×",
+"temperature inversion: at this low supply the chip is slowest when cold": "溫度反轉：在這麼低的電壓下，晶片在低溫時最慢",
+"classic behaviour: slowest when hot (mobility drops)": "典型行為：高溫時最慢（遷移率下降）",
+"SRAM read butterfly at # V (σVt = # mV)": "# V 下的 SRAM 讀取蝴蝶曲線（σVt = # mV）",
+"V_L (V)": "V_L (V)",
+"V_R (V)": "V_R (V)",
+"nominal SNM = # mV (largest square)": "標稱 SNM = # mV（最大正方形）",
+"Array of # Mb: will every cell work?": "# Mb 的陣列：每個單元都能正常嗎？",
+"Array of # Gb: will every cell work?": "# Gb 的陣列：每個單元都能正常嗎？",
+"Array of # kb: will every cell work?": "# kb 的陣列：每個單元都能正常嗎？",
+"each square = # kb": "每格 = # kb",
+"each square = # Mb": "每格 = # Mb",
+"each square = # bits": "每格 = # bits",
+"cell margin: μ = # mV, σ = # mV → # σ": "單元邊限：μ = # mV，σ = # mV → # σ",
+"failure probability per cell: #e-#": "每個單元的失效機率：#e-#",
+"expected failing cells: #e-#": "預期失效單元數：#e-#",
+"expected failing cells: #": "預期失效單元數：#",
+"expected failing cells: #e+#": "預期失效單元數：#e+#",
+"# % array yield needs # σ per cell": "# % 陣列良率需要每個單元 # σ",
+"the array meets it": "陣列達到要求",
+"short of it: raise the supply, upsize cells or add redundancy": "未達要求：提高電壓、加大單元或增加備援",
+"spare rows and columns repair a few bad cells after test": "測試後以備用列與行修復少數壞單元",
+"# / √(W·L) (µm⁻¹)": "# / √(W·L) (µm⁻¹)",
+"σ(ΔVt) (mV)": "σ(ΔVt) (mV)",
+"Pelgrom plot, # technologies": "Pelgrom 圖，# 種製程",
+"ΔVt (mV)": "ΔVt (mV)",
+"pairs": "對數",
+"Monte Carlo histogram": "蒙地卡羅直方圖",
+"supply voltage (V)": "供應電壓 (V)",
+"relative delay": "相對延遲",
+"delay vs supply at # °C": "# °C 下延遲對電壓",
+"delay vs supply at -# °C": "-# °C 下延遲對電壓",
+"temperature (°C)": "溫度 (°C)",
+"log# leakage": "log# 漏電",
+"leakage vs temperature": "漏電對溫度",
+"SNM (mV)": "SNM (mV)",
+"cells": "單元數",
+"SNM of # Monte Carlo cells": "# 個蒙地卡羅單元的 SNM",
+"cell sigma z": "單元 sigma z",
+"array yield (%)": "陣列良率 (%)",
+"yield of # Mb": "# Mb 的良率",
+"yield of # Gb": "# Gb 的良率",
+"yield of # kb": "# kb 的良率",
+"TT at # V, # °C": "TT，# V，# °C",
+"TT at # V, -# °C": "TT，# V，-# °C",
+"TT: #× of TT at # V, # °C": "TT：TT（{1} V、{2} °C）的 {0}×",
+"FF at # V, # °C": "FF，# V，# °C",
+"FF at # V, -# °C": "FF，# V，-# °C",
+"FF: #× of TT at # V, # °C": "FF：TT（{1} V、{2} °C）的 {0}×",
+"SS at # V, # °C": "SS，# V，# °C",
+"SS at # V, -# °C": "SS，# V，-# °C",
+"SS: #× of TT at # V, # °C": "SS：TT（{1} V、{2} °C）的 {0}×",
+"FS at # V, # °C": "FS，# V，# °C",
+"FS at # V, -# °C": "FS，# V，-# °C",
+"FS: #× of TT at # V, # °C": "FS：TT（{1} V、{2} °C）的 {0}×",
+"SF at # V, # °C": "SF，# V，# °C",
+"SF at # V, -# °C": "SF，# V，-# °C",
+"SF: #× of TT at # V, # °C": "SF：TT（{1} V、{2} °C）的 {0}×",
+"Random dopants in two matched transistors (# nm)": "兩顆匹配電晶體中的隨機摻雜（# nm）",
+"Random dopants in two matched transistors (# nm HKMG)": "兩顆匹配電晶體中的隨機摻雜（# nm HKMG）",
+"Random dopants in two matched transistors (FinFET)": "兩顆匹配電晶體中的隨機摻雜（FinFET）",
+"Two transistors drawn identically, side by side, are never quite identical: their difference shrinks only with the square root of their area": "兩顆畫得一模一樣、並排放置的電晶體從來不會完全相同：它們的差異只隨面積的平方根縮小",
+"Even neighbouring transistors with the same layout differ, because the things that set the threshold voltage are made of a countable number of atoms. A # × # nm channel doped at #×#¹⁸ cm⁻³ holds only about a thousand dopant atoms in its depletion region, and by pure chance one transistor gets √N, about thirty, more or fewer than its neighbour. Line-edge roughness, oxide thickness variations and, in metal gates, the random grains of the gate metal add their own share. These effects are uncorrelated from device to device, so they average out over area: the Pelgrom law says σ(ΔVt) = A_Vt/√(W·L). For analog circuits this is the offset of a differential pair or the error of a current mirror; halving it costs four times the area, which is why precision analog blocks are large and why calibration and trimming are common. Each process has its own A_Vt, which has improved with thinner oxides and with undoped FinFET channels; the samples on the right are drawn live from the Pelgrom distribution.": "即使佈局相同的相鄰電晶體也會不同，因為決定臨界電壓的東西是由可數的原子構成的。一個 # × # nm、摻雜 #×#¹⁸ cm⁻³ 的通道，空乏區中只有約一千個摻雜原子，純粹因為機率，一顆電晶體會比鄰居多或少 √N 個，大約三十個。線邊緣粗糙度、氧化層厚度變化，以及金屬閘極中隨機的金屬晶粒，也各自貢獻一部分。這些效應在元件之間互不相關，所以會隨面積平均掉：Pelgrom 定律說 σ(ΔVt) = A_Vt/√(W·L)。對類比電路而言，這就是差動對的偏移或電流鏡的誤差；要把它減半得付出四倍的面積，這就是精密類比電路很大、校正與微調很普遍的原因。每個製程都有自己的 A_Vt，它隨著更薄的氧化層與無摻雜的 FinFET 通道而改善；右邊的樣本是從 Pelgrom 分佈即時抽出的。",
+"Process corners and PVT": "製程角落與 PVT",
+"Global variation moves every transistor on a die together; designers verify the extremes of process, voltage and temperature": "全域變異讓晶粒上所有電晶體一起移動；設計者要驗證製程、電壓與溫度的極端情況",
+"From wafer to wafer and lot to lot, small changes in gate length, oxide thickness or implant dose shift all transistors of a die the same way: the whole chip is a bit faster or slower. Foundries describe this with corner models at about ±#σ of the global spread: SS (slow NMOS, slow PMOS), FF, and the skewed FS and SF corners that matter for circuits sensitive to the n/p balance such as SRAM and level shifters. Supply voltage (regulator tolerance, IR drop) and temperature add two more axes, so timing is signed off at many PVT combinations: setup at slow corners, hold at fast corners, leakage at fast and hot. Higher temperature lowers the mobility, which slows the transistors, but it also lowers the threshold voltage, which speeds them up; at low supply voltages the second effect wins and chips are slowest when cold, called temperature inversion, so modern sign-off has to check both ends. Leakage is exponential in Vt and temperature, which is why FF hot is the power corner.": "晶圓與晶圓、批次與批次之間，閘極長度、氧化層厚度或植入劑量的微小變化，會讓一個晶粒的所有電晶體往同一方向偏移：整顆晶片快一點或慢一點。晶圓廠用位於全域分散約 ±#σ 的角落模型來描述：SS（NMOS 慢、PMOS 慢）、FF，以及對 n/p 平衡敏感的電路（例如 SRAM 與電位轉換器）重要的偏斜角落 FS 與 SF。供應電壓（穩壓器容差、IR 壓降）與溫度再加上兩個軸，所以時序要在許多 PVT 組合下簽核：建立時間看慢角落，保持時間看快角落，漏電看快且高溫的角落。溫度升高會降低遷移率，使電晶體變慢，但也會降低臨界電壓，使它變快；在低電壓下後者勝出，晶片在低溫時反而最慢，這稱為溫度反轉，所以現代簽核必須檢查兩端。漏電與 Vt 及溫度呈指數關係，這就是 FF 高溫成為功耗角落的原因。",
+"SRAM and high-sigma yield": "SRAM 與高 sigma 良率",
+"A memory with billions of cells only works if each cell fails less than once in a billion: margins must hold out to six sigma and beyond": "有數十億個單元的記憶體，只有在每個單元失效機率低於十億分之一時才能運作：邊限必須撐到六個 sigma 以上",
+"An SRAM cell stores a bit in two cross-coupled inverters. During a read, the access transistor lifts the node that stores the zero, and if the noise or the mismatch between the six tiny transistors is large enough, the cell flips: a read upset. The butterfly plot draws both inverter transfer curves; the side of the largest square that fits in the smaller lobe is the static noise margin (SNM). Mismatch makes every cell's butterfly different, so the SNM is a distribution with a mean μ and a spread σ. Because a chip holds millions to billions of cells and every one must work, the failure probability per cell must be tiny: for a gigabit array at # % yield it must be about #⁻¹¹, which means the mean margin must be more than six sigma away from zero. Lowering the supply saves power but shrinks the margin while σ stays the same, which is why SRAM sets the minimum operating voltage of many chips. Designers use larger cells, read and write assist circuits, separate cell supplies, and spare rows and columns to repair the few cells that still fail.": "SRAM 單元以兩個交叉耦合的反相器儲存一個位元。讀取時，存取電晶體會把儲存零的節點拉高，如果雜訊或六顆微小電晶體之間的失配夠大，單元就會翻轉：讀取擾動。蝴蝶圖畫出兩條反相器轉換曲線；較小瓣內能放下的最大正方形的邊長，就是靜態雜訊邊限（SNM）。失配讓每個單元的蝴蝶曲線都不同，所以 SNM 是一個有平均值 μ 與分散 σ 的分佈。由於一顆晶片有數百萬到數十億個單元，而且每一個都必須正常，每個單元的失效機率必須極小：#% 良率的十億位元陣列約需 #⁻¹¹，也就是平均邊限必須離零超過六個 sigma。降低電壓能省電，但邊限縮小而 σ 不變，這就是 SRAM 決定許多晶片最低工作電壓的原因。設計者會使用較大的單元、讀寫輔助電路、獨立的單元電壓，以及備用列與行來修復少數仍然失效的單元。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -7681,6 +7910,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-sp" aria-selected="false" aria-controls="tab-sp">Metrology & SPC</button>
         <button role="tab" id="tab-btn-th" aria-selected="false" aria-controls="tab-th">Thermal</button>
         <button role="tab" id="tab-btn-up" aria-selected="false" aria-controls="tab-up">Unit processes</button>
+        <button role="tab" id="tab-btn-va" aria-selected="false" aria-controls="tab-va">Variability</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -11152,6 +11382,132 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>ALD</dt><dd>Atomic layer deposition: alternating self-limiting surface reactions add one monolayer per cycle.</dd>
               <dt>Anisotropy, ARDE</dt><dd>Etching straight down rather than sideways; aspect-ratio-dependent etching makes narrow features etch slower (RIE lag).</dd>
               <dt>Dishing, erosion</dt><dd>CMP artefacts: wide metal lines sag in the middle, dense arrays lose oxide and metal together.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== VARIABILITY TAB ===================== -->
+  <section id="tab-va" role="tabpanel" aria-labelledby="tab-btn-va" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="va-pill">σVt</span><h2 id="va-name">Local mismatch</h2></div>
+      <p id="va-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="va-view" role="group" aria-label="Variability view" style="flex-wrap:wrap">
+        <button data-v="mm" aria-pressed="true">Mismatch (Pelgrom)</button>
+        <button data-v="pc" aria-pressed="false">Process corners (PVT)</button>
+        <button data-v="sr" aria-pressed="false">SRAM sigma</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvva" aria-label="Variability: random dopants in two matched transistors with a Monte Carlo of their threshold difference, die-to-die scatter with process corners, and SRAM butterfly curves with array yield"></canvas>
+      <div class="legend" id="va-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="va-ro"></div>
+        <div id="va-c-node" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Technology generation. The Pelgrom coefficient A_Vt has improved with thinner gate oxides, high-k metal gates and undoped fin channels.">Technology</span>
+          <div class="chips" id="va-node">
+            <button class="chipbtn" data-n="180">180 nm</button>
+            <button class="chipbtn" data-n="65">65 nm</button>
+            <button class="chipbtn" data-n="28">28 nm HKMG</button>
+            <button class="chipbtn" data-n="ff">FinFET</button>
+          </div>
+        </div>
+        <div class="slider" id="va-c-w">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Width of each transistor of the matched pair.">Width W</span><span id="va-w-v"></span></div>
+          <input id="va-w" type="range" min="30" max="2000" step="10" value="200">
+        </div>
+        <div class="slider" id="va-c-l">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Gate length of each transistor of the matched pair.">Length L</span><span id="va-l-v"></span></div>
+          <input id="va-l" type="range" min="20" max="1000" step="10" value="100">
+        </div>
+        <div id="va-c-corner" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Process corners: NMOS and PMOS both typical, fast or slow, or one fast and one slow (first letter NMOS, second PMOS).">Process corner</span>
+          <div class="chips" id="va-corner">
+            <button class="chipbtn" data-c="TT">TT</button>
+            <button class="chipbtn" data-c="FF">FF</button>
+            <button class="chipbtn" data-c="SS">SS</button>
+            <button class="chipbtn" data-c="FS">FS</button>
+            <button class="chipbtn" data-c="SF">SF</button>
+          </div>
+        </div>
+        <div class="slider" id="va-c-vdd">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Supply voltage. Sign-off covers the regulator tolerance, typically ±10 %.">Supply voltage</span><span id="va-vdd-v"></span></div>
+          <input id="va-vdd" type="range" min="0.5" max="1" step="0.01" value="0.8">
+        </div>
+        <div class="slider" id="va-c-temp">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Junction temperature: automotive parts must work from −40 to 125 °C or more.">Temperature</span><span id="va-temp-v"></span></div>
+          <input id="va-temp" type="range" min="-40" max="125" step="5" value="25">
+        </div>
+        <div class="slider" id="va-c-bits">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Number of SRAM cells on the chip; every one of them must work.">Array size</span><span id="va-bits-v"></span></div>
+          <input id="va-bits" type="range" min="10" max="33" step="1" value="27">
+        </div>
+        <div class="slider" id="va-c-cv">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Supply of the SRAM array during a read. Lower supply saves power but shrinks the noise margin.">Cell supply</span><span id="va-cv-v"></span></div>
+          <input id="va-cv" type="range" min="0.45" max="1" step="0.01" value="0.75">
+        </div>
+        <div class="slider" id="va-c-sv">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Threshold-voltage spread of the tiny SRAM transistors, from the Pelgrom law.">σVt of cell transistors</span><span id="va-sv-v"></span></div>
+          <input id="va-sv" type="range" min="10" max="60" step="1" value="22">
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="va-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Analysis</p>
+        <div class="plots">
+          <div class="plot"><svg id="va-p1" viewBox="0 0 300 230" role="img" aria-label="Pelgrom plot, delay versus supply per corner, or noise margin histogram"></svg></div>
+          <div class="plot"><svg id="va-p2" viewBox="0 0 220 230" role="img" aria-label="Monte Carlo histogram, leakage versus temperature per corner, or array yield versus cell sigma"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="va-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: global and local variation, Pelgrom law, corners, PVT, Monte Carlo, SNM, sigma</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>Where variation comes from</h3>
+            <ol>
+              <li><b>Wafer to wafer, lot to lot</b>: tool drift, chamber differences: global shifts of all transistors.</li>
+              <li><b>Across the wafer</b>: thickness and dose gradients from centre to edge.</li>
+              <li><b>Within the die</b>: layout context, stress, density effects.</li>
+              <li><b>Device to device</b>: random dopants, line-edge roughness, metal-gate grains: pure chance, uncorrelated even for neighbours.</li>
+            </ol>
+            <h3>Typical sign-off corners</h3>
+            <div class="tbl"><table>
+              <tr><th>Check</th><th>Worst corner</th></tr>
+              <tr><td>Setup timing (too slow)</td><td>SS, low V, hot or cold</td></tr>
+              <tr><td>Hold timing (too fast)</td><td>FF, high V, cold</td></tr>
+              <tr><td>Leakage, power</td><td>FF, high V, hot</td></tr>
+              <tr><td>Analog offset</td><td>Monte Carlo of mismatch</td></tr>
+              <tr><td>SRAM stability</td><td>FS / SF, low V, local 6σ</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>Global variation</dt><dd>Shifts every transistor on a die the same way; captured by process corners.</dd>
+              <dt>Local mismatch</dt><dd>Random differences between identical neighbouring transistors.</dd>
+              <dt>Pelgrom law</dt><dd>σ(ΔVt) = A_Vt / √(W·L): mismatch averages out over a larger area.</dd>
+              <dt>Process corner</dt><dd>A model file at about ±3σ of the global spread, such as SS or FF.</dd>
+              <dt>PVT</dt><dd>Process, voltage and temperature: the three axes of sign-off.</dd>
+              <dt>Monte Carlo</dt><dd>Simulating many random samples of the device parameters to get a distribution.</dd>
+              <dt>SNM</dt><dd>Static noise margin: how much noise an SRAM cell tolerates before it flips; the largest square in the butterfly curve.</dd>
+              <dt>Sigma</dt><dd>Mean over standard deviation of a margin; a gigabit memory needs more than 6σ per cell.</dd>
             </dl>
           </div>
         </div>
@@ -21228,12 +21584,223 @@ document.querySelectorAll("#up-meth button").forEach(b => b.addEventListener("cl
 document.querySelectorAll("#up-fill button").forEach(b => b.addEventListener("click", () => { UPS.fill = b.dataset.f; updateUP(); }));
 [["up-v", "v"], ["up-ar", "ar"], ["up-stick", "stick"], ["up-an", "an"], ["up-sel", "sel"], ["up-ar0", "ar0"], ["up-pr", "pr"], ["up-spd", "spd"], ["up-op", "op"]].forEach(([id, k]) => $(id).addEventListener("input", e => { UPS[k] = +e.target.value; updateUP(); }));
 
+/* ===================== VARIABILITY TAB ===================== */
+// Mismatch: Pelgrom law with a running Monte Carlo of matched pairs and Poisson dopant counts.
+// Corners: alpha-power drain current with temperature-dependent mobility and Vt, delay and leakage per PVT corner.
+// SRAM: read butterfly curves with random Vt shifts, static noise margin by the 45° rotation method, array yield.
+const VAC = setupCanvas($("cvva"), 1000, 488);
+const VAS = {view:"mm", node:"65", w:200, l:100, corner:"SS", vdd:0.8, temp:25, bits:27, cv:0.75, sv:22, t:0, acc:0, mc:[], seed:1, cnt:[0, 0], sram:null};
+const VA_NODE = {"180":{n:"180 nm", avt:5, na:1e18}, "65":{n:"65 nm", avt:3.5, na:3e18}, "28":{n:"28 nm HKMG", avt:2, na:2e18}, ff:{n:"FinFET", avt:1.2, na:1e16}};
+const vaG = rnd => Math.sqrt(-2*Math.log(rnd() + 1e-12))*Math.cos(2*Math.PI*rnd());
+const vaPhi = z => { const t = 1/(1 + 0.3275911*Math.abs(z)/Math.SQRT2), y = 1 - (((((1.061405429*t - 1.453152027)*t) + 1.421413741)*t - 0.284496736)*t + 0.254829592)*t*Math.exp(-z*z/2); return z >= 0 ? 0.5*(1 + y) : 0.5*(1 - y); };
+const vaQ = z => z > 6 ? Math.exp(-z*z/2)/(z*Math.sqrt(2*Math.PI))*(1 - 1/(z*z)) : 1 - vaPhi(z);
+const vaInvQ = p => { let lo = 0, hi = 12; for (let i = 0; i < 60; i++){ const m = (lo + hi)/2; if (vaQ(m) > p) lo = m; else hi = m; } return (lo + hi)/2; };
+const vaSig = () => VA_NODE[VAS.node].avt/Math.sqrt(VAS.w*VAS.l*1e-6);
+const vaDop = () => VA_NODE[VAS.node].na*VAS.w*1e-7*VAS.l*1e-7*30e-7;
+
+/* ---------------- corners ---------------- */
+const VA_CORN = {TT:[0, 0], FF:[-1, -1], SS:[1, 1], FS:[-1, 1], SF:[1, -1]};
+function vaDev(c, V, T){
+  const [dn, dp] = VA_CORN[c], mu = Math.pow((T + 273)/298, -1.2), vtn = 0.35 + 0.04*dn - 0.0008*(T - 25), vtp = 0.35 + 0.04*dp - 0.0008*(T - 25);
+  const I = vt => mu*Math.pow(Math.max(V - vt, 0.03), 1.3), kT = 0.0257*(T + 273)/298, lk = vt => Math.pow((T + 273)/298, 2)*Math.exp(-vt/(1.4*kT));
+  return {delay:V/((I(vtn) + I(vtp))/2), leak:lk(vtn) + lk(vtp), vtn, vtp};
+}
+const VA_REF = () => vaDev("TT", 0.8, 25);
+const vaRel = (c, V, T) => { const r = VA_REF(), d = vaDev(c, V, T); return {delay:d.delay/r.delay, leak:d.leak/r.leak, vtn:d.vtn, vtp:d.vtp}; };
+const VA_DIES = (() => { const rnd = cmRand(77), out = []; for (let i = 0; i < 400; i++){ const g = vaG(rnd)*2.6; out.push([g + vaG(rnd)*1.9, g + vaG(rnd)*1.9]); } return out; })();
+
+/* ---------------- SRAM ---------------- */
+function vaVtc(V, vm, vlow){ return x => vlow + (V - vlow)*0.5*(1 - Math.tanh((x - vm)/(0.075*V))); }
+function vaSnm(V, p1, p2, sgn){
+  const f1 = vaVtc(V, p1[0], p1[1]), f2 = vaVtc(V, p2[0], p2[1]), n = 140, s2 = Math.SQRT2;
+  const c1 = [], c2 = [];
+  for (let i = 0; i <= n; i++){ const x = V*i/n, y = f1(x); c1.push([(y - x)/s2, (x + y)/s2, x, y]); const yy = V*i/n, xx = f2(yy); c2.push([(yy - xx)/s2, (xx + yy)/s2, xx, yy]); }
+  c1.sort((a, b) => a[0] - b[0]); c2.sort((a, b) => a[0] - b[0]);
+  const interp = (c, u) => { if (u < c[0][0] || u > c[c.length - 1][0]) return null; let lo = 0, hi = c.length - 1; while (hi - lo > 1){ const m = (lo + hi) >> 1; if (c[m][0] <= u) lo = m; else hi = m; } const f = (u - c[lo][0])/((c[hi][0] - c[lo][0]) || 1); return c[lo].map((v, k) => v + (c[hi][k] - v)*f); };
+  const um = V/s2, lobes = [], best = [];
+  for (const side of [1, -1]){
+    let m = 0, arg = null; const sg = sgn ? sgn[side > 0 ? 0 : 1] : null;
+    for (let i = 1; i <= 160; i++){ const u = side*um*i/160, a = interp(c1, u), b = interp(c2, u); if (!a || !b) continue; const d = a[1] - b[1];
+      const s = sg == null ? 1 : sg; if (s*d > m){ m = s*d; arg = [a, b]; } }
+    lobes.push(m/s2); best.push(arg);
+  }
+  return {snm:Math.min(...lobes), lobes, best, f1, f2};
+}
+function vaSram(){
+  const V = VAS.cv, s = VAS.sv/1000, nom = [0.43*V, 0.2*V];
+  const probe = (side) => { const f1 = vaVtc(V, nom[0], nom[1]), f2 = vaVtc(V, nom[0], nom[1]), u = side*V/Math.SQRT2*0.3, x1 = (() => { let lo = 0, hi = V; for (let i = 0; i < 50; i++){ const m = (lo + hi)/2; ((f1(m) - m)/Math.SQRT2 > u) ? lo = m : hi = m; } return (lo + hi)/2; })(), y2 = (() => { let lo = 0, hi = V; for (let i = 0; i < 50; i++){ const m = (lo + hi)/2; ((m - f2(m))/Math.SQRT2 < u) ? lo = m : hi = m; } return (lo + hi)/2; })(); return Math.sign((x1 + f1(x1)) - (f2(y2) + y2)); };
+  const sgn = [probe(1), probe(-1)], N0 = vaSnm(V, nom, nom, sgn), rnd = cmRand(4321), snms = [], curves = [];
+  for (let i = 0; i < 600; i++){ const p1 = [nom[0] + 1.0*s*vaG(rnd), nom[1] + 0.8*s*vaG(rnd)], p2 = [nom[0] + 1.0*s*vaG(rnd), nom[1] + 0.8*s*vaG(rnd)], r = vaSnm(V, p1, p2, sgn); snms.push(r.snm); if (i < 14) curves.push([p1, p2]); }
+  const mu = snms.reduce((a, b) => a + b, 0)/snms.length, sd = Math.sqrt(snms.reduce((a, b) => a + (b - mu)*(b - mu), 0)/(snms.length - 1)), z = mu/sd;
+  const Ncell = Math.pow(2, VAS.bits), Pf = vaQ(z), Y = Math.exp(-Ncell*Pf), zreq = vaInvQ(-Math.log(0.99)/Ncell);
+  return {V, nom, N0, snms, curves, mu, sd, z, Ncell, Pf, Y, zreq, E:Ncell*Pf, sgn};
+}
+
+/* ---------------- drawing ---------------- */
+function drawVAmm(T){
+  const sig = vaSig(), Nd = vaDop(), [n1, n2] = VAS.cnt;
+  panel(20, 20, 460, 450, `Random dopants in two matched transistors (${VA_NODE[VAS.node].n})`);
+  const sc = 170/Math.max(VAS.w, VAS.l), w = VAS.l*sc, h = VAS.w*sc, rnd = cmRand(VAS.seed*13 + 1);
+  [[135, n1], [345, n2]].forEach(([cx, cnt], i) => {
+    ctx.fillStyle = C.channel; ctx.globalAlpha = .18; ctx.fillRect(cx - w/2, 210 - h/2, w, h); ctx.globalAlpha = 1; ctx.strokeStyle = C.channel; ctx.lineWidth = 1.5; ctx.strokeRect(cx - w/2, 210 - h/2, w, h);
+    ctx.fillStyle = C.metal; ctx.globalAlpha = .35; ctx.fillRect(cx - w/2, 210 - h/2 - 14, w, h + 28); ctx.globalAlpha = 1;
+    const shown = Math.min(500, Math.round(cnt)), per = cnt > 500 ? cnt/500 : 1;
+    ctx.fillStyle = C.hole; for (let j = 0; j < shown; j++){ ctx.beginPath(); ctx.arc(cx - w/2 + rnd()*w, 210 - h/2 + rnd()*h, 1.6, 0, 6.283); ctx.fill(); }
+    txt(`M${i + 1}: ${Math.round(cnt)} dopants`, cx, 330, {al:"center", px:11, w:700, col:C.fg}); if (per > 1) txt(`(1 dot = ${per.toFixed(0)})`, cx, 346, {al:"center", px:9});
+  });
+  txt(`W = ${VAS.w} nm, L = ${VAS.l} nm (top view, gate shaded)`, 250, 70, {al:"center", px:10});
+  [[`expected ${Nd.toFixed(0)} dopants under each gate, ±√N = ${Math.sqrt(Math.max(Nd, 0)).toFixed(0)} by chance`, C.fg], [VAS.node === "ff" ? "FinFET channels are undoped: metal-gate grains and fin width dominate" : "a few dopants more or less shift the threshold voltage", C.muted],
+   ["other sources: line-edge roughness, oxide thickness, gate grains", C.muted]].forEach(([s, c], i) => txt(s, 36, 380 + i*22, {px:10, col:c}));
+  panel(500, 20, 480, 450, `Monte Carlo: ΔVt of ${VAS.mc.length} matched pairs`);
+  const x0 = 560, x1 = 960, y0 = 60, y1 = 380, span = Math.max(4*sig, 5), Y = v => (y0 + y1)/2 - v/span*(y1 - y0)/2;
+  [[3, .08], [2, .1], [1, .14]].forEach(([k, a]) => { ctx.globalAlpha = a; ctx.fillStyle = C.accent; ctx.fillRect(x0, Y(k*sig), x1 - x0, Y(-k*sig) - Y(k*sig)); }); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, y0 + .5, x1 - x0, y1 - y0);
+  [-3, -1, 0, 1, 3].forEach(k => txt(`${(k*sig).toFixed(1)}`, x0 - 5, Y(k*sig), {al:"right", px:9})); txt("mV", 520, 220, {px:9});
+  VAS.mc.forEach((v, i) => { ctx.fillStyle = Math.abs(v) > 3*sig ? C.hole : C.fg; ctx.beginPath(); ctx.arc(x0 + (i + 0.5)/300*(x1 - x0), Y(clamp(v, -span, span)), i === VAS.mc.length - 1 ? 4 : 2, 0, 6.283); ctx.fill(); });
+  const m = VAS.mc.length ? Math.sqrt(VAS.mc.reduce((a, b) => a + b*b, 0)/VAS.mc.length) : 0;
+  [[`Pelgrom: σ(ΔVt) = ${VA_NODE[VAS.node].avt} mV·µm / √(W·L) = ${sig.toFixed(1)} mV`, C.fg], [`measured from the samples: ${m.toFixed(1)} mV`, C.muted], [`a differential pair built from them has ~${(3*sig).toFixed(0)} mV offset (3σ)`, C.muted]].forEach(([s, c], i) => txt(s, 520, 404 + i*20, {px:10, w: i === 0 ? 700 : 500, col:c}));
+}
+function drawVApc(T){
+  panel(20, 20, 480, 450, "Die-to-die spread: NMOS vs PMOS speed");
+  const x0 = 80, x1 = 470, y0 = 60, y1 = 420, X = v => x0 + (v + 15)/30*(x1 - x0), Y = v => y1 - (v + 15)/30*(y1 - y0);
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, y0 + .5, x1 - x0, y1 - y0); pl([[X(0), y0], [X(0), y1]]); pl([[x0, Y(0)], [x1, Y(0)]]);
+  for (let v = -15; v <= 15; v += 5){ txt(`${v}`, X(v), y1 + 12, {al:"center", px:9}); txt(`${v}`, x0 - 5, Y(v), {al:"right", px:9}); }
+  txt("NMOS speed vs typical (%)", (x0 + x1)/2, y1 + 28, {al:"center", px:10}); txt("PMOS speed (%)", x0 + 6, y0 + 12, {px:10});
+  ctx.fillStyle = C.muted; ctx.globalAlpha = .55; VA_DIES.forEach(([a, b]) => { ctx.beginPath(); ctx.arc(X(a), Y(b), 2, 0, 6.283); ctx.fill(); }); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 1.2; ctx.setLineDash([4, 3]); ctx.strokeRect(X(-10), Y(10), X(10) - X(-10), Y(-10) - Y(10)); ctx.setLineDash([]);
+  Object.entries(VA_CORN).forEach(([c, [dn, dp]]) => { const x = X(-dn*10), y = Y(-dp*10), on = c === VAS.corner; ctx.fillStyle = on ? C.hole : C.accent; ctx.beginPath(); ctx.arc(x, y, on ? 7 : 5, 0, 6.283); ctx.fill(); txt(c, x + (dn > 0 ? -12 : 12), y + (dp > 0 ? 14 : -14), {al: dn > 0 ? "right" : "left", px:12, w:700, col: on ? C.hole : C.accent}); });
+  txt("dies (global + within-die spread)", 470, 74, {al:"right", px:9}); txt("corner box ≈ ±3σ", 470, 90, {al:"right", px:9, col:C.accent});
+  panel(520, 20, 460, 450, `${VAS.corner} at ${VAS.vdd.toFixed(2)} V, ${VAS.temp} °C`);
+  const cs = Object.keys(VA_CORN), rel = cs.map(c => vaRel(c, VAS.vdd, VAS.temp)), dmax = Math.max(2, ...rel.map(r => r.delay));
+  txt("inverter-chain delay relative to TT, 0.8 V, 25 °C", 540, 58, {px:10, w:700, col:C.fg});
+  cs.forEach((c, i) => { const y = 80 + i*24, w = rel[i].delay/dmax*300; ctx.fillStyle = c === VAS.corner ? C.hole : C.accent; ctx.globalAlpha = c === VAS.corner ? 1 : .55; ctx.fillRect(590, y - 8, w, 16); ctx.globalAlpha = 1; txt(c, 580, y, {al:"right", px:10, w:700, col:C.fg}); txt(`${rel[i].delay.toFixed(2)}×`, 596 + w, y, {px:10}); });
+  txt("leakage relative to TT, 0.8 V, 25 °C (log scale)", 540, 220, {px:10, w:700, col:C.fg});
+  cs.forEach((c, i) => { const y = 242 + i*24, w = clamp((Math.log10(rel[i].leak) + 1)/4*300, 2, 300); ctx.fillStyle = c === VAS.corner ? C.hole : C.electron; ctx.globalAlpha = c === VAS.corner ? 1 : .55; ctx.fillRect(590, y - 8, w, 16); ctx.globalAlpha = 1; txt(c, 580, y, {al:"right", px:10, w:700, col:C.fg}); txt(`${rel[i].leak < 10 ? rel[i].leak.toFixed(2) : rel[i].leak.toFixed(0)}×`, 596 + w, y, {px:10}); });
+  const cold = vaRel("SS", VAS.vdd, -40).delay, hot = vaRel("SS", VAS.vdd, 125).delay;
+  [[`SS at −40 °C: ${cold.toFixed(2)}× · at 125 °C: ${hot.toFixed(2)}×`, C.fg], [cold > hot ? "temperature inversion: at this low supply the chip is slowest when cold" : "classic behaviour: slowest when hot (mobility drops)", cold > hot ? C.hole : C.muted]].forEach(([s, c], i) => txt(s, 540, 384 + i*22, {px:10, w: i === 1 ? 700 : 500, col:c}));
+}
+function drawVAsr(T){
+  const S = VAS.sram, V = S.V;
+  panel(20, 20, 460, 450, `SRAM read butterfly at ${V.toFixed(2)} V (σVt = ${VAS.sv} mV)`);
+  const x0 = 80, y0 = 56, sz = 360, X = v => x0 + v/V*sz, Y = v => y0 + sz - v/V*sz;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, y0 + .5, sz, sz);
+  txt("V_L (V)", x0 + sz, y0 + sz + 26, {al:"right", px:9}); txt("V_R (V)", 30, y0 + sz/2, {px:9}); txt("0", x0 - 6, y0 + sz + 8, {al:"right", px:9}); txt(V.toFixed(2), x0 + sz, y0 + sz + 12, {al:"center", px:9}); txt(V.toFixed(2), x0 - 6, y0, {al:"right", px:9});
+  const curve = (p1, p2, col, a, lw) => { const f1 = vaVtc(V, ...p1), f2 = vaVtc(V, ...p2); ctx.globalAlpha = a; ctx.strokeStyle = col; ctx.lineWidth = lw; pl(range(0, V, 80).map(x => [X(x), Y(f1(x))])); pl(range(0, V, 80).map(y => [X(f2(y)), Y(y)])); ctx.globalAlpha = 1; };
+  S.curves.forEach(([p1, p2]) => curve(p1, p2, C.muted, .45, 1));
+  curve(S.nom, S.nom, C.accent, 1, 2.4);
+  S.N0.best.forEach(b => { if (!b) return; const [a, c] = b, xa = Math.min(a[2], c[2]), ya = Math.min(a[3], c[3]), side = S.N0.snm; ctx.strokeStyle = C.channel; ctx.lineWidth = 2; const sx = (Math.abs(a[2] - c[2]) + Math.abs(a[3] - c[3]))/2; ctx.strokeRect(X(xa), Y(ya + sx), X(xa + sx) - X(xa), Y(ya) - Y(ya + sx)); });
+  txt(`nominal SNM = ${(S.N0.snm*1000).toFixed(0)} mV (largest square)`, 250, 440, {al:"center", px:10, w:700, col:C.channel});
+  panel(500, 20, 480, 450, `Array of ${vaBits(S.Ncell)}: will every cell work?`);
+  const cols = 40, rows = 16, cw = 10, ch = 10, gx = 540, gy = 56, fail = Math.min(cols*rows, Math.round(S.E)), rnd = cmRand(99), bad = new Set(); while (bad.size < fail) bad.add(Math.floor(rnd()*cols*rows));
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++){ ctx.fillStyle = bad.has(r*cols + c) ? C.hole : C.channel; ctx.globalAlpha = bad.has(r*cols + c) ? 1 : .35; ctx.fillRect(gx + c*cw, gy + r*ch, cw - 1.5, ch - 1.5); } ctx.globalAlpha = 1;
+  txt(`each square = ${vaBits(S.Ncell/(cols*rows))}`, gx, gy + rows*ch + 14, {px:9});
+  [[`cell margin: μ = ${(S.mu*1000).toFixed(0)} mV, σ = ${(S.sd*1000).toFixed(1)} mV → ${S.z.toFixed(2)} σ`, C.fg], [`failure probability per cell: ${S.Pf.toExponential(1)}`, C.fg],
+   [`expected failing cells: ${S.E < 0.01 ? S.E.toExponential(1) : S.E < 100 ? S.E.toFixed(2) : S.E.toExponential(1)}`, S.E > 1 ? C.hole : C.fg], [`99 % array yield needs ${S.zreq.toFixed(2)} σ per cell`, C.fg],
+   [S.z >= S.zreq ? "the array meets it" : "short of it: raise the supply, upsize cells or add redundancy", S.z >= S.zreq ? C.channel : C.hole], ["spare rows and columns repair a few bad cells after test", C.muted]].forEach(([s, c], i) => txt(s, 520, 254 + i*24, {px:11, w: i === 4 ? 700 : 500, col:c}));
+}
+const vaBits = n => n >= 1073741824 ? `${(n/1073741824).toFixed(n >= 1e10 ? 0 : 0)} Gb` : n >= 1048576 ? `${(n/1048576).toFixed(0)} Mb` : n >= 1024 ? `${(n/1024).toFixed(0)} kb` : `${n.toFixed(0)} bits`;
+function drawVA(dt, T){
+  begin(VAC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488);
+  if (VAS.view === "mm") drawVAmm(T); else if (VAS.view === "pc") drawVApc(T); else drawVAsr(T);
+}
+
+/* ---------------- DOM ---------------- */
+const VAINFO = {
+  mm:{pill:"σVt", name:"Local mismatch", sub:"Two transistors drawn identically, side by side, are never quite identical: their difference shrinks only with the square root of their area",
+    text:"Even neighbouring transistors with the same layout differ, because the things that set the threshold voltage are made of a countable number of atoms. A 100 × 100 nm channel doped at 3×10¹⁸ cm⁻³ holds only about a thousand dopant atoms in its depletion region, and by pure chance one transistor gets √N, about thirty, more or fewer than its neighbour. Line-edge roughness, oxide thickness variations and, in metal gates, the random grains of the gate metal add their own share. These effects are uncorrelated from device to device, so they average out over area: the Pelgrom law says σ(ΔVt) = A_Vt/√(W·L). For analog circuits this is the offset of a differential pair or the error of a current mirror; halving it costs four times the area, which is why precision analog blocks are large and why calibration and trimming are common. Each process has its own A_Vt, which has improved with thinner oxides and with undoped FinFET channels; the samples on the right are drawn live from the Pelgrom distribution."},
+  pc:{pill:"PVT", name:"Process corners and PVT", sub:"Global variation moves every transistor on a die together; designers verify the extremes of process, voltage and temperature",
+    text:"From wafer to wafer and lot to lot, small changes in gate length, oxide thickness or implant dose shift all transistors of a die the same way: the whole chip is a bit faster or slower. Foundries describe this with corner models at about ±3σ of the global spread: SS (slow NMOS, slow PMOS), FF, and the skewed FS and SF corners that matter for circuits sensitive to the n/p balance such as SRAM and level shifters. Supply voltage (regulator tolerance, IR drop) and temperature add two more axes, so timing is signed off at many PVT combinations: setup at slow corners, hold at fast corners, leakage at fast and hot. Higher temperature lowers the mobility, which slows the transistors, but it also lowers the threshold voltage, which speeds them up; at low supply voltages the second effect wins and chips are slowest when cold, called temperature inversion, so modern sign-off has to check both ends. Leakage is exponential in Vt and temperature, which is why FF hot is the power corner."},
+  sr:{pill:"6σ", name:"SRAM and high-sigma yield", sub:"A memory with billions of cells only works if each cell fails less than once in a billion: margins must hold out to six sigma and beyond",
+    text:"An SRAM cell stores a bit in two cross-coupled inverters. During a read, the access transistor lifts the node that stores the zero, and if the noise or the mismatch between the six tiny transistors is large enough, the cell flips: a read upset. The butterfly plot draws both inverter transfer curves; the side of the largest square that fits in the smaller lobe is the static noise margin (SNM). Mismatch makes every cell's butterfly different, so the SNM is a distribution with a mean μ and a spread σ. Because a chip holds millions to billions of cells and every one must work, the failure probability per cell must be tiny: for a gigabit array at 99 % yield it must be about 10⁻¹¹, which means the mean margin must be more than six sigma away from zero. Lowering the supply saves power but shrinks the margin while σ stays the same, which is why SRAM sets the minimum operating voltage of many chips. Designers use larger cells, read and write assist circuits, separate cell supplies, and spare rows and columns to repair the few cells that still fail."}
+};
+Object.assign(TIP, {
+  "σ(ΔVt)":"Spread of the threshold difference between two matched transistors.", "Gate area":"W × L of each transistor.", "Dopants per channel":"Expected number of dopant atoms under each gate.", "Area for 1 mV":"Gate area needed for σ(ΔVt) = 1 mV.",
+  "Corner":"Selected process corner, supply and temperature.", "Relative delay":"Delay relative to TT, 0.8 V, 25 °C.", "Relative leakage":"Leakage relative to TT, 0.8 V, 25 °C.", "Slowest temperature":"Temperature at which the SS corner is slowest at this supply.",
+  "Mean SNM":"Average static noise margin of the cells.", "σ of SNM":"Spread of the noise margin.", "Cell sigma":"Mean over sigma of the margin.", "Array yield":"Chance that every cell of the array works.",
+  "Pelgrom law":"Mismatch falls with the square root of area.", "Random dopants":"Poisson statistics of the dopant count.", "Offset":"Input offset of a differential pair.", "Area cost":"Area grows with the square of the precision.",
+  "Drain current":"Alpha-power law.", "Temperature effects":"Mobility and threshold both fall with temperature.", "Gate delay":"Charge over current.", "Leakage current":"Subthreshold leakage.",
+  "Noise margin":"Largest square in the butterfly.", "Cell sigma ":"Margin in units of its spread.", "Failure probability":"Gaussian tail beyond the mean.", "Array yield ":"All cells must work."
+});
+const VALEG = {
+  mm:[["hole","Dopant atom, sample beyond 3σ"],["channel","Channel"],["metal","Gate"],["accent","±1σ, ±2σ, ±3σ bands"],["fg","Monte Carlo sample"]],
+  pc:[["muted","Die"],["accent","Corner, delay"],["hole","Selected corner"],["electron","Leakage"]],
+  sr:[["accent","Nominal butterfly"],["muted","Monte Carlo cells"],["channel","Largest square, working cell"],["hole","Failing cell"]]
+};
+const vaChip = (sel, attr, on) => document.querySelectorAll(sel).forEach(b => { const o = on(b.dataset[attr]); b.setAttribute("aria-pressed", o); b.style.borderColor = o ? "var(--accent)" : ""; b.style.color = o ? "var(--accent)" : ""; });
+function vaSample(){ const rnd = cmRand(VAS.seed*7919 + 3), sig = vaSig(), Nd = vaDop(); VAS.mc.push(sig*vaG(rnd)); if (VAS.mc.length > 300) VAS.mc.shift(); VAS.cnt = [Nd + Math.sqrt(Nd)*vaG(rnd), Nd + Math.sqrt(Nd)*vaG(rnd)].map(x => Math.max(0, x)); VAS.seed++; }
+function vaReset(){ VAS.mc = []; for (let i = 0; i < 60; i++) vaSample(); }
+function updateVA(){
+  const v = VAS.view, info = VAINFO[v];
+  $("va-pill").textContent = info.pill; $("va-name").textContent = info.name; $("va-sub").textContent = info.sub; $("va-explain").textContent = info.text;
+  document.querySelectorAll("#va-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  vaChip("#va-node button", "n", n => n === VAS.node); vaChip("#va-corner button", "c", c => c === VAS.corner);
+  const vis = {node:v === "mm", w:v === "mm", l:v === "mm", corner:v === "pc", vdd:v === "pc", temp:v === "pc", bits:v === "sr", cv:v === "sr", sv:v === "sr"};
+  Object.entries(vis).forEach(([k, on]) => $(`va-c-${k}`).hidden = !on);
+  $("va-w-v").textContent = `${VAS.w} nm`; $("va-l-v").textContent = `${VAS.l} nm`; $("va-vdd-v").textContent = `${VAS.vdd.toFixed(2)} V`; $("va-temp-v").textContent = `${VAS.temp} °C`;
+  $("va-bits-v").textContent = vaBits(Math.pow(2, VAS.bits)); $("va-cv-v").textContent = `${VAS.cv.toFixed(2)} V`; $("va-sv-v").textContent = `${VAS.sv} mV`;
+  setHTML("va-legend", VALEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  let ro, eq;
+  if (v === "mm"){ if (!VAS.mc.length) vaReset(); const sig = vaSig(), Nd = vaDop(), A = VA_NODE[VAS.node].avt;
+    ro = [["σ(ΔVt)", `${sig.toFixed(1)} mV`], ["Gate area", `${(VAS.w*VAS.l*1e-6).toFixed(3)} µm²`], ["Dopants per channel", Nd < 1 ? "< 1" : Nd.toFixed(0)], ["Area for 1 mV", `${(A*A).toFixed(1)} µm²`]];
+    eq = [{name:"Pelgrom law", f:"σ(ΔVt) = A_Vt / √(W · L)", sub:`A_Vt = ${A} mV·µm (${VA_NODE[VAS.node].n}) → ${sig.toFixed(1)} mV`},
+      {name:"Random dopants", f:"N = N_A · W · L · W_dep,  σ_N = √N", sub:`${Nd.toFixed(0)} ± ${Math.sqrt(Nd).toFixed(0)} dopants`},
+      {name:"Offset", f:"V_os ≈ ΔVt + (Vgs − Vt)/2 · Δβ/β", sub:`3σ offset ≈ ${(3*sig).toFixed(0)} mV from Vt alone`},
+      {name:"Area cost", f:"σ ∝ 1/√area  →  ½ σ needs 4 × area", sub:`for σ = 1 mV: W·L = ${(A*A).toFixed(1)} µm²`}];
+  } else if (v === "pc"){ const r = vaRel(VAS.corner, VAS.vdd, VAS.temp), cold = vaRel("SS", VAS.vdd, -40).delay, hot = vaRel("SS", VAS.vdd, 125).delay;
+    ro = [["Corner", VAS.corner], ["Relative delay", `${r.delay.toFixed(2)}×`], ["Relative leakage", `${r.leak < 10 ? r.leak.toFixed(2) : r.leak.toFixed(0)}×`], ["Slowest temperature", cold > hot ? "−40 °C" : "125 °C"]];
+    eq = [{name:"Drain current", f:"I_D ∝ μ(T) · (V_DD − Vt(T))^α,  α ≈ 1.3", sub:`Vt: NMOS ${(r.vtn*1000).toFixed(0)} mV, PMOS ${(r.vtp*1000).toFixed(0)} mV`},
+      {name:"Temperature effects", f:"μ ∝ T^(−1.2),  dVt/dT ≈ −0.8 mV/K", sub:"mobility slows hot chips, lower Vt speeds them up"},
+      {name:"Gate delay", f:"t_d ∝ C · V_DD / I_D", sub:`${VAS.corner}: ${r.delay.toFixed(2)}× of TT at 0.8 V, 25 °C`},
+      {name:"Leakage current", f:"I_off ∝ T² · e^(−Vt / (n·kT/q))", sub:`${r.leak < 10 ? r.leak.toFixed(2) : r.leak.toFixed(0)}× of TT at 25 °C`}];
+  } else { const S = VAS.sram = vaSram();
+    ro = [["Mean SNM", `${(S.mu*1000).toFixed(0)} mV`], ["σ of SNM", `${(S.sd*1000).toFixed(1)} mV`], ["Cell sigma", `${S.z.toFixed(2)} σ`], ["Array yield", `${(S.Y*100).toFixed(S.Y > 0.999 ? 2 : 1)} %`]];
+    eq = [{name:"Noise margin", f:"SNM = side of the largest square inside the smaller lobe", sub:`nominal ${(S.N0.snm*1000).toFixed(0)} mV at ${S.V.toFixed(2)} V`},
+      {name:"Cell sigma ", f:"z = μ_SNM / σ_SNM", sub:`${(S.mu*1000).toFixed(0)} / ${(S.sd*1000).toFixed(1)} = ${S.z.toFixed(2)}`},
+      {name:"Failure probability", f:"P_fail = Q(z) = ½ · erfc(z / √2)", sub:`${S.Pf.toExponential(1)} per cell`},
+      {name:"Array yield ", f:"Y = (1 − P_fail)^N ≈ e^(−N · P_fail)", sub:`N = ${vaBits(S.Ncell)} → ${(S.Y*100).toFixed(1)} %; 99 % needs ${S.zreq.toFixed(2)} σ`}];
+  }
+  renderRo($("va-ro"), ro); renderEq($("va-eq"), eq);
+  drawVAPlots(v);
+}
+function drawVAPlots(v){
+  let a, b; const m1 = {l:38,r:10,t:28,b:30}, m2 = {l:38,r:8,t:28,b:30};
+  if (v === "mm"){
+    const P = axesR(300, 230, m1, 0, 25, 0, 60, 5, 15, "1 / √(W·L)  (µm⁻¹)", "σ(ΔVt) (mV)"), cols = {"180":"muted", "65":"accent", "28":"electron", ff:"channel"}, x = 1/Math.sqrt(VAS.w*VAS.l*1e-6);
+    a = P.s + Object.keys(VA_NODE).map(n => `<path d="${pathOf([[0, 0], [25, 25*VA_NODE[n].avt]], P.X, P.Y)}" fill="none" stroke="var(--${cols[n]})" stroke-width="${n === VAS.node ? 2.6 : 1.2}"/>`).join("") + dotSvg(P.X(Math.min(25, x)), P.Y(vaSig())) + P.frame + `<text x="44" y="12" style="fill:var(--fg)">Pelgrom plot, 4 technologies</text>`;
+    const sig = vaSig(), lim = Math.max(4*sig, 1), bins = new Array(20).fill(0); VAS.mc.forEach(d => { const i = Math.floor((d + lim)/(2*lim)*20); if (i >= 0 && i < 20) bins[i]++; });
+    const top = Math.max(5, Math.ceil(Math.max(...bins)/5)*5), Q = axesR(220, 230, m2, -lim, lim, 0, top, lim, top/5, "ΔVt (mV)", "pairs"), bw = Q.X(-lim + 2*lim/20) - Q.X(-lim);
+    b = Q.s + bins.map((c, i) => `<rect x="${Q.X(-lim + i*2*lim/20) + 0.5}" y="${Q.Y(c)}" width="${bw - 1}" height="${Q.Y(0) - Q.Y(c)}" fill="var(--accent)" opacity=".7"/>`).join("")
+      + `<path d="${pathOf(range(-lim, lim, 60).map(x => [x, VAS.mc.length*(2*lim/20)*Math.exp(-x*x/(2*sig*sig))/(sig*Math.sqrt(2*Math.PI))]), Q.X, Q.Y)}" fill="none" stroke="var(--fg)" stroke-width="1.5"/>` + Q.frame + `<text x="44" y="12" style="fill:var(--accent)">Monte Carlo histogram</text>`;
+  } else if (v === "pc"){
+    const cols = {TT:"fg", FF:"channel", SS:"hole", FS:"electron", SF:"accent"}, P = axesR(300, 230, m1, 0.5, 1, 0, 6, 0.1, 1, "supply voltage (V)", "relative delay");
+    a = P.s + Object.keys(VA_CORN).map(c => `<path d="${pathOf(range(0.5, 1, 50).map(V => [V, vaRel(c, V, VAS.temp).delay]), P.X, P.Y)}" fill="none" stroke="var(--${cols[c]})" stroke-width="${c === VAS.corner ? 2.6 : 1.3}"/>`).join("") + dotSvg(P.X(VAS.vdd), P.Y(vaRel(VAS.corner, VAS.vdd, VAS.temp).delay)) + P.frame + `<text x="44" y="12" style="fill:var(--fg)">delay vs supply at ${VAS.temp} °C</text>`;
+    const Q = axesR(220, 230, m2, -40, 125, -2, 3, 40, 1, "temperature (°C)", "log10 leakage");
+    b = Q.s + Object.keys(VA_CORN).map(c => `<path d="${pathOf(range(-40, 125, 33).map(T => [T, Math.log10(vaRel(c, VAS.vdd, T).leak)]), Q.X, Q.Y)}" fill="none" stroke="var(--${cols[c]})" stroke-width="${c === VAS.corner ? 2.6 : 1.3}"/>`).join("") + Q.frame + `<text x="44" y="12" style="fill:var(--fg)">leakage vs temperature</text>`;
+  } else {
+    const S = VAS.sram, lo = 0, hi = Math.max(0.05, Math.ceil(Math.max(...S.snms)*100)/100), nb = 24, bins = new Array(nb).fill(0); S.snms.forEach(s => { const i = Math.min(nb - 1, Math.floor((s - lo)/(hi - lo)*nb)); if (i >= 0) bins[i]++; });
+    const top = Math.max(10, Math.ceil(Math.max(...bins)/10)*10), P = axesR(300, 230, m1, lo*1000, hi*1000, 0, top, Math.round(hi*1000/4), top/5, "SNM (mV)", "cells"), bw = P.X((hi - lo)*1000/nb) - P.X(0);
+    a = P.s + bins.map((c, i) => `<rect x="${P.X((lo + i*(hi - lo)/nb)*1000) + 0.5}" y="${P.Y(c)}" width="${bw - 1}" height="${P.Y(0) - P.Y(c)}" fill="var(--accent)" opacity=".7"/>`).join("")
+      + `<path d="${pathOf(range(lo, hi, 80).map(x => [x*1000, S.snms.length*(hi - lo)/nb*Math.exp(-(x - S.mu)*(x - S.mu)/(2*S.sd*S.sd))/(S.sd*Math.sqrt(2*Math.PI))]), P.X, P.Y)}" fill="none" stroke="var(--fg)" stroke-width="1.5"/>` + P.frame + `<text x="44" y="12" style="fill:var(--accent)">SNM of 600 Monte Carlo cells</text>`;
+    const Q = axesR(220, 230, m2, 3, 8, 0, 100, 1, 25, "cell sigma z", "array yield (%)");
+    b = Q.s + `<line x1="${Q.X(clamp(S.zreq, 3, 8))}" x2="${Q.X(clamp(S.zreq, 3, 8))}" y1="${Q.Y(100)}" y2="${Q.Y(0)}" stroke="var(--hole)" stroke-dasharray="4 3"/>` + `<path d="${pathOf(range(3, 8, 100).map(z => [z, 100*Math.exp(-S.Ncell*vaQ(z))]), Q.X, Q.Y)}" fill="none" stroke="var(--channel)" stroke-width="2.4"/>` + dotSvg(Q.X(clamp(S.z, 3, 8)), Q.Y(S.Y*100)) + Q.frame + `<text x="44" y="12" style="fill:var(--channel)">yield of ${vaBits(S.Ncell)}</text>`;
+  }
+  $("va-p1").innerHTML = a; $("va-p2").innerHTML = b;
+}
+function vaTick(dt){
+  if (!(dt >= 0)) return;
+  if (VAS.view === "mm"){ VAS.acc += dt; if (VAS.acc > 0.15){ VAS.acc = 0; vaSample(); VAS.t += 1; if (VAS.t % 6 === 0) updateVA(); } }
+}
+document.querySelectorAll("#va-view button").forEach(b => b.addEventListener("click", () => { VAS.view = b.dataset.v; updateVA(); }));
+document.querySelectorAll("#va-node button").forEach(b => b.addEventListener("click", () => { VAS.node = b.dataset.n; vaReset(); updateVA(); }));
+document.querySelectorAll("#va-corner button").forEach(b => b.addEventListener("click", () => { VAS.corner = b.dataset.c; updateVA(); }));
+[["va-w", "w"], ["va-l", "l"], ["va-vdd", "vdd"], ["va-temp", "temp"], ["va-bits", "bits"], ["va-cv", "cv"], ["va-sv", "sv"]].forEach(([id, k]) => $(id).addEventListener("input", e => { VAS[k] = +e.target.value; if (k === "w" || k === "l") vaReset(); updateVA(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -21272,6 +21839,7 @@ function showTab(t){
   else if (t === "sp"){ $("sub-top").textContent = "Metrology & SPC · CD-SEM, scatterometry, overlay, control charts and run-to-run control"; SPX.resize(); updateSP(); }
   else if (t === "th"){ $("sub-top").textContent = "Thermal · package resistances, die hot spots, transient heating and throttling"; THC.resize(); updateTH(); }
   else if (t === "up"){ $("sub-top").textContent = "Unit processes · crystal growth to wafer, deposition, plasma etch and CMP"; UPC.resize(); updateUP(); }
+  else if (t === "va"){ $("sub-top").textContent = "Variability · Pelgrom mismatch, process corners and PVT, SRAM sigma and yield"; VAC.resize(); updateVA(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -21303,6 +21871,7 @@ function frame(now){
   else if (tab === "sp"){ spTick(dt); if (SPX.cv.clientWidth) drawSPM(dt, T); }
   else if (tab === "th"){ thTick(dt); if (THC.cv.clientWidth) drawTH(dt, T); }
   else if (tab === "up"){ upTick(dt); if (UPC.cv.clientWidth) drawUP(dt, T); }
+  else if (tab === "va"){ vaTick(dt); if (VAC.cv.clientWidth) drawVA(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
