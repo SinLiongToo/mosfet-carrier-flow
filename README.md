@@ -38,6 +38,11 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Process corners (PVT)** – die-to-die scatter with TT/FF/SS/FS/SF corners, delay and leakage per corner vs supply and temperature, temperature inversion at low voltage
 - **SRAM sigma** – read butterfly curves with Monte Carlo cells, static noise margin, cell sigma, required sigma and yield for arrays from 1 kb to 8 Gb
 
+## Design flow & DFT tab (`#design-flow`)
+- **RTL to GDS** – nine stages for a 4-bit counter: specification, Verilog, simulation waveforms, synthesized netlist, placement, clock tree, routing, sign-off checks and tape-out to masks; effort per stage and mask count per node
+- **Timing closure (STA)** – long and short register paths, setup and hold slack with clock skew, Vt flavour and hold buffers, slack histogram of 3000 paths, speed vs leakage
+- **Test: scan and ATPG** – scan shift/capture/compare animation with a stuck-at fault, fault coverage vs patterns, test time vs number of chains, Williams–Brown defect level in DPPM
+
 ## Power tab (`#power`) – how a chip's supply voltage is set
 - **LDO** – error amplifier drives a pass PMOS (live cross-section): Vout = Vref·(1 + R1/R2); animated load-step transient on a scope, dropout and efficiency ≈ Vout/Vin
 - **Buck (DC-DC)** – high-side PMOS / low-side NMOS switching (live cross-sections), Vout = D·Vin, PWM ramp/SW/iL/ripple waveforms, efficiency vs load
