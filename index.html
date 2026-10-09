@@ -6128,6 +6128,216 @@ Object.assign(window.I18N_ZH, {
 "Designers never draw cross-sections: they draw the layout, a top view made of polygons on separate layers, saved as a GDSII or OASIS file. Each layer becomes a photomask used in one step of the process flow. Active marks the silicon islands, everything else becomes shallow-trench oxide; poly crossing active makes a transistor whose channel length is the poly width and whose width is the active width under it; n+ and p+ implant layers decide which transistors are NMOS and PMOS; the n-well holds the PMOS; contacts connect metal # to active and poly; and metal # carries the VDD and VSS rails and the wiring. This inverter is a standard cell: fixed height, power rails at the top and bottom, input and output pins in metal, and well taps that tie the n-well to VDD and the substrate to VSS. Thousands of such cells are placed in rows by software and wired together in the metal layers above. The cross-section on the right is computed from the layout under the cut line, exactly the way the fab builds it: drag the line across the gate, the contacts or the taps to see each layer stack.": "設計者從不畫剖面圖：他們畫的是佈局，一張由多邊形組成、分成許多層的俯視圖，存成 GDSII 或 OASIS 檔。每一層變成製程流程中某個步驟用的光罩。主動區標出矽島，其餘地方都變成淺溝槽氧化層；多晶矽跨過主動區就形成一顆電晶體，通道長度是多晶矽的寬度，通道寬度是下方主動區的寬度；n+ 與 p+ 植入層決定哪些是 NMOS、哪些是 PMOS；n 井容納 PMOS；接觸窗把金屬 # 連到主動區與多晶矽；金屬 # 則承載 VDD、VSS 電源線與導線。這個反相器是一個標準單元：高度固定，上下是電源線，輸入與輸出接腳在金屬層，井接點把 n 井接到 VDD、基板接到 VSS。數千個這樣的單元由軟體排成列，再用上方的金屬層連接。右邊的剖面是由切線下方的佈局計算出來的，就像晶圓廠製作它的方式一樣：把切線拖過閘極、接觸窗或井接點，看看每一層的堆疊。",
 "A layout can only be manufactured reliably if it respects the design rules of the process: minimum widths and spaces for each layer, enclosures (a contact must sit inside the active area with some margin), extensions (the gate must extend past the active area, the endcap, so a small misalignment does not leave a leaking path next to the channel) and many more. Old processes expressed them in units of λ, half the minimum gate length, so a layout could be scaled; modern nodes have thousands of rules, many of them context-dependent, plus restrictions from multiple patterning and density requirements for CMP. The design-rule check (DRC) runs all of them over billions of shapes. Layout versus schematic (LVS) extracts the transistors and their connections from the layout and compares them with the circuit the designer simulated; a missing contact, a short between two nets or a swapped pin shows up as a mismatch. Only a layout that is DRC and LVS clean is taped out to the mask shop. Try the error buttons: each introduces a typical mistake.": "佈局必須遵守製程的設計規則，才能可靠地製造：每一層的最小寬度與間距、包覆（接觸窗必須留一點餘裕地落在主動區內）、延伸（閘極必須超出主動區一段端蓋，避免光罩稍有錯位時在通道旁留下漏電路徑）等等。舊製程用 λ（最小閘極長度的一半）為單位表示規則，讓佈局可以縮放；先進節點則有數千條規則，許多還與周圍環境有關，加上多重圖形化的限制與 CMP 的密度要求。設計規則檢查（DRC）把所有規則套用到數十億個圖形上。佈局對電路圖（LVS）從佈局萃取電晶體與它們的連接，並與設計者模擬過的電路比較；少一個接觸窗、兩個網路短路或接腳接反，都會顯示為不一致。只有 DRC 與 LVS 都通過的佈局才會下線送到光罩廠。試試錯誤按鈕：每個都會加入一個典型的錯誤。"
 });
+Object.assign(window.I18N_ZH, {
+"Radar DSP": "雷達訊號處理",
+"Radar DSP · range-Doppler FFT, CFAR detection, angle FFT and point cloud": "雷達訊號處理 · 距離-都卜勒 FFT、CFAR 偵測、角度 FFT 與點雲",
+"Range-Doppler processing": "距離-都卜勒處理",
+"Radar processing view": "雷達處理視圖",
+"Range-Doppler map": "距離-都卜勒圖",
+"CFAR detection": "CFAR 偵測",
+"Angle & point cloud": "角度與點雲",
+"Angle &amp; point cloud": "角度與點雲",
+"Angle estimation and point cloud": "角度估計與點雲",
+"Radar processing chain: beat signals, range FFT, range-Doppler map, CFAR threshold, angle spectrum and bird's-eye point cloud": "雷達處理鏈：差頻訊號、距離 FFT、距離-都卜勒圖、CFAR 門檻、角度頻譜與俯視點雲",
+"FFT window": "FFT 視窗",
+"Window applied before each FFT. A Hann window lowers the sidelobes of strong targets at the cost of a slightly wider peak.": "每次 FFT 前套用的視窗。漢寧窗能壓低強目標的旁瓣，代價是峰稍微變寬。",
+"Rectangular": "矩形",
+"Hann": "漢寧",
+"Chirps per frame": "每幀啁啾數",
+"Chirps per frame. More chirps give finer velocity resolution and more integration gain, but a longer frame.": "每一幀的啁啾數。啁啾越多，速度解析度越細、積分增益越大，但一幀的時間也越長。",
+"Noise per sample": "每個取樣的雜訊",
+"Receiver noise in each ADC sample, relative to the echo of a # m² target at # m. At # dB the echo is as weak as the noise before any processing; the FFTs then lift it out.": "每個 ADC 取樣中的接收機雜訊，相對於 # m² 目標在 # m 處的回波。# dB 時，處理前回波與雜訊一樣弱；FFT 會把它提取出來。",
+"Range cut through": "距離剖線通過",
+"Doppler column of the range-Doppler map along which the CFAR window slides.": "CFAR 視窗沿著滑動的距離-都卜勒圖都卜勒欄。",
+"Two cars": "兩輛車",
+"Pedestrian": "行人",
+"Stationary objects": "靜止物體",
+"Guard cells": "保護單元",
+"Cells next to the cell under test that are left out of the noise estimate, so a wide target does not raise its own threshold.": "緊鄰待測單元、不納入雜訊估計的單元，避免寬目標抬高自己的門檻。",
+"Training cells": "訓練單元",
+"Cells on each side used to estimate the local noise level.": "兩側用來估計局部雜訊位準的單元。",
+"False-alarm probability": "誤報機率",
+"Probability of false alarm per cell: how often pure noise is allowed to cross the threshold.": "每個單元的誤報機率：允許純雜訊越過門檻的頻率。",
+"Virtual channels": "虛擬通道",
+"Virtual receive channels (TX × RX). More channels give a narrower angle beam.": "虛擬接收通道（TX × RX）。通道越多，角度波束越窄。",
+"Angle between two cars": "兩車之間的角度",
+"Angle between two cars driving side by side at the same range and speed.": "以相同距離與速度並排行駛的兩輛車之間的角度。",
+"Doppler spectrum, CFAR detection probability or angular resolution": "都卜勒頻譜、CFAR 偵測機率或角度解析度",
+"Velocity resolution, CFAR threshold factor or cross-range resolution": "速度解析度、CFAR 門檻因子或橫向解析度",
+"Explain the terms: data cube, range FFT, Doppler FFT, CFAR, angle FFT, point cloud": "名詞解釋：資料立方體、距離 FFT、都卜勒 FFT、CFAR、角度 FFT、點雲",
+"One radar frame, step by step": "一幀雷達資料，逐步處理",
+"<b>Chirps</b>: the transmitter sends a burst of fast chirps; each echo is mixed down to a beat signal and sampled by the ADC.": "<b>啁啾</b>：發射機送出一串快速啁啾；每個回波經混頻成為差頻訊號，再由 ADC 取樣。",
+"<b>Range FFT</b>: the beat frequency of each target becomes a peak at its range bin.": "<b>距離 FFT</b>：每個目標的差頻變成其距離格上的一個峰。",
+"<b>Doppler FFT</b>: across chirps, the phase of each range bin rotates with the target's speed.": "<b>都卜勒 FFT</b>：跨越各個啁啾，每個距離格的相位隨目標速度旋轉。",
+"<b>CFAR</b>: an adaptive threshold separates targets from noise and clutter.": "<b>CFAR</b>：自適應門檻把目標與雜訊、雜波分開。",
+"<b>Angle FFT</b>: across the virtual antenna channels, the phase step gives the direction.": "<b>角度 FFT</b>：跨越虛擬天線通道，相位階差給出方向。",
+"<b>Point cloud and tracking</b>: detections with range, speed and angle feed the tracker and the sensor fusion.": "<b>點雲與追蹤</b>：帶有距離、速度與角度的偵測結果送進追蹤器與感測器融合。",
+"This radar": "這個雷達",
+"Parameter": "參數",
+"Value": "數值",
+"Carrier": "載波",
+"# GHz (λ = # mm)": "# GHz（λ = # mm）",
+"Range resolution": "距離解析度",
+"# m (B = # MHz)": "# m（B = # MHz）",
+"Samples per chirp": "每個啁啾的取樣數",
+"# (range up to # m)": "#（距離最遠 # m）",
+"Chirp repetition": "啁啾重複週期",
+"# µs (±# m/s unambiguous)": "# µs（±# m/s 不模糊）",
+"#–# at λ/# spacing": "#–#，間距 λ/#",
+"Terms": "名詞",
+"Data cube": "資料立方體",
+"Samples × chirps × channels of one frame; the three FFTs run along its three axes.": "一幀的取樣 × 啁啾 × 通道；三次 FFT 分別沿它的三個軸進行。",
+"Range bin": "距離格",
+"One output of the range FFT: a slice of distance ΔR = c/#B wide.": "距離 FFT 的一個輸出：寬 ΔR = c/#B 的一段距離。",
+"Doppler bin": "都卜勒格",
+"One output of the Doppler FFT: a slice of radial speed.": "都卜勒 FFT 的一個輸出：一段徑向速度。",
+"Window": "視窗",
+"Taper applied before an FFT to lower sidelobes, at the cost of resolution.": "FFT 前套用的漸縮函數，用解析度換取較低的旁瓣。",
+"Constant false-alarm rate: the threshold follows the local noise so the false-alarm rate stays fixed.": "恆定誤報率：門檻跟隨局部雜訊，使誤報率保持固定。",
+"Clutter": "雜波",
+"Echoes from things that are not targets: road, guardrails, buildings; mostly at zero speed.": "來自非目標物的回波：路面、護欄、建築；大多速度為零。",
+"Point cloud": "點雲",
+"The list of detections with range, speed, angle and amplitude for each frame.": "每一幀帶有距離、速度、角度與幅度的偵測清單。",
+"Integration gain": "積分增益",
+"Coherent FFTs over N samples raise the signal-to-noise ratio by #·log# N.": "對 N 個取樣做同調 FFT，訊雜比提高 #·log# N。",
+"# per side": "每側 #",
+"resolved": "已分辨",
+"merged": "合併",
+"# channels": "# 個通道",
+"Velocity resolution": "速度解析度",
+"Max velocity": "最大速度",
+"Frame time": "幀時間",
+"Detections": "偵測數",
+"Moving targets found": "找到的移動目標",
+"False alarms": "誤報",
+"Threshold factor": "門檻因子",
+"Angular resolution": "角度解析度",
+"Virtual array": "虛擬陣列",
+"Points in cloud": "點雲點數",
+"Smallest distance between two targets that still gives two peaks: c / #B.": "兩個目標仍能產生兩個峰的最小距離：c / #B。",
+"Smallest speed difference the Doppler FFT can separate.": "都卜勒 FFT 能分開的最小速度差。",
+"Highest radial speed measured without aliasing.": "不混疊時能量測的最高徑向速度。",
+"Duration of all chirps of one frame.": "一幀所有啁啾的總時間。",
+"Cells above the CFAR threshold after grouping neighbouring cells.": "相鄰單元合併後，高於 CFAR 門檻的單元。",
+"How many of the five moving road users are detected.": "五個移動中的用路人有幾個被偵測到。",
+"Detections caused by noise alone.": "純粹由雜訊造成的偵測。",
+"α: how far above the noise estimate the threshold is set.": "α：門檻設在雜訊估計值之上多少。",
+"# dB beamwidth of the angle FFT.": "角度 FFT 的 # dB 波束寬度。",
+"Whether the two cars side by side give two angle peaks.": "並排的兩輛車是否產生兩個角度峰。",
+"Transmitters × receivers = virtual channels.": "發射機 × 接收機 = 虛擬通道。",
+"Points produced by this frame.": "這一幀產生的點數。",
+"Range from beat frequency": "由差頻得距離",
+"The beat frequency is proportional to the round-trip delay.": "差頻與來回延遲成正比。",
+"Velocity from phase": "由相位得速度",
+"The echo phase rotates from chirp to chirp with the radial speed.": "回波相位隨徑向速度在啁啾之間旋轉。",
+"Maximum velocity": "最大速度",
+"The phase step per chirp must stay below ±π.": "每個啁啾的相位階差必須小於 ±π。",
+"Coherent FFTs raise the signal-to-noise ratio.": "同調 FFT 提高訊雜比。",
+"CA-CFAR threshold": "CA-CFAR 門檻",
+"Cell-averaging CFAR: the threshold follows the mean of the training cells.": "單元平均 CFAR：門檻跟隨訓練單元的平均值。",
+"Threshold factor α": "門檻因子 α",
+"Chosen so the false-alarm probability stays at P_fa.": "選定使誤報機率維持在 P_fa。",
+"Detection probability": "偵測機率",
+"Chance of detecting a fluctuating target at a given SNR.": "在給定 SNR 下偵測到起伏目標的機率。",
+"False alarms per frame": "每幀誤報數",
+"Expected false detections in one map.": "一張圖中預期的錯誤偵測數。",
+"Phase step between channels": "通道間的相位階差",
+"Extra path length to the next antenna, as a phase.": "到下一根天線多出的路徑長，以相位表示。",
+"Cross-range resolution": "橫向解析度",
+"Angular resolution turned into metres at a given range.": "在給定距離把角度解析度換算成公尺。",
+"Field of view": "視野",
+"Angles measured without grating lobes.": "不出現柵瓣時可量測的角度範圍。",
+"Beat signal and range profile": "差頻訊號與距離剖面",
+"True position of the road users": "用路人的真實位置",
+"Map colour: echo power (bright = strong)": "圖的顏色：回波功率（越亮越強）",
+"Power along the cut": "剖線上的功率",
+"CFAR threshold, cell under test, false alarm": "CFAR 門檻、待測單元、誤報",
+"Training cells, target detection": "訓練單元、目標偵測",
+"Guard cells, clutter detection": "保護單元、雜波偵測",
+"Angle spectrum and array": "角度頻譜與陣列",
+"Approaching": "接近中",
+"Receding": "遠離中",
+"Stationary, true outlines; hollow dot: false alarm": "靜止、真實輪廓；空心點：誤報",
+"B = # MHz → ΔR = # m; # samples → # m": "B = # MHz → ΔR = # m；# 個取樣 → # m",
+"N_d = # chirps → Δv = # m/s": "N_d = # 個啁啾 → Δv = # m/s",
+"T_c = # µs at # GHz → ±# m/s; faster targets alias": "# GHz 下 T_c = # µs → ±# m/s；更快的目標會混疊",
+"SNR_out = SNR_in + #·log#(N · N_d) − window loss": "SNR_out = SNR_in + #·log#(N · N_d) − 視窗損失",
+"# × # samples → +# dB": "# × # 個取樣 → +# dB",
+"T = α · (#/N) · Σ x_i over the training cells": "T = α · (#/N) · Σ x_i（對訓練單元求和）",
+"N = # training cells, # guard cells": "N = # 個訓練單元，# 個保護單元",
+"SNR for P_d = #: # dB; CFAR loss # dB": "P_d = # 所需 SNR：# dB；CFAR 損失 # dB",
+"# × # = # cells → # expected": "# × # = # 個單元 → 預期 # 個",
+"car # at #°: #° per channel": "車 # 位於 #°：每通道 #°",
+"car # at -#°: -#° per channel": "車 # 位於 -#°：每通道 -#°",
+"Δθ ≈ k · # / N rad (k = # rectangular, # Hann)": "Δθ ≈ k · # / N rad（矩形 k = #，漢寧 #）",
+"at # m: # m (a lane is # m)": "在 # m 處：# m（一條車道 # m）",
+"λ/# spacing avoids grating lobes; MIMO gives N_TX · N_RX virtual channels": "λ/# 間距可避免柵瓣；MIMO 提供 N_TX · N_RX 個虛擬通道",
+"One frame of the radar": "雷達的一幀",
+"samples": "取樣",
+"chirps": "啁啾",
+"channels": "通道",
+"range FFT along the samples": "沿取樣做距離 FFT",
+"Doppler FFT along the chirps": "沿啁啾做都卜勒 FFT",
+"angle FFT along the channels": "沿通道做角度 FFT",
+"beat signal of chirp # (real part)": "啁啾 # 的差頻訊號（實部）",
+"ADC samples, # per chirp →": "ADC 取樣，每個啁啾 # 個 →",
+"range FFT of chirp # (dB)": "啁啾 # 的距離 FFT（dB）",
+"range (m)": "距離 (m)",
+"Range-Doppler map: # chirps, Hann window": "距離-都卜勒圖：# 個啁啾，漢寧窗",
+"Range-Doppler map: # chirps, rectangular window": "距離-都卜勒圖：# 個啁啾，矩形窗",
+"velocity (m/s): − approaching, + receding": "速度 (m/s)：− 接近，+ 遠離",
+"two cars": "兩輛車",
+"pedestrian": "行人",
+"motorbike": "機車",
+"truck": "卡車",
+"guardrail": "護欄",
+"road clutter": "路面雜波",
+"Detections: #": "偵測數：#",
+"CA-CFAR along range at v = # m/s": "在 v = # m/s 沿距離做 CA-CFAR",
+"CA-CFAR along range at v = -# m/s": "在 v = -# m/s 沿距離做 CA-CFAR",
+"cell under test: # m · power -# dB · threshold -# dB": "待測單元：# m · 功率 -# dB · 門檻 -# dB",
+"cell under test: # m · power # dB · threshold -# dB": "待測單元：# m · 功率 # dB · 門檻 -# dB",
+"cell under test: # m · power -# dB · threshold # dB": "待測單元：# m · 功率 -# dB · 門檻 # dB",
+"cell under test: # m · power # dB · threshold # dB": "待測單元：# m · 功率 # dB · 門檻 # dB",
+"→ above the threshold (a detection if it is also the local peak)": "→ 高於門檻（若也是局部峰值則為一次偵測）",
+"→ below the threshold: no detection": "→ 低於門檻：沒有偵測",
+"noise estimate = mean of # training cells; # guard cells skipped": "雜訊估計 = # 個訓練單元的平均；跳過 # 個保護單元",
+"detections in this column: none": "這一欄的偵測：無",
+"detections in this column: # m": "這一欄的偵測：# m",
+"detections in this column: # m, # m": "這一欄的偵測：# m、# m",
+"detections in this column: # m, # m, # m": "這一欄的偵測：# m、# m、# m",
+"detections in this column: # m, # m, # m, # m": "這一欄的偵測：# m、# m、# m、# m",
+"threshold = α × noise estimate, α = # (# dB)": "門檻 = α × 雜訊估計，α = #（# dB）",
+"Angle FFT across # virtual channels": "跨 # 個虛擬通道的角度 FFT",
+"echo of car #": "車 # 的回波",
+"virtual array: # TX × # RX = # channels, spacing λ/# = # mm": "虛擬陣列：# TX × # RX = # 個通道，間距 λ/# = # mm",
+"aperture # mm · car #: #° phase step per channel": "孔徑 # mm · 車 #：每通道相位階差 #°",
+"aperture # mm · car #: -#° phase step per channel": "孔徑 # mm · 車 #：每通道相位階差 -#°",
+"angle spectrum of the cell with the two cars (# m, # m/s)": "兩輛車所在單元的角度頻譜（# m，# m/s）",
+"angle": "角度",
+"two peaks: the cars are resolved": "兩個峰：兩車已分辨",
+"one peak: the cars merge into one detection": "一個峰：兩車合併成一個偵測",
+"Point cloud: # points": "點雲：# 個點",
+"radar": "雷達",
+"velocity (m/s)": "速度 (m/s)",
+"Doppler spectrum at # m": "# m 處的都卜勒頻譜",
+"chirps per frame": "每幀啁啾數",
+"velocity resolution": "速度解析度",
+"SNR (dB)": "SNR (dB)",
+"known noise": "已知雜訊",
+"training cells N": "訓練單元數 N",
+"threshold factor α": "門檻因子 α",
+"virtual channels": "虛擬通道",
+"degrees": "度",
+"angular resolution": "角度解析度",
+"cross-range resolution": "橫向解析度",
+"Two FFTs turn one frame of chirps into a map of every echo by distance and speed": "兩次 FFT 把一幀的啁啾變成一張圖，依距離與速度列出每個回波",
+"A # GHz FMCW radar sends a frame of identical chirps. Mixing each echo with the transmitted chirp gives a beat signal whose frequency is proportional to the distance of the target, so an FFT over the # ADC samples of one chirp (the range FFT) puts every target into a range bin, # m wide for a # MHz chirp. A single chirp cannot tell speed, but from one chirp to the next the echo of a moving target arrives slightly earlier or later, so its phase rotates by #π·v·T_c/λ per chirp. A second FFT across the chirps of each range bin (the Doppler FFT) turns that rotation into a velocity bin. The result is the range-Doppler map: one bright spot per target, with stationary objects such as the guardrail and the road in the zero-velocity column. Both FFTs add up the energy of the target coherently while the noise adds up randomly, so the signal-to-noise ratio improves by #·log#(N·N_d), almost # dB for # × # samples: raise the noise until the beat signal looks like pure noise and the targets are still visible on the map. More chirps give finer velocity bins but a longer frame. The window matters too: without one, a strong target such as the truck spreads sidelobes at −# dB along its row and column that can hide a weak target next to it; a Hann window lowers them to −# dB at the cost of slightly wider peaks.": "一個 {0} GHz 的 FMCW 雷達會送出一幀相同的啁啾。把每個回波與發射的啁啾混頻，得到的差頻訊號頻率與目標距離成正比，因此對一個啁啾的 {1} 個 ADC 取樣做 FFT（距離 FFT），就能把每個目標放進一個距離格；對 {3} MHz 的啁啾，每格寬 {2} m。單一啁啾無法分辨速度，但從一個啁啾到下一個啁啾，移動目標的回波會稍早或稍晚到達，因此它的相位每個啁啾旋轉 {4}π·v·T_c/λ。對每個距離格跨越所有啁啾再做一次 FFT（都卜勒 FFT），就把這個旋轉變成一個速度格。結果就是距離-都卜勒圖：每個目標一個亮點，護欄與路面等靜止物體則落在速度為零的那一欄。兩次 FFT 都把目標的能量同調地加起來，而雜訊是隨機相加，因此訊雜比提高 {5}·log{6}(N·N_d)，對 {8} × {9} 個取樣將近 {7} dB：把雜訊調高到差頻訊號看起來完全是雜訊，圖上仍然看得到目標。啁啾越多，速度格越細，但一幀也越長。視窗也很重要：不加視窗時，像卡車這樣的強目標會沿著它的列與欄散出 −{10} dB 的旁瓣，可能蓋住旁邊的弱目標；漢寧窗把旁瓣壓到 −{11} dB，代價是峰稍微變寬。",
+"An adaptive threshold that follows the local noise keeps the false-alarm rate constant": "跟隨局部雜訊的自適應門檻，使誤報率保持恆定",
+"Which cells of the map are targets? A fixed threshold fails, because the noise floor is not flat: clutter from the road is strong at short range and in the zero-velocity column, and the receiver noise changes with temperature and interference. A constant false-alarm rate (CFAR) detector estimates the noise around each cell under test from a window of training cells on both sides, skips a few guard cells so the target does not raise its own threshold, and multiplies the estimate by a factor α chosen for the wanted false-alarm probability. For the cell-averaging CFAR (CA-CFAR) shown here, α = N·(P_fa^(−#/N) − #) with N training cells; with few training cells the noise estimate is itself noisy, α has to be larger and weak targets are lost: that is the CFAR loss. Too few guard cells let a wide target leak into its own estimate; two targets close together mask each other, which is why ordered-statistics CFAR is often used in cars. After the threshold, neighbouring cells of the same peak are grouped into one detection. The pedestrian walks so slowly that its echo sits next to the strong road clutter at zero speed; with more chirps the velocity bins become finer and it separates. Raise the false-alarm probability to see noise peaks appear, or the noise to see the motorbike and the pedestrian drop out first.": "圖上哪些單元是目標？固定門檻行不通，因為雜訊底並不平坦：路面雜波在近距離與零速度那一欄特別強，接收機雜訊也會隨溫度與干擾變化。恆定誤報率（CFAR）偵測器用待測單元兩側的訓練單元估計周圍的雜訊，跳過幾個保護單元以免目標抬高自己的門檻，再把估計值乘上依所需誤報機率選定的因子 α。這裡的單元平均 CFAR（CA-CFAR）中，α = N·(P_fa^(−#/N) − #)，N 為訓練單元數；訓練單元少時，雜訊估計本身就有雜訊，α 必須更大，弱目標便會遺失：這就是 CFAR 損失。保護單元太少時，寬目標會漏進自己的估計；兩個靠近的目標會互相遮蔽，所以車用雷達常改用排序統計 CFAR。過門檻後，同一個峰的相鄰單元會合併成一次偵測。行人走得很慢，回波緊鄰零速度的強路面雜波；啁啾更多時速度格更細，行人就會分開。調高誤報機率可看到雜訊峰出現，調高雜訊則會看到機車與行人最先消失。",
+"An FFT across the virtual antenna array gives the direction of each detection; together they form the point cloud": "跨越虛擬天線陣列做 FFT 得到每個偵測的方向；所有偵測合起來形成點雲",
+"Range and speed are not enough: the car must know whether the object is in its own lane. The radar chip has several transmitters and receivers, and with MIMO each transmitter-receiver pair acts as one virtual channel, so # TX × # RX gives # channels and imaging radars reach # or more. With the virtual antennas half a wavelength apart, an echo from angle θ reaches each channel with an extra phase of π·sin θ, so a third FFT across the channels of a detected range-Doppler cell gives an angle spectrum whose peak is the direction of the target. Its resolution is set by the aperture: about #/N radians for N channels, #° for # channels without a window. Two cars side by side at the same range and speed fall into the same range-Doppler cell and can only be separated by angle; at # m a lane is about #° wide, so a small radar merges the two cars into one object. Add channels and the peaks separate. Each detection with its range, velocity and angle becomes one point of the point cloud, which the tracker turns into objects and the sensor fusion combines with the camera.": "只有距離與速度還不夠：車子必須知道物體是否在自己的車道上。雷達晶片有數個發射機與接收機，使用 MIMO 時每一對發射機-接收機就相當於一個虛擬通道，因此 {0} TX × {1} RX 給出 {2} 個通道，成像雷達則可達 {3} 個以上。虛擬天線間隔半個波長時，來自角度 θ 的回波到達每個通道會多出 π·sin θ 的相位，因此對一個偵測到的距離-都卜勒單元跨通道做第三次 FFT，就得到角度頻譜，其峰值就是目標的方向。解析度由孔徑決定：N 個通道約 {4}/N 弧度，不加視窗的 {6} 個通道約 {5}°。以相同距離與速度並排的兩輛車落在同一個距離-都卜勒單元，只能靠角度分開；在 {7} m 處一條車道約 {8}° 寬，因此小雷達會把兩輛車合併成一個物體。增加通道，兩個峰就會分開。每個帶有距離、速度與角度的偵測成為點雲中的一個點，追蹤器再把點雲變成物體，感測器融合則將它與攝影機結合。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -6496,6 +6706,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-lt" aria-selected="false" aria-controls="tab-lt">Lithography</button>
         <button role="tab" id="tab-btn-rl" aria-selected="false" aria-controls="tab-rl">Reliability (lifetime)</button>
         <button role="tab" id="tab-btn-ly" aria-selected="false" aria-controls="tab-ly">Layout</button>
+        <button role="tab" id="tab-btn-rp" aria-selected="false" aria-controls="tab-rp">Radar DSP</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -9417,6 +9628,130 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>DRC</dt><dd>Design-rule check: thousands of geometric rules that keep the layout manufacturable.</dd>
               <dt>LVS</dt><dd>Layout versus schematic: the extracted devices and connections must match the circuit.</dd>
               <dt>Well tap</dt><dd>Contacts that tie the n-well to VDD and the substrate to VSS, against latch-up.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== RADAR SIGNAL PROCESSING TAB ===================== -->
+  <section id="tab-rp" role="tabpanel" aria-labelledby="tab-btn-rp" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="rp-pill">RD</span><h2 id="rp-name">Range-Doppler processing</h2></div>
+      <p id="rp-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="rp-view" role="group" aria-label="Radar processing view" style="flex-wrap:wrap">
+        <button data-v="rd" aria-pressed="true">Range-Doppler map</button>
+        <button data-v="cfar" aria-pressed="false">CFAR detection</button>
+        <button data-v="ang" aria-pressed="false">Angle &amp; point cloud</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvrp" aria-label="Radar processing chain: beat signals, range FFT, range-Doppler map, CFAR threshold, angle spectrum and bird's-eye point cloud"></canvas>
+      <div class="legend" id="rp-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="rp-ro"></div>
+        <div id="rp-c-win" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Window applied before each FFT. A Hann window lowers the sidelobes of strong targets at the cost of a slightly wider peak.">FFT window</span>
+          <div class="chips" id="rp-win">
+            <button class="chipbtn" data-w="rect">Rectangular</button>
+            <button class="chipbtn" data-w="hann">Hann</button>
+          </div>
+        </div>
+        <div class="slider" id="rp-c-nd">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Chirps per frame. More chirps give finer velocity resolution and more integration gain, but a longer frame.">Chirps per frame</span><span id="rp-nd-v"></span></div>
+          <input id="rp-nd" type="range" min="0" max="3" step="1" value="2">
+        </div>
+        <div class="slider" id="rp-c-noise">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Receiver noise in each ADC sample, relative to the echo of a 1 m² target at 10 m. At 0 dB the echo is as weak as the noise before any processing; the FFTs then lift it out.">Noise per sample</span><span id="rp-noise-v"></span></div>
+          <input id="rp-noise" type="range" min="-40" max="20" step="1" value="-20">
+        </div>
+        <div id="rp-c-cut" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Doppler column of the range-Doppler map along which the CFAR window slides.">Range cut through</span>
+          <div class="chips" id="rp-cut">
+            <button class="chipbtn" data-s="car">Two cars</button>
+            <button class="chipbtn" data-s="ped">Pedestrian</button>
+            <button class="chipbtn" data-s="zero">Stationary objects</button>
+          </div>
+        </div>
+        <div class="slider" id="rp-c-guard">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Cells next to the cell under test that are left out of the noise estimate, so a wide target does not raise its own threshold.">Guard cells</span><span id="rp-guard-v"></span></div>
+          <input id="rp-guard" type="range" min="0" max="4" step="1" value="2">
+        </div>
+        <div class="slider" id="rp-c-train">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Cells on each side used to estimate the local noise level.">Training cells</span><span id="rp-train-v"></span></div>
+          <input id="rp-train" type="range" min="2" max="24" step="1" value="8">
+        </div>
+        <div class="slider" id="rp-c-pfa">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Probability of false alarm per cell: how often pure noise is allowed to cross the threshold.">False-alarm probability</span><span id="rp-pfa-v"></span></div>
+          <input id="rp-pfa" type="range" min="-8" max="-1" step="0.5" value="-4">
+        </div>
+        <div class="slider" id="rp-c-ch">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Virtual receive channels (TX × RX). More channels give a narrower angle beam.">Virtual channels</span><span id="rp-ch-v"></span></div>
+          <input id="rp-ch" type="range" min="0" max="4" step="1" value="1">
+        </div>
+        <div class="slider" id="rp-c-sep">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Angle between two cars driving side by side at the same range and speed.">Angle between two cars</span><span id="rp-sep-v"></span></div>
+          <input id="rp-sep" type="range" min="1" max="30" step="0.5" value="8">
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="rp-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Analysis</p>
+        <div class="plots">
+          <div class="plot"><svg id="rp-p1" viewBox="0 0 300 230" role="img" aria-label="Doppler spectrum, CFAR detection probability or angular resolution"></svg></div>
+          <div class="plot"><svg id="rp-p2" viewBox="0 0 220 230" role="img" aria-label="Velocity resolution, CFAR threshold factor or cross-range resolution"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="rp-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: data cube, range FFT, Doppler FFT, CFAR, angle FFT, point cloud</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>One radar frame, step by step</h3>
+            <ol>
+              <li><b>Chirps</b>: the transmitter sends a burst of fast chirps; each echo is mixed down to a beat signal and sampled by the ADC.</li>
+              <li><b>Range FFT</b>: the beat frequency of each target becomes a peak at its range bin.</li>
+              <li><b>Doppler FFT</b>: across chirps, the phase of each range bin rotates with the target's speed.</li>
+              <li><b>CFAR</b>: an adaptive threshold separates targets from noise and clutter.</li>
+              <li><b>Angle FFT</b>: across the virtual antenna channels, the phase step gives the direction.</li>
+              <li><b>Point cloud and tracking</b>: detections with range, speed and angle feed the tracker and the sensor fusion.</li>
+            </ol>
+            <h3>This radar</h3>
+            <div class="tbl"><table>
+              <tr><th>Parameter</th><th>Value</th></tr>
+              <tr><td>Carrier</td><td>77 GHz (λ = 3.9 mm)</td></tr>
+              <tr><td>Range resolution</td><td>0.5 m (B = 300 MHz)</td></tr>
+              <tr><td>Samples per chirp</td><td>128 (range up to 64 m)</td></tr>
+              <tr><td>Chirp repetition</td><td>50 µs (±19.5 m/s unambiguous)</td></tr>
+              <tr><td>Virtual channels</td><td>4–64 at λ/2 spacing</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>Data cube</dt><dd>Samples × chirps × channels of one frame; the three FFTs run along its three axes.</dd>
+              <dt>Range bin</dt><dd>One output of the range FFT: a slice of distance ΔR = c/2B wide.</dd>
+              <dt>Doppler bin</dt><dd>One output of the Doppler FFT: a slice of radial speed.</dd>
+              <dt>Window</dt><dd>Taper applied before an FFT to lower sidelobes, at the cost of resolution.</dd>
+              <dt>CFAR</dt><dd>Constant false-alarm rate: the threshold follows the local noise so the false-alarm rate stays fixed.</dd>
+              <dt>Clutter</dt><dd>Echoes from things that are not targets: road, guardrails, buildings; mostly at zero speed.</dd>
+              <dt>Point cloud</dt><dd>The list of detections with range, speed, angle and amplitude for each frame.</dd>
+              <dt>Integration gain</dt><dd>Coherent FFTs over N samples raise the signal-to-noise ratio by 10·log10 N.</dd>
             </dl>
           </div>
         </div>
@@ -18074,12 +18409,400 @@ document.querySelectorAll("#ly-layers button").forEach(b => b.addEventListener("
 document.querySelectorAll("#ly-err button").forEach(b => b.addEventListener("click", () => { LYO.err[b.dataset.e] = !LYO.err[b.dataset.e]; updateLY(); }));
 $("ly-pos").addEventListener("input", e => { LYO.pos = +e.target.value; updateLY(); });
 
+/* ===================== RADAR SIGNAL PROCESSING TAB ===================== */
+// One FMCW frame: 128 samples per chirp, N_d chirps, N virtual channels. Each target gives a windowed
+// DTFT response in range and Doppler; noise and road clutter are added after the FFTs, then CA-CFAR,
+// peak grouping and an angle FFT across the channels turn the map into a point cloud.
+const RPC = setupCanvas($("cvrp"), 1000, 488);
+const RP_N = 128, RP_TC = 50e-6, RP_LAM = 3.9e-3, RP_DR = 0.5, RP_VMAX = RP_LAM/(4*RP_TC);
+const RP_NDS = [16, 32, 64, 128], RP_CHS = [4, 8, 16, 32, 64], RP_CHL = ["1 TX × 4 RX", "2 TX × 4 RX", "4 TX × 4 RX", "4 TX × 8 RX", "8 TX × 8 RX"];
+const RPS = {view:"rd", win:"hann", nd:2, noise:-20, guard:2, train:8, pfa:-4, ch:1, sep:8, cut:"car", t:0, acc:0, frame:0, M:null};
+const RP_TG = [
+  {n:"car 1", r:22, v:4, a:0, rcs:10, k:"car", car:-1, lo:12, hi:50},
+  {n:"car 2", r:22, v:4, a:0, rcs:10, k:"car", car:1, lo:12, hi:50},
+  {n:"pedestrian", r:9, v:-1.4, a:28, rcs:-8, k:"ped", lo:6, hi:14},
+  {n:"motorbike", r:40, v:-11, a:-18, rcs:3, k:"moto", lo:8, hi:62},
+  {n:"truck", r:55, v:7.5, a:12, rcs:20, k:"truck", lo:30, hi:63},
+  ...[8, 16, 24, 32, 40, 48, 56].map(r => ({n:"guardrail", r, v:0, a:-Math.atan(4.5/r)*180/Math.PI, rcs:0, k:"rail"}))
+];
+const rpWin = L => Float64Array.from({length:L}, (_, i) => RPS.win === "hann" ? 0.5 - 0.5*Math.cos(2*Math.PI*(i + 0.5)/L) : 1);
+const rpSum = a => a.reduce((s, x) => s + x, 0);
+function rpR(t, time){ if (!t.v) return t.r; const sp = t.hi - t.lo; return t.lo + (((t.r - t.lo + t.v*time) % sp) + sp) % sp; }
+// windowed DTFT of a tone at bin f, evaluated at bins k - off (normalised to 1 at the peak)
+function rpResp(w, f, L, off){
+  const re = new Float64Array(L), im = new Float64Array(L), S = rpSum(w);
+  for (let k = 0; k < L; k++){
+    const th = 2*Math.PI*(f - (k - off))/L, c1 = Math.cos(th), s1 = Math.sin(th); let c = 1, s = 0, ar = 0, ai = 0;
+    for (let i = 0; i < L; i++){ ar += w[i]*c; ai += w[i]*s; const cn = c*c1 - s*s1; s = s*c1 + c*s1; c = cn; }
+    re[k] = ar/S; im[k] = ai/S;
+  }
+  return {re, im};
+}
+function rpGauss(rnd){ return Math.sqrt(-2*Math.log(rnd() + 1e-12))*Math.cos(2*Math.PI*rnd()); }
+function rpCompute(){
+  const N = RP_N, Nd = RP_NDS[RPS.nd], dv = RP_LAM/(2*Nd*RP_TC), wr = rpWin(N), wd = rpWin(Nd);
+  const Sr = rpSum(wr), Sd = rpSum(wd), Er = rpSum(wr.map(x => x*x)), Ed = rpSum(wd.map(x => x*x));
+  const sig = Math.pow(10, RPS.noise/20), nStd = sig*Math.sqrt(Er*Ed)/(Sr*Sd)/Math.SQRT2;
+  const tg = RP_TG.map((t, i) => {
+    const r = rpR(t, RPS.t), a = t.car ? 3 + t.car*RPS.sep/2 : t.a, amp = Math.sqrt(Math.pow(10, t.rcs/10))*Math.pow(10/r, 2), ph = i*2.399;
+    const fr = r/RP_DR, fd = t.v/dv;
+    return {...t, r, a, amp, Ar:amp*Math.cos(ph), Ai:amp*Math.sin(ph), fr, fd, Rr:rpResp(wr, fr, N, 0), Rd:rpResp(wd, fd, Nd, Nd/2)};
+  });
+  const re = new Float64Array(N*Nd), im = new Float64Array(N*Nd);
+  for (const t of tg) for (let m = 0; m < N; m++){
+    const xr = t.Ar*t.Rr.re[m] - t.Ai*t.Rr.im[m], xi = t.Ar*t.Rr.im[m] + t.Ai*t.Rr.re[m];
+    if (xr*xr + xi*xi < 1e-14) continue;
+    for (let n = 0; n < Nd; n++){ const k = m*Nd + n; re[k] += xr*t.Rd.re[n] - xi*t.Rd.im[n]; im[k] += xr*t.Rd.im[n] + xi*t.Rd.re[n]; }
+  }
+  const rnd = cmRand(1000 + RPS.frame), cl = new Float64Array(N);
+  for (let m = 0; m < N; m++){
+    cl[m] = Math.pow(10, -22/20)*Math.pow(5/Math.max(2, (m + 0.5)*RP_DR), 1.5)/Math.SQRT2;
+    for (let n = 0; n < Nd; n++){
+      const k = m*Nd + n, dn = Math.abs(n - Nd/2), c = dn === 0 ? cl[m] : dn === 1 ? 0.35*cl[m] : 0;
+      re[k] += nStd*rpGauss(rnd) + c*rpGauss(rnd); im[k] += nStd*rpGauss(rnd) + c*rpGauss(rnd);
+    }
+  }
+  const P = new Float64Array(N*Nd), dB = new Float64Array(N*Nd);
+  for (let k = 0; k < N*Nd; k++){ P[k] = re[k]*re[k] + im[k]*im[k]; dB[k] = 10*Math.log10(P[k] + 1e-30); }
+  // chirp 1: beat signal and range FFT
+  const beat = new Float64Array(N), prof = new Float64Array(N), pStd = sig*Math.sqrt(Er)/Sr/Math.SQRT2;
+  for (let i = 0; i < N; i++){ let x = 0; for (const t of tg) x += t.amp*Math.cos(2*Math.PI*t.fr*i/N + Math.atan2(t.Ai, t.Ar)); beat[i] = x + sig/Math.SQRT2*rpGauss(rnd); }
+  for (let m = 0; m < N; m++){ let xr = pStd*rpGauss(rnd), xi = pStd*rpGauss(rnd); for (const t of tg){ xr += t.Ar*t.Rr.re[m] - t.Ai*t.Rr.im[m]; xi += t.Ar*t.Rr.im[m] + t.Ai*t.Rr.re[m]; } prof[m] = 10*Math.log10(xr*xr + xi*xi + 1e-30); }
+  // CA-CFAR along range in every Doppler column, then 3 × 3 peak grouping
+  const g = RPS.guard, tr = RPS.train, Nt = 2*tr, pfa = Math.pow(10, RPS.pfa), alpha = Nt*(Math.pow(pfa, -1/Nt) - 1);
+  const thr = new Float64Array(N*Nd), cs = new Float64Array(N + 1), det = [];
+  for (let n = 0; n < Nd; n++){
+    for (let m = 0; m < N; m++) cs[m + 1] = cs[m] + P[m*Nd + n];
+    for (let m = 0; m < N; m++){
+      let s = 0, c = 0;
+      const a0 = Math.max(0, m - g - tr), a1 = m - g - 1, b0 = m + g + 1, b1 = Math.min(N - 1, m + g + tr);
+      if (a1 >= a0){ s += cs[a1 + 1] - cs[a0]; c += a1 - a0 + 1; }
+      if (b1 >= b0){ s += cs[b1 + 1] - cs[b0]; c += b1 - b0 + 1; }
+      thr[m*Nd + n] = c ? alpha*s/c : Infinity;
+    }
+  }
+  for (let m = 0; m < N; m++) for (let n = 0; n < Nd; n++){
+    const k = m*Nd + n; if (P[k] <= thr[k]) continue;
+    let pk = true;
+    for (let a = -1; a <= 1 && pk; a++) for (let b = -1; b <= 1; b++){ if (!a && !b) continue; const mm = m + a; if (mm < 0 || mm >= N) continue; if (P[mm*Nd + (n + b + Nd) % Nd] > P[k]){ pk = false; break; } }
+    if (!pk) continue;
+    const near = tg.find(t => Math.abs(m - t.fr) <= 2 && Math.min(Math.abs(n - (t.fd + Nd/2)), Nd - Math.abs(n - (t.fd + Nd/2))) <= 2);
+    det.push({m, n, p:dB[k], r:m*RP_DR, v:(n - Nd/2)*dv, k: near ? near.k : Math.abs(n - Nd/2) <= 1 ? "clutter" : "fa", t:near});
+  }
+  RPS.M = {N, Nd, dv, P, dB, thr, det, tg, beat, prof, alpha, Nt, pfa, nStd, cl, gain:10*Math.log10((Sr*Sd)*(Sr*Sd)/(Er*Ed)), frame:RPS.frame};
+  rpPaint();
+}
+// complex samples of one range-Doppler cell across the virtual channels, then the angle spectrum
+function rpAngle(M, m, n, us){
+  const Nch = RP_CHS[RPS.ch], wa = rpWin(Nch), Sa = rpSum(wa), rnd = cmRand(M.frame*7919 + m*131 + n + 7);
+  const xr = new Float64Array(Nch), xi = new Float64Array(Nch);
+  for (const t of M.tg){
+    const cr = t.Rr.re[m]*t.Rd.re[n] - t.Rr.im[m]*t.Rd.im[n], ci = t.Rr.re[m]*t.Rd.im[n] + t.Rr.im[m]*t.Rd.re[n];
+    const vr = t.Ar*cr - t.Ai*ci, vi = t.Ar*ci + t.Ai*cr; if (vr*vr + vi*vi < 1e-14) continue;
+    const st = Math.PI*Math.sin(t.a*Math.PI/180);
+    for (let k = 0; k < Nch; k++){ const c = Math.cos(st*k), s = Math.sin(st*k); xr[k] += vr*c - vi*s; xi[k] += vr*s + vi*c; }
+  }
+  const dn = Math.abs(n - M.Nd/2), cs = Math.hypot(M.nStd, dn === 0 ? M.cl[m] : dn === 1 ? 0.35*M.cl[m] : 0);
+  for (let k = 0; k < Nch; k++){ xr[k] += cs*rpGauss(rnd); xi[k] += cs*rpGauss(rnd); }
+  return us.map(u => { let sr = 0, si = 0; for (let k = 0; k < Nch; k++){ const c = Math.cos(Math.PI*k*u), s = Math.sin(Math.PI*k*u); sr += wa[k]*(xr[k]*c + xi[k]*s); si += wa[k]*(xi[k]*c - xr[k]*s); } return (sr*sr + si*si)/(Sa*Sa); });
+}
+function rpPeaks(a, rel){
+  const mx = Math.max(...a), out = [];
+  for (let i = 1; i < a.length - 1; i++) if (a[i] >= a[i - 1] && a[i] > a[i + 1] && a[i] >= mx*rel) out.push(i);
+  return out.sort((x, y) => a[y] - a[x]).slice(0, 3);
+}
+const RP_US = Array.from({length:256}, (_, i) => -1 + (i + 0.5)/128);
+const RP_TH = Array.from({length:241}, (_, i) => -60 + i*0.5);
+function rpCloud(M){
+  const pts = [], det = [...M.det].sort((a, b) => b.p - a.p).slice(0, 120);
+  for (const d of det){ const sp = rpAngle(M, d.m, d.n, RP_US); for (const i of rpPeaks(sp, 0.25)){ const a = Math.asin(RP_US[i]); pts.push({x:d.r*Math.sin(a), y:d.r*Math.cos(a), v:d.v, k:d.k}); } }
+  return pts;
+}
+function rpCars(M){
+  const c = M.tg[0], m = clamp(Math.round(c.fr), 0, M.N - 1), n = ((Math.round(c.fd) + M.Nd/2) % M.Nd + M.Nd) % M.Nd;
+  const sp = rpAngle(M, m, n, RP_TH.map(a => Math.sin(a*Math.PI/180))), mx = Math.max(...sp);
+  const pk = rpPeaks(sp, 0.25).filter(i => Math.abs(RP_TH[i] - 3) <= RPS.sep/2 + 12);
+  return {m, n, db:sp.map(p => 10*Math.log10(p/mx + 1e-12)), pk, a1:M.tg[0].a, a2:M.tg[1].a, r:c.r};
+}
+const rpRes = Nch => (RPS.win === "hann" ? 1.44 : 0.886)*2/Nch*180/Math.PI;
+
+/* ---------------- drawing ---------------- */
+const RP_OFF = document.createElement("canvas");
+const RP_STOPS = [[0, [10, 12, 48]], [0.3, [48, 44, 150]], [0.55, [26, 150, 172]], [0.8, [240, 200, 64]], [1, [255, 252, 228]]];
+function rpCol(v){
+  v = clamp(v, 0, 1); let i = 0; while (i < RP_STOPS.length - 2 && v > RP_STOPS[i + 1][0]) i++;
+  const [a, ca] = RP_STOPS[i], [b, cb] = RP_STOPS[i + 1], f = (v - a)/(b - a);
+  return ca.map((x, j) => Math.round(x + (cb[j] - x)*f));
+}
+const RP_DBMIN = -80;
+function rpPaint(){
+  const M = RPS.M; RP_OFF.width = M.Nd; RP_OFF.height = M.N;
+  const c = RP_OFF.getContext("2d"), img = c.createImageData(M.Nd, M.N);
+  for (let m = 0; m < M.N; m++) for (let n = 0; n < M.Nd; n++){ const col = rpCol((M.dB[m*M.Nd + n] - RP_DBMIN)/-RP_DBMIN), o = ((M.N - 1 - m)*M.Nd + n)*4; img.data[o] = col[0]; img.data[o + 1] = col[1]; img.data[o + 2] = col[2]; img.data[o + 3] = 255; }
+  c.putImageData(img, 0, 0);
+}
+function rpMap(x0, y0, w, h, M, opt){
+  ctx.imageSmoothingEnabled = false; ctx.drawImage(RP_OFF, x0, y0, w, h); ctx.imageSmoothingEnabled = true;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, y0 + .5, w - 1, h - 1);
+  const X = v => x0 + (v/M.dv + M.Nd/2 + 0.5)/M.Nd*w, Y = r => y0 + h - (r/RP_DR + 0.5)/M.N*h;
+  for (let r = 0; r <= 60; r += 10){ txt(`${r}`, x0 - 6, Y(r), {al:"right", px:10}); ctx.strokeStyle = C.muted; pl([[x0 - 3, Y(r)], [x0, Y(r)]]); }
+  for (let v = -15; v <= 15; v += 5){ txt(`${v}`, X(v), y0 + h + 12, {al:"center", px:10}); pl([[X(v), y0 + h], [X(v), y0 + h + 3]]); }
+  txt("range (m)", x0 - 34, y0 - 12, {px:10}); txt("velocity (m/s): − approaching, + receding", x0 + w/2, y0 + h + 28, {al:"center", px:10});
+  if (opt.bar){ const bx = x0 + w + 12; for (let i = 0; i < 60; i++){ const col = rpCol(i/59); ctx.fillStyle = `rgb(${col})`; ctx.fillRect(bx, y0 + h - (i + 1)*h/60, 10, h/60 + 0.5); }
+    txt("0 dB", bx + 14, y0 + 4, {px:9}); txt(`${RP_DBMIN} dB`, bx + 14, y0 + h - 4, {px:9}); }
+  if (opt.truth){
+    const done = {};
+    for (const t of M.tg){ if (t.k === "rail" && t.r !== 16) continue; if (done[t.k]) continue; done[t.k] = 1;
+      const x = X(t.v), y = Y(t.r); ctx.strokeStyle = C.channel; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(x, y, 9, 0, 6.283); ctx.stroke();
+      const lab = {car:"two cars", ped:"pedestrian", moto:"motorbike", truck:"truck", rail:"guardrail"}[t.k];
+      rpLab(lab, x + (t.v > 8 ? -12 : 12), y - 12, t.v > 8 ? "right" : "left", "#7ee8d4"); }
+    rpLab("road clutter", X(0) + 12, Y(3), "left", "#ffffff");
+  }
+  if (opt.det) for (const d of M.det){ const x = X(d.v), y = Y(d.r); ctx.strokeStyle = d.k === "fa" ? C.hole : d.k === "clutter" ? C.muted : C.channel; ctx.lineWidth = 1.8; ctx.strokeRect(x - 6, y - 6, 12, 12); }
+  if (opt.col != null){ const x = X((opt.col - M.Nd/2)*M.dv); ctx.strokeStyle = C.accent; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]); pl([[x, y0], [x, y0 + h]]); ctx.setLineDash([]); }
+  return {X, Y};
+}
+function rpCube(x, y){
+  const w = 110, h = 58, dx = 48, dy = -32, poly = (pts, a) => { ctx.beginPath(); pts.forEach(([px, py], i) => i ? ctx.lineTo(px, py) : ctx.moveTo(px, py)); ctx.closePath(); ctx.globalAlpha = a; ctx.fillStyle = C.accent; ctx.fill(); ctx.globalAlpha = 1; ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.stroke(); };
+  poly([[x + w, y], [x + w + dx, y + dy], [x + w + dx, y - h + dy], [x + w, y - h]], .08);
+  poly([[x, y - h], [x + dx, y - h + dy], [x + w + dx, y - h + dy], [x + w, y - h]], .14);
+  poly([[x, y], [x + w, y], [x + w, y - h], [x, y - h]], .2);
+  ctx.strokeStyle = C.line; for (let i = 1; i < 8; i++) pl([[x + i*w/8, y], [x + i*w/8, y - h]]); for (let j = 1; j < 5; j++) pl([[x, y - j*h/5], [x + w, y - j*h/5]]);
+  ctx.lineWidth = 2.2;
+  ctx.strokeStyle = C.accent; pl([[x, y + 8], [x + w, y + 8]]); pl([[x + w - 6, y + 4], [x + w, y + 8], [x + w - 6, y + 12]]);
+  ctx.strokeStyle = C.hole; pl([[x - 8, y], [x - 8, y - h]]); pl([[x - 12, y - h + 6], [x - 8, y - h], [x - 4, y - h + 6]]);
+  ctx.strokeStyle = C.channel; pl([[x + w + 8, y + 2], [x + w + dx + 4, y + dy + 4]]);
+  txt("samples", x + w/2, y + 20, {al:"center", px:10, col:C.accent});
+  txt("chirps", x - 14, y - h/2, {al:"right", px:10, col:C.hole});
+  txt("channels", x + w + dx + 8, y + dy + 10, {px:10, col:C.channel});
+  txt("range FFT along the samples", 36, y + 38, {px:10, col:C.accent});
+  txt("Doppler FFT along the chirps", 36, y + 52, {px:10, col:C.hole});
+  txt("angle FFT along the channels", 36, y + 66, {px:10, col:C.channel});
+}
+function rpLab(s, x, y, al, col){
+  ctx.font = mono(700, 10); const w = ctx.measureText(s).width + 8, x0 = al === "right" ? x - w + 4 : x - 4;
+  ctx.fillStyle = "rgba(0,0,0,.6)"; ctx.fillRect(x0, y - 8, w, 16); txt(s, x, y, {px:10, w:700, col, al});
+}
+function drawRPrd(M, T){
+  panel(20, 20, 330, 450, "One frame of the radar");
+  rpCube(100, 116);
+  txt("beat signal of chirp 1 (real part)", 36, 212, {px:11, col:C.fg});
+  const bx = 40, bw = 290, by = 248, mx = Math.max(...M.beat.map(Math.abs)) || 1;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; pl([[bx, by], [bx + bw, by]]);
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 1.4; pl([...M.beat].map((v, i) => [bx + i/(RP_N - 1)*bw, by - v/mx*28]));
+  txt("ADC samples, 128 per chirp →", bx + bw, by + 36, {al:"right", px:9});
+  txt("range FFT of chirp 1 (dB)", 36, 304, {px:11, col:C.fg});
+  const px0 = 60, pw = 270, py0 = 318, ph = 116, Yd = d => py0 + ph - (clamp(d, RP_DBMIN, 0) - RP_DBMIN)/-RP_DBMIN*ph, Xr = r => px0 + r/64*pw;
+  ctx.strokeStyle = C.line; ctx.strokeRect(px0 + .5, py0 + .5, pw, ph);
+  for (let d = -80; d <= 0; d += 20) txt(`${d}`, px0 - 5, Yd(d), {al:"right", px:9});
+  for (let r = 0; r <= 60; r += 20) txt(`${r}`, Xr(r), py0 + ph + 11, {al:"center", px:9});
+  txt("range (m)", px0 + pw, py0 + ph + 24, {al:"right", px:9});
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 1.4; pl([...M.prof].map((d, m) => [Xr(m*RP_DR), Yd(d)]));
+  panel(370, 20, 610, 450, `Range-Doppler map: ${M.Nd} chirps, ${RPS.win === "hann" ? "Hann" : "rectangular"} window`);
+  rpMap(450, 66, 440, 352, M, {bar:true, truth:true});
+}
+function drawRPcfar(M, T){
+  panel(20, 20, 420, 450, `Detections: ${M.det.length}`);
+  const col = rpCutCol(M);
+  rpMap(70, 66, 340, 352, M, {det:true, col});
+  panel(460, 20, 520, 450, `CA-CFAR along range at v = ${((col - M.Nd/2)*M.dv).toFixed(1)} m/s`);
+  const X0 = 510, Y0 = 56, W = 450, H = 280, N = M.N, xm = m => X0 + (m + 0.5)/N*W, yd = d => Y0 + H - (clamp(d, -90, 0) + 90)/90*H, cw = W/N;
+  const ci = Math.floor(T*10) % N, g = RPS.guard, tr = RPS.train;
+  const shade = (a, b, c, al) => { for (let m = Math.max(0, a); m <= Math.min(N - 1, b); m++){ ctx.globalAlpha = al; ctx.fillStyle = c; ctx.fillRect(X0 + m*cw, Y0, cw, H); } ctx.globalAlpha = 1; };
+  shade(ci - g - tr, ci - g - 1, C.channel, .25); shade(ci + g + 1, ci + g + tr, C.channel, .25); shade(ci - g, ci + g, C.muted, .22); shade(ci, ci, C.hole, .5);
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(X0 + .5, Y0 + .5, W, H);
+  for (let d = -90; d <= 0; d += 15) txt(`${d}`, X0 - 5, yd(d), {al:"right", px:9});
+  for (let r = 0; r <= 60; r += 10) txt(`${r}`, xm(r/RP_DR), Y0 + H + 11, {al:"center", px:9});
+  txt("dB", X0 - 28, Y0 - 8, {px:9}); txt("range (m)", X0 + W, Y0 + H + 24, {al:"right", px:9});
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 1.5; pl(Array.from({length:N}, (_, m) => [xm(m), yd(M.dB[m*M.Nd + col])]));
+  ctx.strokeStyle = C.hole; ctx.setLineDash([5, 3]); pl(Array.from({length:N}, (_, m) => [xm(m), yd(10*Math.log10(M.thr[m*M.Nd + col]))])); ctx.setLineDash([]);
+  M.det.filter(d => d.n === col).forEach(d => { ctx.fillStyle = d.k === "fa" ? C.hole : d.k === "clutter" ? C.muted : C.channel; ctx.beginPath(); ctx.arc(xm(d.m), yd(d.p), 5, 0, 6.283); ctx.fill(); });
+  const p = M.dB[ci*M.Nd + col], th = 10*Math.log10(M.thr[ci*M.Nd + col]);
+  txt(`cell under test: ${(ci*RP_DR).toFixed(1)} m · power ${p.toFixed(1)} dB · threshold ${th.toFixed(1)} dB`, 480, 372, {px:11, col:C.fg});
+  txt(p > th ? "→ above the threshold (a detection if it is also the local peak)" : "→ below the threshold: no detection", 480, 392, {px:11, w:700, col: p > th ? C.channel : C.muted});
+  txt(`noise estimate = mean of ${2*tr} training cells; ${2*g} guard cells skipped`, 480, 416, {px:10});
+  const here = M.det.filter(d => d.n === col);
+  txt(`detections in this column: ${here.length ? here.map(d => `${d.r.toFixed(1)} m`).join(", ") : "none"}`, 480, 436, {px:10});
+  txt(`threshold = α × noise estimate, α = ${M.alpha.toFixed(1)} (${(10*Math.log10(M.alpha)).toFixed(1)} dB)`, 480, 456, {px:10});
+}
+function rpCutCol(M){
+  const t = RPS.cut === "car" ? M.tg[0] : RPS.cut === "ped" ? M.tg[2] : null;
+  return t ? ((Math.round(t.fd) + M.Nd/2) % M.Nd + M.Nd) % M.Nd : M.Nd/2;
+}
+function drawRPang(M, T, cars, pts){
+  const Nch = RP_CHS[RPS.ch];
+  panel(20, 20, 440, 450, `Angle FFT across ${Nch} virtual channels`);
+  const sp = Math.min(12, 300/Nch), cx = 240, ax = cx - (Nch - 1)*sp/2, a1 = cars.a1*Math.PI/180, ph = (T*0.8) % 1;
+  ctx.save(); ctx.beginPath(); ctx.rect(30, 46, 420, 60); ctx.clip();
+  ctx.strokeStyle = C.channel; ctx.lineWidth = 1.2; ctx.globalAlpha = .7;
+  const ux = Math.sin(a1), uy = -Math.cos(a1);
+  for (let j = 0; j < 4; j++){ const d = 10 + (j + ph)*14, cy = 100; pl([[cx + ux*d - uy*170, cy + uy*d + ux*170], [cx + ux*d + uy*170, cy + uy*d - ux*170]]); }
+  ctx.restore(); ctx.globalAlpha = 1;
+  for (let k = 0; k < Nch; k++){ ctx.fillStyle = C.accent; ctx.fillRect(ax + k*sp - 1.5, 94, 3.5, 10); }
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1; pl([[ax - 6, 106], [ax + (Nch - 1)*sp + 6, 106]]);
+  txt("echo of car 1", 440, 60, {al:"right", px:9, col:C.channel});
+  txt(`virtual array: ${RP_CHL[RPS.ch]} = ${Nch} channels, spacing λ/2 = 1.95 mm`, 36, 122, {px:10, col:C.fg});
+  txt(`aperture ${((Nch - 1)*1.95).toFixed(0)} mm · car 1: ${(180*Math.sin(a1)).toFixed(1)}° phase step per channel`, 36, 138, {px:10});
+  const X0 = 70, Y0 = 184, W = 360, H = 228, xa = a => X0 + (a + 60)/120*W, yd = d => Y0 + H - (clamp(d, -40, 0) + 40)/40*H;
+  ctx.strokeStyle = C.line; ctx.strokeRect(X0 + .5, Y0 + .5, W, H);
+  for (let d = -40; d <= 0; d += 10) txt(`${d}`, X0 - 5, yd(d), {al:"right", px:9});
+  for (let a = -60; a <= 60; a += 20) txt(`${a}°`, xa(a), Y0 + H + 11, {al:"center", px:9});
+  txt("dB", X0 - 28, Y0 - 8, {px:9}); txt("angle", X0 + W, Y0 + H + 24, {al:"right", px:9});
+  ctx.strokeStyle = C.hole; ctx.setLineDash([4, 3]); [cars.a1, cars.a2].forEach(a => pl([[xa(a), Y0], [xa(a), Y0 + H]])); ctx.setLineDash([]);
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 1.8; pl(RP_TH.map((a, i) => [xa(a), yd(cars.db[i])]));
+  const ok = cars.pk.length >= 2;
+  txt(`angle spectrum of the cell with the two cars (${cars.r.toFixed(1)} m, ${(M.tg[0].v).toFixed(1)} m/s)`, 36, 160, {px:10, col:C.fg});
+  txt(ok ? "two peaks: the cars are resolved" : "one peak: the cars merge into one detection", 36, 456, {px:12, w:700, col: ok ? C.channel : C.hole});
+  // bird's-eye view
+  panel(480, 20, 500, 450, `Point cloud: ${pts.length} points`);
+  ctx.save(); ctx.beginPath(); ctx.rect(481, 40, 498, 429); ctx.clip();
+  const k = 6.4, ox = 730, oy = 458, P = (x, y) => [ox + x*k, oy - y*k];
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1;
+  for (let r = 10; r <= 60; r += 10){ ctx.beginPath(); ctx.arc(ox, oy, r*k, -Math.PI/2 - 1.05, -Math.PI/2 + 1.05); ctx.stroke(); const [tx, ty] = P(r*Math.sin(1.1), r*Math.cos(1.1)); txt(`${r} m`, tx + 4, ty, {px:9}); }
+  [-60, 60].forEach(a => pl([P(0, 0), P(64*Math.sin(a*Math.PI/180), 64*Math.cos(a*Math.PI/180))]));
+  ctx.strokeStyle = C.muted; ctx.setLineDash([3, 3]); pl([P(-4.5, 4), P(-4.5, 64)]); ctx.setLineDash([]);
+  for (const t of M.tg){ if (t.k === "rail") continue; const a = t.a*Math.PI/180, [x, y] = P(t.r*Math.sin(a), t.r*Math.cos(a));
+    ctx.strokeStyle = C.muted; ctx.lineWidth = 1.2;
+    if (t.k === "ped"){ ctx.beginPath(); ctx.arc(x, y, 4, 0, 6.283); ctx.stroke(); }
+    else { const [bw, bl] = t.k === "truck" ? [2.5, 10] : t.k === "moto" ? [0.8, 2.2] : [1.8, 4.5]; ctx.strokeRect(x - bw*k/2, y - bl*k, bw*k, bl*k); }
+    if (t.k !== "car" || t.car < 0) txt({car:"two cars", ped:"pedestrian", moto:"motorbike", truck:"truck"}[t.k], x + (t.k === "car" ? 30 : 12), y - 14, {px:9}); }
+  for (const p of pts){ const [x, y] = P(p.x, p.y); ctx.fillStyle = p.k === "clutter" || p.k === "rail" || Math.abs(p.v) < 0.3 ? C.muted : p.v < 0 ? C.electron : C.hole; ctx.beginPath(); ctx.arc(x, y, 3.6, 0, 6.283); if (p.k === "fa"){ ctx.strokeStyle = ctx.fillStyle; ctx.lineWidth = 1.5; ctx.stroke(); } else ctx.fill(); }
+  ctx.restore();
+  ctx.fillStyle = C.accent; ctx.fillRect(ox - 8, oy - 4, 16, 6); txt("radar", ox, oy - 12, {al:"center", px:9, col:C.accent});
+  txt("guardrail", P(-4.5, 40)[0] - 6, P(-4.5, 40)[1], {al:"right", px:9});
+}
+function drawRP(dt, T){
+  begin(RPC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488);
+  const M = RPS.M; if (!M) return;
+  if (RPS.view === "rd") drawRPrd(M, T);
+  else if (RPS.view === "cfar") drawRPcfar(M, T);
+  else drawRPang(M, T, RPS.cars, RPS.pts);
+}
+
+/* ---------------- DOM ---------------- */
+const RPINFO = {
+  rd:{pill:"RD", name:"Range-Doppler processing", sub:"Two FFTs turn one frame of chirps into a map of every echo by distance and speed",
+    text:"A 77 GHz FMCW radar sends a frame of identical chirps. Mixing each echo with the transmitted chirp gives a beat signal whose frequency is proportional to the distance of the target, so an FFT over the 128 ADC samples of one chirp (the range FFT) puts every target into a range bin, 0.5 m wide for a 300 MHz chirp. A single chirp cannot tell speed, but from one chirp to the next the echo of a moving target arrives slightly earlier or later, so its phase rotates by 4π·v·T_c/λ per chirp. A second FFT across the chirps of each range bin (the Doppler FFT) turns that rotation into a velocity bin. The result is the range-Doppler map: one bright spot per target, with stationary objects such as the guardrail and the road in the zero-velocity column. Both FFTs add up the energy of the target coherently while the noise adds up randomly, so the signal-to-noise ratio improves by 10·log10(N·N_d), almost 40 dB for 128 × 64 samples: raise the noise until the beat signal looks like pure noise and the targets are still visible on the map. More chirps give finer velocity bins but a longer frame. The window matters too: without one, a strong target such as the truck spreads sidelobes at −13 dB along its row and column that can hide a weak target next to it; a Hann window lowers them to −31 dB at the cost of slightly wider peaks."},
+  cfar:{pill:"CFAR", name:"CFAR detection", sub:"An adaptive threshold that follows the local noise keeps the false-alarm rate constant",
+    text:"Which cells of the map are targets? A fixed threshold fails, because the noise floor is not flat: clutter from the road is strong at short range and in the zero-velocity column, and the receiver noise changes with temperature and interference. A constant false-alarm rate (CFAR) detector estimates the noise around each cell under test from a window of training cells on both sides, skips a few guard cells so the target does not raise its own threshold, and multiplies the estimate by a factor α chosen for the wanted false-alarm probability. For the cell-averaging CFAR (CA-CFAR) shown here, α = N·(P_fa^(−1/N) − 1) with N training cells; with few training cells the noise estimate is itself noisy, α has to be larger and weak targets are lost: that is the CFAR loss. Too few guard cells let a wide target leak into its own estimate; two targets close together mask each other, which is why ordered-statistics CFAR is often used in cars. After the threshold, neighbouring cells of the same peak are grouped into one detection. The pedestrian walks so slowly that its echo sits next to the strong road clutter at zero speed; with more chirps the velocity bins become finer and it separates. Raise the false-alarm probability to see noise peaks appear, or the noise to see the motorbike and the pedestrian drop out first."},
+  ang:{pill:"DOA", name:"Angle estimation and point cloud", sub:"An FFT across the virtual antenna array gives the direction of each detection; together they form the point cloud",
+    text:"Range and speed are not enough: the car must know whether the object is in its own lane. The radar chip has several transmitters and receivers, and with MIMO each transmitter-receiver pair acts as one virtual channel, so 3 TX × 4 RX gives 12 channels and imaging radars reach 192 or more. With the virtual antennas half a wavelength apart, an echo from angle θ reaches each channel with an extra phase of π·sin θ, so a third FFT across the channels of a detected range-Doppler cell gives an angle spectrum whose peak is the direction of the target. Its resolution is set by the aperture: about 2/N radians for N channels, 13° for 8 channels without a window. Two cars side by side at the same range and speed fall into the same range-Doppler cell and can only be separated by angle; at 22 m a lane is about 9° wide, so a small radar merges the two cars into one object. Add channels and the peaks separate. Each detection with its range, velocity and angle becomes one point of the point cloud, which the tracker turns into objects and the sensor fusion combines with the camera."}
+};
+Object.assign(TIP, {
+  "Range resolution":"Smallest distance between two targets that still gives two peaks: c / 2B.",
+  "Velocity resolution":"Smallest speed difference the Doppler FFT can separate.",
+  "Max velocity":"Highest radial speed measured without aliasing.",
+  "Frame time":"Duration of all chirps of one frame.",
+  "Detections":"Cells above the CFAR threshold after grouping neighbouring cells.",
+  "Moving targets found":"How many of the five moving road users are detected.",
+  "False alarms":"Detections caused by noise alone.",
+  "Threshold factor":"α: how far above the noise estimate the threshold is set.",
+  "Angular resolution":"3 dB beamwidth of the angle FFT.",
+  "Two cars":"Whether the two cars side by side give two angle peaks.",
+  "Virtual array":"Transmitters × receivers = virtual channels.",
+  "Points in cloud":"Points produced by this frame.",
+  "Range from beat frequency":"The beat frequency is proportional to the round-trip delay.",
+  "Velocity from phase":"The echo phase rotates from chirp to chirp with the radial speed.",
+  "Maximum velocity":"The phase step per chirp must stay below ±π.",
+  "Integration gain":"Coherent FFTs raise the signal-to-noise ratio.",
+  "CA-CFAR threshold":"Cell-averaging CFAR: the threshold follows the mean of the training cells.",
+  "Threshold factor α":"Chosen so the false-alarm probability stays at P_fa.",
+  "Detection probability":"Chance of detecting a fluctuating target at a given SNR.",
+  "False alarms per frame":"Expected false detections in one map.",
+  "Phase step between channels":"Extra path length to the next antenna, as a phase.",
+  "Cross-range resolution":"Angular resolution turned into metres at a given range.",
+  "Field of view":"Angles measured without grating lobes."
+});
+const RPLEG = {
+  rd:[["accent","Beat signal and range profile"],["channel","True position of the road users"],["fg","Map colour: echo power (bright = strong)"]],
+  cfar:[["accent","Power along the cut"],["hole","CFAR threshold, cell under test, false alarm"],["channel","Training cells, target detection"],["muted","Guard cells, clutter detection"]],
+  ang:[["accent","Angle spectrum and array"],["electron","Approaching"],["hole","Receding"],["muted","Stationary, true outlines; hollow dot: false alarm"]]
+};
+const rpChip = (sel, attr, on) => document.querySelectorAll(sel).forEach(b => { const o = on(b.dataset[attr]); b.setAttribute("aria-pressed", o); b.style.borderColor = o ? "var(--accent)" : ""; b.style.color = o ? "var(--accent)" : ""; });
+function updateRP(){
+  rpCompute();
+  const v = RPS.view, info = RPINFO[v], M = RPS.M, Nch = RP_CHS[RPS.ch];
+  $("rp-pill").textContent = info.pill; $("rp-name").textContent = info.name; $("rp-sub").textContent = info.sub; $("rp-explain").textContent = info.text;
+  document.querySelectorAll("#rp-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  rpChip("#rp-win button", "w", w => w === RPS.win); rpChip("#rp-cut button", "s", s => s === RPS.cut);
+  const show = {win:["rd", "ang"], nd:["rd", "cfar"], noise:["rd", "cfar", "ang"], cut:["cfar"], guard:["cfar"], train:["cfar"], pfa:["cfar"], ch:["ang"], sep:["ang"]};
+  Object.entries(show).forEach(([k, vs]) => $(`rp-c-${k}`).hidden = !vs.includes(v));
+  $("rp-nd-v").textContent = `${M.Nd}`; $("rp-noise-v").textContent = `${RPS.noise} dB`; $("rp-guard-v").textContent = `${RPS.guard} per side`;
+  $("rp-train-v").textContent = `${RPS.train} per side`; $("rp-pfa-v").textContent = `1e${RPS.pfa}`; $("rp-ch-v").textContent = `${Nch} (${RP_CHL[RPS.ch]})`; $("rp-sep-v").textContent = `${RPS.sep}°`;
+  setHTML("rp-legend", RPLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  const res = rpRes(Nch);
+  if (v === "rd") renderRo($("rp-ro"), [["Range resolution", "0.50 m"], ["Velocity resolution", `${M.dv.toFixed(2)} m/s`], ["Max velocity", `±${RP_VMAX.toFixed(1)} m/s`], ["Frame time", `${(M.Nd*RP_TC*1e3).toFixed(1)} ms`]]);
+  else if (v === "cfar"){
+    const found = new Set(M.det.filter(d => d.t && d.k !== "rail").map(d => d.t.k === "car" ? "car" : d.t.k)), fa = M.det.filter(d => d.k === "fa").length;
+    renderRo($("rp-ro"), [["Detections", `${M.det.length}`], ["Moving targets found", `${found.size + (found.has("car") ? 1 : 0)} / 5`], ["False alarms", `${fa}`], ["Threshold factor", `${(10*Math.log10(M.alpha)).toFixed(1)} dB`]]);
+  } else {
+    RPS.cars = rpCars(M); RPS.pts = rpCloud(M);
+    renderRo($("rp-ro"), [["Angular resolution", `${res.toFixed(1)}°`], ["Two cars", RPS.cars.pk.length >= 2 ? "resolved" : "merged"], ["Virtual array", `${Nch} channels`], ["Points in cloud", `${RPS.pts.length}`]]);
+  }
+  const Nt = M.Nt, pfa = M.pfa, cells = M.N*M.Nd;
+  const snrI = Math.log(pfa)/Math.log(0.9) - 1, snrC = M.alpha/(Nt*(Math.pow(0.9, -1/Nt) - 1)) - 1;
+  const rows = {
+    rd:[{name:"Range from beat frequency", f:"R = c · f_b · T_c / (2B),  ΔR = c / 2B", sub:"B = 300 MHz → ΔR = 0.5 m; 128 samples → 64 m"},
+      {name:"Velocity from phase", f:"Δφ = 4π · v · T_c / λ,  Δv = λ / (2 · N_d · T_c)", sub:`N_d = ${M.Nd} chirps → Δv = ${M.dv.toFixed(2)} m/s`},
+      {name:"Maximum velocity", f:"v_max = ± λ / (4 · T_c)", sub:"T_c = 50 µs at 77 GHz → ±19.5 m/s; faster targets alias"},
+      {name:"Integration gain", f:"SNR_out = SNR_in + 10·log10(N · N_d) − window loss", sub:`${RP_N} × ${M.Nd} samples → +${M.gain.toFixed(1)} dB`}],
+    cfar:[{name:"CA-CFAR threshold", f:"T = α · (1/N) · Σ x_i  over the training cells", sub:`N = ${Nt} training cells, ${2*RPS.guard} guard cells`},
+      {name:"Threshold factor α", f:"α = N · (P_fa^(−1/N) − 1)", sub:`P_fa = 1e${RPS.pfa} → α = ${M.alpha.toFixed(1)} (${(10*Math.log10(M.alpha)).toFixed(1)} dB)`},
+      {name:"Detection probability", f:"P_d = (1 + α / (N · (1 + SNR)))^(−N)", sub:`SNR for P_d = 0.9: ${(10*Math.log10(snrC)).toFixed(1)} dB; CFAR loss ${(10*Math.log10(snrC/snrI)).toFixed(1)} dB`},
+      {name:"False alarms per frame", f:"n_FA ≈ P_fa · N_cells", sub:`${RP_N} × ${M.Nd} = ${cells} cells → ${(pfa*cells).toPrecision(2)} expected`}],
+    ang:[{name:"Phase step between channels", f:"Δφ = 2π · d · sin θ / λ = π · sin θ  (d = λ/2)", sub:`car 1 at ${M.tg[0].a.toFixed(1)}°: ${(180*Math.sin(M.tg[0].a*Math.PI/180)).toFixed(1)}° per channel`},
+      {name:"Angular resolution", f:"Δθ ≈ k · 2 / N rad  (k = 0.89 rectangular, 1.44 Hann)", sub:`N = ${Nch} → ${res.toFixed(1)}°`},
+      {name:"Cross-range resolution", f:"Δx = R · Δθ", sub:`at ${M.tg[0].r.toFixed(0)} m: ${(M.tg[0].r*res*Math.PI/180).toFixed(1)} m (a lane is 3.5 m)`},
+      {name:"Field of view", f:"θ_max = ± arcsin(λ / 2d) = ± 90°", sub:"λ/2 spacing avoids grating lobes; MIMO gives N_TX · N_RX virtual channels"}]
+  };
+  renderEq($("rp-eq"), rows[v]);
+  drawRPPlots(M, res);
+}
+function drawRPPlots(M, res){
+  const v = RPS.view; let a, b;
+  if (v === "rd"){
+    const m = clamp(Math.round(M.tg[0].fr), 0, M.N - 1), P = axesR(300, 230, {l:38,r:10,t:28,b:30}, -20, 20, -80, 0, 10, 20, "velocity (m/s)", "dB");
+    a = P.s + `<path d="${pathOf(Array.from({length:M.Nd}, (_, n) => [(n - M.Nd/2)*M.dv, M.dB[m*M.Nd + n]]), P.X, P.Y)}" fill="none" stroke="var(--accent)" stroke-width="2"/>` + P.frame + `<text x="44" y="12" style="fill:var(--accent)">Doppler spectrum at ${(m*RP_DR).toFixed(1)} m</text>`;
+    const Q = axesR(220, 230, {l:38,r:8,t:28,b:30}, 0, 128, 0, 5, 32, 1, "chirps per frame", "m/s"), dv = n => RP_LAM/(2*n*RP_TC);
+    b = Q.s + `<path d="${pathOf(range(8, 128, 60).map(n => [n, dv(n)]), Q.X, Q.Y)}" fill="none" stroke="var(--hole)" stroke-width="2.4"/>` + dotSvg(Q.X(M.Nd), Q.Y(M.dv)) + Q.frame + `<text x="44" y="12" style="fill:var(--hole)">velocity resolution</text>`;
+  } else if (v === "cfar"){
+    const P = axesR(300, 230, {l:38,r:10,t:28,b:30}, 0, 30, 0, 1, 5, 0.25, "SNR (dB)", "P_d"), Nt = M.Nt, pfa = M.pfa;
+    const ca = s => Math.pow(1 + M.alpha/(Nt*(1 + Math.pow(10, s/10))), -Nt), id = s => Math.pow(pfa, 1/(1 + Math.pow(10, s/10)));
+    a = P.s + `<path d="${pathOf(range(0, 30, 60).map(s => [s, id(s)]), P.X, P.Y)}" fill="none" stroke="var(--muted)" stroke-width="1.6" stroke-dasharray="4 3"/>`
+      + `<path d="${pathOf(range(0, 30, 60).map(s => [s, ca(s)]), P.X, P.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + P.frame
+      + `<text x="44" y="12" style="fill:var(--accent)">CA-CFAR</text><text x="120" y="12" style="fill:var(--muted)">known noise</text>`;
+    const Q = axesR(220, 230, {l:38,r:8,t:28,b:30}, 0, 48, 0, 30, 12, 5, "training cells N", "α (dB)"), al = n => 10*Math.log10(n*(Math.pow(pfa, -1/n) - 1));
+    b = Q.s + `<line x1="${Q.X(0)}" x2="${Q.X(48)}" y1="${Q.Y(10*Math.log10(-Math.log(pfa)))}" y2="${Q.Y(10*Math.log10(-Math.log(pfa)))}" stroke="var(--muted)" stroke-dasharray="4 3"/>`
+      + `<path d="${pathOf(range(2, 48, 46).map(n => [n, al(n)]), Q.X, Q.Y)}" fill="none" stroke="var(--hole)" stroke-width="2.4"/>` + dotSvg(Q.X(Nt), Q.Y(al(Nt))) + Q.frame + `<text x="44" y="12" style="fill:var(--hole)">threshold factor α</text>`;
+  } else {
+    const k = RPS.win === "hann" ? 1.44 : 0.886, rd = n => k*2/n*180/Math.PI, Nch = RP_CHS[RPS.ch];
+    const P = axesR(300, 230, {l:38,r:10,t:28,b:30}, 0, 64, 0, 45, 16, 15, "virtual channels", "degrees");
+    a = P.s + `<line x1="${P.X(0)}" x2="${P.X(64)}" y1="${P.Y(RPS.sep)}" y2="${P.Y(RPS.sep)}" stroke="var(--hole)" stroke-dasharray="4 3"/>`
+      + `<path d="${pathOf(range(4, 64, 60).map(n => [n, rd(n)]), P.X, P.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + dotSvg(P.X(Nch), P.Y(rd(Nch))) + P.frame
+      + `<text x="44" y="12" style="fill:var(--accent)">angular resolution</text><text x="190" y="12" style="fill:var(--hole)">two cars</text>`;
+    const rr = res*Math.PI/180, top = Math.max(5, Math.ceil(rr*64/5)*5);
+    const Q = axesR(220, 230, {l:38,r:8,t:28,b:30}, 0, 64, 0, top, 16, top/5, "range (m)", "m");
+    b = Q.s + `<line x1="${Q.X(0)}" x2="${Q.X(64)}" y1="${Q.Y(3.5)}" y2="${Q.Y(3.5)}" stroke="var(--muted)" stroke-dasharray="4 3"/>`
+      + `<path d="${pathOf([[0, 0], [64, rr*64]], Q.X, Q.Y)}" fill="none" stroke="var(--hole)" stroke-width="2.4"/>` + Q.frame + `<text x="44" y="12" style="fill:var(--hole)">cross-range resolution</text>`;
+  }
+  $("rp-p1").innerHTML = a; $("rp-p2").innerHTML = b;
+}
+function rpTick(dt){
+  if (!(dt >= 0)) return;
+  RPS.t += dt; RPS.acc += dt;
+  if (RPS.acc > 0.25){ RPS.acc = 0; RPS.frame++; updateRP(); }
+}
+document.querySelectorAll("#rp-view button").forEach(b => b.addEventListener("click", () => { RPS.view = b.dataset.v; updateRP(); }));
+document.querySelectorAll("#rp-win button").forEach(b => b.addEventListener("click", () => { RPS.win = b.dataset.w; updateRP(); }));
+document.querySelectorAll("#rp-cut button").forEach(b => b.addEventListener("click", () => { RPS.cut = b.dataset.s; updateRP(); }));
+[["rp-nd", "nd"], ["rp-noise", "noise"], ["rp-guard", "guard"], ["rp-train", "train"], ["rp-pfa", "pfa"], ["rp-ch", "ch"], ["rp-sep", "sep"]].forEach(([id, k]) => $(id).addEventListener("input", e => { RPS[k] = +e.target.value; updateRP(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -18114,6 +18837,7 @@ function showTab(t){
   else if (t === "lt"){ $("sub-top").textContent = "Lithography · resolution, multiple patterning, OPC and EUV"; LTC.resize(); updateLT(); }
   else if (t === "rl"){ $("sub-top").textContent = "Reliability · electromigration, transistor aging, qualification"; RLC.resize(); updateRL(); }
   else if (t === "ly"){ $("sub-top").textContent = "Layout · standard cell, cross-section along a cut line, DRC and LVS"; LYC.resize(); updateLY(); }
+  else if (t === "rp"){ $("sub-top").textContent = "Radar DSP · range-Doppler FFT, CFAR detection, angle FFT and point cloud"; RPC.resize(); updateRP(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -18141,6 +18865,7 @@ function frame(now){
   else if (tab === "lt"){ ltTick(dt); if (LTC.cv.clientWidth) drawLT(dt, T); }
   else if (tab === "rl"){ rlTick(dt); if (RLC.cv.clientWidth) drawRL(dt, T); }
   else if (tab === "ly"){ lyTick(dt); if (LYC.cv.clientWidth) drawLY(dt, T); }
+  else if (tab === "rp"){ rpTick(dt); if (RPC.cv.clientWidth) drawRP(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);

@@ -74,6 +74,11 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Mixer & IF filter** – LO × echo → beat frequency, high-pass that compensates 1/R⁴, low-pass that sets Rmax
 - **SAR ADC** – capacitive DAC and comparator binary search, LSB, SQNR = 6.02N + 1.76 dB, radar dynamic range
 
+## Radar DSP tab (`#radar-dsp`)
+- **Range-Doppler map** – data cube, beat signal and range FFT, Doppler FFT across 16–128 chirps, live map of a road scene (two cars, pedestrian, motorbike, truck, guardrail, road clutter), Hann vs rectangular window, integration gain
+- **CFAR detection** – CA-CFAR window sliding along a range cut (training and guard cells, threshold factor α), peak grouping, false alarms vs P_fa, P_d vs SNR and CFAR loss
+- **Angle & point cloud** – virtual MIMO array (4–64 channels), angle FFT of the two-car cell (resolved or merged), bird's-eye point cloud coloured by velocity, angular and cross-range resolution
+
 ## BJT & SiGe HBT tab (`#bipolar`)
 - **BJT operation** – emitter injection, base transport, collector sweep, β, gm, Early effect, saturation, Gummel plot
 - **SiGe HBT** – Ge-graded base drift field and band diagrams vs Si, base transit time, fT and fmax vs IC, technologies for 77 GHz
