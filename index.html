@@ -7843,6 +7843,223 @@ Object.assign(window.I18N_ZH, {
 "Every die is tested before shipping: scan chains let a tester control and observe every flip-flop": "每顆晶粒出貨前都要測試：掃描鏈讓測試機能控制並觀測每個正反器",
 "Manufacturing defects such as particles, opens and shorts appear on random dies, so every chip must be tested, and testing a billion-transistor chip through its normal pins is impossible. Design for test (DFT) replaces every flip-flop by a scan flip-flop with a multiplexer: in test mode they form long shift registers, scan chains. The tester shifts a pattern in, applies one functional clock to capture the response of the logic, and shifts the result out while the next pattern goes in. Automatic test pattern generation (ATPG) computes patterns that make each modelled fault, such as a net stuck at # or # or a slow transition, visible at a flip-flop. Fault coverage is the fraction of faults detected. Test time is dominated by shifting, so designs use many short chains with on-chip compression. Memories are tested by built-in self-test (BIST). The defect level that escapes to customers follows the Williams-Brown relation DL = # − Y^(# − FC): with # % yield, # % coverage still lets about #,# defective parts per million through, which is why automotive chips need near-complete coverage of several fault models.": "微粒、斷路與短路等製造缺陷會隨機出現在晶粒上，所以每顆晶片都要測試，而透過一般接腳測試有十億顆電晶體的晶片是不可能的。可測試性設計（DFT）把每個正反器換成帶多工器的掃描正反器：在測試模式下它們串成很長的移位暫存器，也就是掃描鏈。測試機移入一個向量，施加一個功能時脈擷取邏輯的響應，再把結果移出，同時移入下一個向量。自動測試向量產生（ATPG）計算出能讓每個模型化故障（例如某條線固定為 # 或 #，或某個轉態太慢）在正反器上顯現的向量。故障覆蓋率是被偵測到的故障比例。測試時間主要花在移位上，所以設計會用許多短鏈並搭配晶片上的壓縮。記憶體則用內建自我測試（BIST）。逃到客戶手上的缺陷率遵循 Williams-Brown 關係 DL = # − Y^(# − FC)：良率 # % 時，# % 的覆蓋率仍會讓每百萬顆約有 #,# 顆不良品流出，這就是車用晶片需要多種故障模型且接近完整覆蓋的原因。"
 });
+Object.assign(window.I18N_ZH, {
+"High-speed links": "高速介面",
+"High-speed links · SerDes channel and eye, equalization, jitter, chiplet interfaces": "高速介面 · SerDes 通道與眼圖、等化、抖動、小晶片介面",
+"Channel, equalization and the eye": "通道、等化與眼圖",
+"High-speed link view": "高速介面視圖",
+"Eye diagram": "眼圖",
+"Jitter and bathtub": "抖動與浴缸曲線",
+"Chiplet links (UCIe)": "小晶片連線（UCIe）",
+"High-speed serial links: pulse response of a lossy channel and the resulting eye diagram, jitter bathtub curve, and die-to-die chiplet interface": "高速序列介面：損耗通道的脈衝響應與眼圖、抖動浴缸曲線，以及晶粒對晶粒的小晶片介面",
+"Modulation": "調變",
+"NRZ sends one bit per symbol on two levels; PAM# sends two bits per symbol on four levels, at the same symbol rate.": "NRZ 每個符號以兩個電位傳一位元；PAM# 在相同符號率下以四個電位傳兩位元。",
+"Channel loss at Nyquist": "Nyquist 頻率的通道損耗",
+"Insertion loss of the channel (package, board traces, connectors, cable) at half the symbol rate.": "通道（封裝、電路板走線、連接器、纜線）在一半符號率處的插入損耗。",
+"Equalization": "等化",
+"Equalizers undo the frequency-dependent loss. Toggle each one on or off.": "等化器抵消與頻率相關的損耗。可個別開關。",
+"Noise and crosstalk": "雜訊與串音",
+"Random noise and crosstalk at the receiver, relative to the signal swing.": "接收端的隨機雜訊與串音，相對於訊號擺幅。",
+"Random jitter (rms)": "隨機抖動（rms）",
+"Random jitter, Gaussian and unbounded, from thermal and phase noise (rms, in milli-unit-intervals).": "隨機抖動，高斯分佈且無上界，來自熱雜訊與相位雜訊（rms，單位千分之一 UI）。",
+"Deterministic jitter (pp)": "確定性抖動（峰對峰）",
+"Deterministic jitter, bounded: from inter-symbol interference, duty-cycle distortion and crosstalk (peak to peak).": "確定性抖動，有界：來自符號間干擾、工作週期失真與串音（峰對峰）。",
+"Target BER": "目標 BER",
+"Bit error ratio the link must reach before forward error correction.": "連線在前向錯誤更正之前必須達到的位元錯誤率。",
+"Package": "封裝",
+"UCIe standard package uses organic substrates with coarse bumps; advanced package uses silicon interposers or bridges with fine micro-bumps.": "UCIe 標準封裝使用粗凸塊的有機基板；先進封裝使用細微凸塊的矽中介層或橋接。",
+"Standard (organic)": "標準（有機）",
+"Advanced (interposer, bridge)": "先進（中介層、橋接）",
+"Bump pitch": "凸塊間距",
+"Centre-to-centre distance of the bumps that carry the signals.": "傳送訊號的凸塊中心距。",
+"Lane rate": "通道速率",
+"Data rate per lane in gigatransfers per second.": "每條通道的資料速率，單位 GT/s。",
+"Channel and equalizer frequency response, jitter histogram, or bandwidth density versus bump pitch": "通道與等化器頻率響應、抖動直方圖，或頻寬密度對凸塊間距",
+"Pulse response cursors, total jitter versus BER, or energy per bit versus reach": "脈衝響應游標、總抖動對 BER，或每位元能量對傳輸距離",
+"Explain the terms: SerDes, insertion loss, ISI, eye diagram, FFE, CTLE, DFE, PAM#, jitter, BER, UCIe": "名詞解釋：SerDes、插入損耗、ISI、眼圖、FFE、CTLE、DFE、PAM#、抖動、BER、UCIe",
+"Inside a SerDes link": "SerDes 連線內部",
+"<b>Serializer</b>: wide parallel data becomes one fast bit stream.": "<b>串列器</b>：寬的平行資料變成一條快速位元流。",
+"<b>TX driver + FFE</b>: pre-distorts the symbols to fight the channel.": "<b>TX 驅動器 + FFE</b>：預先扭曲符號以對抗通道。",
+"<b>Channel</b>: package, board, connector, cable; loss grows with frequency.": "<b>通道</b>：封裝、電路板、連接器、纜線；損耗隨頻率增加。",
+"<b>RX CTLE + DFE</b>: boosts high frequencies and cancels the tail of earlier symbols.": "<b>RX CTLE + DFE</b>：提升高頻並抵消先前符號的拖尾。",
+"<b>CDR and slicer</b>: recovers the clock and decides each symbol.": "<b>CDR 與判決器</b>：恢復時脈並判定每個符號。",
+"<b>Deserializer + FEC</b>: back to parallel data, errors corrected.": "<b>解串器 + FEC</b>：還原成平行資料並更正錯誤。",
+"Typical links": "典型連線",
+"Link": "連線",
+"Rate per lane": "每通道速率",
+"Energy": "能量",
+"# GT/s PAM#": "# GT/s PAM#",
+"~# pJ/bit": "~# pJ/bit",
+"# Gb/s PAM#": "# Gb/s PAM#",
+"~#–# pJ/bit": "~#–# pJ/bit",
+"XSR die-to-die": "XSR 晶粒對晶粒",
+"# Gb/s": "# Gb/s",
+"UCIe advanced": "UCIe 先進",
+"up to # GT/s": "最高 # GT/s",
+"HBM# per pin": "HBM# 每接腳",
+"Terms": "名詞",
+"Insertion loss": "插入損耗",
+"Attenuation of the channel in dB; skin effect and dielectric loss make it grow with frequency.": "通道的衰減（dB）；集膚效應與介電損耗使其隨頻率增加。",
+"ISI": "ISI",
+"Inter-symbol interference: each smeared pulse leaks into its neighbours.": "符號間干擾：每個被拉寬的脈衝漏進相鄰符號。",
+"All symbol periods overlaid; the open area is the margin for the decision.": "所有符號週期疊在一起；開口的面積就是判決的餘裕。",
+"FFE, CTLE, DFE": "FFE、CTLE、DFE",
+"Feed-forward, continuous-time linear and decision-feedback equalizers.": "前饋、連續時間線性與判決回授等化器。",
+"PAM#": "PAM#",
+"Four amplitude levels, two bits per symbol, three eyes each a third as tall.": "四個振幅電位，每符號兩位元，三個眼各只有三分之一高。",
+"Jitter": "抖動",
+"Timing uncertainty of the edges: random (Gaussian) plus deterministic (bounded).": "邊緣的時間不確定性：隨機（高斯）加上確定性（有界）。",
+"BER": "BER",
+"Bit error ratio; #⁻¹² before FEC is a classic target.": "位元錯誤率；FEC 前 #⁻¹² 是典型目標。",
+"UCIe": "UCIe",
+"Universal Chiplet Interconnect Express: a standard parallel die-to-die interface for chiplets.": "通用小晶片互連快捷：小晶片間的標準平行晶粒對晶粒介面。",
+"Eye height": "眼高",
+"Eye width": "眼寬",
+"BER estimate": "估計 BER",
+"Loss at Nyquist": "Nyquist 損耗",
+"closed": "閉合",
+"Total jitter": "總抖動",
+"Eye width at BER": "目標 BER 下的眼寬",
+"Q at target BER": "目標 BER 的 Q",
+"Random jitter": "隨機抖動",
+"Shoreline bandwidth": "邊緣頻寬",
+"Lanes per mm": "每 mm 通道數",
+"Energy per bit": "每位元能量",
+"Power for # TB/s": "# TB/s 所需功率",
+"Vertical opening of the worst eye at the sampling point, as a share of the swing.": "取樣點處最差眼的垂直開口，以擺幅比例表示。",
+"Range of sampling phases with an open eye.": "眼睛張開的取樣相位範圍。",
+"Bit error ratio from eye height and noise (Gaussian).": "由眼高與雜訊（高斯）估算的位元錯誤率。",
+"Channel insertion loss at half the symbol rate.": "一半符號率處的通道插入損耗。",
+"DJ plus the random-jitter part at the target BER.": "DJ 加上目標 BER 下的隨機抖動部分。",
+"Unit interval minus total jitter.": "單位區間減去總抖動。",
+"Number of σ of random jitter on each side.": "每側隨機抖動的 σ 倍數。",
+"rms Gaussian timing noise.": "rms 高斯時間雜訊。",
+"Data per millimetre of die edge.": "每毫米晶粒邊緣的資料量。",
+"Signal bumps per millimetre of edge.": "每毫米邊緣的訊號凸塊數。",
+"Interface energy per transferred bit.": "每傳送一位元的介面能量。",
+"Interface power to move one terabyte per second.": "每秒傳送一 TB 所需的介面功率。",
+"Skin-effect channel": "集膚效應通道",
+"Loss grows with the square root of frequency.": "損耗隨頻率平方根增加。",
+"Feed-forward EQ": "前饋等化",
+"Weighted copies of neighbouring symbols.": "相鄰符號的加權副本。",
+"CTLE boost": "CTLE 增益",
+"High-pass gain at the Nyquist frequency.": "Nyquist 頻率的高通增益。",
+"Error rate": "錯誤率",
+"Gaussian tail beyond half the eye.": "超過半個眼高的高斯尾端。",
+"Dual-Dirac model": "雙狄拉克模型",
+"Bounded jitter as two spikes.": "以兩個尖峰表示有界抖動。",
+"TJ at a target BER.": "目標 BER 下的 TJ。",
+"What is left of the unit interval.": "單位區間剩下的部分。",
+"Q factor": "Q 因子",
+"Inverse Gaussian tail.": "高斯尾端的反函數。",
+"Lane density": "通道密度",
+"Rows of bumps over pitch.": "凸塊排數除以間距。",
+"Bandwidth density": "頻寬密度",
+"Lanes times rate.": "通道數乘以速率。",
+"Interface power": "介面功率",
+"Energy times bandwidth.": "能量乘以頻寬。",
+"Reach": "傳輸距離",
+"Maximum wire length.": "最大導線長度。",
+"Pulse without equalization": "未等化的脈衝",
+"Equalized pulse, eye traces": "等化後脈衝、眼圖軌跡",
+"Main cursor, eye opening": "主游標、眼開口",
+"ISI cursors": "ISI 游標",
+"Bathtub, deterministic jitter": "浴缸曲線、確定性抖動",
+"Target BER, random jitter": "目標 BER、隨機抖動",
+"Open eye width": "開眼寬度",
+"Chiplet": "小晶片",
+"Signal bump, lane": "訊號凸塊、通道",
+"Power and ground bump": "電源與接地凸塊",
+"Data, selected link": "資料、所選連線",
+"H(f) = e^(−a·√(j#πf)), IL ∝ √f": "H(f) = e^(−a·√(j#πf))，IL ∝ √f",
+"# dB at Nyquist": "Nyquist 處 # dB",
+"off": "關閉",
+"gain #, ≈ # dB peaking": "增益 #，峰化約 # dB",
+"σ = # % of the swing → #e-#": "σ = 擺幅的 # % → #e-#",
+"ρ = # transition density": "ρ = # 轉態密度",
+"# at #e-#, # at #e-#": "#e-# 時 #，#e-# 時 #",
+"≈ # mm on interposer or bridge": "中介層或橋接上約 # mm",
+"≈ # mm on organic substrate": "有機基板上約 # mm",
+"short wires need no equalization and no CDR": "短導線不需要等化也不需要 CDR",
+"Pulse response, # dB loss at Nyquist": "脈衝響應，Nyquist 損耗 # dB",
+"package · board · connector · cable": "封裝 · 電路板 · 連接器 · 纜線",
+"received pulse (no equalization)": "接收到的脈衝（未等化）",
+"after equalization; dots: cursors h₋₁ … h₅": "等化後；點：游標 h₋₁ … h₅",
+"time from the sampling point (UI)": "距取樣點的時間 (UI)",
+"ISI: # % of the main cursor": "ISI：主游標的 # %",
+"NRZ eye diagram (# UI, # symbols)": "NRZ 眼圖（# UI，# 個符號）",
+"PAM# eye diagram (# UI, # symbols)": "PAM# 眼圖（# UI，# 個符號）",
+"eye open: height # % of the swing, width # UI": "眼睛張開：高度為擺幅的 # %，寬度 # UI",
+"eye closed: the receiver cannot decide reliably": "眼睛閉合：接收端無法可靠判決",
+"sampling point": "取樣點",
+"Bathtub curve: BER vs sampling position (target #e-#)": "浴缸曲線：BER 對取樣位置（目標 #e-#）",
+"sampling position in the unit interval (UI)": "單位區間內的取樣位置 (UI)",
+"eye width # UI": "眼寬 # UI",
+"no open eye at this BER": "此 BER 下眼睛不開",
+"Jitter budget (dual-Dirac)": "抖動預算（雙狄拉克）",
+"DJ (pp): # mUI": "DJ（峰對峰）：# mUI",
+"RJ: # mUI rms × #·# = # mUI": "RJ：# mUI rms × #·# = # mUI",
+"TJ at #e-# = # mUI": "#e-# 下 TJ = # mUI",
+"eye width = # − TJ = # mUI": "眼寬 = # − TJ = # mUI",
+"random jitter is unbounded: the lower the": "隨機抖動沒有上界：目標 BER",
+"target BER, the more of it eats the eye": "越低，它吃掉的眼寬越多",
+"(×# σ at #e-#, ×# σ at #e-#)": "（#e-# 時 ×# σ，#e-# 時 ×# σ）",
+"the CDR places the sampler in the middle": "CDR 把取樣器放在眼的中央",
+"of the eye and tracks slow wander": "並追蹤緩慢漂移",
+"Advanced package: dies on a silicon interposer or bridge": "先進封裝：晶粒放在矽中介層或橋接上",
+"Standard package: dies side by side on an organic substrate": "標準封裝：晶粒並排放在有機基板上",
+"silicon interposer / bridge": "矽中介層 / 橋接",
+"organic package substrate": "有機封裝基板",
+"chiplet A": "小晶片 A",
+"chiplet B": "小晶片 B",
+"reach ≤ # mm": "距離 ≤ # mm",
+"top view of the die edge (bump field)": "晶粒邊緣俯視（凸塊區）",
+"pitch # µm · # bump rows deep · half carry signals": "間距 # µm · 深 # 排凸塊 · 一半傳訊號",
+"Bandwidth and energy": "頻寬與能量",
+"# signal lanes per mm of die edge": "每 mm 晶粒邊緣 # 條訊號通道",
+"× # GT/s = # GB/s per mm": "× # GT/s = 每 mm # GB/s",
+"energy ≈ # pJ/bit": "能量 ≈ # pJ/bit",
+"# TB/s across the edge: # mm of edge, # W": "跨邊緣傳 # TB/s：需 # mm 邊緣，# W",
+"energy per bit (pJ)": "每位元能量 (pJ)",
+"on-die wire": "晶片內導線",
+"UCIe standard": "UCIe 標準",
+"XSR SerDes": "XSR SerDes",
+"PCIe / long reach": "PCIe / 長距離",
+"short, parallel and unequalized links win on energy;": "短、平行、無等化的連線最省能量；",
+"long SerDes links need equalizers and CDRs.": "長距離 SerDes 需要等化器與 CDR。",
+"frequency (× baud rate)": "頻率（× 鮑率）",
+"channel": "通道",
+"combined": "合成",
+"cursor (UI)": "游標 (UI)",
+"relative": "相對值",
+"cursors before / after EQ": "等化前 / 後的游標",
+"edge position (UI)": "邊緣位置 (UI)",
+"density": "密度",
+"edge jitter histogram": "邊緣抖動直方圖",
+"−log# BER": "−log# BER",
+"TJ (UI)": "TJ (UI)",
+"total jitter vs target BER": "總抖動對目標 BER",
+"bump pitch (µm)": "凸塊間距 (µm)",
+"GB/s per mm": "每 mm GB/s",
+"advanced": "先進",
+"standard, at # GT/s": "標準，# GT/s",
+"log# reach (mm)": "log# 距離 (mm)",
+"log# pJ/bit": "log# pJ/bit",
+"energy vs reach": "能量對距離",
+"on-die": "晶片內",
+"UCIe adv.": "UCIe 先進",
+"UCIe std.": "UCIe 標準",
+"XSR": "XSR",
+"LR SerDes": "長距 SerDes",
+"Above tens of gigabits per second the copper channel smears every symbol into its neighbours; equalizers undo the damage": "超過每秒數十 Gb 時，銅通道會把每個符號抹進相鄰符號；等化器負責修復",
+"A serializer-deserializer (SerDes) pushes data through package traces, board wiring, connectors and cables at tens of gigabaud. Those channels are low-pass filters: skin effect and dielectric loss attenuate high frequencies far more than low ones, so a sharp one-symbol pulse comes out of the channel small, wide and with a long tail. The tail falls on the following symbols (post-cursor inter-symbol interference) and a little on the previous one (pre-cursor). Overlaying many received symbol periods gives the eye diagram; the open area in the middle is what the receiver has to decide on. With # dB of loss at the Nyquist frequency the eye is closed. Equalizers restore it: the transmitter's feed-forward equalizer (FFE) subtracts scaled copies of neighbouring symbols, the receiver's continuous-time linear equalizer (CTLE) boosts high frequencies (and noise with them), and the decision-feedback equalizer (DFE) subtracts the tail of already-decided symbols without amplifying noise. PAM# doubles the bits per symbol at the same baud rate, but its three stacked eyes are each a third as tall, a # dB SNR penalty, so PAM# links rely on forward error correction.": "串列-解串器（SerDes）以數十 GBaud 的速率把資料推過封裝走線、電路板導線、連接器與纜線。這些通道都是低通濾波器：集膚效應與介電損耗對高頻的衰減遠大於低頻，所以一個銳利的單符號脈衝出了通道後變得又小又寬，還拖著長尾。這條尾巴落在後面的符號上（後游標符號間干擾），也有一點落在前一個符號上（前游標）。把許多接收到的符號週期疊在一起就是眼圖；中間開口的區域就是接收端用來判決的空間。在 Nyquist 頻率有 # dB 損耗時，眼睛是閉合的。等化器讓它重新張開：發射端的前饋等化器（FFE）減去相鄰符號的縮放副本，接收端的連續時間線性等化器（CTLE）提升高頻（雜訊也一起被放大），判決回授等化器（DFE）則減去已判定符號的拖尾，而不放大雜訊。PAM# 在相同鮑率下讓每符號位元數加倍，但三個堆疊的眼各只有三分之一高，即 # dB 的 SNR 損失，所以 PAM# 連線仰賴前向錯誤更正。",
+"Jitter and the bathtub curve": "抖動與浴缸曲線",
+"Timing noise on the edges shrinks the eye from the sides; how much depends on the error rate you can tolerate": "邊緣上的時間雜訊從兩側縮小眼寬；縮多少取決於你能容忍的錯誤率",
+"Edges never arrive exactly on time. Random jitter from thermal noise and oscillator phase noise is Gaussian and therefore unbounded: given enough bits, some edge will be arbitrarily late. Deterministic jitter, from inter-symbol interference, duty-cycle distortion, crosstalk and supply noise, is bounded. The dual-Dirac model represents deterministic jitter as two spikes separated by DJ, each smeared by the random jitter. Sweeping the sampling point across the unit interval and counting errors gives the bathtub curve: very high BER near the edges, a deep floor in the middle. Where the curve crosses the target BER is the usable eye width. Because the Gaussian tails extend forever, total jitter TJ = DJ + #·Q(BER)·RJ grows as the target BER drops: about # times the rms random jitter at #⁻¹² and # times at #⁻¹⁵. That is why a few hundred femtoseconds of random jitter matter at #+ Gb/s, and why the clock and data recovery circuit must centre the sampler precisely.": "邊緣從來不會準時到達。熱雜訊與振盪器相位雜訊造成的隨機抖動是高斯分佈，因此沒有上界：只要位元夠多，某個邊緣就可能晚得任意多。符號間干擾、工作週期失真、串音與電源雜訊造成的確定性抖動則有上界。雙狄拉克模型把確定性抖動表示成相隔 DJ 的兩個尖峰，各自被隨機抖動抹開。把取樣點掃過整個單位區間並計數錯誤，就得到浴缸曲線：靠近邊緣 BER 很高，中間有很深的谷底。曲線與目標 BER 相交之處就是可用的眼寬。由於高斯尾巴無限延伸，總抖動 TJ = DJ + #·Q(BER)·RJ 會隨目標 BER 降低而增加：在 #⁻¹² 約為 rms 隨機抖動的 # 倍，在 #⁻¹⁵ 約 # 倍。這就是在 #+ Gb/s 時幾百飛秒的隨機抖動就很重要，也是時脈資料恢復電路必須精確把取樣器放在中央的原因。",
+"Chiplet links": "小晶片連線",
+"Between chiplets in one package, thousands of short, slow, simple wires beat a few fast SerDes lanes": "在同一個封裝內的小晶片之間，成千上萬條短、慢、簡單的導線勝過少數幾條高速 SerDes",
+"When a big chip is split into chiplets, the dies must talk to each other almost as if they were one. A long-reach SerDes is overkill here: across a few millimetres there is little loss, so die-to-die interfaces like UCIe use many parallel lanes at moderate rates (up to # GT/s), single-ended, with no or very light equalization and a forwarded clock instead of a CDR. Bandwidth then comes from density: how many signal bumps fit along each millimetre of die edge, the shoreline. On an organic package substrate the bumps are # to # µm apart and the reach is up to about # mm; on a silicon interposer or bridge, micro-bumps at # to # µm pitch pack several times more lanes per millimetre, at a reach of about # mm. The energy cost falls to a fraction of a picojoule per bit, compared with several picojoules for a long-reach link, so moving a terabyte per second between chiplets costs a few watts instead of tens. Hybrid bonding at below # µm pitch pushes this further.": "把大晶片拆成小晶片時，晶粒之間必須像同一顆晶片一樣溝通。長距離 SerDes 在這裡太過頭了：幾毫米的距離幾乎沒有損耗，所以 UCIe 這類晶粒對晶粒介面使用許多中等速率（最高 # GT/s）的平行通道，單端傳輸，幾乎不需要等化，並以隨路時脈取代 CDR。頻寬來自密度：每毫米晶粒邊緣（邊緣線）能放多少訊號凸塊。在有機封裝基板上凸塊間距為 # 到 # µm，距離可達約 # mm；在矽中介層或橋接上，# 到 # µm 間距的微凸塊讓每毫米的通道數多好幾倍，距離約 # mm。能量降到每位元零點幾皮焦耳，相較於長距離連線的數皮焦耳，所以在小晶片間每秒傳一 TB 只要幾瓦而不是幾十瓦。間距小於 # µm 的混合鍵合更進一步推進了這一點。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -8217,6 +8434,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-up" aria-selected="false" aria-controls="tab-up">Unit processes</button>
         <button role="tab" id="tab-btn-va" aria-selected="false" aria-controls="tab-va">Variability</button>
         <button role="tab" id="tab-btn-df" aria-selected="false" aria-controls="tab-df">Design flow & DFT</button>
+        <button role="tab" id="tab-btn-hs" aria-selected="false" aria-controls="tab-hs">High-speed links</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -11945,6 +12163,137 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>DFT, scan</dt><dd>Design for test: flip-flops are chained into shift registers so a tester can set and read every state.</dd>
               <dt>ATPG</dt><dd>Automatic test pattern generation: finds input patterns that expose each modelled fault.</dd>
               <dt>DPPM</dt><dd>Defective parts per million that escape test and reach the customer.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== HIGH-SPEED LINKS TAB ===================== -->
+  <section id="tab-hs" role="tabpanel" aria-labelledby="tab-btn-hs" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="hs-pill">EYE</span><h2 id="hs-name">Channel, equalization and the eye</h2></div>
+      <p id="hs-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="hs-view" role="group" aria-label="High-speed link view" style="flex-wrap:wrap">
+        <button data-v="eye" aria-pressed="true">Eye diagram</button>
+        <button data-v="bt" aria-pressed="false">Jitter and bathtub</button>
+        <button data-v="uc" aria-pressed="false">Chiplet links (UCIe)</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvhs" aria-label="High-speed serial links: pulse response of a lossy channel and the resulting eye diagram, jitter bathtub curve, and die-to-die chiplet interface"></canvas>
+      <div class="legend" id="hs-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="hs-ro"></div>
+        <div id="hs-c-mod" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="NRZ sends one bit per symbol on two levels; PAM4 sends two bits per symbol on four levels, at the same symbol rate.">Modulation</span>
+          <div class="chips" id="hs-mod">
+            <button class="chipbtn" data-m="nrz">NRZ</button>
+            <button class="chipbtn" data-m="pam4">PAM4</button>
+          </div>
+        </div>
+        <div class="slider" id="hs-c-il">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Insertion loss of the channel (package, board traces, connectors, cable) at half the symbol rate.">Channel loss at Nyquist</span><span id="hs-il-v"></span></div>
+          <input id="hs-il" type="range" min="2" max="36" step="1" value="20">
+        </div>
+        <div id="hs-c-eq" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Equalizers undo the frequency-dependent loss. Toggle each one on or off.">Equalization</span>
+          <div class="chips" id="hs-eq">
+            <button class="chipbtn" data-e="ffe">TX FFE</button>
+            <button class="chipbtn" data-e="ctle">RX CTLE</button>
+            <button class="chipbtn" data-e="dfe">RX DFE</button>
+          </div>
+        </div>
+        <div class="slider" id="hs-c-nz">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Random noise and crosstalk at the receiver, relative to the signal swing.">Noise and crosstalk</span><span id="hs-nz-v"></span></div>
+          <input id="hs-nz" type="range" min="0" max="8" step="0.5" value="2">
+        </div>
+        <div class="slider" id="hs-c-rj">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Random jitter, Gaussian and unbounded, from thermal and phase noise (rms, in milli-unit-intervals).">Random jitter (rms)</span><span id="hs-rj-v"></span></div>
+          <input id="hs-rj" type="range" min="5" max="40" step="1" value="15">
+        </div>
+        <div class="slider" id="hs-c-dj">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Deterministic jitter, bounded: from inter-symbol interference, duty-cycle distortion and crosstalk (peak to peak).">Deterministic jitter (pp)</span><span id="hs-dj-v"></span></div>
+          <input id="hs-dj" type="range" min="0" max="400" step="10" value="150">
+        </div>
+        <div class="slider" id="hs-c-ber">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Bit error ratio the link must reach before forward error correction.">Target BER</span><span id="hs-ber-v"></span></div>
+          <input id="hs-ber" type="range" min="-15" max="-4" step="1" value="-12">
+        </div>
+        <div id="hs-c-pkg" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="UCIe standard package uses organic substrates with coarse bumps; advanced package uses silicon interposers or bridges with fine micro-bumps.">Package</span>
+          <div class="chips" id="hs-pkg">
+            <button class="chipbtn" data-p="std">Standard (organic)</button>
+            <button class="chipbtn" data-p="adv">Advanced (interposer, bridge)</button>
+          </div>
+        </div>
+        <div class="slider" id="hs-c-pitch">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Centre-to-centre distance of the bumps that carry the signals.">Bump pitch</span><span id="hs-pitch-v"></span></div>
+          <input id="hs-pitch" type="range" min="25" max="130" step="5" value="110">
+        </div>
+        <div class="slider" id="hs-c-gt">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Data rate per lane in gigatransfers per second.">Lane rate</span><span id="hs-gt-v"></span></div>
+          <input id="hs-gt" type="range" min="4" max="32" step="4" value="16">
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="hs-eq-list"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Analysis</p>
+        <div class="plots">
+          <div class="plot"><svg id="hs-p1" viewBox="0 0 300 230" role="img" aria-label="Channel and equalizer frequency response, jitter histogram, or bandwidth density versus bump pitch"></svg></div>
+          <div class="plot"><svg id="hs-p2" viewBox="0 0 220 230" role="img" aria-label="Pulse response cursors, total jitter versus BER, or energy per bit versus reach"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="hs-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: SerDes, insertion loss, ISI, eye diagram, FFE, CTLE, DFE, PAM4, jitter, BER, UCIe</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>Inside a SerDes link</h3>
+            <ol>
+              <li><b>Serializer</b>: wide parallel data becomes one fast bit stream.</li>
+              <li><b>TX driver + FFE</b>: pre-distorts the symbols to fight the channel.</li>
+              <li><b>Channel</b>: package, board, connector, cable; loss grows with frequency.</li>
+              <li><b>RX CTLE + DFE</b>: boosts high frequencies and cancels the tail of earlier symbols.</li>
+              <li><b>CDR and slicer</b>: recovers the clock and decides each symbol.</li>
+              <li><b>Deserializer + FEC</b>: back to parallel data, errors corrected.</li>
+            </ol>
+            <h3>Typical links</h3>
+            <div class="tbl"><table>
+              <tr><th>Link</th><th>Rate per lane</th><th>Energy</th></tr>
+              <tr><td>PCIe 6.0</td><td>64 GT/s PAM4</td><td>~5 pJ/bit</td></tr>
+              <tr><td>Ethernet 224G LR</td><td>224 Gb/s PAM4</td><td>~5–7 pJ/bit</td></tr>
+              <tr><td>XSR die-to-die</td><td>112 Gb/s</td><td>~1.5 pJ/bit</td></tr>
+              <tr><td>UCIe advanced</td><td>up to 32 GT/s</td><td>~0.25 pJ/bit</td></tr>
+              <tr><td>HBM3 per pin</td><td>6.4 Gb/s</td><td>~3–4 pJ/bit</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>Insertion loss</dt><dd>Attenuation of the channel in dB; skin effect and dielectric loss make it grow with frequency.</dd>
+              <dt>ISI</dt><dd>Inter-symbol interference: each smeared pulse leaks into its neighbours.</dd>
+              <dt>Eye diagram</dt><dd>All symbol periods overlaid; the open area is the margin for the decision.</dd>
+              <dt>FFE, CTLE, DFE</dt><dd>Feed-forward, continuous-time linear and decision-feedback equalizers.</dd>
+              <dt>PAM4</dt><dd>Four amplitude levels, two bits per symbol, three eyes each a third as tall.</dd>
+              <dt>Jitter</dt><dd>Timing uncertainty of the edges: random (Gaussian) plus deterministic (bounded).</dd>
+              <dt>BER</dt><dd>Bit error ratio; 10⁻¹² before FEC is a classic target.</dd>
+              <dt>UCIe</dt><dd>Universal Chiplet Interconnect Express: a standard parallel die-to-die interface for chiplets.</dd>
             </dl>
           </div>
         </div>
@@ -22468,12 +22817,215 @@ document.querySelectorAll("#df-vt button").forEach(b => b.addEventListener("clic
 document.querySelectorAll("#df-ch button").forEach(b => b.addEventListener("click", () => { DFS.ch = b.dataset.c; updateDF(); }));
 [["df-f", "f"], ["df-skew", "skew"], ["df-hb", "hb"], ["df-pat", "pat"], ["df-y", "y"]].forEach(([id, k]) => $(id).addEventListener("input", e => { DFS[k] = +e.target.value; updateDF(); }));
 
+/* ===================== HIGH-SPEED LINKS TAB ===================== */
+// Channel: causal skin-effect line, H(s) = exp(−a√s), step response erfc(a / 2√t), plus a small RC pole.
+// Equalizers: RX CTLE as a high-pass boost, TX 3-tap zero-forcing FFE, RX DFE cancelling 5 post-cursors.
+// Jitter: dual-Dirac bathtub. Chiplets: UCIe-like shoreline bandwidth from bump pitch and bump-field depth.
+const HSC = setupCanvas($("cvhs"), 1000, 488);
+const HSS = {view:"eye", mod:"nrz", il:20, eq:{ffe:false, ctle:false, dfe:false}, nz:2, rj:15, dj:150, ber:-12, pkg:"std", pitch:110, gt:16, t:0, acc:0, E:null};
+const HS_OS = 16, HS_L = 40;
+function hsErfc(x){ const t = 1/(1 + 0.3275911*Math.abs(x)), y = (((((1.061405429*t - 1.453152027)*t) + 1.421413741)*t - 0.284496736)*t + 0.254829592)*t*Math.exp(-x*x); return x >= 0 ? y : 2 - y; }
+const hsQ = z => 0.5*hsErfc(z/Math.SQRT2);
+const hsInvQ = p => { let lo = 0, hi = 12; for (let i = 0; i < 60; i++){ const m = (lo + hi)/2; if (hsQ(m) > p) lo = m; else hi = m; } return (lo + hi)/2; };
+function hsPulse(il){
+  const a = il/(8.686*Math.sqrt(Math.PI*0.5)), n = HS_L*HS_OS, step = t => t <= 0 ? 0 : hsErfc(a/(2*Math.sqrt(t))), p = new Float64Array(n), t0 = 2;
+  for (let i = 0; i < n; i++){ const t = i/HS_OS - t0; p[i] = step(t + 1e-9) - step(t - 1); }
+  const tau = 0.15*HS_OS, q = new Float64Array(n); let acc = 0; for (let i = 0; i < n; i++){ acc += (p[i] - acc)/tau; q[i] = acc; }
+  return q;
+}
+function hsCtle(p, g){ const tau = 1.0*HS_OS, out = new Float64Array(p.length); let lp = 0; for (let i = 0; i < p.length; i++){ lp += (p[i] - lp)/tau; out[i] = (p[i] + g*(p[i] - lp))/(1 + g*0.15); } return out; }
+const hsPeak = p => { let k = 0; for (let i = 0; i < p.length; i++) if (p[i] > p[k]) k = i; return k; };
+function hsFfe(p){
+  const ts = hsPeak(p), h = k => p[ts + k*HS_OS] || 0, c = [-h(-1)/h(0), 1, -h(1)/h(0)], s = c.reduce((x, y) => x + Math.abs(y), 0), cc = c.map(x => x/s), out = new Float64Array(p.length);
+  for (let i = 0; i < p.length; i++) out[i] = cc[0]*(p[i + HS_OS] || 0) + cc[1]*p[i] + cc[2]*(p[i - HS_OS] || 0);
+  return {p:out, c:cc};
+}
+function hsLink(){
+  const raw = hsPulse(HSS.il), g = HSS.eq.ctle ? clamp(HSS.il/9, 0, 3.5) : 0; let p = HSS.eq.ctle ? hsCtle(raw, g) : raw, taps = [0, 1, 0];
+  if (HSS.eq.ffe){ const f = hsFfe(p); p = f.p; taps = f.c; }
+  const ts = hsPeak(p), cur = k => p[ts + k*HS_OS] || 0, post = [1, 2, 3, 4, 5].map(cur), dfe = HSS.eq.dfe ? post : [0, 0, 0, 0, 0];
+  const pam = HSS.mod === "pam4", lv = pam ? [-1, -1/3, 1/3, 1] : [-1, 1], rnd = cmRand(17), N = 400, d = Array.from({length:N}, () => lv[Math.floor(rnd()*lv.length)]);
+  const len = (N + HS_L)*HS_OS, y = new Float64Array(len);
+  for (let n = 0; n < N; n++) for (let i = 0; i < p.length; i++) y[n*HS_OS + i] += d[n]*p[i];
+  for (let n = 5; n < N; n++){ let fb = 0; for (let k = 1; k <= 5; k++) fb += dfe[k - 1]*d[n - k]; for (let i = -HS_OS/2; i < HS_OS/2; i++){ const j = n*HS_OS + ts + i; if (j >= 0 && j < len) y[j] -= fb; } }
+  const sig = Math.max(0.002, HSS.nz/100), nr = cmRand(5);
+  const seg = []; for (let n = 40; n < N - 5; n++){ const s = []; for (let i = -HS_OS; i <= HS_OS; i++) s.push(y[n*HS_OS + ts + i] + sig*0.6*(nr() + nr() + nr() - 1.5)); seg.push({d:d[n], s}); }
+  const h0 = cur(0), eyeAt = off => { let worst = Infinity; for (let k = 0; k < lv.length - 1; k++){ const lo = Math.max(...seg.filter(q => q.d === lv[k]).map(q => q.s[HS_OS + off])), hi = Math.min(...seg.filter(q => q.d === lv[k + 1]).map(q => q.s[HS_OS + off])); worst = Math.min(worst, hi - lo); } return worst; };
+  const eh = eyeAt(0); let w = 0; for (let o = -HS_OS/2; o < HS_OS/2; o++) if (eyeAt(o) > 0) w++;
+  const ber = eh > 0 ? hsQ(eh/2/sig)*(pam ? 1.5 : 1) : 0.5, cursors = [-1, 0, 1, 2, 3, 4, 5].map(k => [k, cur(k) - (k >= 1 ? dfe[k - 1] : 0)]), rawCur = (() => { const t2 = hsPeak(raw); return [-1, 0, 1, 2, 3, 4, 5].map(k => [k, raw[t2 + k*HS_OS] || 0]); })();
+  return {raw, p, ts, seg, eh, ew:w/HS_OS, ber, sig, h0, g, taps, cursors, rawCur, lv, pam};
+}
+function hsDJ(x, ber){ const s = HSS.rj/1000, dj = HSS.dj/1000, rho = 0.5; return rho*0.5*(hsQ((x - dj/2)/s) + hsQ((x + dj/2)/s)); }
+function hsBath(){ const s = HSS.rj/1000, dj = HSS.dj/1000, tgt = Math.pow(10, HSS.ber), q = hsInvQ(tgt/0.5), tj = dj + 2*q*s; return {s, dj, tgt, q, tj, ew:Math.max(0, 1 - tj), rjPart:2*q*s}; }
+function hsUc(pkg, pitch, gt){ const rows = (pkg || HSS.pkg) === "adv" ? 30 : 12, lanes = rows*(1000/(pitch || HSS.pitch))*0.5, bw = lanes*(gt || HSS.gt)/8, e = (pkg || HSS.pkg) === "adv" ? 0.25 : 0.5; return {rows, lanes, bw, e, p1T:e*8, reach:(pkg || HSS.pkg) === "adv" ? 2 : 25}; }
+
+/* ---------------- drawing ---------------- */
+function drawHSeye(T){
+  const E = HSS.E, x0 = 50, w = 320, y0 = 90, h = 300, X = t => x0 + (t + 2)/14*w, pk = Math.max(0.05, ...E.raw, ...E.p), Y = v => y0 + h*0.72 - v/pk*h*0.62;
+  panel(20, 20, 380, 450, `Pulse response, ${HSS.il} dB loss at Nyquist`);
+  txt("TX", 40, 56, {px:10, w:700, col:C.accent}); ctx.strokeStyle = C.muted; ctx.lineWidth = 2; pl([[60, 56], [340, 56]]); txt("RX", 360, 56, {al:"right", px:10, w:700, col:C.accent});
+  txt("package · board · connector · cable", 200, 70, {al:"center", px:9});
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, y0 + .5, w, h); pl([[x0, Y(0)], [x0 + w, Y(0)]]);
+  const ts0 = hsPeak(E.raw), tsE = E.ts, ser = (p, ts) => Array.from(p, (v, i) => [X((i - ts)/HS_OS), Y(v)]).filter(([x]) => x >= x0 && x <= x0 + w);
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1.5; pl(ser(E.raw, ts0));
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2.2; pl(ser(E.p, tsE));
+  E.cursors.forEach(([k, v]) => { ctx.fillStyle = k === 0 ? C.channel : C.hole; ctx.beginPath(); ctx.arc(X(k), Y(v), 3.5, 0, 6.283); ctx.fill(); });
+  for (let k = -2; k <= 12; k += 2) txt(`${k}`, X(k), y0 + h + 12, {al:"center", px:9});
+  txt("time from the sampling point (UI)", x0 + w, y0 + h + 26, {al:"right", px:9});
+  txt("received pulse (no equalization)", x0 + 8, y0 + 14, {px:9, col:C.muted}); txt("after equalization; dots: cursors h₋₁ … h₅", x0 + 8, y0 + 28, {px:9, col:C.accent});
+  txt(`ISI: ${(E.cursors.filter(c => c[0]).reduce((s, c) => s + Math.abs(c[1]), 0)/Math.abs(E.h0)*100).toFixed(0)} % of the main cursor`, x0, 452, {px:10, w:700, col:C.fg});
+  panel(420, 20, 560, 450, `${HSS.mod === "pam4" ? "PAM4" : "NRZ"} eye diagram (2 UI, ${E.seg.length} symbols)`);
+  const ex = 470, ew = 480, ey = 60, eh = 360, sc = Math.max(1.05, ...E.seg.map(q => Math.max(...q.s.map(Math.abs)))), EX = i => ex + i/(2*HS_OS)*ew, EY = v => ey + eh/2 - v/sc*eh/2;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(ex + .5, ey + .5, ew, eh); pl([[EX(HS_OS), ey], [EX(HS_OS), ey + eh]]);
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 1; ctx.globalAlpha = .18; E.seg.forEach(q => pl(q.s.map((v, i) => [EX(i), EY(v)]))); ctx.globalAlpha = 1;
+  if (E.eh > 0){ const lv = E.lv; for (let k = 0; k < lv.length - 1; k++){ const lo = Math.max(...E.seg.filter(q => q.d === lv[k]).map(q => q.s[HS_OS])), hi = Math.min(...E.seg.filter(q => q.d === lv[k + 1]).map(q => q.s[HS_OS]));
+      ctx.strokeStyle = C.channel; ctx.lineWidth = 2; pl([[EX(HS_OS), EY(lo)], [EX(HS_OS), EY(hi)]]); const half = E.ew*HS_OS/2; ctx.strokeRect(EX(HS_OS - half), EY(hi), EX(HS_OS + half) - EX(HS_OS - half), EY(lo) - EY(hi)); } }
+  txt(E.eh > 0 ? `eye open: height ${(E.eh/2*100).toFixed(0)} % of the swing, width ${E.ew.toFixed(2)} UI` : "eye closed: the receiver cannot decide reliably", 700, 444, {al:"center", px:11, w:700, col: E.eh > 0 ? C.channel : C.hole});
+  txt("−1 UI", ex, ey + eh + 12, {px:9}); txt("sampling point", EX(HS_OS), ey + eh + 12, {al:"center", px:9}); txt("+1 UI", ex + ew, ey + eh + 12, {al:"right", px:9});
+}
+function drawHSbt(T){
+  const B = hsBath();
+  panel(20, 20, 560, 450, `Bathtub curve: BER vs sampling position (target 1e${HSS.ber})`);
+  const x0 = 80, w = 470, y0 = 60, h = 340, X = u => x0 + u*w, Y = l => y0 + (-l)/16*h;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, y0 + .5, w, h);
+  for (let l = 0; l >= -16; l -= 2) txt(`1e${l}`, x0 - 5, Y(l), {al:"right", px:9});
+  for (let u = 0; u <= 1; u += 0.25) txt(`${u}`, X(u), y0 + h + 12, {al:"center", px:9});
+  txt("sampling position in the unit interval (UI)", x0 + w, y0 + h + 26, {al:"right", px:9});
+  const lb = u => Math.log10(Math.max(1e-16, hsDJ(u) + hsDJ(1 - u)));
+  ctx.strokeStyle = C.hole; ctx.lineWidth = 2.4; pl(range(0, 1, 200).map(u => [X(u), Y(Math.max(-16, lb(u)))]));
+  ctx.strokeStyle = C.accent; ctx.setLineDash([5, 3]); pl([[x0, Y(HSS.ber)], [x0 + w, Y(HSS.ber)]]); ctx.setLineDash([]);
+  if (B.ew > 0){ const a = (1 - B.ew)/2; ctx.fillStyle = C.channel; ctx.globalAlpha = .25; ctx.fillRect(X(a), Y(HSS.ber) - 8, X(1 - a) - X(a), 16); ctx.globalAlpha = 1; txt(`eye width ${B.ew.toFixed(2)} UI`, X(0.5), Y(HSS.ber) - 16, {al:"center", px:11, w:700, col:C.channel}); }
+  else txt("no open eye at this BER", X(0.5), Y(HSS.ber) - 16, {al:"center", px:11, w:700, col:C.hole});
+  panel(600, 20, 380, 450, "Jitter budget (dual-Dirac)");
+  const bx = 630, bw = 320, sc = bw/1.0;
+  ctx.fillStyle = C.hole; ctx.fillRect(bx, 80, B.dj*sc, 28); ctx.fillStyle = C.accent; ctx.fillRect(bx + B.dj*sc, 80, Math.min(B.rjPart*sc, bw - B.dj*sc), 28); ctx.fillStyle = C.channel; ctx.globalAlpha = .5; ctx.fillRect(bx + B.tj*sc, 80, Math.max(0, bw - B.tj*sc), 28); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1; ctx.strokeRect(bx + .5, 80.5, bw, 28); txt("0", bx, 122, {px:9}); txt("1 UI", bx + bw, 122, {al:"right", px:9});
+  [[`DJ (pp): ${(B.dj*1000).toFixed(0)} mUI`, C.hole], [`RJ: ${(B.s*1000).toFixed(0)} mUI rms × 2·${B.q.toFixed(2)} = ${(B.rjPart*1000).toFixed(0)} mUI`, C.accent],
+   [`TJ at 1e${HSS.ber} = ${(B.tj*1000).toFixed(0)} mUI`, C.fg], [`eye width = 1 − TJ = ${(B.ew*1000).toFixed(0)} mUI`, B.ew > 0 ? C.channel : C.hole], ["", C.fg],
+   ["random jitter is unbounded: the lower the", C.muted], ["target BER, the more of it eats the eye", C.muted], ["(×14.1 σ at 1e-12, ×15.9 σ at 1e-15)", C.muted], ["", C.fg],
+   ["the CDR places the sampler in the middle", C.muted], ["of the eye and tracks slow wander", C.muted]].forEach(([s, c], i) => txt(s, 620, 150 + i*24, {px:11, w: i === 2 ? 700 : 500, col:c}));
+}
+function drawHSuc(T){
+  const U = hsUc(), adv = HSS.pkg === "adv";
+  panel(20, 20, 560, 450, adv ? "Advanced package: dies on a silicon interposer or bridge" : "Standard package: dies side by side on an organic substrate");
+  ctx.fillStyle = C.nplus || C.channel; ctx.globalAlpha = .25; ctx.fillRect(50, 200, 500, 30); ctx.globalAlpha = 1; txt(adv ? "silicon interposer / bridge" : "organic package substrate", 300, 215, {al:"center", px:10, col:C.fg});
+  if (adv){ ctx.fillStyle = C.si; ctx.fillRect(170, 182, 260, 18);  }
+  [[70, "chiplet A"], [330, "chiplet B"]].forEach(([x, n]) => { ctx.fillStyle = C.metal; ctx.fillRect(x, 110, 200, 60); txt(n, x + 100, 140, {al:"center", px:11, w:700, col:"#ffffff"}); });
+  const nb = adv ? 14 : 6; for (let i = 0; i < nb; i++){ ctx.fillStyle = C.accent; const x1 = 240 + i*(30/nb), x2 = 335 + i*(30/nb); ctx.beginPath(); ctx.arc(x1, 175, adv ? 2 : 4, 0, 6.283); ctx.fill(); ctx.beginPath(); ctx.arc(x2, 175, adv ? 2 : 4, 0, 6.283); ctx.fill(); }
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 1.5; pl([[255, 185], [255, adv ? 192 : 205], [345, adv ? 192 : 205], [345, 185]]);
+  txt(`reach ≤ ${U.reach} mm`, 300, 250, {al:"center", px:10, w:700, col:C.accent});
+  txt("top view of the die edge (bump field)", 50, 286, {px:10, w:700, col:C.fg});
+  const pitchPx = HSS.pitch/130*16, rows = Math.min(U.rows, Math.floor(130/pitchPx)), cols = Math.floor(480/pitchPx);
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++){ const sigOn = (r + c) % 2 === 0; ctx.fillStyle = sigOn ? C.accent : C.muted; ctx.globalAlpha = sigOn ? .9 : .4; ctx.beginPath(); ctx.arc(60 + c*pitchPx, 300 + r*pitchPx, Math.max(1.2, pitchPx*0.3), 0, 6.283); ctx.fill(); }
+  ctx.globalAlpha = 1; txt(`pitch ${HSS.pitch} µm · ${U.rows} bump rows deep · half carry signals`, 50, 452, {px:10});
+  for (let i = 0; i < 6; i++){ const f = (T*0.7 + i/6) % 1; ctx.fillStyle = C.hole; ctx.beginPath(); ctx.arc(255 + f*90, adv ? 192 : 205, 3, 0, 6.283); ctx.fill(); }
+  panel(600, 20, 380, 450, "Bandwidth and energy");
+  [[`${U.lanes.toFixed(0)} signal lanes per mm of die edge`, C.fg], [`× ${HSS.gt} GT/s = ${U.bw.toFixed(0)} GB/s per mm`, C.fg], [`energy ≈ ${U.e} pJ/bit`, C.fg], [`1 TB/s across the edge: ${(1000/U.bw).toFixed(1)} mm of edge, ${U.p1T.toFixed(1)} W`, C.channel]].forEach(([s, c], i) => txt(s, 616, 56 + i*24, {px:11, w: i === 3 ? 700 : 500, col:c}));
+  const links = [["on-die wire", 0.1], ["UCIe advanced", 0.25], ["UCIe standard", 0.5], ["XSR SerDes", 1.5], ["PCIe / long reach", 5]], mx = 5;
+  txt("energy per bit (pJ)", 616, 170, {px:10, w:700, col:C.fg});
+  links.forEach(([n, e], i) => { const y = 196 + i*30, wd = e/mx*220; const on = (adv && n === "UCIe advanced") || (!adv && n === "UCIe standard"); ctx.fillStyle = on ? C.hole : C.accent; ctx.globalAlpha = on ? 1 : .55; ctx.fillRect(740, y - 9, wd, 18); ctx.globalAlpha = 1; txt(n, 732, y, {al:"right", px:10, col:C.fg}); txt(`${e}`, 746 + wd, y, {px:10}); });
+  txt("short, parallel and unequalized links win on energy;", 616, 370, {px:10}); txt("long SerDes links need equalizers and CDRs.", 616, 388, {px:10});
+}
+function drawHS(dt, T){
+  begin(HSC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488);
+  if (HSS.view === "eye"){ if (HSS.E) drawHSeye(T); } else if (HSS.view === "bt") drawHSbt(T); else drawHSuc(T);
+}
+
+/* ---------------- DOM ---------------- */
+const HSINFO = {
+  eye:{pill:"EYE", name:"Channel, equalization and the eye", sub:"Above tens of gigabits per second the copper channel smears every symbol into its neighbours; equalizers undo the damage",
+    text:"A serializer-deserializer (SerDes) pushes data through package traces, board wiring, connectors and cables at tens of gigabaud. Those channels are low-pass filters: skin effect and dielectric loss attenuate high frequencies far more than low ones, so a sharp one-symbol pulse comes out of the channel small, wide and with a long tail. The tail falls on the following symbols (post-cursor inter-symbol interference) and a little on the previous one (pre-cursor). Overlaying many received symbol periods gives the eye diagram; the open area in the middle is what the receiver has to decide on. With 20 dB of loss at the Nyquist frequency the eye is closed. Equalizers restore it: the transmitter's feed-forward equalizer (FFE) subtracts scaled copies of neighbouring symbols, the receiver's continuous-time linear equalizer (CTLE) boosts high frequencies (and noise with them), and the decision-feedback equalizer (DFE) subtracts the tail of already-decided symbols without amplifying noise. PAM4 doubles the bits per symbol at the same baud rate, but its three stacked eyes are each a third as tall, a 9.5 dB SNR penalty, so PAM4 links rely on forward error correction."},
+  bt:{pill:"BER", name:"Jitter and the bathtub curve", sub:"Timing noise on the edges shrinks the eye from the sides; how much depends on the error rate you can tolerate",
+    text:"Edges never arrive exactly on time. Random jitter from thermal noise and oscillator phase noise is Gaussian and therefore unbounded: given enough bits, some edge will be arbitrarily late. Deterministic jitter, from inter-symbol interference, duty-cycle distortion, crosstalk and supply noise, is bounded. The dual-Dirac model represents deterministic jitter as two spikes separated by DJ, each smeared by the random jitter. Sweeping the sampling point across the unit interval and counting errors gives the bathtub curve: very high BER near the edges, a deep floor in the middle. Where the curve crosses the target BER is the usable eye width. Because the Gaussian tails extend forever, total jitter TJ = DJ + 2·Q(BER)·RJ grows as the target BER drops: about 14 times the rms random jitter at 10⁻¹² and 16 times at 10⁻¹⁵. That is why a few hundred femtoseconds of random jitter matter at 100+ Gb/s, and why the clock and data recovery circuit must centre the sampler precisely."},
+  uc:{pill:"UCIe", name:"Chiplet links", sub:"Between chiplets in one package, thousands of short, slow, simple wires beat a few fast SerDes lanes",
+    text:"When a big chip is split into chiplets, the dies must talk to each other almost as if they were one. A long-reach SerDes is overkill here: across a few millimetres there is little loss, so die-to-die interfaces like UCIe use many parallel lanes at moderate rates (up to 32 GT/s), single-ended, with no or very light equalization and a forwarded clock instead of a CDR. Bandwidth then comes from density: how many signal bumps fit along each millimetre of die edge, the shoreline. On an organic package substrate the bumps are 100 to 130 µm apart and the reach is up to about 25 mm; on a silicon interposer or bridge, micro-bumps at 25 to 55 µm pitch pack several times more lanes per millimetre, at a reach of about 2 mm. The energy cost falls to a fraction of a picojoule per bit, compared with several picojoules for a long-reach link, so moving a terabyte per second between chiplets costs a few watts instead of tens. Hybrid bonding at below 10 µm pitch pushes this further."}
+};
+Object.assign(TIP, {
+  "Eye height":"Vertical opening of the worst eye at the sampling point, as a share of the swing.", "Eye width":"Range of sampling phases with an open eye.", "BER estimate":"Bit error ratio from eye height and noise (Gaussian).", "Loss at Nyquist":"Channel insertion loss at half the symbol rate.",
+  "Total jitter":"DJ plus the random-jitter part at the target BER.", "Eye width at BER":"Unit interval minus total jitter.", "Q at target BER":"Number of σ of random jitter on each side.", "Random jitter":"rms Gaussian timing noise.",
+  "Shoreline bandwidth":"Data per millimetre of die edge.", "Lanes per mm":"Signal bumps per millimetre of edge.", "Energy per bit":"Interface energy per transferred bit.", "Power for 1 TB/s":"Interface power to move one terabyte per second.",
+  "Skin-effect channel":"Loss grows with the square root of frequency.", "Feed-forward EQ":"Weighted copies of neighbouring symbols.", "CTLE boost":"High-pass gain at the Nyquist frequency.", "Error rate":"Gaussian tail beyond half the eye.",
+  "Dual-Dirac model":"Bounded jitter as two spikes.", "Total jitter ":"TJ at a target BER.", "Eye width ":"What is left of the unit interval.", "Q factor":"Inverse Gaussian tail.",
+  "Lane density":"Rows of bumps over pitch.", "Bandwidth density":"Lanes times rate.", "Interface power":"Energy times bandwidth.", "Reach":"Maximum wire length."
+});
+const HSLEG = {
+  eye:[["muted","Pulse without equalization"],["accent","Equalized pulse, eye traces"],["channel","Main cursor, eye opening"],["hole","ISI cursors"]],
+  bt:[["hole","Bathtub, deterministic jitter"],["accent","Target BER, random jitter"],["channel","Open eye width"]],
+  uc:[["metal","Chiplet"],["accent","Signal bump, lane"],["muted","Power and ground bump"],["hole","Data, selected link"]]
+};
+const hsChip = (sel, attr, on) => document.querySelectorAll(sel).forEach(b => { const o = on(b.dataset[attr]); b.setAttribute("aria-pressed", o); b.style.borderColor = o ? "var(--accent)" : ""; b.style.color = o ? "var(--accent)" : ""; });
+const hsBer = b => b < 1e-30 ? "< 1e-30" : b.toExponential(1);
+function updateHS(){
+  const v = HSS.view, info = HSINFO[v];
+  $("hs-pill").textContent = info.pill; $("hs-name").textContent = info.name; $("hs-sub").textContent = info.sub; $("hs-explain").textContent = info.text;
+  document.querySelectorAll("#hs-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  hsChip("#hs-mod button", "m", m => m === HSS.mod); hsChip("#hs-eq button", "e", e => HSS.eq[e]); hsChip("#hs-pkg button", "p", p => p === HSS.pkg);
+  const vis = {mod:v === "eye", il:v === "eye", eq:v === "eye", nz:v === "eye", rj:v === "bt", dj:v === "bt", ber:v === "bt", pkg:v === "uc", pitch:v === "uc", gt:v === "uc"};
+  Object.entries(vis).forEach(([k, on]) => $(`hs-c-${k}`).hidden = !on);
+  $("hs-pitch").min = HSS.pkg === "adv" ? 25 : 100; $("hs-pitch").max = HSS.pkg === "adv" ? 55 : 130; HSS.pitch = clamp(HSS.pitch, +$("hs-pitch").min, +$("hs-pitch").max); $("hs-pitch").value = HSS.pitch;
+  $("hs-il-v").textContent = `${HSS.il} dB`; $("hs-nz-v").textContent = `${HSS.nz} %`; $("hs-rj-v").textContent = `${HSS.rj} mUI`; $("hs-dj-v").textContent = `${HSS.dj} mUI`; $("hs-ber-v").textContent = `1e${HSS.ber}`;
+  $("hs-pitch-v").textContent = `${HSS.pitch} µm`; $("hs-gt-v").textContent = `${HSS.gt} GT/s`;
+  setHTML("hs-legend", HSLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  let ro, eq;
+  if (v === "eye"){ const E = HSS.E = hsLink();
+    ro = [["Eye height", E.eh > 0 ? `${(E.eh/2*100).toFixed(0)} %` : "closed"], ["Eye width", `${E.ew.toFixed(2)} UI`], ["BER estimate", hsBer(E.ber)], ["Loss at Nyquist", `${HSS.il} dB`]];
+    eq = [{name:"Skin-effect channel", f:"H(f) = e^(−a·√(j2πf)),  IL ∝ √f", sub:`${HSS.il} dB at Nyquist`},
+      {name:"Feed-forward EQ", f:"y_n = c₋₁·x_(n+1) + c₀·x_n + c₁·x_(n−1)", sub:HSS.eq.ffe ? `c = ${E.taps.map(c => c.toFixed(2)).join(", ")}` : "off"},
+      {name:"CTLE boost", f:"H(s) = (1 + s/ω_z) / (1 + s/ω_p)", sub:HSS.eq.ctle ? `gain ${E.g.toFixed(1)}, ≈ ${(20*Math.log10(1 + E.g)).toFixed(1)} dB peaking` : "off"},
+      {name:"Error rate", f:"BER ≈ Q(h_eye / 2σ)", sub:`σ = ${(E.sig*100).toFixed(1)} % of the swing → ${hsBer(E.ber)}`}];
+  } else if (v === "bt"){ const B = hsBath();
+    ro = [["Total jitter", `${(B.tj*1000).toFixed(0)} mUI`], ["Eye width at BER", `${(B.ew*1000).toFixed(0)} mUI`], ["Q at target BER", B.q.toFixed(2)], ["Random jitter", `${HSS.rj} mUI rms`]];
+    eq = [{name:"Dual-Dirac model", f:"BER(x) = ρ/2 · [Q((x − DJ/2)/σ) + Q((x + DJ/2)/σ)]", sub:"ρ = 0.5 transition density"},
+      {name:"Total jitter ", f:"TJ(BER) = DJ + 2 · Q⁻¹(BER/ρ) · RJ", sub:`${HSS.dj} + 2 × ${B.q.toFixed(2)} × ${HSS.rj} = ${(B.tj*1000).toFixed(0)} mUI`},
+      {name:"Eye width ", f:"EW = 1 UI − TJ", sub:`${(B.ew*1000).toFixed(0)} mUI`},
+      {name:"Q factor", f:"Q(z) = ½ · erfc(z / √2)", sub:"7.03 at 1e-12, 7.94 at 1e-15"}];
+  } else { const U = hsUc();
+    ro = [["Shoreline bandwidth", `${U.bw.toFixed(0)} GB/s/mm`], ["Lanes per mm", U.lanes.toFixed(0)], ["Energy per bit", `${U.e} pJ`], ["Power for 1 TB/s", `${U.p1T.toFixed(1)} W`]];
+    eq = [{name:"Lane density", f:"lanes/mm = rows × (1 mm / pitch) × ½", sub:`${U.rows} × ${(1000/HSS.pitch).toFixed(1)} × ½ = ${U.lanes.toFixed(0)}`},
+      {name:"Bandwidth density", f:"BW = lanes/mm × rate / 8", sub:`${U.lanes.toFixed(0)} × ${HSS.gt} / 8 = ${U.bw.toFixed(0)} GB/s/mm`},
+      {name:"Interface power", f:"P = E_bit × bit rate", sub:`${U.e} pJ × 8 Tb/s = ${U.p1T.toFixed(1)} W`},
+      {name:"Reach", f:HSS.pkg === "adv" ? "≈ 2 mm on interposer or bridge" : "≈ 25 mm on organic substrate", sub:"short wires need no equalization and no CDR"}];
+  }
+  renderRo($("hs-ro"), ro); renderEq($("hs-eq-list"), eq);
+  drawHSPlots(v);
+}
+function drawHSPlots(v){
+  let a, b; const m1 = {l:38,r:10,t:28,b:30}, m2 = {l:38,r:8,t:28,b:30};
+  if (v === "eye"){
+    const E = HSS.E, il = f => -HSS.il*(Math.sqrt(f/0.5)), ct = f => HSS.eq.ctle ? 20*Math.log10(Math.hypot(1, E.g*2*Math.PI*f/(1 + 2*Math.PI*f))/(1 + E.g*0.15)) : 0;
+    const P = axesR(300, 230, m1, 0, 1, -50, 10, 0.25, 10, "frequency (× baud rate)", "dB");
+    a = P.s + `<path d="${pathOf(range(0.01, 1, 60).map(f => [f, il(f)]), P.X, P.Y)}" fill="none" stroke="var(--muted)" stroke-width="2"/>` + (HSS.eq.ctle ? `<path d="${pathOf(range(0.01, 1, 60).map(f => [f, ct(f)]), P.X, P.Y)}" fill="none" stroke="var(--channel)" stroke-width="2"/><path d="${pathOf(range(0.01, 1, 60).map(f => [f, il(f) + ct(f)]), P.X, P.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` : "")
+      + `<line x1="${P.X(0.5)}" x2="${P.X(0.5)}" y1="${P.Y(10)}" y2="${P.Y(-50)}" stroke="var(--hole)" stroke-dasharray="4 3"/>` + P.frame + `<text x="44" y="12" style="fill:var(--muted)">channel</text><text x="100" y="12" style="fill:var(--channel)">CTLE</text><text x="140" y="12" style="fill:var(--accent)">combined</text>`;
+    const mx = Math.max(...E.rawCur.map(c => Math.abs(c[1])), ...E.cursors.map(c => Math.abs(c[1]))) || 1, Q = axesR(220, 230, m2, -1.5, 5.5, -0.4, 1, 1, 0.2, "cursor (UI)", "relative"), bw = (Q.X(1) - Q.X(0))*0.35;
+    b = Q.s + `<line x1="${Q.X(-1.5)}" x2="${Q.X(5.5)}" y1="${Q.Y(0)}" y2="${Q.Y(0)}" stroke="var(--muted)"/>` + E.rawCur.map(([k, val]) => `<rect x="${Q.X(k) - bw}" y="${Math.min(Q.Y(val/mx), Q.Y(0))}" width="${bw}" height="${Math.abs(Q.Y(val/mx) - Q.Y(0))}" fill="var(--muted)" opacity=".7"/>`).join("")
+      + E.cursors.map(([k, val]) => `<rect x="${Q.X(k)}" y="${Math.min(Q.Y(val/mx), Q.Y(0))}" width="${bw}" height="${Math.abs(Q.Y(val/mx) - Q.Y(0))}" fill="var(--accent)"/>`).join("") + Q.frame + `<text x="44" y="12" style="fill:var(--accent)">cursors before / after EQ</text>`;
+  } else if (v === "bt"){
+    const B = hsBath(), s = B.s, dj = B.dj, pdf = x => 0.5*(Math.exp(-((x - dj/2)**2)/(2*s*s)) + Math.exp(-((x + dj/2)**2)/(2*s*s)))/(s*Math.sqrt(2*Math.PI)), top = Math.ceil(pdf(dj/2)/5)*5 || 5;
+    const P = axesR(300, 230, m1, -0.5, 0.5, 0, top, 0.25, top/5, "edge position (UI)", "density");
+    a = P.s + `<path d="${pathOf(range(-0.5, 0.5, 200).map(x => [x, pdf(x)]), P.X, P.Y)}" fill="none" stroke="var(--hole)" stroke-width="2.4"/>` + P.frame + `<text x="44" y="12" style="fill:var(--hole)">edge jitter histogram</text>`;
+    const Q = axesR(220, 230, m2, 4, 16, 0, 1, 3, 0.25, "−log10 BER", "TJ (UI)");
+    b = Q.s + `<path d="${pathOf(range(4, 16, 48).map(l => [l, dj + 2*hsInvQ(Math.pow(10, -l)/0.5)*s]), Q.X, Q.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + dotSvg(Q.X(-HSS.ber), Q.Y(Math.min(1, B.tj))) + Q.frame + `<text x="44" y="12" style="fill:var(--accent)">total jitter vs target BER</text>`;
+  } else {
+    const P = axesR(300, 230, m1, 20, 140, 0, 1500, 20, 300, "bump pitch (µm)", "GB/s per mm");
+    a = P.s + [["std", 100, 130, "electron"], ["adv", 25, 55, "channel"]].map(([k, lo, hi, c]) => `<path d="${pathOf(range(lo, hi, 30).map(p => [p, hsUc(k, p).bw]), P.X, P.Y)}" fill="none" stroke="var(--${c})" stroke-width="2.6"/>`).join("") + dotSvg(P.X(HSS.pitch), P.Y(hsUc().bw)) + P.frame + `<text x="44" y="12" style="fill:var(--channel)">advanced</text><text x="110" y="12" style="fill:var(--electron)">standard, at ${HSS.gt} GT/s</text>`;
+    const pts = [["on-die", 1, 0.1], ["UCIe adv.", 2, 0.25], ["UCIe std.", 25, 0.5], ["XSR", 50, 1.5], ["LR SerDes", 1000, 5]], Q = axesR(220, 230, m2, 0, 3, -1, 1, 1, 0.5, "log10 reach (mm)", "log10 pJ/bit");
+    b = Q.s + pts.map(([n, r, e]) => `<circle cx="${Q.X(Math.log10(r))}" cy="${Q.Y(Math.log10(e))}" r="4" fill="var(--accent)"/><text x="${Q.X(Math.log10(r)) + 6}" y="${Q.Y(Math.log10(e)) + 12}">${n}</text>`).join("") + Q.frame + `<text x="44" y="12" style="fill:var(--accent)">energy vs reach</text>`;
+  }
+  $("hs-p1").innerHTML = a; $("hs-p2").innerHTML = b;
+}
+function hsTick(dt){ if (!(dt >= 0)) return; HSS.t += dt; }
+document.querySelectorAll("#hs-view button").forEach(b => b.addEventListener("click", () => { HSS.view = b.dataset.v; updateHS(); }));
+document.querySelectorAll("#hs-mod button").forEach(b => b.addEventListener("click", () => { HSS.mod = b.dataset.m; updateHS(); }));
+document.querySelectorAll("#hs-eq button").forEach(b => b.addEventListener("click", () => { HSS.eq[b.dataset.e] = !HSS.eq[b.dataset.e]; updateHS(); }));
+document.querySelectorAll("#hs-pkg button").forEach(b => b.addEventListener("click", () => { HSS.pkg = b.dataset.p; HSS.pitch = HSS.pkg === "adv" ? 45 : 110; updateHS(); }));
+[["hs-il", "il"], ["hs-nz", "nz"], ["hs-rj", "rj"], ["hs-dj", "dj"], ["hs-ber", "ber"], ["hs-pitch", "pitch"], ["hs-gt", "gt"]].forEach(([id, k]) => $(id).addEventListener("input", e => { HSS[k] = +e.target.value; updateHS(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -22514,6 +23066,7 @@ function showTab(t){
   else if (t === "up"){ $("sub-top").textContent = "Unit processes · crystal growth to wafer, deposition, plasma etch and CMP"; UPC.resize(); updateUP(); }
   else if (t === "va"){ $("sub-top").textContent = "Variability · Pelgrom mismatch, process corners and PVT, SRAM sigma and yield"; VAC.resize(); updateVA(); }
   else if (t === "df"){ $("sub-top").textContent = "Design flow & DFT · RTL to GDS, static timing, scan test and defect level"; DFC.resize(); updateDF(); }
+  else if (t === "hs"){ $("sub-top").textContent = "High-speed links · SerDes channel and eye, equalization, jitter, chiplet interfaces"; HSC.resize(); updateHS(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -22547,6 +23100,7 @@ function frame(now){
   else if (tab === "up"){ upTick(dt); if (UPC.cv.clientWidth) drawUP(dt, T); }
   else if (tab === "va"){ vaTick(dt); if (VAC.cv.clientWidth) drawVA(dt, T); }
   else if (tab === "df"){ dfTick(dt); if (DFC.cv.clientWidth) drawDF(dt, T); }
+  else if (tab === "hs"){ hsTick(dt); if (HSC.cv.clientWidth) drawHS(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);

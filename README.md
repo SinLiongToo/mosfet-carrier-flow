@@ -89,6 +89,11 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **CFAR detection** – CA-CFAR window sliding along a range cut (training and guard cells, threshold factor α), peak grouping, false alarms vs P_fa, P_d vs SNR and CFAR loss
 - **Angle & point cloud** – virtual MIMO array (4–64 channels), angle FFT of the two-car cell (resolved or merged), bird's-eye point cloud coloured by velocity, angular and cross-range resolution
 
+## High-speed links tab (`#high-speed-links`)
+- **Eye diagram** – skin-effect channel with adjustable loss at Nyquist, pulse response and cursors, TX FFE, RX CTLE and DFE, NRZ vs PAM4 eyes from a PRBS stream, eye height/width and BER
+- **Jitter and bathtub** – dual-Dirac random and deterministic jitter, bathtub curve, total jitter and eye width at the target BER
+- **Chiplet links (UCIe)** – standard vs advanced package, bump pitch and bump-field depth, shoreline bandwidth, energy per bit and power vs other link types
+
 ## BJT & SiGe HBT tab (`#bipolar`)
 - **BJT operation** – emitter injection, base transport, collector sweep, β, gm, Early effect, saturation, Gummel plot
 - **SiGe HBT** – Ge-graded base drift field and band diagrams vs Si, base transit time, fT and fmax vs IC, technologies for 77 GHz
