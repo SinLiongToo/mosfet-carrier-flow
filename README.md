@@ -131,6 +131,11 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Etch** – ion vs radical etching, RIE lag (ARDE) across four trench widths, undercut, mask selectivity and erosion
 - **CMP** – Preston law, copper overburden clearing, over-polish, dishing of wide lines, erosion of dense arrays, dummy fill
 
+## SiC power tab (`#sic`)
+- **Crystal and wafer** – physical vapour transport (PVT) growth furnace, 150/200 mm wafer map with killer defects, Poisson die yield and cost per good die vs die area
+- **Drift layer design** – drift thickness and doping vs breakdown voltage drawn to scale for Si and SiC, Baliga limit for Si, SiC and GaN, SiC MOSFET on-resistance split into channel, JFET, drift and substrate
+- **Gate oxide and reliability** – interface traps near E_C for dry oxidation, NO anneal and phosphorus, channel mobility, threshold drift, bipolar degradation from basal plane dislocations and the recombination buffer
+
 ## Metrology & SPC tab (`#metrology-spc`)
 - **Metrology tools** – CD-SEM image with live shot noise, linescan edge detection, LWR and precision vs frames; scatterometry (OCD) spectrum with library fit and χ²; overlay wafer map with translation, rotation and magnification fit and residuals
 - **SPC charts** – X̄ chart with phase I limits from the moving range, zones A/B/C, the four Western Electric rules, process events (shift, drift, more variation, outlier), R chart, Cp/Cpk and ppm out of spec

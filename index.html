@@ -8061,6 +8061,216 @@ Object.assign(window.I18N_ZH, {
 "When a big chip is split into chiplets, the dies must talk to each other almost as if they were one. A long-reach SerDes is overkill here: across a few millimetres there is little loss, so die-to-die interfaces like UCIe use many parallel lanes at moderate rates (up to # GT/s), single-ended, with no or very light equalization and a forwarded clock instead of a CDR. Bandwidth then comes from density: how many signal bumps fit along each millimetre of die edge, the shoreline. On an organic package substrate the bumps are # to # µm apart and the reach is up to about # mm; on a silicon interposer or bridge, micro-bumps at # to # µm pitch pack several times more lanes per millimetre, at a reach of about # mm. The energy cost falls to a fraction of a picojoule per bit, compared with several picojoules for a long-reach link, so moving a terabyte per second between chiplets costs a few watts instead of tens. Hybrid bonding at below # µm pitch pushes this further.": "把大晶片拆成小晶片時，晶粒之間必須像同一顆晶片一樣溝通。長距離 SerDes 在這裡太過頭了：幾毫米的距離幾乎沒有損耗，所以 UCIe 這類晶粒對晶粒介面使用許多中等速率（最高 # GT/s）的平行通道，單端傳輸，幾乎不需要等化，並以隨路時脈取代 CDR。頻寬來自密度：每毫米晶粒邊緣（邊緣線）能放多少訊號凸塊。在有機封裝基板上凸塊間距為 # 到 # µm，距離可達約 # mm；在矽中介層或橋接上，# 到 # µm 間距的微凸塊讓每毫米的通道數多好幾倍，距離約 # mm。能量降到每位元零點幾皮焦耳，相較於長距離連線的數皮焦耳，所以在小晶片間每秒傳一 TB 只要幾瓦而不是幾十瓦。間距小於 # µm 的混合鍵合更進一步推進了這一點。"
 });
 Object.assign(window.I18N_ZH, {"Quiz on this tab": "本分頁測驗", "Glossary of all terms": "全站名詞表", "Quiz": "測驗", "Quiz scope": "測驗範圍", "This tab": "本分頁", "All tabs": "全部分頁", "all tabs": "全部分頁", "Close quiz": "關閉測驗", "Glossary": "名詞表", "Filter the glossary (e.g. CFAR, Cpk, overlay)": "篩選名詞表（例如 CFAR、Cpk、疊對）", "Every term explained on the site, in alphabetical order. Click a tab name to open it there.": "全站所有解釋過的名詞，依字母排序。點分頁名稱即可在該分頁打開。", "terms": "個名詞", "Which term matches this definition?": "哪個名詞符合這個定義？", "Correct!": "答對了！", "Not quite.": "不太對。", "The answer is": "答案是", "correct": "答對", "Show in": "顯示於", "Next question": "下一題", "Skip": "跳過", "Not enough terms for a quiz.": "名詞不足，無法出題。", "This tab has few terms, so the questions come from all tabs.": "本分頁的名詞較少，所以題目來自全部分頁。"});
+Object.assign(window.I18N_ZH, {
+"SiC power": "SiC 功率元件",
+"SiC power · PVT crystal growth and defects, drift layer design, gate oxide and reliability": "SiC 功率元件 · PVT 長晶與缺陷、漂移層設計、閘極氧化層與可靠度",
+"SiC crystal and wafer": "SiC 晶體與晶圓",
+"SiC view": "SiC 視圖",
+"Crystal and wafer": "晶體與晶圓",
+"Drift layer design": "漂移層設計",
+"Gate oxide and reliability": "閘極氧化層與可靠度",
+"Silicon carbide power devices: physical vapour transport crystal growth and wafer defect map, drift layer thickness and doping versus breakdown voltage, and gate oxide interface traps and bipolar degradation": "碳化矽功率元件：物理氣相傳輸長晶與晶圓缺陷圖、漂移層厚度與摻雜對崩潰電壓，以及閘極氧化層界面陷阱與雙極劣化",
+"Wafer diameter": "晶圓直徑",
+"SiC wafers are much smaller than silicon wafers: # mm is mainstream, # mm is ramping up.": "SiC 晶圓比矽晶圓小得多：# mm 是主流，# mm 正在量產爬坡。",
+"# mm": "# mm",
+"Killer defect density": "致命缺陷密度",
+"Density of defects that kill a device: micropipes, large threading screw dislocations, carrots, triangles, downfalls in the epi.": "會使元件失效的缺陷密度：微管、大型貫穿螺旋差排，以及磊晶中的胡蘿蔔、三角形與掉落物缺陷。",
+"Die area": "晶粒面積",
+"Area of one MOSFET chip; larger chips carry more current but catch more defects.": "一顆 MOSFET 晶片的面積；晶片越大電流越大，但也越容易碰到缺陷。",
+"Breakdown voltage": "崩潰電壓",
+"Blocking voltage the drift layer must hold.": "漂移層必須承受的阻斷電壓。",
+"Channel mobility": "通道遷移率",
+"Electron mobility in the inversion channel under the gate oxide, far below the bulk value because of interface traps.": "閘極氧化層下反轉通道中的電子遷移率，因界面陷阱而遠低於塊材值。",
+"Interface treatment": "界面處理",
+"Treatment of the SiC/SiO₂ interface after oxidation.": "氧化後對 SiC/SiO₂ 界面的處理。",
+"Dry oxidation only": "僅乾式氧化",
+"NO anneal": "NO 退火",
+"NO + phosphorus": "NO + 磷",
+"Recombination buffer": "復合緩衝層",
+"A highly doped buffer layer between substrate and drift converts basal plane dislocations into harmless threading edge dislocations and recombines holes before they reach them.": "基板與漂移層之間的高摻雜緩衝層，把基面差排轉換成無害的貫穿刃差排，並在電洞到達前讓它們復合。",
+"Without buffer": "無緩衝層",
+"With buffer": "有緩衝層",
+"Body-diode stress": "本體二極體應力",
+"Hours of forward current through the body diode (for example freewheeling in an inverter).": "本體二極體順向導通的時數（例如在變頻器中續流）。",
+"Yield versus die area, on-resistance versus breakdown voltage, or interface trap density": "良率對晶粒面積、導通電阻對崩潰電壓，或界面陷阱密度",
+"Crystal growth rate comparison, drift thickness versus voltage, or threshold drift over time": "長晶速率比較、漂移層厚度對電壓，或臨界電壓隨時間漂移",
+"Explain the terms: #H-SiC, PVT, micropipe, BPD, step-flow epitaxy, critical field, Baliga figure of merit, Dit, bipolar degradation": "名詞解釋：#H-SiC、PVT、微管、BPD、台階流磊晶、臨界電場、Baliga 優值、Dit、雙極劣化",
+"Why SiC is hard to make": "為什麼 SiC 很難製造",
+"<b>No melt</b>: SiC sublimes instead of melting, so crystals grow from vapour at about # °C, a few hundred times slower than silicon.": "<b>沒有熔湯</b>：SiC 會昇華而不是熔化，所以晶體要在約 # °C 從氣相成長，比矽慢數百倍。",
+"<b>Hard</b>: almost as hard as diamond; slicing and polishing take far longer.": "<b>很硬</b>：幾乎和鑽石一樣硬；切片與拋光要花更久。",
+"<b>Dopants do not move</b>: implants need # °C and activation needs about # °C.": "<b>摻雜物幾乎不擴散</b>：植入需 # °C，活化需約 # °C。",
+"<b>Interface</b>: the oxide traps carbon-related defects that slow the channel.": "<b>界面</b>：氧化層界面有與碳相關的缺陷，使通道變慢。",
+"<b>Defects</b>: dislocations from the crystal can kill or slowly degrade devices.": "<b>缺陷</b>：晶體中的差排會殺死元件或使其緩慢劣化。",
+"Silicon, SiC and GaN": "矽、SiC 與 GaN",
+"Property": "特性",
+"Band gap (eV)": "能隙 (eV)",
+"Critical field (MV/cm)": "臨界電場 (MV/cm)",
+"Electron mobility (cm²/Vs)": "電子遷移率 (cm²/Vs)",
+"# (#DEG #)": "#（#DEG #）",
+"Thermal conductivity (W/m·K)": "熱傳導率 (W/m·K)",
+"Typical voltage": "典型電壓",
+"< # V": "< # V",
+"&lt; # V": "&lt; # V",
+"#–# V+": "#–# V 以上",
+"Terms": "名詞",
+"The hexagonal polytype of silicon carbide used for power devices; the stacking repeats every four layers.": "功率元件使用的六方晶系碳化矽多型體；堆疊每四層重複一次。",
+"PVT": "PVT",
+"Physical vapour transport: SiC powder sublimes at the hot bottom of a graphite crucible and condenses on a cooler seed.": "物理氣相傳輸：SiC 粉末在石墨坩堝高溫底部昇華，凝結在較冷的晶種上。",
+"Micropipe": "微管",
+"A hollow screw dislocation running through the crystal; once the main killer defect, now nearly eliminated.": "貫穿晶體的中空螺旋差排；曾是主要的致命缺陷，現在幾乎已消除。",
+"BPD": "BPD",
+"Basal plane dislocation; under bipolar current it can expand into a stacking fault that raises the resistance.": "基面差排；在雙極電流下可能擴展成堆疊缺陷，使電阻升高。",
+"Step-flow epitaxy": "台階流磊晶",
+"Growth on a wafer cut #° off axis, so atoms attach at step edges and copy the #H stacking.": "在偏離晶軸 #° 切割的晶圓上成長，原子附著在台階邊緣並複製 #H 堆疊。",
+"Critical field": "臨界電場",
+"Electric field at which avalanche breakdown starts; ten times higher in SiC than in Si.": "開始發生累崩崩潰的電場；SiC 比 Si 高十倍。",
+"Baliga figure of merit": "Baliga 優值",
+"ε·μ·Ec³: the lower limit of specific on-resistance for a given breakdown voltage.": "ε·μ·Ec³：給定崩潰電壓下比導通電阻的下限。",
+"Dit": "Dit",
+"Interface trap density; traps near the conduction band capture channel electrons and lower the mobility.": "界面陷阱密度；靠近導帶的陷阱會捕捉通道電子並降低遷移率。",
+"Dies per wafer": "每片晶粒數",
+"Die yield": "晶粒良率",
+"Good dies": "良品晶粒",
+"Cost per good die": "每顆良品成本",
+"Drift thickness": "漂移層厚度",
+"Drift doping": "漂移層摻雜",
+"Drift resistance": "漂移層電阻",
+"Device resistance": "元件電阻",
+"Dit near Ec": "Ec 附近的 Dit",
+"Vth drift after # h": "# h 後 Vth 漂移",
+"Body-diode ΔV_F": "本體二極體 ΔV_F",
+"Whole dies that fit inside the edge exclusion.": "邊緣排除區內能放下的完整晶粒。",
+"Share of dies without a killer defect (Poisson).": "沒有致命缺陷的晶粒比例（卜瓦松）。",
+"Dies per wafer times yield.": "每片晶粒數乘以良率。",
+"Approximate processed wafer cost over good dies.": "完成製程的晶圓大約成本除以良品晶粒數。",
+"Thickness of the drift layer for the breakdown voltage.": "對應崩潰電壓的漂移層厚度。",
+"Donor concentration of the drift layer.": "漂移層的施體濃度。",
+"Baliga limit for #H-SiC.": "#H-SiC 的 Baliga 極限。",
+"Channel, JFET, drift and substrate together.": "通道、JFET、漂移層與基板的總和。",
+"Interface trap density # eV below the conduction band.": "導帶下方 # eV 處的界面陷阱密度。",
+"Inversion-layer electron mobility.": "反轉層電子遷移率。",
+"Threshold shift under gate stress.": "閘極應力下的臨界電壓偏移。",
+"Forward-voltage increase from stacking faults.": "堆疊缺陷造成的順向電壓上升。",
+"Gross dies": "總晶粒數",
+"Area term minus edge loss.": "面積項減去邊緣損失。",
+"Poisson yield": "卜瓦松良率",
+"Probability of no killer defect.": "沒有致命缺陷的機率。",
+"PVT growth": "PVT 長晶",
+"Sublimation and condensation.": "昇華與凝結。",
+"Wafer cost": "晶圓成本",
+"Approximate processed wafer cost.": "完成製程晶圓的大約成本。",
+"Field triangle up to Ec.": "電場三角形到 Ec。",
+"Charge that the field can deplete.": "電場能空乏的電荷。",
+"Baliga limit": "Baliga 極限",
+"Minimum drift resistance.": "最小漂移層電阻。",
+"Device total": "元件總和",
+"Sum of the series resistances.": "串聯電阻的總和。",
+"Interface traps": "界面陷阱",
+"Exponential tail toward E_C.": "朝 E_C 的指數尾端。",
+"Mobility": "遷移率",
+"Trapped and scattered electrons.": "被捕捉與散射的電子。",
+"Threshold drift": "臨界電壓漂移",
+"Grows with log time.": "隨時間對數增加。",
+"Stacking fault growth": "堆疊缺陷成長",
+"Recombination-enhanced dislocation glide.": "復合增強的差排滑移。",
+"SiC source, boule, good die": "SiC 原料、晶球、良品晶粒",
+"Die with a killer defect": "有致命缺陷的晶粒",
+"Induction coil": "感應線圈",
+"Vapour species": "氣相物種",
+"Defect": "缺陷",
+"Silicon": "矽",
+"#H-SiC, drift": "#H-SiC、漂移層",
+"Electric field, channel": "電場、通道",
+"n+ substrate, JFET": "n+ 基板、JFET",
+"Trapped electron, E_C": "被捕捉的電子、E_C",
+"Stacking fault, BPD": "堆疊缺陷、BPD",
+"Converted TED": "轉換後的 TED",
+"r = # mm (# mm edge), A = # mm² → #": "r = # mm（# mm 邊緣），A = # mm² → #",
+"# /cm² × # cm² → # %": "# /cm² × # cm² → # %",
+"SiC(s) → Si + Si₂C + SiC₂ (g) → SiC on the seed": "SiC(s) → Si + Si₂C + SiC₂ (g) → 晶種上的 SiC",
+"≈ # °C source, ≈ # mm/h": "原料約 # °C，約 # mm/h",
+"cost per die = wafer cost / (N · Y)": "每顆成本 = 晶圓成本 / (N · Y)",
+"≈ $# per processed # mm wafer (rough)": "每片完成製程的 # mm 晶圓約 $#（粗估）",
+"E_c = # MV/cm → # µm (Si: # µm)": "E_c = # MV/cm → # µm（Si：# µm）",
+"# mΩ·cm² for SiC, # for Si": "SiC 為 # mΩ·cm²，Si 為 #",
+"R_ch ∝ #/μ_ch: # mΩ·cm² at # cm²/Vs": "R_ch ∝ {0}/μ_ch：{2} cm²/Vs 時 {1} mΩ·cm²",
+"D_it(E) ≈ D₀ · e^(−(E_C − E − # eV)/# eV)": "D_it(E) ≈ D₀ · e^(−(E_C − E − # eV)/# eV)",
+"μ_ch ≈ μ_bulk / (# + q·N_it,trapped / …)": "μ_ch ≈ μ_bulk / (# + q·N_it,trapped / …)",
+"≈ # cm²/Vs": "≈ # cm²/Vs",
+"# V after # h of gate stress": "閘極應力 # h 後 # V",
+"ΔV_F ∝ fault area ∝ # − e^(−t/τ)": "ΔV_F ∝ 缺陷面積 ∝ # − e^(−t/τ)",
+"buffer: ≈ # % of BPDs converted": "緩衝層：約 # % 的 BPD 被轉換",
+"# V after # h": "# h 後 # V",
+"Physical vapour transport (PVT) growth": "物理氣相傳輸（PVT）長晶",
+"seed on the lid, ≈ # °C": "上蓋上的晶種，約 # °C",
+"growing SiC boule": "成長中的 SiC 晶球",
+"Si, Si₂C, SiC₂ vapour": "Si、Si₂C、SiC₂ 蒸氣",
+"SiC powder source,": "SiC 粉末原料，",
+"≈ # °C": "約 # °C",
+"induction coil": "感應線圈",
+"graphite crucible": "石墨坩堝",
+"#–# mm per hour · a boule is only #–# mm long": "每小時 #–# mm · 一顆晶球只有 #–# mm 長",
+"# mm wafer, # mm² dies, # killer defects/cm²": "# mm 晶圓，# mm² 晶粒，# 個致命缺陷/cm²",
+"# good of # dies (# %)": "# 顆晶粒中 # 顆良品（# %）",
+"Drift layer for # V, drawn to scale": "# V 的漂移層，依比例繪製",
+"red: field E(x), peak = critical field · blue: n+ substrate": "紅：電場 E(x)，峰值 = 臨界電場 · 藍：n+ 基板",
+"On-resistance of a SiC MOSFET": "SiC MOSFET 的導通電阻",
+"channel: # mΩ·cm² (# %)": "通道：# mΩ·cm²（# %）",
+"JFET: # mΩ·cm² (# %)": "JFET：# mΩ·cm²（# %）",
+"drift: # mΩ·cm² (# %)": "漂移層：# mΩ·cm²（# %）",
+"substrate: # mΩ·cm² (# %)": "基板：# mΩ·cm²（# %）",
+"total ≈ # mΩ·cm²": "總計 ≈ # mΩ·cm²",
+"silicon drift alone: # mΩ·cm² (#× SiC)": "僅矽的漂移層：# mΩ·cm²（SiC 的 #×）",
+"silicon drift alone: #k mΩ·cm² (#× SiC)": "僅矽的漂移層：#k mΩ·cm²（SiC 的 #×）",
+"at #–# V the channel dominates: better": "在 #–# V 通道占主導：較好的",
+"gate oxides and channel mobility pay off most": "閘極氧化層與通道遷移率效益最大",
+"at high voltage the drift layer dominates:": "高電壓時漂移層占主導：",
+"SiC's critical field is the decisive advantage": "SiC 的臨界電場是決定性優勢",
+"silicon switches above ~# V use IGBTs:": "矽在約 # V 以上改用 IGBT：",
+"bipolar, slower, with switching losses": "雙極、較慢、有切換損耗",
+"SiO₂ (gap # eV)": "SiO₂（能隙 # eV）",
+"E_C (#H-SiC)": "E_C（#H-SiC）",
+"traps near E_C capture channel electrons": "E_C 附近的陷阱捕捉通道電子",
+"channel mobility ≈ # cm²/Vs (bulk ≈ #)": "通道遷移率 ≈ # cm²/Vs（塊材 ≈ #）",
+"Bipolar degradation after # h of body-diode current": "本體二極體導通 # h 後的雙極劣化",
+"top view of the drift epi (triangles: stacking faults grown from BPDs)": "漂移磊晶層俯視（三角形：由 BPD 長出的堆疊缺陷）",
+"forward voltage increase ΔV_F ≈ # V": "順向電壓上升 ΔV_F ≈ # V",
+"buffer converts BPDs to harmless TEDs (green dots)": "緩衝層把 BPD 轉成無害的 TED（綠點）",
+"every BPD in the drift can grow a stacking fault": "漂移層中的每個 BPD 都可能長出堆疊缺陷",
+"electron–hole recombination at the BPD drives the fault": "BPD 處的電子電洞復合推動缺陷擴展",
+"die area (mm²)": "晶粒面積 (mm²)",
+"yield (%)": "良率 (%)",
+"Poisson yield, D in /cm²": "卜瓦松良率，D 單位 /cm²",
+"log# mm/h": "log# mm/h",
+"Si CZ": "Si CZ",
+"SiC PVT": "SiC PVT",
+"GaN HVPE": "GaN HVPE",
+"crystal growth rate": "長晶速率",
+"log# BV (V)": "log# BV (V)",
+"log# mΩ·cm²": "log# mΩ·cm²",
+"SiC device": "SiC 元件",
+"BV (kV)": "BV (kV)",
+"log# W (µm)": "log# W (µm)",
+"drift thickness": "漂移層厚度",
+"E_C − E (eV)": "E_C − E (eV)",
+"log# D_it": "log# D_it",
+"interface traps per treatment": "各處理的界面陷阱",
+"log# hours": "log# 小時",
+"ΔVth (V)": "ΔVth (V)",
+"threshold drift": "臨界電壓漂移",
+"SiC / SiO₂ interface (Dry oxidation only)": "SiC / SiO₂ 界面（僅乾式氧化）",
+"Dry oxidation only: D₀ = #e+# cm⁻²eV⁻¹": "僅乾式氧化：D₀ = #e+# cm⁻²eV⁻¹",
+"SiC / SiO₂ interface (NO anneal)": "SiC / SiO₂ 界面（NO 退火）",
+"NO anneal: D₀ = #e+# cm⁻²eV⁻¹": "NO 退火：D₀ = #e+# cm⁻²eV⁻¹",
+"SiC / SiO₂ interface (NO + phosphorus)": "SiC / SiO₂ 界面（NO + 磷）",
+"NO + phosphorus: D₀ = #e+# cm⁻²eV⁻¹": "NO + 磷：D₀ = #e+# cm⁻²eV⁻¹",
+"Silicon carbide cannot be pulled from a melt: it is grown from vapour, slowly, and its defects decide the yield": "碳化矽無法從熔湯拉出：它要從氣相緩慢成長，而它的缺陷決定了良率",
+"Silicon carbide does not melt at normal pressure; it sublimes. Crystals are therefore grown by physical vapour transport (PVT): SiC powder at the bottom of a graphite crucible is heated by an induction coil to about # °C, and the vapour of Si, Si₂C and SiC₂ condenses on a slightly cooler seed crystal on the lid. Growth runs at a fraction of a millimetre per hour, a few hundred times slower than a Czochralski silicon crystal, and a boule is only a few centimetres long, so every wafer is expensive. Keeping one polytype (#H) and avoiding inclusions takes tight control of temperature gradients. The crystal carries dislocations: micropipes, once the main killer, are now almost gone, but threading screw and edge dislocations and basal plane dislocations remain at hundreds to thousands per cm². After slicing and long polishing of this very hard material, a drift layer is grown by epitaxy on a wafer cut #° off axis. Killer defects from crystal and epi follow Poisson statistics, so yield falls exponentially with die area: large high-current SiC chips are costly, which is why many modules parallel several smaller dies.": "碳化矽在常壓下不會熔化，而是昇華。因此晶體以物理氣相傳輸（PVT）成長：石墨坩堝底部的 SiC 粉末被感應線圈加熱到約 # °C，Si、Si₂C 與 SiC₂ 蒸氣凝結在上蓋上稍冷的晶種上。成長速率只有每小時零點幾毫米，比柴氏法矽晶體慢數百倍，一顆晶球只有幾公分長，所以每片晶圓都很昂貴。要維持單一多型（#H）並避免夾雜物，必須嚴格控制溫度梯度。晶體帶有差排：曾是主要殺手的微管現在幾乎消失，但貫穿螺旋差排、貫穿刃差排與基面差排仍有每 cm² 數百到數千個。這種極硬材料經過切片與長時間拋光後，再於偏離晶軸 #° 切割的晶圓上磊晶成長漂移層。來自晶體與磊晶的致命缺陷遵循卜瓦松統計，所以良率隨晶粒面積指數下降：大電流的大型 SiC 晶片成本很高，這就是許多模組改用多顆較小晶粒並聯的原因。",
+"A ten times higher critical field lets SiC block the same voltage with a ten times thinner, hundred times more highly doped drift layer": "十倍的臨界電場讓 SiC 用薄十倍、摻雜高約一百倍的漂移層就能承受相同電壓",
+"A power MOSFET blocks voltage across a lightly doped drift layer. In the simplest design the field rises linearly through the layer to the critical field Ec where avalanche starts, so the thickness is W = #·BV/Ec and the doping N_D = ε·Ec²/(#q·BV). Because #H-SiC has a critical field about eight to ten times that of silicon, the drift layer is ten times thinner and about a hundred times more highly doped for the same voltage, and its resistance, the Baliga limit #·BV²/(ε·μ·Ec³), is several hundred times lower. That is what makes # V unipolar MOSFETs possible, where silicon needs bipolar IGBTs with their switching losses. In a real SiC MOSFET the drift layer is not the only resistance: the channel under the gate oxide has poor mobility, the JFET region between the p-wells pinches the current, and the substrate adds a little after thinning. At # to # V the channel is a large share, so gate-oxide quality and cell design matter; at # kV and above the drift dominates.": "功率 MOSFET 以輕摻雜的漂移層阻擋電壓。最簡單的設計中，電場在層內線性上升到開始累崩的臨界電場 Ec，所以厚度 W = #·BV/Ec，摻雜 N_D = ε·Ec²/(#q·BV)。由於 #H-SiC 的臨界電場約為矽的八到十倍，相同電壓下漂移層薄十倍、摻雜高約一百倍，而其電阻（Baliga 極限 #·BV²/(ε·μ·Ec³)）低數百倍。這使得 # V 的單極 MOSFET 成為可能，而矽在這個電壓需要有切換損耗的雙極 IGBT。真正的 SiC MOSFET 中漂移層不是唯一的電阻：閘極氧化層下的通道遷移率很差，p 井之間的 JFET 區會夾擠電流，基板在薄化後也會增加一點。在 # 到 # V 時通道占很大比例，所以閘極氧化層品質與元胞設計很重要；在 # kV 以上則以漂移層為主。",
+"The SiC/SiO₂ interface traps channel electrons, and crystal dislocations can slowly grow into faults under current": "SiC/SiO₂ 界面會捕捉通道電子，而晶體差排在電流下可能慢慢長成缺陷",
+"SiC oxidizes thermally to SiO₂ like silicon, but carbon left at the interface creates a high density of traps just below the SiC conduction band. They capture electrons from the inversion channel and scatter the rest, so the channel mobility after plain dry oxidation is only a few cm²/Vs. Annealing in nitric oxide (NO) passivates many of these traps and raises the mobility to about #–# cm²/Vs, the industry standard; phosphorus treatments go further but make the threshold voltage less stable. Traps that charge and discharge also make the threshold drift under gate bias and temperature, which data sheets and qualification have to cover. A second reliability issue comes from the crystal: when the body diode conducts, electrons and holes recombine at basal plane dislocations in the drift layer, and the energy released lets them expand into triangular stacking faults that block current and raise the forward voltage and on-resistance. A highly doped buffer layer between substrate and drift converts most basal plane dislocations into harmless threading edge dislocations and recombines the holes before they arrive.": "SiC 和矽一樣可以熱氧化成 SiO₂，但殘留在界面的碳會在 SiC 導帶正下方產生高密度的陷阱。它們捕捉反轉通道中的電子並散射其餘電子，所以單純乾式氧化後的通道遷移率只有幾 cm²/Vs。在一氧化氮（NO）中退火可以鈍化許多陷阱，把遷移率提高到約 #–# cm²/Vs，這是業界標準；磷處理能更進一步，但會讓臨界電壓較不穩定。會充放電的陷阱也讓臨界電壓在閘極偏壓與溫度下漂移，資料表與驗證都必須涵蓋。第二個可靠度問題來自晶體：本體二極體導通時，電子與電洞在漂移層中的基面差排處復合，釋放的能量讓差排擴展成三角形的堆疊缺陷，阻擋電流並使順向電壓與導通電阻上升。基板與漂移層之間的高摻雜緩衝層會把大部分基面差排轉換成無害的貫穿刃差排，並在電洞到達之前讓它們復合。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -8455,6 +8665,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-va" aria-selected="false" aria-controls="tab-va">Variability</button>
         <button role="tab" id="tab-btn-df" aria-selected="false" aria-controls="tab-df">Design flow & DFT</button>
         <button role="tab" id="tab-btn-hs" aria-selected="false" aria-controls="tab-hs">High-speed links</button>
+        <button role="tab" id="tab-btn-sc" aria-selected="false" aria-controls="tab-sc">SiC power</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -12316,6 +12527,128 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Jitter</dt><dd>Timing uncertainty of the edges: random (Gaussian) plus deterministic (bounded).</dd>
               <dt>BER</dt><dd>Bit error ratio; 10⁻¹² before FEC is a classic target.</dd>
               <dt>UCIe</dt><dd>Universal Chiplet Interconnect Express: a standard parallel die-to-die interface for chiplets.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== SIC POWER TAB ===================== -->
+  <section id="tab-sc" role="tabpanel" aria-labelledby="tab-btn-sc" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="sc-pill">PVT</span><h2 id="sc-name">SiC crystal and wafer</h2></div>
+      <p id="sc-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="sc-view" role="group" aria-label="SiC view" style="flex-wrap:wrap">
+        <button data-v="wf" aria-pressed="true">Crystal and wafer</button>
+        <button data-v="dr" aria-pressed="false">Drift layer design</button>
+        <button data-v="ox" aria-pressed="false">Gate oxide and reliability</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvsc" aria-label="Silicon carbide power devices: physical vapour transport crystal growth and wafer defect map, drift layer thickness and doping versus breakdown voltage, and gate oxide interface traps and bipolar degradation"></canvas>
+      <div class="legend" id="sc-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="sc-ro"></div>
+        <div id="sc-c-dia" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="SiC wafers are much smaller than silicon wafers: 150 mm is mainstream, 200 mm is ramping up.">Wafer diameter</span>
+          <div class="chips" id="sc-dia">
+            <button class="chipbtn" data-d="150">150 mm</button>
+            <button class="chipbtn" data-d="200">200 mm</button>
+          </div>
+        </div>
+        <div class="slider" id="sc-c-dd">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Density of defects that kill a device: micropipes, large threading screw dislocations, carrots, triangles, downfalls in the epi.">Killer defect density</span><span id="sc-dd-v"></span></div>
+          <input id="sc-dd" type="range" min="0.05" max="3" step="0.05" value="0.6">
+        </div>
+        <div class="slider" id="sc-c-die">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Area of one MOSFET chip; larger chips carry more current but catch more defects.">Die area</span><span id="sc-die-v"></span></div>
+          <input id="sc-die" type="range" min="2" max="60" step="1" value="25">
+        </div>
+        <div class="slider" id="sc-c-bv">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Blocking voltage the drift layer must hold.">Breakdown voltage</span><span id="sc-bv-v"></span></div>
+          <input id="sc-bv" type="range" min="400" max="10000" step="50" value="1200">
+        </div>
+        <div class="slider" id="sc-c-mu">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Electron mobility in the inversion channel under the gate oxide, far below the bulk value because of interface traps.">Channel mobility</span><span id="sc-mu-v"></span></div>
+          <input id="sc-mu" type="range" min="5" max="80" step="1" value="25">
+        </div>
+        <div id="sc-c-ox" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Treatment of the SiC/SiO₂ interface after oxidation.">Interface treatment</span>
+          <div class="chips" id="sc-ox">
+            <button class="chipbtn" data-o="dry">Dry oxidation only</button>
+            <button class="chipbtn" data-o="no">NO anneal</button>
+            <button class="chipbtn" data-o="p">NO + phosphorus</button>
+          </div>
+        </div>
+        <div id="sc-c-buf" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="A highly doped buffer layer between substrate and drift converts basal plane dislocations into harmless threading edge dislocations and recombines holes before they reach them.">Recombination buffer</span>
+          <div class="chips" id="sc-buf">
+            <button class="chipbtn" data-b="off">Without buffer</button>
+            <button class="chipbtn" data-b="on">With buffer</button>
+          </div>
+        </div>
+        <div class="slider" id="sc-c-hr">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Hours of forward current through the body diode (for example freewheeling in an inverter).">Body-diode stress</span><span id="sc-hr-v"></span></div>
+          <input id="sc-hr" type="range" min="0" max="4" step="0.1" value="2">
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="sc-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Analysis</p>
+        <div class="plots">
+          <div class="plot"><svg id="sc-p1" viewBox="0 0 300 230" role="img" aria-label="Yield versus die area, on-resistance versus breakdown voltage, or interface trap density"></svg></div>
+          <div class="plot"><svg id="sc-p2" viewBox="0 0 220 230" role="img" aria-label="Crystal growth rate comparison, drift thickness versus voltage, or threshold drift over time"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="sc-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: 4H-SiC, PVT, micropipe, BPD, step-flow epitaxy, critical field, Baliga figure of merit, Dit, bipolar degradation</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>Why SiC is hard to make</h3>
+            <ol>
+              <li><b>No melt</b>: SiC sublimes instead of melting, so crystals grow from vapour at about 2300 °C, a few hundred times slower than silicon.</li>
+              <li><b>Hard</b>: almost as hard as diamond; slicing and polishing take far longer.</li>
+              <li><b>Dopants do not move</b>: implants need 500 °C and activation needs about 1700 °C.</li>
+              <li><b>Interface</b>: the oxide traps carbon-related defects that slow the channel.</li>
+              <li><b>Defects</b>: dislocations from the crystal can kill or slowly degrade devices.</li>
+            </ol>
+            <h3>Silicon, SiC and GaN</h3>
+            <div class="tbl"><table>
+              <tr><th>Property</th><th>Si</th><th>4H-SiC</th><th>GaN</th></tr>
+              <tr><td>Band gap (eV)</td><td>1.12</td><td>3.26</td><td>3.4</td></tr>
+              <tr><td>Critical field (MV/cm)</td><td>0.3</td><td>2.5</td><td>3.3</td></tr>
+              <tr><td>Electron mobility (cm²/Vs)</td><td>1350</td><td>900</td><td>1200 (2DEG 2000)</td></tr>
+              <tr><td>Thermal conductivity (W/m·K)</td><td>150</td><td>370</td><td>130</td></tr>
+              <tr><td>Typical voltage</td><td>&lt; 900 V</td><td>650–3300 V+</td><td>&lt; 900 V</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>4H-SiC</dt><dd>The hexagonal polytype of silicon carbide used for power devices; the stacking repeats every four layers.</dd>
+              <dt>PVT</dt><dd>Physical vapour transport: SiC powder sublimes at the hot bottom of a graphite crucible and condenses on a cooler seed.</dd>
+              <dt>Micropipe</dt><dd>A hollow screw dislocation running through the crystal; once the main killer defect, now nearly eliminated.</dd>
+              <dt>BPD</dt><dd>Basal plane dislocation; under bipolar current it can expand into a stacking fault that raises the resistance.</dd>
+              <dt>Step-flow epitaxy</dt><dd>Growth on a wafer cut 4° off axis, so atoms attach at step edges and copy the 4H stacking.</dd>
+              <dt>Critical field</dt><dd>Electric field at which avalanche breakdown starts; ten times higher in SiC than in Si.</dd>
+              <dt>Baliga figure of merit</dt><dd>ε·μ·Ec³: the lower limit of specific on-resistance for a given breakdown voltage.</dd>
+              <dt>Dit</dt><dd>Interface trap density; traps near the conduction band capture channel electrons and lower the mobility.</dd>
             </dl>
           </div>
         </div>
@@ -23057,12 +23390,197 @@ document.querySelectorAll("#hs-eq button").forEach(b => b.addEventListener("clic
 document.querySelectorAll("#hs-pkg button").forEach(b => b.addEventListener("click", () => { HSS.pkg = b.dataset.p; HSS.pitch = HSS.pkg === "adv" ? 45 : 110; updateHS(); }));
 [["hs-il", "il"], ["hs-nz", "nz"], ["hs-rj", "rj"], ["hs-dj", "dj"], ["hs-ber", "ber"], ["hs-pitch", "pitch"], ["hs-gt", "gt"]].forEach(([id, k]) => $(id).addEventListener("input", e => { HSS[k] = +e.target.value; updateHS(); }));
 
+/* ===================== SIC POWER TAB ===================== */
+// Wafer: gross dies per wafer and Poisson yield exp(−D·A). Drift: punch-through-free design W = 2BV/Ec, N_D = εEc²/(2qBV),
+// Baliga limit Ron = 4BV²/(εμEc³). Oxide: Dit near Ec per interface treatment, log-time threshold drift,
+// stacking-fault growth from basal plane dislocations under body-diode current.
+const SCC = setupCanvas($("cvsc"), 1000, 488);
+const SCS = {view:"wf", dia:"150", dd:0.6, die:25, bv:1200, mu:25, ox:"no", buf:"off", hr:2, t:0, acc:0};
+const SC_MAT = {si:{n:"Si", er:11.7, mu:1350, ec:0.3e6, col:"muted"}, sic:{n:"4H-SiC", er:9.7, mu:900, ec:2.5e6, col:"accent"}, gan:{n:"GaN", er:9, mu:1200, ec:3.3e6, col:"channel"}};
+const SC_OX = {dry:{n:"Dry oxidation only", d0:1e13, mu:6, a:0.6}, no:{n:"NO anneal", d0:1e12, mu:30, a:0.25}, p:{n:"NO + phosphorus", d0:4e11, mu:75, a:0.9}};
+const SC_E0 = 8.854e-14, SC_Q = 1.602e-19;
+
+/* ---------------- models ---------------- */
+function scWafer(){
+  const d = +SCS.dia, A = SCS.die, r = d/2 - 3, gross = Math.floor(Math.PI*r*r/A - Math.PI*2*r/Math.sqrt(2*A)), Y = Math.exp(-SCS.dd*A/100), good = gross*Y, cost = d === 200 ? 3500 : 2000;
+  return {d, A, gross, Y, good, cost, perDie:cost/Math.max(good, 0.1)};
+}
+function scDrift(m, bv){
+  const M = SC_MAT[m], eps = M.er*SC_E0, W = 2*bv/M.ec, nd = eps*M.ec*M.ec/(2*SC_Q*bv), ron = 4*bv*bv/(eps*M.mu*Math.pow(M.ec, 3));
+  return {W, nd, ron:ron*1000};
+}
+function scDevice(){ const d = scDrift("sic", SCS.bv).ron, ch = 30/SCS.mu, sub = 0.3, jf = 0.25 + 0.15*SCS.bv/1200; return {ch, jf, d, sub, tot:ch + jf + d + sub}; }
+const scDit = (o, e) => SC_OX[o].d0*Math.exp(-(e - 0.2)/0.1) + 2e11;
+const scVth = (o, h) => SC_OX[o].a*Math.log10(1 + h/0.1)/Math.log10(1 + 1000/0.1)*1;
+function scSF(){ const h = Math.pow(10, SCS.hr) - 1, f = 1 - Math.exp(-h/300), conv = SCS.buf === "on" ? 0.01 : 1; return {h, f, dvf:0.9*f*conv}; }
+
+/* ---------------- drawing ---------------- */
+function drawSCwf(T){
+  const W = SCS.W;
+  panel(20, 20, 440, 450, "Physical vapour transport (PVT) growth");
+  const cx = 175, g = Math.min(1, (SCS.t*0.06) % 1.2);
+  for (let i = 0; i < 7; i++){ ctx.strokeStyle = C.accent; ctx.lineWidth = 3; ctx.beginPath(); ctx.ellipse(cx, 120 + i*46, 150, 12, 0, 0, Math.PI); ctx.stroke(); }
+  ctx.fillStyle = C.muted; ctx.fillRect(cx - 110, 80, 220, 330); ctx.fillStyle = C.panel2; ctx.fillRect(cx - 95, 100, 190, 295);
+  ctx.fillStyle = C.channel; ctx.globalAlpha = .55; ctx.fillRect(cx - 95, 330, 190, 65); ctx.globalAlpha = 1;
+  for (let i = 0; i < 60; i++){ const r = cmRand(i + 3); ctx.fillStyle = C.channel; ctx.beginPath(); ctx.arc(cx - 90 + r()*180, 335 + r()*56, 2.2, 0, 6.283); ctx.fill(); }
+  ctx.fillStyle = C.si; ctx.fillRect(cx - 60, 100, 120, 8); const L = 12 + g*90;
+  ctx.fillStyle = C.channel; ctx.beginPath(); ctx.moveTo(cx - 60, 108); ctx.lineTo(cx + 60, 108); ctx.lineTo(cx + 70, 108 + L); ctx.quadraticCurveTo(cx, 120 + L, cx - 70, 108 + L); ctx.closePath(); ctx.fill(); ctx.strokeStyle = C.fg; ctx.lineWidth = 1; ctx.stroke();
+  for (let i = 0; i < 26; i++){ const r = cmRand(i + 40), f = (T*0.35 + r()) % 1, x = cx - 80 + r()*160, y = 325 - f*(205 - L); ctx.fillStyle = [C.electron, C.hole, C.accent][i % 3]; ctx.globalAlpha = 1 - f*0.5; ctx.beginPath(); ctx.arc(x + Math.sin(T*2 + i)*6, y, 2.6, 0, 6.283); ctx.fill(); } ctx.globalAlpha = 1;
+  const lab = (s, y, c) => txt(s, 296, y, {px:10, col:c || C.fg});
+  lab("seed on the lid, ≈ 2200 °C", 104); lab("growing SiC boule", 110 + L/2); lab("Si, Si₂C, SiC₂ vapour", 230, C.electron); lab("SiC powder source,", 350); lab("≈ 2300 °C", 364);
+  txt("induction coil", 30, 440, {px:9, col:C.accent}); txt("graphite crucible", cx, 430, {al:"center", px:9});
+  txt("0.2–0.5 mm per hour · a boule is only 20–50 mm long", 240, 456, {al:"center", px:10, w:700, col:C.fg});
+  panel(480, 20, 500, 450, `${W.d} mm wafer, ${W.A} mm² dies, ${SCS.dd} killer defects/cm²`);
+  const R = 190, ox = 730, oy = 255, s = R/(W.d/2), side = Math.sqrt(W.A)*s, rnd = cmRand(Math.round(SCS.dd*100) + W.d);
+  ctx.fillStyle = C.si; ctx.beginPath(); ctx.arc(ox, oy, R, 0, 6.283); ctx.fill(); ctx.strokeStyle = C.muted; ctx.lineWidth = 1.5; ctx.stroke();
+  ctx.fillStyle = C.panel2; ctx.fillRect(ox - 40, oy + R - 4, 80, 6);
+  const nDef = Math.round(SCS.dd*Math.PI*Math.pow(W.d/20, 2)), defs = Array.from({length:nDef}, () => { const a = rnd()*6.283, rr = Math.sqrt(rnd())*(W.d/2 - 1); return [rr*Math.cos(a), rr*Math.sin(a)]; });
+  const n = Math.ceil(W.d/Math.sqrt(W.A)); let good = 0, all = 0;
+  for (let i = -n; i <= n; i++) for (let j = -n; j <= n; j++){
+    const x0 = i*Math.sqrt(W.A), y0 = j*Math.sqrt(W.A), x1 = x0 + Math.sqrt(W.A), y1 = y0 + Math.sqrt(W.A), lim = W.d/2 - 3;
+    if ([[x0, y0], [x1, y0], [x0, y1], [x1, y1]].some(([x, y]) => Math.hypot(x, y) > lim)) continue;
+    const bad = defs.some(([x, y]) => x >= x0 && x < x1 && y >= y0 && y < y1); all++; if (!bad) good++;
+    ctx.fillStyle = bad ? C.hole : C.channel; ctx.globalAlpha = bad ? .75 : .35; ctx.fillRect(ox + x0*s + .5, oy + y0*s + .5, side - 1, side - 1); }
+  ctx.globalAlpha = 1; ctx.fillStyle = C.fg; defs.forEach(([x, y]) => { ctx.beginPath(); ctx.arc(ox + x*s, oy + y*s, 1.6, 0, 6.283); ctx.fill(); });
+  txt(`${good} good of ${all} dies (${(good/Math.max(all, 1)*100).toFixed(0)} %)`, ox, 458, {al:"center", px:11, w:700, col:C.fg});
+}
+function drawSCdr(T){
+  const si = scDrift("si", SCS.bv), sc = scDrift("sic", SCS.bv), D = scDevice();
+  panel(20, 20, 520, 450, `Drift layer for ${SCS.bv} V, drawn to scale`);
+  const top = 104, hMax = 330, sc2 = hMax/(si.W*1e4), cols = [["Si", si, 110, C.muted], ["4H-SiC", sc, 340, C.accent]];
+  cols.forEach(([n, d, x, c]) => { const h = Math.max(2, d.W*1e4*sc2);
+    ctx.fillStyle = c; ctx.globalAlpha = .3; ctx.fillRect(x, top, 120, h); ctx.globalAlpha = 1; ctx.strokeStyle = c; ctx.lineWidth = 1.5; ctx.strokeRect(x + .5, top + .5, 120, h);
+    ctx.fillStyle = C.electron; ctx.globalAlpha = .5; ctx.fillRect(x, top + h, 120, 18); ctx.globalAlpha = 1;
+    ctx.strokeStyle = C.hole; ctx.lineWidth = 2; pl([[x + 120, top], [x + 175, top], [x + 120, top + h]]);
+    txt(n, x + 60, 52, {al:"center", px:12, w:700, col:C.fg}); txt(`W = ${(d.W*1e4).toFixed(d.W*1e4 < 10 ? 1 : 0)} µm`, x + 60, 70, {al:"center", px:10, col:C.fg});
+    txt(`N_D = ${d.nd.toExponential(1)} cm⁻³`, x + 60, 86, {al:"center", px:10}); });
+  txt("red: field E(x), peak = critical field · blue: n+ substrate", 40, 462, {px:9, col:C.hole});
+  panel(560, 20, 420, 450, "On-resistance of a SiC MOSFET");
+  const parts = [["channel", D.ch, C.hole], ["JFET", D.jf, C.electron], ["drift", D.d, C.accent], ["substrate", D.sub, C.muted]], mx = Math.max(D.tot, 1), bw = 360;
+  let x = 590; parts.forEach(([n, v, c]) => { const w = v/mx*bw; ctx.fillStyle = c; ctx.globalAlpha = .8; ctx.fillRect(x, 70, w, 30); ctx.globalAlpha = 1; x += w; });
+  parts.forEach(([n, v, c], i) => { ctx.fillStyle = c; ctx.fillRect(590, 126 + i*24, 12, 12); txt(`${n}: ${v.toFixed(2)} mΩ·cm² (${(v/D.tot*100).toFixed(0)} %)`, 610, 132 + i*24, {px:11, col:C.fg}); });
+  [[`total ≈ ${D.tot.toFixed(2)} mΩ·cm²`, C.fg], [`silicon drift alone: ${si.ron < 1000 ? si.ron.toFixed(0) : (si.ron/1000).toFixed(1) + "k"} mΩ·cm² (${(si.ron/sc.ron).toFixed(0)}× SiC)`, C.muted],
+   ["", C.fg], [SCS.bv <= 1200 ? "at 650–1200 V the channel dominates: better" : "at high voltage the drift layer dominates:", C.fg], [SCS.bv <= 1200 ? "gate oxides and channel mobility pay off most" : "SiC's critical field is the decisive advantage", C.fg],
+   ["", C.fg], ["silicon switches above ~900 V use IGBTs:", C.muted], ["bipolar, slower, with switching losses", C.muted]].forEach(([s, c], i) => txt(s, 590, 240 + i*22, {px:11, w: i === 0 ? 700 : 500, col:c}));
+}
+function drawSCox(T){
+  const o = SC_OX[SCS.ox], S = scSF();
+  panel(20, 20, 460, 450, `SiC / SiO₂ interface (${o.n})`);
+  const xI = 200, Y = e => 90 + (3.3 - e)/3.3*300;
+  ctx.fillStyle = C.oxide; ctx.globalAlpha = .25; ctx.fillRect(40, 60, xI - 40, 360); ctx.globalAlpha = 1; txt("SiO₂ (gap 9 eV)", 120, 76, {al:"center", px:10, col:C.fg});
+  ctx.strokeStyle = C.electron; ctx.lineWidth = 2.4; pl([[xI, Y(3.26)], [450, Y(3.26)]]); ctx.strokeStyle = C.hole; pl([[xI, Y(0)], [450, Y(0)]]);
+  txt("E_C (4H-SiC)", 448, Y(3.26) - 10, {al:"right", px:10, col:C.electron}); txt("E_V", 448, Y(0) + 12, {al:"right", px:10, col:C.hole});
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.5; pl([[xI, 60], [xI, 420]]);
+  for (let e = 0.05; e < 3.2; e += 0.05){ const d = scDit(SCS.ox, e), w = Math.min(160, Math.log10(d/1e10)*40); ctx.fillStyle = C.accent; ctx.globalAlpha = .6; ctx.fillRect(xI + 2, Y(3.26 - e) - 2, w, 3.5); } ctx.globalAlpha = 1;
+  const nTr = Math.round(Math.log10(o.d0/1e11)*6); for (let i = 0; i < nTr; i++){ ctx.fillStyle = C.electron; ctx.beginPath(); ctx.arc(xI + 10 + (i % 6)*16, Y(3.26 - 0.06 - Math.floor(i/6)*0.07), 4, 0, 6.283); ctx.fill(); }
+  txt("traps near E_C capture channel electrons", 210, Y(2.6), {px:10, col:C.accent});
+  txt(`channel mobility ≈ ${o.mu} cm²/Vs (bulk ≈ 900)`, 40, 444, {px:11, w:700, col:C.fg});
+  panel(500, 20, 480, 450, `Bipolar degradation after ${S.h < 10 ? S.h.toFixed(1) : S.h.toFixed(0)} h of body-diode current`);
+  ctx.fillStyle = C.si; ctx.fillRect(530, 60, 420, 300); ctx.strokeStyle = C.muted; ctx.strokeRect(530.5, 60.5, 420, 300);
+  const rnd = cmRand(11);
+  for (let i = 0; i < 9; i++){ const x = 560 + rnd()*340, y = 80 + rnd()*250, conv = SCS.buf === "on" && i > 0;
+    if (conv){ ctx.fillStyle = C.channel; ctx.beginPath(); ctx.arc(x, y, 3.5, 0, 6.283); ctx.fill(); continue; }
+    const sz = 10 + Math.sqrt(S.f)*70; ctx.fillStyle = C.hole; ctx.globalAlpha = .35; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + sz, y); ctx.lineTo(x + sz/2, y + sz*0.87); ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1;
+    ctx.strokeStyle = C.hole; ctx.lineWidth = 1.5; pl([[x - 6, y], [x + 6, y]]); }
+  txt("top view of the drift epi (triangles: stacking faults grown from BPDs)", 740, 376, {al:"center", px:10});
+  [[`forward voltage increase ΔV_F ≈ ${S.dvf.toFixed(2)} V`, S.dvf > 0.1 ? C.hole : C.channel], [SCS.buf === "on" ? "buffer converts BPDs to harmless TEDs (green dots)" : "every BPD in the drift can grow a stacking fault", C.fg], ["electron–hole recombination at the BPD drives the fault", C.muted]].forEach(([s, c], i) => txt(s, 520, 404 + i*22, {px:11, w: i === 0 ? 700 : 500, col:c}));
+}
+function drawSC(dt, T){
+  begin(SCC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488);
+  if (SCS.view === "wf") drawSCwf(T); else if (SCS.view === "dr") drawSCdr(T); else drawSCox(T);
+}
+
+/* ---------------- DOM ---------------- */
+const SCINFO = {
+  wf:{pill:"PVT", name:"SiC crystal and wafer", sub:"Silicon carbide cannot be pulled from a melt: it is grown from vapour, slowly, and its defects decide the yield",
+    text:"Silicon carbide does not melt at normal pressure; it sublimes. Crystals are therefore grown by physical vapour transport (PVT): SiC powder at the bottom of a graphite crucible is heated by an induction coil to about 2300 °C, and the vapour of Si, Si₂C and SiC₂ condenses on a slightly cooler seed crystal on the lid. Growth runs at a fraction of a millimetre per hour, a few hundred times slower than a Czochralski silicon crystal, and a boule is only a few centimetres long, so every wafer is expensive. Keeping one polytype (4H) and avoiding inclusions takes tight control of temperature gradients. The crystal carries dislocations: micropipes, once the main killer, are now almost gone, but threading screw and edge dislocations and basal plane dislocations remain at hundreds to thousands per cm². After slicing and long polishing of this very hard material, a drift layer is grown by epitaxy on a wafer cut 4° off axis. Killer defects from crystal and epi follow Poisson statistics, so yield falls exponentially with die area: large high-current SiC chips are costly, which is why many modules parallel several smaller dies."},
+  dr:{pill:"BV", name:"Drift layer design", sub:"A ten times higher critical field lets SiC block the same voltage with a ten times thinner, hundred times more highly doped drift layer",
+    text:"A power MOSFET blocks voltage across a lightly doped drift layer. In the simplest design the field rises linearly through the layer to the critical field Ec where avalanche starts, so the thickness is W = 2·BV/Ec and the doping N_D = ε·Ec²/(2q·BV). Because 4H-SiC has a critical field about eight to ten times that of silicon, the drift layer is ten times thinner and about a hundred times more highly doped for the same voltage, and its resistance, the Baliga limit 4·BV²/(ε·μ·Ec³), is several hundred times lower. That is what makes 1200 V unipolar MOSFETs possible, where silicon needs bipolar IGBTs with their switching losses. In a real SiC MOSFET the drift layer is not the only resistance: the channel under the gate oxide has poor mobility, the JFET region between the p-wells pinches the current, and the substrate adds a little after thinning. At 650 to 1200 V the channel is a large share, so gate-oxide quality and cell design matter; at 3.3 kV and above the drift dominates."},
+  ox:{pill:"Dit", name:"Gate oxide and reliability", sub:"The SiC/SiO₂ interface traps channel electrons, and crystal dislocations can slowly grow into faults under current",
+    text:"SiC oxidizes thermally to SiO₂ like silicon, but carbon left at the interface creates a high density of traps just below the SiC conduction band. They capture electrons from the inversion channel and scatter the rest, so the channel mobility after plain dry oxidation is only a few cm²/Vs. Annealing in nitric oxide (NO) passivates many of these traps and raises the mobility to about 20–40 cm²/Vs, the industry standard; phosphorus treatments go further but make the threshold voltage less stable. Traps that charge and discharge also make the threshold drift under gate bias and temperature, which data sheets and qualification have to cover. A second reliability issue comes from the crystal: when the body diode conducts, electrons and holes recombine at basal plane dislocations in the drift layer, and the energy released lets them expand into triangular stacking faults that block current and raise the forward voltage and on-resistance. A highly doped buffer layer between substrate and drift converts most basal plane dislocations into harmless threading edge dislocations and recombines the holes before they arrive."}
+};
+Object.assign(TIP, {
+  "Dies per wafer":"Whole dies that fit inside the edge exclusion.", "Die yield":"Share of dies without a killer defect (Poisson).", "Good dies":"Dies per wafer times yield.", "Cost per good die":"Approximate processed wafer cost over good dies.",
+  "Drift thickness":"Thickness of the drift layer for the breakdown voltage.", "Drift doping":"Donor concentration of the drift layer.", "Drift resistance":"Baliga limit for 4H-SiC.", "Device resistance":"Channel, JFET, drift and substrate together.",
+  "Dit near Ec":"Interface trap density 0.2 eV below the conduction band.", "Channel mobility":"Inversion-layer electron mobility.", "Vth drift after 1000 h":"Threshold shift under gate stress.", "Body-diode ΔV_F":"Forward-voltage increase from stacking faults.",
+  "Gross dies":"Area term minus edge loss.", "Poisson yield":"Probability of no killer defect.", "PVT growth":"Sublimation and condensation.", "Wafer cost":"Approximate processed wafer cost.",
+  "Drift thickness ":"Field triangle up to Ec.", "Drift doping ":"Charge that the field can deplete.", "Baliga limit":"Minimum drift resistance.", "Device total":"Sum of the series resistances.",
+  "Interface traps":"Exponential tail toward E_C.", "Mobility":"Trapped and scattered electrons.", "Threshold drift":"Grows with log time.", "Stacking fault growth":"Recombination-enhanced dislocation glide."
+});
+const SCLEG = {
+  wf:[["channel","SiC source, boule, good die"],["hole","Die with a killer defect"],["accent","Induction coil"],["electron","Vapour species"],["fg","Defect"]],
+  dr:[["muted","Silicon"],["accent","4H-SiC, drift"],["hole","Electric field, channel"],["electron","n+ substrate, JFET"]],
+  ox:[["accent","Interface traps"],["electron","Trapped electron, E_C"],["hole","Stacking fault, BPD"],["channel","Converted TED"]]
+};
+const scChip = (sel, attr, on) => document.querySelectorAll(sel).forEach(b => { const o = on(b.dataset[attr]); b.setAttribute("aria-pressed", o); b.style.borderColor = o ? "var(--accent)" : ""; b.style.color = o ? "var(--accent)" : ""; });
+function updateSC(){
+  const v = SCS.view, info = SCINFO[v];
+  $("sc-pill").textContent = info.pill; $("sc-name").textContent = info.name; $("sc-sub").textContent = info.sub; $("sc-explain").textContent = info.text;
+  document.querySelectorAll("#sc-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  scChip("#sc-dia button", "d", d => d === SCS.dia); scChip("#sc-ox button", "o", o => o === SCS.ox); scChip("#sc-buf button", "b", b => b === SCS.buf);
+  const vis = {dia:v === "wf", dd:v === "wf", die:v === "wf", bv:v === "dr", mu:v === "dr", ox:v === "ox", buf:v === "ox", hr:v === "ox"};
+  Object.entries(vis).forEach(([k, on]) => $(`sc-c-${k}`).hidden = !on);
+  $("sc-dd-v").textContent = `${SCS.dd} /cm²`; $("sc-die-v").textContent = `${SCS.die} mm²`; $("sc-bv-v").textContent = `${SCS.bv} V`; $("sc-mu-v").textContent = `${SCS.mu} cm²/Vs`; $("sc-hr-v").textContent = `${(Math.pow(10, SCS.hr) - 1).toFixed(SCS.hr < 1 ? 1 : 0)} h`;
+  setHTML("sc-legend", SCLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  let ro, eq;
+  if (v === "wf"){ const W = SCS.W = scWafer();
+    ro = [["Dies per wafer", `${W.gross}`], ["Die yield", `${(W.Y*100).toFixed(0)} %`], ["Good dies", W.good.toFixed(0)], ["Cost per good die", `≈ $${W.perDie.toFixed(W.perDie < 10 ? 2 : 0)}`]];
+    eq = [{name:"Gross dies", f:"N = π·r²/A − π·2r/√(2A)", sub:`r = ${W.d/2 - 3} mm (3 mm edge), A = ${W.A} mm² → ${W.gross}`},
+      {name:"Poisson yield", f:"Y = e^(−D·A)", sub:`${SCS.dd} /cm² × ${(W.A/100).toFixed(2)} cm² → ${(W.Y*100).toFixed(0)} %`},
+      {name:"PVT growth", f:"SiC(s) → Si + Si₂C + SiC₂ (g) → SiC on the seed", sub:"≈ 2300 °C source, ≈ 0.3 mm/h"},
+      {name:"Wafer cost", f:"cost per die = wafer cost / (N · Y)", sub:`≈ $${W.cost} per processed ${W.d} mm wafer (rough)`}];
+  } else if (v === "dr"){ const sc = scDrift("sic", SCS.bv), D = scDevice();
+    ro = [["Drift thickness", `${(sc.W*1e4).toFixed(1)} µm`], ["Drift doping", `${sc.nd.toExponential(1)} cm⁻³`], ["Drift resistance", `${sc.ron.toFixed(2)} mΩ·cm²`], ["Device resistance", `${D.tot.toFixed(2)} mΩ·cm²`]];
+    eq = [{name:"Drift thickness ", f:"W = 2 · BV / E_c", sub:`E_c = 2.5 MV/cm → ${(sc.W*1e4).toFixed(1)} µm (Si: ${(scDrift("si", SCS.bv).W*1e4).toFixed(0)} µm)`},
+      {name:"Drift doping ", f:"N_D = ε · E_c² / (2q · BV)", sub:`${sc.nd.toExponential(1)} cm⁻³`},
+      {name:"Baliga limit", f:"R_on,sp = 4 · BV² / (ε · μ · E_c³)", sub:`${sc.ron.toFixed(2)} mΩ·cm² for SiC, ${scDrift("si", SCS.bv).ron.toFixed(0)} for Si`},
+      {name:"Device total", f:"R_on = R_ch + R_JFET + R_drift + R_sub", sub:`R_ch ∝ 1/μ_ch: ${D.ch.toFixed(2)} mΩ·cm² at ${SCS.mu} cm²/Vs`}];
+  } else { const o = SC_OX[SCS.ox], S = scSF();
+    ro = [["Dit near Ec", `${scDit(SCS.ox, 0.2).toExponential(0)} cm⁻²eV⁻¹`], ["Channel mobility", `${o.mu} cm²/Vs`], ["Vth drift after 1000 h", `${scVth(SCS.ox, 1000).toFixed(2)} V`], ["Body-diode ΔV_F", `${S.dvf.toFixed(2)} V`]];
+    eq = [{name:"Interface traps", f:"D_it(E) ≈ D₀ · e^(−(E_C − E − 0.2 eV)/0.1 eV)", sub:`${o.n}: D₀ = ${o.d0.toExponential(0)} cm⁻²eV⁻¹`},
+      {name:"Mobility", f:"μ_ch ≈ μ_bulk / (1 + q·N_it,trapped / …)", sub:`≈ ${o.mu} cm²/Vs`},
+      {name:"Threshold drift", f:"ΔV_th ≈ A · log(1 + t/t₀)", sub:`${scVth(SCS.ox, 1000).toFixed(2)} V after 1000 h of gate stress`},
+      {name:"Stacking fault growth", f:"ΔV_F ∝ fault area ∝ 1 − e^(−t/τ)", sub:SCS.buf === "on" ? "buffer: ≈ 99 % of BPDs converted" : `${S.dvf.toFixed(2)} V after ${S.h.toFixed(0)} h`}];
+  }
+  renderRo($("sc-ro"), ro); renderEq($("sc-eq"), eq);
+  drawSCPlots(v);
+}
+function drawSCPlots(v){
+  let a, b; const m1 = {l:38,r:10,t:28,b:30}, m2 = {l:38,r:8,t:28,b:30};
+  if (v === "wf"){
+    const P = axesR(300, 230, m1, 0, 60, 0, 100, 10, 25, "die area (mm²)", "yield (%)"), cols = [[0.2, "channel"], [0.6, "accent"], [1.5, "hole"]];
+    a = P.s + cols.map(([d, c]) => `<path d="${pathOf(range(0, 60, 60).map(A => [A, 100*Math.exp(-d*A/100)]), P.X, P.Y)}" fill="none" stroke="var(--${c})" stroke-width="1.6"/><text x="${P.X(60) - 2}" y="${P.Y(100*Math.exp(-d*0.6)) - 4}" text-anchor="end">${d}</text>`).join("")
+      + `<path d="${pathOf(range(0, 60, 60).map(A => [A, 100*Math.exp(-SCS.dd*A/100)]), P.X, P.Y)}" fill="none" stroke="var(--fg)" stroke-width="2.4"/>` + dotSvg(P.X(SCS.die), P.Y(SCS.W.Y*100)) + P.frame + `<text x="44" y="12" style="fill:var(--fg)">Poisson yield, D in /cm²</text>`;
+    const bars = [["Si CZ", 60, "muted"], ["SiC PVT", 0.3, "accent"], ["GaN HVPE", 0.2, "channel"]], Q = axesR(220, 230, m2, 0, 3, -1, 2, 1, 1, "", "log10 mm/h");
+    b = Q.s + bars.map(([n, r, c], i) => `<rect x="${Q.X(i + 0.2)}" y="${Q.Y(Math.log10(r))}" width="${Q.X(0.6) - Q.X(0)}" height="${Math.abs(Q.Y(-1) - Q.Y(Math.log10(r)))}" fill="var(--${c})" opacity=".8"/><text x="${Q.X(i + 0.5)}" y="${Q.Y(-1) + 14}" text-anchor="middle">${n}</text>`).join("") + Q.frame + `<text x="44" y="12" style="fill:var(--accent)">crystal growth rate</text>`;
+  } else if (v === "dr"){
+    const P = axesR(300, 230, m1, 2.5, 4, -1, 5, 0.5, 1, "log10 BV (V)", "log10 mΩ·cm²");
+    a = P.s + Object.entries(SC_MAT).map(([k, M]) => `<path d="${pathOf(range(2.5, 4, 40).map(l => [l, Math.log10(scDrift(k, Math.pow(10, l)).ron)]), P.X, P.Y)}" fill="none" stroke="var(--${M.col})" stroke-width="2.2"/>`).join("")
+      + `<path d="${pathOf(range(2.5, 4, 40).map(l => { const bv = Math.pow(10, l); return [l, Math.log10(30/SCS.mu + 0.25 + 0.15*bv/1200 + scDrift("sic", bv).ron + 0.3)]; }), P.X, P.Y)}" fill="none" stroke="var(--hole)" stroke-dasharray="4 3" stroke-width="1.6"/>`
+      + dotSvg(P.X(Math.log10(SCS.bv)), P.Y(Math.log10(scDrift("sic", SCS.bv).ron))) + P.frame + `<text x="44" y="12" style="fill:var(--muted)">Si</text><text x="64" y="12" style="fill:var(--accent)">SiC</text><text x="94" y="12" style="fill:var(--channel)">GaN</text><text x="126" y="12" style="fill:var(--hole)">SiC device</text>`;
+    const Q = axesR(220, 230, m2, 0, 10, 0, 3, 2, 0.5, "BV (kV)", "log10 W (µm)");
+    b = Q.s + [["si", "muted"], ["sic", "accent"]].map(([k, c]) => `<path d="${pathOf(range(0.4, 10, 48).map(kv => [kv, Math.log10(scDrift(k, kv*1000).W*1e4)]), Q.X, Q.Y)}" fill="none" stroke="var(--${c})" stroke-width="2.4"/>`).join("") + dotSvg(Q.X(SCS.bv/1000), Q.Y(Math.log10(scDrift("sic", SCS.bv).W*1e4))) + Q.frame + `<text x="44" y="12" style="fill:var(--accent)">drift thickness</text>`;
+  } else {
+    const P = axesR(300, 230, m1, 0, 1, 11, 14, 0.25, 0.5, "E_C − E (eV)", "log10 D_it"), cols = {dry:"hole", no:"accent", p:"channel"};
+    a = P.s + Object.keys(SC_OX).map(o => `<path d="${pathOf(range(0.05, 1, 40).map(e => [e, Math.log10(scDit(o, e))]), P.X, P.Y)}" fill="none" stroke="var(--${cols[o]})" stroke-width="${o === SCS.ox ? 2.6 : 1.3}"/>`).join("") + P.frame + `<text x="44" y="12" style="fill:var(--fg)">interface traps per treatment</text>`;
+    const Q = axesR(220, 230, m2, -1, 4, 0, 1, 1, 0.25, "log10 hours", "ΔVth (V)");
+    b = Q.s + Object.keys(SC_OX).map(o => `<path d="${pathOf(range(-1, 4, 50).map(l => [l, scVth(o, Math.pow(10, l))]), Q.X, Q.Y)}" fill="none" stroke="var(--${cols[o]})" stroke-width="${o === SCS.ox ? 2.6 : 1.3}"/>`).join("") + Q.frame + `<text x="44" y="12" style="fill:var(--fg)">threshold drift</text>`;
+  }
+  $("sc-p1").innerHTML = a; $("sc-p2").innerHTML = b;
+}
+function scTick(dt){ if (!(dt >= 0)) return; SCS.t += dt; }
+document.querySelectorAll("#sc-view button").forEach(b => b.addEventListener("click", () => { SCS.view = b.dataset.v; updateSC(); }));
+document.querySelectorAll("#sc-dia button").forEach(b => b.addEventListener("click", () => { SCS.dia = b.dataset.d; updateSC(); }));
+document.querySelectorAll("#sc-ox button").forEach(b => b.addEventListener("click", () => { SCS.ox = b.dataset.o; updateSC(); }));
+document.querySelectorAll("#sc-buf button").forEach(b => b.addEventListener("click", () => { SCS.buf = b.dataset.b; updateSC(); }));
+[["sc-dd", "dd"], ["sc-die", "die"], ["sc-bv", "bv"], ["sc-mu", "mu"], ["sc-hr", "hr"]].forEach(([id, k]) => $(id).addEventListener("input", e => { SCS[k] = +e.target.value; updateSC(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -23104,6 +23622,7 @@ function showTab(t){
   else if (t === "va"){ $("sub-top").textContent = "Variability · Pelgrom mismatch, process corners and PVT, SRAM sigma and yield"; VAC.resize(); updateVA(); }
   else if (t === "df"){ $("sub-top").textContent = "Design flow & DFT · RTL to GDS, static timing, scan test and defect level"; DFC.resize(); updateDF(); }
   else if (t === "hs"){ $("sub-top").textContent = "High-speed links · SerDes channel and eye, equalization, jitter, chiplet interfaces"; HSC.resize(); updateHS(); }
+  else if (t === "sc"){ $("sub-top").textContent = "SiC power · PVT crystal growth and defects, drift layer design, gate oxide and reliability"; SCC.resize(); updateSC(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -23138,6 +23657,7 @@ function frame(now){
   else if (tab === "va"){ vaTick(dt); if (VAC.cv.clientWidth) drawVA(dt, T); }
   else if (tab === "df"){ dfTick(dt); if (DFC.cv.clientWidth) drawDF(dt, T); }
   else if (tab === "hs"){ hsTick(dt); if (HSC.cv.clientWidth) drawHS(dt, T); }
+  else if (tab === "sc"){ scTick(dt); if (SCC.cv.clientWidth) drawSC(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
