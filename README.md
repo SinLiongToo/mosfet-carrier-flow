@@ -94,6 +94,11 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Jitter and bathtub** – dual-Dirac random and deterministic jitter, bathtub curve, total jitter and eye width at the target BER
 - **Chiplet links (UCIe)** – standard vs advanced package, bump pitch and bump-field depth, shoreline bandwidth, energy per bit and power vs other link types
 
+## Miller effect tab (`#miller`)
+- **Switching and the Miller plateau** – turn-on of a Si, SiC or GaN power transistor into an inductive load, four phases with the gate-voltage plateau, gate charge curve, dV/dt and turn-on loss vs gate resistance
+- **Amplifier Miller effect** – common-source stage with C_in = C_gs + (1 + A)·C_gd, Bode plot and bandwidth vs gain, cascode for comparison
+- **Parasitic turn-on** – half-bridge switch-node dV/dt pushing current through C_gd into the off transistor, gate spike vs hot threshold, negative off voltage and Miller clamp
+
 ## BJT & SiGe HBT tab (`#bipolar`)
 - **BJT operation** – emitter injection, base transport, collector sweep, β, gm, Early effect, saturation, Gummel plot
 - **SiGe HBT** – Ge-graded base drift field and band diagrams vs Si, base transit time, fT and fmax vs IC, technologies for 77 GHz

@@ -8271,6 +8271,238 @@ Object.assign(window.I18N_ZH, {
 "The SiC/SiO₂ interface traps channel electrons, and crystal dislocations can slowly grow into faults under current": "SiC/SiO₂ 界面會捕捉通道電子，而晶體差排在電流下可能慢慢長成缺陷",
 "SiC oxidizes thermally to SiO₂ like silicon, but carbon left at the interface creates a high density of traps just below the SiC conduction band. They capture electrons from the inversion channel and scatter the rest, so the channel mobility after plain dry oxidation is only a few cm²/Vs. Annealing in nitric oxide (NO) passivates many of these traps and raises the mobility to about #–# cm²/Vs, the industry standard; phosphorus treatments go further but make the threshold voltage less stable. Traps that charge and discharge also make the threshold drift under gate bias and temperature, which data sheets and qualification have to cover. A second reliability issue comes from the crystal: when the body diode conducts, electrons and holes recombine at basal plane dislocations in the drift layer, and the energy released lets them expand into triangular stacking faults that block current and raise the forward voltage and on-resistance. A highly doped buffer layer between substrate and drift converts most basal plane dislocations into harmless threading edge dislocations and recombines the holes before they arrive.": "SiC 和矽一樣可以熱氧化成 SiO₂，但殘留在界面的碳會在 SiC 導帶正下方產生高密度的陷阱。它們捕捉反轉通道中的電子並散射其餘電子，所以單純乾式氧化後的通道遷移率只有幾 cm²/Vs。在一氧化氮（NO）中退火可以鈍化許多陷阱，把遷移率提高到約 #–# cm²/Vs，這是業界標準；磷處理能更進一步，但會讓臨界電壓較不穩定。會充放電的陷阱也讓臨界電壓在閘極偏壓與溫度下漂移，資料表與驗證都必須涵蓋。第二個可靠度問題來自晶體：本體二極體導通時，電子與電洞在漂移層中的基面差排處復合，釋放的能量讓差排擴展成三角形的堆疊缺陷，阻擋電流並使順向電壓與導通電阻上升。基板與漂移層之間的高摻雜緩衝層會把大部分基面差排轉換成無害的貫穿刃差排，並在電洞到達之前讓它們復合。"
 });
+Object.assign(window.I18N_ZH, {
+"Miller effect": "米勒效應",
+"Miller effect · gate charge and the Miller plateau, amplifier bandwidth, dV/dt-induced turn-on": "米勒效應 · 閘極電荷與米勒平台、放大器頻寬、dV/dt 引起的誤導通",
+"Switching and the Miller plateau": "切換與米勒平台",
+"Miller effect view": "米勒效應視圖",
+"Amplifier Miller effect": "放大器的米勒效應",
+"Parasitic turn-on": "寄生誤導通",
+"Miller effect of a MOSFET: turn-on waveforms with the gate-charge plateau, input capacitance multiplication in a common-source amplifier, and dV/dt-induced turn-on in a half-bridge": "MOSFET 的米勒效應：含閘極電荷平台的導通波形、共源放大器的輸入電容倍增，以及半橋中 dV/dt 引起的誤導通",
+"Power device": "功率元件",
+"Power transistor type: each has its own capacitances, threshold voltage and gate drive voltage.": "功率電晶體類型：各有自己的電容、臨界電壓與閘極驅動電壓。",
+"Si MOSFET (# V)": "Si MOSFET（# V）",
+"SiC MOSFET (# V)": "SiC MOSFET（# V）",
+"GaN HEMT (# V)": "GaN HEMT（# V）",
+"Gate resistance": "閘極電阻",
+"Gate resistance (driver plus external resistor) that limits the gate current.": "限制閘極電流的閘極電阻（驅動器加外部電阻）。",
+"Load current": "負載電流",
+"Current in the inductive load that the transistor takes over from the freewheeling diode.": "電晶體從續流二極體接手的電感負載電流。",
+"Stage gain |A|": "級增益 |A|",
+"Voltage gain of the common-source stage, set by the drain resistor.": "由汲極電阻決定的共源級電壓增益。",
+"Source resistance": "訊號源電阻",
+"Resistance of the signal source driving the gate.": "驅動閘極的訊號源電阻。",
+"Topology": "電路架構",
+"A cascode transistor on top keeps the drain of the input transistor almost still, so Cgd is no longer multiplied.": "上方的疊接電晶體讓輸入電晶體的汲極幾乎不動，所以 Cgd 不再被倍增。",
+"Common source": "共源極",
+"Cascode": "疊接（Cascode）",
+"Switch-node dV/dt": "開關節點 dV/dt",
+"Slope of the switch-node voltage when the other transistor of the half-bridge turns on.": "半橋中另一顆電晶體導通時開關節點電壓的斜率。",
+"Turn-off gate resistance": "關斷閘極電阻",
+"Resistance from the gate back to the driver while the transistor is held off.": "電晶體保持關斷時，閘極回到驅動器的電阻。",
+"Off-state protection": "關斷狀態保護",
+"Ways to keep the off transistor off: a negative gate voltage, and a Miller clamp that shorts gate to source right at the chip.": "讓關斷的電晶體保持關斷的方法：負閘極電壓，以及在晶片旁把閘極短接到源極的米勒鉗位。",
+"Negative off voltage": "負關斷電壓",
+"Miller clamp": "米勒鉗位",
+"Gate charge curve, frequency response, or gate voltage spike": "閘極電荷曲線、頻率響應，或閘極電壓尖峰",
+"Switching loss versus gate resistance, input capacitance versus gain, or peak gate voltage versus dV/dt": "切換損耗對閘極電阻、輸入電容對增益，或峰值閘極電壓對 dV/dt",
+"Explain the terms: Cgd, Miller effect, Miller plateau, gate charge, Ciss, Coss, Crss, dV/dt, false turn-on, Miller clamp": "名詞解釋：Cgd、米勒效應、米勒平台、閘極電荷、Ciss、Coss、Crss、dV/dt、誤導通、米勒鉗位",
+"The three faces of the Miller capacitance": "米勒電容的三種面貌",
+"<b>Amplifiers</b>: Cgd between input and an inverting output looks (# + A) times larger at the input and cuts the bandwidth.": "<b>放大器</b>：輸入與反相輸出之間的 Cgd，從輸入看起來大了 (# + A) 倍，並削減頻寬。",
+"<b>Switching</b>: while the drain voltage swings, all gate current goes into Cgd and the gate voltage stays flat: the Miller plateau.": "<b>切換</b>：汲極電壓擺動時，閘極電流全部流進 Cgd，閘極電壓保持平坦：米勒平台。",
+"<b>Half-bridges</b>: a fast drain-voltage edge pushes current through Cgd into the gate of an off transistor and can turn it on.": "<b>半橋</b>：快速的汲極電壓邊緣把電流經 Cgd 推進關斷電晶體的閘極，可能使它導通。",
+"Data-sheet capacitances": "資料表中的電容",
+"Name": "名稱",
+"Meaning": "意義",
+"Cgs + Cgd: what the gate driver sees": "Cgs + Cgd：閘極驅動器看到的電容",
+"Cds + Cgd: output capacitance, stores switching energy": "Cds + Cgd：輸出電容，儲存切換能量",
+"Cgd: reverse transfer (Miller) capacitance": "Cgd：反向轉移（米勒）電容",
+"Charge to swing the drain: the plateau length": "擺動汲極所需的電荷：平台長度",
+"Total gate charge to reach the drive voltage": "達到驅動電壓所需的總閘極電荷",
+"Terms": "名詞",
+"Cgd (Miller capacitance)": "Cgd（米勒電容）",
+"Capacitance between gate and drain, from the gate overlapping the drain and the drift region.": "閘極與汲極之間的電容，來自閘極與汲極及漂移區的重疊。",
+"A capacitor across an inverting gain stage appears multiplied by (# + A) at its input.": "跨接在反相增益級上的電容，在輸入端看起來被乘以 (# + A)。",
+"Miller plateau": "米勒平台",
+"The flat part of the gate voltage during switching, while the gate current charges Cgd.": "切換時閘極電壓的平坦段，此時閘極電流在對 Cgd 充電。",
+"Gate charge Qg": "閘極電荷 Qg",
+"Total charge the driver must deliver to switch the transistor on; sets the driver power Qg·Vdrv·f.": "驅動器使電晶體導通必須提供的總電荷；決定驅動功率 Qg·Vdrv·f。",
+"Switching loss": "切換損耗",
+"Energy lost while voltage and current overlap during a transition; much of it during the Miller plateau.": "切換期間電壓與電流重疊造成的能量損失；大部分發生在米勒平台期間。",
+"False turn-on": "誤導通",
+"Unwanted turn-on of an off transistor by dV/dt through Cgd, causing shoot-through.": "dV/dt 經 Cgd 使關斷的電晶體意外導通，造成上下臂直通。",
+"A small switch in the driver that shorts gate to source with very low impedance while the transistor is off.": "驅動器中的小開關，在電晶體關斷時以極低阻抗把閘極短接到源極。",
+"A common-gate transistor stacked on the input transistor that holds its drain still and removes the Miller multiplication.": "疊在輸入電晶體上的共閘電晶體，固定其汲極並消除米勒倍增。",
+"Plateau duration": "平台時間",
+"Drain dV/dt": "汲極 dV/dt",
+"Turn-on energy": "導通能量",
+"Voltage gain": "電壓增益",
+"Input capacitance": "輸入電容",
+"Bandwidth": "頻寬",
+"Miller factor": "米勒倍數",
+"Peak gate voltage": "峰值閘極電壓",
+"Hot threshold": "高溫臨界電壓",
+"Margin": "餘裕",
+"Induced current": "感應電流",
+"Gate voltage during the drain swing.": "汲極擺動時的閘極電壓。",
+"Time spent on the plateau.": "停留在平台的時間。",
+"Average slope of the falling drain voltage.": "下降汲極電壓的平均斜率。",
+"Energy lost during one turn-on.": "一次導通損失的能量。",
+"Gain of the stage.": "該級的增益。",
+"C_gs plus the multiplied C_gd.": "C_gs 加上倍增後的 C_gd。",
+"−# dB frequency.": "−# dB 頻率。",
+"How many times C_gd is multiplied.": "C_gd 被乘了幾倍。",
+"Highest gate voltage of the off transistor during the edge.": "邊緣期間關斷電晶體的最高閘極電壓。",
+"Threshold voltage at # °C.": "# °C 時的臨界電壓。",
+"Hot threshold minus the peak gate voltage.": "高溫臨界電壓減峰值閘極電壓。",
+"C_gd times dV/dt.": "C_gd 乘以 dV/dt。",
+"Plateau voltage": "平台電壓",
+"Gate voltage that carries the load current.": "能承載負載電流的閘極電壓。",
+"Plateau time": "平台時間",
+"Gate charge Q_gd over gate current.": "閘極電荷 Q_gd 除以閘極電流。",
+"Drain slope": "汲極斜率",
+"Gate current over C_gd.": "閘極電流除以 C_gd。",
+"Gate drive power": "閘極驅動功率",
+"Charge times voltage times frequency.": "電荷乘電壓乘頻率。",
+"Miller capacitance": "米勒電容",
+"C_gd seen from the input.": "從輸入端看到的 C_gd。",
+"Input pole": "輸入極點",
+"Source resistance with the input capacitance.": "訊號源電阻與輸入電容。",
+"Local gain about −#.": "局部增益約為 −#。",
+"Gain-bandwidth": "增益頻寬積",
+"Gain times bandwidth.": "增益乘頻寬。",
+"Induced gate current": "感應閘極電流",
+"Displacement current through C_gd.": "流過 C_gd 的位移電流。",
+"Gate voltage": "閘極電壓",
+"First-order RC response.": "一階 RC 響應。",
+"Turn-on condition": "導通條件",
+"Peak gate above the threshold.": "峰值閘極電壓高於臨界值。",
+"Countermeasures": "對策",
+"Ways to stay off.": "保持關斷的方法。",
+"V_gs, gate drive": "V_gs、閘極驅動",
+"V_ds, C_gd, phase # plateau": "V_ds、C_gd、第 # 階段平台",
+"I_d, phase #": "I_d、第 # 階段",
+"C_gs, phase #": "C_gs、第 # 階段",
+"Response, Miller-equivalent C": "響應、米勒等效電容",
+"C_gd, −# dB point": "C_gd、−# dB 點",
+"Other topology": "另一種架構",
+"Low-side V_gs": "下臂 V_gs",
+"Threshold, C_gd current, danger zone": "臨界值、C_gd 電流、危險區",
+"Switch node": "開關節點",
+"V_pl = V_th + I_load / g_fs": "V_pl = V_th + I_負載 / g_fs",
+"t_pl = Q_gd / I_g, I_g = (V_drv − V_pl) / R_g": "t_pl = Q_gd / I_g，I_g = (V_drv − V_pl) / R_g",
+"Q_gd = # nC, I_g = # A → # ns": "Q_gd = # nC，I_g = # A → # ns",
+"average # V/ns": "平均 # V/ns",
+"Q_g = # nC → # mW at # kHz": "Q_g = {0} nC → {2} kHz 時 {1} mW",
+"(# + #) × # fF = # fF": "(# + #) × # fF = # fF",
+"(# + #) × # fF = # fF → cascode: ≈ # × # fF": "(# + #) × # fF = # fF → 疊接：≈ # × # fF",
+"R_s = # kΩ → # MHz": "R_s = # kΩ → # MHz",
+"R_s = # kΩ → # GHz": "R_s = # kΩ → # GHz",
+"A_local ≈ −# → C_in ≈ C_gs + #·C_gd": "A_局部 ≈ −# → C_in ≈ C_gs + #·C_gd",
+"without Miller the pole would be at # MHz": "沒有米勒效應時極點在 # MHz",
+"without Miller the pole would be at # GHz": "沒有米勒效應時極點在 # GHz",
+"# pF × # V/ns": "# pF × # V/ns",
+"R_g = # Ω (incl. # Ω internal) → peak # V": "R_g = # Ω（含 # Ω 內部）→ 峰值 # V",
+"R_g = # Ω (incl. # Ω internal) → peak -# V": "R_g = # Ω（含 # Ω 內部）→ 峰值 -# V",
+"V_gs,peak > V_th(T) → shoot-through": "V_gs,峰值 > V_th(T) → 直通",
+"violated: the low side conducts": "違反：下臂導通",
+"# V of margin": "餘裕 # V",
+"-# V of margin": "餘裕 -# V",
+"lower R_g,off · negative V_off · Miller clamp · Kelvin source": "降低 R_g,off · 負 V_off · 米勒鉗位 · 凱文源極",
+"# V off": "# V 關斷",
+"negative off voltage on": "負關斷電壓開啟",
+"# V off, clamp on": "# V 關斷，鉗位開啟",
+"negative off voltage on, clamp on": "負關斷電壓開啟，鉗位開啟",
+"Turn-on into an inductive load": "導通進入電感負載",
+"V_DD = # V": "V_DD = # V",
+"load L": "負載 L",
+"freewheel": "續流",
+"diode": "二極體",
+"drain": "汲極",
+"source": "源極",
+"driver": "驅動器",
+"R_g # Ω": "R_g # Ω",
+"#→# V": "#→# V",
+"phase #: charging C_gs to V_th": "第 # 階段：把 C_gs 充到 V_th",
+"phase #: current rises, V_ds still high": "第 # 階段：電流上升，V_ds 仍高",
+"phase #: Miller plateau, C_gd being discharged": "第 # 階段：米勒平台，C_gd 放電中",
+"phase #: fully on, V_gs rises to the drive": "第 # 階段：完全導通，V_gs 升到驅動電壓",
+"gate current # A": "閘極電流 # A",
+"all gate current flows into C_gd: V_gs stays flat": "閘極電流全部流進 C_gd：V_gs 保持平坦",
+"gate current charges C_gs + C_gd: V_gs rises": "閘極電流對 C_gs + C_gd 充電：V_gs 上升",
+"Turn-on waveforms (Si MOSFET (# V))": "導通波形（Si MOSFET（# V））",
+"Turn-on waveforms (SiC MOSFET (# V))": "導通波形（SiC MOSFET（# V））",
+"Turn-on waveforms (GaN HEMT (# V))": "導通波形（GaN HEMT（# V））",
+"V_gs (#–# V)": "V_gs（#–# V）",
+"plateau # V": "平台 # V",
+"V_ds (#–# V)": "V_ds（#–# V）",
+"I_d (# A)": "I_d（# A）",
+"time (ns)": "時間 (ns)",
+"turn-on energy # µJ, mostly in phases # and #": "導通能量 # µJ，大多在第 # 與 # 階段",
+"Common-source stage: C_gd is multiplied": "共源級：C_gd 被倍增",
+"Cascode: the input drain hardly moves": "疊接：輸入端汲極幾乎不動",
+"V_DD": "V_DD",
+"R_D (gain #)": "R_D（增益 #）",
+"cascode": "疊接",
+"R_s # kΩ": "R_s # kΩ",
+"v_in": "v_in",
+"v_out = −A·v_in": "v_out = −A·v_in",
+"(# + A)·C_gd = # fF": "(# + A)·C_gd = # fF",
+"input sees C_in = C_gs + (# + A)·C_gd": "輸入端看到 C_in = C_gs + (# + A)·C_gd",
+"input sees C_in = C_gs + ≈ #·C_gd": "輸入端看到 C_in = C_gs + ≈ #·C_gd",
+"= # + # = # fF": "= # + # = # fF",
+"input pole # MHz (without Miller # MHz)": "輸入極點 # MHz（無米勒效應時 # MHz）",
+"why: v_out swings A times v_in in the opposite direction,": "原因：v_out 以 A 倍反向擺動，",
+"so the voltage across C_gd is (# + A)·v_in": "所以 C_gd 兩端電壓為 (# + A)·v_in",
+"Frequency response": "頻率響應",
+"gain (dB)": "增益 (dB)",
+"frequency (Hz)": "頻率 (Hz)",
+"−# dB at # MHz": "−# dB 在 # MHz",
+"−# dB at # GHz": "−# dB 在 # GHz",
+"dashed: cascode for comparison": "虛線：疊接，供比較",
+"dashed: common source for comparison": "虛線：共源極，供比較",
+"Half-bridge: the high side turns on": "半橋：上臂導通",
+"high side: on": "上臂：導通",
+"switch node": "開關節點",
+"dV/dt = # V/ns": "dV/dt = # V/ns",
+"low side: off": "下臂：關斷",
+"R_g,off # Ω": "R_g,off # Ω",
+"R_g (bypassed)": "R_g（被旁路）",
+"# V": "# V",
+"-# V": "-# V",
+"induced gate current ≈ C_gd · dV/dt = # mA": "感應閘極電流 ≈ C_gd · dV/dt = # mA",
+"peak gate voltage # V vs V_th # V hot": "峰值閘極電壓 # V，高溫 V_th # V",
+"peak gate voltage -# V vs V_th # V hot": "峰值閘極電壓 -# V，高溫 V_th # V",
+"the low side turns on: shoot-through current!": "下臂導通：上下臂直通電流！",
+"the low side stays off": "下臂保持關斷",
+"Low-side gate during the edge (Si MOSFET (# V))": "邊緣期間的下臂閘極（Si MOSFET（# V））",
+"Low-side gate during the edge (SiC MOSFET (# V))": "邊緣期間的下臂閘極（SiC MOSFET（# V））",
+"Low-side gate during the edge (GaN HEMT (# V))": "邊緣期間的下臂閘極（GaN HEMT（# V））",
+"switch node (scaled)": "開關節點（縮放）",
+"V_th # °C": "V_th # °C",
+"V_gs (V)": "V_gs (V)",
+"shaded: above the hot threshold, the transistor conducts": "陰影：高於高溫臨界值時電晶體導通",
+"gate charge Q_g (nC)": "閘極電荷 Q_g (nC)",
+"gate charge curve (plateau = Q_gd)": "閘極電荷曲線（平台 = Q_gd）",
+"R_g (Ω)": "R_g (Ω)",
+"µJ": "µJ",
+"turn-on loss vs R_g": "導通損耗對 R_g",
+"gain |A|": "增益 |A|",
+"log# bandwidth (Hz)": "log# 頻寬 (Hz)",
+"common source": "共源極",
+"C_in (fF)": "C_in (fF)",
+"input capacitance": "輸入電容",
+"low-side gate spike": "下臂閘極尖峰",
+"dV/dt (V/ns)": "dV/dt (V/ns)",
+"peak V_gs (V)": "峰值 V_gs (V)",
+"peak V_gs vs dV/dt": "峰值 V_gs 對 dV/dt",
+"While the drain voltage swings, the whole gate current goes into C_gd and the gate voltage stands still": "汲極電壓擺動時，整個閘極電流都流進 C_gd，閘極電壓停住不動",
+"Turning on a power MOSFET means charging its gate through the gate resistance. In phase # the driver charges C_gs and C_gd until the gate reaches the threshold voltage; nothing else happens. In phase # the channel opens and takes over the load current from the freewheeling diode, but the drain voltage cannot fall yet because the diode is still conducting. Once the transistor carries the full load current, the drain voltage starts to fall, and now the gate-drain capacitance C_gd has to be discharged by the full drain swing. The gate current all goes into C_gd, so the gate voltage stays flat at the plateau voltage V_th + I_load/g_fs: the Miller plateau, phase #. Only when the drain has reached its on-state voltage does the gate rise to the full drive voltage in phase #. The gate charge curve in the data sheet shows the same thing as a function of charge: Q_gd is the plateau width. Because the drain voltage falls at dV/dt = I_g/C_gd, the gate resistance sets the switching speed: a smaller R_g switches faster with lower switching loss, but with more ringing and electromagnetic noise. C_gd is strongly nonlinear: small at high drain voltage, large near zero, which is why the end of the plateau slows down.": "讓功率 MOSFET 導通，就是經由閘極電阻對閘極充電。第 # 階段，驅動器對 C_gs 與 C_gd 充電，直到閘極達到臨界電壓；此時其他什麼都沒發生。第 # 階段，通道打開，從續流二極體接手負載電流，但汲極電壓還不能下降，因為二極體仍在導通。等電晶體承載全部負載電流後，汲極電壓開始下降，這時閘極-汲極電容 C_gd 必須隨整個汲極擺幅放電。閘極電流全部流進 C_gd，所以閘極電壓維持在平台電壓 V_th + I_負載/g_fs：這就是米勒平台，第 # 階段。只有在汲極到達導通電壓之後，閘極才會在第 # 階段上升到完整的驅動電壓。資料表中的閘極電荷曲線以電荷為橫軸表現同一件事：Q_gd 就是平台寬度。由於汲極電壓以 dV/dt = I_g/C_gd 下降，閘極電阻決定了切換速度：R_g 越小切換越快、切換損耗越低，但振鈴與電磁干擾也越多。C_gd 高度非線性：高汲極電壓時小，接近零時大，這就是平台尾段變慢的原因。",
+"A small capacitance between input and an inverting output looks (# + A) times larger at the input": "輸入與反相輸出之間的小電容，在輸入端看起來大了 (# + A) 倍",
+"In a common-source amplifier the gate-drain capacitance connects the input to the output, and the output moves A times as far as the input but in the opposite direction. A small input step v therefore changes the voltage across C_gd by (# + A)·v, and the source must deliver (# + A) times the charge it would for C_gd alone: seen from the input, C_gd is multiplied by (# + A). This is the Miller effect, described by John Milton Miller for vacuum tubes in #. With a gain of #, a # fF overlap capacitance looks like # fF and dominates the input capacitance, so together with the source resistance it sets a low-frequency pole that limits the bandwidth. The classic cure is the cascode: a common-gate transistor on top holds the drain of the input transistor almost constant, so its local gain is about −# and C_gd is only doubled. Differential pairs, shunt feedback and neutralization capacitors are other ways around it. The same effect is used on purpose in op-amps: Miller compensation puts a capacitor across the second stage so that a small capacitor creates a large, well-controlled dominant pole.": "在共源放大器中，閘極-汲極電容連接輸入與輸出，而輸出的擺動是輸入的 A 倍且方向相反。因此輸入有一個小步階 v 時，C_gd 兩端的電壓變化為 (# + A)·v，訊號源必須提供比單獨 C_gd 多 (# + A) 倍的電荷：從輸入看，C_gd 被乘以 (# + A)。這就是米勒效應，由 John Milton Miller 在 # 年針對真空管提出。增益為 # 時，# fF 的重疊電容看起來像 # fF，主導了輸入電容，與訊號源電阻一起形成一個低頻極點，限制了頻寬。經典的解法是疊接（cascode）：上方的共閘電晶體把輸入電晶體的汲極幾乎固定，使其局部增益約為 −#，C_gd 只被加倍。差動對、並聯回授與中和電容是其他繞過的方法。運算放大器也刻意利用同樣的效應：米勒補償在第二級跨接電容，讓小電容形成一個大而可控的主極點。",
+"In a half-bridge, the fast voltage edge of one transistor can push the other one back on through its C_gd": "在半橋中，一顆電晶體的快速電壓邊緣可能經由 C_gd 把另一顆重新打開",
+"In a half-bridge, when the high-side transistor turns on, the switch node rises by hundreds of volts in a few nanoseconds. The low-side transistor, which should stay off, has its drain on this node, so a current C_gd·dV/dt flows through its gate-drain capacitance into the gate. That current has to return to the driver through the turn-off gate resistance and the internal gate resistance, and on its way it lifts the gate voltage. If the gate rises above the threshold voltage, which is lower at high temperature, the low side conducts while the high side is on: shoot-through, with large extra losses or destruction. Fast wide-bandgap devices are most exposed: SiC switches at # to # V/ns, and GaN has a very low threshold. The defences: a low turn-off resistance, a negative gate voltage while off, a Miller clamp that shorts gate to source directly at the device during the off state, a small C_gd/C_gs ratio by design, and a driver layout with a separate Kelvin source connection. The same physics can also make a transistor turn itself on during its own turn-off at high dI/dt through the common source inductance.": "在半橋中，上臂電晶體導通時，開關節點在幾奈秒內上升數百伏。本應保持關斷的下臂電晶體，其汲極就接在這個節點上，所以有 C_gd·dV/dt 的電流經其閘極-汲極電容流進閘極。這個電流必須經由關斷閘極電阻與內部閘極電阻流回驅動器，途中把閘極電壓抬高。如果閘極超過臨界電壓（高溫時更低），下臂會在上臂導通時導電：上下臂直通，造成大量額外損耗甚至燒毀。快速的寬能隙元件最容易發生：SiC 的切換速度達 # 到 # V/ns，GaN 的臨界電壓又很低。防禦方法：低關斷電阻、關斷時加負閘極電壓、在元件旁把閘極短接到源極的米勒鉗位、設計上降低 C_gd/C_gs 比，以及採用獨立凱文源極連接的驅動佈局。同樣的物理也可能讓電晶體在自己關斷時，因高 dI/dt 經共源電感而自行導通。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -8666,6 +8898,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-df" aria-selected="false" aria-controls="tab-df">Design flow & DFT</button>
         <button role="tab" id="tab-btn-hs" aria-selected="false" aria-controls="tab-hs">High-speed links</button>
         <button role="tab" id="tab-btn-sc" aria-selected="false" aria-controls="tab-sc">SiC power</button>
+        <button role="tab" id="tab-btn-ml" aria-selected="false" aria-controls="tab-ml">Miller effect</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -12649,6 +12882,130 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Critical field</dt><dd>Electric field at which avalanche breakdown starts; ten times higher in SiC than in Si.</dd>
               <dt>Baliga figure of merit</dt><dd>ε·μ·Ec³: the lower limit of specific on-resistance for a given breakdown voltage.</dd>
               <dt>Dit</dt><dd>Interface trap density; traps near the conduction band capture channel electrons and lower the mobility.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== MILLER EFFECT TAB ===================== -->
+  <section id="tab-ml" role="tabpanel" aria-labelledby="tab-btn-ml" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="ml-pill">Qgd</span><h2 id="ml-name">Switching and the Miller plateau</h2></div>
+      <p id="ml-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="ml-view" role="group" aria-label="Miller effect view" style="flex-wrap:wrap">
+        <button data-v="sw" aria-pressed="true">Switching and the Miller plateau</button>
+        <button data-v="amp" aria-pressed="false">Amplifier Miller effect</button>
+        <button data-v="pt" aria-pressed="false">Parasitic turn-on</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvml" aria-label="Miller effect of a MOSFET: turn-on waveforms with the gate-charge plateau, input capacitance multiplication in a common-source amplifier, and dV/dt-induced turn-on in a half-bridge"></canvas>
+      <div class="legend" id="ml-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="ml-ro"></div>
+        <div id="ml-c-dev" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Power transistor type: each has its own capacitances, threshold voltage and gate drive voltage.">Power device</span>
+          <div class="chips" id="ml-dev">
+            <button class="chipbtn" data-d="si">Si MOSFET (650 V)</button>
+            <button class="chipbtn" data-d="sic">SiC MOSFET (1200 V)</button>
+            <button class="chipbtn" data-d="gan">GaN HEMT (650 V)</button>
+          </div>
+        </div>
+        <div class="slider" id="ml-c-rg">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Gate resistance (driver plus external resistor) that limits the gate current.">Gate resistance</span><span id="ml-rg-v"></span></div>
+          <input id="ml-rg" type="range" min="1" max="50" step="1" value="10">
+        </div>
+        <div class="slider" id="ml-c-il">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Current in the inductive load that the transistor takes over from the freewheeling diode.">Load current</span><span id="ml-il-v"></span></div>
+          <input id="ml-il" type="range" min="2" max="40" step="1" value="15">
+        </div>
+        <div class="slider" id="ml-c-av">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Voltage gain of the common-source stage, set by the drain resistor.">Stage gain |A|</span><span id="ml-av-v"></span></div>
+          <input id="ml-av" type="range" min="1" max="100" step="1" value="30">
+        </div>
+        <div class="slider" id="ml-c-rs">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Resistance of the signal source driving the gate.">Source resistance</span><span id="ml-rs-v"></span></div>
+          <input id="ml-rs" type="range" min="0" max="2" step="0.05" value="1">
+        </div>
+        <div id="ml-c-cas" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="A cascode transistor on top keeps the drain of the input transistor almost still, so Cgd is no longer multiplied.">Topology</span>
+          <div class="chips" id="ml-cas">
+            <button class="chipbtn" data-c="cs">Common source</button>
+            <button class="chipbtn" data-c="cas">Cascode</button>
+          </div>
+        </div>
+        <div class="slider" id="ml-c-dv">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Slope of the switch-node voltage when the other transistor of the half-bridge turns on.">Switch-node dV/dt</span><span id="ml-dv-v"></span></div>
+          <input id="ml-dv" type="range" min="5" max="150" step="5" value="30">
+        </div>
+        <div class="slider" id="ml-c-roff">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Resistance from the gate back to the driver while the transistor is held off.">Turn-off gate resistance</span><span id="ml-roff-v"></span></div>
+          <input id="ml-roff" type="range" min="0.5" max="20" step="0.5" value="5">
+        </div>
+        <div id="ml-c-off" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Ways to keep the off transistor off: a negative gate voltage, and a Miller clamp that shorts gate to source right at the chip.">Off-state protection</span>
+          <div class="chips" id="ml-off">
+            <button class="chipbtn" data-o="neg">Negative off voltage</button>
+            <button class="chipbtn" data-o="clamp">Miller clamp</button>
+          </div>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="ml-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Analysis</p>
+        <div class="plots">
+          <div class="plot"><svg id="ml-p1" viewBox="0 0 300 230" role="img" aria-label="Gate charge curve, frequency response, or gate voltage spike"></svg></div>
+          <div class="plot"><svg id="ml-p2" viewBox="0 0 220 230" role="img" aria-label="Switching loss versus gate resistance, input capacitance versus gain, or peak gate voltage versus dV/dt"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="ml-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: Cgd, Miller effect, Miller plateau, gate charge, Ciss, Coss, Crss, dV/dt, false turn-on, Miller clamp</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>The three faces of the Miller capacitance</h3>
+            <ol>
+              <li><b>Amplifiers</b>: Cgd between input and an inverting output looks (1 + A) times larger at the input and cuts the bandwidth.</li>
+              <li><b>Switching</b>: while the drain voltage swings, all gate current goes into Cgd and the gate voltage stays flat: the Miller plateau.</li>
+              <li><b>Half-bridges</b>: a fast drain-voltage edge pushes current through Cgd into the gate of an off transistor and can turn it on.</li>
+            </ol>
+            <h3>Data-sheet capacitances</h3>
+            <div class="tbl"><table>
+              <tr><th>Name</th><th>Meaning</th></tr>
+              <tr><td>Ciss</td><td>Cgs + Cgd: what the gate driver sees</td></tr>
+              <tr><td>Coss</td><td>Cds + Cgd: output capacitance, stores switching energy</td></tr>
+              <tr><td>Crss</td><td>Cgd: reverse transfer (Miller) capacitance</td></tr>
+              <tr><td>Qgd</td><td>Charge to swing the drain: the plateau length</td></tr>
+              <tr><td>Qg</td><td>Total gate charge to reach the drive voltage</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>Cgd (Miller capacitance)</dt><dd>Capacitance between gate and drain, from the gate overlapping the drain and the drift region.</dd>
+              <dt>Miller effect</dt><dd>A capacitor across an inverting gain stage appears multiplied by (1 + A) at its input.</dd>
+              <dt>Miller plateau</dt><dd>The flat part of the gate voltage during switching, while the gate current charges Cgd.</dd>
+              <dt>Gate charge Qg</dt><dd>Total charge the driver must deliver to switch the transistor on; sets the driver power Qg·Vdrv·f.</dd>
+              <dt>Switching loss</dt><dd>Energy lost while voltage and current overlap during a transition; much of it during the Miller plateau.</dd>
+              <dt>False turn-on</dt><dd>Unwanted turn-on of an off transistor by dV/dt through Cgd, causing shoot-through.</dd>
+              <dt>Miller clamp</dt><dd>A small switch in the driver that shorts gate to source with very low impedance while the transistor is off.</dd>
+              <dt>Cascode</dt><dd>A common-gate transistor stacked on the input transistor that holds its drain still and removes the Miller multiplication.</dd>
             </dl>
           </div>
         </div>
@@ -23575,12 +23932,232 @@ document.querySelectorAll("#sc-ox button").forEach(b => b.addEventListener("clic
 document.querySelectorAll("#sc-buf button").forEach(b => b.addEventListener("click", () => { SCS.buf = b.dataset.b; updateSC(); }));
 [["sc-dd", "dd"], ["sc-die", "die"], ["sc-bv", "bv"], ["sc-mu", "mu"], ["sc-hr", "hr"]].forEach(([id, k]) => $(id).addEventListener("input", e => { SCS[k] = +e.target.value; updateSC(); }));
 
+/* ===================== MILLER EFFECT TAB ===================== */
+// Switching: turn-on into a clamped inductive load, nonlinear Cgd(Vds), four phases incl. the Miller plateau.
+// Amplifier: Cin = Cgs + (1 + A)·Cgd and the input pole. Parasitic turn-on: Ciss·dVg/dt = Cgd·dV/dt − (Vg − Voff)/Rg.
+const MLC = setupCanvas($("cvml"), 1000, 488);
+const MLS = {view:"sw", dev:"si", rg:10, il:15, av:30, rs:1, cas:"cs", dv:30, roff:5, off:{neg:false, clamp:false}, t:0, R:null};
+const ML_DEV = {
+  si:{n:"Si MOSFET (650 V)", cgs:2000e-12, cgd0:400e-12, knee:6, cgdH:20e-12, vth:3.5, gfs:25, ron:0.12, vdrv:12, vdd:400, voff:-3},
+  sic:{n:"SiC MOSFET (1200 V)", cgs:1800e-12, cgd0:150e-12, cgdH:10e-12, vth:2.7, gfs:8, ron:0.04, vdrv:18, vdd:800, voff:-4},
+  gan:{n:"GaN HEMT (650 V)", cgs:500e-12, cgd0:20e-12, cgdH:3e-12, vth:1.5, gfs:30, ron:0.05, vdrv:6, vdd:400, voff:-3}};
+const mlCgd = (D, v) => D.cgdH + (D.cgd0 - D.cgdH)/Math.pow(1 + Math.max(v, 0)/(D.knee || 20), 2);
+
+/* ---------------- switching ---------------- */
+function mlSwitch(rg, dev){
+  const D = ML_DEV[dev || MLS.dev], R = rg || MLS.rg, IL = MLS.il, vOn = D.ron*IL, dt = 0.05e-9, out = [];
+  let vg = 0, vd = D.vdd, id = 0, q = 0, E = 0, t = 0, ph = 1, tP = [0, 0, 0, 0, 0];
+  for (let k = 0; k < 200000; k++){
+    const ig = (D.vdrv - vg)/R, ich = D.gfs*Math.max(vg - D.vth, 0);
+    if (ich < IL && vd >= D.vdd - 1e-6){ vg += ig*dt/(D.cgs + mlCgd(D, vd)); id = ich; ph = vg < D.vth ? 1 : 2; }
+    else if (vd > vOn + 0.01){ id = IL; vd -= ig*dt/mlCgd(D, vd); if (vd < vOn) vd = vOn; ph = 3; }
+    else { vg += ig*dt/(D.cgs + mlCgd(D, vd)); id = IL; vd = vOn; ph = 4; }
+    q += ig*dt; E += vd*id*dt; t += dt; if (!tP[ph]) tP[ph] = t;
+    if (k % 20 === 0) out.push([t, vg, vd, id, q, ph, ig]);
+    if (ph === 4 && vg > 0.97*D.vdrv) break;
+  }
+  const t3 = out.filter(p => p[5] === 3), plat = t3.length ? t3[0][1] : D.vth + IL/D.gfs, tpl = t3.length ? t3[t3.length - 1][0] - t3[0][0] : 0;
+  const qgd = t3.length ? t3[t3.length - 1][4] - t3[0][4] : 0, dvdt = tpl > 0 ? (D.vdd - vOn)/tpl : 0;
+  return {D, out, plat, tpl, qgd, qg:q, E, dvdt, ton:t3.length ? t3[t3.length - 1][0] : t, T:t};
+}
+/* ---------------- amplifier ---------------- */
+function mlAmp(av, cas){
+  const A = av || MLS.av, cs = (cas || MLS.cas) === "cs", Cgs = 100e-15, Cgd = 20e-15, CL = 50e-15, gm = 10e-3, RD = A/gm, Rs = Math.pow(10, MLS.rs)*1e3;
+  const mult = cs ? 1 + A : 2, Cin = Cgs + mult*Cgd, fin = 1/(2*Math.PI*Rs*Cin), fout = 1/(2*Math.PI*RD*(CL + Cgd)), fno = 1/(2*Math.PI*Rs*(Cgs + Cgd));
+  const H = f => 20*Math.log10(A/Math.sqrt((1 + (f/fin)**2)*(1 + (f/fout)**2)));
+  let lo = 1e3, hi = 1e12; for (let i = 0; i < 60; i++){ const m = Math.sqrt(lo*hi); if (H(m) > 20*Math.log10(A) - 3) lo = m; else hi = m; }
+  return {A, Cgs, Cgd, Cin, mult, fin, fout, fno, bw:lo, H, Rs, RD};
+}
+/* ---------------- parasitic turn-on ---------------- */
+function mlPT(dv){
+  const D = ML_DEV[MLS.dev], S = (dv || MLS.dv)*1e9, voff = MLS.off.neg ? D.voff : 0, R = MLS.off.clamp ? 0.5 : MLS.roff + 1, Ciss = D.cgs + D.cgdH, dt = 0.01e-9, tr = D.vdd/S, out = [];
+  let vg = voff, vsw = 0, pk = voff;
+  for (let t = 0; t < tr + 40e-9; t += dt){
+    const rising = t < tr, cg = mlCgd(D, vsw), ig = rising ? cg*S : 0;
+    vg += (ig - (vg - voff)/R)*dt/(Ciss + (rising ? 0 : 0)); vsw = rising ? S*t : D.vdd; pk = Math.max(pk, vg);
+    if (Math.round(t/dt) % 10 === 0) out.push([t, vsw, vg]);
+  }
+  const vthHot = D.vth - (MLS.dev === "gan" ? 0.3 : 0.8);
+  return {D, out, pk, voff, vthHot, tr, R, risk:pk > vthHot};
+}
+
+/* ---------------- drawing ---------------- */
+function mlFet(x, y, col){ ctx.strokeStyle = col || C.fg; ctx.lineWidth = 2.2; pl([[x, y - 26], [x, y + 26]]); ctx.lineWidth = 2; pl([[x + 8, y - 26], [x + 8, y + 26]]); pl([[x + 8, y - 18], [x + 30, y - 18], [x + 30, y - 40]]); pl([[x + 8, y + 18], [x + 30, y + 18], [x + 30, y + 40]]); }
+function mlCap(x1, y1, x2, y2, col, lab){ const mx = (x1 + x2)/2, my = (y1 + y2)/2, dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy), ux = dx/L, uy = dy/L, px = -uy*10, py = ux*10;
+  ctx.strokeStyle = col; ctx.lineWidth = 2; pl([[x1, y1], [mx - ux*4, my - uy*4]]); pl([[mx + ux*4, my + uy*4], [x2, y2]]); pl([[mx - ux*4 - px, my - uy*4 - py], [mx - ux*4 + px, my - uy*4 + py]]); pl([[mx + ux*4 - px, my + uy*4 - py], [mx + ux*4 + px, my + uy*4 + py]]); if (lab) txt(lab, mx + 14, my, {px:10, w:700, col}); }
+function drawMLsw(T){
+  const R = MLS.R, D = R.D, o = R.out, tc = (MLS.t*0.25) % 1.15, cur = o[Math.min(o.length - 1, Math.floor(Math.min(1, tc)*(o.length - 1)))];
+  panel(20, 20, 360, 450, "Turn-on into an inductive load");
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.5; pl([[250, 60], [250, 120]]); txt(`V_DD = ${D.vdd} V`, 262, 52, {px:10, col:C.fg});
+  for (let i = 0; i < 4; i++){ ctx.beginPath(); ctx.arc(250, 132 + i*16, 8, -Math.PI/2, Math.PI/2); ctx.stroke(); } txt("load L", 268, 156, {px:10});
+  pl([[250, 184], [250, 220]]); ctx.strokeStyle = C.muted; pl([[250, 70], [320, 70], [320, 205], [250, 205]]); txt("freewheel", 340, 100, {al:"right", px:9}); txt("diode", 340, 112, {al:"right", px:9}); ctx.fillStyle = C.muted; ctx.beginPath(); ctx.moveTo(312, 130); ctx.lineTo(328, 130); ctx.lineTo(320, 118); ctx.closePath(); ctx.fill();
+  mlFet(222, 262, C.fg); ctx.strokeStyle = C.fg; pl([[252, 222], [252, 220]]); pl([[252, 302], [252, 340]]); txt("drain", 262, 230, {px:9}); txt("source", 262, 320, {px:9});
+  ctx.strokeStyle = C.fg; pl([[120, 262], [222, 262]]); ctx.strokeRect(140, 255, 34, 14); txt(`R_g ${MLS.rg} Ω`, 157, 245, {al:"center", px:10, col:C.fg});
+  ctx.strokeRect(60, 240, 52, 44); txt("driver", 86, 256, {al:"center", px:9}); txt(`0→${D.vdrv} V`, 86, 272, {al:"center", px:9, col:C.accent}); pl([[112, 262], [140, 262]]);
+  mlCap(200, 262, 252, 222, C.hole, "C_gd"); mlCap(200, 262, 200, 330, C.channel, "C_gs"); pl([[200, 330], [252, 340]]);
+  ctx.strokeStyle = C.fg; pl([[252, 340], [252, 360]]); pl([[238, 360], [266, 360]]);
+  const ph = cur[5], names = ["", "1: charging C_gs to V_th", "2: current rises, V_ds still high", "3: Miller plateau, C_gd being discharged", "4: fully on, V_gs rises to the drive"];
+  if (ph === 3){ const f = (T*2) % 1; ctx.fillStyle = C.hole; ctx.beginPath(); ctx.arc(200 + 52*f, 262 - 40*f, 4, 0, 6.283); ctx.fill(); }
+  else { const f = (T*2) % 1; ctx.fillStyle = C.channel; ctx.beginPath(); ctx.arc(200, 262 + 68*f, 4, 0, 6.283); ctx.fill(); }
+  txt(`phase ${names[ph]}`, 36, 400, {px:11, w:700, col: ph === 3 ? C.hole : C.fg});
+  txt(`gate current ${(cur[6]).toFixed(2)} A`, 36, 424, {px:10});
+  txt(ph === 3 ? "all gate current flows into C_gd: V_gs stays flat" : "gate current charges C_gs + C_gd: V_gs rises", 36, 446, {px:10});
+  panel(400, 20, 580, 450, `Turn-on waveforms (${D.n})`);
+  const x0 = 450, w = 500, y0 = 60, h = 340, tmax = R.T, X = t => x0 + t/tmax*w;
+  const bands = [[1, C.muted], [2, C.electron], [3, C.hole], [4, C.channel]];
+  bands.forEach(([p, c]) => { const seg = o.filter(q => q[5] === p); if (!seg.length) return; ctx.globalAlpha = .08; ctx.fillStyle = c; ctx.fillRect(X(seg[0][0]), y0, X(seg[seg.length - 1][0]) - X(seg[0][0]), h); ctx.globalAlpha = 1; txt(`${p}`, (X(seg[0][0]) + X(seg[seg.length - 1][0]))/2, y0 + 12, {al:"center", px:11, w:700, col:c}); });
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, y0 + .5, w, h);
+  const Yg = v => y0 + h - v/(D.vdrv*1.1)*h, Yd = v => y0 + h - v/(D.vdd*1.1)*h, Yi = v => y0 + h - v/(MLS.il*1.6)*h;
+  ctx.strokeStyle = C.hole; ctx.lineWidth = 2; pl(o.map(p => [X(p[0]), Yd(p[2])]));
+  ctx.strokeStyle = C.electron; pl(o.map(p => [X(p[0]), Yi(p[3])]));
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2.6; pl(o.map(p => [X(p[0]), Yg(p[1])]));
+  ctx.strokeStyle = C.accent; ctx.setLineDash([4, 3]); ctx.lineWidth = 1; pl([[x0, Yg(R.plat)], [x0 + w, Yg(R.plat)]]); ctx.setLineDash([]);
+  txt(`V_gs (0–${D.vdrv} V)`, x0 + 6, Yg(D.vdrv) - 8, {px:10, w:700, col:C.accent}); txt(`plateau ${R.plat.toFixed(1)} V`, x0 + w - 4, Yg(R.plat) - 8, {al:"right", px:9, col:C.accent});
+  txt(`V_ds (0–${D.vdd} V)`, x0 + 30, Yd(D.vdd) + 12, {px:10, w:700, col:C.hole}); txt(`I_d (${MLS.il} A)`, x0 + w - 4, Yi(MLS.il) - 8, {al:"right", px:10, w:700, col:C.electron});
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1; pl([[X(cur[0]), y0], [X(cur[0]), y0 + h]]);
+  for (let k = 0; k <= 4; k++) txt(`${(tmax*k/4*1e9).toFixed(0)}`, x0 + w*k/4, y0 + h + 12, {al:"center", px:9}); txt("time (ns)", x0 + w, y0 + h + 26, {al:"right", px:9});
+  txt(`turn-on energy ${(R.E*1e6).toFixed(1)} µJ, mostly in phases 2 and 3`, 420, 456, {px:10, col:C.fg});
+}
+function drawMLamp(T){
+  const A = MLS.A;
+  panel(20, 20, 440, 450, A.mult > 3 ? "Common-source stage: C_gd is multiplied" : "Cascode: the input drain hardly moves");
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.5;
+  pl([[300, 50], [300, 90]]); txt("V_DD", 310, 52, {px:10}); ctx.strokeRect(292, 90, 16, 40); txt(`R_D (gain ${A.A})`, 316, 110, {px:10});
+  if (A.mult <= 3){ pl([[300, 130], [300, 150]]); mlFet(270, 176, C.muted); txt("cascode", 230, 150, {al:"right", px:9}); pl([[300, 196], [300, 216]]); } else pl([[300, 130], [300, 216]]);
+  mlFet(270, 242, C.fg); pl([[300, 282], [300, 330]]); pl([[286, 330], [314, 330]]);
+  pl([[90, 242], [270, 242]]); ctx.strokeRect(110, 235, 40, 14); txt(`R_s ${(A.Rs/1e3).toFixed(1)} kΩ`, 130, 225, {al:"center", px:10}); txt("v_in", 60, 242, {px:10, w:700});
+  mlCap(250, 242, 300, 200, C.hole, "C_gd"); pl([[300, 160], [380, 160]]); txt("v_out = −A·v_in", 384, 160, {px:10, w:700});
+  ctx.setLineDash([4, 3]); mlCap(200, 242, 200, 330, C.accent, `(1 + A)·C_gd = ${(A.mult*A.Cgd*1e15).toFixed(0)} fF`); ctx.setLineDash([]);
+  [[`input sees C_in = C_gs + ${A.mult > 3 ? "(1 + A)" : "≈ 2"}·C_gd`, C.fg], [`= ${(A.Cgs*1e15).toFixed(0)} + ${(A.mult*A.Cgd*1e15).toFixed(0)} = ${(A.Cin*1e15).toFixed(0)} fF`, C.fg], [`input pole ${(A.fin/1e6).toFixed(0)} MHz (without Miller ${(A.fno/1e6).toFixed(0)} MHz)`, A.mult > 3 ? C.hole : C.channel],
+   ["why: v_out swings A times v_in in the opposite direction,", C.muted], ["so the voltage across C_gd is (1 + A)·v_in", C.muted]].forEach(([s, c], i) => txt(s, 36, 372 + i*20, {px:10, w: i === 2 ? 700 : 500, col:c}));
+  panel(480, 20, 500, 450, "Frequency response");
+  const x0 = 530, w = 420, y0 = 60, h = 330, X = f => x0 + (Math.log10(f) - 5)/7*w, top = Math.ceil(20*Math.log10(A.A)/10)*10 + 10, Y = d => y0 + h - (clamp(d, -20, top) + 20)/(top + 20)*h;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, y0 + .5, w, h);
+  for (let d = -20; d <= top; d += 10) txt(`${d}`, x0 - 5, Y(d), {al:"right", px:9}); for (let e = 5; e <= 12; e++) txt(["100k", "1M", "10M", "100M", "1G", "10G", "100G", "1T"][e - 5], X(Math.pow(10, e)), y0 + h + 12, {al:"center", px:9});
+  const other = mlAmp(A.A, MLS.cas === "cs" ? "cas" : "cs");
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]); pl(range(5, 12, 140).map(l => [X(Math.pow(10, l)), Y(other.H(Math.pow(10, l)))])); ctx.setLineDash([]);
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2.6; pl(range(5, 12, 140).map(l => [X(Math.pow(10, l)), Y(A.H(Math.pow(10, l)))]));
+  ctx.strokeStyle = C.hole; ctx.lineWidth = 1.2; pl([[X(A.bw), y0], [X(A.bw), y0 + h]]); txt(`−3 dB at ${A.bw >= 1e9 ? (A.bw/1e9).toFixed(2) + " GHz" : (A.bw/1e6).toFixed(0) + " MHz"}`, X(A.bw) + 6, y0 + 16, {px:10, w:700, col:C.hole});
+  txt("gain (dB)", x0 + 6, y0 + 12, {px:9}); txt("frequency (Hz)", x0 + w, y0 + h + 26, {al:"right", px:9});
+  txt(`dashed: ${MLS.cas === "cs" ? "cascode" : "common source"} for comparison`, x0, 456, {px:10, col:C.muted});
+}
+function drawMLpt(T){
+  const P = MLS.P, D = P.D;
+  panel(20, 20, 400, 450, "Half-bridge: the high side turns on");
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.5; pl([[260, 50], [260, 90]]); txt(`V_DD = ${D.vdd} V`, 272, 52, {px:10});
+  mlFet(230, 120, C.accent); txt("high side: on", 300, 110, {px:10, col:C.accent});
+  pl([[260, 160], [260, 230]]); pl([[260, 200], [340, 200]]); txt("switch node", 344, 192, {px:10, w:700}); txt(`dV/dt = ${MLS.dv} V/ns`, 344, 208, {px:10, col:C.hole});
+  mlFet(230, 270, C.fg); pl([[260, 310], [260, 360]]); pl([[246, 360], [274, 360]]); txt("low side: off", 300, 300, {px:10});
+  mlCap(208, 270, 260, 230, C.hole, "C_gd"); const f = (T*2) % 1; ctx.fillStyle = C.hole; ctx.beginPath(); ctx.arc(260 - 52*f, 230 + 40*f, 4, 0, 6.283); ctx.fill();
+  ctx.strokeStyle = C.fg; pl([[90, 270], [230, 270]]); ctx.strokeRect(120, 263, 34, 14); txt(MLS.off.clamp ? "R_g (bypassed)" : `R_g,off ${MLS.roff} Ω`, 137, 252, {al:"center", px:10});
+  ctx.strokeRect(40, 250, 50, 40); txt("driver", 65, 264, {al:"center", px:9}); txt(`${P.voff} V`, 65, 280, {al:"center", px:9, col:C.accent});
+  if (MLS.off.clamp){ ctx.strokeStyle = C.channel; ctx.lineWidth = 2.5; pl([[200, 270], [200, 345], [260, 345]]); txt("Miller clamp", 140, 330, {px:10, w:700, col:C.channel}); }
+  [[`induced gate current ≈ C_gd · dV/dt = ${(mlCgd(D, 50)*MLS.dv*1e9*1e3).toFixed(0)} mA`, C.fg], [`peak gate voltage ${P.pk.toFixed(2)} V vs V_th ${P.vthHot.toFixed(1)} V hot`, P.risk ? C.hole : C.channel], [P.risk ? "the low side turns on: shoot-through current!" : "the low side stays off", P.risk ? C.hole : C.channel]].forEach(([s, c], i) => txt(s, 36, 392 + i*22, {px:11, w: i === 2 ? 700 : 500, col:c}));
+  panel(440, 20, 540, 450, `Low-side gate during the edge (${D.n})`);
+  const o = P.out, x0 = 500, w = 450, y0 = 60, h = 330, tmax = o[o.length - 1][0], X = t => x0 + t/tmax*w, lo = Math.min(P.voff, 0) - 1, hi = Math.max(P.pk, D.vth) + 2, Y = v => y0 + h - (v - lo)/(hi - lo)*h, Ys = v => y0 + h - v/D.vdd*h*0.9;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, y0 + .5, w, h);
+  ctx.globalAlpha = .1; ctx.fillStyle = C.hole; ctx.fillRect(x0, y0, w, Y(P.vthHot) - y0); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1.5; pl(o.map(p => [X(p[0]), Ys(p[1])])); txt("switch node (scaled)", x0 + w - 4, Ys(D.vdd) - 8, {al:"right", px:9});
+  ctx.strokeStyle = C.hole; ctx.setLineDash([5, 3]); [[D.vth, "V_th 25 °C"], [P.vthHot, "V_th 150 °C"]].forEach(([v, n]) => { pl([[x0, Y(v)], [x0 + w, Y(v)]]); txt(n, x0 + 6, Y(v) - 7, {px:9, col:C.hole}); }); ctx.setLineDash([]);
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2.6; pl(o.map(p => [X(p[0]), Y(p[2])]));
+  for (let v = Math.ceil(lo); v <= hi; v += 2) txt(`${v}`, x0 - 5, Y(v), {al:"right", px:9}); txt("V_gs (V)", x0 + 6, y0 + h - 10, {px:9});
+  for (let k = 0; k <= 4; k++) txt(`${(tmax*k/4*1e9).toFixed(0)}`, x0 + w*k/4, y0 + h + 12, {al:"center", px:9}); txt("time (ns)", x0 + w, y0 + h + 26, {al:"right", px:9});
+  txt("shaded: above the hot threshold, the transistor conducts", x0, 456, {px:10, col:C.muted});
+}
+function drawML(dt, T){
+  begin(MLC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488);
+  if (MLS.view === "sw"){ if (MLS.R) drawMLsw(T); } else if (MLS.view === "amp"){ if (MLS.A) drawMLamp(T); } else if (MLS.P) drawMLpt(T);
+}
+
+/* ---------------- DOM ---------------- */
+const MLINFO = {
+  sw:{pill:"Qgd", name:"Switching and the Miller plateau", sub:"While the drain voltage swings, the whole gate current goes into C_gd and the gate voltage stands still",
+    text:"Turning on a power MOSFET means charging its gate through the gate resistance. In phase 1 the driver charges C_gs and C_gd until the gate reaches the threshold voltage; nothing else happens. In phase 2 the channel opens and takes over the load current from the freewheeling diode, but the drain voltage cannot fall yet because the diode is still conducting. Once the transistor carries the full load current, the drain voltage starts to fall, and now the gate-drain capacitance C_gd has to be discharged by the full drain swing. The gate current all goes into C_gd, so the gate voltage stays flat at the plateau voltage V_th + I_load/g_fs: the Miller plateau, phase 3. Only when the drain has reached its on-state voltage does the gate rise to the full drive voltage in phase 4. The gate charge curve in the data sheet shows the same thing as a function of charge: Q_gd is the plateau width. Because the drain voltage falls at dV/dt = I_g/C_gd, the gate resistance sets the switching speed: a smaller R_g switches faster with lower switching loss, but with more ringing and electromagnetic noise. C_gd is strongly nonlinear: small at high drain voltage, large near zero, which is why the end of the plateau slows down."},
+  amp:{pill:"(1+A)", name:"Amplifier Miller effect", sub:"A small capacitance between input and an inverting output looks (1 + A) times larger at the input",
+    text:"In a common-source amplifier the gate-drain capacitance connects the input to the output, and the output moves A times as far as the input but in the opposite direction. A small input step v therefore changes the voltage across C_gd by (1 + A)·v, and the source must deliver (1 + A) times the charge it would for C_gd alone: seen from the input, C_gd is multiplied by (1 + A). This is the Miller effect, described by John Milton Miller for vacuum tubes in 1920. With a gain of 30, a 20 fF overlap capacitance looks like 620 fF and dominates the input capacitance, so together with the source resistance it sets a low-frequency pole that limits the bandwidth. The classic cure is the cascode: a common-gate transistor on top holds the drain of the input transistor almost constant, so its local gain is about −1 and C_gd is only doubled. Differential pairs, shunt feedback and neutralization capacitors are other ways around it. The same effect is used on purpose in op-amps: Miller compensation puts a capacitor across the second stage so that a small capacitor creates a large, well-controlled dominant pole."},
+  pt:{pill:"dV/dt", name:"Parasitic turn-on", sub:"In a half-bridge, the fast voltage edge of one transistor can push the other one back on through its C_gd",
+    text:"In a half-bridge, when the high-side transistor turns on, the switch node rises by hundreds of volts in a few nanoseconds. The low-side transistor, which should stay off, has its drain on this node, so a current C_gd·dV/dt flows through its gate-drain capacitance into the gate. That current has to return to the driver through the turn-off gate resistance and the internal gate resistance, and on its way it lifts the gate voltage. If the gate rises above the threshold voltage, which is lower at high temperature, the low side conducts while the high side is on: shoot-through, with large extra losses or destruction. Fast wide-bandgap devices are most exposed: SiC switches at 50 to 100 V/ns, and GaN has a very low threshold. The defences: a low turn-off resistance, a negative gate voltage while off, a Miller clamp that shorts gate to source directly at the device during the off state, a small C_gd/C_gs ratio by design, and a driver layout with a separate Kelvin source connection. The same physics can also make a transistor turn itself on during its own turn-off at high dI/dt through the common source inductance."}
+};
+Object.assign(TIP, {
+  "Miller plateau":"Gate voltage during the drain swing.", "Plateau duration":"Time spent on the plateau.", "Drain dV/dt":"Average slope of the falling drain voltage.", "Turn-on energy":"Energy lost during one turn-on.",
+  "Voltage gain":"Gain of the stage.", "Input capacitance":"C_gs plus the multiplied C_gd.", "Bandwidth":"−3 dB frequency.", "Miller factor":"How many times C_gd is multiplied.",
+  "Peak gate voltage":"Highest gate voltage of the off transistor during the edge.", "Hot threshold":"Threshold voltage at 150 °C.", "Margin":"Hot threshold minus the peak gate voltage.", "Induced current":"C_gd times dV/dt.",
+  "Plateau voltage":"Gate voltage that carries the load current.", "Plateau time":"Gate charge Q_gd over gate current.", "Drain slope":"Gate current over C_gd.", "Gate drive power":"Charge times voltage times frequency.",
+  "Miller capacitance":"C_gd seen from the input.", "Input pole":"Source resistance with the input capacitance.", "Cascode":"Local gain about −1.", "Gain-bandwidth":"Gain times bandwidth.",
+  "Induced gate current":"Displacement current through C_gd.", "Gate voltage":"First-order RC response.", "Turn-on condition":"Peak gate above the threshold.", "Countermeasures":"Ways to stay off."
+});
+const MLLEG = {
+  sw:[["accent","V_gs, gate drive"],["hole","V_ds, C_gd, phase 3 plateau"],["electron","I_d, phase 2"],["channel","C_gs, phase 4"]],
+  amp:[["accent","Response, Miller-equivalent C"],["hole","C_gd, −3 dB point"],["muted","Other topology"]],
+  pt:[["accent","Low-side V_gs"],["hole","Threshold, C_gd current, danger zone"],["muted","Switch node"],["channel","Miller clamp"]]
+};
+const mlChip = (sel, attr, on) => document.querySelectorAll(sel).forEach(b => { const o = on(b.dataset[attr]); b.setAttribute("aria-pressed", o); b.style.borderColor = o ? "var(--accent)" : ""; b.style.color = o ? "var(--accent)" : ""; });
+const mlF = f => f >= 1e9 ? `${(f/1e9).toFixed(2)} GHz` : `${(f/1e6).toFixed(0)} MHz`;
+function updateML(){
+  const v = MLS.view, info = MLINFO[v];
+  $("ml-pill").textContent = info.pill; $("ml-name").textContent = info.name; $("ml-sub").textContent = info.sub; $("ml-explain").textContent = info.text;
+  document.querySelectorAll("#ml-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  mlChip("#ml-dev button", "d", d => d === MLS.dev); mlChip("#ml-cas button", "c", c => c === MLS.cas); mlChip("#ml-off button", "o", o => MLS.off[o]);
+  const vis = {dev:v !== "amp", rg:v === "sw", il:v === "sw", av:v === "amp", rs:v === "amp", cas:v === "amp", dv:v === "pt", roff:v === "pt", off:v === "pt"};
+  Object.entries(vis).forEach(([k, on]) => $(`ml-c-${k}`).hidden = !on);
+  $("ml-rg-v").textContent = `${MLS.rg} Ω`; $("ml-il-v").textContent = `${MLS.il} A`; $("ml-av-v").textContent = `${MLS.av}`; $("ml-rs-v").textContent = `${Math.pow(10, MLS.rs).toFixed(1)} kΩ`; $("ml-dv-v").textContent = `${MLS.dv} V/ns`; $("ml-roff-v").textContent = `${MLS.roff} Ω`;
+  setHTML("ml-legend", MLLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  let ro, eq;
+  if (v === "sw"){ const R = MLS.R = mlSwitch(), D = R.D;
+    ro = [["Miller plateau", `${R.plat.toFixed(2)} V`], ["Plateau duration", `${(R.tpl*1e9).toFixed(1)} ns`], ["Drain dV/dt", `${(R.dvdt/1e9).toFixed(1)} V/ns`], ["Turn-on energy", `${(R.E*1e6).toFixed(1)} µJ`]];
+    eq = [{name:"Plateau voltage", f:"V_pl = V_th + I_load / g_fs", sub:`${D.vth} + ${MLS.il} / ${D.gfs} = ${R.plat.toFixed(2)} V`},
+      {name:"Plateau time", f:"t_pl = Q_gd / I_g,  I_g = (V_drv − V_pl) / R_g", sub:`Q_gd = ${(R.qgd*1e9).toFixed(1)} nC, I_g = ${((D.vdrv - R.plat)/MLS.rg).toFixed(2)} A → ${(R.tpl*1e9).toFixed(1)} ns`},
+      {name:"Drain slope", f:"dV_ds/dt = −I_g / C_gd(V_ds)", sub:`average ${(R.dvdt/1e9).toFixed(1)} V/ns`},
+      {name:"Gate drive power", f:"P_drive = Q_g · V_drv · f_sw", sub:`Q_g = ${(R.qg*1e9).toFixed(0)} nC → ${(R.qg*D.vdrv*100e3*1e3).toFixed(0)} mW at 100 kHz`}];
+  } else if (v === "amp"){ const A = MLS.A = mlAmp();
+    ro = [["Voltage gain", `${A.A} (${(20*Math.log10(A.A)).toFixed(1)} dB)`], ["Input capacitance", `${(A.Cin*1e15).toFixed(0)} fF`], ["Bandwidth", mlF(A.bw)], ["Miller factor", `${A.mult.toFixed(0)}×`]];
+    eq = [{name:"Miller capacitance", f:"C_M = (1 + A) · C_gd", sub:`(1 + ${A.A}) × 20 fF = ${(A.mult*A.Cgd*1e15).toFixed(0)} fF${MLS.cas === "cas" ? " → cascode: ≈ 2 × 20 fF" : ""}`},
+      {name:"Input pole", f:"f_in = 1 / (2π · R_s · C_in)", sub:`R_s = ${(A.Rs/1e3).toFixed(1)} kΩ → ${mlF(A.fin)}`},
+      {name:"Cascode", f:"A_local ≈ −1  →  C_in ≈ C_gs + 2·C_gd", sub:`without Miller the pole would be at ${mlF(A.fno)}`},
+      {name:"Gain-bandwidth", f:"GBW ≈ A · f_−3dB", sub:mlF(A.A*A.bw)}];
+  } else { const P = MLS.P = mlPT(), D = P.D;
+    ro = [["Peak gate voltage", `${P.pk.toFixed(2)} V`], ["Hot threshold", `${P.vthHot.toFixed(1)} V`], ["Margin", `${(P.vthHot - P.pk).toFixed(2)} V`], ["Induced current", `${(mlCgd(D, 50)*MLS.dv*1e9*1e3).toFixed(0)} mA`]];
+    eq = [{name:"Induced gate current", f:"i_g = C_gd · dV_ds/dt", sub:`${(mlCgd(D, 50)*1e12).toFixed(0)} pF × ${MLS.dv} V/ns`},
+      {name:"Gate voltage", f:"V_gs ≈ V_off + i_g · R_g · (1 − e^(−t/(R_g·C_iss)))", sub:`R_g = ${P.R.toFixed(1)} Ω (incl. 1 Ω internal) → peak ${P.pk.toFixed(2)} V`},
+      {name:"Turn-on condition", f:"V_gs,peak > V_th(T)  →  shoot-through", sub:P.risk ? "violated: the low side conducts" : `${(P.vthHot - P.pk).toFixed(2)} V of margin`},
+      {name:"Countermeasures", f:"lower R_g,off · negative V_off · Miller clamp · Kelvin source", sub:`${MLS.off.neg ? "negative off voltage on" : "0 V off"}${MLS.off.clamp ? ", clamp on" : ""}`}];
+  }
+  renderRo($("ml-ro"), ro); renderEq($("ml-eq"), eq);
+  drawMLPlots(v);
+}
+function drawMLPlots(v){
+  let a, b; const m1 = {l:38,r:10,t:28,b:30}, m2 = {l:38,r:8,t:28,b:30};
+  if (v === "sw"){ const R = MLS.R, D = R.D, qm = R.qg*1e9;
+    const P = axesR(300, 230, m1, 0, Math.ceil(qm/10)*10 || 10, 0, Math.ceil(D.vdrv/2)*2 + 2, Math.ceil(qm/40)*10 || 5, Math.ceil(D.vdrv/8), "gate charge Q_g (nC)", "V_gs (V)");
+    a = P.s + `<path d="${pathOf(R.out.map(p => [p[4]*1e9, p[1]]), P.X, P.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + P.frame + `<text x="44" y="12" style="fill:var(--accent)">gate charge curve (plateau = Q_gd)</text>`;
+    const sw = [1, 3, 5, 10, 20, 35, 50].map(r => [r, mlSwitch(r).E*1e6]), top = Math.ceil(Math.max(...sw.map(s => s[1]))/10)*10 || 10, Q = axesR(220, 230, m2, 0, 50, 0, top, 10, top/5, "R_g (Ω)", "µJ");
+    b = Q.s + `<path d="${pathOf(sw, Q.X, Q.Y)}" fill="none" stroke="var(--hole)" stroke-width="2.4"/>` + dotSvg(Q.X(MLS.rg), Q.Y(R.E*1e6)) + Q.frame + `<text x="44" y="12" style="fill:var(--hole)">turn-on loss vs R_g</text>`;
+  } else if (v === "amp"){
+    const P = axesR(300, 230, m1, 0, 100, 5, 11, 20, 1, "gain |A|", "log10 bandwidth (Hz)");
+    a = P.s + [["cs", "accent"], ["cas", "channel"]].map(([k, c]) => `<path d="${pathOf(range(1, 100, 60).map(A => [A, Math.log10(mlAmp(A, k).bw)]), P.X, P.Y)}" fill="none" stroke="var(--${c})" stroke-width="2.4"/>`).join("") + dotSvg(P.X(MLS.av), P.Y(Math.log10(MLS.A.bw))) + P.frame + `<text x="44" y="12" style="fill:var(--accent)">common source</text><text x="150" y="12" style="fill:var(--channel)">cascode</text>`;
+    const Q = axesR(220, 230, m2, 0, 100, 0, 2200, 25, 500, "gain |A|", "C_in (fF)");
+    b = Q.s + `<path d="${pathOf(range(1, 100, 50).map(A => [A, (100 + (1 + A)*20)]), Q.X, Q.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/><path d="${pathOf([[0, 140], [100, 140]], Q.X, Q.Y)}" fill="none" stroke="var(--channel)" stroke-width="2"/>` + Q.frame + `<text x="44" y="12" style="fill:var(--accent)">input capacitance</text>`;
+  } else { const P = MLS.P, o = P.out, tmax = o[o.length - 1][0]*1e9;
+    const A = axesR(300, 230, m1, 0, Math.ceil(tmax), Math.floor(Math.min(P.voff, 0)) - 1, Math.ceil(Math.max(P.pk, P.D.vth)) + 2, Math.ceil(tmax/4), 2, "time (ns)", "V_gs (V)");
+    a = A.s + `<line x1="${A.X(0)}" x2="${A.X(Math.ceil(tmax))}" y1="${A.Y(P.vthHot)}" y2="${A.Y(P.vthHot)}" stroke="var(--hole)" stroke-dasharray="4 3"/>` + `<path d="${pathOf(o.map(p => [p[0]*1e9, p[2]]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + A.frame + `<text x="44" y="12" style="fill:var(--accent)">low-side gate spike</text>`;
+    const sw = range(5, 150, 29).map(d => [d, mlPT(d).pk]), top = Math.ceil(Math.max(...sw.map(s => s[1]), P.D.vth) + 1), lo = Math.floor(Math.min(P.voff, 0)), Q = axesR(220, 230, m2, 0, 150, lo, top, 50, Math.max(1, Math.round((top - lo)/5)), "dV/dt (V/ns)", "peak V_gs (V)");
+    b = Q.s + `<line x1="${Q.X(0)}" x2="${Q.X(150)}" y1="${Q.Y(P.vthHot)}" y2="${Q.Y(P.vthHot)}" stroke="var(--hole)" stroke-dasharray="4 3"/>` + `<path d="${pathOf(sw, Q.X, Q.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + dotSvg(Q.X(MLS.dv), Q.Y(P.pk)) + Q.frame + `<text x="44" y="12" style="fill:var(--accent)">peak V_gs vs dV/dt</text>`;
+  }
+  $("ml-p1").innerHTML = a; $("ml-p2").innerHTML = b;
+}
+function mlTick(dt){ if (!(dt >= 0)) return; MLS.t += dt; }
+document.querySelectorAll("#ml-view button").forEach(b => b.addEventListener("click", () => { MLS.view = b.dataset.v; MLS.t = 0; updateML(); }));
+document.querySelectorAll("#ml-dev button").forEach(b => b.addEventListener("click", () => { MLS.dev = b.dataset.d; updateML(); }));
+document.querySelectorAll("#ml-cas button").forEach(b => b.addEventListener("click", () => { MLS.cas = b.dataset.c; updateML(); }));
+document.querySelectorAll("#ml-off button").forEach(b => b.addEventListener("click", () => { MLS.off[b.dataset.o] = !MLS.off[b.dataset.o]; updateML(); }));
+[["ml-rg", "rg"], ["ml-il", "il"], ["ml-av", "av"], ["ml-rs", "rs"], ["ml-dv", "dv"], ["ml-roff", "roff"]].forEach(([id, k]) => $(id).addEventListener("input", e => { MLS[k] = +e.target.value; updateML(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -23623,6 +24200,7 @@ function showTab(t){
   else if (t === "df"){ $("sub-top").textContent = "Design flow & DFT · RTL to GDS, static timing, scan test and defect level"; DFC.resize(); updateDF(); }
   else if (t === "hs"){ $("sub-top").textContent = "High-speed links · SerDes channel and eye, equalization, jitter, chiplet interfaces"; HSC.resize(); updateHS(); }
   else if (t === "sc"){ $("sub-top").textContent = "SiC power · PVT crystal growth and defects, drift layer design, gate oxide and reliability"; SCC.resize(); updateSC(); }
+  else if (t === "ml"){ $("sub-top").textContent = "Miller effect · gate charge and the Miller plateau, amplifier bandwidth, dV/dt-induced turn-on"; MLC.resize(); updateML(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -23658,6 +24236,7 @@ function frame(now){
   else if (tab === "df"){ dfTick(dt); if (DFC.cv.clientWidth) drawDF(dt, T); }
   else if (tab === "hs"){ hsTick(dt); if (HSC.cv.clientWidth) drawHS(dt, T); }
   else if (tab === "sc"){ scTick(dt); if (SCC.cv.clientWidth) drawSC(dt, T); }
+  else if (tab === "ml"){ mlTick(dt); if (MLC.cv.clientWidth) drawML(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
