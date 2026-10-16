@@ -8503,6 +8503,7 @@ Object.assign(window.I18N_ZH, {
 "In a half-bridge, the fast voltage edge of one transistor can push the other one back on through its C_gd": "在半橋中，一顆電晶體的快速電壓邊緣可能經由 C_gd 把另一顆重新打開",
 "In a half-bridge, when the high-side transistor turns on, the switch node rises by hundreds of volts in a few nanoseconds. The low-side transistor, which should stay off, has its drain on this node, so a current C_gd·dV/dt flows through its gate-drain capacitance into the gate. That current has to return to the driver through the turn-off gate resistance and the internal gate resistance, and on its way it lifts the gate voltage. If the gate rises above the threshold voltage, which is lower at high temperature, the low side conducts while the high side is on: shoot-through, with large extra losses or destruction. Fast wide-bandgap devices are most exposed: SiC switches at # to # V/ns, and GaN has a very low threshold. The defences: a low turn-off resistance, a negative gate voltage while off, a Miller clamp that shorts gate to source directly at the device during the off state, a small C_gd/C_gs ratio by design, and a driver layout with a separate Kelvin source connection. The same physics can also make a transistor turn itself on during its own turn-off at high dI/dt through the common source inductance.": "在半橋中，上臂電晶體導通時，開關節點在幾奈秒內上升數百伏。本應保持關斷的下臂電晶體，其汲極就接在這個節點上，所以有 C_gd·dV/dt 的電流經其閘極-汲極電容流進閘極。這個電流必須經由關斷閘極電阻與內部閘極電阻流回驅動器，途中把閘極電壓抬高。如果閘極超過臨界電壓（高溫時更低），下臂會在上臂導通時導電：上下臂直通，造成大量額外損耗甚至燒毀。快速的寬能隙元件最容易發生：SiC 的切換速度達 # 到 # V/ns，GaN 的臨界電壓又很低。防禦方法：低關斷電阻、關斷時加負閘極電壓、在元件旁把閘極短接到源極的米勒鉗位、設計上降低 C_gd/C_gs 比，以及採用獨立凱文源極連接的驅動佈局。同樣的物理也可能讓電晶體在自己關斷時，因高 dI/dt 經共源電感而自行導通。"
 });
+Object.assign(window.I18N_ZH, {"i_Cgd: G → D": "i_Cgd：G → D", "(V_ds falling)": "（V_ds 下降）", "i_Cgd: D → G": "i_Cgd：D → G", "(V_ds rising)": "（V_ds 上升）"});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -23994,7 +23995,7 @@ function drawMLsw(T){
   mlFet(222, 262, C.fg); ctx.strokeStyle = C.fg; pl([[252, 222], [252, 220]]); pl([[252, 302], [252, 340]]); txt("drain", 262, 230, {px:9}); txt("source", 262, 320, {px:9});
   ctx.strokeStyle = C.fg; pl([[120, 262], [222, 262]]); ctx.strokeRect(140, 255, 34, 14); txt(`R_g ${MLS.rg} Ω`, 157, 245, {al:"center", px:10, col:C.fg});
   ctx.strokeRect(60, 240, 52, 44); txt("driver", 86, 256, {al:"center", px:9}); txt(`0→${D.vdrv} V`, 86, 272, {al:"center", px:9, col:C.accent}); pl([[112, 262], [140, 262]]);
-  mlCap(200, 262, 252, 222, C.hole, "C_gd"); mlCap(200, 262, 200, 330, C.channel, "C_gs"); pl([[200, 330], [252, 340]]);
+  mlCap(200, 262, 252, 222, C.hole, "C_gd"); ctx.strokeStyle = C.hole; ctx.lineWidth = 2; pl([[198, 226], [222, 208]]); pl([[214, 206], [222, 208], [219, 216]]); txt("i_Cgd: G → D", 120, 196, {px:10, w:700, col:C.hole}); txt("(V_ds falling)", 120, 210, {px:9, col:C.hole}); mlCap(200, 262, 200, 330, C.channel, "C_gs"); pl([[200, 330], [252, 340]]);
   ctx.strokeStyle = C.fg; pl([[252, 340], [252, 360]]); pl([[238, 360], [266, 360]]);
   const ph = cur[5], names = ["", "1: charging C_gs to V_th", "2: current rises, V_ds still high", "3: Miller plateau, C_gd being discharged", "4: fully on, V_gs rises to the drive"];
   if (ph === 3){ const f = (T*2) % 1; ctx.fillStyle = C.hole; ctx.beginPath(); ctx.arc(200 + 52*f, 262 - 40*f, 4, 0, 6.283); ctx.fill(); }
@@ -24048,7 +24049,7 @@ function drawMLpt(T){
   mlFet(230, 120, C.accent); txt("high side: on", 300, 110, {px:10, col:C.accent});
   pl([[260, 160], [260, 230]]); pl([[260, 200], [340, 200]]); txt("switch node", 344, 192, {px:10, w:700}); txt(`dV/dt = ${MLS.dv} V/ns`, 344, 208, {px:10, col:C.hole});
   mlFet(230, 270, C.fg); pl([[260, 310], [260, 360]]); pl([[246, 360], [274, 360]]); txt("low side: off", 300, 300, {px:10});
-  mlCap(208, 270, 260, 230, C.hole, "C_gd"); const f = (T*2) % 1; ctx.fillStyle = C.hole; ctx.beginPath(); ctx.arc(260 - 52*f, 230 + 40*f, 4, 0, 6.283); ctx.fill();
+  mlCap(208, 270, 260, 230, C.hole, "C_gd"); ctx.strokeStyle = C.hole; ctx.lineWidth = 2; pl([[236, 214], [210, 234]]); pl([[212, 226], [210, 234], [218, 235]]); txt("i_Cgd: D → G", 110, 206, {px:10, w:700, col:C.hole}); txt("(V_ds rising)", 110, 220, {px:9, col:C.hole}); const f = (T*2) % 1; ctx.fillStyle = C.hole; ctx.beginPath(); ctx.arc(260 - 52*f, 230 + 40*f, 4, 0, 6.283); ctx.fill();
   ctx.strokeStyle = C.fg; pl([[90, 270], [230, 270]]); ctx.strokeRect(120, 263, 34, 14); txt(MLS.off.clamp ? "R_g (bypassed)" : `R_g,off ${MLS.roff} Ω`, 137, 252, {al:"center", px:10});
   ctx.strokeRect(40, 250, 50, 40); txt("driver", 65, 264, {al:"center", px:9}); txt(`${P.voff} V`, 65, 280, {al:"center", px:9, col:C.accent});
   if (MLS.off.clamp){ ctx.strokeStyle = C.channel; ctx.lineWidth = 2.5; pl([[200, 270], [200, 345], [260, 345]]); txt("Miller clamp", 140, 330, {px:10, w:700, col:C.channel}); }
