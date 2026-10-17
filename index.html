@@ -8504,6 +8504,7 @@ Object.assign(window.I18N_ZH, {
 "In a half-bridge, when the high-side transistor turns on, the switch node rises by hundreds of volts in a few nanoseconds. The low-side transistor, which should stay off, has its drain on this node, so a current C_gd·dV/dt flows through its gate-drain capacitance into the gate. That current has to return to the driver through the turn-off gate resistance and the internal gate resistance, and on its way it lifts the gate voltage. If the gate rises above the threshold voltage, which is lower at high temperature, the low side conducts while the high side is on: shoot-through, with large extra losses or destruction. Fast wide-bandgap devices are most exposed: SiC switches at # to # V/ns, and GaN has a very low threshold. The defences: a low turn-off resistance, a negative gate voltage while off, a Miller clamp that shorts gate to source directly at the device during the off state, a small C_gd/C_gs ratio by design, and a driver layout with a separate Kelvin source connection. The same physics can also make a transistor turn itself on during its own turn-off at high dI/dt through the common source inductance.": "在半橋中，上臂電晶體導通時，開關節點在幾奈秒內上升數百伏。本應保持關斷的下臂電晶體，其汲極就接在這個節點上，所以有 C_gd·dV/dt 的電流經其閘極-汲極電容流進閘極。這個電流必須經由關斷閘極電阻與內部閘極電阻流回驅動器，途中把閘極電壓抬高。如果閘極超過臨界電壓（高溫時更低），下臂會在上臂導通時導電：上下臂直通，造成大量額外損耗甚至燒毀。快速的寬能隙元件最容易發生：SiC 的切換速度達 # 到 # V/ns，GaN 的臨界電壓又很低。防禦方法：低關斷電阻、關斷時加負閘極電壓、在元件旁把閘極短接到源極的米勒鉗位、設計上降低 C_gd/C_gs 比，以及採用獨立凱文源極連接的驅動佈局。同樣的物理也可能讓電晶體在自己關斷時，因高 dI/dt 經共源電感而自行導通。"
 });
 Object.assign(window.I18N_ZH, {"i_Cgd: G → D": "i_Cgd：G → D", "(V_ds falling)": "（V_ds 下降）", "i_Cgd: D → G": "i_Cgd：D → G", "(V_ds rising)": "（V_ds 上升）"});
+Object.assign(window.I18N_ZH, {"Both cuts": "兩者都看", "Direction of the cut line. Drag it on the layout or use the slider. With both cuts, drag either line.": "切線的方向。可在佈局上拖曳，或用滑桿調整。選「兩者都看」時，兩條切線都可以拖曳。"});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -11742,10 +11743,11 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <p class="eyebrow">Controls</p>
         <div class="readouts four" id="ly-ro"></div>
         <div id="ly-c-dir" style="display:grid;gap:8px">
-          <span class="term" tabindex="0" data-tip="Direction of the cut line. Drag it on the layout or use the slider.">Cut direction</span>
+          <span class="term" tabindex="0" data-tip="Direction of the cut line. Drag it on the layout or use the slider. With both cuts, drag either line.">Cut direction</span>
           <div class="chips" id="ly-dir">
             <button class="chipbtn" data-d="h">Horizontal cut</button>
             <button class="chipbtn" data-d="v">Vertical cut</button>
+            <button class="chipbtn" data-d="b">Both cuts</button>
           </div>
         </div>
         <div class="slider" id="ly-c-pos">
@@ -21485,7 +21487,7 @@ $("rl-t").addEventListener("input", e => { RLB[RLB.view === "qual" ? "tq" : "t"]
    TAB — layout: inverter standard cell, live cross-section along a cut line, DRC and LVS
    ========================================================= */
 const LYC = setupCanvas($("cvly"), 1000, 488);
-const LYO = {view:"cut", dir:"h", pos:16, show:{well:true, act:true, imp:true, poly:true, cont:true, m1:true}, err:{endcap:false, cgate:false, nocont:false, m1sp:false}};
+const LYO = {view:"cut", dir:"h", pos:16, posH:16, posV:20, show:{well:true, act:true, imp:true, poly:true, cont:true, m1:true}, err:{endcap:false, cgate:false, nocont:false, m1sp:false}};
 // layout in λ: x to the right, y up; cell 40 × 60 λ
 function lyShapes(){
   const e = LYO.err;
@@ -21555,33 +21557,40 @@ function drawLYlayout(S, T, chk){
   // cut line
   if (LYO.view === "cut"){
     ctx.strokeStyle = C.hole; ctx.lineWidth = 2; ctx.setLineDash([8, 5]);
-    if (LYO.dir === "h") pl([[lyX(-1), lyY(LYO.pos)], [lyX(41), lyY(LYO.pos)]]); else pl([[lyX(LYO.pos), lyY(-1)], [lyX(LYO.pos), lyY(61)]]);
+    const hP = LYO.dir === "b" ? LYO.posH : LYO.pos, vP = LYO.dir === "b" ? LYO.posV : LYO.pos;
+    if (LYO.dir !== "v") pl([[lyX(-1), lyY(hP)], [lyX(41), lyY(hP)]]); if (LYO.dir !== "h") pl([[lyX(vP), lyY(-1)], [lyX(vP), lyY(61)]]);
+    if (LYO.dir === "b"){ ctx.setLineDash([]); txt("H", lyX(41) + 4, lyY(hP), {px:10, w:700, col:C.hole}); txt("V", lyX(vP), lyY(61) - 8, {al:"center", px:10, w:700, col:C.hole}); }
     ctx.setLineDash([]);
     txt("drag the cut line", 180, 52, {al:"center", px:10, col:C.hole, w:700});
   }
 }
-function drawLYcut(S, T){
-  panel(355, 20, 625, 450, `Cross-section along the ${LYO.dir === "h" ? "horizontal" : "vertical"} cut at ${LYO.pos} λ`);
-  const len = LYO.dir === "h" ? 40 : 60, x0 = 380, w = 580, sc = w/len, dx = 0.25, labels = [];
-  ctx.fillStyle = C.oxide; ctx.globalAlpha = 0.16; ctx.fillRect(x0, 140, w, 160); ctx.globalAlpha = 1;
+function drawLYsec(S, dir, pos, py, ph){
+  const full = ph >= 400, Y = full ? (y => y) : (y => py + 26 + (y - 140)*0.56), R = (X, a, W, b) => ctx.fillRect(X, Y(a), W, Y(b) - Y(a));
+  panel(355, py, 625, ph, `Cross-section along the ${dir === "h" ? "horizontal" : "vertical"} cut at ${pos} λ`);
+  const len = dir === "h" ? 40 : 60, x0 = 380, w = 580, sc = w/len, dx = 0.25, labels = [];
+  ctx.fillStyle = C.oxide; ctx.globalAlpha = 0.16; R(x0, 140, w, 300); ctx.globalAlpha = 1;
   let prevGate = false;
   for (let u = 0; u < len; u += dx){
-    const [x, y] = LYO.dir === "h" ? [u + dx/2, LYO.pos] : [LYO.pos, u + dx/2], f = lyAt(S, x, y), X = x0 + u*sc, W = dx*sc + 0.6;
-    ctx.fillStyle = C.si; ctx.fillRect(X, 300, W, 150);
-    ctx.fillStyle = f.well ? C.nplus : C.pplus; ctx.fillRect(X, 300, W, f.well ? 90 : 150);
-    if (!f.act){ ctx.fillStyle = C.oxide; ctx.globalAlpha = 0.75; ctx.fillRect(X, 296, W, 44); ctx.globalAlpha = 1; }
-    else if (!f.poly){ if (f.n || f.p){ ctx.fillStyle = f.n ? C.electron : C.hole; ctx.globalAlpha = 0.8; ctx.fillRect(X, 300, W, 18); ctx.globalAlpha = 1; } }
-    if (f.poly){ ctx.fillStyle = C.metal; ctx.fillRect(X, 256, W, 40); if (f.act){ ctx.fillStyle = C.oxide; ctx.fillRect(X, 296, W, 4); } }
-    if (f.cont){ ctx.fillStyle = C.fg; ctx.fillRect(X, 170, W, (f.poly ? 256 : 300) - 170); }
-    if (f.m1){ ctx.fillStyle = C.accent; ctx.fillRect(X, 150, W, 20); }
+    const [x, y] = dir === "h" ? [u + dx/2, pos] : [pos, u + dx/2], f = lyAt(S, x, y), X = x0 + u*sc, W = dx*sc + 0.6;
+    ctx.fillStyle = C.si; R(X, 300, W, 450);
+    ctx.fillStyle = f.well ? C.nplus : C.pplus; R(X, 300, W, f.well ? 390 : 450);
+    if (!f.act){ ctx.fillStyle = C.oxide; ctx.globalAlpha = 0.75; R(X, 296, W, 340); ctx.globalAlpha = 1; }
+    else if (!f.poly){ if (f.n || f.p){ ctx.fillStyle = f.n ? C.electron : C.hole; ctx.globalAlpha = 0.8; R(X, 300, W, 318); ctx.globalAlpha = 1; } }
+    if (f.poly){ ctx.fillStyle = C.metal; R(X, 256, W, 296); if (f.act){ ctx.fillStyle = C.oxide; R(X, 296, W, 300); } }
+    if (f.cont){ ctx.fillStyle = C.fg; R(X, 170, W, f.poly ? 256 : 300); }
+    if (f.m1){ ctx.fillStyle = C.accent; R(X, 150, W, 170); }
     const gate = f.poly && f.act;
     if (gate && !prevGate) labels.push([X, f.act[4] === "p" ? "PMOS gate" : "NMOS gate"]);
     prevGate = gate;
   }
-  labels.forEach(([X, l]) => txt(l, X + 10, 244, {px:10, col:C.fg, w:700}));
-  txt("metal 1", x0 + 4, 140, {px:10, col:C.accent, w:700}); txt("contacts", x0 + 4, 186, {px:10, col:C.fg}); txt("STI", x0 + w - 4, 330, {al:"right", px:10, col:C.fg});
-  txt("p-substrate", x0 + 4, 440, {px:10, col:C.hole}); txt(LYO.dir === "v" ? "n-well (upper half of the cell)" : "", x0 + w - 4, 380, {al:"right", px:10, col:C.electron});
-  txt(`${LYO.dir === "h" ? "left" : "bottom"} edge of the cell`, x0, 462, {px:9}); txt(`${LYO.dir === "h" ? "right" : "top"} edge`, x0 + w, 462, {al:"right", px:9});
+  labels.forEach(([X, l]) => txt(l, X + 10, Y(244), {px:10, col:C.fg, w:700}));
+  if (full) txt("metal 1", x0 + 4, 140, {px:10, col:C.accent, w:700}); if (full) txt("contacts", x0 + 4, 186, {px:10, col:C.fg}); txt("STI", x0 + w - 4, Y(330), {al:"right", px:10, col:C.fg});
+  txt("p-substrate", x0 + 4, Y(440), {px:10, col:C.hole}); txt(dir === "v" ? "n-well (upper half of the cell)" : "", x0 + w - 4, Y(380), {al:"right", px:10, col:C.electron});
+  txt(`${dir === "h" ? "left" : "bottom"} edge of the cell`, x0, full ? 462 : py + ph - 10, {px:9}); txt(`${dir === "h" ? "right" : "top"} edge`, x0 + w, full ? 462 : py + ph - 10, {al:"right", px:9});
+}
+function drawLYcut(S, T){
+  if (LYO.dir === "b"){ drawLYsec(S, "h", LYO.posH, 20, 222); drawLYsec(S, "v", LYO.posV, 248, 222); }
+  else drawLYsec(S, LYO.dir, LYO.pos, 20, 450);
 }
 function drawLYdrc(S, T, chk){
   panel(355, 20, 625, 450, "Design-rule check and layout versus schematic");
@@ -21605,12 +21614,15 @@ function drawLY(dt, T){
 }
 // drag the cut line on the layout
 (() => {
-  const cv = $("cvly"); let drag = false;
-  const move = e => { const r = cv.getBoundingClientRect(), s = r.width/1000, x = (e.clientX - r.left)/s, y = (e.clientY - r.top)/s;
+  const cv = $("cvly"); let drag = false, which = "h";
+  const pt = e => { const r = cv.getBoundingClientRect(), s = r.width/1000; return [(e.clientX - r.left)/s, (e.clientY - r.top)/s]; };
+  const move = e => { const [x, y] = pt(e);
     if (x < 20 || x > 340) return;
-    LYO.pos = LYO.dir === "h" ? clamp(Math.round((LY_Y0 - y)/LY_S*2)/2, 0, 60) : clamp(Math.round((x - LY_X0)/LY_S*2)/2, 0, 40);
-    $("ly-pos").value = LYO.pos; updateLY(); };
-  cv.addEventListener("pointerdown", e => { if (LYO.view !== "cut") return; drag = true; cv.setPointerCapture(e.pointerId); move(e); });
+    const yv = clamp(Math.round((LY_Y0 - y)/LY_S*2)/2, 0, 60), xv = clamp(Math.round((x - LY_X0)/LY_S*2)/2, 0, 40);
+    if (LYO.dir === "b"){ if (which === "h") LYO.posH = yv; else LYO.posV = xv; }
+    else { LYO.pos = LYO.dir === "h" ? yv : xv; $("ly-pos").value = LYO.pos; }
+    updateLY(); };
+  cv.addEventListener("pointerdown", e => { if (LYO.view !== "cut") return; const [x, y] = pt(e); which = Math.abs(y - lyY(LYO.posH)) < Math.abs(x - lyX(LYO.posV)) ? "h" : "v"; drag = true; cv.setPointerCapture(e.pointerId); move(e); });
   cv.addEventListener("pointermove", e => { if (drag) move(e); });
   cv.addEventListener("pointerup", () => { drag = false; });
 })();
@@ -21646,13 +21658,13 @@ function updateLY(){
   $("ly-pill").textContent = info.pill; $("ly-name").textContent = info.name; $("ly-sub").textContent = info.sub; $("ly-explain").textContent = info.text;
   document.querySelectorAll("#ly-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
   lyChip("#ly-dir button", "d", d => d === LYO.dir); lyChip("#ly-layers button", "l", l => LYO.show[l]); lyChip("#ly-err button", "e", e => LYO.err[e]);
-  $("ly-c-dir").hidden = $("ly-c-pos").hidden = $("ly-c-layers").hidden = v !== "cut"; $("ly-c-err").hidden = v !== "drc";
+  $("ly-c-dir").hidden = $("ly-c-pos").hidden = $("ly-c-layers").hidden = v !== "cut"; $("ly-c-err").hidden = v !== "drc"; if (LYO.dir === "b") $("ly-c-pos").hidden = true;
   $("ly-pos").max = LYO.dir === "h" ? 60 : 40; $("ly-pos").value = LYO.pos; $("ly-pos-v").textContent = `${LYO.dir === "h" ? "y" : "x"} = ${LYO.pos} λ`;
   setHTML("ly-legend", LYLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
   if (v === "cut"){
-    const S = chk.S, len = LYO.dir === "h" ? 40 : 60, gates = new Set();
-    for (let u = 0; u < len; u += 0.5){ const [x, y] = LYO.dir === "h" ? [u, LYO.pos] : [LYO.pos, u], f = lyAt(S, x, y); if (f.poly && f.act && (f.act[4] === "n" || f.act[4] === "p")) gates.add(f.act[4] === "n" ? "NMOS" : "PMOS"); }
-    renderRo($("ly-ro"), [["Cut line", `${LYO.dir === "h" ? "y" : "x"} = ${LYO.pos} λ`], ["Transistors crossed", gates.size ? [...gates].join(" + ") : "none"], ["Mask layers", "7"], ["Cell size", "40 × 60 λ"]]);
+    const S = chk.S, gates = new Set(), cuts = LYO.dir === "b" ? [["h", LYO.posH], ["v", LYO.posV]] : [[LYO.dir, LYO.pos]];
+    cuts.forEach(([d, ps]) => { for (let u = 0; u < (d === "h" ? 40 : 60); u += 0.5){ const [x, y] = d === "h" ? [u, ps] : [ps, u], f = lyAt(S, x, y); if (f.poly && f.act && (f.act[4] === "n" || f.act[4] === "p")) gates.add(f.act[4] === "n" ? "NMOS" : "PMOS"); } });
+    renderRo($("ly-ro"), [["Cut line", LYO.dir === "b" ? `y = ${LYO.posH} λ, x = ${LYO.posV} λ` : `${LYO.dir === "h" ? "y" : "x"} = ${LYO.pos} λ`], ["Transistors crossed", gates.size ? [...gates].join(" + ") : "none"], ["Mask layers", "7"], ["Cell size", "40 × 60 λ"]]);
   } else renderRo($("ly-ro"), [["DRC violations", `${chk.errs.length}`], ["LVS result", chk.lvs.length ? "mismatch" : "match"], ["Gate length", "4 λ"], ["Transistor widths", "N 10 λ · P 14 λ"]]);
   renderEq($("ly-eq"), [
     {name:"Lambda rules", f:"every dimension = n · λ,  λ = L_min / 2", sub:"λ = 0.09 µm for a 0.18 µm process: this cell is 3.6 × 5.4 µm"},
@@ -21674,7 +21686,7 @@ function drawLYPlots(){
 }
 function lyTick(dt){}
 document.querySelectorAll("#ly-view button").forEach(b => b.addEventListener("click", () => { LYO.view = b.dataset.v; updateLY(); }));
-document.querySelectorAll("#ly-dir button").forEach(b => b.addEventListener("click", () => { LYO.dir = b.dataset.d; LYO.pos = LYO.dir === "h" ? 16 : 20; updateLY(); }));
+document.querySelectorAll("#ly-dir button").forEach(b => b.addEventListener("click", () => { LYO.dir = b.dataset.d; if (LYO.dir !== "b") LYO.pos = LYO.dir === "h" ? 16 : 20; updateLY(); }));
 document.querySelectorAll("#ly-layers button").forEach(b => b.addEventListener("click", () => { LYO.show[b.dataset.l] = !LYO.show[b.dataset.l]; updateLY(); }));
 document.querySelectorAll("#ly-err button").forEach(b => b.addEventListener("click", () => { LYO.err[b.dataset.e] = !LYO.err[b.dataset.e]; updateLY(); }));
 $("ly-pos").addEventListener("input", e => { LYO.pos = +e.target.value; updateLY(); });
