@@ -8505,6 +8505,7 @@ Object.assign(window.I18N_ZH, {
 });
 Object.assign(window.I18N_ZH, {"i_Cgd: G → D": "i_Cgd：G → D", "(V_ds falling)": "（V_ds 下降）", "i_Cgd: D → G": "i_Cgd：D → G", "(V_ds rising)": "（V_ds 上升）"});
 Object.assign(window.I18N_ZH, {"Both cuts": "兩者都看", "Direction of the cut line. Drag it on the layout or use the slider. With both cuts, drag either line.": "切線的方向。可在佈局上拖曳，或用滑桿調整。選「兩者都看」時，兩條切線都可以拖曳。"});
+Object.assign(window.I18N_ZH, {"drag the red lines (or the round handles) to move the cuts": "拖曳紅色切線（或圓形把手）即可移動切面", "drag the red line (or the round handle) to move the cut": "拖曳紅色切線（或圓形把手）即可移動切面"});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -21487,7 +21488,7 @@ $("rl-t").addEventListener("input", e => { RLB[RLB.view === "qual" ? "tq" : "t"]
    TAB — layout: inverter standard cell, live cross-section along a cut line, DRC and LVS
    ========================================================= */
 const LYC = setupCanvas($("cvly"), 1000, 488);
-const LYO = {view:"cut", dir:"h", pos:16, posH:16, posV:20, show:{well:true, act:true, imp:true, poly:true, cont:true, m1:true}, err:{endcap:false, cgate:false, nocont:false, m1sp:false}};
+const LYO = {view:"cut", dir:"b", pos:16, posH:16, posV:20, show:{well:true, act:true, imp:true, poly:true, cont:true, m1:true}, err:{endcap:false, cgate:false, nocont:false, m1sp:false}};
 // layout in λ: x to the right, y up; cell 40 × 60 λ
 function lyShapes(){
   const e = LYO.err;
@@ -21558,10 +21559,16 @@ function drawLYlayout(S, T, chk){
   if (LYO.view === "cut"){
     ctx.strokeStyle = C.hole; ctx.lineWidth = 2; ctx.setLineDash([8, 5]);
     const hP = LYO.dir === "b" ? LYO.posH : LYO.pos, vP = LYO.dir === "b" ? LYO.posV : LYO.pos;
-    if (LYO.dir !== "v") pl([[lyX(-1), lyY(hP)], [lyX(41), lyY(hP)]]); if (LYO.dir !== "h") pl([[lyX(vP), lyY(-1)], [lyX(vP), lyY(61)]]);
-    if (LYO.dir === "b"){ ctx.setLineDash([]); txt("H", lyX(41) + 4, lyY(hP), {px:10, w:700, col:C.hole}); txt("V", lyX(vP), lyY(61) - 8, {al:"center", px:10, w:700, col:C.hole}); }
+    const segH = [[lyX(-1), lyY(hP)], [lyX(41), lyY(hP)]], segV = [[lyX(vP), lyY(-1)], [lyX(vP), lyY(61)]];
+    ctx.setLineDash([]); ctx.strokeStyle = "rgba(255,255,255,.85)"; ctx.lineWidth = 5; if (LYO.dir !== "v") pl(segH); if (LYO.dir !== "h") pl(segV);
+    ctx.strokeStyle = C.hole; ctx.lineWidth = 2.4; ctx.setLineDash([8, 5]); if (LYO.dir !== "v") pl(segH); if (LYO.dir !== "h") pl(segV);
+    if (LYO.dir === "b"){ ctx.setLineDash([]); txt("H", lyX(41) + 4, lyY(hP), {px:10, w:700, col:C.hole});  }
     ctx.setLineDash([]);
-    txt("drag the cut line", 180, 52, {al:"center", px:10, col:C.hole, w:700});
+    ctx.setLineDash([]); const hnd = (x, y, sym) => { ctx.fillStyle = C.hole; ctx.beginPath(); ctx.arc(x, y, 9, 0, 6.283); ctx.fill(); ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 1.5; ctx.stroke(); txt(sym, x, y + 1, {al:"center", px:13, w:700, col:"#ffffff"}); };
+    if (LYO.dir !== "v") hnd(lyX(-1) - 2, lyY(hP), "⇕");
+    if (LYO.dir !== "h") hnd(lyX(vP), lyY(61) + 2, "⇔");
+    txt(LYO.dir === "b" ? "drag the red lines (or the round handles) to move the cuts" : "drag the red line (or the round handle) to move the cut", 180, 49, {al:"center", px:10, col:C.hole, w:700});
+    if (LYO.dir !== "h") txt("V", lyX(vP) + 14, lyY(61) + 2, {px:10, w:700, col:C.hole});
   }
 }
 function drawLYsec(S, dir, pos, py, ph){
@@ -21623,7 +21630,10 @@ function drawLY(dt, T){
     else { LYO.pos = LYO.dir === "h" ? yv : xv; $("ly-pos").value = LYO.pos; }
     updateLY(); };
   cv.addEventListener("pointerdown", e => { if (LYO.view !== "cut") return; const [x, y] = pt(e); which = Math.abs(y - lyY(LYO.posH)) < Math.abs(x - lyX(LYO.posV)) ? "h" : "v"; drag = true; cv.setPointerCapture(e.pointerId); move(e); });
-  cv.addEventListener("pointermove", e => { if (drag) move(e); });
+  cv.addEventListener("pointermove", e => { if (drag){ move(e); return; } if (LYO.view !== "cut"){ cv.style.cursor = ""; return; }
+    const [x, y] = pt(e), hP = LYO.dir === "b" ? LYO.posH : LYO.pos, vP = LYO.dir === "b" ? LYO.posV : LYO.pos, inL = x > 20 && x < 340;
+    const nearH = LYO.dir !== "v" && inL && Math.abs(y - lyY(hP)) < 12, nearV = LYO.dir !== "h" && inL && Math.abs(x - lyX(vP)) < 12;
+    cv.style.cursor = nearH ? "row-resize" : nearV ? "col-resize" : inL ? "crosshair" : ""; });
   cv.addEventListener("pointerup", () => { drag = false; });
 })();
 
