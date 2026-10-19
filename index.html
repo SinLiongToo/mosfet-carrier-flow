@@ -213,6 +213,8 @@ window.I18N_ZH = {
 "conventional current: <b>source → drain</b>": "傳統電流：<b>源極 → 汲極</b>",
 "electron flow S → D": "電子流 S → D",
 "hole flow S → D": "電洞流 S → D",
+"electron flow in the channel S → D": "通道中的電子流 S → D",
+"hole flow in the channel S → D": "通道中的電洞流 S → D",
 "conventional current D → S": "傳統電流 D → S",
 "conventional current S → D": "傳統電流 S → D",
 "Channel saturates · current levels off": "通道飽和 · 電流趨於平穩",
@@ -13395,7 +13397,7 @@ function drawMos(dt, T){
   if (I > 1e-3){
     const a = Math.min(1, 0.35 + I/0.6), yA = SURF + 112;
     const x0 = Math.min(CH0+30, 440), x1 = Math.max(CH1-30, 560);
-    arrow(x0, x1, yA, carrierCol, `${d.carrier} flow  S → D`, a);
+    arrow(x0, x1, yA, carrierCol, `${d.carrier} flow in the channel  S → D`, a);
     if (type === "n") arrow(x1, x0, yA+44, C.accent, "conventional current  D → S", a);
     else arrow(x0, x1, yA+44, C.accent, "conventional current  S → D", a);
   }
