@@ -1865,7 +1865,6 @@ Object.assign(window.I18N_ZH, {
 "Fermi level EF": "費米能階 EF",
 "Energy at which a state is half likely to be filled; it tells how n- or p-type the material is.": "能態被佔據機率為一半的能量；代表材料偏 n 型或 p 型的程度。",
 "Vt = kT/q": "Vt = kT/q",
-"Thermal voltage, # mV at # K: the natural voltage scale of carrier statistics.": "熱電壓，# K 時為 # mV：載子統計的自然電壓尺度。",
 "Diffusion / drift": "擴散／漂移",
 "Carriers move from high to low concentration (diffusion) or are pushed by an electric field (drift).": "載子從高濃度往低濃度移動（擴散），或被電場推動（漂移）。",
 "Minority injection": "少數載子注入",
@@ -1907,7 +1906,6 @@ Object.assign(window.I18N_ZH, {
 "= # µm (p side #, n side # µm)": "= # µm（p 側 #，n 側 # µm）",
 "Highest electric field, at the junction. Breakdown happens when it reaches a few hundred kV/cm.": "最高電場，位於接面處。達到數百 kV/cm 時就會崩潰。",
 "Peak field": "峰值電場",
-"Shockley equation: current grows by e (#×) every # mV of forward bias.": "Shockley 方程式：順偏每增加 # mV，電流增為 e 倍（# 倍）。",
 "Diode law": "二極體方程式",
 "Depletion capacitance: a parallel-plate capacitor with gap W.": "空乏電容：間距為 W 的平行板電容。",
 "Junction C": "接面電容",
@@ -1996,7 +1994,6 @@ Object.assign(window.I18N_ZH, {
 "Off current versus temperature, or DIBL versus gate length": "關閉電流對溫度，或 DIBL 對閘極長度",
 "Explain the terms: subthreshold swing, Ion/Ioff, DIBL, Vth flavours, FinFET, GAA": "名詞解釋：次臨界擺幅、Ion/Ioff、DIBL、Vth 種類、FinFET、GAA",
 "Why a transistor never turns fully off": "為什麼電晶體永遠關不乾淨",
-"Electrons in the source have a spread of thermal energies. Their number falls by #× for every # meV of extra energy at room temperature (the Boltzmann tail).": "源極中的電子有一定範圍的熱能量分布。室溫下能量每多 # meV，電子數量就減少 # 倍（波茲曼尾端）。",
 "The gate controls an energy barrier between source and drain. Only electrons above the barrier get through.": "閘極控制源極與汲極之間的能障，只有能量高於能障的電子能通過。",
 "Each # mV the gate raises the barrier (at best) removes # % of the current. So below Vth, current falls exponentially, but never to zero.": "閘極每把能障提高 # mV（最理想情況），電流就少掉 # %。所以低於 Vth 時電流呈指數下降，但永遠不會到零。",
 "To keep leakage small, Vth cannot go much below ~#–# V, so VDD cannot go much below ~#–# V. This \"Boltzmann tyranny\" is why supply voltages stopped shrinking.": "為了讓漏電夠小，Vth 不能低於約 #–# V，因此 VDD 也很難低於約 #–# V。這個「波茲曼暴政」就是電源電壓停止下降的原因。",
@@ -2018,7 +2015,6 @@ Object.assign(window.I18N_ZH, {
 "Node names like \"# nm\" are marketing labels today; the real gate length is closer to #–# nm. What matters is how well the gate wraps the channel relative to its length (L/λ).": "像「# nm」這樣的節點名稱如今只是行銷標籤；實際閘極長度約 #–# nm。真正重要的是閘極相對其長度把通道包得多好（L/λ）。",
 "Leakage terms": "漏電名詞",
 "Subthreshold swing SS": "次臨界擺幅 SS",
-"Gate voltage per decade of current below Vth; # mV/dec at # K is the physical limit.": "低於 Vth 時電流變化十倍所需的閘極電壓；# K 時 # mV/dec 是物理極限。",
 "On current (speed) and off current (standby leakage) per µm of width.": "每 µm 寬度的導通電流（速度）與關閉電流（待機漏電）。",
 "Body factor n": "基體係數 n",
 "# + Cdep/Cox: the fraction of gate voltage lost to the depletion capacitance. Thin, fully depleted bodies get close to #.": "# + Cdep/Cox：閘極電壓被空乏電容分走的比例。薄而完全空乏的本體接近 #。",
@@ -2045,8 +2041,6 @@ Object.assign(window.I18N_ZH, {
 "A body so thin that it is entirely depleted, which improves n and SS.": "本體薄到完全空乏，可改善 n 和 SS。",
 "Equivalent oxide thickness: high-k layer expressed as the SiO₂ thickness with the same capacitance.": "等效氧化層厚度：把高介電常數層換算成相同電容的 SiO₂ 厚度。",
 "Leakage and #D transistors · VDD = # V · EOT # nm": "漏電與 #D 電晶體 · VDD = # V · EOT # nm",
-"Below Vth the current does not stop: it falls #× for every ~# mV": "低於 Vth 電流不會停止：每約 # mV 減少 # 倍",
-"Below the threshold voltage the channel is not really off. The source is full of electrons with a spread of thermal energies (a Boltzmann tail), and the gate controls an energy barrier between source and drain. Only electrons with more energy than the barrier can cross, and that fraction is e^(−Φ/kT). Lowering the gate voltage raises the barrier, but by at most qVGS/n, so the current can drop at best #× for every n·(kT/q)·ln# ≈ n × # mV at room temperature. That number is the subthreshold swing SS. Nothing made of a normal MOSFET can beat # mV/dec at # K, which is why the off-current cannot be made arbitrarily small while keeping VDD low. Three things make leakage worse: a lower Vth (LVT cells are fast but leaky), a hot chip (kT grows and Vth drops by about # mV/°C, so leakage roughly doubles every #–# °C) and DIBL, where the drain voltage pulls the barrier down. Multiplied by billions of transistors, these nanoamps become watts of standby power.": "低於臨界電壓時，通道並沒有真正關閉。源極充滿具有一定熱能量分布的電子（波茲曼尾端），而閘極控制源極與汲極之間的能障。只有能量高於能障的電子能通過，比例為 e^(−Φ/kT)。降低閘極電壓會提高能障，但最多只提高 qVGS/n，所以室溫下電流最多只能每 n·(kT/q)·ln# ≈ n × # mV 減少 # 倍。這個數字就是次臨界擺幅 SS。一般 MOSFET 在 # K 下不可能優於 # mV/dec，所以在維持低 VDD 的同時，關閉電流無法任意變小。有三件事會讓漏電更嚴重：較低的 Vth（LVT 元件快但會漏電）、晶片變熱（kT 變大且 Vth 每 °C 下降約 # mV，漏電大約每 #–# °C 加倍），以及 DIBL（汲極電壓把能障拉低）。乘上數十億顆電晶體，這些奈安培就變成數瓦的待機功耗。",
 "Electrons / conduction band": "電子／導帶",
 "Electrons above the barrier (they leak)": "高於能障的電子（會漏電）",
 "SS: gate voltage needed to change the current #×. Ideal limit n·# mV/dec at room temperature.": "SS：讓電流改變 # 倍所需的閘極電壓。室溫下理想極限為 n·# mV/dec。",
@@ -2067,12 +2061,8 @@ Object.assign(window.I18N_ZH, {
 "Below Vth the current is exponential in VGS: the Boltzmann tail of the source electrons.": "低於 Vth 時電流與 VGS 呈指數關係：來自源極電子的波茲曼尾端。",
 "Exponential": "指數關係",
 "Drain-induced barrier lowering in mV of Vth per V of drain voltage.": "汲極引致能障降低：每伏汲極電壓使 Vth 下降的 mV 數。",
-"η = # mV/V → Vth drops # mV at VDS = # V": "η = # mV/V → VDS = # V 時 Vth 下降 # mV",
 "Higher temperature: larger kT (worse SS) and lower Vth, so much more leakage.": "溫度越高：kT 越大（SS 變差）且 Vth 越低，所以漏電大增。",
 "Temperature": "溫度",
-"at # °C: Ioff = # pA/µm (#× the # °C value)": "# °C 時：Ioff = # pA/µm（是 # °C 時的 # 倍）",
-"at # °C: Ioff = # nA/µm (#× the # °C value)": "# °C 時：Ioff = # nA/µm（是 # °C 時的 # 倍）",
-"at # °C: Ioff = # µA/µm (#× the # °C value)": "# °C 時：Ioff = # µA/µm（是 # °C 時的 # 倍）",
 "Standby power = VDD × Ioff × total transistor width.": "待機功耗 = VDD × Ioff × 電晶體總寬度。",
 "Leakage power": "漏電功耗",
 "P = VDD · Ioff · ΣW (#⁹ transistors × # µm)": "P = VDD · Ioff · ΣW（#⁹ 顆電晶體 × # µm）",
@@ -2095,7 +2085,6 @@ Object.assign(window.I18N_ZH, {
 "source EF": "源極 EF",
 "electrons in the source, per energy (log scale, # decades)": "源極中各能量的電子數（對數刻度，# 個十倍）",
 "fraction above the barrier e^(−Φ/kT) = #e-#": "高於能障的比例 e^(−Φ/kT) = #e-#",
-"kT = # meV at # °C → every # meV of barrier = #× current": "# °C 時 kT = # meV → 能障每 # meV = 電流 # 倍",
 "DIBL: the drain pulls the barrier down by ≈ # mV": "DIBL：汲極把能障拉低約 # mV",
 "conduction band along the channel": "沿通道的導帶",
 "Planar → FinFET → gate-all-around": "平面 → FinFET → 閘極全環繞",
@@ -5567,7 +5556,6 @@ Object.assign(window.I18N_ZH, {
 "<b>Develop</b>: the exposed (positive tone) resist dissolves; the pattern is left in resist.": "<b>顯影</b>：曝過光的（正型）光阻溶解，圖形留在光阻上。",
 "<b>Etch or implant</b>: the resist protects what it covers, then it is stripped.": "<b>蝕刻或植入</b>：光阻保護它覆蓋的地方，之後去除。",
 "Scanners": "曝光機",
-"Source": "光源",
 "Single-exposure pitch": "單次曝光間距",
 "Used for": "用途",
 "non-critical layers, implants": "非關鍵層、植入",
@@ -7003,7 +6991,6 @@ Object.assign(window.I18N_ZH, {
 "~# °C": "~# °C",
 "Growth rate": "成長速率",
 "#–# µm/min": "#–# µm/min",
-"Layer": "層厚",
 "Precursor": "前驅物",
 "Hydrogen dose": "氫劑量",
 "Split": "剝離",
@@ -7611,7 +7598,6 @@ Object.assign(window.I18N_ZH, {
 "Defective parts per million that escape test and reach the customer.": "每百萬顆中逃過測試、到達客戶手上的不良品數。",
 "Stage": "階段",
 "Tool": "工具",
-"Output": "產出",
 "Share of effort": "工作量占比",
 "Setup slack": "建立餘裕",
 "Hold slack": "保持餘裕",
@@ -7815,7 +7801,6 @@ Object.assign(window.I18N_ZH, {
 "logic synthesis": "邏輯合成",
 "gate-level netlist": "閘級網表",
 "#. Synthesis": "#. 合成",
-"Placement": "擺放",
 "place and route": "擺放與繞線",
 "placed design": "已擺放的設計",
 "#. Placement": "#. 擺放",
@@ -7958,7 +7943,6 @@ Object.assign(window.I18N_ZH, {
 "Lanes times rate.": "通道數乘以速率。",
 "Interface power": "介面功率",
 "Energy times bandwidth.": "能量乘以頻寬。",
-"Reach": "傳輸距離",
 "Maximum wire length.": "最大導線長度。",
 "Pulse without equalization": "未等化的脈衝",
 "Equalized pulse, eye traces": "等化後脈衝、眼圖軌跡",
@@ -8506,6 +8490,7 @@ Object.assign(window.I18N_ZH, {
 Object.assign(window.I18N_ZH, {"i_Cgd: G → D": "i_Cgd：G → D", "(V_ds falling)": "（V_ds 下降）", "i_Cgd: D → G": "i_Cgd：D → G", "(V_ds rising)": "（V_ds 上升）"});
 Object.assign(window.I18N_ZH, {"Both cuts": "兩者都看", "Direction of the cut line. Drag it on the layout or use the slider. With both cuts, drag either line.": "切線的方向。可在佈局上拖曳，或用滑桿調整。選「兩者都看」時，兩條切線都可以拖曳。"});
 Object.assign(window.I18N_ZH, {"drag the red lines (or the round handles) to move the cuts": "拖曳紅色切線（或圓形把手）即可移動切面", "drag the red line (or the round handle) to move the cut": "拖曳紅色切線（或圓形把手）即可移動切面"});
+Object.assign(window.I18N_ZH, {"Stage output": "產出", "Link reach": "傳輸距離", "Cell placement": "元件擺放", "#. Cell placement": "#. 元件擺放", "Epi layer": "磊晶層厚", "Thermal voltage, # mV at # K: the natural voltage scale of carrier statistics.": "熱電壓，{1} K 時為 {0} mV：載子統計的自然電壓尺度。", "Shockley equation: current grows by e (#×) every # mV of forward bias.": "Shockley 方程式：順偏每增加 {1} mV，電流增為 e 倍（{0} 倍）。", "Electrons in the source have a spread of thermal energies. Their number falls by #× for every # meV of extra energy at room temperature (the Boltzmann tail).": "源極中的電子有一定範圍的熱能量分布。室溫下能量每多 {1} meV，電子數量就減少 {0} 倍（波茲曼尾端）。", "Gate voltage per decade of current below Vth; # mV/dec at # K is the physical limit.": "低於 Vth 時電流變化十倍所需的閘極電壓；{1} K 時 {0} mV/dec 是物理極限。", "Below Vth the current does not stop: it falls #× for every ~# mV": "低於 Vth 電流不會停止：每約 {1} mV 減少 {0} 倍", "Below the threshold voltage the channel is not really off. The source is full of electrons with a spread of thermal energies (a Boltzmann tail), and the gate controls an energy barrier between source and drain. Only electrons with more energy than the barrier can cross, and that fraction is e^(−Φ/kT). Lowering the gate voltage raises the barrier, but by at most qVGS/n, so the current can drop at best #× for every n·(kT/q)·ln# ≈ n × # mV at room temperature. That number is the subthreshold swing SS. Nothing made of a normal MOSFET can beat # mV/dec at # K, which is why the off-current cannot be made arbitrarily small while keeping VDD low. Three things make leakage worse: a lower Vth (LVT cells are fast but leaky), a hot chip (kT grows and Vth drops by about # mV/°C, so leakage roughly doubles every #–# °C) and DIBL, where the drain voltage pulls the barrier down. Multiplied by billions of transistors, these nanoamps become watts of standby power.": "低於臨界電壓時，通道並沒有真正關閉。源極充滿具有一定熱能量分布的電子（波茲曼尾端），而閘極控制源極與汲極之間的能障。只有能量高於能障的電子能通過，比例為 e^(−Φ/kT)。降低閘極電壓會提高能障，但最多只提高 qVGS/n，所以室溫下電流最多只能每 n·(kT/q)·ln{1} ≈ n × {2} mV 減少 {0} 倍。這個數字就是次臨界擺幅 SS。一般 MOSFET 在 {4} K 下不可能優於 {3} mV/dec，所以在維持低 VDD 的同時，關閉電流無法任意變小。有三件事會讓漏電更嚴重：較低的 Vth（LVT 元件快但會漏電）、晶片變熱（kT 變大且 Vth 每 °C 下降約 {5} mV，漏電大約每 {6}–{7} °C 加倍），以及 DIBL（汲極電壓把能障拉低）。乘上數十億顆電晶體，這些奈安培就變成數瓦的待機功耗。", "η = # mV/V → Vth drops # mV at VDS = # V": "η = {0} mV/V → VDS = {2} V 時 Vth 下降 {1} mV", "at # °C: Ioff = # pA/µm (#× the # °C value)": "{0} °C 時：Ioff = {1} pA/µm（是 {3} °C 時的 {2} 倍）", "at # °C: Ioff = # nA/µm (#× the # °C value)": "{0} °C 時：Ioff = {1} nA/µm（是 {3} °C 時的 {2} 倍）", "at # °C: Ioff = # µA/µm (#× the # °C value)": "{0} °C 時：Ioff = {1} µA/µm（是 {3} °C 時的 {2} 倍）", "kT = # meV at # °C → every # meV of barrier = #× current": "{1} °C 時 kT = {0} meV → 能障每 {2} meV = 電流 {3} 倍"});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -11568,7 +11553,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
             </ol>
             <h3>Scanners</h3>
             <div class="tbl"><table>
-              <tr><th>Source</th><th>λ</th><th>NA</th><th>Single-exposure pitch</th><th>Used for</th></tr>
+              <tr><th>Light source</th><th>λ</th><th>NA</th><th>Single-exposure pitch</th><th>Used for</th></tr>
               <tr><td>KrF</td><td>248 nm</td><td>0.93</td><td>≈ 180 nm</td><td>non-critical layers, implants</td></tr>
               <tr><td>ArF immersion</td><td>193 nm</td><td>1.35</td><td>≈ 76–80 nm</td><td>critical layers to 7 nm with multiple patterning</td></tr>
               <tr><td>EUV</td><td>13.5 nm</td><td>0.33</td><td>≈ 28–32 nm</td><td>7, 5, 3 nm critical layers</td></tr>
@@ -12538,7 +12523,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
             <button class="chipbtn" data-s="1">RTL code</button>
             <button class="chipbtn" data-s="2">Simulation</button>
             <button class="chipbtn" data-s="3">Synthesis</button>
-            <button class="chipbtn" data-s="4">Placement</button>
+            <button class="chipbtn" data-s="4">Cell placement</button>
             <button class="chipbtn" data-s="5">Clock tree</button>
             <button class="chipbtn" data-s="6">Routing</button>
             <button class="chipbtn" data-s="7">Sign-off</button>
@@ -23018,7 +23003,7 @@ Object.assign(TIP, {
   "Pull rate":"Speed at which the crystal is pulled from the melt.", "v/G":"Pull rate over the temperature gradient at the interface.", "Defect regime":"Which point defect survives in the crystal.", "Seed-to-tail resistivity":"Resistivity at 90 % of the ingot relative to the seed end.",
   "Wire":"Diameter of the diamond-coated saw wire.", "Kerf loss":"Silicon lost per cut.", "Wafers per metre":"Wafers from one metre of ingot.", "Wafer thickness":"Final thickness of a 300 mm wafer.",
   "Roughness":"Surface roughness after the final polish.", "Flatness":"Site flatness over an exposure field.", "Edge":"Edge profile of the wafer.", "Identification":"How each wafer is tracked.",
-  "Temperature":"Process temperature.", "Growth rate":"Thickness grown per minute.", "Layer":"Typical epi layer thickness.", "Precursor":"Gas that supplies the silicon.",
+  "Temperature":"Process temperature.", "Growth rate":"Thickness grown per minute.", "Epi layer":"Typical epi layer thickness.", "Precursor":"Gas that supplies the silicon.",
   "Hydrogen dose":"Implanted hydrogen that sets the split plane.", "Split":"Anneal that cleaves the donor wafer.", "Top silicon":"Thickness of the device layer.", "Buried oxide":"Thickness of the insulator.",
   "Step coverage":"Film thickness at the trench bottom over the top.", "Thinnest sidewall":"Thinnest sidewall film over the top thickness.", "Gap fill":"Whether the trench fills without a void.", "Thiele modulus":"Reaction versus diffusion inside the trench.",
   "Narrow trench depth":"Depth of the 20 nm trench.", "Wide trench depth":"Depth of the 160 nm trench.", "RIE lag":"How much shallower the narrowest trench is.", "Undercut":"Lateral etch under the mask edge.",
@@ -23038,7 +23023,7 @@ const upChip = (sel, attr, on) => document.querySelectorAll(sel).forEach(b => { 
 const UP_FACTS = {
   slice:[["Wire", "60–120 µm"], ["Kerf loss", "~150 µm"], ["Wafers per metre", "~1,000"], ["Wafer thickness", "775 µm"]],
   polish:[["Roughness", "< 0.1 nm"], ["Flatness", "< 20 nm per site"], ["Edge", "rounded bevel"], ["Identification", "notch + laser ID"]],
-  epi:[["Temperature", "~1100 °C"], ["Growth rate", "1–5 µm/min"], ["Layer", "2–10 µm"], ["Precursor", "SiHCl₃ + H₂"]],
+  epi:[["Temperature", "~1100 °C"], ["Growth rate", "1–5 µm/min"], ["Epi layer", "2–10 µm"], ["Precursor", "SiHCl₃ + H₂"]],
   soi:[["Hydrogen dose", "~5×10¹⁶ cm⁻²"], ["Split", "~500 °C"], ["Top silicon", "6–100 nm"], ["Buried oxide", "20–400 nm"]]
 };
 function updateUP(){
@@ -23337,7 +23322,7 @@ document.querySelectorAll("#va-corner button").forEach(b => b.addEventListener("
 const DFC = setupCanvas($("cvdf"), 1000, 488);
 const DFS = {view:"flow", st:0, f:2, vt:"svt", skew:20, hb:0, pat:3, y:80, ch:"64", t:0, acc:0};
 const DF_ST = [["Specification", "architects, customers", "spec, performance targets", 5], ["RTL code", "Verilog / SystemVerilog", "RTL source files", 15], ["Simulation", "simulators, formal tools", "verified RTL, coverage", 40],
-  ["Synthesis", "logic synthesis", "gate-level netlist", 5], ["Placement", "place and route", "placed design", 5], ["Clock tree", "clock tree synthesis", "balanced clock network", 4],
+  ["Synthesis", "logic synthesis", "gate-level netlist", 5], ["Cell placement", "place and route", "placed design", 5], ["Clock tree", "clock tree synthesis", "balanced clock network", 4],
   ["Routing", "detailed router", "routed layout", 6], ["Sign-off", "STA, power, DRC, LVS", "clean reports", 15], ["Tape-out", "mask data prep, OPC", "GDS / OASIS → masks", 5]];
 const DF_VT = {lvt:{n:"Low Vt", d:18, lk:10}, svt:{n:"Standard Vt", d:24, lk:3}, hvt:{n:"High Vt", d:32, lk:1}};
 const DF_CODE = ["module counter (", "  input  clk, rst, en,", "  output reg [3:0] count", ");", "  always @(posedge clk)", "    if (rst)     count <= 4'd0;", "    else if (en) count <= count + 1;", "endmodule"];
@@ -23493,7 +23478,7 @@ const DFINFO = {
     text:"Manufacturing defects such as particles, opens and shorts appear on random dies, so every chip must be tested, and testing a billion-transistor chip through its normal pins is impossible. Design for test (DFT) replaces every flip-flop by a scan flip-flop with a multiplexer: in test mode they form long shift registers, scan chains. The tester shifts a pattern in, applies one functional clock to capture the response of the logic, and shifts the result out while the next pattern goes in. Automatic test pattern generation (ATPG) computes patterns that make each modelled fault, such as a net stuck at 0 or 1 or a slow transition, visible at a flip-flop. Fault coverage is the fraction of faults detected. Test time is dominated by shifting, so designs use many short chains with on-chip compression. Memories are tested by built-in self-test (BIST). The defect level that escapes to customers follows the Williams-Brown relation DL = 1 − Y^(1 − FC): with 80 % yield, 99 % coverage still lets about 2,000 defective parts per million through, which is why automotive chips need near-complete coverage of several fault models."}
 };
 Object.assign(TIP, {
-  "Stage":"Current step of the flow.", "Tool":"Type of software used.", "Output":"What the step produces.", "Share of effort":"Rough share of the project engineering effort.",
+  "Stage":"Current step of the flow.", "Tool":"Type of software used.", "Stage output":"What the step produces.", "Share of effort":"Rough share of the project engineering effort.",
   "Setup slack":"Margin of the long path.", "Hold slack":"Margin of the short path.", "Failing paths":"Paths with negative setup slack out of 3000.", "Leakage":"Leakage of the selected cells relative to high Vt.",
   "Fault coverage":"Detected faults over all modelled faults.", "Defect level":"Defective parts per million escaping test.", "Test time":"Scan test time per die.", "Chain length":"Flip-flops per scan chain.",
   "Rent's rule":"Pins of a block grow as a power of its gate count.", "Wire delay":"Distributed RC delay grows with length squared.", "Clock skew budget":"Allowed spread of clock arrival.", "Mask cost":"Cost of a full mask set.",
@@ -23517,7 +23502,7 @@ function updateDF(){
   setHTML("df-legend", DFLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
   let ro, eq;
   if (v === "flow"){ const [n, tool, out, eff] = DF_ST[DFS.st];
-    ro = [["Stage", `${DFS.st + 1} / 9`], ["Tool", tool], ["Output", out], ["Share of effort", `~${eff} %`]];
+    ro = [["Stage", `${DFS.st + 1} / 9`], ["Tool", tool], ["Stage output", out], ["Share of effort", `~${eff} %`]];
     eq = [{name:"Rent's rule", f:"pins = t · gates^p,  p ≈ 0.6", sub:"wiring demand grows faster than the gate count"},
       {name:"Wire delay", f:"τ ≈ 0.38 · r · c · L²", sub:"long wires need repeaters; wire delay now rivals gate delay"},
       {name:"Clock skew budget", f:"skew ≲ 5 % of the clock period", sub:"50 ps at 1 GHz"},
@@ -23696,7 +23681,7 @@ Object.assign(TIP, {
   "Shoreline bandwidth":"Data per millimetre of die edge.", "Lanes per mm":"Signal bumps per millimetre of edge.", "Energy per bit":"Interface energy per transferred bit.", "Power for 1 TB/s":"Interface power to move one terabyte per second.",
   "Skin-effect channel":"Loss grows with the square root of frequency.", "Feed-forward EQ":"Weighted copies of neighbouring symbols.", "CTLE boost":"High-pass gain at the Nyquist frequency.", "Error rate":"Gaussian tail beyond half the eye.",
   "Dual-Dirac model":"Bounded jitter as two spikes.", "Total jitter ":"TJ at a target BER.", "Eye width ":"What is left of the unit interval.", "Q factor":"Inverse Gaussian tail.",
-  "Lane density":"Rows of bumps over pitch.", "Bandwidth density":"Lanes times rate.", "Interface power":"Energy times bandwidth.", "Reach":"Maximum wire length."
+  "Lane density":"Rows of bumps over pitch.", "Bandwidth density":"Lanes times rate.", "Interface power":"Energy times bandwidth.", "Link reach":"Maximum wire length."
 });
 const HSLEG = {
   eye:[["muted","Pulse without equalization"],["accent","Equalized pulse, eye traces"],["channel","Main cursor, eye opening"],["hole","ISI cursors"]],
@@ -23734,7 +23719,7 @@ function updateHS(){
     eq = [{name:"Lane density", f:"lanes/mm = rows × (1 mm / pitch) × ½", sub:`${U.rows} × ${(1000/HSS.pitch).toFixed(1)} × ½ = ${U.lanes.toFixed(0)}`},
       {name:"Bandwidth density", f:"BW = lanes/mm × rate / 8", sub:`${U.lanes.toFixed(0)} × ${HSS.gt} / 8 = ${U.bw.toFixed(0)} GB/s/mm`},
       {name:"Interface power", f:"P = E_bit × bit rate", sub:`${U.e} pJ × 8 Tb/s = ${U.p1T.toFixed(1)} W`},
-      {name:"Reach", f:HSS.pkg === "adv" ? "≈ 2 mm on interposer or bridge" : "≈ 25 mm on organic substrate", sub:"short wires need no equalization and no CDR"}];
+      {name:"Link reach", f:HSS.pkg === "adv" ? "≈ 2 mm on interposer or bridge" : "≈ 25 mm on organic substrate", sub:"short wires need no equalization and no CDR"}];
   }
   renderRo($("hs-ro"), ro); renderEq($("hs-eq-list"), eq);
   drawHSPlots(v);
