@@ -94,6 +94,10 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Jitter and bathtub** – dual-Dirac random and deterministic jitter, bathtub curve, total jitter and eye width at the target BER
 - **Chiplet links (UCIe)** – standard vs advanced package, bump pitch and bump-field depth, shoreline bandwidth, energy per bit and power vs other link types
 
+## MOS breakdown tab (`#mos-breakdown`)
+- **Drain breakdown (I–V sweep)** – play or drag a drain-voltage sweep: channel conduction, avalanche multiplication at the drain corner, substrate current, snapback of the parasitic NPN, or punch-through for short channels; log-scale I–V for V_GS 0–3 V, BV and V_PT vs body doping
+- **Gate oxide breakdown** – gate-voltage ramp with direct and Fowler–Nordheim tunnelling, trap build-up, hard breakdown at ≈ 12 MV/cm, band diagram with the tunnelling distance, J–V curve and V_BD vs oxide thickness
+
 ## Miller effect tab (`#miller`)
 - **Switching and the Miller plateau** – turn-on of a Si, SiC or GaN power transistor into an inductive load, four phases with the gate-voltage plateau, gate charge curve, dV/dt and turn-on loss vs gate resistance
 - **Amplifier Miller effect** – common-source stage with C_in = C_gs + (1 + A)·C_gd, Bode plot and bandwidth vs gain, cascode for comparison

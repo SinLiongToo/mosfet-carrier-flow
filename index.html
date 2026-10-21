@@ -8495,6 +8495,193 @@ Object.assign(window.I18N_ZH, {"drag the red lines (or the round handles) to mov
 Object.assign(window.I18N_ZH, {"Stage output": "產出", "Link reach": "傳輸距離", "Cell placement": "元件擺放", "#. Cell placement": "#. 元件擺放", "Epi layer": "磊晶層厚", "Thermal voltage, # mV at # K: the natural voltage scale of carrier statistics.": "熱電壓，{1} K 時為 {0} mV：載子統計的自然電壓尺度。", "Shockley equation: current grows by e (#×) every # mV of forward bias.": "Shockley 方程式：順偏每增加 {1} mV，電流增為 e 倍（{0} 倍）。", "Electrons in the source have a spread of thermal energies. Their number falls by #× for every # meV of extra energy at room temperature (the Boltzmann tail).": "源極中的電子有一定範圍的熱能量分布。室溫下能量每多 {1} meV，電子數量就減少 {0} 倍（波茲曼尾端）。", "Gate voltage per decade of current below Vth; # mV/dec at # K is the physical limit.": "低於 Vth 時電流變化十倍所需的閘極電壓；{1} K 時 {0} mV/dec 是物理極限。", "Below Vth the current does not stop: it falls #× for every ~# mV": "低於 Vth 電流不會停止：每約 {1} mV 減少 {0} 倍", "Below the threshold voltage the channel is not really off. The source is full of electrons with a spread of thermal energies (a Boltzmann tail), and the gate controls an energy barrier between source and drain. Only electrons with more energy than the barrier can cross, and that fraction is e^(−Φ/kT). Lowering the gate voltage raises the barrier, but by at most qVGS/n, so the current can drop at best #× for every n·(kT/q)·ln# ≈ n × # mV at room temperature. That number is the subthreshold swing SS. Nothing made of a normal MOSFET can beat # mV/dec at # K, which is why the off-current cannot be made arbitrarily small while keeping VDD low. Three things make leakage worse: a lower Vth (LVT cells are fast but leaky), a hot chip (kT grows and Vth drops by about # mV/°C, so leakage roughly doubles every #–# °C) and DIBL, where the drain voltage pulls the barrier down. Multiplied by billions of transistors, these nanoamps become watts of standby power.": "低於臨界電壓時，通道並沒有真正關閉。源極充滿具有一定熱能量分布的電子（波茲曼尾端），而閘極控制源極與汲極之間的能障。只有能量高於能障的電子能通過，比例為 e^(−Φ/kT)。降低閘極電壓會提高能障，但最多只提高 qVGS/n，所以室溫下電流最多只能每 n·(kT/q)·ln{1} ≈ n × {2} mV 減少 {0} 倍。這個數字就是次臨界擺幅 SS。一般 MOSFET 在 {4} K 下不可能優於 {3} mV/dec，所以在維持低 VDD 的同時，關閉電流無法任意變小。有三件事會讓漏電更嚴重：較低的 Vth（LVT 元件快但會漏電）、晶片變熱（kT 變大且 Vth 每 °C 下降約 {5} mV，漏電大約每 {6}–{7} °C 加倍），以及 DIBL（汲極電壓把能障拉低）。乘上數十億顆電晶體，這些奈安培就變成數瓦的待機功耗。", "η = # mV/V → Vth drops # mV at VDS = # V": "η = {0} mV/V → VDS = {2} V 時 Vth 下降 {1} mV", "at # °C: Ioff = # pA/µm (#× the # °C value)": "{0} °C 時：Ioff = {1} pA/µm（是 {3} °C 時的 {2} 倍）", "at # °C: Ioff = # nA/µm (#× the # °C value)": "{0} °C 時：Ioff = {1} nA/µm（是 {3} °C 時的 {2} 倍）", "at # °C: Ioff = # µA/µm (#× the # °C value)": "{0} °C 時：Ioff = {1} µA/µm（是 {3} °C 時的 {2} 倍）", "kT = # meV at # °C → every # meV of barrier = #× current": "{1} °C 時 kT = {0} meV → 能障每 {2} meV = 電流 {3} 倍"});
 Object.assign(window.I18N_ZH, {"yellow: electrons that got over the barrier = leakage current": "黃色：越過能障的電子 = 漏電流"});
 Object.assign(window.I18N_ZH, {"(none under the antennas)": "（天線下方不放錫球）"});
+Object.assign(window.I18N_ZH, {
+"MOS breakdown": "MOS 崩潰",
+"MOS breakdown · avalanche, snapback, punch-through and gate oxide breakdown": "MOS 崩潰 · 累崩、驟回、擊穿與閘極氧化層崩潰",
+"Drain breakdown": "汲極崩潰",
+"MOS breakdown view": "MOS 崩潰視圖",
+"Drain breakdown (I–V sweep)": "汲極崩潰（I–V 掃描）",
+"Gate oxide breakdown": "閘極氧化層崩潰",
+"MOSFET breakdown: cross-section with drain depletion, impact ionization, substrate current, snapback and punch-through next to the status of the sweep, or gate oxide with tunnelling electrons, traps and a breakdown path next to its band diagram": "MOSFET 崩潰：含汲極空乏區、撞擊游離、基板電流、驟回與擊穿的剖面與掃描狀態，或含穿隧電子、陷阱與崩潰路徑的閘極氧化層及其能帶圖",
+"Sweep": "掃描",
+"Run the sweep automatically, or drag the slider below.": "自動執行掃描，或拖曳下方滑桿。",
+"▶ Play sweep": "▶ 播放掃描",
+"Sweep position": "掃描位置",
+"Position along the measured curve: drain voltage for the drain sweep, gate voltage for the oxide ramp.": "沿量測曲線的位置：汲極掃描時是汲極電壓，氧化層斜坡時是閘極電壓。",
+"Gate voltage V_GS": "閘極電壓 V_GS",
+"Gate voltage during the drain sweep. With the gate on, channel electrons feed impact ionization and trigger snapback earlier.": "汲極掃描時的閘極電壓。閘極導通時，通道電子提供撞擊游離的來源，使驟回更早觸發。",
+"Channel length": "通道長度",
+"Channel length. Short channels can punch through: the drain depletion region reaches the source before avalanche starts.": "通道長度。短通道可能被擊穿：在累崩開始之前，汲極空乏區就碰到源極。",
+"Body doping": "基體摻雜",
+"Doping of the p-type body. Higher doping makes the drain depletion thinner, the field stronger and the breakdown voltage lower, but protects against punch-through.": "p 型基體的摻雜。摻雜越高，汲極空乏區越薄、電場越強、崩潰電壓越低，但能防止擊穿。",
+"Oxide thickness": "氧化層厚度",
+"Gate oxide thickness. Breakdown happens at a field of roughly #–# MV/cm, so the breakdown voltage scales with thickness.": "閘極氧化層厚度。崩潰約發生在 #–# MV/cm 的電場，所以崩潰電壓與厚度成正比。",
+"Drain current versus drain voltage on a log scale, or gate current density versus gate voltage": "汲極電流對汲極電壓（對數刻度），或閘極電流密度對閘極電壓",
+"Breakdown and punch-through voltage versus body doping, or oxide breakdown voltage versus thickness": "崩潰與擊穿電壓對基體摻雜，或氧化層崩潰電壓對厚度",
+"Explain the terms: avalanche, impact ionization, multiplication factor, substrate current, snapback, punch-through, Fowler–Nordheim tunnelling, oxide breakdown": "名詞解釋：累崩、撞擊游離、倍增因子、基板電流、驟回、擊穿、Fowler–Nordheim 穿隧、氧化層崩潰",
+"How a MOSFET breaks down": "MOSFET 如何崩潰",
+"<b>Avalanche</b>: the reverse-biased drain junction holds the field; above a critical field, carriers knock out new electron-hole pairs and the current multiplies.": "<b>累崩</b>：逆偏的汲極接面承受電場；超過臨界電場後，載子撞出新的電子電洞對，電流倍增。",
+"<b>Snapback</b>: the generated holes flow to the body contact and raise the body potential; the source-body junction turns on, the parasitic NPN conducts and the drain voltage collapses.": "<b>驟回</b>：產生的電洞流向基體接點，抬高基體電位；源極-基體接面導通，寄生 NPN 導電，汲極電壓驟降。",
+"<b>Punch-through</b>: in a short channel the drain depletion reaches the source, the barrier disappears and current flows below the channel.": "<b>擊穿</b>：短通道中汲極空乏區碰到源極，能障消失，電流從通道下方流過。",
+"<b>Gate oxide</b>: the thin oxide breaks down at about #–# MV/cm, instantly or after long stress (TDDB).": "<b>閘極氧化層</b>：薄氧化層約在 #–# MV/cm 崩潰，可能立即發生，也可能在長期應力後發生（TDDB）。",
+"Typical numbers": "典型數值",
+"Device": "元件",
+"Breakdown": "崩潰",
+"Core logic transistor": "核心邏輯電晶體",
+"≈ #–# V drain, oxide ≈ #–# V": "汲極 ≈ #–# V，氧化層 ≈ #–# V",
+"# V I/O transistor": "# V I/O 電晶體",
+"≈ #–# V drain": "汲極 ≈ #–# V",
+"LDMOS (BCD)": "LDMOS（BCD）",
+"#–# V, set by the drift region": "#–# V，由漂移區決定",
+"Power MOSFET": "功率 MOSFET",
+"#–# V, set by the drift layer": "#–# V，由漂移層決定",
+"Terms": "名詞",
+"Avalanche breakdown": "累崩崩潰",
+"Runaway carrier multiplication when the junction field exceeds about #–# × #⁵ V/cm in silicon.": "在矽中接面電場超過約 #–# × #⁵ V/cm 時，載子失控倍增。",
+"Impact ionization": "撞擊游離",
+"A fast carrier hits the lattice hard enough to create a new electron-hole pair.": "高速載子撞擊晶格，力道足以產生新的電子電洞對。",
+"Multiplication factor M": "倍增因子 M",
+"Ratio of output to input current, M = #/(# − (V/BV)ⁿ), growing without limit near BV.": "輸出與輸入電流之比，M = #/(# − (V/BV)ⁿ)，接近 BV 時無限增大。",
+"Substrate current": "基板電流",
+"The holes generated at the drain, flowing to the body contact; a monitor of hot-carrier stress.": "在汲極產生、流向基體接點的電洞；可用來監測熱載子應力。",
+"Snapback": "驟回",
+"Parasitic bipolar turn-on that drops the drain voltage to a holding voltage; used on purpose in ESD protection.": "寄生雙極電晶體導通，使汲極電壓降到維持電壓；ESD 保護會刻意利用它。",
+"Punch-through": "擊穿",
+"Merging of the source and drain depletion regions in a short channel, so the gate loses control.": "短通道中源極與汲極空乏區合併，閘極失去控制。",
+"Fowler–Nordheim tunnelling": "Fowler–Nordheim 穿隧",
+"Electrons tunnelling through the triangular oxide barrier at high field.": "高電場下電子穿隧通過三角形的氧化層能障。",
+"Hard breakdown": "硬崩潰",
+"A conducting path of defects forms across the oxide and the gate shorts to the channel.": "缺陷在氧化層中形成導電路徑，閘極與通道短路。",
+"Drain voltage": "汲極電壓",
+"Drain current": "汲極電流",
+"Multiplication M": "倍增因子 M",
+"Mechanism": "機制",
+"Gate voltage": "閘極電壓",
+"Oxide field": "氧化層電場",
+"Gate current density": "閘極電流密度",
+"Oxide breakdown voltage": "氧化層崩潰電壓",
+"leakage only": "僅漏電",
+"channel conduction": "通道導通",
+"avalanche multiplication": "累崩倍增",
+"snapback (parasitic NPN on)": "驟回（寄生 NPN 導通）",
+"punch-through": "擊穿",
+"V_DS = # V": "V_DS = # V",
+"V_G = # V": "V_G = # V",
+"→ ∞": "→ ∞",
+"Present point of the drain sweep.": "汲極掃描目前的位置。",
+"Drain current at this point.": "此點的汲極電流。",
+"Avalanche multiplication factor.": "累崩倍增因子。",
+"What dominates the current here.": "此處主導電流的機制。",
+"Present point of the gate ramp.": "閘極斜坡目前的位置。",
+"Gate voltage over oxide thickness.": "閘極電壓除以氧化層厚度。",
+"Tunnelling current per area.": "每單位面積的穿隧電流。",
+"Voltage at which the oxide shorts in a fast ramp.": "快速斜坡下氧化層短路的電壓。",
+"Abrupt junction in silicon.": "矽中的陡接面。",
+"Multiplication": "倍增",
+"Empirical Miller formula with n ≈ #.": "經驗 Miller 公式，n ≈ #。",
+"Snapback trigger": "驟回觸發",
+"Body voltage turns on the source junction.": "基體電壓使源極接面導通。",
+"Drain depletion reaches the source.": "汲極空乏區碰到源極。",
+"Field across the oxide.": "跨越氧化層的電場。",
+"Fowler–Nordheim": "Fowler–Nordheim",
+"Tunnelling through a triangular barrier.": "穿隧通過三角形能障。",
+"Breakdown voltage": "崩潰電壓",
+"Critical field times thickness.": "臨界電場乘以厚度。",
+"Tunnel distance": "穿隧距離",
+"Width of the triangular barrier.": "三角形能障的寬度。",
+"n+ source and drain": "n+ 源極與汲極",
+"p-type body": "p 型基體",
+"Depletion region": "空乏區",
+"Electrons": "電子",
+"Holes, punch-through": "電洞、擊穿",
+"Gate": "閘極",
+"SiO₂ and its barrier": "SiO₂ 與其能障",
+"Tunnelling electrons": "穿隧電子",
+"Traps, breakdown": "陷阱、崩潰",
+"BV ≈ # V · (N_A / #¹⁶ cm⁻³)^(−#/#)": "BV ≈ # V · (N_A / #¹⁶ cm⁻³)^(−#/#)",
+"N_A = #e+# cm⁻³ → # V (× # gate-edge factor)": "N_A = #e+# cm⁻³ → # V（× # 閘極邊緣因子）",
+"at # V: M = #": "在 # V：M = #",
+"at # V: M = → ∞": "在 # V：M = → ∞",
+"I_sub · R_sub ≥ # V, I_sub = (M − #) · I_ch": "I_sub · R_sub ≥ # V，I_sub = (M − #) · I_ch",
+"R_sub = # kΩ → I_sub ≥ # mA": "R_sub = # kΩ → I_sub ≥ # mA",
+"# V for L = # µm": "L = {1} µm 時 {0} V",
+"above # V: avalanche comes first": "高於 # V：累崩先發生",
+"E_ox = V_G / t_ox": "E_ox = V_G / t_ox",
+"# V / # nm = # MV/cm": "# V / # nm = # MV/cm",
+"J = A · E² · e^(−B/E), B ≈ # MV/cm": "J = A · E² · e^(−B/E)，B ≈ # MV/cm",
+"J = #e+# A/cm² (after breakdown, limited by the tester)": "J = #e+# A/cm²（崩潰後，受量測儀器限流）",
+"J = #e-# A/cm²": "J = #e-# A/cm²",
+"J = #e+# A/cm²": "J = #e+# A/cm²",
+"V_BD ≈ E_BD · t_ox, E_BD ≈ # MV/cm": "V_BD ≈ E_BD · t_ox，E_BD ≈ # MV/cm",
+"# nm → # V": "# nm → # V",
+"d = Φ_B / (q·E)": "d = Φ_B / (q·E)",
+"# nm of # nm": "# nm（共 # nm）",
+"NMOS cross-section during the drain sweep": "汲極掃描時的 NMOS 剖面",
+"n+ source": "n+ 源極",
+"n+ drain": "n+ 汲極",
+"p+ body": "p+ 基體",
+"gate # V": "閘極 # V",
+"drain # V": "汲極 # V",
+"source # V": "源極 # V",
+"impact ionization: e⁻ to the drain, holes to the body": "撞擊游離：e⁻ 往汲極，電洞往基體",
+"parasitic NPN: source = emitter, body = base, drain = collector": "寄生 NPN：源極 = 射極，基體 = 基極，汲極 = 集極",
+"body potential ≥ # V under the source": "源極下方基體電位 ≥ # V",
+"depletion regions merged: punch-through below the channel": "空乏區合併：通道下方擊穿",
+"drain depletion # µm · channel # µm": "汲極空乏區 # µm · 通道 # µm",
+"Sweep status": "掃描狀態",
+"I_D = # µA": "I_D = # µA",
+"I_D = # mA": "I_D = # mA",
+"I_D = # nA": "I_D = # nA",
+"I_D = # pA": "I_D = # pA",
+"multiplication M = #": "倍增因子 M = #",
+"multiplication M = → ∞": "倍增因子 M = → ∞",
+"substrate current = # µA": "基板電流 = # µA",
+"substrate current = # nA": "基板電流 = # nA",
+"substrate current = # pA": "基板電流 = # pA",
+"substrate current = # mA": "基板電流 = # mA",
+"body voltage I_sub·R_sub = # V": "基體電壓 I_sub·R_sub = # V",
+"avalanche BV = # V (V_GS = # V)": "累崩 BV = # V（V_GS = # V）",
+"punch-through V_PT = # V": "擊穿 V_PT = # V",
+"punch-through: not before avalanche": "擊穿：不會在累崩之前發生",
+"snapback to ≈ # V holding voltage": "驟回到 ≈ # V 的維持電壓",
+"the gate has lost control of the current": "閘極已失去對電流的控制",
+"only a tiny junction leakage flows": "只有極小的接面漏電流",
+"the channel carries the current; the drain field is still below the critical field": "電流由通道承載；汲極電場仍低於臨界電場",
+"electrons gain enough energy at the drain to create new pairs: the current multiplies": "電子在汲極獲得足夠能量產生新的電子電洞對：電流倍增",
+"the bipolar transistor carries the current at a lower voltage; without a limit it overheats (second breakdown)": "雙極電晶體以較低電壓承載電流；若不限流會過熱（二次崩潰）",
+"the source barrier is gone: current rises steeply long before avalanche": "源極能障消失：遠在累崩之前電流就急遽上升",
+"Gate oxide, # nm (drawn thick)": "閘極氧化層，# nm（放大繪製）",
+"SiO₂": "SiO₂",
+"silicon (inverted surface, electrons)": "矽（反轉表面，電子）",
+"HARD BREAKDOWN: a chain of traps connects gate and channel": "硬崩潰：一串陷阱連通閘極與通道",
+"# traps generated · electrons tunnel through the oxide": "已產生 # 個陷阱 · 電子穿隧通過氧化層",
+"Band diagram across the oxide": "跨越氧化層的能帶圖",
+"E_C (Si)": "E_C（Si）",
+"gate E_F": "閘極 E_F",
+"barrier Φ_B = # eV": "能障 Φ_B = # eV",
+"tunnel distance # nm (triangle: Fowler–Nordheim)": "穿隧距離 # nm（三角形：Fowler–Nordheim）",
+"trapezoid: tunnel through the whole oxide (direct)": "梯形：穿隧整個氧化層（直接穿隧）",
+"oxide field E = # MV/cm": "氧化層電場 E = # MV/cm",
+"gate current J = #e+# A/cm²": "閘極電流 J = #e+# A/cm²",
+"gate current J = #e-# A/cm²": "閘極電流 J = #e-# A/cm²",
+"breakdown at ≈ # MV/cm → V_BD ≈ # V": "崩潰約在 # MV/cm → V_BD ≈ # V",
+"V_DS (V)": "V_DS (V)",
+"log# I_D (mA)": "log# I_D (mA)",
+"I–V for V_GS #–# V (dashed: snapback)": "V_GS #–# V 的 I–V（虛線：驟回）",
+"log# N_A (cm⁻³)": "log# N_A (cm⁻³)",
+"BV": "BV",
+"V_PT (L = # µm)": "V_PT（L = # µm）",
+"V_G (V)": "V_G (V)",
+"log# J (A/cm²)": "log# J (A/cm²)",
+"gate current during the ramp": "斜坡期間的閘極電流",
+"t_ox (nm)": "t_ox (nm)",
+"V_BD (V)": "V_BD (V)",
+"V_BD ≈ # MV/cm × t_ox": "V_BD ≈ # MV/cm × t_ox",
+"Sweep the drain voltage past the limit and watch avalanche, snapback or punch-through take over": "把汲極電壓掃過極限，看累崩、驟回或擊穿接手",
+"The drain of an NMOS is an n+ region in the p-type body, so a positive drain voltage reverse-biases a PN junction. Its depletion region widens with voltage and the electric field peaks at the drain corner under the gate edge. Below a critical field of a few hundred kV/cm nothing dramatic happens, but beyond it electrons arriving at the drain gain enough energy to knock new electron-hole pairs out of the lattice: impact ionization. Each new electron can do the same, so the current is multiplied by M = #/(# − (V/BV)ⁿ), which grows without limit as the voltage approaches the avalanche breakdown voltage BV. A lightly doped body gives a wider depletion region, a lower field and a higher BV. The generated holes flow through the body to its contact and are measured as substrate current; their voltage drop raises the body under the source. When it reaches about # V the source-body junction turns on and the parasitic NPN transistor (source = emitter, body = base, drain = collector) takes over: the drain voltage snaps back to a lower holding voltage while the current keeps rising, until the device overheats (second breakdown). ESD protection uses this on purpose. With the gate on, channel electrons feed the multiplication, so snapback starts at a lower drain voltage. In a short channel the drain depletion can instead reach the source first: punch-through, where current flows beneath the channel and the gate loses control.": "NMOS 的汲極是 p 型基體中的 n+ 區，所以正的汲極電壓會讓一個 PN 接面逆偏。它的空乏區隨電壓變寬，電場的峰值出現在閘極邊緣下方的汲極轉角。低於約每公分數十萬伏的臨界電場時不會有劇烈變化，但超過之後，到達汲極的電子獲得足夠能量，從晶格中撞出新的電子電洞對：撞擊游離。每個新電子又能做同樣的事，所以電流被乘上 M = #/(# − (V/BV)ⁿ)，當電壓接近累崩崩潰電壓 BV 時無限增大。輕摻雜的基體空乏區較寬、電場較低、BV 較高。產生的電洞經基體流到接點，量到的就是基板電流；它們造成的壓降會抬高源極下方的基體電位。當它達到約 # V 時，源極-基體接面導通，寄生 NPN 電晶體（源極 = 射極、基體 = 基極、汲極 = 集極）接手：汲極電壓驟回到較低的維持電壓，而電流繼續上升，直到元件過熱（二次崩潰）。ESD 保護就是刻意利用這個現象。閘極導通時，通道電子提供倍增的來源，所以驟回在較低的汲極電壓就開始。在短通道中，汲極空乏區可能先碰到源極：這就是擊穿，電流從通道下方流過，閘極失去控制。",
+"Ramp the gate voltage: tunnelling current rises steeply, traps build up, and finally the oxide shorts": "把閘極電壓往上拉：穿隧電流急遽上升、陷阱累積，最後氧化層短路",
+"The gate oxide is an insulator only a few nanometres thick, so even moderate gate voltages create huge fields: # V across # nm is # MV/cm. Electrons in the inverted silicon face an energy barrier of about # eV at the oxide. In thin oxides they tunnel straight through it (direct tunnelling); at high fields the barrier becomes a triangle whose thickness Φ_B/(qE) shrinks with the field, and Fowler–Nordheim tunnelling rises steeply. The tunnelling electrons damage the oxide and create traps. When enough traps line up from gate to channel, a conducting path forms (percolation), the current jumps and the gate is shorted: hard breakdown, at roughly #–# MV/cm for silicon dioxide in a fast ramp. Under a constant lower voltage the same process happens slowly, which is time-dependent dielectric breakdown (TDDB) in the Reliability tab, and it sets the highest gate voltage a process allows for ten years of use. That is why core transistors with thin oxides run below about # V, I/O transistors need a thicker oxide, and gate pins need ESD protection.": "閘極氧化層是只有幾奈米厚的絕緣體，所以即使是中等的閘極電壓也會產生巨大的電場：# nm 上加 # V 就是 # MV/cm。反轉矽中的電子在氧化層面前有約 # eV 的能障。在薄氧化層中，它們會直接穿隧過去（直接穿隧）；在高電場下能障變成三角形，其厚度 Φ_B/(qE) 隨電場縮小，Fowler–Nordheim 穿隧急遽增加。穿隧的電子會損傷氧化層並產生陷阱。當足夠的陷阱從閘極到通道連成一線時，就形成導電路徑（滲流），電流跳升，閘極短路：這就是硬崩潰，在快速斜坡下二氧化矽約在 #–# MV/cm 發生。在較低的固定電壓下，同樣的過程會緩慢發生，這就是可靠度分頁中的時間相依介電崩潰（TDDB），它決定製程在十年使用下允許的最高閘極電壓。這就是薄氧化層的核心電晶體要在約 # V 以下工作、I/O 電晶體需要較厚的氧化層，以及閘極接腳需要 ESD 保護的原因。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -8891,6 +9078,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-hs" aria-selected="false" aria-controls="tab-hs">High-speed links</button>
         <button role="tab" id="tab-btn-sc" aria-selected="false" aria-controls="tab-sc">SiC power</button>
         <button role="tab" id="tab-btn-ml" aria-selected="false" aria-controls="tab-ml">Miller effect</button>
+        <button role="tab" id="tab-btn-mb" aria-selected="false" aria-controls="tab-mb">MOS breakdown</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -12999,6 +13187,114 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>False turn-on</dt><dd>Unwanted turn-on of an off transistor by dV/dt through Cgd, causing shoot-through.</dd>
               <dt>Miller clamp</dt><dd>A small switch in the driver that shorts gate to source with very low impedance while the transistor is off.</dd>
               <dt>Cascode</dt><dd>A common-gate transistor stacked on the input transistor that holds its drain still and removes the Miller multiplication.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== MOS BREAKDOWN TAB ===================== -->
+  <section id="tab-mb" role="tabpanel" aria-labelledby="tab-btn-mb" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="mb-pill">BV</span><h2 id="mb-name">Drain breakdown</h2></div>
+      <p id="mb-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="mb-view" role="group" aria-label="MOS breakdown view" style="flex-wrap:wrap">
+        <button data-v="dr" aria-pressed="true">Drain breakdown (I–V sweep)</button>
+        <button data-v="ox" aria-pressed="false">Gate oxide breakdown</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvmb" aria-label="MOSFET breakdown: cross-section with drain depletion, impact ionization, substrate current, snapback and punch-through next to the status of the sweep, or gate oxide with tunnelling electrons, traps and a breakdown path next to its band diagram"></canvas>
+      <div class="legend" id="mb-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="mb-ro"></div>
+        <div id="mb-c-play" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Run the sweep automatically, or drag the slider below.">Sweep</span>
+          <div class="chips" id="mb-play">
+            <button class="chipbtn" data-p="play">▶ Play sweep</button>
+          </div>
+        </div>
+        <div class="slider" id="mb-c-s">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Position along the measured curve: drain voltage for the drain sweep, gate voltage for the oxide ramp.">Sweep position</span><span id="mb-s-v"></span></div>
+          <input id="mb-s" type="range" min="0" max="1" step="0.002" value="0.6">
+        </div>
+        <div id="mb-c-vg" style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Gate voltage during the drain sweep. With the gate on, channel electrons feed impact ionization and trigger snapback earlier.">Gate voltage V_GS</span>
+          <div class="chips" id="mb-vg">
+            <button class="chipbtn" data-g="0">0 V</button>
+            <button class="chipbtn" data-g="1">1 V</button>
+            <button class="chipbtn" data-g="2">2 V</button>
+            <button class="chipbtn" data-g="3">3 V</button>
+          </div>
+        </div>
+        <div class="slider" id="mb-c-l">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Channel length. Short channels can punch through: the drain depletion region reaches the source before avalanche starts.">Channel length</span><span id="mb-l-v"></span></div>
+          <input id="mb-l" type="range" min="0.15" max="2" step="0.05" value="1">
+        </div>
+        <div class="slider" id="mb-c-n">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Doping of the p-type body. Higher doping makes the drain depletion thinner, the field stronger and the breakdown voltage lower, but protects against punch-through.">Body doping</span><span id="mb-n-v"></span></div>
+          <input id="mb-n" type="range" min="16" max="18" step="0.05" value="17">
+        </div>
+        <div class="slider" id="mb-c-tox">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Gate oxide thickness. Breakdown happens at a field of roughly 10–15 MV/cm, so the breakdown voltage scales with thickness.">Oxide thickness</span><span id="mb-tox-v"></span></div>
+          <input id="mb-tox" type="range" min="1.5" max="10" step="0.1" value="5">
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="mb-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Analysis</p>
+        <div class="plots">
+          <div class="plot"><svg id="mb-p1" viewBox="0 0 300 230" role="img" aria-label="Drain current versus drain voltage on a log scale, or gate current density versus gate voltage"></svg></div>
+          <div class="plot"><svg id="mb-p2" viewBox="0 0 220 230" role="img" aria-label="Breakdown and punch-through voltage versus body doping, or oxide breakdown voltage versus thickness"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="mb-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: avalanche, impact ionization, multiplication factor, substrate current, snapback, punch-through, Fowler–Nordheim tunnelling, oxide breakdown</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>How a MOSFET breaks down</h3>
+            <ol>
+              <li><b>Avalanche</b>: the reverse-biased drain junction holds the field; above a critical field, carriers knock out new electron-hole pairs and the current multiplies.</li>
+              <li><b>Snapback</b>: the generated holes flow to the body contact and raise the body potential; the source-body junction turns on, the parasitic NPN conducts and the drain voltage collapses.</li>
+              <li><b>Punch-through</b>: in a short channel the drain depletion reaches the source, the barrier disappears and current flows below the channel.</li>
+              <li><b>Gate oxide</b>: the thin oxide breaks down at about 10–15 MV/cm, instantly or after long stress (TDDB).</li>
+            </ol>
+            <h3>Typical numbers</h3>
+            <div class="tbl"><table>
+              <tr><th>Device</th><th>Breakdown</th></tr>
+              <tr><td>Core logic transistor</td><td>≈ 3–4 V drain, oxide ≈ 2–3 V</td></tr>
+              <tr><td>3.3 V I/O transistor</td><td>≈ 8–10 V drain</td></tr>
+              <tr><td>LDMOS (BCD)</td><td>20–100 V, set by the drift region</td></tr>
+              <tr><td>Power MOSFET</td><td>30–1700 V, set by the drift layer</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>Avalanche breakdown</dt><dd>Runaway carrier multiplication when the junction field exceeds about 3–5 × 10⁵ V/cm in silicon.</dd>
+              <dt>Impact ionization</dt><dd>A fast carrier hits the lattice hard enough to create a new electron-hole pair.</dd>
+              <dt>Multiplication factor M</dt><dd>Ratio of output to input current, M = 1/(1 − (V/BV)ⁿ), growing without limit near BV.</dd>
+              <dt>Substrate current</dt><dd>The holes generated at the drain, flowing to the body contact; a monitor of hot-carrier stress.</dd>
+              <dt>Snapback</dt><dd>Parasitic bipolar turn-on that drops the drain voltage to a holding voltage; used on purpose in ESD protection.</dd>
+              <dt>Punch-through</dt><dd>Merging of the source and drain depletion regions in a short channel, so the gate loses control.</dd>
+              <dt>Fowler–Nordheim tunnelling</dt><dd>Electrons tunnelling through the triangular oxide barrier at high field.</dd>
+              <dt>Hard breakdown</dt><dd>A conducting path of defects forms across the oxide and the gate shorts to the channel.</dd>
             </dl>
           </div>
         </div>
@@ -24171,12 +24467,217 @@ document.querySelectorAll("#ml-cas button").forEach(b => b.addEventListener("cli
 document.querySelectorAll("#ml-off button").forEach(b => b.addEventListener("click", () => { MLS.off[b.dataset.o] = !MLS.off[b.dataset.o]; updateML(); }));
 [["ml-rg", "rg"], ["ml-il", "il"], ["ml-av", "av"], ["ml-rs", "rs"], ["ml-dv", "dv"], ["ml-roff", "roff"]].forEach(([id, k]) => $(id).addEventListener("input", e => { MLS[k] = +e.target.value; updateML(); }));
 
+/* ===================== MOS BREAKDOWN TAB ===================== */
+// Drain: square-law / subthreshold channel current × avalanche multiplication M = 1/(1 − (V/BV)^4), BV of an abrupt Si junction,
+// punch-through when the drain depletion reaches the source, snapback when I_sub·R_sub reaches 0.7 V.
+// Oxide: Fowler–Nordheim + direct tunnelling, hard breakdown at E_BD ≈ 12 MV/cm, traps building up toward a percolation path.
+const MBC = setupCanvas($("cvmb"), 1000, 488);
+const MBS = {view:"dr", s:0.6, vg:2, L:1, n:17, tox:5, play:false, t:0, P:null, O:null};
+const MB_EPS = 1.04e-12, MB_Q = 1.6e-19, MB_VBI = 0.9, MB_VT = 0.7, MB_RSUB = 1, MB_EBD = 12e6;
+const mbN = () => Math.pow(10, MBS.n);
+const mbBV = (N, vg) => 60*Math.pow(N/1e16, -0.75)*(0.85 + 0.05*vg);
+const mbW = (N, v) => Math.sqrt(2*MB_EPS*(MB_VBI + v)/(MB_Q*N));          // cm
+const mbVPT = (N, Lum) => { const ws = mbW(N, 0), d = Lum*1e-4 - ws; return d <= 0 ? 0 : MB_Q*N*d*d/(2*MB_EPS) - MB_VBI; };
+function mbIch(vg, v, Lum){
+  const k = 0.4/Lum, ov = vg - MB_VT;
+  if (ov <= 0) return 1e-7*Math.exp(ov/0.09)*(1 - Math.exp(-v/0.026));
+  return v < ov ? k*(ov*v - v*v/2) : 0.5*k*ov*ov*(1 + 0.05*v);
+}
+// the measured curve for one gate voltage: list of {v, i (mA), ph, m}
+function mbCurve(vg, Lum, N){
+  const BV = mbBV(N, vg), VPT = mbVPT(N, Lum), pts = [], I0 = 1e-8;
+  let trig = null;
+  for (let v = 0; v <= 30; v += 0.02){
+    const M = v < BV ? 1/(1 - Math.pow(v/BV, 4)) : 1e9, ich = mbIch(vg, v, Lum), ipt = v > VPT ? 1e-4*Math.exp((v - VPT)/0.15) : 0;
+    const i = Math.min(80, (ich + I0)*M + ipt), isub = (ich + I0)*(M - 1);
+    const ph = ipt > (ich + I0)*M ? "punch" : M > 1.05 ? "aval" : vg > MB_VT ? "chan" : "off";
+    pts.push({v, i, ph, m:M, isub});
+    if (ph === "punch" && i >= 30){ trig = "punch"; break; }
+    if (isub*MB_RSUB >= 0.7 || v >= BV*0.9995){ trig = "snap"; break; }
+  }
+  if (trig === "snap"){
+    const last = pts[pts.length - 1], Vh = 0.55*BV + 0.6, It = Math.max(last.i, 0.7);
+    for (let k = 1; k <= 60; k++){ const i = It + (30 - It)*k/60; pts.push({v:Vh + (i - It)*0.03, i, ph:"snap", m:last.m, isub:last.isub}); }
+  }
+  return {pts, BV, VPT, trig};
+}
+
+/* ---------------- drawing: drain breakdown ---------------- */
+function mbFmtI(i){ return i >= 1 ? `${i.toFixed(1)} mA` : i >= 1e-3 ? `${(i*1e3).toFixed(1)} µA` : i >= 1e-6 ? `${(i*1e6).toFixed(1)} nA` : `${(i*1e9).toFixed(1)} pA`; }
+const MB_PH = {off:"leakage only", chan:"channel conduction", aval:"avalanche multiplication", snap:"snapback (parasitic NPN on)", punch:"punch-through"};
+function drawMBdr(T){
+  const P = MBS.P, k = Math.min(P.pts.length - 1, Math.round(MBS.s*(P.pts.length - 1))), pt = P.pts[k], N = mbN(), BV = P.BV;
+  panel(20, 20, 600, 450, "NMOS cross-section during the drain sweep");
+  const yS = 170, gx0 = 230, gx1 = 410, Lpx = gx1 - gx0, sc = Lpx/(MBS.L*1e-4), bot = 440;
+  ctx.fillStyle = C.pplus; ctx.globalAlpha = .55; ctx.fillRect(40, yS, 560, bot - yS); ctx.globalAlpha = 1;
+  const wd = Math.min(260, mbW(N, Math.max(pt.v, 0))*sc), ws = Math.min(200, mbW(N, 0)*sc), merged = ws + wd >= Lpx;
+  ctx.fillStyle = C.deplete || C.panel; ctx.globalAlpha = .9;
+  ctx.fillRect(gx0 - 10, yS, 10 + ws, 50 + ws*0.6); ctx.fillRect(gx1 - wd, yS, 180 + wd, Math.min(bot - yS, 50 + wd));
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = C.nplus; ctx.fillRect(70, yS, gx0 - 70, 50); ctx.fillRect(gx1, yS, 170, 50);
+  ctx.fillStyle = C.hole; ctx.globalAlpha = .8; ctx.fillRect(42, yS, 24, 30); ctx.globalAlpha = 1;
+  ctx.fillStyle = C.oxide; ctx.fillRect(gx0, yS - 8, Lpx, 8); ctx.fillStyle = C.metal; ctx.fillRect(gx0, yS - 40, Lpx, 32);
+  txt("n+ source", 150, yS + 26, {al:"center", px:11, w:700, col:C.fg}); txt("n+ drain", gx1 + 85, yS + 26, {al:"center", px:11, w:700, col:C.fg});
+  txt("p+ body", 54, yS - 12, {al:"center", px:9}); txt("p-type body", 60, bot - 10, {px:10, col:C.hole});
+  txt(`gate ${MBS.vg} V`, (gx0 + gx1)/2, yS - 52, {al:"center", px:11, w:700, col:C.fg}); txt(`drain ${pt.v.toFixed(2)} V`, gx1 + 85, yS - 14, {al:"center", px:11, w:700, col:C.hole}); txt("source 0 V", 150, yS - 14, {al:"center", px:10});
+  // field hot spot at the drain corner
+  const f = clamp(pt.v/BV, 0, 1.2), gr = ctx.createRadialGradient(gx1, yS + 12, 2, gx1, yS + 12, 20 + 60*f);
+  gr.addColorStop(0, `rgba(255,80,40,${0.75*f})`); gr.addColorStop(1, "rgba(255,80,40,0)"); ctx.fillStyle = gr; ctx.beginPath(); ctx.arc(gx1, yS + 12, 20 + 60*f, 0, 6.283); ctx.fill();
+  // channel electrons
+  if (MBS.vg > MB_VT && pt.ph !== "off"){ ctx.fillStyle = C.channel; ctx.globalAlpha = .55; ctx.fillRect(gx0, yS, Lpx, 5); ctx.globalAlpha = 1;
+    for (let i = 0; i < 8; i++){ const u = (T*0.6 + i/8) % 1; dot(gx0 + u*Lpx, yS + 3, C.electron, false, 1, 2.6); } }
+  // impact ionization: pairs at the drain corner, electrons to the drain, holes to the body contact
+  const nIon = pt.m > 1.02 ? Math.min(12, Math.round(2 + 2.5*Math.log10(pt.m))) : 0;
+  for (let i = 0; i < nIon; i++){ const u = (T*0.9 + i/nIon) % 1, x0 = gx1 - 6 + (i % 3)*5, y0 = yS + 10 + (i % 4)*4;
+    dot(x0 + u*40, y0 - u*6, C.electron, false, 1 - u*0.5, 2.4);
+    const hx = x0 + (54 - x0)*u, hy = y0 + Math.sin(Math.PI*u)*140 + (yS + 15 - y0)*u; dot(hx, hy, C.hole, true, 1 - u*0.3, 2.6);
+    if (u < 0.15){ ctx.strokeStyle = C.accent; ctx.lineWidth = 1.5; pl([[x0 - 5, y0 - 5], [x0 + 5, y0 + 5]]); pl([[x0 - 5, y0 + 5], [x0 + 5, y0 - 5]]); } }
+  if (nIon) txt("impact ionization: e⁻ to the drain, holes to the body", gx1 - 10, yS + 80 + Math.min(80, wd*0.3), {al:"right", px:10, col:C.accent, w:700});
+  // snapback: parasitic NPN, electrons from the source through the body to the drain
+  if (pt.ph === "snap"){
+    ctx.strokeStyle = C.electron; ctx.lineWidth = 3; ctx.setLineDash([6, 4]); ctx.lineDashOffset = -T*30; ctx.beginPath(); ctx.moveTo(180, yS + 50); ctx.quadraticCurveTo(320, yS + 190, gx1 + 30, yS + 50); ctx.stroke(); ctx.setLineDash([]); ctx.lineDashOffset = 0;
+    for (let i = 0; i < 10; i++){ const u = (T*0.7 + i/10) % 1, x = (1 - u)*(1 - u)*180 + 2*u*(1 - u)*320 + u*u*(gx1 + 30), y = (1 - u)*(1 - u)*(yS + 50) + 2*u*(1 - u)*(yS + 190) + u*u*(yS + 50); dot(x, y, C.electron, false, 1, 3); }
+    txt("parasitic NPN: source = emitter, body = base, drain = collector", 320, yS + 220, {al:"center", px:10, w:700, col:C.electron});
+    txt("body potential ≥ 0.7 V under the source", 44, yS + 62, {px:10, w:700, col:C.hole});
+  }
+  if (merged || pt.ph === "punch"){ ctx.strokeStyle = C.hole; ctx.lineWidth = 2; ctx.setLineDash([4, 3]); ctx.strokeRect(gx0 - 2, yS + 40, Lpx + 4, 50); ctx.setLineDash([]);
+    if (pt.ph === "punch") for (let i = 0; i < 8; i++){ const u = (T*0.8 + i/8) % 1; dot(gx0 + u*Lpx, yS + 65 + Math.sin(u*Math.PI)*12, C.electron, false, 1, 2.8); }
+    txt("depletion regions merged: punch-through below the channel", (gx0 + gx1)/2, yS + 108, {al:"center", px:10, w:700, col:C.hole}); }
+  txt(`drain depletion ${(mbW(N, Math.max(pt.v, 0))*1e4).toFixed(2)} µm · channel ${MBS.L} µm`, 320, 456, {al:"center", px:10});
+  // status panel
+  panel(640, 20, 340, 450, "Sweep status");
+  const col = {off:C.muted, chan:C.channel, aval:C.accent, snap:C.hole, punch:C.hole}[pt.ph];
+  txt(MB_PH[pt.ph], 656, 62, {px:14, w:700, col});
+  [[`V_DS = ${pt.v.toFixed(2)} V`, C.fg], [`I_D = ${mbFmtI(pt.i)}`, C.fg], [`multiplication M = ${pt.m > 1e6 ? "→ ∞" : pt.m.toFixed(pt.m < 10 ? 3 : 0)}`, C.fg],
+   [`substrate current = ${mbFmtI(pt.isub)}`, C.fg], [`body voltage I_sub·R_sub = ${Math.min(0.7, pt.isub*MB_RSUB).toFixed(2)} V`, pt.isub*MB_RSUB >= 0.69 ? C.hole : C.fg], ["", C.fg],
+   [`avalanche BV = ${BV.toFixed(1)} V (V_GS = ${MBS.vg} V)`, C.fg], [P.VPT > 0 && P.VPT < 20 ? `punch-through V_PT = ${P.VPT.toFixed(1)} V` : "punch-through: not before avalanche", C.fg],
+   [P.trig === "snap" ? `snapback to ≈ ${(0.55*BV + 0.6).toFixed(1)} V holding voltage` : P.trig === "punch" ? "the gate has lost control of the current" : "", C.muted]].forEach(([s, c], i) => txt(s, 656, 94 + i*24, {px:11, w: i < 2 ? 700 : 500, col:c}));
+  const tips = {off:"only a tiny junction leakage flows", chan:"the channel carries the current; the drain field is still below the critical field", aval:"electrons gain enough energy at the drain to create new pairs: the current multiplies", snap:"the bipolar transistor carries the current at a lower voltage; without a limit it overheats (second breakdown)", punch:"the source barrier is gone: current rises steeply long before avalanche"};
+  const zhT = window.I18N && window.I18N.lang === "zh" && window.I18N.tr ? window.I18N.tr(tips[pt.ph]) : null; let y = 330;
+  if (zhT){ for (let i = 0; i < zhT.length; i += 22){ txt(zhT.slice(i, i + 22), 656, y, {px:10, col:C.muted}); y += 16; } }
+  else { const words = tips[pt.ph].split(" "); let line = ""; words.forEach(w => { if ((line + w).length > 40){ txt(line, 656, y, {px:10, col:C.muted}); y += 16; line = ""; } line += w + " "; }); txt(line, 656, y, {px:10, col:C.muted}); }
+}
+
+/* ---------------- gate oxide ---------------- */
+function mbJ(vg, tox){ const E = vg/(tox*1e-7), fn = E > 1e5 ? 1.25e-6*E*E*Math.exp(-2.4e8/E) : 0, dt = Math.pow(10, 3 - 2.2*tox)*vg; return fn + dt; }
+function mbOx(){ const vbd = MB_EBD*MBS.tox*1e-7, vg = MBS.s*1.2*vbd, bd = vg >= vbd; return {vbd, vg, bd, E:vg/(MBS.tox*1e-7), J:bd ? 1e3 : mbJ(vg, MBS.tox)}; }
+function drawMBox(T){
+  const O = MBS.O, tox = MBS.tox, thk = 30 + tox*14, yG = 120, yO = yG + 40, yS = yO + thk, rnd = cmRand(7);
+  panel(20, 20, 480, 450, `Gate oxide, ${tox} nm (drawn thick)`);
+  ctx.fillStyle = C.metal; ctx.fillRect(60, yG, 400, 40); txt(`gate ${O.vg.toFixed(2)} V`, 260, yG + 20, {al:"center", px:12, w:700, col:"#ffffff"});
+  ctx.fillStyle = C.oxide; ctx.globalAlpha = .45; ctx.fillRect(60, yO, 400, thk); ctx.globalAlpha = 1; txt("SiO₂", 70, yO + 12, {px:10, w:700, col:C.fg});
+  ctx.fillStyle = C.si; ctx.fillRect(60, yS, 400, 440 - yS); txt("silicon (inverted surface, electrons)", 260, 430, {al:"center", px:10});
+  ctx.fillStyle = C.channel; ctx.globalAlpha = .5; ctx.fillRect(60, yS, 400, 5); ctx.globalAlpha = 1;
+  const nTr = Math.round(46*Math.pow(Math.min(1, O.vg/O.vbd), 4)), traps = Array.from({length:nTr}, () => [80 + rnd()*360, yO + 6 + rnd()*(thk - 12)]);
+  traps.forEach(([x, y]) => { ctx.strokeStyle = C.hole; ctx.lineWidth = 1.5; pl([[x - 3, y - 3], [x + 3, y + 3]]); pl([[x - 3, y + 3], [x + 3, y - 3]]); });
+  const lg = Math.log10(Math.max(O.J, 1e-12)), nE = clamp(Math.round((lg + 10)*1.2), 0, 18);
+  for (let i = 0; i < nE; i++){ const u = (T*0.8 + i/Math.max(1, nE)) % 1, x = 90 + ((i*53) % 340); dot(x, yS - u*(thk + 6), C.electron, false, 1 - u*0.4, 2.6); }
+  if (O.bd){ const x = 300; ctx.strokeStyle = "#ffe066"; ctx.lineWidth = 5; ctx.beginPath(); for (let j = 0; j <= 8; j++){ const y = yO + j*thk/8, xx = x + Math.sin(j*1.7 + T*6)*6; j ? ctx.lineTo(xx, y) : ctx.moveTo(xx, y); } ctx.stroke();
+    for (let j = 0; j < 8; j++){ ctx.strokeStyle = C.hole; ctx.lineWidth = 2; const y = yO + 4 + j*thk/8; pl([[x - 4, y - 4], [x + 4, y + 4]]); pl([[x - 4, y + 4], [x + 4, y - 4]]); }
+    txt("HARD BREAKDOWN: a chain of traps connects gate and channel", 260, yS + 40, {al:"center", px:11, w:700, col:C.hole}); }
+  else txt(`${nTr} traps generated · electrons tunnel through the oxide`, 260, yS + 40, {al:"center", px:10, col:C.fg});
+  // band diagram
+  panel(520, 20, 460, 450, "Band diagram across the oxide");
+  const x0 = 600, xo0 = 680, xo1 = 860, phiB = 3.1, vdrop = Math.min(O.vg, 12), ks = Math.min(30, 230/(vdrop + phiB + 0.5)), Y = e => 110 + (phiB + 0.3 - e)*ks;
+  ctx.strokeStyle = C.electron; ctx.lineWidth = 2.5; pl([[x0 - 40, Y(0)], [xo0, Y(0)]]); txt("E_C (Si)", x0 - 40, Y(0) + 14, {px:10, col:C.electron});
+  ctx.fillStyle = C.oxide; ctx.globalAlpha = .3; ctx.beginPath(); ctx.moveTo(xo0, Y(-2)); ctx.lineTo(xo0, Y(phiB)); ctx.lineTo(xo1, Y(phiB - vdrop)); ctx.lineTo(xo1, Y(-2)); ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.oxide; ctx.lineWidth = 2.5; pl([[xo0, Y(0)], [xo0, Y(phiB)], [xo1, Y(phiB - vdrop)]]);
+  ctx.strokeStyle = C.metal; ctx.lineWidth = 2.5; pl([[xo1, Y(-vdrop)], [xo1 + 70, Y(-vdrop)]]); txt("gate E_F", xo1 + 70, Y(-vdrop) - 10, {al:"right", px:10});
+  txt(`barrier Φ_B = ${phiB} eV`, xo0 - 6, Y(phiB) - 10, {px:10, col:C.fg});
+  const dTun = vdrop > 0.1 ? Math.min(1, phiB/vdrop) : 1, xt = xo0 + dTun*(xo1 - xo0);
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]); pl([[xo0, Y(0) + 8], [xt, Y(0) + 8]]); ctx.setLineDash([]);
+  txt(dTun < 1 ? `tunnel distance ${(phiB/(O.E/1e7)).toFixed(2)} nm (triangle: Fowler–Nordheim)` : "trapezoid: tunnel through the whole oxide (direct)", 600, Y(0) + 26, {px:10, col:C.accent});
+  for (let i = 0; i < 4; i++){ const u = (T*0.7 + i/4) % 1; dot(xo0 - 30 + u*(xt - xo0 + 50), Y(0) - 3, C.electron, false, O.J > 1e-8 ? 1 : 0.25, 3); }
+  [[`oxide field E = ${(O.E/1e6).toFixed(1)} MV/cm`, C.fg], [`gate current J = ${O.J.toExponential(1)} A/cm²`, O.bd ? C.hole : C.fg], [`breakdown at ≈ ${(MB_EBD/1e6).toFixed(0)} MV/cm → V_BD ≈ ${O.vbd.toFixed(2)} V`, C.fg]].forEach(([s, c], i) => txt(s, 540, 380 + i*24, {px:11, w: i === 1 ? 700 : 500, col:c}));
+}
+function drawMB(dt, T){
+  begin(MBC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488);
+  if (MBS.view === "dr"){ if (MBS.P) drawMBdr(T); } else if (MBS.O) drawMBox(T);
+}
+
+/* ---------------- DOM ---------------- */
+const MBINFO = {
+  dr:{pill:"BV", name:"Drain breakdown", sub:"Sweep the drain voltage past the limit and watch avalanche, snapback or punch-through take over",
+    text:"The drain of an NMOS is an n+ region in the p-type body, so a positive drain voltage reverse-biases a PN junction. Its depletion region widens with voltage and the electric field peaks at the drain corner under the gate edge. Below a critical field of a few hundred kV/cm nothing dramatic happens, but beyond it electrons arriving at the drain gain enough energy to knock new electron-hole pairs out of the lattice: impact ionization. Each new electron can do the same, so the current is multiplied by M = 1/(1 − (V/BV)ⁿ), which grows without limit as the voltage approaches the avalanche breakdown voltage BV. A lightly doped body gives a wider depletion region, a lower field and a higher BV. The generated holes flow through the body to its contact and are measured as substrate current; their voltage drop raises the body under the source. When it reaches about 0.7 V the source-body junction turns on and the parasitic NPN transistor (source = emitter, body = base, drain = collector) takes over: the drain voltage snaps back to a lower holding voltage while the current keeps rising, until the device overheats (second breakdown). ESD protection uses this on purpose. With the gate on, channel electrons feed the multiplication, so snapback starts at a lower drain voltage. In a short channel the drain depletion can instead reach the source first: punch-through, where current flows beneath the channel and the gate loses control."},
+  ox:{pill:"E_BD", name:"Gate oxide breakdown", sub:"Ramp the gate voltage: tunnelling current rises steeply, traps build up, and finally the oxide shorts",
+    text:"The gate oxide is an insulator only a few nanometres thick, so even moderate gate voltages create huge fields: 1 V across 2 nm is 5 MV/cm. Electrons in the inverted silicon face an energy barrier of about 3.1 eV at the oxide. In thin oxides they tunnel straight through it (direct tunnelling); at high fields the barrier becomes a triangle whose thickness Φ_B/(qE) shrinks with the field, and Fowler–Nordheim tunnelling rises steeply. The tunnelling electrons damage the oxide and create traps. When enough traps line up from gate to channel, a conducting path forms (percolation), the current jumps and the gate is shorted: hard breakdown, at roughly 10–15 MV/cm for silicon dioxide in a fast ramp. Under a constant lower voltage the same process happens slowly, which is time-dependent dielectric breakdown (TDDB) in the Reliability tab, and it sets the highest gate voltage a process allows for ten years of use. That is why core transistors with thin oxides run below about 1 V, I/O transistors need a thicker oxide, and gate pins need ESD protection."}
+};
+Object.assign(TIP, {
+  "Drain voltage":"Present point of the drain sweep.", "Drain current":"Drain current at this point.", "Multiplication M":"Avalanche multiplication factor.", "Mechanism":"What dominates the current here.",
+  "Gate voltage":"Present point of the gate ramp.", "Oxide field":"Gate voltage over oxide thickness.", "Gate current density":"Tunnelling current per area.", "Oxide breakdown voltage":"Voltage at which the oxide shorts in a fast ramp.",
+  "Avalanche breakdown":"Abrupt junction in silicon.", "Multiplication":"Empirical Miller formula with n ≈ 4.", "Snapback trigger":"Body voltage turns on the source junction.", "Punch-through":"Drain depletion reaches the source.",
+  "Oxide field ":"Field across the oxide.", "Fowler–Nordheim":"Tunnelling through a triangular barrier.", "Breakdown voltage":"Critical field times thickness.", "Tunnel distance":"Width of the triangular barrier."
+});
+const MBLEG = {
+  dr:[["nplus","n+ source and drain"],["pplus","p-type body"],["deplete","Depletion region"],["electron","Electrons"],["hole","Holes, punch-through"],["accent","Impact ionization"]],
+  ox:[["metal","Gate"],["oxide","SiO₂ and its barrier"],["electron","Tunnelling electrons"],["hole","Traps, breakdown"]]
+};
+const mbChip = (sel, attr, on) => document.querySelectorAll(sel).forEach(b => { const o = on(b.dataset[attr]); b.setAttribute("aria-pressed", o); b.style.borderColor = o ? "var(--accent)" : ""; b.style.color = o ? "var(--accent)" : ""; });
+function updateMB(){
+  const v = MBS.view, info = MBINFO[v];
+  $("mb-pill").textContent = info.pill; $("mb-name").textContent = info.name; $("mb-sub").textContent = info.sub; $("mb-explain").textContent = info.text;
+  document.querySelectorAll("#mb-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  mbChip("#mb-vg button", "g", g => +g === MBS.vg); mbChip("#mb-play button", "p", () => MBS.play);
+  const vis = {vg:v === "dr", l:v === "dr", n:v === "dr", tox:v === "ox"};
+  Object.entries(vis).forEach(([k, on]) => $(`mb-c-${k}`).hidden = !on);
+  $("mb-l-v").textContent = `${MBS.L} µm`; $("mb-n-v").textContent = `${Math.pow(10, MBS.n - Math.floor(MBS.n)).toFixed(1)}e${Math.floor(MBS.n)} cm⁻³`; $("mb-tox-v").textContent = `${MBS.tox} nm`; $("mb-s").value = MBS.s;
+  setHTML("mb-legend", MBLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  let ro, eq;
+  if (v === "dr"){ const P = MBS.P = mbCurve(MBS.vg, MBS.L, mbN()), pt = P.pts[Math.min(P.pts.length - 1, Math.round(MBS.s*(P.pts.length - 1)))];
+    $("mb-s-v").textContent = `V_DS = ${pt.v.toFixed(2)} V`;
+    ro = [["Drain voltage", `${pt.v.toFixed(2)} V`], ["Drain current", mbFmtI(pt.i)], ["Multiplication M", pt.m > 1e6 ? "→ ∞" : pt.m.toFixed(pt.m < 10 ? 3 : 0)], ["Mechanism", MB_PH[pt.ph]]];
+    eq = [{name:"Avalanche breakdown", f:"BV ≈ 60 V · (N_A / 10¹⁶ cm⁻³)^(−3/4)", sub:`N_A = ${mbN().toExponential(1)} cm⁻³ → ${(P.BV/(0.85 + 0.05*MBS.vg)).toFixed(1)} V (× ${(0.85 + 0.05*MBS.vg).toFixed(2)} gate-edge factor)`},
+      {name:"Multiplication", f:"M = 1 / (1 − (V_DS / BV)^4)", sub:`at ${pt.v.toFixed(2)} V: M = ${pt.m > 1e6 ? "→ ∞" : pt.m.toFixed(3)}`},
+      {name:"Snapback trigger", f:"I_sub · R_sub ≥ 0.7 V,  I_sub = (M − 1) · I_ch", sub:`R_sub = 1 kΩ → I_sub ≥ 0.7 mA`},
+      {name:"Punch-through", f:"V_PT = q·N_A·(L − W_s)² / (2ε_Si) − V_bi", sub:P.VPT > 0 && P.VPT < 20 ? `${P.VPT.toFixed(1)} V for L = ${MBS.L} µm` : `above ${(20).toFixed(0)} V: avalanche comes first`}];
+  } else { const O = MBS.O = mbOx();
+    $("mb-s-v").textContent = `V_G = ${O.vg.toFixed(2)} V`;
+    ro = [["Gate voltage", `${O.vg.toFixed(2)} V`], ["Oxide field", `${(O.E/1e6).toFixed(1)} MV/cm`], ["Gate current density", `${O.J.toExponential(1)} A/cm²`], ["Oxide breakdown voltage", `${O.vbd.toFixed(2)} V`]];
+    eq = [{name:"Oxide field ", f:"E_ox = V_G / t_ox", sub:`${O.vg.toFixed(2)} V / ${MBS.tox} nm = ${(O.E/1e6).toFixed(1)} MV/cm`},
+      {name:"Fowler–Nordheim", f:"J = A · E² · e^(−B/E),  B ≈ 240 MV/cm", sub:`J = ${O.J.toExponential(1)} A/cm²${O.bd ? " (after breakdown, limited by the tester)" : ""}`},
+      {name:"Breakdown voltage", f:"V_BD ≈ E_BD · t_ox,  E_BD ≈ 12 MV/cm", sub:`${MBS.tox} nm → ${O.vbd.toFixed(2)} V`},
+      {name:"Tunnel distance", f:"d = Φ_B / (q·E)", sub:O.E > 0 ? `${Math.min(MBS.tox, 3.1/(O.E/1e7)).toFixed(2)} nm of ${MBS.tox} nm` : "–"}];
+  }
+  renderRo($("mb-ro"), ro); renderEq($("mb-eq"), eq);
+  drawMBPlots(v);
+}
+function drawMBPlots(v){
+  let a, b; const m1 = {l:38,r:10,t:28,b:30}, m2 = {l:38,r:8,t:28,b:30};
+  if (v === "dr"){
+    const cs = [0, 1, 2, 3].map(g => mbCurve(g, MBS.L, mbN())), xm = clamp(Math.ceil(Math.max(...cs.flatMap(c => c.pts.map(q => q.v)))/4)*4, 4, 32);
+    const P = axesR(300, 230, m1, 0, xm, -9, 2, xm/4, 2, "V_DS (V)", "log10 I_D (mA)"), cols = ["muted", "electron", "channel", "accent"], lg = i => Math.log10(Math.max(i, 1e-9));
+    a = P.s + [0, 1, 2, 3].map(g => { const c = cs[g], pre = c.pts.filter(q => q.ph !== "snap"), sn = c.pts.filter(q => q.ph === "snap");
+      return `<path d="${pathOf(pre.map(q => [q.v, lg(q.i)]), P.X, P.Y)}" fill="none" stroke="var(--${cols[g]})" stroke-width="${g === MBS.vg ? 2.6 : 1.3}"/>` + (sn.length ? `<path d="${pathOf([[pre[pre.length - 1].v, lg(pre[pre.length - 1].i)], ...sn.map(q => [q.v, lg(q.i)])], P.X, P.Y)}" fill="none" stroke="var(--${cols[g]})" stroke-width="${g === MBS.vg ? 2.2 : 1.1}" stroke-dasharray="4 3"/>` : ""); }).join("");
+    const pt = MBS.P.pts[Math.min(MBS.P.pts.length - 1, Math.round(MBS.s*(MBS.P.pts.length - 1)))];
+    a += dotSvg(P.X(pt.v), P.Y(lg(pt.i))) + P.frame + `<text x="44" y="12" style="fill:var(--fg)">I–V for V_GS 0–3 V (dashed: snapback)</text>`;
+    const Q = axesR(220, 230, m2, 16, 18, 0, 30, 0.5, 5, "log10 N_A (cm⁻³)", "V");
+    b = Q.s + `<path d="${pathOf(range(16, 18, 40).map(n => [n, Math.min(30, mbBV(Math.pow(10, n), MBS.vg))]), Q.X, Q.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>`
+      + `<path d="${pathOf(range(16, 18, 40).map(n => [n, clamp(mbVPT(Math.pow(10, n), MBS.L), 0, 30)]), Q.X, Q.Y)}" fill="none" stroke="var(--hole)" stroke-width="2" stroke-dasharray="4 3"/>`
+      + dotSvg(Q.X(MBS.n), Q.Y(Math.min(30, mbBV(mbN(), MBS.vg)))) + Q.frame + `<text x="44" y="12" style="fill:var(--accent)">BV</text><text x="70" y="12" style="fill:var(--hole)">V_PT (L = ${MBS.L} µm)</text>`;
+  } else { const O = MBS.O, vmax = O.vbd*1.2;
+    const P = axesR(300, 230, m1, 0, Math.ceil(vmax), -12, 4, Math.max(1, Math.round(vmax/5)), 4, "V_G (V)", "log10 J (A/cm²)");
+    const curve = range(0, vmax, 120).map(vg => [vg, Math.log10(Math.max(1e-12, vg >= O.vbd ? 1e3 : mbJ(vg, MBS.tox)))]);
+    a = P.s + `<line x1="${P.X(O.vbd)}" x2="${P.X(O.vbd)}" y1="${P.Y(4)}" y2="${P.Y(-12)}" stroke="var(--hole)" stroke-dasharray="4 3"/>` + `<path d="${pathOf(curve, P.X, P.Y)}" fill="none" stroke="var(--electron)" stroke-width="2.4"/>` + dotSvg(P.X(O.vg), P.Y(Math.log10(Math.max(O.J, 1e-12)))) + P.frame + `<text x="44" y="12" style="fill:var(--electron)">gate current during the ramp</text>`;
+    const Q = axesR(220, 230, m2, 0, 10, 0, 14, 2, 2, "t_ox (nm)", "V_BD (V)");
+    b = Q.s + `<path d="${pathOf([[0, 0], [10, 12]], Q.X, Q.Y)}" fill="none" stroke="var(--hole)" stroke-width="2.4"/>` + dotSvg(Q.X(MBS.tox), Q.Y(O.vbd)) + Q.frame + `<text x="44" y="12" style="fill:var(--hole)">V_BD ≈ 12 MV/cm × t_ox</text>`;
+  }
+  $("mb-p1").innerHTML = a; $("mb-p2").innerHTML = b;
+}
+function mbTick(dt){
+  if (!(dt >= 0)) return; MBS.t += dt;
+  if (MBS.play){ MBS.s += dt*0.08; if (MBS.s > 1){ MBS.s = 0; } MBS.acc = (MBS.acc || 0) + dt; if (MBS.acc > 0.12){ MBS.acc = 0; updateMB(); } }
+}
+document.querySelectorAll("#mb-view button").forEach(b => b.addEventListener("click", () => { MBS.view = b.dataset.v; MBS.s = 0.6; updateMB(); }));
+document.querySelectorAll("#mb-vg button").forEach(b => b.addEventListener("click", () => { MBS.vg = +b.dataset.g; updateMB(); }));
+document.querySelectorAll("#mb-play button").forEach(b => b.addEventListener("click", () => { MBS.play = !MBS.play; updateMB(); }));
+[["mb-s", "s"], ["mb-l", "L"], ["mb-n", "n"], ["mb-tox", "tox"]].forEach(([id, k]) => $(id).addEventListener("input", e => { MBS[k] = +e.target.value; if (k === "s") MBS.play = false; updateMB(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -24220,6 +24721,7 @@ function showTab(t){
   else if (t === "hs"){ $("sub-top").textContent = "High-speed links · SerDes channel and eye, equalization, jitter, chiplet interfaces"; HSC.resize(); updateHS(); }
   else if (t === "sc"){ $("sub-top").textContent = "SiC power · PVT crystal growth and defects, drift layer design, gate oxide and reliability"; SCC.resize(); updateSC(); }
   else if (t === "ml"){ $("sub-top").textContent = "Miller effect · gate charge and the Miller plateau, amplifier bandwidth, dV/dt-induced turn-on"; MLC.resize(); updateML(); }
+  else if (t === "mb"){ $("sub-top").textContent = "MOS breakdown · avalanche, snapback, punch-through and gate oxide breakdown"; MBC.resize(); updateMB(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -24256,6 +24758,7 @@ function frame(now){
   else if (tab === "hs"){ hsTick(dt); if (HSC.cv.clientWidth) drawHS(dt, T); }
   else if (tab === "sc"){ scTick(dt); if (SCC.cv.clientWidth) drawSC(dt, T); }
   else if (tab === "ml"){ mlTick(dt); if (MLC.cv.clientWidth) drawML(dt, T); }
+  else if (tab === "mb"){ mbTick(dt); if (MBC.cv.clientWidth) drawMB(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
