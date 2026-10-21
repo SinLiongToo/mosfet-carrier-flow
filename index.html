@@ -8494,6 +8494,7 @@ Object.assign(window.I18N_ZH, {"Both cuts": "兩者都看", "Direction of the cu
 Object.assign(window.I18N_ZH, {"drag the red lines (or the round handles) to move the cuts": "拖曳紅色切線（或圓形把手）即可移動切面", "drag the red line (or the round handle) to move the cut": "拖曳紅色切線（或圓形把手）即可移動切面"});
 Object.assign(window.I18N_ZH, {"Stage output": "產出", "Link reach": "傳輸距離", "Cell placement": "元件擺放", "#. Cell placement": "#. 元件擺放", "Epi layer": "磊晶層厚", "Thermal voltage, # mV at # K: the natural voltage scale of carrier statistics.": "熱電壓，{1} K 時為 {0} mV：載子統計的自然電壓尺度。", "Shockley equation: current grows by e (#×) every # mV of forward bias.": "Shockley 方程式：順偏每增加 {1} mV，電流增為 e 倍（{0} 倍）。", "Electrons in the source have a spread of thermal energies. Their number falls by #× for every # meV of extra energy at room temperature (the Boltzmann tail).": "源極中的電子有一定範圍的熱能量分布。室溫下能量每多 {1} meV，電子數量就減少 {0} 倍（波茲曼尾端）。", "Gate voltage per decade of current below Vth; # mV/dec at # K is the physical limit.": "低於 Vth 時電流變化十倍所需的閘極電壓；{1} K 時 {0} mV/dec 是物理極限。", "Below Vth the current does not stop: it falls #× for every ~# mV": "低於 Vth 電流不會停止：每約 {1} mV 減少 {0} 倍", "Below the threshold voltage the channel is not really off. The source is full of electrons with a spread of thermal energies (a Boltzmann tail), and the gate controls an energy barrier between source and drain. Only electrons with more energy than the barrier can cross, and that fraction is e^(−Φ/kT). Lowering the gate voltage raises the barrier, but by at most qVGS/n, so the current can drop at best #× for every n·(kT/q)·ln# ≈ n × # mV at room temperature. That number is the subthreshold swing SS. Nothing made of a normal MOSFET can beat # mV/dec at # K, which is why the off-current cannot be made arbitrarily small while keeping VDD low. Three things make leakage worse: a lower Vth (LVT cells are fast but leaky), a hot chip (kT grows and Vth drops by about # mV/°C, so leakage roughly doubles every #–# °C) and DIBL, where the drain voltage pulls the barrier down. Multiplied by billions of transistors, these nanoamps become watts of standby power.": "低於臨界電壓時，通道並沒有真正關閉。源極充滿具有一定熱能量分布的電子（波茲曼尾端），而閘極控制源極與汲極之間的能障。只有能量高於能障的電子能通過，比例為 e^(−Φ/kT)。降低閘極電壓會提高能障，但最多只提高 qVGS/n，所以室溫下電流最多只能每 n·(kT/q)·ln{1} ≈ n × {2} mV 減少 {0} 倍。這個數字就是次臨界擺幅 SS。一般 MOSFET 在 {4} K 下不可能優於 {3} mV/dec，所以在維持低 VDD 的同時，關閉電流無法任意變小。有三件事會讓漏電更嚴重：較低的 Vth（LVT 元件快但會漏電）、晶片變熱（kT 變大且 Vth 每 °C 下降約 {5} mV，漏電大約每 {6}–{7} °C 加倍），以及 DIBL（汲極電壓把能障拉低）。乘上數十億顆電晶體，這些奈安培就變成數瓦的待機功耗。", "η = # mV/V → Vth drops # mV at VDS = # V": "η = {0} mV/V → VDS = {2} V 時 Vth 下降 {1} mV", "at # °C: Ioff = # pA/µm (#× the # °C value)": "{0} °C 時：Ioff = {1} pA/µm（是 {3} °C 時的 {2} 倍）", "at # °C: Ioff = # nA/µm (#× the # °C value)": "{0} °C 時：Ioff = {1} nA/µm（是 {3} °C 時的 {2} 倍）", "at # °C: Ioff = # µA/µm (#× the # °C value)": "{0} °C 時：Ioff = {1} µA/µm（是 {3} °C 時的 {2} 倍）", "kT = # meV at # °C → every # meV of barrier = #× current": "{1} °C 時 kT = {0} meV → 能障每 {2} meV = 電流 {3} 倍"});
 Object.assign(window.I18N_ZH, {"yellow: electrons that got over the barrier = leakage current": "黃色：越過能障的電子 = 漏電流"});
+Object.assign(window.I18N_ZH, {"(none under the antennas)": "（天線下方不放錫球）"});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -19908,12 +19909,14 @@ function drawPKfc(dt, T){
     if (s === 2) txt("seed layer → resist mask → copper electroplating", 330, sy - 140, {al:"center", px:11, col:C.fg});
   } else {
     // flipped die above (then on) the substrate
-    const subY = 380, land = s === 6 ? 120 + 180*Math.min(1, p/0.7) : 300;
+    const subY = 380, land = s === 6 ? 120 + (subY - 50 - 120)*Math.min(1, p/0.7) : subY - 50;
     ctx.fillStyle = C.channel; ctx.globalAlpha = 0.35; ctx.fillRect(40, subY, 580, 50); ctx.globalAlpha = 1; txt("package substrate / PCB", 330, subY + 34, {al:"center", col:C.fg, w:600, px:11});
     const sites = [210, 290, 370, 450]; ctx.fillStyle = C.metal; sites.forEach(x => ctx.fillRect(x - 16, subY - 4, 32, 4));
     ctx.fillStyle = C.si; ctx.fillRect(140, land - 60, 380, 60); txt("die (flipped, face down)", 330, land - 32, {al:"center", col:C.fg, w:700, px:11});
     const melt = s === 7 ? Math.min(1, p/0.35) : 0;
-    sites.forEach(x => { ctx.fillStyle = C.accent; ctx.fillRect(x - 14, land, 28, 50*(subY - land > 50 ? 0.6 : 1) + 0); ctx.fillStyle = C.muted; const yb = land + (subY - land > 50 ? 30 : subY - land - 10); ctx.beginPath(); ctx.ellipse(x, yb + 4, 16 + 4*melt, 9 + 2*melt, 0, 0, 6.283); ctx.fill(); });
+    const landed = subY - land <= 50.5;
+    sites.forEach(x => { ctx.fillStyle = C.accent; ctx.fillRect(x - 14, land, 28, 30); ctx.fillStyle = C.muted; ctx.beginPath();
+      if (landed) ctx.ellipse(x, subY - 12, 16 + 4*melt, 8, 0, 0, 6.283); else ctx.ellipse(x, land + 34, 16, 9, 0, 0, 6.283); ctx.fill(); });
     if (s === 6 && p < 0.7) txt("align bumps to pads (vision system)", 330, 100, {al:"center", col:C.fg, w:600, px:12});
     if (s === 7){
       if (p < 0.4){ ctx.fillStyle = C.hole; ctx.globalAlpha = 0.18*Math.sin(Math.PI*p/0.4); ctx.fillRect(8, 8, 652, 472); ctx.globalAlpha = 1; txt("reflow ≈ 250 °C: solder melts and wets the pads", 330, 100, {al:"center", col:C.hole, w:700, px:12}); }
@@ -20003,7 +20006,7 @@ function drawPKad(dt, T){
     pkList(steps); return;
   }
   // 2.5D cross-section
-  const sy0 = 400, iy0 = 300, iy1 = 360;
+  const sy0 = 378, iy0 = 300, iy1 = 360;
   const subOn = s >= 4, revealed = s >= 3 && (s > 3 || p > 0.6);
   if (subOn){ ctx.fillStyle = C.channel; ctx.globalAlpha = 0.35; ctx.fillRect(40, sy0, 580, 40); ctx.globalAlpha = 1; txt("organic package substrate", 330, sy0 + 26, {al:"center", col:C.fg, w:600, px:11}); ctx.fillStyle = C.muted; for (let x = 70; x <= 590; x += 40){ ctx.beginPath(); ctx.arc(x, sy0 + 50, 9*(s > 4 || p > 0.6 ? 1 : p/0.6), 0, 6.283); ctx.fill(); } }
   // interposer
@@ -20013,7 +20016,7 @@ function drawPKad(dt, T){
   txt("interposer", 586, iy + ih/2, {px:10, col:C.fg, w:600});
   for (let x = 110; x <= 560; x += 50) pkTSV(x, iy + 2, iy + ih - (revealed ? 0 : 6), s === 0 ? Math.min(1, p*1.4) : 1);
   if (s === 0) txt("TSV: hole etched ≈ 100 µm deep, lined with oxide, filled with copper", 330, iy - 40, {al:"center", col:C.accent, w:600, px:11});
-  if (subOn){ ctx.fillStyle = C.muted; for (let x = 110; x <= 560; x += 50){ ctx.beginPath(); ctx.ellipse(x, iy + ih + 8, 10, 7, 0, 0, 6.283); ctx.fill(); } txt("C4 bumps", 586, iy + ih + 10, {px:10}); }
+  if (subOn){ ctx.fillStyle = C.muted; for (let x = 110; x <= 560; x += 50){ ctx.beginPath(); ctx.ellipse(x, (iy + ih + sy0)/2, 10, (sy0 - iy - ih)/2, 0, 0, 6.283); ctx.fill(); } txt("C4 bumps", 586, iy + ih + 10, {px:10}); }
   // RDL on top of the interposer
   const rdl = s > 1 ? 1 : s === 1 ? p : 0;
   if (rdl > 0){ ctx.fillStyle = C.oxide; ctx.globalAlpha = 0.4; ctx.fillRect(80, iy - 10*rdl, 500, 10*rdl); ctx.globalAlpha = 1; ctx.fillStyle = C.accent; for (let i=0;i<4;i++) ctx.fillRect(150 + i*20, iy - 8 + i*2, 180*rdl, 1.5); if (s === 1) txt("RDL: thousands of fine wires between SoC and HBM", 330, iy - 24, {al:"center", col:C.accent, w:600, px:11}); }
@@ -20063,8 +20066,8 @@ function drawPKaip(dt, T){
   ctx.fillStyle = C.channel; ctx.globalAlpha = 0.25; ctx.fillRect(40, pcbY, 600, 50); ctx.globalAlpha = 1;
   txt("FR-4 PCB: no RF laminate needed", 340, pcbY + 34, {al:"center", px:11, col:C.fg});
   ctx.fillStyle = C.metal; ctx.fillRect(40, pcbY - 4, 600, 4); txt("ground plane = reflector", 636, pcbY + 12, {al:"right", px:10, col:C.fg});
-  ctx.fillStyle = C.muted; [x0 + 12, dx0 + 15, dx0 + 55, dx1 - 55, dx1 - 15, x1 - 12].forEach(x => { ctx.beginPath(); ctx.arc(x, rdlY + 30, 13, 0, 6.283); ctx.fill(); });
-  txt("solder balls", (dx0 + dx1)/2, rdlY + 52, {al:"center", px:10});
+  [x0 + 14, dx0 + 15, dx0 + 55, dx1 - 55, dx1 - 15, x1 - 14].forEach(x => { ctx.fillStyle = C.muted; ctx.beginPath(); ctx.ellipse(x, (rdlY + pcbY - 4)/2, 15, (pcbY - 4 - rdlY)/2, 0, 0, 6.283); ctx.fill(); ctx.fillStyle = C.accent; ctx.fillRect(x - 11, pcbY - 6, 22, 3); });
+
   ctx.fillStyle = C.fg; ctx.globalAlpha = 0.28; ctx.fillRect(x0, 240, x1 - x0, rdlY - 240); ctx.globalAlpha = 1;
   txt("mold compound", x0 + 8, 252, {px:10, col:C.fg});
   ctx.fillStyle = C.si; ctx.fillRect(dx0, 282, dx1 - dx0, rdlY - 284); txt("die (face down)", (dx0 + dx1)/2, 302, {al:"center", col:C.fg, w:700, px:11});
