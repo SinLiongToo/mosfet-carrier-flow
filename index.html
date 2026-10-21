@@ -8493,6 +8493,7 @@ Object.assign(window.I18N_ZH, {"i_Cgd: G → D": "i_Cgd：G → D", "(V_ds falli
 Object.assign(window.I18N_ZH, {"Both cuts": "兩者都看", "Direction of the cut line. Drag it on the layout or use the slider. With both cuts, drag either line.": "切線的方向。可在佈局上拖曳，或用滑桿調整。選「兩者都看」時，兩條切線都可以拖曳。"});
 Object.assign(window.I18N_ZH, {"drag the red lines (or the round handles) to move the cuts": "拖曳紅色切線（或圓形把手）即可移動切面", "drag the red line (or the round handle) to move the cut": "拖曳紅色切線（或圓形把手）即可移動切面"});
 Object.assign(window.I18N_ZH, {"Stage output": "產出", "Link reach": "傳輸距離", "Cell placement": "元件擺放", "#. Cell placement": "#. 元件擺放", "Epi layer": "磊晶層厚", "Thermal voltage, # mV at # K: the natural voltage scale of carrier statistics.": "熱電壓，{1} K 時為 {0} mV：載子統計的自然電壓尺度。", "Shockley equation: current grows by e (#×) every # mV of forward bias.": "Shockley 方程式：順偏每增加 {1} mV，電流增為 e 倍（{0} 倍）。", "Electrons in the source have a spread of thermal energies. Their number falls by #× for every # meV of extra energy at room temperature (the Boltzmann tail).": "源極中的電子有一定範圍的熱能量分布。室溫下能量每多 {1} meV，電子數量就減少 {0} 倍（波茲曼尾端）。", "Gate voltage per decade of current below Vth; # mV/dec at # K is the physical limit.": "低於 Vth 時電流變化十倍所需的閘極電壓；{1} K 時 {0} mV/dec 是物理極限。", "Below Vth the current does not stop: it falls #× for every ~# mV": "低於 Vth 電流不會停止：每約 {1} mV 減少 {0} 倍", "Below the threshold voltage the channel is not really off. The source is full of electrons with a spread of thermal energies (a Boltzmann tail), and the gate controls an energy barrier between source and drain. Only electrons with more energy than the barrier can cross, and that fraction is e^(−Φ/kT). Lowering the gate voltage raises the barrier, but by at most qVGS/n, so the current can drop at best #× for every n·(kT/q)·ln# ≈ n × # mV at room temperature. That number is the subthreshold swing SS. Nothing made of a normal MOSFET can beat # mV/dec at # K, which is why the off-current cannot be made arbitrarily small while keeping VDD low. Three things make leakage worse: a lower Vth (LVT cells are fast but leaky), a hot chip (kT grows and Vth drops by about # mV/°C, so leakage roughly doubles every #–# °C) and DIBL, where the drain voltage pulls the barrier down. Multiplied by billions of transistors, these nanoamps become watts of standby power.": "低於臨界電壓時，通道並沒有真正關閉。源極充滿具有一定熱能量分布的電子（波茲曼尾端），而閘極控制源極與汲極之間的能障。只有能量高於能障的電子能通過，比例為 e^(−Φ/kT)。降低閘極電壓會提高能障，但最多只提高 qVGS/n，所以室溫下電流最多只能每 n·(kT/q)·ln{1} ≈ n × {2} mV 減少 {0} 倍。這個數字就是次臨界擺幅 SS。一般 MOSFET 在 {4} K 下不可能優於 {3} mV/dec，所以在維持低 VDD 的同時，關閉電流無法任意變小。有三件事會讓漏電更嚴重：較低的 Vth（LVT 元件快但會漏電）、晶片變熱（kT 變大且 Vth 每 °C 下降約 {5} mV，漏電大約每 {6}–{7} °C 加倍），以及 DIBL（汲極電壓把能障拉低）。乘上數十億顆電晶體，這些奈安培就變成數瓦的待機功耗。", "η = # mV/V → Vth drops # mV at VDS = # V": "η = {0} mV/V → VDS = {2} V 時 Vth 下降 {1} mV", "at # °C: Ioff = # pA/µm (#× the # °C value)": "{0} °C 時：Ioff = {1} pA/µm（是 {3} °C 時的 {2} 倍）", "at # °C: Ioff = # nA/µm (#× the # °C value)": "{0} °C 時：Ioff = {1} nA/µm（是 {3} °C 時的 {2} 倍）", "at # °C: Ioff = # µA/µm (#× the # °C value)": "{0} °C 時：Ioff = {1} µA/µm（是 {3} °C 時的 {2} 倍）", "kT = # meV at # °C → every # meV of barrier = #× current": "{1} °C 時 kT = {0} meV → 能障每 {2} meV = 電流 {3} 倍"});
+Object.assign(window.I18N_ZH, {"yellow: electrons that got over the barrier = leakage current": "黃色：越過能障的電子 = 漏電流"});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -17338,7 +17339,9 @@ function drawLKsub(dt, T){
   txt(`drain VDS = ${f2(LK.vds)} V`, (dx0 + dx1)/2, yT - 12, {al:"center", col:C.electron, w:700, px:12});
   for (let i=0;i<34;i++){ const x = sx0 + 10 + (i*37) % (sx1 - sx0 - 20), y = yT + 8 + (i*23) % (yB - yT - 16); dot(x + Math.sin(T*2 + i), y, C.electron, false, 1, 2.8); }
   for (let i=0;i<34;i++){ const x = dx0 + 10 + (i*37) % (dx1 - dx0 - 20), y = yT + 8 + (i*23) % (yB - yT - 16); dot(x + Math.sin(T*2 + i), y, C.electron, false, 1, 2.8); }
-  LK.flow.forEach(f => dot(sx1 + f.p*(dx0 - sx1), yT + 10 + f.y*(yB - yT - 20), C.electron, false, Math.min(1, 4*(1 - f.p)), 3.2));
+  LK.flow.forEach(f => { const x = sx1 + f.p*(dx0 - sx1), y = yT + 10 + f.y*(yB - yT - 20), a = Math.min(1, 4*(1 - f.p));
+    ctx.strokeStyle = C.accent; ctx.globalAlpha = 0.35*a; ctx.lineWidth = 2; pl([[x - 18, y], [x, y]]); ctx.globalAlpha = 1; dot(x, y, C.accent, false, a, 3.6); });
+  txt("yellow: electrons that got over the barrier = leakage current", (sx1 + dx0)/2, yB + 32, {al:"center", col:C.accent, px:10});
   txt(`current ${lkFmt(I)} (flow drawn on a log scale)`, (sx1 + dx0)/2, yB + 16, {al:"center", col:C.accent, w:600, px:11});
   // band diagram: conduction band edge from source to drain
   const phi = Math.max(0.02, (vth - LK.vgs)/d.n + 0.22);          // barrier above the source Ec (eV)
@@ -17354,6 +17357,9 @@ function drawLKsub(dt, T){
   let xm = 0, em = -9; for (let i=0;i<=200;i++){ const x = i/200, e = ec(x); if (e > em){ em = e; xm = x; } }
   ctx.strokeStyle = C.accent; ctx.setLineDash([5,4]); ctx.lineWidth = 1.6; pl([[sx0, Y(em)],[X(xm) + 40, Y(em)]]); ctx.setLineDash([]);
   txt(`barrier Φ = ${em.toFixed(3)} eV`, X(xm), Y(em) - 12, {al:"center", col:C.accent, w:700, px:12});
+  // the same leaking electrons in the band diagram: over the top of the barrier, then down toward the drain
+  LK.flow.forEach(f => { const eL = em + 0.012 + f.y*0.05, x = f.p, e = x <= xm ? eL : Math.max(ec(x) + 0.012, eL - 2.2*(x - xm)), a = Math.min(1, 4*(1 - f.p));
+    dot(X(x), Y(e), C.accent, false, a, 3.4); });
   txt("Ec", sx0 + 4, Y(0) + 12, {col:C.electron, w:700, px:11}); txt("source EF", sx0 + 4, Y(0) - 8, {px:10});
   // Boltzmann tail of the source electrons (bar length ∝ log of the number per energy)
   const dec = 10;
