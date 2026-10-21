@@ -8682,6 +8682,7 @@ Object.assign(window.I18N_ZH, {
 "Ramp the gate voltage: tunnelling current rises steeply, traps build up, and finally the oxide shorts": "把閘極電壓往上拉：穿隧電流急遽上升、陷阱累積，最後氧化層短路",
 "The gate oxide is an insulator only a few nanometres thick, so even moderate gate voltages create huge fields: # V across # nm is # MV/cm. Electrons in the inverted silicon face an energy barrier of about # eV at the oxide. In thin oxides they tunnel straight through it (direct tunnelling); at high fields the barrier becomes a triangle whose thickness Φ_B/(qE) shrinks with the field, and Fowler–Nordheim tunnelling rises steeply. The tunnelling electrons damage the oxide and create traps. When enough traps line up from gate to channel, a conducting path forms (percolation), the current jumps and the gate is shorted: hard breakdown, at roughly #–# MV/cm for silicon dioxide in a fast ramp. Under a constant lower voltage the same process happens slowly, which is time-dependent dielectric breakdown (TDDB) in the Reliability tab, and it sets the highest gate voltage a process allows for ten years of use. That is why core transistors with thin oxides run below about # V, I/O transistors need a thicker oxide, and gate pins need ESD protection.": "閘極氧化層是只有幾奈米厚的絕緣體，所以即使是中等的閘極電壓也會產生巨大的電場：# nm 上加 # V 就是 # MV/cm。反轉矽中的電子在氧化層面前有約 # eV 的能障。在薄氧化層中，它們會直接穿隧過去（直接穿隧）；在高電場下能障變成三角形，其厚度 Φ_B/(qE) 隨電場縮小，Fowler–Nordheim 穿隧急遽增加。穿隧的電子會損傷氧化層並產生陷阱。當足夠的陷阱從閘極到通道連成一線時，就形成導電路徑（滲流），電流跳升，閘極短路：這就是硬崩潰，在快速斜坡下二氧化矽約在 #–# MV/cm 發生。在較低的固定電壓下，同樣的過程會緩慢發生，這就是可靠度分頁中的時間相依介電崩潰（TDDB），它決定製程在十年使用下允許的最高閘極電壓。這就是薄氧化層的核心電晶體要在約 # V 以下工作、I/O 電晶體需要較厚的氧化層，以及閘極接腳需要 ESD 保護的原因。"
 });
+Object.assign(window.I18N_ZH, {"Sweep": "掃描", "▶ Sweep VGS": "▶ 掃描 VGS", "▶ Sweep VDS": "▶ 掃描 VDS", "▶ Sweep temperature": "▶ 掃描溫度", "Let one control sweep automatically across its range; the band diagram, the leaking electrons and the curves follow. Press again to stop.": "讓一個控制項自動在範圍內來回掃描；能帶圖、漏電電子與曲線會同步變化。再按一次即停止。"});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -10454,6 +10455,14 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
           <input id="lk-tsi" type="range" min="4" max="16" step="1" value="7">
         </div>
         <div id="lk-c-sub" style="display:grid;gap:12px">
+          <div style="display:grid;gap:8px">
+            <span class="term" tabindex="0" data-tip="Let one control sweep automatically across its range; the band diagram, the leaking electrons and the curves follow. Press again to stop.">Sweep</span>
+            <div class="chips" id="lk-swp">
+              <button class="chipbtn" data-w="vgs">▶ Sweep VGS</button>
+              <button class="chipbtn" data-w="vds">▶ Sweep VDS</button>
+              <button class="chipbtn" data-w="T">▶ Sweep temperature</button>
+            </div>
+          </div>
           <div class="slider">
             <div class="lab"><span class="term" tabindex="0" data-tip="Gate voltage. Below Vth the current falls exponentially, about 10× per SS millivolts.">Gate voltage VGS</span><span id="lk-vgs-v"></span></div>
             <input id="lk-vgs" type="range" min="0" max="0.8" step="0.01" value="0.3">
@@ -17585,7 +17594,7 @@ document.querySelectorAll("#pn-bias button").forEach(b => b.addEventListener("cl
    TAB — subthreshold leakage, planar vs FinFET vs gate-all-around
    ========================================================= */
 const LKC = setupCanvas($("cvlk"), 1000, 488);
-const LK = {view:"sub", st:"fin", L:20, tsi:7, vgs:0.3, vds:0.8, T:25, vt:"svt", t:0, flow:[], acc:0};
+const LK = {view:"sub", st:"fin", L:20, tsi:7, vgs:0.3, vds:0.8, T:25, vt:"svt", t:0, flow:[], acc:0, sw:null, swu:0, swacc:0};
 const LK_VDD = 0.8;
 const LK_ST = {
   planar:{name:"Planar", sides:1, n0:1.30, drive:1.0, tbody:15},
@@ -17612,8 +17621,12 @@ function lkId(vgs, vds, st = LK.st, vtk = LK.vt, L = LK.L){
 }
 const lkFmt = i => i >= 1e-3 ? (i*1e3).toFixed(2) + " mA/µm" : i >= 1e-6 ? (i*1e6).toFixed(1) + " µA/µm" : i >= 1e-9 ? (i*1e9).toFixed(2) + " nA/µm" : (i*1e12).toFixed(2) + " pA/µm";
 
+const LK_SW = {vgs:[0, 0.8, "lk-vgs"], vds:[0.05, 0.8, "lk-vds"], T:[-40, 150, "lk-T"]};
 function lkTick(dt){
   LK.t += dt;
+  if (LK.sw && LK.view === "sub" && dt >= 0){ const [lo, hi, id] = LK_SW[LK.sw]; LK.swu = (LK.swu + dt/7) % 2; const f = LK.swu < 1 ? LK.swu : 2 - LK.swu;
+    LK[LK.sw] = LK.sw === "T" ? Math.round(lo + (hi - lo)*f) : Math.round((lo + (hi - lo)*f)*100)/100; $(id).value = LK[LK.sw];
+    LK.swacc += dt; if (LK.swacc > 0.1){ LK.swacc = 0; updateLK(); } }
   const I = lkId(LK.vgs, LK.vds), rate = clamp(4*(Math.log10(Math.max(I, 1e-15)) + 13), 0, 40);
   LK.acc += rate*dt*(reduce ? 0.3 : 1);
   while (LK.acc >= 1){ LK.acc -= 1; LK.flow.push({p:0, y:Math.random(), s:rnd(0.8, 1.2)}); }
@@ -17788,6 +17801,7 @@ function updateLK(){
   document.querySelectorAll("#lk-st button").forEach(b => b.setAttribute("aria-pressed", b.dataset.s === LK.st));
   document.querySelectorAll("#lk-vtf button").forEach(b => b.setAttribute("aria-pressed", b.dataset.f === LK.vt));
   $("lk-c-sub").hidden = v !== "sub";
+  document.querySelectorAll("#lk-swp button").forEach(b => { const on = b.dataset.w === LK.sw; b.setAttribute("aria-pressed", on); b.style.borderColor = on ? "var(--accent)" : ""; b.style.color = on ? "var(--accent)" : ""; });
   $("lk-vgs-v").textContent = `${f2(LK.vgs)} V`; $("lk-vds-v").textContent = `${f2(LK.vds)} V`; $("lk-T-v").textContent = `${LK.T} °C`;
   $("lk-L-v").textContent = `${LK.L} nm`; $("lk-tsi-v").textContent = `${LK.tsi} nm`;
   setHTML("lk-legend", LKLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
@@ -17856,7 +17870,8 @@ function drawLKPlots(){
 document.querySelectorAll("#lk-view button").forEach(b => b.addEventListener("click", () => { LK.view = b.dataset.v; updateLK(); }));
 document.querySelectorAll("#lk-st button").forEach(b => b.addEventListener("click", () => { LK.st = b.dataset.s; updateLK(); }));
 document.querySelectorAll("#lk-vtf button").forEach(b => b.addEventListener("click", () => { LK.vt = b.dataset.f; updateLK(); }));
-[["lk-vgs","vgs"],["lk-vds","vds"],["lk-T","T"],["lk-L","L"],["lk-tsi","tsi"]].forEach(([id, k]) => $(id).addEventListener("input", e => { LK[k] = +e.target.value; updateLK(); }));
+[["lk-vgs","vgs"],["lk-vds","vds"],["lk-T","T"],["lk-L","L"],["lk-tsi","tsi"]].forEach(([id, k]) => $(id).addEventListener("input", e => { LK[k] = +e.target.value; if (LK.sw === k) LK.sw = null; updateLK(); }));
+document.querySelectorAll("#lk-swp button").forEach(b => b.addEventListener("click", () => { const w = b.dataset.w; if (LK.sw === w) LK.sw = null; else { LK.sw = w; const [lo, hi] = LK_SW[w]; const f = (LK[w] - lo)/(hi - lo); LK.swu = clamp(f, 0, 1); } updateLK(); }));
 
 /* =========================================================
    TAB — memories: SRAM 6T, DRAM 1T1C, NAND flash
