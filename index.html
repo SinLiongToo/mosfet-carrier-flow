@@ -20106,7 +20106,7 @@ function drawPKlip(dt, T){
   ctx.fillStyle = C.channel; ctx.globalAlpha = 0.25; ctx.fillRect(40, pcbY, 600, 44); ctx.globalAlpha = 1; txt("FR-4 PCB", 50, pcbY + 22, {px:11, col:C.fg});
   ctx.fillStyle = C.metal; ctx.fillRect(40, pcbY - 4, 600, 4);
   // package with the launcher under the waveguide opening
-  ctx.fillStyle = C.muted; for (let x = 250; x <= 450; x += 40){ ctx.beginPath(); ctx.arc(x, rdlY + 22, 11, 0, 6.283); ctx.fill(); }
+  for (let x = 250; x <= 450; x += 40){ const yb = (rdlY + pcbY - 4)/2, ry = (pcbY - 4 - rdlY)/2; ctx.fillStyle = C.muted; ctx.beginPath(); ctx.ellipse(x, yb, 13, ry, 0, 0, 6.283); ctx.fill(); ctx.fillStyle = C.accent; ctx.fillRect(x - 10, pcbY - 6, 20, 3); ctx.fillRect(x - 9, rdlY, 18, 2); }
   ctx.fillStyle = C.fg; ctx.globalAlpha = 0.28; ctx.fillRect(230, pkY0, 240, rdlY - pkY0); ctx.globalAlpha = 1;
   ctx.fillStyle = C.si; ctx.fillRect(255, pkY0 + 14, 105, rdlY - pkY0 - 16); txt("die", 307, pkY0 + 30, {al:"center", col:C.fg, w:700, px:11});
   ctx.fillStyle = C.accent; ctx.fillRect(330, rdlY, (wgX0 + wgX1)/2 - 330, 3); ctx.fillRect(wgX0 - 4, rdlY - 2, wgX1 - wgX0 + 8, 6);
