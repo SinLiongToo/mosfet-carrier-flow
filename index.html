@@ -8683,6 +8683,7 @@ Object.assign(window.I18N_ZH, {
 "The gate oxide is an insulator only a few nanometres thick, so even moderate gate voltages create huge fields: # V across # nm is # MV/cm. Electrons in the inverted silicon face an energy barrier of about # eV at the oxide. In thin oxides they tunnel straight through it (direct tunnelling); at high fields the barrier becomes a triangle whose thickness Φ_B/(qE) shrinks with the field, and Fowler–Nordheim tunnelling rises steeply. The tunnelling electrons damage the oxide and create traps. When enough traps line up from gate to channel, a conducting path forms (percolation), the current jumps and the gate is shorted: hard breakdown, at roughly #–# MV/cm for silicon dioxide in a fast ramp. Under a constant lower voltage the same process happens slowly, which is time-dependent dielectric breakdown (TDDB) in the Reliability tab, and it sets the highest gate voltage a process allows for ten years of use. That is why core transistors with thin oxides run below about # V, I/O transistors need a thicker oxide, and gate pins need ESD protection.": "閘極氧化層是只有幾奈米厚的絕緣體，所以即使是中等的閘極電壓也會產生巨大的電場：# nm 上加 # V 就是 # MV/cm。反轉矽中的電子在氧化層面前有約 # eV 的能障。在薄氧化層中，它們會直接穿隧過去（直接穿隧）；在高電場下能障變成三角形，其厚度 Φ_B/(qE) 隨電場縮小，Fowler–Nordheim 穿隧急遽增加。穿隧的電子會損傷氧化層並產生陷阱。當足夠的陷阱從閘極到通道連成一線時，就形成導電路徑（滲流），電流跳升，閘極短路：這就是硬崩潰，在快速斜坡下二氧化矽約在 #–# MV/cm 發生。在較低的固定電壓下，同樣的過程會緩慢發生，這就是可靠度分頁中的時間相依介電崩潰（TDDB），它決定製程在十年使用下允許的最高閘極電壓。這就是薄氧化層的核心電晶體要在約 # V 以下工作、I/O 電晶體需要較厚的氧化層，以及閘極接腳需要 ESD 保護的原因。"
 });
 Object.assign(window.I18N_ZH, {"Sweep": "掃描", "▶ Sweep VGS": "▶ 掃描 VGS", "▶ Sweep VDS": "▶ 掃描 VDS", "▶ Sweep temperature": "▶ 掃描溫度", "Let one control sweep automatically across its range; the band diagram, the leaking electrons and the curves follow. Press again to stop.": "讓一個控制項自動在範圍內來回掃描；能帶圖、漏電電子與曲線會同步變化。再按一次即停止。"});
+Object.assign(window.I18N_ZH, {"▶ Sweep V": "▶ 掃描 V", "▶ Sweep NA": "▶ 掃描 NA", "▶ Sweep ND": "▶ 掃描 ND", "▶ Sweep VG": "▶ 掃描 VG", "▶ Sweep tox": "▶ 掃描 tox", "Let one control sweep automatically across its range. Sweeping a doping or the oxide thickness also draws faint curves at a few fixed values, so you can see the trend. Press again to stop.": "讓一個控制項自動在範圍內來回掃描。掃描摻雜或氧化層厚度時，也會畫出幾條固定數值的淡色曲線，方便看出趨勢。再按一次即停止。"});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -10319,6 +10320,14 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <p class="eyebrow">Controls</p>
         <div class="readouts four" id="pn-ro"></div>
         <div id="pn-c-pn" style="display:grid;gap:12px">
+          <div style="display:grid;gap:8px">
+            <span class="term" tabindex="0" data-tip="Let one control sweep automatically across its range. Sweeping a doping or the oxide thickness also draws faint curves at a few fixed values, so you can see the trend. Press again to stop.">Sweep</span>
+            <div class="chips pn-swp" id="pn-swp-pn">
+              <button class="chipbtn" data-w="v">▶ Sweep V</button>
+              <button class="chipbtn" data-w="na">▶ Sweep NA</button>
+              <button class="chipbtn" data-w="nd">▶ Sweep ND</button>
+            </div>
+          </div>
           <div class="slider">
             <div class="lab"><span class="term" tabindex="0" data-tip="Acceptor concentration of the p side (atoms per cm³). More doping gives a higher built-in voltage and a thinner depletion region on that side.">p-side doping NA</span><span id="pn-na-v"></span></div>
             <input id="pn-na" type="range" min="15" max="18" step="0.1" value="16">
@@ -10338,6 +10347,14 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
           </div>
         </div>
         <div id="pn-c-mos" hidden style="display:grid;gap:12px">
+          <div style="display:grid;gap:8px">
+            <span class="term" tabindex="0" data-tip="Let one control sweep automatically across its range. Sweeping a doping or the oxide thickness also draws faint curves at a few fixed values, so you can see the trend. Press again to stop.">Sweep</span>
+            <div class="chips pn-swp" id="pn-swp-mos">
+              <button class="chipbtn" data-w="vg">▶ Sweep VG</button>
+              <button class="chipbtn" data-w="tox">▶ Sweep tox</button>
+              <button class="chipbtn" data-w="nam">▶ Sweep NA</button>
+            </div>
+          </div>
           <div class="slider">
             <div class="lab"><span class="term" tabindex="0" data-tip="Gate voltage against the substrate. Negative accumulates holes, positive depletes and then inverts the surface.">Gate voltage VG</span><span id="pn-vg-v"></span></div>
             <input id="pn-vg" type="range" min="-3" max="3" step="0.01" value="1.5">
@@ -17299,7 +17316,17 @@ $("cm-seed").addEventListener("click", () => { CM.seed++; updateCM(); });
 const PNC = setupCanvas($("cvpn"), 1000, 488);
 const QE = 1.602e-19, ES = 11.7*8.854e-14, EOX = 3.9*8.854e-14, NI = 1e10, VT = 0.02585, NCB = 2.8e19, NVB = 1.04e19, EG = 1.12;
 const AREA = 1e-4;                                               // junction area, cm² (100 µm × 100 µm)
-const PJ = {view:"pn", na:16, nd:16, v:0.45, t:0, tox:10, nam:16.5, vg:1.5, inj:[], acc:0};
+const PJ = {view:"pn", na:16, nd:16, v:0.45, t:0, tox:10, nam:16.5, vg:1.5, inj:[], acc:0, sw:null, swu:0, swacc:0};
+/* sweepable controls: [low, high, slider step, values of the faint trend curves (null = bias, no family), slider id] */
+const PJ_SW = {v:[-10, 0.75, 0.01, null, "pn-v"], na:[15, 18, 0.1, [15, 16, 17, 18], "pn-na"], nd:[15, 18, 0.1, [15, 16, 17, 18], "pn-nd"],
+  vg:[-3, 3, 0.01, null, "pn-vg"], tox:[2, 30, 1, [2, 5, 10, 20, 30], "pn-tox"], nam:[15, 18, 0.1, [15, 16, 17, 18], "pn-nam"]};
+function pnFam(fn){
+  const k = PJ.sw, f = k && PJ_SW[k][3]; if (!f) return [];
+  pnFamI = 0; const keep = PJ[k], out = f.map(val => { PJ[k] = val; return fn(val); }); PJ[k] = keep; return out;
+}
+let pnFamI = 0;
+const pnFamX = () => -11.6 + 2.6*(pnFamI++);
+const pnFamLab = val => PJ.sw === "tox" ? `${val} nm` : `1e${val}`;
 const sci = x => { const e = Math.floor(Math.log10(Math.abs(x))), m = x/10**e; return `${m.toFixed(1)}e${e}`; };
 const fmtI = i => { const a = Math.abs(i), s = i < 0 ? "−" : ""; return a >= 1e-3 ? s + (a*1e3).toFixed(2) + " mA" : a >= 1e-6 ? s + (a*1e6).toFixed(2) + " µA" : a >= 1e-9 ? s + (a*1e9).toFixed(2) + " nA" : s + (a*1e12).toFixed(3) + " pA"; };
 
@@ -17361,6 +17388,9 @@ const pnHoles = Array.from({length:70}, () => ({fx:Math.random(), fy:Math.random
 const pnElecs = Array.from({length:70}, () => ({fx:Math.random(), fy:Math.random(), ph:rnd(0,6.28), w:rnd(1.5,3)}));
 function pnTick(dt){
   PJ.t += dt;
+  if (PJ.sw && dt >= 0){ const [lo, hi, st, , id] = PJ_SW[PJ.sw]; PJ.swu = (PJ.swu + dt/7) % 2; const f = PJ.swu < 1 ? PJ.swu : 2 - PJ.swu;
+    PJ[PJ.sw] = +(Math.round((lo + (hi - lo)*f)/st)*st).toFixed(2); $(id).value = PJ[PJ.sw];
+    PJ.swacc += dt; if (PJ.swacc > 0.1){ PJ.swacc = 0; updatePN(); } }
   if (PJ.view !== "pn") return;
   const m = pnModel(), I = m.I;
   let rate = 0, mode = "none";
@@ -17532,6 +17562,7 @@ function updatePN(){
   $("pn-pill").textContent = info.pill; $("pn-name").textContent = info.name; $("pn-sub").textContent = info.sub; $("pn-explain").textContent = info.text;
   document.querySelectorAll("#pn-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
   $("pn-c-pn").hidden = v !== "pn"; $("pn-c-mos").hidden = v !== "mos";
+  document.querySelectorAll(".pn-swp button").forEach(b => { const on = b.dataset.w === PJ.sw; b.setAttribute("aria-pressed", on); b.style.borderColor = on ? "var(--accent)" : ""; b.style.color = on ? "var(--accent)" : ""; });
   $("pn-na-v").textContent = `${sci(10**PJ.na)} cm⁻³`; $("pn-nd-v").textContent = `${sci(10**PJ.nd)} cm⁻³`; $("pn-v-v").textContent = `${f2(PJ.v)} V`;
   $("pn-nam-v").textContent = `${sci(10**PJ.nam)} cm⁻³`; $("pn-tox-v").textContent = `${PJ.tox} nm`; $("pn-vg-v").textContent = `${f2(PJ.vg)} V`;
   setHTML("pn-legend", PNLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
@@ -17574,30 +17605,35 @@ function drawPNPlots(){
   if (PJ.view === "pn"){
     const m = pnModel(), vs = range(-12, 0.8, 260), lg = i => Math.log10(Math.max(Math.abs(i), 1e-18));
     const A = axesR(300, 230, {l:38,r:10,t:28,b:30}, -12, 0.8, -17, -1, 2, 2, "V (V)", "log10 |I| (A)");
-    a = A.s + `<path d="${pathOf(vs.map(v => [v, lg(pnModel(v).I)]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+    let xl; const gI = pnFam(val => `<path d="${pathOf(vs.map(v => [v, lg(pnModel(v).I)]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity=".35"/><text x="${A.X(xl = pnFamX())}" y="${A.Y(lg(pnModel(xl).I)) - 3}" style="fill:var(--muted);font-size:9px">${pnFamLab(val)}</text>`).join("");
+    a = A.s + gI + `<path d="${pathOf(vs.map(v => [v, lg(pnModel(v).I)]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
     if (m.vbr < 12) a += `<line x1="${A.X(-m.vbr)}" x2="${A.X(-m.vbr)}" y1="28" y2="200" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${A.X(-m.vbr) + 3}" y="42" style="fill:var(--hole)">breakdown</text>`;
-    a += `<text x="${A.X(-6)}" y="${A.Y(lg(m.Is)) - 6}" text-anchor="middle">reverse leakage −Is</text><text x="${A.X(0.4)}" y="${A.Y(-3)}" text-anchor="end">forward</text>`;
+    a += (gI ? "" : `<text x="${A.X(-6)}" y="${A.Y(lg(m.Is)) - 6}" text-anchor="middle">reverse leakage −Is</text>`) + `<text x="${A.X(0.4)}" y="${A.Y(-3)}" text-anchor="end">forward</text>`;
     a += A.frame + dotSvg(A.X(PJ.v), A.Y(lg(m.I))) + `<text x="44" y="12" style="fill:var(--accent)">— diode current (log scale)</text>`;
-    const cs = vs.filter(v => v < m.vbi - 0.1).map(v => [v, pnModel(v).Cj*1e12]), cm = Math.max(...cs.map(q => q[1])), st = niceStep(cm/4);
-    const B = axesR(220, 230, {l:34,r:8,t:28,b:30}, -12, 0.8, 0, Math.ceil(cm/st)*st, 4, st, "V (V)", "Cj (pF)");
-    b = B.s + `<path d="${pathOf(cs, B.X, B.Y)}" fill="none" stroke="var(--electron)" stroke-width="2.2"/>` + B.frame + dotSvg(B.X(PJ.v), B.Y(m.Cj*1e12)) + `<text x="40" y="12" style="fill:var(--electron)">— junction capacitance</text>`;
+    const cs = vs.filter(v => v < m.vbi - 0.1).map(v => [v, pnModel(v).Cj*1e12]);
+    const fc = pnFam(val => [val, vs.filter(v => v < pnModel(v).vbi - 0.1).map(v => [v, pnModel(v).Cj*1e12])]);
+    const cm = Math.max(...cs.map(q => q[1]), ...fc.map(([, c]) => c[Math.floor(c.length*0.9)][1])), st = niceStep(cm/4), top = Math.ceil(cm/st)*st;
+    const B = axesR(220, 230, {l:34,r:8,t:28,b:30}, -12, 0.8, 0, top, 4, st, "V (V)", "Cj (pF)");
+    b = B.s + fc.map(([val, c]) => `<path d="${pathOf(c.filter(q => q[1] <= top), B.X, B.Y)}" fill="none" stroke="var(--electron)" stroke-width="1.2" opacity=".35"/><text x="${B.X(xl = -11.6 + 2.6*fc.findIndex(q => q[0] === val))}" y="${B.Y(c.reduce((p, q) => Math.abs(q[0] - xl) < Math.abs(p[0] - xl) ? q : p)[1]) - 4}" style="fill:var(--muted);font-size:9px">${pnFamLab(val)}</text>`).join("") + `<path d="${pathOf(cs, B.X, B.Y)}" fill="none" stroke="var(--electron)" stroke-width="2.2"/>` + B.frame + dotSvg(B.X(PJ.v), B.Y(m.Cj*1e12)) + `<text x="40" y="12" style="fill:var(--electron)">— junction capacitance</text>`;
   } else {
-    const m = mosModel(), d = mosCurve();
+    const m = mosModel(), d = mosCurve(), fd = pnFam(val => [val, mosCurve()]);
     const A = axesR(300, 230, {l:34,r:10,t:28,b:30}, -3, 3, 0, 1.05, 1, 0.25, "VG (V)", "C / Cox");
-    a = A.s + `<path d="${pathOf(d.map(q => [q.v, q.lf]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/><path d="${pathOf(d.map(q => [q.v, q.hf]), A.X, A.Y)}" fill="none" stroke="var(--electron)" stroke-width="2" stroke-dasharray="5 3"/>`;
+    a = A.s + fd.map(([val, c]) => { const q = c.reduce((p, r) => Math.abs(r.v - 2.5) < Math.abs(p.v - 2.5) ? r : p); return `<path d="${pathOf(c.map(r => [r.v, r.hf]), A.X, A.Y)}" fill="none" stroke="var(--electron)" stroke-width="1.2" opacity=".35"/><text x="${A.X(2.5)}" y="${A.Y(q.hf) - 3}" style="fill:var(--muted);font-size:9px">${pnFamLab(val)}</text>`; }).join("") + `<path d="${pathOf(d.map(q => [q.v, q.lf]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/><path d="${pathOf(d.map(q => [q.v, q.hf]), A.X, A.Y)}" fill="none" stroke="var(--electron)" stroke-width="2" stroke-dasharray="5 3"/>`;
     a += `<line x1="${A.X(m.vfb)}" x2="${A.X(m.vfb)}" y1="28" y2="200" stroke="var(--muted)" stroke-dasharray="2 3"/><text x="${A.X(m.vfb) + 3}" y="196">VFB</text>`;
     a += `<line x1="${A.X(m.vth)}" x2="${A.X(m.vth)}" y1="28" y2="200" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${A.X(m.vth) + 3}" y="42" style="fill:var(--hole)">Vth</text>`;
     a += A.frame + dotSvg(A.X(PJ.vg), A.Y(m.cLF/m.cox)) + `<text x="40" y="12" style="fill:var(--accent)">— low frequency</text><text x="140" y="12" style="fill:var(--electron)">- - high frequency</text>`;
     const B = axesR(220, 230, {l:34,r:8,t:28,b:30}, -3, 3, -0.4, 1.2, 1, 0.4, "VG (V)", "ψs (V)");
     b = B.s + `<line x1="${B.X(-3)}" x2="${B.X(3)}" y1="${B.Y(2*m.phiF)}" y2="${B.Y(2*m.phiF)}" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${B.X(-2.9)}" y="${B.Y(2*m.phiF) - 4}" style="fill:var(--hole)">2φF: inversion</text>`;
     b += `<line x1="${B.X(-3)}" x2="${B.X(3)}" y1="${B.Y(0)}" y2="${B.Y(0)}" stroke="var(--muted)" stroke-dasharray="2 3"/>`;
+    b += fd.map(([val, c]) => `<path d="${pathOf(c.map(q => [q.v, clamp(q.ps, -0.4, 1.2)]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity=".35"/>`).join("");
     b += `<path d="${pathOf(d.map(q => [q.v, q.ps]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>` + B.frame + dotSvg(B.X(PJ.vg), B.Y(m.ps)) + `<text x="40" y="12" style="fill:var(--accent)">— band bending</text>`;
   }
   $("pn-p1").innerHTML = a; $("pn-p2").innerHTML = b;
 }
-document.querySelectorAll("#pn-view button").forEach(b => b.addEventListener("click", () => { PJ.view = b.dataset.v; PJ.inj = []; updatePN(); }));
-[["pn-na","na"],["pn-nd","nd"],["pn-v","v"],["pn-nam","nam"],["pn-tox","tox"],["pn-vg","vg"]].forEach(([id, k]) => $(id).addEventListener("input", e => { PJ[k] = +e.target.value; updatePN(); }));
-document.querySelectorAll("#pn-bias button").forEach(b => b.addEventListener("click", () => { PJ.v = +b.dataset.b; $("pn-v").value = PJ.v; updatePN(); }));
+document.querySelectorAll("#pn-view button").forEach(b => b.addEventListener("click", () => { PJ.view = b.dataset.v; PJ.inj = []; PJ.sw = null; updatePN(); }));
+[["pn-na","na"],["pn-nd","nd"],["pn-v","v"],["pn-nam","nam"],["pn-tox","tox"],["pn-vg","vg"]].forEach(([id, k]) => $(id).addEventListener("input", e => { PJ[k] = +e.target.value; if (PJ.sw === k) PJ.sw = null; updatePN(); }));
+document.querySelectorAll("#pn-bias button").forEach(b => b.addEventListener("click", () => { PJ.v = +b.dataset.b; $("pn-v").value = PJ.v; if (PJ.sw === "v") PJ.sw = null; updatePN(); }));
+document.querySelectorAll(".pn-swp button").forEach(b => b.addEventListener("click", () => { const w = b.dataset.w; if (PJ.sw === w) PJ.sw = null; else { PJ.sw = w; const [lo, hi] = PJ_SW[w]; PJ.swu = clamp((PJ[w] - lo)/(hi - lo), 0, 1); } updatePN(); }));
 
 /* =========================================================
    TAB — subthreshold leakage, planar vs FinFET vs gate-all-around

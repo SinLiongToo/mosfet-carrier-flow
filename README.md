@@ -69,6 +69,7 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 ## PN junction & MOS cap tab (`#pn-junction`)
 - **PN junction** – cross-section with fixed ions, majority carriers and injected minority carriers, aligned energy-band diagram (Ec, Ev, split Fermi levels), diode I–V with avalanche/Zener breakdown, junction capacitance
 - **MOS capacitor** – accumulation / depletion / inversion, band bending ψs, low- and high-frequency C–V (the curve the radar VCO varactor uses), threshold voltage
+- **Sweep** – ▶ buttons sweep bias, NA or ND (PN) and VG, tox or substrate NA (MOS) back and forth; sweeping a doping or tox also draws faint curves at fixed values so the trend is visible
 
 ## Leakage & FinFET tab (`#leakage-finfet`)
 - **Subthreshold leakage** – source–drain barrier with the Boltzmann tail of electrons, 60 mV/dec limit, DIBL, temperature, LVT/SVT/HVT, Ion/Ioff, leakage power
