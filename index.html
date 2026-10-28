@@ -8685,6 +8685,7 @@ Object.assign(window.I18N_ZH, {
 Object.assign(window.I18N_ZH, {"Sweep": "掃描", "▶ Sweep VGS": "▶ 掃描 VGS", "▶ Sweep VDS": "▶ 掃描 VDS", "▶ Sweep temperature": "▶ 掃描溫度", "Let one control sweep automatically across its range; the band diagram, the leaking electrons and the curves follow. Press again to stop.": "讓一個控制項自動在範圍內來回掃描；能帶圖、漏電電子與曲線會同步變化。再按一次即停止。"});
 Object.assign(window.I18N_ZH, {"▶ Sweep V": "▶ 掃描 V", "▶ Sweep NA": "▶ 掃描 NA", "▶ Sweep ND": "▶ 掃描 ND", "▶ Sweep VG": "▶ 掃描 VG", "▶ Sweep tox": "▶ 掃描 tox", "Let one control sweep automatically across its range. Sweeping a doping or the oxide thickness also draws faint curves at a few fixed values, so you can see the trend. Press again to stop.": "讓一個控制項自動在範圍內來回掃描。掃描摻雜或氧化層厚度時，也會畫出幾條固定數值的淡色曲線，方便看出趨勢。再按一次即停止。"});
 Object.assign(window.I18N_ZH, {"▶ Sweep cell ratio β": "▶ 掃描單元比 β", "▶ Sweep pull-up ratio": "▶ 掃描上拉比", "▶ Sweep refresh interval": "▶ 掃描刷新間隔", "▶ Sweep Cs": "▶ 掃描 Cs", "▶ Sweep Cbl": "▶ 掃描 Cbl", "▶ Sweep P/E cycles": "▶ 掃描抹寫次數", "▶ Sweep retention time": "▶ 掃描保存時間", "Let one slider sweep automatically back and forth across its range while the cell keeps running; the picture, readouts and curves follow. Press again, or drag the slider, to stop.": "讓一個滑桿在範圍內自動來回掃描，記憶體單元持續運作；圖、讀值與曲線會同步變化。再按一次或拖曳滑桿即停止。"});
+Object.assign(window.I18N_ZH, {"Auto-play": "自動播放", "▶ Write → read → hold (1, then 0)": "▶ 寫入 → 讀取 → 保持（先 1 後 0）", "Stored bit": "儲存的位元", "Step #/#: write #": "步驟 #/#：寫入 #", "Step #/#: read #": "步驟 #/#：讀取 #", "Step #/#: hold #": "步驟 #/#：保持 #", "The value the cell holds now: 1 means node Q is high and QB low, 0 the other way round.": "記憶胞目前存的值：1 表示節點 Q 為高、QB 為低，0 則相反。", "Play the cycles in order: write 1, read it, hold it, write 0, read it, hold it, and repeat. Press again, or pick an operation yourself, to stop.": "依序播放：寫入 1、讀取、保持，再寫入 0、讀取、保持，然後重複。再按一次，或自己選一個操作，即停止。"});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -10618,6 +10619,13 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <button data-o="write" aria-pressed="false">Write</button>
             </div>
             <button class="chipbtn" id="mm-flip">Flip stored bit</button>
+          </div>
+          <div style="display:grid;gap:8px">
+            <span class="term" tabindex="0" data-tip="Play the cycles in order: write 1, read it, hold it, write 0, read it, hold it, and repeat. Press again, or pick an operation yourself, to stop.">Auto-play</span>
+            <div class="chips">
+              <button class="chipbtn" id="mm-seq">▶ Write → read → hold (1, then 0)</button>
+              <span id="mm-seq-st" style="font:600 .8rem var(--f-mono);color:var(--accent)"></span>
+            </div>
           </div>
           <div class="slider">
             <div class="lab"><span class="term" tabindex="0" data-tip="Width of the pull-down NMOS divided by the access NMOS. Bigger = the 0 node stays low during a read.">Cell ratio β = Wpd/Wacc</span><span id="mm-beta-v"></span></div>
@@ -17950,7 +17958,9 @@ const MM = {view:"sram", t:0, bit:1,
   op:"read", beta:2, pr:1, opT:0,                              // SRAM: operation, cell ratio, pull-up ratio, cycle phase
   cs:25, cbl:100, temp:85, tref:64, dT:0, vcell:1.2, dhist:[], dread:0, auto:true,      // DRAM
   bits:2, level:2, vth:-2, pulses:0, prog:false, eraseT:0, cycles:1000, years:0, flow:[],   // flash
-  sw:null, swu:0};                                                                         // auto sweep
+  sw:null, swu:0, seq:false, seqI:0};
+/* auto-play order: write 1, read 1, hold 1, write 0, read 0, hold 0 (a write stores the opposite of the bit it finds; if it fails, the old bit stays and the steps show it) */
+const MM_SEQ = [["write", 1], ["read", 1], ["hold", 1], ["write", 0], ["read", 0], ["hold", 0]];                                                                         // auto sweep
 /* sweepable sliders: [low, high, step, slider id] */
 const MM_SW = {beta:[0.6, 3.5, 0.1, "mm-beta"], pr:[0.5, 6, 0.1, "mm-pr"], temp:[25, 125, 1, "mm-temp"], tref:[16, 512, 8, "mm-tref"],
   cs:[8, 40, 1, "mm-cs"], cbl:[40, 300, 5, "mm-cbl"], cycles:[0, 20000, 100, "mm-cyc"], years:[0, 10, 0.5, "mm-yr"]};
@@ -18046,7 +18056,8 @@ function mmTick(dt){
   MM.t += dt;
   if (MM.sw && dt >= 0){ const [lo, hi, st, id] = MM_SW[MM.sw]; MM.swu = (MM.swu + dt/8) % 2; const f = MM.swu < 1 ? MM.swu : 2 - MM.swu;
     MM[MM.sw] = +(lo + Math.round((hi - lo)*f/st)*st).toFixed(2); $(id).value = MM[MM.sw]; }
-  if (MM.view === "sram"){ MM.opT += dt/4*(reduce ? 0.5 : 1); if (MM.opT >= 1){ MM.opT -= 1; if (MM.op === "write" && srAll().vw < srAll().vm) MM.bit = 1 - MM.bit; } }
+  if (MM.view === "sram"){ MM.opT += dt/4*(reduce ? 0.5 : 1); if (MM.opT >= 1){ MM.opT -= 1; if (MM.op === "write" && srAll().vw < srAll().vm) MM.bit = 1 - MM.bit;
+    if (MM.seq){ MM.seqI = (MM.seqI + 1) % MM_SEQ.length; MM.op = MM_SEQ[MM.seqI][0]; updateMM(); } } }
   else if (MM.view === "dram"){
     const ms = dt*40*(reduce ? 0.5 : 1); MM.dT += ms;
     MM.vcell = MM.vcell*Math.exp(-ms/1000/drTau());
@@ -18242,6 +18253,7 @@ Object.assign(TIP, {
   "Hold SNM":"Static noise margin with the word line off.",
   "Write margin":"How far below the trip point the access transistor pulls the 1 node. Positive = the write succeeds.",
   "Cell ratio β":"Wpd/Wacc. Larger β = stronger pull-down = more read stability.",
+  "Stored bit":"The value the cell holds now: 1 means node Q is high and QB low, 0 the other way round.",
   "Butterfly":"Both inverter curves drawn on the same axes; the eyes show how much noise the stored state survives.",
   "Read disturb":"The 0 node rises while the access transistor feeds current into it from the precharged bit line.",
   "Write":"The access transistor must pull the 1 node below the other inverter's trip point.",
@@ -18271,6 +18283,8 @@ function updateMM(){
   $("mm-pill").textContent = info.pill; $("mm-name").textContent = info.name; $("mm-sub").textContent = info.sub; $("mm-explain").textContent = info.text;
   document.querySelectorAll("#mm-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
   document.querySelectorAll("#mm-op button").forEach(b => b.setAttribute("aria-pressed", b.dataset.o === MM.op));
+  $("mm-seq").setAttribute("aria-pressed", MM.seq); $("mm-seq").style.borderColor = MM.seq ? "var(--accent)" : ""; $("mm-seq").style.color = MM.seq ? "var(--accent)" : "";
+  $("mm-seq-st").textContent = MM.seq ? `Step ${MM.seqI + 1}/6: ${MM.op} ${MM.op === "write" ? 1 - MM.bit : MM.bit}` : "";
   document.querySelectorAll("#mm-bits button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.b === MM.bits));
   ["sram","dram","flash"].forEach(k => $("mm-c-" + k).hidden = k !== v);
   document.querySelectorAll(".mm-swp button").forEach(b => { const on = b.dataset.w === MM.sw; b.setAttribute("aria-pressed", on); b.style.borderColor = on ? "var(--accent)" : ""; b.style.color = on ? "var(--accent)" : ""; });
@@ -18283,7 +18297,7 @@ function updateMM(){
   const ro = [], rows = [];
   if (v === "sram"){
     const S = srAll();
-    ro.push(["Read SNM", `${(S.read.snm*1000).toFixed(0)} mV`], ["Hold SNM", `${(S.hold.snm*1000).toFixed(0)} mV`], ["Write margin", `${((S.vm - S.vw)*1000).toFixed(0)} mV`], ["Cell ratio β", MM.beta.toFixed(2)]);
+    ro.push(["Read SNM", `${(S.read.snm*1000).toFixed(0)} mV`], ["Hold SNM", `${(S.hold.snm*1000).toFixed(0)} mV`], ["Write margin", `${((S.vm - S.vw)*1000).toFixed(0)} mV`], ["Stored bit", `${MM.bit}`]);
     rows.push({name:"Butterfly", f:"SNM = side of the largest square inside the smaller eye", sub:`hold ${(S.hold.snm*1000).toFixed(0)} mV, read ${(S.read.snm*1000).toFixed(0)} mV (read is always worse)`});
     rows.push({name:"Read disturb", f:"In,pd(VGS = VDD, VDS = V0) = In,acc(VGS = VDS = VDD − V0)", sub:`V0 = ${f2(S.bump)} V vs trip point ${f2(S.vm)} V → ${S.bump < S.vm ? "safe" : "the cell flips"}`});
     rows.push({name:"Write", f:"Ip,pu(VSG = VDD, VSD = VDD − V1) = In,acc(VGS = VDD, VDS = V1)", sub:`V1 = ${f2(S.vw)} V vs trip ${f2(S.vm)} V → ${S.vw < S.vm ? "write succeeds" : "write fails"}`});
@@ -18366,10 +18380,11 @@ let mmUpd = 0;
 function mmTickAll(dt){ mmTick(dt); if (++mmUpd % 6 === 0) updateMM(); }
 document.querySelectorAll("#mm-view button").forEach(b => b.addEventListener("click", () => { MM.view = b.dataset.v; if (!findCrawling) MM.sw = null; updateMM(); }));
 document.querySelectorAll(".mm-swp button").forEach(b => b.addEventListener("click", () => { const w = b.dataset.w; if (MM.sw === w) MM.sw = null; else { MM.sw = w; const [lo, hi] = MM_SW[w]; MM.swu = clamp((MM[w] - lo)/(hi - lo), 0, 1); } updateMM(); }));
-document.querySelectorAll("#mm-op button").forEach(b => b.addEventListener("click", () => { MM.op = b.dataset.o; MM.opT = 0; updateMM(); }));
+document.querySelectorAll("#mm-op button").forEach(b => b.addEventListener("click", () => { MM.op = b.dataset.o; MM.opT = 0; MM.seq = false; updateMM(); }));
+$("mm-seq").addEventListener("click", () => { MM.seq = !MM.seq; if (MM.seq){ MM.seqI = 0; MM.op = "write"; MM.bit = 0; MM.opT = 0; } updateMM(); });
 document.querySelectorAll("#mm-bits button").forEach(b => b.addEventListener("click", () => { MM.bits = +b.dataset.b; MM.vth = FL_ERASED; MM.pulses = 0; MM.prog = false; updateMM(); }));
 [["mm-beta","beta"],["mm-pr","pr"],["mm-cs","cs"],["mm-cbl","cbl"],["mm-temp","temp"],["mm-tref","tref"],["mm-level","level"],["mm-cyc","cycles"],["mm-yr","years"]].forEach(([id, k]) => $(id).addEventListener("input", e => { MM[k] = +e.target.value; if (MM.sw === k) MM.sw = null; updateMM(); }));
-$("mm-flip").addEventListener("click", () => { MM.bit = 1 - MM.bit; MM.opT = 0; updateMM(); });
+$("mm-flip").addEventListener("click", () => { MM.bit = 1 - MM.bit; MM.opT = 0; MM.seq = false; updateMM(); });
 $("mm-read").addEventListener("click", () => { MM.dread = 1; updateMM(); });
 $("mm-auto").addEventListener("click", () => { MM.auto = !MM.auto; updateMM(); });
 $("mm-write1").addEventListener("click", () => { MM.vcell = DR_VDD; updateMM(); });
