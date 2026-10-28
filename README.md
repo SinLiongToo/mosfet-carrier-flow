@@ -79,6 +79,7 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **SRAM 6T** – read / write / hold cycle with waveforms, read disturb, butterfly curve and SNM, cell and pull-up ratios
 - **DRAM 1T1C** – leaking storage capacitor, refresh, charge sharing ΔV = (Vcell − VDD/2)·Cs/(Cs + Cbl), retention vs temperature
 - **Flash** – floating-gate cell, Fowler-Nordheim ISPP programming, erase, SLC/MLC/TLC Vth distributions with read references, wear and retention
+- **Sweep** – ▶ buttons auto-sweep a slider back and forth while the cell runs: β or pull-up ratio (SRAM), temperature, refresh interval, Cs or Cbl (DRAM), P/E cycles or retention time (flash)
 
 ## Radar receiver tab (`#radar-receiver`)
 - **Chain & noise** – antenna → LNA → mixer → IF → ADC, level diagram, Friis noise figure, radar equation, SNR vs range and detection range (car, motorbike, pedestrian)

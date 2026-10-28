@@ -8684,6 +8684,7 @@ Object.assign(window.I18N_ZH, {
 });
 Object.assign(window.I18N_ZH, {"Sweep": "掃描", "▶ Sweep VGS": "▶ 掃描 VGS", "▶ Sweep VDS": "▶ 掃描 VDS", "▶ Sweep temperature": "▶ 掃描溫度", "Let one control sweep automatically across its range; the band diagram, the leaking electrons and the curves follow. Press again to stop.": "讓一個控制項自動在範圍內來回掃描；能帶圖、漏電電子與曲線會同步變化。再按一次即停止。"});
 Object.assign(window.I18N_ZH, {"▶ Sweep V": "▶ 掃描 V", "▶ Sweep NA": "▶ 掃描 NA", "▶ Sweep ND": "▶ 掃描 ND", "▶ Sweep VG": "▶ 掃描 VG", "▶ Sweep tox": "▶ 掃描 tox", "Let one control sweep automatically across its range. Sweeping a doping or the oxide thickness also draws faint curves at a few fixed values, so you can see the trend. Press again to stop.": "讓一個控制項自動在範圍內來回掃描。掃描摻雜或氧化層厚度時，也會畫出幾條固定數值的淡色曲線，方便看出趨勢。再按一次即停止。"});
+Object.assign(window.I18N_ZH, {"▶ Sweep cell ratio β": "▶ 掃描單元比 β", "▶ Sweep pull-up ratio": "▶ 掃描上拉比", "▶ Sweep refresh interval": "▶ 掃描刷新間隔", "▶ Sweep Cs": "▶ 掃描 Cs", "▶ Sweep Cbl": "▶ 掃描 Cbl", "▶ Sweep P/E cycles": "▶ 掃描抹寫次數", "▶ Sweep retention time": "▶ 掃描保存時間", "Let one slider sweep automatically back and forth across its range while the cell keeps running; the picture, readouts and curves follow. Press again, or drag the slider, to stop.": "讓一個滑桿在範圍內自動來回掃描，記憶體單元持續運作；圖、讀值與曲線會同步變化。再按一次或拖曳滑桿即停止。"});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -10603,6 +10604,13 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <p class="eyebrow">Controls</p>
         <div class="readouts four" id="mm-ro"></div>
         <div id="mm-c-sram" style="display:grid;gap:12px">
+          <div style="display:grid;gap:8px">
+            <span class="term" tabindex="0" data-tip="Let one slider sweep automatically back and forth across its range while the cell keeps running; the picture, readouts and curves follow. Press again, or drag the slider, to stop.">Sweep</span>
+            <div class="chips mm-swp" id="mm-swp-sram">
+              <button class="chipbtn" data-w="beta">▶ Sweep cell ratio β</button>
+              <button class="chipbtn" data-w="pr">▶ Sweep pull-up ratio</button>
+            </div>
+          </div>
           <div class="chips">
             <div class="seg" id="mm-op" role="group" aria-label="SRAM operation">
               <button data-o="hold" aria-pressed="false">Hold</button>
@@ -10621,6 +10629,15 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
           </div>
         </div>
         <div id="mm-c-dram" hidden style="display:grid;gap:12px">
+          <div style="display:grid;gap:8px">
+            <span class="term" tabindex="0" data-tip="Let one slider sweep automatically back and forth across its range while the cell keeps running; the picture, readouts and curves follow. Press again, or drag the slider, to stop.">Sweep</span>
+            <div class="chips mm-swp" id="mm-swp-dram">
+              <button class="chipbtn" data-w="temp">▶ Sweep temperature</button>
+              <button class="chipbtn" data-w="tref">▶ Sweep refresh interval</button>
+              <button class="chipbtn" data-w="cs">▶ Sweep Cs</button>
+              <button class="chipbtn" data-w="cbl">▶ Sweep Cbl</button>
+            </div>
+          </div>
           <div class="chips">
             <button class="chipbtn" id="mm-read">Read the cell</button>
             <button class="chipbtn" id="mm-write1">Write a 1</button>
@@ -10644,6 +10661,13 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
           </div>
         </div>
         <div id="mm-c-flash" hidden style="display:grid;gap:12px">
+          <div style="display:grid;gap:8px">
+            <span class="term" tabindex="0" data-tip="Let one slider sweep automatically back and forth across its range while the cell keeps running; the picture, readouts and curves follow. Press again, or drag the slider, to stop.">Sweep</span>
+            <div class="chips mm-swp" id="mm-swp-flash">
+              <button class="chipbtn" data-w="cycles">▶ Sweep P/E cycles</button>
+              <button class="chipbtn" data-w="years">▶ Sweep retention time</button>
+            </div>
+          </div>
           <div class="chips">
             <div class="seg" id="mm-bits" role="group" aria-label="Bits per cell">
               <button data-b="1" aria-pressed="false">SLC 1 bit</button>
@@ -17630,7 +17654,7 @@ function drawPNPlots(){
   }
   $("pn-p1").innerHTML = a; $("pn-p2").innerHTML = b;
 }
-document.querySelectorAll("#pn-view button").forEach(b => b.addEventListener("click", () => { PJ.view = b.dataset.v; PJ.inj = []; PJ.sw = null; updatePN(); }));
+document.querySelectorAll("#pn-view button").forEach(b => b.addEventListener("click", () => { PJ.view = b.dataset.v; PJ.inj = []; if (!findCrawling) PJ.sw = null; updatePN(); }));
 [["pn-na","na"],["pn-nd","nd"],["pn-v","v"],["pn-nam","nam"],["pn-tox","tox"],["pn-vg","vg"]].forEach(([id, k]) => $(id).addEventListener("input", e => { PJ[k] = +e.target.value; if (PJ.sw === k) PJ.sw = null; updatePN(); }));
 document.querySelectorAll("#pn-bias button").forEach(b => b.addEventListener("click", () => { PJ.v = +b.dataset.b; $("pn-v").value = PJ.v; if (PJ.sw === "v") PJ.sw = null; updatePN(); }));
 document.querySelectorAll(".pn-swp button").forEach(b => b.addEventListener("click", () => { const w = b.dataset.w; if (PJ.sw === w) PJ.sw = null; else { PJ.sw = w; const [lo, hi] = PJ_SW[w]; PJ.swu = clamp((PJ[w] - lo)/(hi - lo), 0, 1); } updatePN(); }));
@@ -17925,7 +17949,11 @@ const MMC = setupCanvas($("cvmm"), 1000, 488);
 const MM = {view:"sram", t:0, bit:1,
   op:"read", beta:2, pr:1, opT:0,                              // SRAM: operation, cell ratio, pull-up ratio, cycle phase
   cs:25, cbl:100, temp:85, tref:64, dT:0, vcell:1.2, dhist:[], dread:0, auto:true,      // DRAM
-  bits:2, level:2, vth:-2, pulses:0, prog:false, eraseT:0, cycles:1000, years:0, flow:[]};   // flash
+  bits:2, level:2, vth:-2, pulses:0, prog:false, eraseT:0, cycles:1000, years:0, flow:[],   // flash
+  sw:null, swu:0};                                                                         // auto sweep
+/* sweepable sliders: [low, high, step, slider id] */
+const MM_SW = {beta:[0.6, 3.5, 0.1, "mm-beta"], pr:[0.5, 6, 0.1, "mm-pr"], temp:[25, 125, 1, "mm-temp"], tref:[16, 512, 8, "mm-tref"],
+  cs:[8, 40, 1, "mm-cs"], cbl:[40, 300, 5, "mm-cbl"], cycles:[0, 20000, 100, "mm-cyc"], years:[0, 10, 0.5, "mm-yr"]};
 const MMF = {L:1, vsb:0, clm:true, body:false, dibl:false, vsat:false};
 
 /* ---------------- SRAM model (uses the transistor model of tab 1, VDD = 3.3 V) ---------------- */
@@ -18016,6 +18044,8 @@ function flRead(v){ const r = flRefs(); let k = 0; while (k < r.length && v > r[
 /* ---------------- tick ---------------- */
 function mmTick(dt){
   MM.t += dt;
+  if (MM.sw && dt >= 0){ const [lo, hi, st, id] = MM_SW[MM.sw]; MM.swu = (MM.swu + dt/8) % 2; const f = MM.swu < 1 ? MM.swu : 2 - MM.swu;
+    MM[MM.sw] = +(lo + Math.round((hi - lo)*f/st)*st).toFixed(2); $(id).value = MM[MM.sw]; }
   if (MM.view === "sram"){ MM.opT += dt/4*(reduce ? 0.5 : 1); if (MM.opT >= 1){ MM.opT -= 1; if (MM.op === "write" && srAll().vw < srAll().vm) MM.bit = 1 - MM.bit; } }
   else if (MM.view === "dram"){
     const ms = dt*40*(reduce ? 0.5 : 1); MM.dT += ms;
@@ -18243,6 +18273,7 @@ function updateMM(){
   document.querySelectorAll("#mm-op button").forEach(b => b.setAttribute("aria-pressed", b.dataset.o === MM.op));
   document.querySelectorAll("#mm-bits button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.b === MM.bits));
   ["sram","dram","flash"].forEach(k => $("mm-c-" + k).hidden = k !== v);
+  document.querySelectorAll(".mm-swp button").forEach(b => { const on = b.dataset.w === MM.sw; b.setAttribute("aria-pressed", on); b.style.borderColor = on ? "var(--accent)" : ""; b.style.color = on ? "var(--accent)" : ""; });
   $("mm-beta-v").textContent = MM.beta.toFixed(2); $("mm-pr-v").textContent = MM.pr.toFixed(2);
   $("mm-cs-v").textContent = `${MM.cs} fF`; $("mm-cbl-v").textContent = `${MM.cbl} fF`; $("mm-temp-v").textContent = `${MM.temp} °C`; $("mm-tref-v").textContent = `${MM.tref} ms`;
   $("mm-level").max = 2**MM.bits - 1; if (MM.level > 2**MM.bits - 1) MM.level = 2**MM.bits - 1; $("mm-level").value = MM.level;
@@ -18333,10 +18364,11 @@ function drawMMPlots(){
 }
 let mmUpd = 0;
 function mmTickAll(dt){ mmTick(dt); if (++mmUpd % 6 === 0) updateMM(); }
-document.querySelectorAll("#mm-view button").forEach(b => b.addEventListener("click", () => { MM.view = b.dataset.v; updateMM(); }));
+document.querySelectorAll("#mm-view button").forEach(b => b.addEventListener("click", () => { MM.view = b.dataset.v; if (!findCrawling) MM.sw = null; updateMM(); }));
+document.querySelectorAll(".mm-swp button").forEach(b => b.addEventListener("click", () => { const w = b.dataset.w; if (MM.sw === w) MM.sw = null; else { MM.sw = w; const [lo, hi] = MM_SW[w]; MM.swu = clamp((MM[w] - lo)/(hi - lo), 0, 1); } updateMM(); }));
 document.querySelectorAll("#mm-op button").forEach(b => b.addEventListener("click", () => { MM.op = b.dataset.o; MM.opT = 0; updateMM(); }));
 document.querySelectorAll("#mm-bits button").forEach(b => b.addEventListener("click", () => { MM.bits = +b.dataset.b; MM.vth = FL_ERASED; MM.pulses = 0; MM.prog = false; updateMM(); }));
-[["mm-beta","beta"],["mm-pr","pr"],["mm-cs","cs"],["mm-cbl","cbl"],["mm-temp","temp"],["mm-tref","tref"],["mm-level","level"],["mm-cyc","cycles"],["mm-yr","years"]].forEach(([id, k]) => $(id).addEventListener("input", e => { MM[k] = +e.target.value; updateMM(); }));
+[["mm-beta","beta"],["mm-pr","pr"],["mm-cs","cs"],["mm-cbl","cbl"],["mm-temp","temp"],["mm-tref","tref"],["mm-level","level"],["mm-cyc","cycles"],["mm-yr","years"]].forEach(([id, k]) => $(id).addEventListener("input", e => { MM[k] = +e.target.value; if (MM.sw === k) MM.sw = null; updateMM(); }));
 $("mm-flip").addEventListener("click", () => { MM.bit = 1 - MM.bit; MM.opT = 0; updateMM(); });
 $("mm-read").addEventListener("click", () => { MM.dread = 1; updateMM(); });
 $("mm-auto").addEventListener("click", () => { MM.auto = !MM.auto; updateMM(); });
@@ -24852,7 +24884,7 @@ TABS.forEach(k => {
 // each view's title, subtitle and "How it works" text exist only while that view is shown:
 // visit every view once (after load, or on the first search) and keep its English text
 const I18N_LANG = () => window.I18N ? window.I18N.lang : "en";
-let findViewsDone = false;
+let findViewsDone = false, findCrawling = false;   // view clicks made by the crawl must not reset tab state such as a running sweep
 function findCrawl(){
   if (findViewsDone) return; findViewsDone = true;
   TABS.forEach(k => {
@@ -24862,8 +24894,8 @@ function findCrawl(){
     const views = [...panel.querySelectorAll(".stepper .seg button[data-v]")];
     if (!views.length){ if (I18N_LANG() !== "zh") grab(null); return; }   // no views: the text on screen is already this tab's
     const was = views.find(b => b.getAttribute("aria-pressed") === "true") || views[0];
-    views.forEach(b => { try { b.click(); grab(b); } catch(e){} });
-    try { was.click(); } catch(e){}
+    findCrawling = true; views.forEach(b => { try { b.click(); grab(b); } catch(e){} });
+    try { was.click(); } catch(e){} findCrawling = false;
   });
 }
 setTimeout(() => (window.requestIdleCallback || (f => f()))(findCrawl), 1500);
