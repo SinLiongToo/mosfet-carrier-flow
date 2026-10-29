@@ -8686,6 +8686,191 @@ Object.assign(window.I18N_ZH, {"Sweep": "掃描", "▶ Sweep VGS": "▶ 掃描 V
 Object.assign(window.I18N_ZH, {"▶ Sweep V": "▶ 掃描 V", "▶ Sweep NA": "▶ 掃描 NA", "▶ Sweep ND": "▶ 掃描 ND", "▶ Sweep VG": "▶ 掃描 VG", "▶ Sweep tox": "▶ 掃描 tox", "Let one control sweep automatically across its range. Sweeping a doping or the oxide thickness also draws faint curves at a few fixed values, so you can see the trend. Press again to stop.": "讓一個控制項自動在範圍內來回掃描。掃描摻雜或氧化層厚度時，也會畫出幾條固定數值的淡色曲線，方便看出趨勢。再按一次即停止。"});
 Object.assign(window.I18N_ZH, {"▶ Sweep cell ratio β": "▶ 掃描單元比 β", "▶ Sweep pull-up ratio": "▶ 掃描上拉比", "▶ Sweep refresh interval": "▶ 掃描刷新間隔", "▶ Sweep Cs": "▶ 掃描 Cs", "▶ Sweep Cbl": "▶ 掃描 Cbl", "▶ Sweep P/E cycles": "▶ 掃描抹寫次數", "▶ Sweep retention time": "▶ 掃描保存時間", "Let one slider sweep automatically back and forth across its range while the cell keeps running; the picture, readouts and curves follow. Press again, or drag the slider, to stop.": "讓一個滑桿在範圍內自動來回掃描，記憶體單元持續運作；圖、讀值與曲線會同步變化。再按一次或拖曳滑桿即停止。"});
 Object.assign(window.I18N_ZH, {"Auto-play": "自動播放", "▶ Write → read → hold (1, then 0)": "▶ 寫入 → 讀取 → 保持（先 1 後 0）", "Stored bit": "儲存的位元", "Step #/#: write #": "步驟 #/#：寫入 #", "Step #/#: read #": "步驟 #/#：讀取 #", "Step #/#: hold #": "步驟 #/#：保持 #", "The value the cell holds now: 1 means node Q is high and QB low, 0 the other way round.": "記憶胞目前存的值：1 表示節點 Q 為高、QB 為低，0 則相反。", "Play the cycles in order: write 1, read it, hold it, write 0, read it, hold it, and repeat. Press again, or pick an operation yourself, to stop.": "依序播放：寫入 1、讀取、保持，再寫入 0、讀取、保持，然後重複。再按一次，或自己選一個操作，即停止。"});
+Object.assign(window.I18N_ZH, {
+"Capacitors (MIM · varactor)": "電容（MIM · 變容器）",
+"Capacitors · MIM and MOS varactor: C versus voltage and frequency": "電容 · MIM 與 MOS 變容器：電容對電壓與頻率",
+"Capacitor type": "電容類型",
+"MIM capacitor": "MIM 電容",
+"MOS varactor": "MOS 變容器",
+"Capacitor cross-section: a MIM capacitor between two metal layers with its charges and field, or a MOS varactor finger with its accumulation layer or depletion region, next to the equivalent circuit and its numbers": "電容剖面：位於兩層金屬之間、含電荷與電場的 MIM 電容，或含累積層或空乏區的 MOS 變容器指狀結構，旁邊是等效電路與數值",
+"Let one slider sweep automatically back and forth. Sweeping a size or material setting also draws faint curves at a few fixed values, so you can see the trend. Press again, or drag the slider, to stop.": "讓一個滑桿自動來回掃描。掃描尺寸或材料參數時，也會畫出幾條固定數值的淡色曲線，方便看出趨勢。再按一次或拖曳滑桿即停止。",
+"▶ Sweep bias V": "▶ 掃描偏壓 V",
+"▶ Sweep thickness": "▶ 掃描厚度",
+"▶ Sweep size": "▶ 掃描尺寸",
+"▶ Sweep frequency": "▶ 掃描頻率",
+"▶ Sweep V_tune": "▶ 掃描 V_tune",
+"▶ Sweep t_ox": "▶ 掃描 t_ox",
+"▶ Sweep well doping": "▶ 掃描井摻雜",
+"▶ Sweep finger length": "▶ 掃描指長",
+"Dielectric": "介電層",
+"The insulator between the plates. Higher k packs more capacitance per area, but high-k films are less linear and break down at a lower field.": "兩極板之間的絕緣層。k 越高，單位面積電容越大，但高 k 薄膜的線性較差、崩潰電場也較低。",
+"SiO₂ (k #)": "SiO₂（k #）",
+"SiN (k #)": "SiN（k #）",
+"Al₂O₃ (k #)": "Al₂O₃（k #）",
+"HfO₂ (k #)": "HfO₂（k #）",
+"Bias voltage V": "偏壓 V",
+"DC voltage across the plates. A good MIM barely changes its capacitance with voltage; that is why it is used for precise analog circuits.": "跨在兩極板上的直流電壓。好的 MIM 電容幾乎不隨電壓改變，所以被用在精密類比電路。",
+"Dielectric thickness t": "介電層厚度 t",
+"Dielectric thickness. Thinner gives more capacitance per area, but a lower breakdown voltage and a stronger voltage dependence.": "介電層厚度。越薄單位面積電容越大，但崩潰電壓越低、電壓相依性越強。",
+"Plate size a × a": "極板尺寸 a × a",
+"Side of the square plate. A bigger plate gives more capacitance, more series inductance and therefore a lower self-resonance frequency.": "正方形極板的邊長。極板越大，電容越大、串聯電感越大，所以自振頻率越低。",
+"Tuning voltage V_tune": "調諧電壓 V_tune",
+"Gate voltage against the n-well. Positive pulls electrons to the surface (accumulation, large C); negative pushes them away and opens a depletion region (small C).": "閘極相對 n 井的電壓。正電壓把電子吸到表面（累積，C 大）；負電壓把電子推開，形成空乏區（C 小）。",
+"Oxide thickness t_ox": "氧化層厚度 t_ox",
+"Gate oxide thickness. Thinner oxide raises the maximum capacitance and the tuning ratio.": "閘極氧化層厚度。氧化層越薄，最大電容與調諧比越大。",
+"Well doping N_D": "井摻雜 N_D",
+"Donor doping of the n-well. Lighter doping lets the depletion region grow deeper (smaller C_min, bigger tuning ratio) but raises the well resistance and lowers Q.": "n 井的施體摻雜。摻雜越淡，空乏區可以長得越深（C_min 越小、調諧比越大），但井電阻變大、Q 降低。",
+"Finger length L_g": "指長 L_g",
+"Gate length of each finger (# fingers, each # µm wide). Short fingers give a low series resistance and high Q, but the fixed fringe capacitance then limits the tuning ratio.": "每根指狀閘極的長度（共 # 根，各寬 # µm）。指越短，串聯電阻越低、Q 越高，但固定的邊緣電容會限制調諧比。",
+"Frequency f": "頻率 f",
+"Signal frequency at which Q and the effective capacitance are read off (logarithmic slider).": "讀取 Q 與等效電容所用的訊號頻率（對數滑桿）。",
+"Capacitance versus voltage: relative change of a MIM capacitor in ppm, or the C–V curve of the varactor": "電容對電壓：MIM 電容的相對變化（ppm），或變容器的 C–V 曲線",
+"Quality factor and effective capacitance versus frequency on a log scale, with the self-resonance frequency": "品質因數與等效電容對頻率（對數刻度），並標出自振頻率",
+"Explain the terms: MIM, MOM, varactor, voltage coefficient, quality factor, ESR, self-resonance, tuning ratio": "名詞解釋：MIM、MOM、變容器、電壓係數、品質因數、ESR、自振頻率、調諧比",
+"Capacitors on a chip": "晶片上的電容",
+"Type": "類型",
+"Density": "密度",
+"C vs V": "C 對 V",
+"Used for": "用途",
+"MIM (metal-insulator-metal)": "MIM（金屬-絕緣體-金屬）",
+"#–# fF/µm²": "#–# fF/µm²",
+"Almost flat (ppm)": "幾乎不變（ppm 級）",
+"RF matching, ADC, filters, decoupling": "RF 匹配、ADC、濾波器、去耦",
+"MOM (finger metal-oxide-metal)": "MOM（指狀金屬-氧化物-金屬）",
+"Flat": "不變",
+"Free in any process, ADC arrays": "任何製程都能免費做，用於 ADC 陣列",
+"MOS capacitor (thin oxide)": "MOS 電容（薄氧化層）",
+"Strong": "變化大",
+"Supply decoupling": "電源去耦",
+"MOS varactor (accumulation)": "MOS 變容器（累積型）",
+"Tunable, ratio #–#": "可調，比值 #–#",
+"VCO tuning": "VCO 調諧",
+"Junction varactor (PN diode)": "接面變容器（PN 二極體）",
+"VCO tuning in bipolar and BiCMOS": "雙極與 BiCMOS 製程中的 VCO 調諧",
+"Trends to remember": "要記住的趨勢",
+"Thinner or higher-k dielectric: more capacitance per area, but lower breakdown and a larger voltage coefficient.": "介電層越薄或 k 越高：單位面積電容越大，但崩潰電壓越低、電壓係數越大。",
+"Bigger capacitor: lower reactance, so lower Q at the same series resistance, and a lower self-resonance.": "電容越大：電抗越小，所以在相同串聯電阻下 Q 越低，自振頻率也越低。",
+"Varactor: short fingers give high Q; long fingers and light well doping give a wide tuning range.": "變容器：指短則 Q 高；指長、井摻雜淡則調諧範圍寬。",
+"Terms": "名詞",
+"A thin dielectric between a special top plate and a normal metal layer in the back-end; precise and linear.": "後段製程中，特殊上極板與一般金屬層之間夾著一層薄介電質；精準又線性。",
+"MOM capacitor": "MOM 電容",
+"Interleaved metal fingers on several layers using the normal inter-metal oxide; needs no extra mask.": "利用一般金屬間氧化層，在多層金屬上交錯排列的指狀結構；不需要額外光罩。",
+"Varactor": "變容器",
+"A capacitor designed to change with its DC voltage, used to tune the frequency of a VCO.": "刻意設計成隨直流電壓改變的電容，用來調整 VCO 的頻率。",
+"Voltage coefficient (VCC)": "電壓係數（VCC）",
+"How much the capacitance changes with voltage, written as α₁ (ppm/V) and α₂ (ppm/V²).": "電容隨電壓改變的程度，以 α₁（ppm/V）與 α₂（ppm/V²）表示。",
+"Quality factor Q": "品質因數 Q",
+"Reactance divided by series resistance; the energy stored over the energy lost per cycle (÷ #π).": "電抗除以串聯電阻；儲存能量除以每週期損失的能量（÷ #π）。",
+"ESR": "ESR",
+"Equivalent series resistance: plates, vias and, in a varactor, the n-well under the gate.": "等效串聯電阻：極板、介層洞，以及變容器閘極下方的 n 井。",
+"Self-resonance (SRF)": "自振頻率（SRF）",
+"The frequency where the series inductance cancels the capacitance; above it the part behaves like an inductor.": "串聯電感抵消電容的頻率；高於此頻率時元件表現得像電感。",
+"Tuning ratio": "調諧比",
+"C_max / C_min of a varactor; together with the fixed tank capacitance it sets the VCO tuning range.": "變容器的 C_max / C_min；它和諧振腔的固定電容一起決定 VCO 的調諧範圍。",
+"Capacitance C₀": "電容 C₀",
+"Q at f": "f 下的 Q",
+"Self-resonance": "自振頻率",
+"Varactor C": "變容器電容",
+"VCO tuning range": "VCO 調諧範圍",
+"Zero-bias capacitance of the MIM.": "MIM 在零偏壓下的電容。",
+"Capacitance per area, ε₀k/t.": "單位面積電容，ε₀k/t。",
+"Quality factor at the chosen frequency.": "所選頻率下的品質因數。",
+"Where the series inductance cancels the capacitance.": "串聯電感抵消電容的頻率。",
+"Varactor capacitance at this tuning voltage, including fringe.": "此調諧電壓下的變容器電容，含邊緣電容。",
+"C_max / C_min over −# to +# V.": "−# 到 +# V 範圍內的 C_max / C_min。",
+"Frequency range of a tank with # fF fixed capacitance.": "固定電容 # fF 的諧振腔的頻率範圍。",
+"Parallel plate": "平行板",
+"Ideal plate capacitor.": "理想平行板電容。",
+"Voltage coefficient": "電壓係數",
+"Measured polynomial fit.": "量測資料的多項式擬合。",
+"Dielectric breakdown": "介電崩潰",
+"Critical field times thickness.": "臨界電場乘以厚度。",
+"Quality factor": "品質因數",
+"Reactance over series resistance.": "電抗除以串聯電阻。",
+"Effective C": "等效電容",
+"Rise of C toward self-resonance.": "接近自振頻率時電容上升。",
+"Gate oxide C": "閘極氧化層電容",
+"With # nm extra for poly depletion and the quantum dark space.": "多加 # nm，代表複晶矽空乏與量子暗區。",
+"Flat-band voltage": "平帶電壓",
+"n+ poly gate on an n-well.": "n 井上的 n+ 複晶矽閘極。",
+"Depletion": "空乏",
+"Depletion approximation, capped at strong inversion.": "空乏近似，上限為強反轉。",
+"C in series": "串聯電容",
+"Oxide and depletion capacitance in series, plus fringe.": "氧化層與空乏電容串聯，再加上邊緣電容。",
+"Series resistance": "串聯電阻",
+"Distributed well and poly resistance of the fingers.": "指狀結構中井與複晶矽的分佈電阻。",
+"LC tank frequency.": "LC 諧振腔頻率。",
+"f_SR = # GHz: above it the part is inductive": "f_SR = # GHz：高於此頻率元件呈電感性",
+"accumulation: no depletion region": "累積：沒有空乏區",
+"MIM capacitor in the back-end metal stack": "後段金屬堆疊中的 MIM 電容",
+"silicon substrate": "矽基板",
+"inter-metal oxide": "金屬間氧化層",
+"metal Mx+#": "金屬 Mx+#",
+"top plate (CTM)": "上極板（CTM）",
+"SiN · t = # nm (drawn thicker)": "SiN · t = # nm（畫得比實際厚）",
+"SiO₂ · t = # nm (drawn thicker)": "SiO₂ · t = # nm（畫得比實際厚）",
+"Al₂O₃ · t = # nm (drawn thicker)": "Al₂O₃ · t = # nm（畫得比實際厚）",
+"HfO₂ · t = # nm (drawn thicker)": "HfO₂ · t = # nm（畫得比實際厚）",
+"bottom plate (metal Mx)": "下極板（金屬 Mx）",
+"dielectric breakdown: a short through the film": "介電崩潰：薄膜被擊穿短路",
+"a = # µm square plate (not to scale)": "a = # µm 正方形極板（未按比例）",
+"C_p: bottom plate to substrate (≈ # % of C)": "C_p：下極板對基板（約 C 的 # %）",
+"Equivalent circuit": "等效電路",
+"ΔC/C₀ at this bias": "此偏壓下的 ΔC/C₀",
+"Voltage coefficients": "電壓係數",
+"Breakdown voltage": "崩潰電壓",
+"C_eff / C₀ at f": "f 下的 C_eff / C₀",
+"inductive": "電感性",
+"above self-resonance: it behaves as an inductor": "高於自振頻率：表現得像電感",
+"close to self-resonance: C_eff rises": "接近自振頻率：C_eff 上升",
+"well below self-resonance: a nearly ideal capacitor": "遠低於自振頻率：近乎理想的電容",
+"Accumulation-mode MOS varactor: one finger": "累積型 MOS 變容器：一根指",
+"p-substrate": "p 型基板",
+"n-well": "n 井",
+"n+ poly gate": "n+ 複晶矽閘極",
+"L_g = # µm": "L_g = # µm",
+"oxide t_ox = # nm": "氧化層 t_ox = # nm",
+"gate: to the VCO tank": "閘極：接 VCO 諧振腔",
+"well contacts: V_G − V_well = # V": "井接點：V_G − V_well = # V",
+"well contacts: V_G − V_well = -# V": "井接點：V_G − V_well = -# V",
+"accumulation: electrons pile up under the oxide → C ≈ C_ox": "累積：電子堆積在氧化層下 → C ≈ C_ox",
+"depletion stops at ψs = #φF (inversion holes): C = C_min": "空乏停在 ψs = #φF（反轉電洞）：C = C_min",
+"depletion: W = # nm → C = C_ox in series with C_dep": "空乏：W = # nm → C = C_ox 與 C_dep 串聯",
+"VCO tank and numbers": "VCO 諧振腔與數值",
+"C_fix # fF": "C_fix # fF",
+"Flat-band V_FB": "平帶電壓 V_FB",
+"Capacitance": "電容",
+"Fringe C_par": "邊緣電容 C_par",
+"Series R_s": "串聯電阻 R_s",
+"low ratio: the fixed fringe C dominates": "比值低：固定的邊緣電容佔主導",
+"Q falls as C rises: worst at C_max": "C 越大 Q 越低：在 C_max 最差",
+"Metal plates and vias": "金屬極板與介層洞",
+"Capacitor dielectric": "電容介電質",
+"Inter-metal oxide": "金屬間氧化層",
+"+ charge": "+ 電荷",
+"− charge": "− 電荷",
+"Substrate": "基板",
+"Gate oxide": "閘極氧化層",
+"n+ and n-well": "n+ 與 n 井",
+"Depletion region": "空乏區",
+"Electrons": "電子",
+"ΔC/C₀ (%)": "ΔC/C₀ (%)",
+"breakdown": "崩潰",
+"— SiN, t = # nm": "— SiN，t = # nm",
+"— SiO₂, t = # nm": "— SiO₂，t = # nm",
+"— Al₂O₃, t = # nm": "— Al₂O₃，t = # nm",
+"— HfO₂, t = # nm": "— HfO₂，t = # nm",
+"V_tune (V)": "V_tune (V)",
+"C (fF)": "C (fF)",
+"fringe C_par": "邊緣 C_par",
+"— C–V of the varactor (# fingers)": "— 變容器的 C–V（# 根指）",
+"f (GHz)": "f (GHz)",
+"- - C_eff / C": "- - C_eff / C",
+"A thin dielectric between two metal plates in the back-end: precise, linear and high Q": "後段製程中兩片金屬極板夾一層薄介電質：精準、線性、高 Q",
+"A MIM (metal-insulator-metal) capacitor is built above the transistors, between two metal layers: a special thin top plate (CTM), a dielectric film of a few tens of nanometres and the normal metal below. C = ε₀·k·A/t, so a thinner film or a higher-k material gives more capacitance per area. Because both plates are metal there is no depletion region, and the capacitance hardly moves with voltage: only a few ppm per volt, set by the dielectric itself. That is why MIM capacitors are used in ADCs, filters and RF matching. The price of a thin, high-k film is a lower breakdown voltage and a larger voltage coefficient. At high frequency the plates and vias add series resistance and inductance: Q = #/(ωC·R_s) falls with frequency and with capacitor size, and at the self-resonance frequency the inductance cancels the capacitance. Below it the effective capacitance rises; above it the capacitor behaves like an inductor.": "MIM（金屬-絕緣體-金屬）電容做在電晶體上方的兩層金屬之間：一片特殊的薄上極板（CTM）、一層幾十奈米厚的介電膜，以及下方的一般金屬。C = ε₀·k·A/t，所以薄膜越薄或材料 k 越高，單位面積電容就越大。因為兩片極板都是金屬，沒有空乏區，電容幾乎不隨電壓變化：每伏特只有幾個 ppm，由介電質本身決定。這就是 MIM 電容被用在 ADC、濾波器與 RF 匹配的原因。薄膜越薄、k 越高的代價，是崩潰電壓變低、電壓係數變大。在高頻時，極板與介層洞會帶來串聯電阻與電感：Q = #/(ωC·R_s) 隨頻率與電容尺寸增加而下降；到了自振頻率，電感會抵消電容。在自振頻率以下等效電容上升；以上則元件表現得像電感。",
+"A MOS capacitor whose capacitance the voltage tunes: the heart of a VCO": "電容可由電壓調整的 MOS 電容：VCO 的核心",
+"An accumulation-mode MOS varactor is an n+ poly gate on a thin oxide over an n-well, with n+ contacts instead of a source and drain. A positive gate voltage pulls the well's electrons to the surface (accumulation) and the capacitance is the full oxide capacitance C_ox. A negative voltage pushes them away and leaves a depletion region of fixed donor ions; its capacitance is in series with C_ox, so the total falls. The depletion grows until the surface potential reaches #φF, where holes would start to invert it, so C flattens at C_min. Fringe and overlap capacitance does not tune, so it adds to both ends and limits the tuning ratio C_max/C_min. In a VCO the varactor sits in parallel with the tank inductor and fixed capacitance: changing V_tune changes the oscillation frequency. Its series resistance comes from the well under the gate and the poly fingers; short fingers keep it low and Q high, which matters at # GHz where the varactor often limits the phase noise.": "累積型 MOS 變容器是在 n 井上、隔著薄氧化層的 n+ 複晶矽閘極，兩側用 n+ 接點取代源極與汲極。正閘極電壓把井中的電子吸到表面（累積），電容就是完整的氧化層電容 C_ox。負電壓把電子推開，留下由固定施體離子構成的空乏區；它的電容與 C_ox 串聯，所以總電容下降。空乏區一直長到表面電位達到 #φF，此時電洞開始反轉表面，C 便停在 C_min。邊緣與重疊電容不會被調諧，兩端都要加上它，因此限制了調諧比 C_max/C_min。在 VCO 中，變容器與諧振腔電感及固定電容並聯：改變 V_tune 就改變振盪頻率。它的串聯電阻來自閘極下方的井與複晶矽指；指短可以讓電阻低、Q 高，這在 # GHz 很重要，因為變容器常常限制了相位雜訊。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -9096,6 +9281,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-sc" aria-selected="false" aria-controls="tab-sc">SiC power</button>
         <button role="tab" id="tab-btn-ml" aria-selected="false" aria-controls="tab-ml">Miller effect</button>
         <button role="tab" id="tab-btn-mb" aria-selected="false" aria-controls="tab-mb">MOS breakdown</button>
+        <button role="tab" id="tab-btn-ca" aria-selected="false" aria-controls="tab-ca">Capacitors (MIM · varactor)</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -13362,6 +13548,144 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Punch-through</dt><dd>Merging of the source and drain depletion regions in a short channel, so the gate loses control.</dd>
               <dt>Fowler–Nordheim tunnelling</dt><dd>Electrons tunnelling through the triangular oxide barrier at high field.</dd>
               <dt>Hard breakdown</dt><dd>A conducting path of defects forms across the oxide and the gate shorts to the channel.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== CAPACITORS TAB (MIM · varactor) ===================== -->
+  <section id="tab-ca" role="tabpanel" aria-labelledby="tab-btn-ca" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="ca-pill">MIM</span><h2 id="ca-name">MIM capacitor</h2></div>
+      <p id="ca-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="ca-view" role="group" aria-label="Capacitor type" style="flex-wrap:wrap">
+        <button data-v="mim" aria-pressed="true">MIM capacitor</button>
+        <button data-v="var" aria-pressed="false">MOS varactor</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvca" aria-label="Capacitor cross-section: a MIM capacitor between two metal layers with its charges and field, or a MOS varactor finger with its accumulation layer or depletion region, next to the equivalent circuit and its numbers"></canvas>
+      <div class="legend" id="ca-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="ca-ro"></div>
+        <div style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Let one slider sweep automatically back and forth. Sweeping a size or material setting also draws faint curves at a few fixed values, so you can see the trend. Press again, or drag the slider, to stop.">Sweep</span>
+          <div class="chips ca-swp" id="ca-swp-mim">
+            <button class="chipbtn" data-w="V">▶ Sweep bias V</button>
+            <button class="chipbtn" data-w="t">▶ Sweep thickness</button>
+            <button class="chipbtn" data-w="a">▶ Sweep size</button>
+            <button class="chipbtn" data-w="f">▶ Sweep frequency</button>
+          </div>
+          <div class="chips ca-swp" id="ca-swp-var" hidden>
+            <button class="chipbtn" data-w="vt">▶ Sweep V_tune</button>
+            <button class="chipbtn" data-w="tox">▶ Sweep t_ox</button>
+            <button class="chipbtn" data-w="nw">▶ Sweep well doping</button>
+            <button class="chipbtn" data-w="lg">▶ Sweep finger length</button>
+            <button class="chipbtn" data-w="f">▶ Sweep frequency</button>
+          </div>
+        </div>
+        <div id="ca-c-mim" style="display:grid;gap:12px">
+          <div style="display:grid;gap:8px">
+            <span class="term" tabindex="0" data-tip="The insulator between the plates. Higher k packs more capacitance per area, but high-k films are less linear and break down at a lower field.">Dielectric</span>
+            <div class="chips" id="ca-di">
+              <button class="chipbtn" data-d="sio2">SiO₂ (k 3.9)</button>
+              <button class="chipbtn" data-d="sin">SiN (k 7)</button>
+              <button class="chipbtn" data-d="al">Al₂O₃ (k 9)</button>
+              <button class="chipbtn" data-d="hf">HfO₂ (k 20)</button>
+            </div>
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="DC voltage across the plates. A good MIM barely changes its capacitance with voltage; that is why it is used for precise analog circuits.">Bias voltage V</span><span id="ca-v-v"></span></div>
+            <input id="ca-v" type="range" min="-10" max="10" step="0.1" value="2">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Dielectric thickness. Thinner gives more capacitance per area, but a lower breakdown voltage and a stronger voltage dependence.">Dielectric thickness t</span><span id="ca-t-v"></span></div>
+            <input id="ca-t" type="range" min="10" max="80" step="1" value="40">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Side of the square plate. A bigger plate gives more capacitance, more series inductance and therefore a lower self-resonance frequency.">Plate size a × a</span><span id="ca-a-v"></span></div>
+            <input id="ca-a" type="range" min="10" max="100" step="1" value="30">
+          </div>
+        </div>
+        <div id="ca-c-var" hidden style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Gate voltage against the n-well. Positive pulls electrons to the surface (accumulation, large C); negative pushes them away and opens a depletion region (small C).">Tuning voltage V_tune</span><span id="ca-vt-v"></span></div>
+            <input id="ca-vt" type="range" min="-1.5" max="1.5" step="0.01" value="0">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Gate oxide thickness. Thinner oxide raises the maximum capacitance and the tuning ratio.">Oxide thickness t_ox</span><span id="ca-tox-v"></span></div>
+            <input id="ca-tox" type="range" min="1.5" max="6" step="0.1" value="2">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Donor doping of the n-well. Lighter doping lets the depletion region grow deeper (smaller C_min, bigger tuning ratio) but raises the well resistance and lowers Q.">Well doping N_D</span><span id="ca-nw-v"></span></div>
+            <input id="ca-nw" type="range" min="16.5" max="18.5" step="0.05" value="17">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Gate length of each finger (40 fingers, each 1 µm wide). Short fingers give a low series resistance and high Q, but the fixed fringe capacitance then limits the tuning ratio.">Finger length L_g</span><span id="ca-lg-v"></span></div>
+            <input id="ca-lg" type="range" min="0.1" max="1" step="0.05" value="0.5">
+          </div>
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Signal frequency at which Q and the effective capacitance are read off (logarithmic slider).">Frequency f</span><span id="ca-f-v"></span></div>
+          <input id="ca-f" type="range" min="-1" max="2.4" step="0.02" value="1">
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="ca-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Characteristics</p>
+        <div class="plots">
+          <div class="plot"><svg id="ca-p1" viewBox="0 0 300 230" role="img" aria-label="Capacitance versus voltage: relative change of a MIM capacitor in ppm, or the C–V curve of the varactor"></svg></div>
+          <div class="plot"><svg id="ca-p2" viewBox="0 0 220 230" role="img" aria-label="Quality factor and effective capacitance versus frequency on a log scale, with the self-resonance frequency"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="ca-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: MIM, MOM, varactor, voltage coefficient, quality factor, ESR, self-resonance, tuning ratio</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>Capacitors on a chip</h3>
+            <div class="tbl"><table>
+              <tr><th>Type</th><th>Density</th><th>C vs V</th><th>Used for</th></tr>
+              <tr><td>MIM (metal-insulator-metal)</td><td>1–10 fF/µm²</td><td>Almost flat (ppm)</td><td>RF matching, ADC, filters, decoupling</td></tr>
+              <tr><td>MOM (finger metal-oxide-metal)</td><td>1–3 fF/µm²</td><td>Flat</td><td>Free in any process, ADC arrays</td></tr>
+              <tr><td>MOS capacitor (thin oxide)</td><td>10–20 fF/µm²</td><td>Strong</td><td>Supply decoupling</td></tr>
+              <tr><td>MOS varactor (accumulation)</td><td>10–20 fF/µm²</td><td>Tunable, ratio 2–4</td><td>VCO tuning</td></tr>
+              <tr><td>Junction varactor (PN diode)</td><td>1–5 fF/µm²</td><td>Tunable, ratio 1.5–3</td><td>VCO tuning in bipolar and BiCMOS</td></tr>
+            </table></div>
+            <h3>Trends to remember</h3>
+            <ol>
+              <li>Thinner or higher-k dielectric: more capacitance per area, but lower breakdown and a larger voltage coefficient.</li>
+              <li>Bigger capacitor: lower reactance, so lower Q at the same series resistance, and a lower self-resonance.</li>
+              <li>Varactor: short fingers give high Q; long fingers and light well doping give a wide tuning range.</li>
+            </ol>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>MIM capacitor</dt><dd>A thin dielectric between a special top plate and a normal metal layer in the back-end; precise and linear.</dd>
+              <dt>MOM capacitor</dt><dd>Interleaved metal fingers on several layers using the normal inter-metal oxide; needs no extra mask.</dd>
+              <dt>Varactor</dt><dd>A capacitor designed to change with its DC voltage, used to tune the frequency of a VCO.</dd>
+              <dt>Voltage coefficient (VCC)</dt><dd>How much the capacitance changes with voltage, written as α₁ (ppm/V) and α₂ (ppm/V²).</dd>
+              <dt>Quality factor Q</dt><dd>Reactance divided by series resistance; the energy stored over the energy lost per cycle (÷ 2π).</dd>
+              <dt>ESR</dt><dd>Equivalent series resistance: plates, vias and, in a varactor, the n-well under the gate.</dd>
+              <dt>Self-resonance (SRF)</dt><dd>The frequency where the series inductance cancels the capacitance; above it the part behaves like an inductor.</dd>
+              <dt>Tuning ratio</dt><dd>C_max / C_min of a varactor; together with the fixed tank capacitance it sets the VCO tuning range.</dd>
             </dl>
           </div>
         </div>
@@ -24779,12 +25103,281 @@ document.querySelectorAll("#mb-vg button").forEach(b => b.addEventListener("clic
 document.querySelectorAll("#mb-play button").forEach(b => b.addEventListener("click", () => { MBS.play = !MBS.play; updateMB(); }));
 [["mb-s", "s"], ["mb-l", "L"], ["mb-n", "n"], ["mb-tox", "tox"]].forEach(([id, k]) => $(id).addEventListener("input", e => { MBS[k] = +e.target.value; if (k === "s") MBS.play = false; updateMB(); }));
 
+/* ===================== CAPACITORS TAB: MIM capacitor and MOS varactor ===================== */
+// MIM: parallel plate C = ε0·k·A/t, voltage coefficients α1, α2 that grow as the film gets thinner (α2 ∝ 1/t²),
+// series resistance and inductance → Q(f), effective capacitance and self-resonance.
+// Varactor: accumulation-mode n+ poly / n-well MOS capacitor (40 fingers × 1 µm). Depletion from V_FB − V = ψ + γ√ψ,
+// ψ capped at 2φF (inversion holes pin it), plus fixed fringe capacitance; well and poly resistance set Q.
+const CAC = setupCanvas($("cvca"), 1000, 488);
+const CAS = {view:"mim", di:"sin", t:40, a:30, V:2, f:1, vt:0, tox:2, nw:17, lg:0.5, sw:null, swu:0, swacc:0, tm:0};
+const CA_DI = {sio2:{name:"SiO₂", k:3.9, ebd:10, a1:5, a2:10}, sin:{name:"SiN", k:7, ebd:8, a1:10, a2:30},
+  al:{name:"Al₂O₃", k:9, ebd:6, a1:20, a2:100}, hf:{name:"HfO₂", k:20, ebd:4, a1:60, a2:400}};   // E_BD in MV/cm; α1 (ppm/V), α2 (ppm/V²) at t = 40 nm
+const CA_F0 = {mim:1, var:+Math.log10(77).toFixed(3)};                                           // default frequency (log10 GHz) of each view
+/* sweepable sliders: [low, high, step, values of the faint trend curves (null = none), slider id] */
+const CA_SW = {V:[-10, 10, 0.1, null, "ca-v"], t:[10, 80, 1, [10, 20, 40, 80], "ca-t"], a:[10, 100, 1, [10, 25, 50, 100], "ca-a"], f:[-1, 2.4, 0.02, null, "ca-f"],
+  vt:[-1.5, 1.5, 0.01, null, "ca-vt"], tox:[1.5, 6, 0.1, [1.5, 2, 3, 5], "ca-tox"], nw:[16.5, 18.5, 0.05, [16.5, 17, 17.5, 18, 18.5], "ca-nw"], lg:[0.1, 1, 0.05, [0.2, 0.5, 1], "ca-lg"]};
+const CA_Q = 1.602e-19, CA_ES = 1.036e-12, CA_EOX = 3.453e-13, CA_VT = 0.02585, CA_NF = 40, CA_WF = 1, CA_CFIX = 600;   // F/cm, V, fingers, µm, fF
+const caGHz = lf => Math.pow(10, lf);
+const caFmtF = g => g >= 10 ? `${g.toFixed(0)} GHz` : g >= 1 ? `${g.toFixed(1)} GHz` : `${(g*1000).toFixed(0)} MHz`;
+const caW = g => 2*Math.PI*g*1e9;
+const caQf = (C, R, L, g) => Math.abs(1/(caW(g)*C) - caW(g)*L)/R;          // C in F, L in H
+const caCe = (C, L, g) => 1/(1 - caW(g)*caW(g)*L*C);                         // C_eff / C
+const caDC = x => Math.abs(x) < 1000 ? `${x.toFixed(0)} ppm` : `${(x/1e4).toFixed(2)} %`;
+
+/* ---------------- models ---------------- */
+function caMim(){
+  const D = CA_DI[CAS.di], dens = 8.854e-12*D.k/(CAS.t*1e-9)*1e3;          // fF/µm²
+  const C0 = dens*CAS.a*CAS.a*1e-3, s = 40/CAS.t;                            // pF
+  const a1 = D.a1*s, a2 = D.a2*s*s, vbd = D.ebd*1e6*CAS.t*1e-7, Rs = 0.15, L = (15 + 0.25*CAS.a)*1e-12;
+  return {D, dens, C0, a1, a2, vbd, Rs, L, srf:1/(2*Math.PI*Math.sqrt(L*C0*1e-12))/1e9, dC:V => a1*V + a2*V*V};
+}
+function caVarC(V){
+  const N = Math.pow(10, CAS.nw), cox = CA_EOX/((CAS.tox + 0.4)*1e-7), LD = Math.sqrt(CA_ES*CA_VT/(CA_Q*N));
+  const vfb = -CA_VT*Math.log(2.8e19/N), phiF2 = 2*CA_VT*Math.log(N/1e10), A = CA_NF*CA_WF*CAS.lg, cpar = 2*CA_NF*CA_WF*0.8;
+  const ser = (a, b) => a*b/(a + b);
+  let c, psi = 0, W = 0, pinned = false;
+  if (V >= vfb){ const cfb = ser(cox, CA_ES/LD); c = cox - (cox - cfb)*Math.exp(-(V - vfb)/0.15); }
+  else { const g = Math.sqrt(2*CA_Q*CA_ES*N)/cox, d = vfb - V, s = (-g + Math.sqrt(g*g + 4*d))/2; psi = s*s;
+    if (psi > phiF2){ psi = phiF2; pinned = true; }
+    W = Math.sqrt(2*CA_ES*psi/(CA_Q*N)); c = ser(cox, CA_ES/Math.sqrt(W*W + LD*LD)); }
+  return {C:c*1e7*A + cpar, cox, coxA:cox*1e7*A, cpar, A, vfb, psi, phiF2, W:W*1e7, acc:V >= vfb, pinned};
+}
+const caVarR = () => (300*Math.pow(1e17/Math.pow(10, CAS.nw), 0.8)*CAS.lg/(12*CA_WF) + 10*CA_WF/(3*CAS.lg))/CA_NF + 0.08;
+function caVar(){
+  const P = caVarC(CAS.vt), cmin = caVarC(-1.5).C, cmax = caVarC(1.5).C, R = caVarR(), L = 3e-12, tr = Math.sqrt((CA_CFIX + cmax)/(CA_CFIX + cmin));
+  return {...P, cmin, cmax, R, L, ratio:cmax/cmin, tune:(tr - 1)/(tr + 1)*100, srf:1/(2*Math.PI*Math.sqrt(L*P.C*1e-15))/1e9};
+}
+// faint trend curves: evaluate fn at fixed values of the swept setting, if it is one of `keys`
+function caFam(keys, fn){
+  const k = CAS.sw, f = k && keys.includes(k) && CA_SW[k][3]; if (!f) return [];
+  const keep = CAS[k], out = f.map(v => { CAS[k] = v; return fn(v); }); CAS[k] = keep; return out;
+}
+const caFamLab = v => ({t:`${v} nm`, a:`${v} µm`, tox:`${v} nm`, nw:sci(Math.pow(10, v)), lg:`${v} µm`})[CAS.sw];
+
+/* ---------------- drawing ---------------- */
+const caRnd = i => { const x = Math.sin(i*12.9898)*43758.5453; return x - Math.floor(x); };
+function caRows(rows, x, y){ rows.forEach(([l, v], i) => { txt(l, x, y + i*25, {px:11}); txt(v, x + 316, y + i*25, {al:"right", px:11, w:700, col:C.fg}); }); }
+function caCap(x, y, vert){ ctx.strokeStyle = C.fg; ctx.lineWidth = 2.4; if (vert){ pl([[x - 12, y - 4],[x + 12, y - 4]]); pl([[x - 12, y + 4],[x + 12, y + 4]]); } else { pl([[x - 4, y - 12],[x - 4, y + 12]]); pl([[x + 4, y - 12],[x + 4, y + 12]]); } }
+function drawCAmim(T){
+  const M = caMim(), V = CAS.V, bd = Math.abs(V) >= M.vbd, g = caGHz(CAS.f);
+  panel(20, 20, 600, 450, "MIM capacitor in the back-end metal stack");
+  ctx.fillStyle = C.oxide; ctx.globalAlpha = .1; ctx.fillRect(40, 44, 560, 346); ctx.globalAlpha = 1;
+  ctx.fillStyle = C.si; ctx.fillRect(40, 390, 560, 70); txt("silicon substrate", 56, 446, {px:10});
+  txt("inter-metal oxide", 590, 60, {al:"right", px:10});
+  const td = clamp(CAS.t*0.45, 6, 36), x0 = 120, x1 = 380, yTop = 200, yDi = yTop + 14, yBot = yDi + td;
+  // upper metal: bottom-plate net (left) and top-plate net (right), with vias
+  ctx.fillStyle = C.metal; ctx.fillRect(50, 90, 72, 20); ctx.fillRect(150, 90, 250, 20);
+  txt("metal Mx+1", 410, 100, {px:10});
+  txt(`${V.toFixed(1)} V`, 275, 78, {al:"center", px:12, w:700, col:C.hole}); txt("0 V", 86, 78, {al:"center", px:12, w:700, col:C.electron});
+  ctx.fillStyle = C.metal; for (let x = 165; x <= 335; x += 42) ctx.fillRect(x - 4, 110, 8, yTop - 110);
+  ctx.fillRect(x0 + 15, yTop, x1 - x0 - 30, 14);
+  ctx.fillRect(70, yBot, 350, 22); ctx.fillRect(82, 110, 8, yBot - 110);
+  // capacitor dielectric (drawn thicker than real)
+  ctx.fillStyle = C.accent; ctx.globalAlpha = .5; ctx.fillRect(x0, yDi, x1 - x0, td); ctx.globalAlpha = 1;
+  txt("top plate (CTM)", 392, yTop + 7, {px:10, col:C.fg}); txt(`${M.D.name} · t = ${CAS.t} nm (drawn thicker)`, 392, yDi + td/2, {px:10, col:C.accent, w:700});
+  txt("bottom plate (metal Mx)", 428, yBot + 13, {px:10, col:C.fg});
+  // charges and field
+  const n = V === 0 ? 0 : 1 + Math.round(clamp(Math.abs(V)/10, 0, 1)*9), pos = V > 0;
+  for (let i = 0; i < n; i++){ const x = x0 + 26 + i*(x1 - x0 - 52)/Math.max(1, n - 1);
+    txt(pos ? "+" : "−", x, yTop + 7, {al:"center", px:12, w:700, col:pos ? C.hole : C.electron});
+    txt(pos ? "−" : "+", x, yBot + 6, {al:"center", px:12, w:700, col:pos ? C.electron : C.hole});
+    if (td > 9){ ctx.strokeStyle = C.fg; ctx.globalAlpha = .55 + .35*Math.sin(T*3 + i); ctx.lineWidth = 1.2; const ya = pos ? yDi + 2 : yBot - 2, yb = pos ? yBot - 2 : yDi + 2, h = pos ? -3 : 3;
+      pl([[x + 12, ya],[x + 12, yb]]); pl([[x + 9, yb + h],[x + 12, yb],[x + 15, yb + h]]); ctx.globalAlpha = 1; } }
+  if (bd){ ctx.strokeStyle = C.hole; ctx.lineWidth = 3; pl([[250, yTop + 12],[243, yDi + td*0.4],[257, yDi + td*0.6],[248, yBot + 2]]);
+    txt("dielectric breakdown: a short through the film", 250, yBot + 48, {al:"center", px:12, w:700, col:C.hole}); }
+  else txt(`a = ${CAS.a} µm square plate (not to scale)`, 245, yBot + 48, {al:"center", px:10});
+  // parasitic capacitance to the substrate
+  [110, 380].forEach(x => { ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.setLineDash([3, 3]); pl([[x, yBot + 22],[x, 382]]); ctx.setLineDash([]); });
+  txt("C_p: bottom plate to substrate (≈ 5 % of C)", 128, 372, {px:10});
+  // equivalent circuit
+  panel(640, 20, 340, 450, "Equivalent circuit");
+  const y = 100; ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6;
+  dot(660, y, C.fg, false, 1, 3); pl([[660, y],[690, y]]);
+  pl([[690, y],[696, y - 8],[706, y + 8],[716, y - 8],[726, y + 8],[732, y]]); pl([[732, y],[756, y]]);
+  ctx.beginPath(); for (let i = 0; i < 4; i++) ctx.arc(764 + i*14, y, 7, Math.PI, 0); ctx.stroke(); pl([[812, y],[846, y]]);
+  caCap(850, y, false); pl([[854, y],[960, y]]); dot(960, y, C.fg, false, 1, 3);
+  pl([[900, y],[900, y + 30]]); caCap(900, y + 34, true); pl([[900, y + 38],[900, y + 62]]); pl([[888, y + 62],[912, y + 62]]); pl([[893, y + 67],[907, y + 67]]);
+  txt("R_s", 711, y - 22, {al:"center", px:11, w:700, col:C.fg}); txt("ESL", 785, y - 22, {al:"center", px:11, w:700, col:C.fg});
+  txt("C(V)", 850, y - 22, {al:"center", px:11, w:700, col:C.accent}); txt("C_p", 918, y + 34, {px:11, w:700, col:C.fg});
+  const Qf = caQf(M.C0*1e-12, M.Rs, M.L, g), above = g >= M.srf;
+  caRows([["Capacitance C₀", `${M.C0.toFixed(2)} pF`], ["Density", `${M.dens.toFixed(2)} fF/µm²`], ["ΔC/C₀ at this bias", caDC(M.dC(V))],
+    ["Voltage coefficients", `${M.a1.toFixed(0)} ppm/V, ${M.a2.toFixed(0)} ppm/V²`], ["Breakdown voltage", `${M.vbd.toFixed(1)} V`],
+    ["R_s / ESL", `${M.Rs.toFixed(2)} Ω / ${(M.L*1e12).toFixed(0)} pH`], ["Self-resonance", caFmtF(M.srf)], ["Frequency f", caFmtF(g)],
+    ["Q at f", Qf.toFixed(0)], ["C_eff / C₀ at f", above ? "inductive" : caCe(M.C0*1e-12, M.L, g).toFixed(2)]], 652, 200);
+  txt(above ? "above self-resonance: it behaves as an inductor" : g > 0.5*M.srf ? "close to self-resonance: C_eff rises" : "well below self-resonance: a nearly ideal capacitor",
+    810, 452, {al:"center", px:11, w:700, col:above ? C.hole : C.accent});
+}
+function drawCAvar(T){
+  const P = caVar(), V = CAS.vt, g = caGHz(CAS.f), yS = 250, gx0 = 230, gx1 = 410;
+  panel(20, 20, 600, 450, "Accumulation-mode MOS varactor: one finger");
+  ctx.fillStyle = C.pplus; ctx.fillRect(40, 404, 560, 56); txt("p-substrate", 56, 446, {px:10, col:C.hole});
+  ctx.fillStyle = C.nplus; ctx.globalAlpha = .7; ctx.fillRect(60, yS, 520, 154); ctx.globalAlpha = 1;
+  txt("n-well", 76, 390, {px:11, w:700, col:C.electron});
+  const wig = P.acc ? 0 : 3*Math.sin(T*5), Wpx = P.acc ? 0 : clamp(P.W*0.9, 4, 140) + wig;
+  // free electrons of the n-well (outside the depletion region and the n+ regions)
+  for (let i = 0; i < 90; i++){ const x = 70 + caRnd(i)*500, y = yS + 40 + caRnd(i + 300)*104;
+    if (x > gx0 && x < gx1 && y < yS + Wpx + 6) continue; dot(x + 2*Math.sin(T*2 + i), y + 2*Math.cos(T*1.7 + i), C.electron, false, .8, 2.4); }
+  if (!P.acc){ ctx.fillStyle = C.deplete; ctx.fillRect(gx0, yS, gx1 - gx0, Wpx);
+    for (let y = yS + 10; y < yS + Wpx - 4; y += 16) for (let x = gx0 + 12; x < gx1 - 6; x += 22) txt("⊕", x, y, {al:"center", px:10, col:C.ion});
+    ctx.strokeStyle = C.electron; ctx.lineWidth = 1.4; ctx.setLineDash([4, 3]); pl([[gx0, yS + Wpx],[gx1, yS + Wpx]]); ctx.setLineDash([]); }
+  else { const fa = 1 - Math.exp(-(V - P.vfb)/0.15), n = 6 + Math.round(fa*24);
+    for (let i = 0; i < n; i++) dot(gx0 + 6 + (i + 0.5)*(gx1 - gx0 - 12)/n + 1.5*Math.sin(T*3 + i), yS + 5 + 2*caRnd(i + 50), C.electron, false, 1, 2.8); }
+  ctx.fillStyle = C.nplus; ctx.fillRect(100, yS, gx0 - 100, 34); ctx.fillRect(gx1, yS, 130, 34);
+  txt("n+", 165, yS + 17, {al:"center", px:11, w:700, col:C.fg}); txt("n+", gx1 + 65, yS + 17, {al:"center", px:11, w:700, col:C.fg});
+  ctx.fillStyle = C.oxide; ctx.fillRect(gx0, yS - 8, gx1 - gx0, 8); ctx.fillStyle = C.metal; ctx.fillRect(gx0, yS - 60, gx1 - gx0, 52);
+  txt("n+ poly gate", (gx0 + gx1)/2, yS - 42, {al:"center", px:11, w:700, col:C.fg}); txt(`L_g = ${CAS.lg.toFixed(2)} µm`, (gx0 + gx1)/2, yS - 22, {al:"center", px:10, col:C.fg});
+  txt(`oxide t_ox = ${CAS.tox.toFixed(1)} nm`, 483, yS - 12, {px:10, col:C.fg});
+  // wiring: gate up to the tank, both n+ contacts to the tuning node (hop over the gate wire)
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; const xm = (gx0 + gx1)/2;
+  pl([[xm, yS - 60],[xm, 84]]); pl([[165, yS],[165, 150],[xm - 8, 150]]); ctx.beginPath(); ctx.arc(xm, 150, 8, Math.PI, 0); ctx.stroke(); pl([[xm + 8, 150],[475, 150],[475, yS]]);
+  txt("gate: to the VCO tank", xm, 72, {al:"center", px:11, w:700, col:C.fg}); txt(`well contacts: V_G − V_well = ${V.toFixed(2)} V`, 475, 136, {al:"center", px:10, col:C.fg});
+  const msg = P.acc ? "accumulation: electrons pile up under the oxide → C ≈ C_ox" : P.pinned ? "depletion stops at ψs = 2φF (inversion holes): C = C_min" : `depletion: W = ${P.W.toFixed(0)} nm → C = C_ox in series with C_dep`;
+  txt(msg, 320, 52, {al:"center", px:12, w:700, col:P.acc ? C.electron : C.accent});
+  // VCO tank and numbers
+  panel(640, 20, 340, 450, "VCO tank and numbers");
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; pl([[690, 60],[930, 60]]); pl([[690, 150],[930, 150]]);
+  pl([[700, 60],[700, 76]]); ctx.beginPath(); for (let i = 0; i < 4; i++) ctx.arc(700, 83 + i*14, 7, -Math.PI/2, Math.PI/2); ctx.stroke(); pl([[700, 132],[700, 150]]);
+  pl([[800, 60],[800, 101]]); caCap(800, 105, true); pl([[800, 109],[800, 150]]);
+  pl([[900, 60],[900, 101]]); caCap(900, 105, true); pl([[900, 109],[900, 150]]); pl([[884, 122],[916, 88]]); pl([[908, 88],[916, 88],[916, 96]]);
+  txt("L", 700, 166, {al:"center", px:11, w:700, col:C.fg}); txt("C_fix 600 fF", 800, 166, {al:"center", px:10, col:C.fg}); txt("C_var", 900, 166, {al:"center", px:11, w:700, col:C.accent});
+  caRows([["V_tune", `${V.toFixed(2)} V`], ["Flat-band V_FB", `${P.vfb.toFixed(2)} V`], ["Capacitance", `${P.C.toFixed(0)} fF`],
+    ["C_max / C_min", `${P.cmax.toFixed(0)} / ${P.cmin.toFixed(0)} fF`], ["Tuning ratio", P.ratio.toFixed(2)], ["Fringe C_par", `${P.cpar.toFixed(0)} fF`],
+    ["Series R_s", `${P.R.toFixed(2)} Ω`], ["Frequency f", caFmtF(g)], ["Q at f", caQf(P.C*1e-15, P.R, P.L, g).toFixed(1)], ["VCO tuning range", `±${P.tune.toFixed(1)} %`]], 652, 190);
+  txt(P.ratio < 2 ? "low ratio: the fixed fringe C dominates" : "Q falls as C rises: worst at C_max", 810, 452, {al:"center", px:11, w:700, col:C.accent});
+}
+function drawCA(dt, T){
+  begin(CAC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488);
+  if (CAS.view === "mim") drawCAmim(T); else drawCAvar(T);
+}
+
+/* ---------------- plots ---------------- */
+function caAxes(W, H, m, x0, x1, y0, y1, xt, yt, xLab, yLab){
+  const X = v => m.l + (v - x0)/(x1 - x0)*(W - m.l - m.r), Y = v => H - m.b - (clamp(v, y0, y1) - y0)/(y1 - y0)*(H - m.t - m.b);
+  let s = "";
+  yt.forEach(([v, l]) => s += `<line x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)"/><text x="${m.l - 5}" y="${Y(v) + 3}" text-anchor="end">${l}</text>`);
+  xt.forEach(([v, l]) => s += `<text x="${X(v)}" y="${H - m.b + 14}" text-anchor="middle">${l}</text>`);
+  s += `<text x="${(m.l + W - m.r)/2}" y="${H - 2}" text-anchor="middle">${xLab}</text><text x="${m.l}" y="${m.t - 6}">${yLab}</text>`;
+  const frame = `<line x1="${m.l}" x2="${m.l}" y1="${m.t}" y2="${H - m.b}" stroke="var(--muted)"/><line x1="${m.l}" x2="${W - m.r}" y1="${H - m.b}" y2="${H - m.b}" stroke="var(--muted)"/>`;
+  return {X, Y, s, frame};
+}
+// Q (log, left) and C_eff/C (0–3, right; same height) versus log frequency; curves: [{C (F), R, L, lab, bold}]
+function caFreqPlot(curves, srf){
+  const m = {l:30, r:24, t:28, b:30}, A = caAxes(220, 230, m, -1, 2.4, 0, 3, [[-1, "0.1"], [0, "1"], [1, "10"], [2, "100"]], [[0, "1"], [1, "10"], [2, "100"], [3, "1000"]], "f (GHz)", "Q");
+  const fs = range(-1, 2.4, 170), lq = q => Math.log10(Math.max(q, 1));
+  let s = A.s + [0, 1, 2, 3].map(v => `<text x="${220 - m.r + 4}" y="${A.Y(v) + 3}" style="fill:var(--electron)">${v}×</text>`).join("");
+  if (srf < 251){ s += `<line x1="${A.X(Math.log10(srf))}" x2="${A.X(Math.log10(srf))}" y1="${m.t}" y2="${230 - m.b}" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${A.X(Math.log10(srf)) - 3}" y="${m.t + 10}" text-anchor="end" style="fill:var(--hole)">SRF</text>`; }
+  curves.forEach(c => {
+    const q = fs.map(lf => [lf, lq(caQf(c.C, c.R, c.L, caGHz(lf)))]), ce = fs.filter(lf => caGHz(lf)*caGHz(lf)*caW(1)*caW(1)*c.L*c.C < 0.95).map(lf => [lf, Math.min(3, caCe(c.C, c.L, caGHz(lf)))]).filter(p => p[1] < 3);
+    const op = c.bold ? "" : ` opacity=".35"`, w = c.bold ? 2.2 : 1.1;
+    s += `<path d="${pathOf(q, A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="${w}"${op}/>`;
+    if (c.bold || c.ce) s += `<path d="${pathOf(ce, A.X, A.Y)}" fill="none" stroke="var(--electron)" stroke-width="${c.bold ? 1.8 : 1}" stroke-dasharray="5 3"${op}/>`;
+    if (c.lab){ const lf = 0.9, y = A.Y(lq(caQf(c.C, c.R, c.L, caGHz(lf)))); s += `<text x="${A.X(lf) - 3}" y="${y - 3}" text-anchor="end" style="fill:var(--muted);font-size:9px">${c.lab}</text>`; }
+  });
+  const b = curves.find(c => c.bold);
+  return s + A.frame + dotSvg(A.X(CAS.f), A.Y(lq(caQf(b.C, b.R, b.L, caGHz(CAS.f))))) + `<text x="34" y="12" style="fill:var(--accent)">— Q</text><text x="66" y="12" style="fill:var(--electron)">- - C_eff / C</text>`;
+}
+function drawCAPlots(){
+  let a = "", b = "";
+  if (CAS.view === "mim"){
+    const M = caMim(), vs = range(-10, 10, 100), pct = x => x/1e4;
+    const curve = Mx => vs.filter(v => Math.abs(v) < Mx.vbd).map(v => [v, pct(Mx.dC(v))]);
+    let faint = caFam(["t"], v => ({lab:caFamLab(v), pts:curve(caMim())}));
+    if (!faint.length){ const keep = CAS.di; faint = Object.keys(CA_DI).filter(k => k !== keep).map(k => { CAS.di = k; const Mk = caMim(); return {lab:Mk.D.name, pts:curve(Mk)}; }); CAS.di = keep; }
+    const own = curve(M), ys = own.map(p => p[1]), span = Math.max(0.01, Math.max(...ys) - Math.min(0, ...ys)), st = niceStep(span/4);
+    const y0 = Math.floor(Math.min(0, ...ys)/st)*st, y1 = Math.ceil(Math.max(...ys)*1.15/st)*st || st;
+    const A = axesR(300, 230, {l:40, r:10, t:28, b:30}, -10, 10, y0, y1, 5, st, "V (V)", "ΔC/C₀ (%)"), inR = p => p[1] >= y0 && p[1] <= y1;
+    a = A.s + faint.map(c => { const p = c.pts.filter(inR); if (p.length < 2) return ""; const e = p[p.length - 1];
+      return `<path d="${pathOf(p, A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="1.1" opacity=".35"/><text x="${A.X(e[0]) - 2}" y="${A.Y(e[1]) + 10}" text-anchor="end" style="fill:var(--muted);font-size:9px">${c.lab}</text>`; }).join("");
+    if (M.vbd < 10) [-1, 1].forEach(sg => { const x = A.X(sg*M.vbd); a += `<line x1="${x}" x2="${x}" y1="28" y2="200" stroke="var(--hole)" stroke-dasharray="3 3"/>`; });
+    if (M.vbd < 10) a += `<text x="${A.X(M.vbd) - 3}" y="40" text-anchor="end" style="fill:var(--hole)">breakdown</text>`;
+    a += `<path d="${pathOf(own, A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + A.frame + dotSvg(A.X(clamp(CAS.V, -M.vbd, M.vbd)), A.Y(pct(M.dC(clamp(CAS.V, -M.vbd, M.vbd)))))
+      + `<text x="44" y="12" style="fill:var(--accent)">— ${M.D.name}, t = ${CAS.t} nm</text>`;
+    const fam = caFam(["t", "a"], v => { const Mk = caMim(); return {C:Mk.C0*1e-12, R:Mk.Rs, L:Mk.L, lab:caFamLab(v), ce:true}; });
+    b = caFreqPlot([...fam, {C:M.C0*1e-12, R:M.Rs, L:M.L, bold:true}], M.srf);
+  } else {
+    const P = caVar(), vs = range(-1.5, 1.5, 120), curve = () => vs.map(v => [v, caVarC(v).C]);
+    const fam = caFam(["tox", "nw", "lg"], v => ({lab:caFamLab(v), pts:curve(), C:caVarC(CAS.vt).C, R:caVarR()})), own = curve();
+    const mx = Math.max(...own.map(p => p[1]), ...fam.flatMap(c => c.pts.map(p => p[1]))), st = niceStep(mx/4), y1 = Math.ceil(mx*1.05/st)*st;
+    const A = axesR(300, 230, {l:40, r:10, t:28, b:30}, -1.5, 1.5, 0, y1, 0.5, st, "V_tune (V)", "C (fF)");
+    a = A.s + fam.map(c => { const e = c.pts[c.pts.length - 1]; return `<path d="${pathOf(c.pts, A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="1.1" opacity=".35"/><text x="${A.X(e[0]) - 2}" y="${A.Y(e[1]) - 4}" text-anchor="end" style="fill:var(--muted);font-size:9px">${c.lab}</text>`; }).join("");
+    a += `<line x1="${A.X(P.vfb)}" x2="${A.X(P.vfb)}" y1="28" y2="200" stroke="var(--muted)" stroke-dasharray="2 3"/><text x="${A.X(P.vfb) + 3}" y="196">V_FB</text>`;
+    a += `<line x1="${A.X(-1.5)}" x2="${A.X(1.5)}" y1="${A.Y(P.cpar)}" y2="${A.Y(P.cpar)}" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${A.X(1.45)}" y="${A.Y(P.cpar) - 4}" text-anchor="end" style="fill:var(--hole)">fringe C_par</text>`;
+    a += `<path d="${pathOf(own, A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + A.frame + dotSvg(A.X(CAS.vt), A.Y(P.C))
+      + `<text x="44" y="12" style="fill:var(--accent)">— C–V of the varactor (${CA_NF} fingers)</text>`;
+    const fc = fam.length ? fam.map(c => ({C:c.C*1e-15, R:c.R, L:P.L, lab:c.lab})) : [{C:P.cmin*1e-15, R:P.R, L:P.L, lab:"C_min"}, {C:P.cmax*1e-15, R:P.R, L:P.L, lab:"C_max"}];
+    b = caFreqPlot([...fc, {C:P.C*1e-15, R:P.R, L:P.L, bold:true}], P.srf);
+  }
+  $("ca-p1").innerHTML = a; $("ca-p2").innerHTML = b;
+}
+
+/* ---------------- DOM ---------------- */
+const CAINFO = {
+  mim:{pill:"MIM", name:"MIM capacitor", sub:"A thin dielectric between two metal plates in the back-end: precise, linear and high Q",
+    text:"A MIM (metal-insulator-metal) capacitor is built above the transistors, between two metal layers: a special thin top plate (CTM), a dielectric film of a few tens of nanometres and the normal metal below. C = ε₀·k·A/t, so a thinner film or a higher-k material gives more capacitance per area. Because both plates are metal there is no depletion region, and the capacitance hardly moves with voltage: only a few ppm per volt, set by the dielectric itself. That is why MIM capacitors are used in ADCs, filters and RF matching. The price of a thin, high-k film is a lower breakdown voltage and a larger voltage coefficient. At high frequency the plates and vias add series resistance and inductance: Q = 1/(ωC·R_s) falls with frequency and with capacitor size, and at the self-resonance frequency the inductance cancels the capacitance. Below it the effective capacitance rises; above it the capacitor behaves like an inductor."},
+  var:{pill:"VAR", name:"MOS varactor", sub:"A MOS capacitor whose capacitance the voltage tunes: the heart of a VCO",
+    text:"An accumulation-mode MOS varactor is an n+ poly gate on a thin oxide over an n-well, with n+ contacts instead of a source and drain. A positive gate voltage pulls the well's electrons to the surface (accumulation) and the capacitance is the full oxide capacitance C_ox. A negative voltage pushes them away and leaves a depletion region of fixed donor ions; its capacitance is in series with C_ox, so the total falls. The depletion grows until the surface potential reaches 2φF, where holes would start to invert it, so C flattens at C_min. Fringe and overlap capacitance does not tune, so it adds to both ends and limits the tuning ratio C_max/C_min. In a VCO the varactor sits in parallel with the tank inductor and fixed capacitance: changing V_tune changes the oscillation frequency. Its series resistance comes from the well under the gate and the poly fingers; short fingers keep it low and Q high, which matters at 77 GHz where the varactor often limits the phase noise."}
+};
+Object.assign(TIP, {
+  "Capacitance C₀":"Zero-bias capacitance of the MIM.", "Density":"Capacitance per area, ε₀k/t.", "Q at f":"Quality factor at the chosen frequency.", "Self-resonance":"Where the series inductance cancels the capacitance.",
+  "Varactor C":"Varactor capacitance at this tuning voltage, including fringe.", "Tuning ratio":"C_max / C_min over −1.5 to +1.5 V.", "VCO tuning range":"Frequency range of a tank with 600 fF fixed capacitance.",
+  "Parallel plate":"Ideal plate capacitor.", "Voltage coefficient":"Measured polynomial fit.", "Dielectric breakdown":"Critical field times thickness.", "Quality factor":"Reactance over series resistance.",
+  "Effective C":"Rise of C toward self-resonance.", "Gate oxide C":"With 0.4 nm extra for poly depletion and the quantum dark space.", "Flat-band voltage":"n+ poly gate on an n-well.",
+  "Depletion":"Depletion approximation, capped at strong inversion.", "C in series":"Oxide and depletion capacitance in series, plus fringe.", "Series resistance":"Distributed well and poly resistance of the fingers.", "VCO tuning":"LC tank frequency."
+});
+const CALEG = {
+  mim:[["metal","Metal plates and vias"],["accent","Capacitor dielectric"],["oxide","Inter-metal oxide"],["hole","+ charge"],["electron","− charge"],["si","Substrate"]],
+  var:[["metal","n+ poly gate"],["oxide","Gate oxide"],["nplus","n+ and n-well"],["deplete","Depletion region"],["electron","Electrons"],["pplus","p-substrate"]]
+};
+const caChip = (sel, attr, on) => document.querySelectorAll(sel).forEach(b => { const o = on(b.dataset[attr]); b.setAttribute("aria-pressed", o); b.style.borderColor = o ? "var(--accent)" : ""; b.style.color = o ? "var(--accent)" : ""; });
+function updateCA(){
+  const v = CAS.view, info = CAINFO[v], g = caGHz(CAS.f);
+  $("ca-pill").textContent = info.pill; $("ca-name").textContent = info.name; $("ca-sub").textContent = info.sub; $("ca-explain").textContent = info.text;
+  document.querySelectorAll("#ca-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  $("ca-c-mim").hidden = v !== "mim"; $("ca-c-var").hidden = v !== "var"; $("ca-swp-mim").hidden = v !== "mim"; $("ca-swp-var").hidden = v !== "var";
+  caChip(".ca-swp button", "w", w => w === CAS.sw); caChip("#ca-di button", "d", d => d === CAS.di);
+  $("ca-v-v").textContent = `${CAS.V.toFixed(1)} V`; $("ca-t-v").textContent = `${CAS.t} nm`; $("ca-a-v").textContent = `${CAS.a} × ${CAS.a} µm`; $("ca-f-v").textContent = caFmtF(g);
+  $("ca-vt-v").textContent = `${CAS.vt.toFixed(2)} V`; $("ca-tox-v").textContent = `${CAS.tox.toFixed(1)} nm`; $("ca-nw-v").textContent = `${sci(Math.pow(10, CAS.nw))} cm⁻³`; $("ca-lg-v").textContent = `${CAS.lg.toFixed(2)} µm`;
+  setHTML("ca-legend", CALEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  let ro, eq;
+  if (v === "mim"){ const M = caMim(), Q = caQf(M.C0*1e-12, M.Rs, M.L, g), above = g >= M.srf;
+    ro = [["Capacitance C₀", `${M.C0.toFixed(2)} pF`], ["Density", `${M.dens.toFixed(2)} fF/µm²`], ["Q at f", Q.toFixed(0)], ["Self-resonance", caFmtF(M.srf)]];
+    eq = [{name:"Parallel plate", f:"C = ε₀ · k · A / t", sub:`k = ${M.D.k}, t = ${CAS.t} nm, A = ${CAS.a} × ${CAS.a} µm² → ${M.C0.toFixed(2)} pF`},
+      {name:"Voltage coefficient", f:"C(V) = C₀ · (1 + α₁·V + α₂·V²),  α ∝ 1/t, 1/t²", sub:`α₁ = ${M.a1.toFixed(0)} ppm/V, α₂ = ${M.a2.toFixed(0)} ppm/V² → ΔC/C₀(${CAS.V.toFixed(1)} V) = ${caDC(M.dC(CAS.V))}`},
+      {name:"Dielectric breakdown", f:"V_BD = E_BD · t", sub:`${M.D.ebd} MV/cm × ${CAS.t} nm = ${M.vbd.toFixed(1)} V`},
+      {name:"Quality factor", f:"Q = |1/(ωC) − ωL| / R_s", sub:`R_s = ${M.Rs.toFixed(2)} Ω, L = ${(M.L*1e12).toFixed(0)} pH → Q(${caFmtF(g)}) = ${Q.toFixed(0)}`},
+      {name:"Effective C", f:"f_SR = 1 / (2π·√(L·C)),  C_eff = C / (1 − ω²LC)", sub:above ? `f_SR = ${caFmtF(M.srf)}: above it the part is inductive` : `f_SR = ${caFmtF(M.srf)} → C_eff(${caFmtF(g)}) = ${caCe(M.C0*1e-12, M.L, g).toFixed(2)} × C₀`}];
+  } else { const P = caVar(), Q = caQf(P.C*1e-15, P.R, P.L, g);
+    ro = [["Varactor C", `${P.C.toFixed(0)} fF`], ["Tuning ratio", P.ratio.toFixed(2)], ["Q at f", Q.toFixed(1)], ["VCO tuning range", `±${P.tune.toFixed(1)} %`]];
+    eq = [{name:"Gate oxide C", f:"C_ox = ε_ox / (t_ox + 0.4 nm)", sub:`= ${(P.cox*1e7).toFixed(1)} fF/µm² × ${P.A.toFixed(0)} µm² = ${P.coxA.toFixed(0)} fF`},
+      {name:"Flat-band voltage", f:"V_FB = −(kT/q) · ln(N_C / N_D)", sub:`N_D = ${sci(Math.pow(10, CAS.nw))} cm⁻³ → V_FB = ${P.vfb.toFixed(2)} V`},
+      {name:"Depletion", f:"V_FB − V = ψ + γ√ψ,  W = √(2ε_s·ψ / qN_D),  ψ ≤ 2φF", sub:P.acc ? "accumulation: no depletion region" : `ψ = ${P.psi.toFixed(2)} V (2φF = ${P.phiF2.toFixed(2)} V) → W = ${P.W.toFixed(0)} nm`},
+      {name:"C in series", f:"1/C = 1/C_ox + 1/C_dep,  plus fringe C_par", sub:`C = ${P.C.toFixed(0)} fF (C_par = ${P.cpar.toFixed(0)} fF); C_max/C_min = ${P.ratio.toFixed(2)}`},
+      {name:"Series resistance", f:"R_s ≈ (R_well · L_g / 12W + R_poly · W / 3L_g) / N_f", sub:`L_g = ${CAS.lg.toFixed(2)} µm → R_s = ${P.R.toFixed(2)} Ω → Q(${caFmtF(g)}) = ${Q.toFixed(1)}`},
+      {name:"VCO tuning", f:"f = 1 / (2π·√(L·(C_fix + C_var)))", sub:`C_fix = ${CA_CFIX} fF → f_max / f_min = ${(1 + P.tune/100)/(1 - P.tune/100) > 0 ? ((1 + P.tune/100)/(1 - P.tune/100)).toFixed(3) : "–"}`}];
+  }
+  renderRo($("ca-ro"), ro); renderEq($("ca-eq"), eq);
+  drawCAPlots();
+}
+function caTick(dt){
+  if (!(dt >= 0)) return; CAS.tm += dt;
+  if (CAS.sw){ const [lo, hi, st, , id] = CA_SW[CAS.sw]; CAS.swu = (CAS.swu + dt/8) % 2; const f = CAS.swu < 1 ? CAS.swu : 2 - CAS.swu;
+    CAS[CAS.sw] = +(lo + Math.round((hi - lo)*f/st)*st).toFixed(2); $(id).value = CAS[CAS.sw];
+    CAS.swacc += dt; if (CAS.swacc > 0.1){ CAS.swacc = 0; updateCA(); } }
+}
+document.querySelectorAll("#ca-view button").forEach(b => b.addEventListener("click", () => { CAS.view = b.dataset.v;
+  if (!findCrawling){ CAS.sw = null; CAS.f = CA_F0[CAS.view]; $("ca-f").value = CAS.f; } updateCA(); }));
+document.querySelectorAll("#ca-di button").forEach(b => b.addEventListener("click", () => { CAS.di = b.dataset.d; updateCA(); }));
+document.querySelectorAll(".ca-swp button").forEach(b => b.addEventListener("click", () => { const w = b.dataset.w; if (CAS.sw === w) CAS.sw = null;
+  else { CAS.sw = w; const [lo, hi] = CA_SW[w]; CAS.swu = clamp((CAS[w] - lo)/(hi - lo), 0, 1); } updateCA(); }));
+[["ca-v", "V"], ["ca-t", "t"], ["ca-a", "a"], ["ca-f", "f"], ["ca-vt", "vt"], ["ca-tox", "tox"], ["ca-nw", "nw"], ["ca-lg", "lg"]].forEach(([id, k]) =>
+  $(id).addEventListener("input", e => { CAS[k] = +e.target.value; if (CAS.sw === k) CAS.sw = null; updateCA(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb","ca"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown", ca:"#capacitors"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev", ca:"rf"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -24829,6 +25422,7 @@ function showTab(t){
   else if (t === "sc"){ $("sub-top").textContent = "SiC power · PVT crystal growth and defects, drift layer design, gate oxide and reliability"; SCC.resize(); updateSC(); }
   else if (t === "ml"){ $("sub-top").textContent = "Miller effect · gate charge and the Miller plateau, amplifier bandwidth, dV/dt-induced turn-on"; MLC.resize(); updateML(); }
   else if (t === "mb"){ $("sub-top").textContent = "MOS breakdown · avalanche, snapback, punch-through and gate oxide breakdown"; MBC.resize(); updateMB(); }
+  else if (t === "ca"){ $("sub-top").textContent = "Capacitors · MIM and MOS varactor: C versus voltage and frequency"; CAC.resize(); updateCA(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -24866,6 +25460,7 @@ function frame(now){
   else if (tab === "sc"){ scTick(dt); if (SCC.cv.clientWidth) drawSC(dt, T); }
   else if (tab === "ml"){ mlTick(dt); if (MLC.cv.clientWidth) drawML(dt, T); }
   else if (tab === "mb"){ mbTick(dt); if (MBC.cv.clientWidth) drawMB(dt, T); }
+  else if (tab === "ca"){ caTick(dt); if (CAC.cv.clientWidth) drawCA(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);

@@ -174,6 +174,11 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Screening** – GDBN with a neighbourhood close-up, PAT on IDDQ with robust limits, latent defects caught vs escaped, yield loss vs DPPM
 - **Latent defects from the fab** – foreign-material drop, gate-oxide thin spot, via void, etch residue, CMP micro-scratch, mobile ions and plasma (antenna) damage, each animated in three acts (how it forms in the fab, why it passes the wafer test, how it fails in the field); the life of one die through test, burn-in and use; burn-in acceleration AF_T·AF_V (Arrhenius, voltage), bathtub curve with and without burn-in, parameter drift vs the test limit, first-year field ppm
 
+## Capacitors tab (`#capacitors`)
+- **MIM capacitor** – back-end cross-section (top plate, dielectric, bottom plate, vias, parasitic C to substrate) with charges and field; SiO₂ / SiN / Al₂O₃ / HfO₂, thickness, plate size and bias; ΔC/C₀ versus voltage (α₁, α₂ growing as 1/t, 1/t²) with breakdown; Q and C_eff versus frequency with the self-resonance
+- **MOS varactor** – accumulation-mode n+ poly / n-well finger with the accumulation layer or depletion region; C–V with V_FB, depletion capped at 2φF and fringe C; Q versus frequency, tuning ratio and the VCO tuning range of a tank with 600 fF fixed C
+- **Sweep** – ▶ buttons sweep bias, thickness, size, frequency, V_tune, t_ox, well doping or finger length; size and material sweeps draw faint curves at fixed values to show the trend
+
 ## Quiz and glossary
 - **Quiz** (? button in the header) – multiple-choice questions generated from the "Explain the terms" list of the open tab, or of all tabs; score, feedback and a link to the term in its tab
 - **Glossary** (book button) – every term explained on the site (about 390) in one filterable alphabetical list, each linked to its tab; works in English and Chinese
