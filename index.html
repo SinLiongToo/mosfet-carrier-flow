@@ -8871,6 +8871,7 @@ Object.assign(window.I18N_ZH, {
 "A MOS capacitor whose capacitance the voltage tunes: the heart of a VCO": "電容可由電壓調整的 MOS 電容：VCO 的核心",
 "An accumulation-mode MOS varactor is an n+ poly gate on a thin oxide over an n-well, with n+ contacts instead of a source and drain. A positive gate voltage pulls the well's electrons to the surface (accumulation) and the capacitance is the full oxide capacitance C_ox. A negative voltage pushes them away and leaves a depletion region of fixed donor ions; its capacitance is in series with C_ox, so the total falls. The depletion grows until the surface potential reaches #φF, where holes would start to invert it, so C flattens at C_min. Fringe and overlap capacitance does not tune, so it adds to both ends and limits the tuning ratio C_max/C_min. In a VCO the varactor sits in parallel with the tank inductor and fixed capacitance: changing V_tune changes the oscillation frequency. Its series resistance comes from the well under the gate and the poly fingers; short fingers keep it low and Q high, which matters at # GHz where the varactor often limits the phase noise.": "累積型 MOS 變容器是在 n 井上、隔著薄氧化層的 n+ 複晶矽閘極，兩側用 n+ 接點取代源極與汲極。正閘極電壓把井中的電子吸到表面（累積），電容就是完整的氧化層電容 C_ox。負電壓把電子推開，留下由固定施體離子構成的空乏區；它的電容與 C_ox 串聯，所以總電容下降。空乏區一直長到表面電位達到 #φF，此時電洞開始反轉表面，C 便停在 C_min。邊緣與重疊電容不會被調諧，兩端都要加上它，因此限制了調諧比 C_max/C_min。在 VCO 中，變容器與諧振腔電感及固定電容並聯：改變 V_tune 就改變振盪頻率。它的串聯電阻來自閘極下方的井與複晶矽指；指短可以讓電阻低、Q 高，這在 # GHz 很重要，因為變容器常常限制了相位雜訊。"
 });
+Object.assign(window.I18N_ZH, {"C_eff at f": "f 下的 C_eff", "Capacitance the circuit sees at frequency f: C / (1 − ω²LC), rising toward self-resonance.": "電路在頻率 f 看到的電容：C / (# − ω²LC)，越接近自振頻率越大。", "C_eff = # pF": "C_eff = # pF", "C_eff = # fF": "C_eff = # fF"});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -25273,8 +25274,11 @@ function caFreqPlot(curves, srf){
     if (c.bold || c.ce) s += `<path d="${pathOf(ce, A.X, A.Y)}" fill="none" stroke="var(--electron)" stroke-width="${c.bold ? 1.8 : 1}" stroke-dasharray="5 3"${op}/>`;
     if (c.lab){ const lf = 0.9, y = A.Y(lq(caQf(c.C, c.R, c.L, caGHz(lf)))); s += `<text x="${A.X(lf) - 3}" y="${y - 3}" text-anchor="end" style="fill:var(--muted);font-size:9px">${c.lab}</text>`; }
   });
-  const b = curves.find(c => c.bold);
-  return s + A.frame + dotSvg(A.X(CAS.f), A.Y(lq(caQf(b.C, b.R, b.L, caGHz(CAS.f))))) + `<text x="34" y="12" style="fill:var(--accent)">— Q</text><text x="66" y="12" style="fill:var(--electron)">- - C_eff / C</text>`;
+  const b = curves.find(c => c.bold), g = caGHz(CAS.f), x = A.X(CAS.f), ce = caW(g)*caW(g)*b.L*b.C < 1 ? caCe(b.C, b.L, g) : null;
+  const unit = b.C > 1e-12 ? [1e12, "pF", 2] : [1e15, "fF", 0], cv = ce === null ? null : ce*b.C*unit[0], left = CAS.f > 1.2;
+  if (ce !== null && ce <= 3) s += `<circle cx="${x}" cy="${A.Y(ce)}" r="5" fill="var(--electron)" stroke="var(--panel)" stroke-width="2"/>`;
+  s += `<text x="${left ? x - 8 : x + 8}" y="${ce !== null && ce <= 3 ? A.Y(ce) - 9 : 60}" text-anchor="${left ? "end" : "start"}" style="fill:var(--electron);font-size:10px">${ce === null ? "inductive" : `C_eff = ${cv.toFixed(unit[2])} ${unit[1]}`}</text>`;
+  return s + A.frame + dotSvg(x, A.Y(lq(caQf(b.C, b.R, b.L, g)))) + `<text x="34" y="12" style="fill:var(--accent)">— Q</text><text x="66" y="12" style="fill:var(--electron)">- - C_eff / C</text>`;
 }
 function drawCAPlots(){
   let a = "", b = "";
@@ -25318,7 +25322,7 @@ const CAINFO = {
     text:"An accumulation-mode MOS varactor is an n+ poly gate on a thin oxide over an n-well, with n+ contacts instead of a source and drain. A positive gate voltage pulls the well's electrons to the surface (accumulation) and the capacitance is the full oxide capacitance C_ox. A negative voltage pushes them away and leaves a depletion region of fixed donor ions; its capacitance is in series with C_ox, so the total falls. The depletion grows until the surface potential reaches 2φF, where holes would start to invert it, so C flattens at C_min. Fringe and overlap capacitance does not tune, so it adds to both ends and limits the tuning ratio C_max/C_min. In a VCO the varactor sits in parallel with the tank inductor and fixed capacitance: changing V_tune changes the oscillation frequency. Its series resistance comes from the well under the gate and the poly fingers; short fingers keep it low and Q high, which matters at 77 GHz where the varactor often limits the phase noise."}
 };
 Object.assign(TIP, {
-  "Capacitance C₀":"Zero-bias capacitance of the MIM.", "Density":"Capacitance per area, ε₀k/t.", "Q at f":"Quality factor at the chosen frequency.", "Self-resonance":"Where the series inductance cancels the capacitance.",
+  "Capacitance C₀":"Zero-bias capacitance of the MIM.", "C_eff at f":"Capacitance the circuit sees at frequency f: C / (1 − ω²LC), rising toward self-resonance.", "Density":"Capacitance per area, ε₀k/t.", "Q at f":"Quality factor at the chosen frequency.", "Self-resonance":"Where the series inductance cancels the capacitance.",
   "Varactor C":"Varactor capacitance at this tuning voltage, including fringe.", "Tuning ratio":"C_max / C_min over −1.5 to +1.5 V.", "VCO tuning range":"Frequency range of a tank with 600 fF fixed capacitance.",
   "Parallel plate":"Ideal plate capacitor.", "Voltage coefficient":"Measured polynomial fit.", "Dielectric breakdown":"Critical field times thickness.", "Quality factor":"Reactance over series resistance.",
   "Effective C":"Rise of C toward self-resonance.", "Gate oxide C":"With 0.4 nm extra for poly depletion and the quantum dark space.", "Flat-band voltage":"n+ poly gate on an n-well.",
@@ -25340,7 +25344,7 @@ function updateCA(){
   setHTML("ca-legend", CALEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
   let ro, eq;
   if (v === "mim"){ const M = caMim(), Q = caQf(M.C0*1e-12, M.Rs, M.L, g), above = g >= M.srf;
-    ro = [["Capacitance C₀", `${M.C0.toFixed(2)} pF`], ["Density", `${M.dens.toFixed(2)} fF/µm²`], ["Q at f", Q.toFixed(0)], ["Self-resonance", caFmtF(M.srf)]];
+    ro = [["Capacitance C₀", `${M.C0.toFixed(2)} pF`], ["C_eff at f", above ? "inductive" : `${(M.C0*caCe(M.C0*1e-12, M.L, g)).toFixed(2)} pF`], ["Q at f", Q.toFixed(0)], ["Self-resonance", caFmtF(M.srf)]];
     eq = [{name:"Parallel plate", f:"C = ε₀ · k · A / t", sub:`k = ${M.D.k}, t = ${CAS.t} nm, A = ${CAS.a} × ${CAS.a} µm² → ${M.C0.toFixed(2)} pF`},
       {name:"Voltage coefficient", f:"C(V) = C₀ · (1 + α₁·V + α₂·V²),  α ∝ 1/t, 1/t²", sub:`α₁ = ${M.a1.toFixed(0)} ppm/V, α₂ = ${M.a2.toFixed(0)} ppm/V² → ΔC/C₀(${CAS.V.toFixed(1)} V) = ${caDC(M.dC(CAS.V))}`},
       {name:"Dielectric breakdown", f:"V_BD = E_BD · t", sub:`${M.D.ebd} MV/cm × ${CAS.t} nm = ${M.vbd.toFixed(1)} V`},
