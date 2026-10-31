@@ -8872,6 +8872,7 @@ Object.assign(window.I18N_ZH, {
 "An accumulation-mode MOS varactor is an n+ poly gate on a thin oxide over an n-well, with n+ contacts instead of a source and drain. A positive gate voltage pulls the well's electrons to the surface (accumulation) and the capacitance is the full oxide capacitance C_ox. A negative voltage pushes them away and leaves a depletion region of fixed donor ions; its capacitance is in series with C_ox, so the total falls. The depletion grows until the surface potential reaches #φF, where holes would start to invert it, so C flattens at C_min. Fringe and overlap capacitance does not tune, so it adds to both ends and limits the tuning ratio C_max/C_min. In a VCO the varactor sits in parallel with the tank inductor and fixed capacitance: changing V_tune changes the oscillation frequency. Its series resistance comes from the well under the gate and the poly fingers; short fingers keep it low and Q high, which matters at # GHz where the varactor often limits the phase noise.": "累積型 MOS 變容器是在 n 井上、隔著薄氧化層的 n+ 複晶矽閘極，兩側用 n+ 接點取代源極與汲極。正閘極電壓把井中的電子吸到表面（累積），電容就是完整的氧化層電容 C_ox。負電壓把電子推開，留下由固定施體離子構成的空乏區；它的電容與 C_ox 串聯，所以總電容下降。空乏區一直長到表面電位達到 #φF，此時電洞開始反轉表面，C 便停在 C_min。邊緣與重疊電容不會被調諧，兩端都要加上它，因此限制了調諧比 C_max/C_min。在 VCO 中，變容器與諧振腔電感及固定電容並聯：改變 V_tune 就改變振盪頻率。它的串聯電阻來自閘極下方的井與複晶矽指；指短可以讓電阻低、Q 高，這在 # GHz 很重要，因為變容器常常限制了相位雜訊。"
 });
 Object.assign(window.I18N_ZH, {"C_eff at f": "f 下的 C_eff", "Capacitance the circuit sees at frequency f: C / (1 − ω²LC), rising toward self-resonance.": "電路在頻率 f 看到的電容：C / (# − ω²LC)，越接近自振頻率越大。", "C_eff = # pF": "C_eff = # pF", "C_eff = # fF": "C_eff = # fF"});
+Object.assign(window.I18N_ZH, {"Smith chart (L · R · C)": "史密斯圖（L · R · C）", "Smith chart · add series and shunt L, R and C to a load and match it to Z₀": "史密斯圖 · 在負載上加入串聯與並聯的 L、R、C，並匹配到 Z₀", "Add series and shunt L, R and C elements to a load and watch the impedance move on the chart": "在負載上加入串聯與並聯的 L、R、C 元件，觀察阻抗在圖上如何移動", "Add an element": "加入元件", "+ Series L": "+ 串聯 L", "+ Series C": "+ 串聯 C", "+ Series R": "+ 串聯 R", "+ Shunt L": "+ 並聯 L", "+ Shunt C": "+ 並聯 C", "+ Shunt R": "+ 並聯 R", "Auto L-match": "自動 L 型匹配", "Undo last": "復原上一步", "Clear all": "全部清除", "Load": "負載", "Resistive (R)": "電阻性（R）", "Inductive (R + L)": "電感性（R + L）", "Capacitive (R + C)": "電容性（R + C）", "Load resistance R_L": "負載電阻 R_L", "Load inductance L_L": "負載電感 L_L", "Load capacitance C_L": "負載電容 C_L", "Impedance grid": "阻抗格線", "Admittance grid": "導納格線", "Both": "兩者", "Match versus frequency": "匹配對頻率", "# · Series L": "# · 串聯 L", "# · Series C": "# · 串聯 C", "# · Series R": "# · 串聯 R", "# · Shunt L": "# · 並聯 L", "# · Shunt C": "# · 並聯 C", "# · Shunt R": "# · 並聯 R", "Power to load": "送到負載的功率", "Reflection coefficient": "反射係數", "Normalized impedance": "正規化阻抗", "Reactance": "電抗", "Series element": "串聯元件", "Shunt element": "並聯元件", "VSWR and return loss": "VSWR 與回波損耗", "Power to the load": "送到負載的功率", "no series element yet": "尚無串聯元件", "no shunt element yet": "尚無並聯元件", "L (series or shunt)": "L（串聯或並聯）", "C (series or shunt)": "C（串聯或並聯）", "R (series or shunt)": "R（串聯或並聯）", "r = 1 and g = 1 circles": "r = 1 與 g = 1 圓", "Z_in from 0.7 f to 1.4 f": "Z_in 從 0.7 f 到 1.4 f", "VSWR circle": "VSWR 圓", "Explain the terms: Smith chart, normalized impedance, constant-R circle, constant-X arc, admittance chart, L-match": "名詞解釋：史密斯圖、正規化阻抗、等電阻圓、等電抗弧、導納圖、L 型匹配", "How each element moves the point": "每個元件如何移動這個點", "Matching recipe": "匹配步驟", "Normalized impedance z": "正規化阻抗 z", "Constant-R circle": "等電阻圓", "Constant-X arc": "等電抗弧", "Admittance chart": "導納圖", "Short and open circuit": "短路與開路", "Matched load": "匹配負載", "L-match": "L 型匹配", "Mismatch loss": "失配損耗", "Transducer gain": "轉換增益", "Start by adding an element, or press Auto L-match.": "先加入一個元件，或按「自動 L 型匹配」。"});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -9283,6 +9284,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-ml" aria-selected="false" aria-controls="tab-ml">Miller effect</button>
         <button role="tab" id="tab-btn-mb" aria-selected="false" aria-controls="tab-mb">MOS breakdown</button>
         <button role="tab" id="tab-btn-ca" aria-selected="false" aria-controls="tab-ca">Capacitors (MIM · varactor)</button>
+        <button role="tab" id="tab-btn-sm" aria-selected="false" aria-controls="tab-sm">Smith chart (L · R · C)</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -13687,6 +13689,129 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>ESR</dt><dd>Equivalent series resistance: plates, vias and, in a varactor, the n-well under the gate.</dd>
               <dt>Self-resonance (SRF)</dt><dd>The frequency where the series inductance cancels the capacitance; above it the part behaves like an inductor.</dd>
               <dt>Tuning ratio</dt><dd>C_max / C_min of a varactor; together with the fixed tank capacitance it sets the VCO tuning range.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== SMITH CHART TAB (L · R · C matching) ===================== -->
+  <section id="tab-sm" role="tabpanel" aria-labelledby="tab-btn-sm" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="sm-pill">Z₀ 50 Ω</span><h2 id="sm-name">Smith chart</h2></div>
+      <p id="sm-sub">Add series and shunt L, R and C elements to a load and watch the impedance move on the chart</p>
+    </div>
+
+    <section class="device">
+      <canvas id="cvsm" style="touch-action:none;cursor:crosshair" aria-label="Smith chart with the load, the path each added element draws and the input impedance, next to the schematic of the network from the port to the load with the impedance at every node"></canvas>
+      <div class="legend" id="sm-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="sm-ro"></div>
+        <div style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Each new element goes between the network built so far and the port, so the first one sits next to the load. Series elements move the point along a constant-resistance circle (L up, C down) or, for R, toward the open circuit. Shunt elements move it along a constant-conductance circle (C down, L up) or, for R, toward the short circuit.">Add an element</span>
+          <div class="chips" id="sm-add">
+            <button class="chipbtn" data-a="sL">+ Series L</button>
+            <button class="chipbtn" data-a="sC">+ Series C</button>
+            <button class="chipbtn" data-a="sR">+ Series R</button>
+            <button class="chipbtn" data-a="pL">+ Shunt L</button>
+            <button class="chipbtn" data-a="pC">+ Shunt C</button>
+            <button class="chipbtn" data-a="pR">+ Shunt R</button>
+          </div>
+          <div class="chips" id="sm-act">
+            <button class="chipbtn" data-x="match"><span class="term" tabindex="0" data-tip="Replace the network with a two-element L-match that brings the load to the centre at the current frequency. Press again for the other solution.">Auto L-match</span></button>
+            <button class="chipbtn" data-x="undo">Undo last</button>
+            <button class="chipbtn" data-x="clear">Clear all</button>
+          </div>
+        </div>
+        <div id="sm-list" style="display:grid;gap:10px"></div>
+        <div style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="What sits at the end of the line. A resistor alone lies on the horizontal axis; adding a series inductor puts it in the upper (inductive) half, a series capacitor in the lower (capacitive) half. You can also click or drag on the chart to move the load.">Load</span>
+          <div class="chips" id="sm-lt">
+            <button class="chipbtn" data-t="R">Resistive (R)</button>
+            <button class="chipbtn" data-t="RL">Inductive (R + L)</button>
+            <button class="chipbtn" data-t="RC">Capacitive (R + C)</button>
+          </div>
+        </div>
+        <div class="slider">
+          <div class="lab"><span>Load resistance R_L</span><span id="sm-rl-v"></span></div>
+          <input id="sm-rl" type="range" min="0" max="3" step="0.005" value="1.398">
+        </div>
+        <div class="slider" id="sm-ll-row">
+          <div class="lab"><span>Load inductance L_L</span><span id="sm-ll-v"></span></div>
+          <input id="sm-ll" type="range" min="-1" max="2" step="0.005" value="0.4">
+        </div>
+        <div class="slider" id="sm-cl-row">
+          <div class="lab"><span>Load capacitance C_L</span><span id="sm-cl-v"></span></div>
+          <input id="sm-cl" type="range" min="-2" max="2" step="0.005" value="0">
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Signal frequency (logarithmic slider). Inductors and capacitors change their reactance with frequency, so a match made at one frequency drifts away at others.">Frequency f</span><span id="sm-f-v"></span></div>
+          <input id="sm-f" type="range" min="-1" max="1" step="0.002" value="0.380">
+        </div>
+        <div class="chips">
+          <div class="seg" id="sm-z0" role="group" aria-label="Reference impedance">
+            <button data-z="50">Z₀ = 50 Ω</button><button data-z="75">75 Ω</button>
+          </div>
+          <div class="seg" id="sm-grid" role="group" aria-label="Chart grid">
+            <button data-g="Z">Impedance grid</button><button data-g="Y">Admittance grid</button><button data-g="ZY">Both</button>
+          </div>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="sm-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Match versus frequency</p>
+        <div class="plots">
+          <div class="plot"><svg id="sm-p1" viewBox="0 0 300 230" role="img" aria-label="Return loss of the input versus frequency, with and without the matching network"></svg></div>
+          <div class="plot"><svg id="sm-p2" viewBox="0 0 220 230" role="img" aria-label="Share of the available power that reaches the load, is reflected or is burnt in resistors, versus frequency"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="sm-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: Smith chart, normalized impedance, constant-R circle, constant-X arc, admittance chart, L-match</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>How each element moves the point</h3>
+            <div class="tbl"><table>
+              <tr><th>Element</th><th>Adds</th><th>Moves along</th><th>Direction</th></tr>
+              <tr><td>Series L</td><td>+jωL to Z</td><td>constant-R circle</td><td>clockwise (up, inductive)</td></tr>
+              <tr><td>Series C</td><td>−j/(ωC) to Z</td><td>constant-R circle</td><td>counter-clockwise (down)</td></tr>
+              <tr><td>Series R</td><td>R to Z</td><td>constant-X arc</td><td>toward the open circuit</td></tr>
+              <tr><td>Shunt C</td><td>+jωC to Y</td><td>constant-G circle</td><td>clockwise (down)</td></tr>
+              <tr><td>Shunt L</td><td>−j/(ωL) to Y</td><td>constant-G circle</td><td>counter-clockwise (up)</td></tr>
+              <tr><td>Shunt R</td><td>1/R to Y</td><td>constant-B arc</td><td>toward the short circuit</td></tr>
+            </table></div>
+            <h3>Matching recipe</h3>
+            <ol>
+              <li>Plot the load. If it lies inside the r = 1 circle (R_L &gt; Z₀), start with a shunt element; otherwise start with a series element.</li>
+              <li>Move with the first element until you reach the circle that passes through the centre: the g = 1 circle for a series first step, the r = 1 circle for a shunt first step.</li>
+              <li>Move along that circle to the centre with the second element. Only L and C are used, so no power is lost.</li>
+              <li>Check the bandwidth: the further the load is from the centre, the faster the match drifts with frequency.</li>
+            </ol>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>Normalized impedance z</dt><dd>Z / Z₀ = r + jx. The chart is drawn in z so it works for any reference impedance.</dd>
+              <dt>Constant-R circle</dt><dd>All impedances with the same resistance; the circles touch at the open-circuit point on the right.</dd>
+              <dt>Constant-X arc</dt><dd>All impedances with the same reactance: upper half inductive (+jX), lower half capacitive (−jX).</dd>
+              <dt>Admittance chart</dt><dd>The same chart rotated by 180°: circles of constant conductance G and susceptance B, handy for shunt elements.</dd>
+              <dt>Short and open circuit</dt><dd>The left end of the axis (Z = 0, Γ = −1) and the right end (Z = ∞, Γ = +1).</dd>
+              <dt>Matched load</dt><dd>Z = Z₀ at the centre of the chart, Γ = 0: all the power goes into the load.</dd>
+              <dt>L-match</dt><dd>Two reactive elements, one series and one shunt, that transform any load to Z₀ at one frequency.</dd>
+              <dt>Mismatch loss</dt><dd>Power lost to reflection, −10·log(1 − |Γ|²) dB.</dd>
+              <dt>Transducer gain</dt><dd>Power delivered to the load divided by the power the source could deliver; below 1 when power is reflected or burnt in resistors.</dd>
             </dl>
           </div>
         </div>
@@ -25376,12 +25501,277 @@ document.querySelectorAll(".ca-swp button").forEach(b => b.addEventListener("cli
 [["ca-v", "V"], ["ca-t", "t"], ["ca-a", "a"], ["ca-f", "f"], ["ca-vt", "vt"], ["ca-tox", "tox"], ["ca-nw", "nw"], ["ca-lg", "lg"]].forEach(([id, k]) =>
   $(id).addEventListener("input", e => { CAS[k] = +e.target.value; if (CAS.sw === k) CAS.sw = null; updateCA(); }));
 
+/* ===================== SMITH CHART TAB: build a matching network from series / shunt L, R, C ===================== */
+// Elements are listed from the load toward the port. Series: Z' = Z + Z_e; shunt: Y' = Y + Y_e (Y = 1/Z).
+// Each element's path on the chart is drawn by growing its Z_e (or Y_e) from 0 to its value.
+// Power: V_L = 1, I_L = 1/Z_L walked back to the port; transducer gain G_T = 4·Z0·Re(V_L·I_L*)/|V_s|², V_s = V + Z0·I.
+const SMC = setupCanvas($("cvsm"), 1000, 500);
+const SMS = {z0:50, grid:"Z", lt:"RL", rl:1.398, ll:0.4, cl:0, f:0.38, els:[], sol:0, drag:false};
+const SM_K = {L:{u:"nH", lo:-2, hi:3, d:0.5}, C:{u:"pF", lo:-3, hi:3, d:0}, R:{u:"Ω", lo:-0.3, hi:3, d:1.3}};   // log10 slider range and default
+const SM_COL = {L:"electron", C:"hole", R:"accent"}, SM_MAX = 6;
+const SM_CX = 272, SM_CY = 262, SM_R = 192;
+const smAdd = (a, b) => [a[0] + b[0], a[1] + b[1]];
+const smMul = (a, b) => [a[0]*b[0] - a[1]*b[1], a[0]*b[1] + a[1]*b[0]];
+const smInv = a => { const d = a[0]*a[0] + a[1]*a[1]; return d < 1e-30 ? [1e15, 0] : [a[0]/d, -a[1]/d]; };
+const smG = Z => Math.hypot(Z[0], Z[1]) > 1e12 ? [1, 0] : smMul([Z[0] - SMS.z0, Z[1]], smInv([Z[0] + SMS.z0, Z[1]]));
+const smGHz = lf => Math.pow(10, lf);
+const smW = (lf = SMS.f) => 2*Math.PI*smGHz(lf)*1e9;
+const smFf = g => g >= 1 ? `${g.toFixed(2)} GHz` : `${(g*1000).toFixed(0)} MHz`;
+const smFval = (x, u) => { const p = x >= 100 ? 0 : x >= 10 ? 1 : x >= 1 ? 2 : 3; return `${x.toFixed(p)} ${u}`; };
+const smFv = e => smFval(Math.pow(10, e.v), SM_K[e.k].u);
+const smFz = Z => { if (Math.hypot(Z[0], Z[1]) > 1e6) return "∞ (open)"; const p = v => Math.abs(v) >= 1000 ? Math.abs(v).toFixed(0) : Math.abs(v).toFixed(1);
+  return `${p(Z[0])} ${Z[1] < 0 ? "−" : "+"} j${p(Z[1])} Ω`; };
+const smFg = G => `${Math.hypot(G[0], G[1]).toFixed(3)} ∠ ${(Math.atan2(G[1], G[0])*180/Math.PI).toFixed(0)}°`;
+const smName = e => `${e.sh ? "Shunt" : "Series"} ${e.k}`;
+
+function smImm(e, w){ const v = Math.pow(10, e.v);
+  if (e.k === "R") return e.sh ? [1/v, 0] : [v, 0];
+  if (e.k === "L"){ const x = w*v*1e-9; return e.sh ? [0, -1/x] : [0, x]; }
+  const b = w*v*1e-12; return e.sh ? [0, b] : [0, -1/b];
+}
+function smZL(w){ const R = Math.pow(10, SMS.rl);
+  return SMS.lt === "RL" ? [R, w*Math.pow(10, SMS.ll)*1e-9] : SMS.lt === "RC" ? [R, -1/(w*Math.pow(10, SMS.cl)*1e-12)] : [R, 0]; }
+function smChain(w){
+  const ZL = smZL(w), nodes = [ZL]; let Z = ZL, V = [1, 0], I = smInv(ZL);
+  SMS.els.forEach(e => { const q = smImm(e, w);
+    if (e.sh){ Z = smInv(smAdd(smInv(Z), q)); I = smAdd(I, smMul(q, V)); }
+    else { Z = smAdd(Z, q); V = smAdd(V, smMul(q, I)); }
+    nodes.push(Z); });
+  const z0 = SMS.z0, Vs = [V[0] + z0*I[0], V[1] + z0*I[1]], vs2 = Vs[0]*Vs[0] + Vs[1]*Vs[1];
+  const load = 4*z0*smInv(ZL)[0]/vs2, inp = 4*z0*(V[0]*I[0] + V[1]*I[1])/vs2, G = smG(Z), g = Math.hypot(G[0], G[1]);
+  return {nodes, Z, G, g, load, refl:Math.max(0, 1 - inp), lost:Math.max(0, inp - load)};
+}
+// points of the path an element draws: one component of Z (series) or Y (shunt) grows from its old to its new value,
+// interpolated on an arctan scale so even a huge reactance gives an evenly sampled arc
+function smArc(Z, e, w, n = 64){
+  const q = smImm(e, w), B = e.sh ? smInv(Z) : Z, s = e.sh ? 1/SMS.z0 : SMS.z0, c = e.k === "R" ? 0 : 1;
+  const a0 = Math.atan(B[c]/s), a1 = Math.atan((B[c] + q[c])/s), out = [];
+  for (let j = 0; j <= n; j++){ const P = B.slice(); P[c] = s*Math.tan(a0 + (a1 - a0)*j/n); out.push(smG(e.sh ? smInv(P) : P)); }
+  return out;
+}
+// two-element L-match of the load to Z0 at the current frequency (Pozar): shunt first if R_L > Z0, else series first
+function smLMatch(sol){
+  const w = smW(), [R, X] = smZL(w), z0 = SMS.z0, sg = sol ? -1 : 1;
+  const lim = (k, v) => clamp(+v.toFixed(3), SM_K[k].lo, SM_K[k].hi);
+  const ser = Xs => Math.abs(Xs) < 1e-4*z0 ? null : Xs > 0 ? {k:"L", sh:false, v:lim("L", Math.log10(Xs/w*1e9))} : {k:"C", sh:false, v:lim("C", Math.log10(-1/(w*Xs)*1e12))};
+  const shu = B => Math.abs(B) < 1e-4/z0 ? null : B > 0 ? {k:"C", sh:true, v:lim("C", Math.log10(B/w*1e12))} : {k:"L", sh:true, v:lim("L", Math.log10(-1/(w*B)*1e9))};
+  if (R > z0){
+    const B = (X + sg*Math.sqrt(R/z0)*Math.sqrt(R*R + X*X - z0*R))/(R*R + X*X);
+    return Math.abs(B) < 1e-12 ? [ser(-X)].filter(Boolean) : [shu(B), ser(1/B + X*z0/R - z0/(B*R))].filter(Boolean);
+  }
+  return [ser(sg*Math.sqrt(R*(z0 - R)) - X), shu(sg*Math.sqrt((z0 - R)/R)/z0)].filter(Boolean);
+}
+
+/* ---------------- drawing ---------------- */
+const smP = G => [SM_CX + SM_R*G[0], SM_CY - SM_R*G[1]];
+function smGrid(sg, col, dash, a){
+  ctx.strokeStyle = col; ctx.lineWidth = 1; ctx.setLineDash(dash); ctx.globalAlpha = a;
+  [0.2, 0.5, 1, 2, 5].forEach(r => { ctx.beginPath(); ctx.arc(SM_CX + sg*SM_R*r/(1 + r), SM_CY, SM_R/(1 + r), 0, 2*Math.PI); ctx.stroke(); });
+  [0.2, 0.5, 1, 2, 5].forEach(x => [-1, 1].forEach(sy => { ctx.beginPath(); ctx.arc(SM_CX + sg*SM_R, SM_CY + sy*SM_R/x, SM_R/x, 0, 2*Math.PI); ctx.stroke(); }));
+  ctx.setLineDash([]); ctx.globalAlpha = 1;
+}
+function smPath(pts, col, w, dash = []){ ctx.strokeStyle = col; ctx.lineWidth = w; ctx.setLineDash(dash); pl(pts.map(smP)); ctx.setLineDash([]); }
+function smHead(pts, col){
+  const n = pts.length - 1, [x1, y1] = smP(pts[n]); let k = n;
+  while (k > 0 && Math.hypot(smP(pts[k])[0] - x1, smP(pts[k])[1] - y1) < 10) k--;
+  const [x0, y0] = smP(pts[k]); if (Math.hypot(x1 - x0, y1 - y0) < 2) return;
+  const a = Math.atan2(y1 - y0, x1 - x0), h = 11; ctx.fillStyle = col;
+  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x1 - h*Math.cos(a - 0.45), y1 - h*Math.sin(a - 0.45)); ctx.lineTo(x1 - h*Math.cos(a + 0.45), y1 - h*Math.sin(a + 0.45)); ctx.closePath(); ctx.fill();
+}
+function smBadge(x, y, s, col){ ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x, y, 8, 0, 2*Math.PI); ctx.fill(); txt(s, x, y + 0.5, {al:"center", px:10, w:700, col:C.bg}); }
+function drawSMChart(T, ch, w){
+  panel(20, 20, 505, 462, `Smith chart · Z₀ = ${SMS.z0} Ω`);
+  ctx.save(); ctx.beginPath(); ctx.arc(SM_CX, SM_CY, SM_R, 0, 2*Math.PI); ctx.fillStyle = C.panel; ctx.fill(); ctx.clip();
+  if (SMS.grid !== "Y") smGrid(1, C.muted, [], .45);
+  if (SMS.grid !== "Z") smGrid(-1, C.oxide, [4, 3], .6);
+  // the two circles through the centre that every L-match ends on
+  ctx.lineWidth = 1.6; ctx.globalAlpha = .55; ctx.strokeStyle = C.channel;
+  ctx.beginPath(); ctx.arc(SM_CX + SM_R/2, SM_CY, SM_R/2, 0, 2*Math.PI); ctx.stroke();
+  ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.arc(SM_CX - SM_R/2, SM_CY, SM_R/2, 0, 2*Math.PI); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1; pl([[SM_CX - SM_R, SM_CY], [SM_CX + SM_R, SM_CY]]);
+  // VSWR circle through Z_in
+  ctx.strokeStyle = C.fg; ctx.globalAlpha = .35; ctx.setLineDash([2, 4]); ctx.beginPath(); ctx.arc(SM_CX, SM_CY, SM_R*ch.g, 0, 2*Math.PI); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1;
+  // Z_in across 0.7 f … 1.4 f
+  const band = range(SMS.f - 0.155, SMS.f + 0.146, 60).map(lf => smChain(smW(lf)).G);
+  smPath(band, C.muted, 1.4, [6, 3]);
+  // element paths
+  SMS.els.forEach((e, i) => { const pts = smArc(ch.nodes[i], e, w), col = C[SM_COL[e.k]];
+    smPath(pts, col, 3.2); smHead(pts, col); const m = smP(pts[Math.floor(pts.length/2)]); smBadge(m[0], m[1], i + 1, col); });
+  ctx.restore();
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(SM_CX, SM_CY, SM_R, 0, 2*Math.PI); ctx.stroke();
+  // labels
+  [0.2, 0.5, 1, 2, 5].forEach(r => txt(String(r), SM_CX + SM_R*(r - 1)/(r + 1) + 3, SM_CY - 7, {px:9}));
+  [0.2, 0.5, 1, 2, 5].forEach(x => [-1, 1].forEach(sy => { const a = Math.atan2(2*x*sy, x*x - 1);
+    txt(`${sy > 0 ? "+" : "−"}j${x}`, SM_CX + (SM_R + 14)*Math.cos(a), SM_CY - (SM_R + 12)*Math.sin(a), {al:"center", px:9}); }));
+  txt("Short", 30, SM_CY - 10, {px:10, col:C.fg, w:600}); txt("Γ = −1", 30, SM_CY + 6, {px:9});
+  txt("Open", 515, SM_CY - 10, {al:"right", px:10, col:C.fg, w:600}); txt("Γ = +1", 515, SM_CY + 6, {al:"right", px:9});
+  txt("+jX inductive", 30, 48, {px:10, col:C.electron, w:600}); txt("−jX capacitive", 30, 470, {px:10, col:C.hole, w:600});
+  txt("r = 1", 515, 48, {al:"right", px:9, col:C.channel}); txt("- - g = 1", 515, 62, {al:"right", px:9, col:C.channel});
+  // load, nodes and input
+  ch.nodes.slice(1, -1).forEach(Z => { const [x, y] = smP(smG(Z)); ctx.fillStyle = C.fg; ctx.beginPath(); ctx.arc(x, y, 3.5, 0, 2*Math.PI); ctx.fill(); });
+  const [lx, ly] = smP(smG(ch.nodes[0]));
+  ctx.fillStyle = C.panel; ctx.strokeStyle = C.fg; ctx.lineWidth = 2.4; ctx.beginPath(); ctx.arc(lx, ly, 6, 0, 2*Math.PI); ctx.fill(); ctx.stroke();
+  txt("Z_L", lx + 10, ly - 10, {px:11, w:700, col:C.fg});
+  const [ix, iy] = smP(ch.G), pr = 8 + 2*Math.sin(T*4);
+  ctx.fillStyle = C.accent; ctx.globalAlpha = .25; ctx.beginPath(); ctx.arc(ix, iy, pr + 4, 0, 2*Math.PI); ctx.fill(); ctx.globalAlpha = 1;
+  ctx.beginPath(); ctx.arc(ix, iy, 6, 0, 2*Math.PI); ctx.fill(); ctx.strokeStyle = C.panel; ctx.lineWidth = 2; ctx.stroke();
+  if (SMS.els.length) txt("Z_in", ix + 10, iy + 12, {px:11, w:700, col:C.accent});
+  ctx.fillStyle = C.fg; ctx.beginPath(); ctx.arc(SM_CX, SM_CY, 2.5, 0, 2*Math.PI); ctx.fill();
+}
+// element symbol along x from −18 to +18 around (x, y); vertical when vert
+function smSym(k, x, y, vert, col){
+  ctx.save(); ctx.translate(x, y); if (vert) ctx.rotate(Math.PI/2);
+  ctx.strokeStyle = col; ctx.lineWidth = 2.4; ctx.lineJoin = "round"; ctx.lineCap = "round";
+  if (k === "R"){ pl([[-18, 0], [-12, 0], ...range(0, 1, 12).slice(1, 12).map((t, i) => [-12 + 24*t, i % 2 ? 6 : -6]), [12, 0], [18, 0]]); }
+  else if (k === "L"){ pl([[-18, 0], [-12, 0]]); for (let i = 0; i < 4; i++){ ctx.beginPath(); ctx.arc(-9 + 6*i, 0, 3, Math.PI, 0); ctx.stroke(); } pl([[12, 0], [18, 0]]); }
+  else { pl([[-18, 0], [-4, 0]]); pl([[4, 0], [18, 0]]); ctx.lineWidth = 3; pl([[-4, -10], [-4, 10]]); pl([[4, -10], [4, 10]]); }
+  ctx.restore();
+}
+function drawSMNet(ch){
+  panel(540, 20, 440, 222, "Network: port ← elements ← load");
+  const yt = 92, yb = 192, xp = 578, xl = 948, n = SMS.els.length, sw = n ? Math.min(62, 300/n) : 60;
+  const xs = SMS.els.map((e, i) => 912 - (i + 0.5)*sw);
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 2; ctx.lineCap = "round";
+  let x0 = xp;
+  SMS.els.map((e, i) => [xs[i], e]).filter(([, e]) => !e.sh).sort((a, b) => a[0] - b[0]).forEach(([x]) => { pl([[x0, yt], [x - 18, yt]]); x0 = x + 18; });
+  pl([[x0, yt], [xl, yt]]); pl([[xp, yb], [xl, yb]]);
+  // port with source and Z0
+  ctx.strokeStyle = C.muted; pl([[xp, yt], [xp, yb]]); ctx.fillStyle = C.panel2; ctx.beginPath(); ctx.arc(xp, (yt + yb)/2, 15, 0, 2*Math.PI); ctx.fill();
+  ctx.strokeStyle = C.fg; ctx.stroke(); ctx.beginPath(); for (let t = 0; t <= 20; t++){ const u = -9 + 18*t/20; ctx.lineTo(xp + u, (yt + yb)/2 - 5*Math.sin(u/9*Math.PI)); } ctx.stroke();
+  txt("Port", xp, yt - 26, {al:"center", px:11, w:700, col:C.fg}); txt(`Z₀ = ${SMS.z0} Ω`, xp, yt - 12, {al:"center", px:9});
+  txt("Z_in →", xp + 34, yt + 14, {px:9, col:C.accent});
+  // load box
+  ctx.fillStyle = C.panel2; ctx.fillRect(xl - 10, yt + 22, 20, yb - yt - 44); ctx.strokeStyle = C.fg; ctx.lineWidth = 2; ctx.strokeRect(xl - 10, yt + 22, 20, yb - yt - 44);
+  ctx.strokeStyle = C.muted; pl([[xl, yt], [xl, yt + 22]]); pl([[xl, yb - 22], [xl, yb]]);
+  txt("Z_L", xl, yt - 12, {al:"center", px:11, w:700, col:C.fg});
+  ctx.fillStyle = C.fg; [[xp, yt], [xl, yt]].forEach(([x, y]) => { ctx.beginPath(); ctx.arc(x, y, 2.5, 0, 2*Math.PI); ctx.fill(); });
+  SMS.els.forEach((e, i) => { const x = xs[i], col = C[SM_COL[e.k]];
+    if (e.sh){ ctx.strokeStyle = C.muted; ctx.lineWidth = 2; pl([[x, yt], [x, yt + 32]]); pl([[x, yb - 32], [x, yb]]); smSym(e.k, x, (yt + yb)/2, true, col);
+      ctx.fillStyle = C.fg; [yt, yb].forEach(y => { ctx.beginPath(); ctx.arc(x, y, 2.5, 0, 2*Math.PI); ctx.fill(); }); smBadge(x + 15, (yt + yb)/2 - 22, i + 1, col); }
+    else { smSym(e.k, x, yt, false, col); smBadge(x, yt - 22, i + 1, col); }
+    txt(smFv(e), x, yb + 14 + (i % 2)*12, {al:"center", px:9, col}); });
+  if (!n) txt("Add an element with the + buttons", 745, (yt + yb)/2, {al:"center", px:11});
+  // table of impedances
+  panel(540, 254, 440, 228, "Impedance at each node");
+  const rows = [["Load Z_L", ch.nodes[0]], ...SMS.els.map((e, i) => [`${i + 1} · ${smName(e)} ${smFv(e)}`, ch.nodes[i + 1]])];
+  txt("Z", 830, 284, {al:"right", px:10}); txt("|Γ|", 966, 284, {al:"right", px:10});
+  rows.forEach(([l, Z], i) => { const y = 306 + i*22, last = i === rows.length - 1 && i > 0, e = SMS.els[i - 1];
+    txt(l, 556, y, {px:11, col:e ? C[SM_COL[e.k]] : C.fg, w:600}); txt(smFz(Z), 830, y, {al:"right", px:11, w:700, col:last ? C.accent : C.fg});
+    const G = smG(Z); txt(Math.hypot(G[0], G[1]).toFixed(3), 966, y, {al:"right", px:11, col:last ? C.accent : C.muted}); });
+  txt(`At ${smFf(smGHz(SMS.f))}: to load ${(ch.load*100).toFixed(1)} %, reflected ${(ch.refl*100).toFixed(1)} %, lost in R ${(ch.lost*100).toFixed(1)} %`, 556, 466, {px:10});
+}
+function drawSM(dt, T){
+  begin(SMC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 500);
+  const w = smW(), ch = smChain(w);
+  drawSMChart(T, ch, w); drawSMNet(ch);
+}
+
+/* ---------------- plots ---------------- */
+function drawSMPlots(){
+  const fs = range(-1, 1, 200), xt = [[-1, "0.1"], [-0.5, "0.3"], [0, "1"], [0.5, "3"], [1, "10"]];
+  const pts = fs.map(lf => { const c = smChain(smW(lf)), G0 = smG(smZL(smW(lf))); return {lf, c, rl0:20*Math.log10(Math.max(Math.hypot(G0[0], G0[1]), 1e-3)), rl:20*Math.log10(Math.max(c.g, 1e-3))}; });
+  const m = {l:34, r:10, t:28, b:30}, A = caAxes(300, 230, m, -1, 1, -40, 0, xt, [[-40, "−40"], [-30, "−30"], [-20, "−20"], [-10, "−10"], [0, "0"]], "f (GHz)", "|Γ_in| (dB)");
+  const now = smChain(smW());
+  let a = A.s + `<line x1="${A.X(-1)}" x2="${A.X(1)}" y1="${A.Y(-10)}" y2="${A.Y(-10)}" stroke="var(--muted)" stroke-dasharray="3 3"/><text x="${A.X(1)}" y="${A.Y(-10) - 3}" text-anchor="end">−10 dB</text>`;
+  a += `<path d="${pathOf(pts.map(p => [p.lf, p.rl0]), A.X, A.Y)}" fill="none" stroke="var(--muted)" stroke-width="1.4" stroke-dasharray="5 3"/>`;
+  a += `<path d="${pathOf(pts.map(p => [p.lf, p.rl]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+  a += A.frame + dotSvg(A.X(SMS.f), A.Y(20*Math.log10(Math.max(now.g, 1e-3))))
+    + `<text x="38" y="12" style="fill:var(--accent)">— with network</text><text x="140" y="12" style="fill:var(--muted)">- - load alone</text>`;
+  const B = caAxes(220, 230, {l:30, r:10, t:28, b:30}, -1, 1, 0, 100, [[-1, "0.1"], [0, "1"], [1, "10"]], [[0, "0"], [25, "25"], [50, "50"], [75, "75"], [100, "100"]], "f (GHz)", "% of available power");
+  const cur = [["load", "channel", "to load"], ["refl", "hole", "reflected"], ["lost", "accent", "lost in R"]];
+  let b = B.s + cur.map(([k, c]) => `<path d="${pathOf(pts.map(p => [p.lf, p.c[k]*100]), B.X, B.Y)}" fill="none" stroke="var(--${c})" stroke-width="${k === "load" ? 2.2 : 1.5}"${k === "lost" ? ` stroke-dasharray="4 3"` : ""}/>`).join("");
+  b += `<line x1="${B.X(SMS.f)}" x2="${B.X(SMS.f)}" y1="28" y2="200" stroke="var(--muted)" stroke-dasharray="2 3"/>` + B.frame
+    + `<circle cx="${B.X(SMS.f)}" cy="${B.Y(now.load*100)}" r="5" fill="var(--channel)" stroke="var(--panel)" stroke-width="2"/>`
+    + cur.map(([, c, l], i) => `<text x="${34 + i*62}" y="12" style="fill:var(--${c});font-size:9px">— ${l}</text>`).join("");
+  $("sm-p1").innerHTML = a; $("sm-p2").innerHTML = b;
+}
+
+/* ---------------- DOM ---------------- */
+Object.assign(TIP, {
+  "Z_in":"Impedance looking into the network from the port, at frequency f.", "|Γ_in|":"Reflection coefficient at the port, magnitude and angle. 0 is a perfect match.",
+  "VSWR":"Voltage standing-wave ratio on the line, (1 + |Γ|)/(1 − |Γ|). 1 is a perfect match.", "Power to load":"Share of the power the source could deliver that actually reaches the load.",
+  "Reflection coefficient":"How much of the incoming wave bounces back, and with what phase.", "Normalized impedance":"Impedance divided by Z₀; these are the numbers on the chart.",
+  "Reactance":"Imaginary part of an element's impedance at frequency f.", "Series element":"Adds to the impedance: the point moves along a constant-R (or constant-X) line.",
+  "Shunt element":"Adds to the admittance: the point moves along a constant-G (or constant-B) line.", "VSWR and return loss":"Two other ways to state |Γ|.",
+  "Power to the load":"Transducer gain: delivered power over the power available from the source."
+});
+const SMLEG = [["electron", "L (series or shunt)"], ["hole", "C (series or shunt)"], ["accent", "R (series or shunt)"], ["channel", "r = 1 and g = 1 circles"], ["muted", "Z_in from 0.7 f to 1.4 f"], ["fg", "VSWR circle"]];
+const SM_TEXT = "The Smith chart maps every impedance Z onto its reflection coefficient Γ = (Z − Z₀)/(Z + Z₀). The centre is a perfect match, the left end a short circuit and the right end an open circuit; the upper half is inductive and the lower half capacitive. A series element adds to the impedance, so it keeps the resistance and slides the point along a constant-R circle: clockwise for an inductor, counter-clockwise for a capacitor. A shunt element adds to the admittance Y = 1/Z instead and slides the point along a constant-conductance circle of the mirrored admittance grid: clockwise for a capacitor, counter-clockwise for an inductor. Resistors move the point toward the open (series) or the short (shunt) end and burn power, so matching networks use only L and C. Two well-chosen reactive elements, an L-match, bring any load to the centre, but only at one frequency: change f and watch the end point drift away and the return-loss dip narrow.";
+const smChip = (sel, attr, on) => document.querySelectorAll(sel).forEach(b => { const o = on(b.dataset[attr]); b.setAttribute("aria-pressed", o); b.style.borderColor = o ? "var(--accent)" : ""; b.style.color = o ? "var(--accent)" : ""; });
+function smList(){
+  const el = $("sm-list"), key = SMS.els.map(e => e.k + (e.sh ? "p" : "s")).join(",");
+  if (el.dataset.k !== key){ el.dataset.k = key;
+    el.innerHTML = SMS.els.map((e, i) => { const K = SM_K[e.k];
+      return `<div class="slider"><div class="lab"><span>${rfSw(SM_COL[e.k])}${i + 1} · ${smName(e)}</span></span><span><span id="sm-e${i}-v"></span> <button class="chipbtn" data-del="${i}" aria-label="Remove element ${i + 1}" style="padding:0 8px;margin-left:6px">×</button></span></div><input id="sm-e${i}" data-i="${i}" type="range" min="${K.lo}" max="${K.hi}" step="0.005" value="${e.v}"></div>`; }).join("");
+  }
+  SMS.els.forEach((e, i) => { $(`sm-e${i}-v`).textContent = smFv(e); const s = $(`sm-e${i}`); if (+s.value !== e.v) s.value = e.v; });
+}
+function updateSM(){
+  const w = smW(), ch = smChain(w), g = ch.g, n = SMS.els.length, ZL = ch.nodes[0], z0 = SMS.z0;
+  $("sm-pill").textContent = `Z₀ ${z0} Ω`;
+  smChip("#sm-lt button", "t", t => t === SMS.lt);
+  document.querySelectorAll("#sm-z0 button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.z === z0));
+  document.querySelectorAll("#sm-grid button").forEach(b => b.setAttribute("aria-pressed", b.dataset.g === SMS.grid));
+  document.querySelectorAll("#sm-add button").forEach(b => b.disabled = n >= SM_MAX);
+  $("sm-ll-row").hidden = SMS.lt !== "RL"; $("sm-cl-row").hidden = SMS.lt !== "RC";
+  $("sm-rl-v").textContent = smFval(Math.pow(10, SMS.rl), "Ω"); $("sm-ll-v").textContent = smFval(Math.pow(10, SMS.ll), "nH"); $("sm-cl-v").textContent = smFval(Math.pow(10, SMS.cl), "pF");
+  $("sm-f-v").textContent = smFf(smGHz(SMS.f));
+  ["rl", "ll", "cl", "f"].forEach(k => { const s = $("sm-" + k); if (+s.value !== SMS[k]) s.value = SMS[k]; });
+  smList();
+  setHTML("sm-legend", SMLEG.map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  const vswr = g < 0.999 ? ((1 + g)/(1 - g)).toFixed(2) : "∞", rl = g > 1e-4 ? (-20*Math.log10(g)).toFixed(1) : "> 80";
+  renderRo($("sm-ro"), [["Z_in", smFz(ch.Z)], ["|Γ_in|", smFg(ch.G)], ["VSWR", vswr], ["Power to load", `${(ch.load*100).toFixed(1)} %`]]);
+  const fq = smFf(smGHz(SMS.f)), last = (sh) => { for (let i = n - 1; i >= 0; i--) if (SMS.els[i].sh === sh) return i; return -1; };
+  const is = last(false), ip = last(true), zn = Z => { const r = Z[0]/z0, x = Z[1]/z0; return Math.hypot(r, x) > 1e5 ? "∞" : `${r.toFixed(2)} ${x < 0 ? "−" : "+"} j${Math.abs(x).toFixed(2)}`; };
+  const fy = Y => `${(Y[0]*1000).toFixed(2)} ${Y[1] < 0 ? "−" : "+"} j${Math.abs(Y[1]*1000).toFixed(2)} mS`;
+  const eq = [
+    {name:"Reflection coefficient", f:"Γ = (Z − Z₀) / (Z + Z₀)", sub:`Z_in = ${smFz(ch.Z)} → Γ = ${smFg(ch.G)}`},
+    {name:"Normalized impedance", f:"z = Z / Z₀ = r + jx", sub:`z_L = ${zn(ZL)},  z_in = ${zn(ch.Z)}`},
+    {name:"Reactance", f:"X_L = ωL,  X_C = −1 / (ωC),  ω = 2πf", sub:`at ${fq}: 1 nH → +j${(w*1e-9).toFixed(1)} Ω, 1 pF → −j${(1/(w*1e-12)).toFixed(1)} Ω`},
+    {name:"Series element", f:"Z' = Z + Z_e", sub:is < 0 ? "no series element yet" : `${is + 1} · ${smName(SMS.els[is])}: ${smFz(ch.nodes[is])} + ${smFz(smImm(SMS.els[is], w)).replace(" Ω", "")} = ${smFz(ch.nodes[is + 1])}`},
+    {name:"Shunt element", f:"Y' = Y + Y_e,  Y = 1 / Z", sub:ip < 0 ? "no shunt element yet" : `${ip + 1} · ${smName(SMS.els[ip])}: ${fy(smInv(ch.nodes[ip]))} + ${fy(smImm(SMS.els[ip], w))} → Z = ${smFz(ch.nodes[ip + 1])}`},
+    {name:"VSWR and return loss", f:"VSWR = (1 + |Γ|) / (1 − |Γ|),  RL = −20·log|Γ|", sub:`VSWR = ${vswr}, RL = ${rl} dB, mismatch loss = ${g < 0.999 ? (-10*Math.log10(1 - g*g)).toFixed(2) : "∞"} dB`},
+    {name:"Power to the load", f:"G_T = 4Z₀·Re(V_L·I_L*) / |V_s|²", sub:`to load ${(ch.load*100).toFixed(1)} %, reflected ${(ch.refl*100).toFixed(1)} %, lost in resistors ${(ch.lost*100).toFixed(1)} %`}];
+  renderEq($("sm-eq"), eq);
+  const hint = !n ? "Start by adding an element, or press Auto L-match." : g < 0.1 ? `Matched at ${fq}: less than 1 % of the power is reflected. Sweep the frequency to see how wide the match is.`
+    : ch.lost > 0.05 ? `The resistors burn ${(ch.lost*100).toFixed(0)} % of the available power: a lossy match.` : `Not matched yet: ${(ch.refl*100).toFixed(0)} % of the power is reflected. Move the end point onto the r = 1 or g = 1 circle, then to the centre.`;
+  $("sm-explain").textContent = SM_TEXT + " " + hint;
+  drawSMPlots();
+}
+function smSetLoad(Z){
+  const w = smW(); SMS.rl = clamp(+Math.log10(Math.max(Z[0], 1)).toFixed(3), 0, 3);
+  if (Math.abs(Z[1]) < 0.02*SMS.z0) SMS.lt = "R";
+  else if (Z[1] > 0){ SMS.lt = "RL"; SMS.ll = clamp(+Math.log10(Z[1]/w*1e9).toFixed(3), -1, 2); }
+  else { SMS.lt = "RC"; SMS.cl = clamp(+Math.log10(-1/(w*Z[1])*1e12).toFixed(3), -2, 2); }
+}
+(() => {
+  const cv = $("cvsm"), pt = e => { const r = cv.getBoundingClientRect(), s = r.width/1000; return [(e.clientX - r.left)/s, (e.clientY - r.top)/s]; };
+  const move = e => { const [x, y] = pt(e); let gr = (x - SM_CX)/SM_R, gi = (SM_CY - y)/SM_R; const m = Math.hypot(gr, gi);
+    if (m > 0.985){ gr *= 0.985/m; gi *= 0.985/m; }
+    const d = (1 - gr)*(1 - gr) + gi*gi, z0 = SMS.z0; smSetLoad([z0*(1 - gr*gr - gi*gi)/d, z0*2*gi/d]); SMS.sol = 0; updateSM(); };
+  cv.addEventListener("pointerdown", e => { const [x, y] = pt(e); if (Math.hypot(x - SM_CX, y - SM_CY) > SM_R + 6) return; SMS.drag = true; cv.setPointerCapture(e.pointerId); move(e); });
+  cv.addEventListener("pointermove", e => { if (SMS.drag) move(e); });
+  ["pointerup", "pointercancel"].forEach(t => cv.addEventListener(t, () => SMS.drag = false));
+})();
+document.querySelectorAll("#sm-add button").forEach(b => b.addEventListener("click", () => { if (SMS.els.length >= SM_MAX) return;
+  const k = b.dataset.a[1]; SMS.els.push({k, sh:b.dataset.a[0] === "p", v:SM_K[k].d}); updateSM(); }));
+document.querySelectorAll("#sm-act button").forEach(b => b.addEventListener("click", () => { const x = b.dataset.x;
+  if (x === "match"){ SMS.els = smLMatch(SMS.sol); SMS.sol = 1 - SMS.sol; }
+  else if (x === "undo") SMS.els.pop(); else SMS.els = [];
+  updateSM(); }));
+$("sm-list").addEventListener("input", e => { const i = e.target.dataset.i; if (i === undefined) return; SMS.els[+i].v = +e.target.value; updateSM(); });
+$("sm-list").addEventListener("click", e => { const b = e.target.closest("[data-del]"); if (!b) return; SMS.els.splice(+b.dataset.del, 1); updateSM(); });
+document.querySelectorAll("#sm-lt button").forEach(b => b.addEventListener("click", () => { SMS.lt = b.dataset.t; updateSM(); }));
+document.querySelectorAll("#sm-z0 button").forEach(b => b.addEventListener("click", () => { SMS.z0 = +b.dataset.z; updateSM(); }));
+document.querySelectorAll("#sm-grid button").forEach(b => b.addEventListener("click", () => { SMS.grid = b.dataset.g; updateSM(); }));
+["rl", "ll", "cl", "f"].forEach(k => $("sm-" + k).addEventListener("input", e => { SMS[k] = +e.target.value; updateSM(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb","ca"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb","ca","sm"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown", ca:"#capacitors"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev", ca:"rf"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown", ca:"#capacitors", sm:"#smith-chart"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev", ca:"rf", sm:"rf"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -25427,6 +25817,7 @@ function showTab(t){
   else if (t === "ml"){ $("sub-top").textContent = "Miller effect · gate charge and the Miller plateau, amplifier bandwidth, dV/dt-induced turn-on"; MLC.resize(); updateML(); }
   else if (t === "mb"){ $("sub-top").textContent = "MOS breakdown · avalanche, snapback, punch-through and gate oxide breakdown"; MBC.resize(); updateMB(); }
   else if (t === "ca"){ $("sub-top").textContent = "Capacitors · MIM and MOS varactor: C versus voltage and frequency"; CAC.resize(); updateCA(); }
+  else if (t === "sm"){ $("sub-top").textContent = "Smith chart · add series and shunt L, R and C to a load and match it to Z₀"; SMC.resize(); updateSM(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -25465,6 +25856,7 @@ function frame(now){
   else if (tab === "ml"){ mlTick(dt); if (MLC.cv.clientWidth) drawML(dt, T); }
   else if (tab === "mb"){ mbTick(dt); if (MBC.cv.clientWidth) drawMB(dt, T); }
   else if (tab === "ca"){ caTick(dt); if (CAC.cv.clientWidth) drawCA(dt, T); }
+  else if (tab === "sm"){ if (SMC.cv.clientWidth) drawSM(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);

@@ -179,6 +179,12 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **MOS varactor** – accumulation-mode n+ poly / n-well finger with the accumulation layer or depletion region; C–V with V_FB, depletion capped at 2φF and fringe C; Q versus frequency, tuning ratio and the VCO tuning range of a tank with 600 fF fixed C
 - **Sweep** – ▶ buttons sweep bias, thickness, size, frequency, V_tune, t_ox, well doping or finger length; size and material sweeps draw faint curves at fixed values to show the trend
 
+## Smith chart tab (`#smith-chart`)
+- **Network builder** – add up to six series or shunt L, R and C elements to a resistive, inductive (R + L) or capacitive (R + C) load; each element draws its path on the chart (constant-R / constant-G circles for L and C, constant-X / constant-B arcs for R) with the impedance at every node, the schematic and a value slider per element
+- Click or drag on the chart to move the load; Z₀ = 50 or 75 Ω; impedance, admittance or both grids; r = 1 and g = 1 circles, VSWR circle and the Z_in trace from 0.7 f to 1.4 f
+- **Auto L-match** – two-element L-network that brings the load to the centre (press again for the other solution)
+- Return loss versus frequency with and without the network, and the share of the available power delivered to the load, reflected or burnt in resistors
+
 ## Quiz and glossary
 - **Quiz** (? button in the header) – multiple-choice questions generated from the "Explain the terms" list of the open tab, or of all tabs; score, feedback and a link to the term in its tab
 - **Glossary** (book button) – every term explained on the site (about 390) in one filterable alphabetical list, each linked to its tab; works in English and Chinese
