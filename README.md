@@ -186,6 +186,10 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Source impedance** – Z_S = Z₀, or a resistive, R + L or R + C source; the target becomes the conjugate Z_S* (marked on the chart, with the r and g circles through it), Auto L-match solves Z_L → Z_S*, and |Γ_S|, the node table and the power share are referred to the source
 - Return loss versus frequency with and without the network, and the share of the available power delivered to the load, reflected or burnt in resistors
 
+## Latch-up & antenna effect tab (`#latchup-antenna`)
+- **Latch-up (SCR simulation)** – CMOS cross-section with the lateral NPN, vertical PNP, R_sub and R_well, plus the equivalent circuit; two tests: a V_DD ramp up and down (S-shaped I–V, trigger and holding points, hysteresis) and a current pulse injected at the operating V_DD (does the latch hold after the pulse?); R_sub, R_well, spacing, temperature and guard rings set β_n·β_p, I_trig, V_trig, I_hold and V_hold
+- **Antenna effect (plasma charging)** – metal etch in a plasma: bulk etch, then the line is isolated and charges; the gate rises until Fowler–Nordheim and direct tunnelling carry the collected current; charge through the oxide, ΔV_th and hard breakdown versus antenna ratio, oxide thickness and plasma current, with no protection, an antenna diode or a jumper, and the ratio ≤ 400 rule
+
 ## Quiz and glossary
 - **Quiz** (? button in the header) – multiple-choice questions generated from the "Explain the terms" list of the open tab, or of all tabs; score, feedback and a link to the term in its tab
 - **Glossary** (book button) – every term explained on the site (about 390) in one filterable alphabetical list, each linked to its tab; works in English and Chinese
