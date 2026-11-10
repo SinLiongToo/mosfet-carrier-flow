@@ -9064,6 +9064,220 @@ Object.assign(window.I18N_ZH, {
 "A metal line collects plasma charge during etch and pushes it through the gate oxide": "金屬線在蝕刻時收集電漿電荷，並把它推過閘極氧化層",
 "Metal lines are patterned by plasma etching. While the metal is still one continuous sheet, the charge the plasma delivers spreads over the whole wafer. Near the end of the etch each line is cut free, and a line connected only to a transistor gate becomes an isolated antenna: the charge it collects can leave only through the thin gate oxide. The gate voltage rises until Fowler–Nordheim tunnelling carries the collected current. A larger metal area per gate area, the antenna ratio, means more current through the same small oxide, a higher field and more injected charge; the stress creates traps that shift V_th and raise leakage, and at a very high ratio the oxide breaks down during manufacturing. Thin oxides leak at a lower voltage and suffer less, thick I/O oxides more. Design rules therefore limit the antenna ratio per metal layer, and layouts fix violations with a small reverse-biased antenna diode on the gate net, which gives the charge a path to the substrate, or with a jumper that breaks the long line and reconnects it on the top metal, so the gate only sees it at the last etch.": "金屬導線用電漿蝕刻來定義圖形。金屬還是一整片時，電漿送來的電荷會分散到整片晶圓。蝕刻快結束時每條導線被切開，只接到電晶體閘極的導線就成了孤立的天線：它收集的電荷只能經由薄薄的閘極氧化層離開。閘極電壓上升，直到 Fowler–Nordheim 穿隧能帶走收集到的電流。每單位閘極面積接的金屬面積越大，也就是天線比越大，同樣小的氧化層就要承受更大的電流、更高的電場與更多的注入電荷；這個應力產生的陷阱會讓 V_th 偏移、漏電增加，天線比非常大時氧化層甚至會在製造過程中崩潰。薄氧化層在較低電壓就會漏電，受害較小；厚的 I/O 氧化層受害較大。因此設計規則會限制每層金屬的天線比，佈局則用接在閘極網路上的小型逆偏天線二極體提供電荷通往基板的路徑，或用跳線把長導線斷開、改在最上層金屬接回，讓閘極只在最後一次蝕刻時才看到它。"
 });
+Object.assign(window.I18N_ZH, {
+"ESD models & EOS": "ESD 模型與 EOS",
+"ESD and EOS · human-body, machine and charged-device models, electrical overstress": "ESD 與 EOS · 人體、機器與帶電元件模型，電性過應力",
+"ESD test models": "ESD 測試模型",
+"ESD or EOS": "ESD 或 EOS",
+"ESD: HBM · MM · CDM": "ESD：HBM · MM · CDM",
+"EOS (electrical overstress)": "EOS（電性過應力）",
+"ESD: an animated tester (human body, machine or charged device) discharging into a pin and the current flowing through the on-chip protection to the input gate; or EOS: an overstress from the board heating the chip until metal or silicon melts": "ESD：測試源（人體、機器或帶電元件）對腳位放電的動畫，以及電流流過晶片上保護電路到輸入閘極的路徑；或 EOS：來自電路板的過應力把晶片加熱，直到金屬或矽熔化",
+"Event": "事件",
+"Replay the event in slow motion, or drag the slider below to any moment. The time axis is logarithmic, so nanoseconds and milliseconds both fit.": "以慢動作重播事件，或拖曳下方滑桿到任何時刻。時間軸是對數刻度，所以奈秒與毫秒都放得下。",
+"⚡ Zap": "⚡ 放電",
+"⚡ Apply overstress": "⚡ 施加過應力",
+"❚❚ Pause": "❚❚ 暫停",
+"Time": "時間",
+"Moment of the event shown in the picture (logarithmic time).": "畫面顯示的事件時刻（對數時間）。",
+"Test model": "測試模型",
+"The three standard ways to model an electrostatic discharge. HBM: a charged person touches a pin. MM: a charged machine or tool with no series resistance (withdrawn as a qualification test, kept here for comparison). CDM: the chip itself is charged and discharges when a pin touches ground.": "描述靜電放電的三種標準模型。HBM：帶電的人碰到腳位。MM：沒有串聯電阻的帶電機器或工具（已不再作為驗證測試，這裡保留作比較）。CDM：晶片本身帶電，當某根腳位碰到地時放電。",
+"ESD model": "ESD 模型",
+"HBM (human body)": "HBM（人體）",
+"MM (machine)": "MM（機器）",
+"CDM (charged device)": "CDM（帶電元件）",
+"Test voltage": "測試電壓",
+"Charging voltage of the tester. Typical targets: HBM # kV, CDM # V (or # V for fast I/O).": "測試源的充電電壓。典型目標：HBM # kV，CDM # V（高速 I/O 為 # V）。",
+"Protection": "保護",
+"On-chip protection of the input pin. Primary diodes steer the current to the supply rails, the power clamp connects the rails, and the secondary stage (series resistor + local clamp right next to the input transistor) protects the thin gate oxide, which matters most for CDM.": "輸入腳位的晶片內保護。主二極體把電流導到電源軌，電源鉗位連接兩條電源軌，二級保護（串聯電阻加上緊鄰輸入電晶體的小鉗位）保護薄閘極氧化層，這對 CDM 最重要。",
+"Primary diodes": "主要保護二極體",
+"Power clamp": "電源鉗位",
+"Secondary R + clamp": "二級 R + 鉗位",
+"Gate oxide breakdown": "閘極氧化層崩潰",
+"Voltage at which the gate oxide of the input transistor breaks down during a short pulse. Thin core oxides break at only a few volts; nanosecond pulses are survived at somewhat higher voltages than DC.": "輸入電晶體的閘極氧化層在短脈衝下崩潰的電壓。薄的核心氧化層只要幾伏就會崩潰；奈秒脈衝能承受的電壓比直流略高。",
+"Scenario": "情境",
+"Typical overstress events seen in real systems. Each sets the voltage, duration and source resistance below.": "實際系統中常見的過應力事件。每個情境會設定下方的電壓、持續時間與源電阻。",
+"Hot-plug spike": "熱插拔突波",
+"Inductive kickback": "電感反衝",
+"Wrong supply (# V)": "接錯電源（# V）",
+"Slow overvoltage": "緩慢過電壓",
+"Overstress voltage": "過應力電壓",
+"Voltage of the overstress on the # V supply pin.": "加在 # V 電源腳位上的過應力電壓。",
+"Duration": "持續時間",
+"How long the overstress lasts (logarithmic). ESD lasts nanoseconds; EOS lasts microseconds to seconds and carries far more energy.": "過應力持續多久（對數）。ESD 只有奈秒；EOS 持續微秒到秒，能量大得多。",
+"Source resistance": "訊號源電阻",
+"Output resistance of whatever delivers the overstress: a stiff power supply is well below # Ω, a long cable or a weak source more.": "提供過應力那一端的輸出電阻：硬的電源遠低於 # Ω，長電纜或弱電源則較大。",
+"Board TVS diode: off": "電路板 TVS 二極體：關",
+"Board TVS diode: on": "電路板 TVS 二極體：開",
+"ESD: discharge current of HBM, MM and CDM on a logarithmic time axis; EOS: Wunsch–Bell curve of the power that melts the protection versus pulse duration": "ESD：HBM、MM 與 CDM 的放電電流（對數時間軸）；EOS：使保護元件熔化的功率對脈衝長度的 Wunsch–Bell 曲線",
+"ESD: peak gate oxide voltage versus test voltage; EOS: temperature of the hottest spot versus time": "ESD：閘極氧化層峰值電壓對測試電壓；EOS：最熱點的溫度對時間",
+"Explain the terms: ESD, HBM, MM, CDM, EOS, power clamp, secondary protection, Wunsch–Bell curve": "名詞解釋：ESD、HBM、MM、CDM、EOS、電源鉗位、二級保護、Wunsch–Bell 曲線",
+"The three ESD models": "三種 ESD 模型",
+"Model": "模型",
+"Circuit": "電路",
+"Rise / length": "上升 / 長度",
+"Peak at its level": "在其等級下的峰值",
+"Typical target": "典型目標",
+"# pF via # kΩ": "# pF 經 # kΩ",
+"≈ # ns / ≈ # ns": "≈ # ns / ≈ # ns",
+"≈ # A at # kV": "# kV 時 ≈ # A",
+"#–# kV": "#–# kV",
+"# pF, ≈ # Ω, # µH": "# pF，≈ # Ω，# µH",
+"ringing ≈ # MHz": "振鈴 ≈ # MHz",
+"≈ # A at # V": "# V 時 ≈ # A",
+"withdrawn": "已撤銷",
+"the chip, few pF, ≈ # nH": "晶片本身，數 pF，≈ # nH",
+"#–# V": "#–# V",
+"ESD versus EOS": "ESD 與 EOS 的比較",
+"<b>ESD</b>: nanoseconds, kilovolts, little energy. Damage is small: a pinhole in the gate oxide or a melted filament in a junction.": "<b>ESD</b>：奈秒、千伏、能量小。損傷很小：閘極氧化層上的針孔，或接面中熔化的細絲。",
+"<b>EOS</b>: microseconds to seconds, lower voltage, much more energy. Damage is large and visible: melted metal, burnt silicon, fused bond wires.": "<b>EOS</b>：微秒到秒、電壓較低、能量大得多。損傷大且肉眼可見：熔化的金屬、燒焦的矽、熔斷的打線。",
+"On-chip ESD protection is designed for ESD and cannot absorb EOS; EOS is prevented at board level (TVS diodes, current limits, correct power sequencing).": "晶片內的 ESD 保護是為 ESD 設計的，吸收不了 EOS；EOS 要在電路板層級防止（TVS 二極體、限流、正確的上電順序）。",
+"Terms": "名詞",
+"ESD": "ESD",
+"Electrostatic discharge: a short, high-voltage current pulse when a charged object meets a pin.": "靜電放電：帶電物體碰到腳位時產生的短暫高壓電流脈衝。",
+"HBM": "HBM",
+"Human-body model: a person charged to kilovolts touching a pin through skin resistance.": "人體模型：帶有數千伏電壓的人，經由皮膚電阻碰觸腳位。",
+"MM": "MM",
+"Machine model: a metal tool or machine with almost no resistance, so the discharge rings.": "機器模型：幾乎沒有電阻的金屬工具或機器，所以放電會振鈴。",
+"CDM": "CDM",
+"Charged-device model: the package and die are charged and discharge out through one pin in about a nanosecond; the most common ESD failure in automated factories.": "帶電元件模型：封裝與晶粒本身帶電，在約一奈秒內經由一根腳位放電；是自動化工廠中最常見的 ESD 失效。",
+"EOS": "EOS",
+"Electrical overstress: voltage or current beyond the rating for microseconds or longer, e.g. hot plugging or wrong supplies.": "電性過應力：電壓或電流超過額定值達微秒以上，例如熱插拔或接錯電源。",
+"A large transistor between VDD and VSS, switched on by an RC edge detector, that carries ESD current between the rails.": "接在 VDD 與 VSS 之間的大型電晶體，由 RC 邊緣偵測器打開，在電源軌之間導通 ESD 電流。",
+"Secondary protection": "二級保護",
+"A series resistor and a small clamp right at the input transistor, so the gate oxide never sees the pad voltage.": "緊鄰輸入電晶體的串聯電阻與小鉗位，讓閘極氧化層不會直接承受焊墊電壓。",
+"Wunsch–Bell curve": "Wunsch–Bell 曲線",
+"The power that destroys a device versus pulse length: it falls as #/√t because longer pulses let the heat build up.": "破壞元件所需的功率對脈衝長度：它隨 #/√t 下降，因為較長的脈衝讓熱量累積。",
+"ESD peak current": "ESD 峰值電流",
+"Peak pad voltage": "焊墊峰值電壓",
+"Peak oxide voltage": "氧化層峰值電壓",
+"ESD result": "ESD 結果",
+"FAIL: gate oxide": "失效：閘極氧化層",
+"FAIL: clamp": "失效：鉗位",
+"PASS": "通過",
+"Chip current": "晶片電流",
+"Clamp power": "鉗位功率",
+"Peak temperature": "峰值溫度",
+"EOS result": "EOS 結果",
+"silicon melted": "矽已熔化",
+"metal melted": "金屬已熔化",
+"survives, oxide over-voltage": "存活，但氧化層過電壓",
+"survives": "存活",
+"Highest current of the discharge at this test voltage.": "此測試電壓下放電的最大電流。",
+"Highest voltage at the pad during the discharge.": "放電期間焊墊的最高電壓。",
+"Highest voltage across the gate oxide of the input transistor.": "輸入電晶體閘極氧化層上的最高電壓。",
+"Pass, or which part fails first.": "通過，或是哪個部分先失效。",
+"Passing level": "通過等級",
+"Highest test voltage at which nothing fails.": "沒有任何部分失效的最高測試電壓。",
+"Discharge circuit": "放電電路",
+"Series RLC discharge of the tester capacitance.": "測試源電容的串聯 RLC 放電。",
+"Pad voltage": "焊墊電壓",
+"Diode drop plus the current times the on-resistance of the path.": "二極體壓降加上電流乘以路徑導通電阻。",
+"Oxide voltage": "氧化層電壓",
+"The secondary stage limits what the oxide sees.": "二級保護限制氧化層所承受的電壓。",
+"Current through the chip at this moment.": "此刻流過晶片的電流。",
+"Power dissipated in the weakest device.": "最弱元件中消耗的功率。",
+"Highest temperature reached in the hottest spot.": "最熱點達到的最高溫度。",
+"Whether metal or silicon melts.": "金屬或矽是否熔化。",
+"Clamp phase": "鉗位階段",
+"RC power clamp on for about # µs.": "RC 電源鉗位導通約 # µs。",
+"Snapback phase": "驟回階段",
+"Core device breaks down after the clamp turns off.": "鉗位關閉後，核心元件崩潰。",
+"Heating": "加熱",
+"Thermal impedance with three regimes.": "有三個區段的熱阻抗。",
+"Wunsch–Bell": "Wunsch–Bell",
+"Failure power versus pulse length.": "失效功率對脈衝長度。",
+"TVS energy": "TVS 能量",
+"The board diode has a limited energy rating.": "電路板二極體的能量額定有限。",
+"C charged to V, discharged through R and L (series RLC)": "C 充電到 V，經 R 與 L 放電（串聯 RLC）",
+"peak # V": "峰值 # V",
+"V_gate = min(V_pad, V_clamp# + I · R₂) (with secondary stage)": "V_gate = min(V_pad, V_clamp# + I · R₂)（有二級保護時）",
+"peak # V, oxide limit # V": "峰值 # V，氧化層上限 # V",
+"peak # V, oxide limit # V (×# for a # ns pulse)": "峰值 # V，氧化層上限 # V（# ns 脈衝 ×#）",
+"highest level with V_gate < BV_ox and I < I_t#": "V_gate < BV_ox 且 I < I_t# 的最高等級",
+"above # kV": "高於 # kV",
+"above # V": "高於 # V",
+"below # V": "低於 # V",
+"below # kV": "低於 # kV",
+"t > τ_RC and V > # V: I = (V − # V) / (R_S + R_pkg + # Ω)": "t > τ_RC 且 V > # V：I = (V − # V) / (R_S + R_pkg + # Ω)",
+"no TVS diode": "沒有 TVS 二極體",
+"not conducting": "未導通",
+"E = V_TVS · I_TVS · t ≤ # J": "E = V_TVS · I_TVS · t ≤ # J",
+"# W → burns open after # ns": "# W → # ns 後燒斷",
+"# W → burns open after # µs": "# W → # µs 後燒斷",
+"# W → burns open after # ms": "# W → # ms 後燒斷",
+"# W → burns open after # s": "# W → # s 後燒斷",
+"Human-body model (HBM)": "人體模型（HBM）",
+"Machine model (MM)": "機器模型（MM）",
+"Charged-device model (CDM)": "帶電元件模型（CDM）",
+"machine / tool": "機器 / 工具",
+"field plate": "場板",
+"charged chip": "帶電晶片",
+"pogo pin to ground": "接地的彈簧針",
+"→ pin": "→ 腳位",
+"charged to # kV": "充電到 # kV",
+"charged to # V": "充電到 # V",
+"On-chip protection of an input pin": "輸入腳位的晶片內保護",
+"VSS (grounded)": "VSS（接地）",
+"power": "電源",
+"clamp": "鉗位",
+"secondary": "二級",
+"input transistor": "輸入電晶體",
+"gate oxide": "閘極氧化層",
+"pad # V": "焊墊 # V",
+"gate # V": "閘極 # V",
+"gate oxide breaks: # V > # V": "閘極氧化層崩潰：# V > # V",
+"protection overloaded: # A > # A": "保護元件過載：# A > # A",
+"passes: gate stays below # V": "通過：閘極保持在 # V 以下",
+"Board: the overstress reaches the chip": "電路板：過應力到達晶片",
+"overstress source": "過應力源",
+"board ground": "電路板地",
+"chip": "晶片",
+"TVS burnt open": "TVS 燒斷",
+"for # ns": "持續 # ns",
+"for # µs": "持續 # µs",
+"for # ms": "持續 # ms",
+"for # s": "持續 # s",
+"Pin voltage": "腳位電壓",
+"What conducts": "誰在導通",
+"nothing (event over)": "無（事件已結束）",
+"nothing": "無",
+"RC power clamp": "RC 電源鉗位",
+"core device in snapback": "核心元件驟回",
+"nothing: oxide over-voltage": "無：氧化層過電壓",
+"Inside the chip: the protection device heats up": "晶片內部：保護元件發熱",
+"silicon": "矽",
+"power clamp transistor (fingers)": "電源鉗位電晶體（指狀）",
+"metal melted / fused": "金屬熔化 / 熔斷",
+"metal bus": "金屬匯流排",
+"crater: melted silicon": "坑洞：熔化的矽",
+"peak # °C · Al melts at # °C, Si at # °C": "峰值 # °C · 鋁在 # °C 熔化，矽在 # °C",
+"time (log)": "時間（對數）",
+"HBM level (V)": "HBM 等級 (V)",
+"MM level (V)": "MM 等級 (V)",
+"CDM level (V)": "CDM 等級 (V)",
+"oxide breakdown": "氧化層崩潰",
+"— peak gate voltage": "— 閘極峰值電壓",
+"pulse length (log)": "脈衝長度（對數）",
+"— Si melts": "— 矽熔化",
+"- - Al melts": "- - 鋁熔化",
+"— this event": "— 這次事件",
+"— hottest spot": "— 最熱點",
+"Discharge current": "放電電流",
+"Charge, damaged oxide": "電荷、受損氧化層",
+"Gate oxide": "閘極氧化層",
+"Pad, pins": "焊墊、腳位",
+"Pass": "通過",
+"Current into the chip": "流入晶片的電流",
+"Current into the TVS diode": "流入 TVS 二極體的電流",
+"Overstress, melting": "過應力、熔化",
+"Clamp transistor": "鉗位電晶體",
+"Silicon": "矽",
+"Zap a pin with a charged person, a charged machine or a charged chip and follow the current through the protection": "用帶電的人、帶電的機器或帶電的晶片對腳位放電，跟著電流走過保護電路",
+"Electrostatic discharge is a short current pulse when two objects at different potential touch. Three models describe how it reaches a chip. In the human-body model a person charged to kilovolts touches a pin: # pF discharges through about # kΩ of skin, a pulse that rises in a few nanoseconds and decays in about # ns, with a peak of roughly V/# kΩ. The machine model replaced the person with a metal tool: # pF with almost no resistance, so the current is several times larger and rings at about # MHz; it has been withdrawn as a qualification test because it adds little beyond HBM. In the charged-device model the chip itself picks up charge, from sliding down a tube or being handled by a machine, and discharges when one pin touches ground: only a few picofarads, but through so little resistance and inductance that the current reaches several amperes within a fraction of a nanosecond. On the chip, primary diodes steer the pulse from the pad to a supply rail, an RC-triggered power clamp carries it between the rails, and a secondary resistor with a small clamp right at the input transistor keeps the pad voltage away from the thin gate oxide. Remove a stage and watch which oxide breaks: HBM is mostly about current capacity, CDM about the voltage drop inside the chip during that first nanosecond.": "靜電放電是兩個電位不同的物體接觸時產生的短暫電流脈衝。有三種模型描述它如何到達晶片。人體模型中，帶有數千伏電壓的人碰到腳位：# pF 經由約 # kΩ 的皮膚電阻放電，脈衝在幾奈秒內上升、約 # ns 內衰減，峰值大約是 V/# kΩ。機器模型把人換成金屬工具：# pF、幾乎沒有電阻，所以電流大好幾倍，並以約 # MHz 振鈴；由於它比 HBM 多不了什麼資訊，已不再作為驗證測試。帶電元件模型中，晶片本身帶了電（從料管滑下或被機器夾取時），當一根腳位碰到地就放電：只有幾 pF，但電阻與電感極小，電流在不到一奈秒內就達到數安培。在晶片上，主二極體把脈衝從焊墊導到電源軌，RC 觸發的電源鉗位在電源軌之間導通，緊鄰輸入電晶體的二級電阻與小鉗位讓焊墊電壓碰不到薄的閘極氧化層。拿掉某一級，看看哪個氧化層會崩潰：HBM 主要考驗電流承受能力，CDM 則考驗第一奈秒內晶片內部的電壓降。",
+"Electrical overstress": "電性過應力",
+"A longer, lower-voltage overstress from the board pumps far more energy into the chip until metal or silicon melts": "來自電路板、較長且電壓較低的過應力，把多得多的能量灌進晶片，直到金屬或矽熔化",
+"Electrical overstress is any voltage or current beyond the rating that lasts microseconds or longer: a hot-plugged cable, an inductive kickback, a wrong or reversed supply, a slow overvoltage during power-up. Compared with ESD the voltage is lower but the event is thousands of times longer, so the energy is far larger. The on-chip ESD power clamp is triggered by fast edges and only stays on for about a microsecond; it is not meant to absorb a long event. After that, if the voltage is high enough, a core transistor breaks down and snaps back, and all the power concentrates in a small spot. The temperature rise follows the Wunsch–Bell picture: for nanosecond pulses the heat has no time to leave (adiabatic), for longer pulses it spreads as the square root of time, and after milliseconds it reaches a steady state. So the power that melts a device falls steeply with pulse length. When aluminium (# °C) or silicon (# °C) melts, the damage is large and visible: fused metal lines, burnt bond wires, craters. That is why EOS is prevented on the board, with TVS diodes, series resistors, fuses and correct power sequencing; but even a TVS diode has an energy limit and burns open if the overstress lasts too long.": "電性過應力是指超過額定值、持續微秒以上的電壓或電流：熱插拔的電纜、電感反衝、接錯或接反的電源、上電時緩慢的過電壓。和 ESD 相比，電壓較低，但事件長了數千倍，所以能量大得多。晶片內的 ESD 電源鉗位由快速邊緣觸發，只會導通約一微秒；它不是用來吸收長時間事件的。之後如果電壓夠高，核心電晶體會崩潰並驟回，所有功率集中在一個小點上。溫升遵循 Wunsch–Bell 的描述：奈秒脈衝的熱來不及散出（絕熱），較長的脈衝熱量隨時間的平方根擴散，數毫秒後達到穩態。所以熔化元件所需的功率隨脈衝長度急遽下降。當鋁（# °C）或矽（# °C）熔化，損傷大且肉眼可見：熔斷的金屬線、燒毀的打線、坑洞。因此 EOS 要在電路板上防止：TVS 二極體、串聯電阻、保險絲與正確的上電順序；但即使是 TVS 二極體也有能量上限，過應力持續太久它也會燒斷。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -9477,6 +9691,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-ca" aria-selected="false" aria-controls="tab-ca">Capacitors (MIM · varactor)</button>
         <button role="tab" id="tab-btn-sm" aria-selected="false" aria-controls="tab-sm">Smith chart (L · R · C)</button>
         <button role="tab" id="tab-btn-la" aria-selected="false" aria-controls="tab-la">Latch-up & antenna effect</button>
+        <button role="tab" id="tab-btn-ee" aria-selected="false" aria-controls="tab-ee">ESD models & EOS</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -14164,6 +14379,141 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Plasma-induced damage (PID)</dt><dd>Oxide traps and V_th shift caused by charging current during plasma processing.</dd>
               <dt>Antenna diode</dt><dd>A small reverse-biased n+/p-substrate diode on the gate net that leaks the plasma charge to the substrate.</dd>
               <dt>Jumper</dt><dd>Breaking a long line and reconnecting it through the top metal, so the gate sees the long line only at the last layer.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== ESD MODELS & EOS TAB ===================== -->
+  <section id="tab-ee" role="tabpanel" aria-labelledby="tab-btn-ee" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="ee-pill">HBM</span><h2 id="ee-name">ESD test models</h2></div>
+      <p id="ee-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="ee-view" role="group" aria-label="ESD or EOS" style="flex-wrap:wrap">
+        <button data-v="esd" aria-pressed="true">ESD: HBM · MM · CDM</button>
+        <button data-v="eos" aria-pressed="false">EOS (electrical overstress)</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvee" aria-label="ESD: an animated tester (human body, machine or charged device) discharging into a pin and the current flowing through the on-chip protection to the input gate; or EOS: an overstress from the board heating the chip until metal or silicon melts"></canvas>
+      <div class="legend" id="ee-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="ee-ro"></div>
+        <div style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Replay the event in slow motion, or drag the slider below to any moment. The time axis is logarithmic, so nanoseconds and milliseconds both fit.">Event</span>
+          <div class="chips">
+            <button class="chipbtn" id="ee-play">⚡ Zap</button>
+          </div>
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Moment of the event shown in the picture (logarithmic time).">Time</span><span id="ee-e-v"></span></div>
+          <input id="ee-e" type="range" min="0" max="1" step="0.002" value="1">
+        </div>
+        <div id="ee-c-esd" style="display:grid;gap:12px">
+          <div style="display:grid;gap:8px">
+            <span class="term" tabindex="0" data-tip="The three standard ways to model an electrostatic discharge. HBM: a charged person touches a pin. MM: a charged machine or tool with no series resistance (withdrawn as a qualification test, kept here for comparison). CDM: the chip itself is charged and discharges when a pin touches ground.">Test model</span>
+            <div class="seg" id="ee-model" role="group" aria-label="ESD model">
+              <button data-m="hbm" aria-pressed="true">HBM (human body)</button>
+              <button data-m="mm" aria-pressed="false">MM (machine)</button>
+              <button data-m="cdm" aria-pressed="false">CDM (charged device)</button>
+            </div>
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Charging voltage of the tester. Typical targets: HBM 2 kV, CDM 500 V (or 250 V for fast I/O).">Test voltage</span><span id="ee-lv-v"></span></div>
+            <input id="ee-lv" type="range" min="0" max="1" step="0.002" value="0.25">
+          </div>
+          <div style="display:grid;gap:8px">
+            <span class="term" tabindex="0" data-tip="On-chip protection of the input pin. Primary diodes steer the current to the supply rails, the power clamp connects the rails, and the secondary stage (series resistor + local clamp right next to the input transistor) protects the thin gate oxide, which matters most for CDM.">Protection</span>
+            <div class="chips" id="ee-prot">
+              <button class="chipbtn" data-p="dio">Primary diodes</button>
+              <button class="chipbtn" data-p="clamp">Power clamp</button>
+              <button class="chipbtn" data-p="sec">Secondary R + clamp</button>
+            </div>
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Voltage at which the gate oxide of the input transistor breaks down during a short pulse. Thin core oxides break at only a few volts; nanosecond pulses are survived at somewhat higher voltages than DC.">Gate oxide breakdown</span><span id="ee-bv-v"></span></div>
+            <input id="ee-bv" type="range" min="3" max="15" step="0.1" value="7">
+          </div>
+        </div>
+        <div id="ee-c-eos" hidden style="display:grid;gap:12px">
+          <div style="display:grid;gap:8px">
+            <span class="term" tabindex="0" data-tip="Typical overstress events seen in real systems. Each sets the voltage, duration and source resistance below.">Scenario</span>
+            <div class="chips" id="ee-scen">
+              <button class="chipbtn" data-s="plug">Hot-plug spike</button>
+              <button class="chipbtn" data-s="kick">Inductive kickback</button>
+              <button class="chipbtn" data-s="over">Wrong supply (12 V)</button>
+              <button class="chipbtn" data-s="seq">Slow overvoltage</button>
+            </div>
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Voltage of the overstress on the 3.3 V supply pin.">Overstress voltage</span><span id="ee-v-v"></span></div>
+            <input id="ee-v" type="range" min="3.3" max="40" step="0.1" value="12">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="How long the overstress lasts (logarithmic). ESD lasts nanoseconds; EOS lasts microseconds to seconds and carries far more energy.">Duration</span><span id="ee-tp-v"></span></div>
+            <input id="ee-tp" type="range" min="-8" max="0" step="0.02" value="-5">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Output resistance of whatever delivers the overstress: a stiff power supply is well below 1 Ω, a long cable or a weak source more.">Source resistance</span><span id="ee-rs-v"></span></div>
+            <input id="ee-rs" type="range" min="-1" max="2" step="0.01" value="0">
+          </div>
+          <div class="chips"><button class="chipbtn" id="ee-tvs">Board TVS diode: off</button></div>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="ee-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Characteristics</p>
+        <div class="plots">
+          <div class="plot"><svg id="ee-p1" viewBox="0 0 300 230" role="img" aria-label="ESD: discharge current of HBM, MM and CDM on a logarithmic time axis; EOS: Wunsch–Bell curve of the power that melts the protection versus pulse duration"></svg></div>
+          <div class="plot"><svg id="ee-p2" viewBox="0 0 220 230" role="img" aria-label="ESD: peak gate oxide voltage versus test voltage; EOS: temperature of the hottest spot versus time"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="ee-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: ESD, HBM, MM, CDM, EOS, power clamp, secondary protection, Wunsch–Bell curve</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>The three ESD models</h3>
+            <div class="tbl"><table>
+              <tr><th>Model</th><th>Circuit</th><th>Rise / length</th><th>Peak at its level</th><th>Typical target</th></tr>
+              <tr><td>HBM</td><td>100 pF via 1.5 kΩ</td><td>≈ 5 ns / ≈ 150 ns</td><td>≈ 1.3 A at 2 kV</td><td>1–2 kV</td></tr>
+              <tr><td>MM</td><td>200 pF, ≈ 0 Ω, 0.75 µH</td><td>ringing ≈ 13 MHz</td><td>≈ 3 A at 200 V</td><td>withdrawn</td></tr>
+              <tr><td>CDM</td><td>the chip, few pF, ≈ 1 nH</td><td>≈ 0.2 ns / ≈ 1 ns</td><td>≈ 7 A at 500 V</td><td>250–500 V</td></tr>
+            </table></div>
+            <h3>ESD versus EOS</h3>
+            <ol>
+              <li><b>ESD</b>: nanoseconds, kilovolts, little energy. Damage is small: a pinhole in the gate oxide or a melted filament in a junction.</li>
+              <li><b>EOS</b>: microseconds to seconds, lower voltage, much more energy. Damage is large and visible: melted metal, burnt silicon, fused bond wires.</li>
+              <li>On-chip ESD protection is designed for ESD and cannot absorb EOS; EOS is prevented at board level (TVS diodes, current limits, correct power sequencing).</li>
+            </ol>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>ESD</dt><dd>Electrostatic discharge: a short, high-voltage current pulse when a charged object meets a pin.</dd>
+              <dt>HBM</dt><dd>Human-body model: a person charged to kilovolts touching a pin through skin resistance.</dd>
+              <dt>MM</dt><dd>Machine model: a metal tool or machine with almost no resistance, so the discharge rings.</dd>
+              <dt>CDM</dt><dd>Charged-device model: the package and die are charged and discharge out through one pin in about a nanosecond; the most common ESD failure in automated factories.</dd>
+              <dt>EOS</dt><dd>Electrical overstress: voltage or current beyond the rating for microseconds or longer, e.g. hot plugging or wrong supplies.</dd>
+              <dt>Power clamp</dt><dd>A large transistor between VDD and VSS, switched on by an RC edge detector, that carries ESD current between the rails.</dd>
+              <dt>Secondary protection</dt><dd>A series resistor and a small clamp right at the input transistor, so the gate oxide never sees the pad voltage.</dd>
+              <dt>Wunsch–Bell curve</dt><dd>The power that destroys a device versus pulse length: it falls as 1/√t because longer pulses let the heat build up.</dd>
             </dl>
           </div>
         </div>
@@ -26402,12 +26752,308 @@ $("la-guard").addEventListener("click", () => { LAS.guard = !LAS.guard; updateLA
 [["la-s", "s"], ["la-vdd", "vdd"], ["la-ipk", "ipk"], ["la-rsub", "rsub"], ["la-rwell", "rwell"], ["la-spc", "spc"], ["la-T", "T"], ["la-ar", "ar"], ["la-tox", "tox"], ["la-jp", "jp"]].forEach(([id, k]) =>
   $(id).addEventListener("input", e => { LAS[k] = +e.target.value; if (k === "s") LAS.play = false; updateLA(); }));
 
+/* ===================== ESD MODELS & EOS TAB ===================== */
+// ESD: each tester is a capacitor C charged to V and discharged through R and L into the pin (series RLC, exact solution).
+// HBM 100 pF / 1.5 kΩ / 7.5 µH, MM 200 pF / 10 Ω / 0.75 µH, CDM 6.8 pF (the chip) / 60 Ω / 3 nH. The protection network turns the
+// current into a pad voltage and a gate-oxide voltage. EOS: an overstress V for t_p through R_S; an RC-triggered power clamp
+// conducts for τ_RC = 1 µs, then (if V > 8 V) a core device snaps back; a board TVS diode clamps at 5 V until its 0.6 J is spent.
+// Heating: ΔT = Σ ΔP·Z_th(t − t_k), Z_th = 1/(1/(b·t) + 1/(a·√t) + 1/Z_ss): adiabatic, diffusion and steady regimes (Wunsch–Bell).
+const EEC = setupCanvas($("cvee"), 1000, 488);
+const EES = {view:"esd", model:"hbm", lv:0.6, dio:true, clamp:true, sec:true, bv:7, e:1, play:false, acc:0,
+  scen:"plug", V:12, tp:-5, rs:0, tvs:false};
+const EE_M = {
+  hbm:{C:100e-12, R:1500, L:7.5e-6, vmin:250, vmax:8000, lt0:-9.5, lt1:-6, def:0.6, It2:2.7, name:"HBM"},
+  mm:{C:200e-12, R:10, L:0.75e-6, vmin:25, vmax:400, lt0:-9.5, lt1:-6, def:0.646, It2:3.0, name:"MM"},
+  cdm:{C:6.8e-12, R:60, L:3e-9, vmin:50, vmax:1500, lt0:-11, lt1:-8, def:0.677, It2:12, name:"CDM"}};
+const eeLevel = (m = EES.model, lv = EES.lv) => EE_M[m].vmin*Math.pow(EE_M[m].vmax/EE_M[m].vmin, lv);
+function eeRLC(m, V, t){
+  const {R, L, C} = EE_M[m], a = R/(2*L), w0 = 1/Math.sqrt(L*C);
+  if (t <= 0) return {i:0, vc:V};
+  if (a < w0){ const wd = Math.sqrt(w0*w0 - a*a), e = Math.exp(-a*t); return {i:V/(L*wd)*e*Math.sin(wd*t), vc:V*e*(Math.cos(wd*t) + a/wd*Math.sin(wd*t))}; }
+  const r = Math.sqrt(a*a - w0*w0), s1 = -a + r, s2 = -a - r;
+  return {i:V/(L*(s1 - s2))*(Math.exp(s1*t) - Math.exp(s2*t)), vc:V/(s1 - s2)*(s1*Math.exp(s2*t) - s2*Math.exp(s1*t))};
+}
+// pad and gate-oxide voltage for a current I (A) through the protection
+function eeNodes(I, m = EES.model){
+  const a = Math.abs(I);
+  const v1 = EES.dio && EES.clamp ? 1.0 + a*2.5 : EES.dio ? 1.0 + a*1.0 + Math.min(a*25, 18) : 2 + a*15;
+  const vox = EES.sec ? Math.min(v1, 3.0 + a*0.4) : v1 + (m === "cdm" ? a*1.2 : 0);
+  return {v1, vox};
+}
+const eeBV = (m = EES.model) => EES.bv*(m === "cdm" ? 1.3 : 1);       // nanosecond pulses are survived at a higher voltage
+const eeT = (e, m = EES.model) => Math.pow(10, EE_M[m].lt0 + (EE_M[m].lt1 - EE_M[m].lt0)*e);
+function eePeak(m = EES.model, V = eeLevel(m)){
+  let ip = 0, v1 = 0, vox = 0, imin = 0;
+  for (let k = 0; k <= 160; k++){ const t = eeT(k/160, m), i = eeRLC(m, V, t).i, n = eeNodes(i, m); ip = Math.max(ip, i); imin = Math.min(imin, i); v1 = Math.max(v1, n.v1); vox = Math.max(vox, n.vox); }
+  const fail = vox > eeBV(m) ? "oxide" : Math.max(ip, -imin) > EE_M[m].It2 ? "clamp" : "";
+  return {ip, imin, v1, vox, fail};
+}
+function eePass(m = EES.model){
+  let best = 0; for (let k = 0; k <= 120; k++){ const V = eeLevel(m, k/120); if (!eePeak(m, V).fail) best = V; else break; }
+  return best;
+}
+const eeFV = v => v >= 1000 ? `${(v/1000).toFixed(v >= 10000 ? 0 : 1)} kV` : `${v.toFixed(0)} V`;
+const eeFt = t => t >= 1 ? `${t.toFixed(2)} s` : t >= 1e-3 ? `${(t*1e3).toFixed(t >= 0.01 ? 0 : 1)} ms` : t >= 1e-6 ? `${(t*1e6).toFixed(t >= 1e-5 ? 0 : 1)} µs` : t >= 1e-9 ? `${(t*1e9).toFixed(t >= 1e-8 ? 0 : 1)} ns` : `${(t*1e12).toFixed(0)} ps`;
+
+/* ---------------- EOS model ---------------- */
+const EE_TRC = 1e-6, EE_RPKG = 2, EE_TVS = 5.0, EE_TVSE = 0.6, EE_AL = 660, EE_SI = 1414;
+const EE_A = 69.4/Math.sqrt(1e-7), EE_B = EE_A/Math.sqrt(2e-8), EE_ZSS = 200;
+const eeZ = t => t <= 0 ? 0 : 1/(1/(EE_B*t) + 1/(EE_A*Math.sqrt(t)) + 1/EE_ZSS);       // K/W
+const EE_SC = {plug:{V:12, tp:-5, rs:0}, kick:{V:30, tp:-6, rs:0.7}, over:{V:12, tp:0, rs:-0.3}, seq:{V:5, tp:-1, rs:-1}};
+// piecewise-constant power segments of the event: [{t0, t1, I, Vd, P, phase, tvs}]
+function eeEOS(){
+  const V = EES.V, tp = Math.pow(10, EES.tp), Rs = Math.pow(10, EES.rs), segs = [];
+  let tvsFail = Infinity;
+  if (EES.tvs && V > EE_TVS){ const Itvs = (V - EE_TVS)/Rs, Ptvs = EE_TVS*Itvs; tvsFail = EE_TVSE/Ptvs; }
+  const phase = (t0, t1, tvsOn) => {
+    if (t1 <= t0) return;
+    const Vn = tvsOn ? Math.min(V, EE_TVS) : V, on = t0 < EE_TRC, Rsrc = tvsOn ? 0 : Rs;
+    let I = 0, Vd = 0, ph = "idle";
+    if (Vn > 3.6 && on){ I = (Vn - 1.0)/(Rsrc + EE_RPKG + 2); Vd = 1.0 + 2*I; ph = "clamp"; }
+    else if (Vn > 8){ I = (Vn - 5)/(Rsrc + EE_RPKG + 5); Vd = 5 + 5*I; ph = "snap"; }
+    else if (Vn > 3.6){ ph = "over"; }
+    segs.push({t0, t1, I, Vd, P:I*Vd, ph, tvs:tvsOn, Vn});
+  };
+  const cuts = [0, EE_TRC, tvsFail, tp].filter(x => x <= tp).sort((a, b) => a - b);
+  for (let k = 0; k < cuts.length - 1; k++){ const a = cuts[k], b = cuts[k + 1]; phase(a, b, EES.tvs && a < tvsFail); }
+  return {V, tp, Rs, segs, tvsFail, Ptvs:EES.tvs && V > EE_TVS ? EE_TVS*(V - EE_TVS)/Rs : 0};
+}
+function eeTemp(E, t){ let T = 25, prev = 0;
+  E.segs.forEach(s => { if (t > s.t0){ T += (s.P - prev)*eeZ(t - s.t0); prev = s.P; } });
+  if (t > E.tp) T -= prev*eeZ(t - E.tp);
+  return T; }
+const eeTend = E => Math.max(E.tp*3, 3e-6);
+const eeTe = (e, E) => Math.pow(10, -9 + (Math.log10(eeTend(E)) + 9)*e);
+function eeEOSsum(E){
+  let Tmax = 25, tmax = 0; for (let k = 0; k <= 200; k++){ const t = eeTe(k/200, E), T = eeTemp(E, t); if (T > Tmax){ Tmax = T; tmax = t; } }
+  const over = E.segs.some(s => s.ph === "over"), Pmax = Math.max(0, ...E.segs.map(s => s.P));
+  const res = Tmax >= EE_SI ? "silicon melted" : Tmax >= EE_AL ? "metal melted" : over ? "survives, oxide over-voltage" : "survives";
+  return {Tmax, tmax, Pmax, res, fail:Tmax >= EE_AL};
+}
+const eeSegAt = (E, t) => E.segs.find(s => t >= s.t0 && t < s.t1) || null;
+
+/* ---------------- drawing helpers ---------------- */
+function eeDots(path, T, n, col, sp){ if (n <= 0) return; const P = polyline(path); for (let i = 0; i < n; i++){ const p = P.at(((T*sp + i/n) % 1)*P.tot); dot(p[0], p[1], col, false, 1, 3); } }
+function eeDiode(x, y, up, col){ ctx.strokeStyle = col || C.fg; ctx.fillStyle = col || C.fg; ctx.lineWidth = 1.8; const s = up ? -1 : 1;
+  ctx.beginPath(); ctx.moveTo(x - 9, y - 6*s); ctx.lineTo(x + 9, y - 6*s); ctx.lineTo(x, y + 6*s); ctx.closePath(); ctx.fill(); pl([[x - 9, y + 6*s], [x + 9, y + 6*s]]); }
+function eeCap(x, y){ ctx.strokeStyle = C.fg; ctx.lineWidth = 2.4; pl([[x - 4, y - 12], [x - 4, y + 12]]); pl([[x + 4, y - 12], [x + 4, y + 12]]); }
+function eeRes(x0, y, x1){ const n = 8, pts = [[x0, y]]; for (let i = 1; i < n; i++) pts.push([x0 + (x1 - x0)*i/n, y + (i % 2 ? -5 : 5)]); pts.push([x1, y]); ctx.strokeStyle = C.fg; ctx.lineWidth = 1.8; pl(pts); }
+function eeCoil(x0, y, x1){ ctx.strokeStyle = C.fg; ctx.lineWidth = 1.8; const n = 4, w = (x1 - x0)/n; for (let i = 0; i < n; i++){ ctx.beginPath(); ctx.arc(x0 + w*(i + 0.5), y, w/2, Math.PI, 0); ctx.stroke(); } }
+function eeSpark(x, y, T, s){ ctx.strokeStyle = C.accent; ctx.lineWidth = 2.2; for (let k = 0; k < 3; k++){ const a = T*20 + k*2.1; pl([[x, y], [x + s*Math.cos(a), y + s*Math.sin(a)], [x + 1.6*s*Math.cos(a + 0.4), y + 1.6*s*Math.sin(a + 0.4)]]); } }
+
+/* ---------------- drawing: ESD ---------------- */
+function drawEEesd(T){
+  const m = EES.model, M = EE_M[m], V = eeLevel(), t = eeT(EES.e), r = eeRLC(m, V, t), I = r.i, n = eeNodes(I), pk = eePeak(), q = clamp(r.vc/V, -1, 1);
+  const bvx = eeBV(), early = EES.e < 0.02, ar = Math.min(1, Math.abs(I)/Math.max(pk.ip, 1e-9));
+  // tester
+  panel(20, 20, 330, 450, m === "hbm" ? "Human-body model (HBM)" : m === "mm" ? "Machine model (MM)" : "Charged-device model (CDM)");
+  const nq = Math.round(Math.abs(q)*18), sg = q >= 0 ? "+" : "−";
+  if (m === "hbm"){ ctx.strokeStyle = C.fg; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(120, 110, 22, 0, 2*Math.PI); ctx.stroke();
+    pl([[120, 132], [120, 240]]); pl([[120, 160], [200, 190], [330, 250]]); pl([[120, 160], [80, 210]]); pl([[120, 240], [95, 320]]); pl([[120, 240], [145, 320]]);
+    for (let i = 0; i < nq; i++) txt(sg, 92 + (i*23) % 60, 140 + Math.floor(i/3)*28, {al:"center", px:13, w:700, col:C.hole}); }
+  else if (m === "mm"){ ctx.fillStyle = C.metal; ctx.fillRect(60, 110, 120, 90); ctx.fillRect(170, 180, 160, 14); txt("machine / tool", 120, 96, {al:"center", px:10, col:C.fg});
+    for (let i = 0; i < nq; i++) txt(sg, 72 + (i*19) % 100, 125 + Math.floor(i/5)*18, {al:"center", px:13, w:700, col:q >= 0 ? C.hole : C.electron}); }
+  else { ctx.fillStyle = C.metal; ctx.globalAlpha = .5; ctx.fillRect(40, 300, 290, 12); ctx.globalAlpha = 1; txt("field plate", 185, 324, {al:"center", px:10});
+    ctx.fillStyle = C.fg; ctx.fillRect(90, 230, 180, 60); ctx.fillStyle = C.metal; for (let i = 0; i < 6; i++){ ctx.fillRect(100 + i*30, 290, 10, 10); ctx.fillRect(100 + i*30, 220, 10, 10); }
+    txt("charged chip", 180, 260, {al:"center", px:11, w:700, col:C.bg});
+    for (let i = 0; i < nq; i++) txt(sg, 104 + (i*29) % 150, 240 + (i % 3)*16, {al:"center", px:12, w:700, col:C.hole});
+    ctx.fillStyle = C.metal; ctx.fillRect(251, 120, 8, 98); txt("pogo pin to ground", 255, 108, {al:"center", px:10, col:C.fg}); }
+  if (!early && ar > 0.15) eeSpark(m === "cdm" ? 255 : 330, m === "cdm" ? 220 : 250, T, 10 + 10*ar);
+  // equivalent discharge circuit
+  const y = 400; eeCap(60, y); txt(`C ${m === "cdm" ? "6.8 pF" : m === "hbm" ? "100 pF" : "200 pF"}`, 60, y - 22, {al:"center", px:10, col:C.fg});
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.8; pl([[64, y], [90, y]]); eeRes(90, y, 150); pl([[150, y], [170, y]]); eeCoil(170, y, 230); pl([[230, y], [300, y]]);
+  txt(`R ${m === "hbm" ? "1.5 kΩ" : m === "mm" ? "10 Ω" : "60 Ω"}`, 120, y + 20, {al:"center", px:10, col:C.fg}); txt(`L ${m === "hbm" ? "7.5 µH" : m === "mm" ? "0.75 µH" : "3 nH"}`, 200, y + 20, {al:"center", px:10, col:C.fg});
+  txt("→ pin", 318, y, {al:"center", px:10, w:700, col:C.fg}); txt(`charged to ${eeFV(V)}`, 185, 440, {al:"center", px:11, w:700, col:C.accent});
+  // protection network on the chip
+  panel(370, 20, 610, 450, "On-chip protection of an input pin");
+  const yV = 80, yS = 420, xP = 410, yP = 250, xN = 720, xG = 860;
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 2; pl([[440, yV], [960, yV]]); pl([[440, yS], [960, yS]]);
+  txt("VDD", 446, yV - 12, {px:11, w:700, col:C.fg}); txt("VSS (grounded)", 446, yS + 16, {px:11, w:700, col:C.fg});
+  ctx.fillStyle = C.metal; ctx.fillRect(xP - 22, yP - 22, 44, 44); txt("PAD", xP, yP, {al:"center", px:10, w:700, col:C.bg});
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.8; pl([[xP + 22, yP], [600, yP]]);
+  if (EES.dio){ pl([[480, yP], [480, yV]]); eeDiode(480, 165, true); pl([[480, yP], [480, yS]]); eeDiode(480, 335, true); txt("D1", 494, 165, {px:10, w:700, col:C.fg}); txt("D2", 494, 335, {px:10, w:700, col:C.fg}); }
+  if (EES.clamp){ ctx.strokeStyle = C.fg; pl([[560, yV], [560, yP - 7]]); ctx.beginPath(); ctx.arc(560, yP, 7, -Math.PI/2, Math.PI/2); ctx.stroke(); pl([[560, yP + 7], [560, 300]]); pl([[560, 390], [560, yS]]);
+    ctx.strokeRect(535, 300, 50, 90); txt("power", 560, 326, {al:"center", px:10, w:700, col:C.fg}); txt("clamp", 560, 342, {al:"center", px:10, w:700, col:C.fg}); txt("RC", 560, 370, {al:"center", px:9}); }
+  if (EES.sec){ eeRes(600, yP, 680); pl([[680, yP], [xN, yP]]); pl([[700, yP], [700, yS]]); eeDiode(700, 335, true); txt("R₂", 640, yP - 16, {al:"center", px:10, w:700, col:C.fg}); txt("secondary", 714, 335, {px:10, col:C.fg}); }
+  else { ctx.strokeStyle = C.fg; pl([[600, yP], [xN, yP]]); }
+  ctx.strokeStyle = C.fg; pl([[xN, yP], [xG - 14, yP]]);
+  // input transistor with its gate oxide
+  const ox = n.vox > bvx, hit = pk.fail === "oxide" && EES.e > 0.05;
+  ctx.fillStyle = C.metal; ctx.fillRect(xG - 14, yP - 30, 8, 60); ctx.fillStyle = hit ? C.hole : C.oxide; ctx.fillRect(xG - 6, yP - 30, 6, 60);
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 2.4; pl([[xG, yP - 30], [xG, yP + 30]]); ctx.lineWidth = 1.8; pl([[xG, yP - 22], [xG + 40, yP - 22], [xG + 40, yV]]); pl([[xG, yP + 22], [xG + 40, yP + 22], [xG + 40, yS]]);
+  txt("input transistor", xG - 20, yP - 46, {al:"right", px:10, w:700, col:C.fg}); txt("gate oxide", xG - 3, yP + 44, {al:"center", px:9, col:hit ? C.hole : C.fg});
+  if (hit){ ctx.strokeStyle = C.hole; ctx.lineWidth = 2.6; pl([[xG - 3, yP - 18], [xG - 9, yP - 4], [xG + 2, yP + 2], [xG - 4, yP + 16]]); }
+  if (ox && !early){ const g = ctx.createRadialGradient(xG - 3, yP, 2, xG - 3, yP, 40); g.addColorStop(0, "rgba(230,60,50,.6)"); g.addColorStop(1, "rgba(230,60,50,0)"); ctx.fillStyle = g; ctx.fillRect(xG - 50, yP - 50, 100, 100); }
+  // current path
+  const nd = Math.round(14*ar), col = C.accent, sp = 0.9;
+  if (!early && nd > 0){
+    if (m === "cdm") eeDots(EES.dio ? [[900, yS], [480, yS], [480, yP], [xP, yP]] : [[xG + 40, yS], [xG + 40, yP + 22], [xG, yP], [xP, yP]], T, nd, col, sp);
+    else if (EES.dio && EES.clamp) eeDots([[xP, yP], [480, yP], [480, yV], [560, yV], [560, yS], [440, yS]], T, nd, col, sp);
+    else if (EES.dio) eeDots([[xP, yP], [480, yP], [480, yV], [xG + 40, yV], [xG + 40, yS], [440, yS]], T, nd, col, sp);
+    else if (EES.sec) eeDots([[xP, yP], [700, yP], [700, yS], [440, yS]], T, nd, col, sp);
+    else eeDots([[xP, yP], [xG - 10, yP], [xG + 40, yS], [440, yS]], T, nd, col, sp);
+  }
+  txt(`pad ${n.v1.toFixed(1)} V`, xP, yP + 40, {al:"center", px:11, w:700, col:C.fg});
+  txt(`gate ${n.vox.toFixed(1)} V`, 790, yP + 18, {al:"center", px:11, w:700, col:ox ? C.hole : C.fg});
+  txt(`t = ${eeFt(t)}   I = ${I.toFixed(2)} A`, 968, 36, {al:"right", px:12, w:700, col:C.accent});
+  const msg = pk.fail === "oxide" ? `gate oxide breaks: ${pk.vox.toFixed(1)} V > ${bvx.toFixed(1)} V` : pk.fail === "clamp" ? `protection overloaded: ${Math.max(pk.ip, -pk.imin).toFixed(1)} A > ${M.It2} A` : `passes: gate stays below ${bvx.toFixed(1)} V`;
+  txt(msg, 675, 450, {al:"center", px:12, w:700, col:pk.fail ? C.hole : C.channel});
+}
+
+/* ---------------- drawing: EOS ---------------- */
+function drawEEeos(T){
+  const E = eeEOS(), S = eeEOSsum(E), t = eeTe(EES.e, E), seg = eeSegAt(E, t), Tn = eeTemp(E, t), on = t <= E.tp, tvsOk = EES.tvs && t < E.tvsFail;
+  panel(20, 20, 420, 450, "Board: the overstress reaches the chip");
+  // source
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 2; ctx.strokeRect(40, 150, 90, 90); txt("overstress source", 85, 166, {al:"center", px:9, w:700, col:C.fg});
+  ctx.strokeStyle = on ? C.hole : C.muted; ctx.lineWidth = 2; pl([[52, 220], [70, 220], [70, 186], [100, 186], [100, 220], [118, 220]]);
+  txt(`${E.V.toFixed(1)} V`, 85, 122, {al:"center", px:11, w:700, col:on ? C.hole : C.fg}); txt(`for ${eeFt(E.tp)}`, 85, 138, {al:"center", px:10, col:C.fg});
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.8; pl([[130, 195], [150, 195]]); eeRes(150, 195, 200); pl([[200, 195], [380, 195]]); txt(`R_S ${E.Rs.toFixed(E.Rs < 1 ? 2 : 1)} Ω`, 175, 176, {al:"center", px:10, col:C.fg});
+  pl([[85, 240], [85, 330], [380, 330]]); txt("board ground", 230, 346, {al:"center", px:10});
+  ctx.fillStyle = C.fg; ctx.fillRect(380, 160, 40, 190); txt("chip", 400, 255, {al:"center", px:10, w:700, col:C.bg});
+  if (EES.tvs){ ctx.strokeStyle = tvsOk ? C.fg : C.muted; pl([[290, 195], [290, 252]]); eeDiode(290, 262, true, tvsOk ? C.channel : C.hole); pl([[290, 272], [290, 330]]);
+    txt(tvsOk ? "TVS 5 V" : "TVS burnt open", 276, 262, {al:"right", px:10, w:700, col:tvsOk ? C.channel : C.hole}); }
+  if (on && seg){ const itv = tvsOk ? (E.V - EE_TVS)/E.Rs : 0, ich = seg.I;
+    if (itv > 0) eeDots([[200, 195], [290, 195], [290, 330], [200, 330]], T, clamp(Math.round(3 + Math.log10(itv + 1)*6), 3, 14), C.channel, 0.8);
+    if (ich > 0) eeDots([[200, 195], [380, 195], [380, 330], [200, 330]], T, clamp(Math.round(3 + ich*4), 3, 14), C.accent, 0.8); }
+  caRows([["Time", eeFt(t)], ["Pin voltage", `${(on && seg ? seg.Vn : 0).toFixed(1)} V`], ["Chip current", `${(on && seg ? seg.I : 0).toFixed(2)} A`],
+    ["What conducts", !on ? "nothing (event over)" : !seg || seg.ph === "idle" ? "nothing" : seg.ph === "clamp" ? "RC power clamp" : seg.ph === "snap" ? "core device in snapback" : "nothing: oxide over-voltage"]], 32, 380);
+  // chip zoom with heat
+  panel(460, 20, 520, 450, "Inside the chip: the protection device heats up");
+  let Tseen = 25; for (let k = 0; k <= 60; k++){ const tk = eeTe(EES.e*k/60, E); Tseen = Math.max(Tseen, eeTemp(E, tk)); }   // damage stays once it happened
+  const yS = 250, melt = Tseen >= EE_SI, metal = Tseen >= EE_AL;
+  ctx.fillStyle = C.si; ctx.fillRect(480, yS, 480, 190); txt("silicon", 490, 428, {px:10});
+  for (let i = 0; i < 6; i++){ const x = 520 + i*70; ctx.fillStyle = C.nplus; ctx.fillRect(x, yS, 40, 18); ctx.fillStyle = C.metal; ctx.fillRect(x + 40, yS - 22, 30, 16); }
+  txt("power clamp transistor (fingers)", 720, yS + 36, {al:"center", px:10, col:C.fg});
+  ctx.fillStyle = metal ? C.hole : C.metal; ctx.fillRect(500, 120, 440, 16); txt(metal ? "metal melted / fused" : "metal bus", 720, 112, {al:"center", px:10, w:700, col:metal ? C.hole : C.fg});
+  if (metal){ ctx.fillStyle = C.panel2; ctx.fillRect(700, 118, 26, 20); }
+  for (let i = 0; i < 6; i++){ ctx.fillStyle = C.metal; ctx.fillRect(552 + i*70, 136, 8, yS - 158); }
+  const h = clamp((Tn - 25)/(EE_SI - 25), 0, 1.3);
+  if (h > 0.02){ const g = ctx.createRadialGradient(720, yS + 10, 4, 720, yS + 10, 60 + 160*Math.min(h, 1));
+    g.addColorStop(0, h > 1 ? "rgba(255,250,220,.95)" : `rgba(255,${Math.round(200 - 120*h)},40,${0.35 + 0.5*Math.min(h, 1)})`); g.addColorStop(1, "rgba(255,120,40,0)");
+    ctx.fillStyle = g; ctx.fillRect(480, 100, 480, 340); }
+  if (melt){ ctx.fillStyle = C.fg; ctx.beginPath(); ctx.ellipse(720, yS + 30, 70, 34, 0, 0, 2*Math.PI); ctx.fill(); txt("crater: melted silicon", 720, yS + 82, {al:"center", px:11, w:700, col:C.hole});
+    for (let i = 0; i < 8; i++){ const u = (T*0.4 + i/8) % 1; ctx.fillStyle = C.muted; ctx.globalAlpha = 0.5*(1 - u); ctx.beginPath(); ctx.arc(690 + i*8 + 10*Math.sin(T + i), yS - 20 - u*90, 6 + 10*u, 0, 2*Math.PI); ctx.fill(); ctx.globalAlpha = 1; } }
+  txt(`${Tn.toFixed(0)} °C`, 720, 60, {al:"center", px:22, w:700, col:Tn >= EE_AL ? C.hole : Tn > 300 ? C.accent : C.fg});
+  txt(`peak ${S.Tmax.toFixed(0)} °C · Al melts at 660 °C, Si at 1414 °C`, 720, 86, {al:"center", px:10, col:C.fg});
+  txt(S.res, 720, 452, {al:"center", px:12, w:700, col:S.fail ? C.hole : C.channel});
+}
+function drawEE(dt, T){ begin(EEC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488); if (EES.view === "esd") drawEEesd(T); else drawEEeos(T); }
+
+/* ---------------- plots ---------------- */
+function drawEEPlots(){
+  let a, b;
+  if (EES.view === "esd"){
+    const m = EES.model, mods = ["hbm", "mm", "cdm"], cols = {hbm:"accent", mm:"electron", cdm:"hole"};
+    const curves = mods.map(k => { const V = k === m ? eeLevel() : eeLevel(k, EE_M[k].def); return {k, pts:range(-11, -6, 220).map(lt => [lt, eeRLC(k, V, Math.pow(10, lt)).i])}; });
+    const all = curves.flatMap(c => c.pts.map(p => p[1])), hi = Math.max(...all), lo = Math.min(0, ...all), st = niceStep((hi - lo)/5);
+    const A = caAxes(300, 230, {l:34, r:10, t:28, b:30}, -11, -6, Math.floor(lo/st)*st, Math.ceil(hi*1.05/st)*st,
+      [[-11, "10 ps"], [-10, "100 ps"], [-9, "1 ns"], [-8, "10 ns"], [-7, "100 ns"], [-6, "1 µs"]], range(Math.floor(lo/st)*st, Math.ceil(hi*1.05/st)*st, Math.round((Math.ceil(hi*1.05/st) - Math.floor(lo/st)))).map(v => [v, `${+v.toFixed(2)}`]), "time (log)", "I (A)");
+    a = A.s + `<line x1="34" x2="290" y1="${A.Y(0)}" y2="${A.Y(0)}" stroke="var(--muted)"/>`;
+    curves.forEach(c => a += `<path d="${pathOf(c.pts, A.X, A.Y)}" fill="none" stroke="var(--${cols[c.k]})" stroke-width="${c.k === m ? 2.4 : 1.2}"${c.k === m ? "" : ` opacity=".45"`}/>`);
+    const lt = Math.log10(eeT(EES.e)); a += `<line x1="${A.X(lt)}" x2="${A.X(lt)}" y1="28" y2="200" stroke="var(--fg)" stroke-dasharray="2 3"/>` + A.frame + dotSvg(A.X(lt), A.Y(eeRLC(m, eeLevel(), eeT(EES.e)).i))
+      + `<text x="40" y="12" style="fill:var(--hole)">— CDM</text><text x="96" y="12" style="fill:var(--electron)">— MM</text><text x="144" y="12" style="fill:var(--accent)">— HBM</text>`;
+    const M = EE_M[m], lvs = range(0, 1, 80), bv = eeBV(), pk = lvs.map(l => [Math.log10(eeLevel(m, l)), eePeak(m, eeLevel(m, l)).vox]), ym = Math.max(20, Math.ceil(bv*2/5)*5);
+    const l0 = Math.log10(M.vmin), l1 = Math.log10(M.vmax), xt = [50, 100, 250, 500, 1000, 2000, 4000, 8000].filter(v => v >= M.vmin*0.99 && v <= M.vmax*1.01).map(v => [Math.log10(v), v >= 1000 ? `${v/1000}k` : `${v}`]);
+    const B = caAxes(220, 230, {l:30, r:8, t:28, b:30}, l0, l1, 0, ym, xt, range(0, ym, 4).map(v => [v, `${+v.toFixed(0)}`]), `${M.name} level (V)`, "V_gate (V)");
+    const pass = eePass(m);
+    b = B.s + (pass < M.vmax ? `<rect x="${B.X(Math.log10(Math.max(pass, M.vmin)))}" y="28" width="${B.X(l1) - B.X(Math.log10(Math.max(pass, M.vmin)))}" height="172" fill="var(--hole)" opacity=".08"/>` : "")
+      + `<line x1="${B.X(l0)}" x2="${B.X(l1)}" y1="${B.Y(bv)}" y2="${B.Y(bv)}" stroke="var(--hole)" stroke-dasharray="4 3"/><text x="${B.X(l0) + 3}" y="${B.Y(bv) - 4}" style="fill:var(--hole)">oxide breakdown</text>`
+      + `<path d="${pathOf(pk.map(p => [p[0], Math.min(p[1], ym)]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>` + B.frame + dotSvg(B.X(Math.log10(eeLevel())), B.Y(Math.min(eePeak().vox, ym)))
+      + `<text x="34" y="12" style="fill:var(--accent)">— peak gate voltage</text>`;
+  } else {
+    const E = eeEOS(), S = eeEOSsum(E), ts = range(-9, 0, 120);
+    const A = caAxes(300, 230, {l:34, r:10, t:28, b:30}, -9, 0, -1, 3, [[-9, "1 ns"], [-6, "1 µs"], [-3, "1 ms"], [0, "1 s"]], [[-1, "0.1"], [0, "1"], [1, "10"], [2, "100"], [3, "1000"]], "pulse length (log)", "P (W)");
+    const wb = dT => ts.map(lt => [lt, clamp(Math.log10(dT/eeZ(Math.pow(10, lt))), -1, 3)]);
+    a = A.s + `<rect x="${A.X(-9)}" y="28" width="${A.X(-7) - A.X(-9)}" height="172" fill="var(--accent)" opacity=".07"/><text x="${A.X(-8)}" y="190" text-anchor="middle" style="fill:var(--accent)">ESD</text><text x="${A.X(-3)}" y="190" text-anchor="middle">EOS</text>`
+      + `<path d="${pathOf(wb(EE_SI - 25), A.X, A.Y)}" fill="none" stroke="var(--hole)" stroke-width="2"/><path d="${pathOf(wb(EE_AL - 25), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-dasharray="4 3"/>`;
+    const ev = E.segs.filter(s => s.P > 0).flatMap(s => [[Math.log10(Math.max(s.t0, 1e-9)), Math.log10(s.P)], [Math.log10(s.t1), Math.log10(s.P)]]).map(p => [clamp(p[0], -9, 0), clamp(p[1], -1, 3)]);
+    if (ev.length) a += `<path d="${pathOf(ev, A.X, A.Y)}" fill="none" stroke="var(--electron)" stroke-width="2.6"/>` + dotSvg(A.X(ev[ev.length - 1][0]), A.Y(ev[ev.length - 1][1]));
+    a += A.frame + `<text x="40" y="12" style="fill:var(--hole)">— Si melts</text><text x="110" y="12" style="fill:var(--accent)">- - Al melts</text><text x="190" y="12" style="fill:var(--electron)">— this event</text>`;
+    const l1 = Math.log10(eeTend(E)), tt = range(-9, l1, 160), ym = Math.max(1600, Math.ceil(S.Tmax*1.1/200)*200), Ttop = Math.min(ym, 4000);
+    const xt = [[-9, "1 ns"], [-6, "1 µs"], [-3, "1 ms"], [0, "1 s"]].filter(p => p[0] <= l1);
+    const B = caAxes(220, 230, {l:34, r:8, t:28, b:30}, -9, l1, 0, Ttop, xt, range(0, Ttop, 4).map(v => [v, `${v.toFixed(0)}`]), "time (log)", "T (°C)");
+    b = B.s + `<line x1="34" x2="212" y1="${B.Y(EE_AL)}" y2="${B.Y(EE_AL)}" stroke="var(--accent)" stroke-dasharray="4 3"/><line x1="34" x2="212" y1="${B.Y(EE_SI)}" y2="${B.Y(EE_SI)}" stroke="var(--hole)" stroke-dasharray="4 3"/>`
+      + `<text x="38" y="${B.Y(EE_AL) - 3}" style="fill:var(--accent)">Al 660 °C</text><text x="38" y="${B.Y(EE_SI) - 3}" style="fill:var(--hole)">Si 1414 °C</text>`
+      + `<line x1="${B.X(Math.log10(E.tp))}" x2="${B.X(Math.log10(E.tp))}" y1="28" y2="200" stroke="var(--muted)" stroke-dasharray="2 3"/>`
+      + `<path d="${pathOf(tt.map(lt => [lt, Math.min(eeTemp(E, Math.pow(10, lt)), Ttop)]), B.X, B.Y)}" fill="none" stroke="var(--electron)" stroke-width="2.2"/>` + B.frame
+      + dotSvg(B.X(Math.log10(eeTe(EES.e, E))), B.Y(Math.min(eeTemp(E, eeTe(EES.e, E)), Ttop))) + `<text x="40" y="12" style="fill:var(--electron)">— hottest spot</text>`;
+  }
+  $("ee-p1").innerHTML = a; $("ee-p2").innerHTML = b;
+}
+
+/* ---------------- DOM ---------------- */
+const EEINFO = {
+  esd:{pill:"ESD", name:"ESD test models", sub:"Zap a pin with a charged person, a charged machine or a charged chip and follow the current through the protection",
+    text:"Electrostatic discharge is a short current pulse when two objects at different potential touch. Three models describe how it reaches a chip. In the human-body model a person charged to kilovolts touches a pin: 100 pF discharges through about 1.5 kΩ of skin, a pulse that rises in a few nanoseconds and decays in about 150 ns, with a peak of roughly V/1.5 kΩ. The machine model replaced the person with a metal tool: 200 pF with almost no resistance, so the current is several times larger and rings at about 13 MHz; it has been withdrawn as a qualification test because it adds little beyond HBM. In the charged-device model the chip itself picks up charge, from sliding down a tube or being handled by a machine, and discharges when one pin touches ground: only a few picofarads, but through so little resistance and inductance that the current reaches several amperes within a fraction of a nanosecond. On the chip, primary diodes steer the pulse from the pad to a supply rail, an RC-triggered power clamp carries it between the rails, and a secondary resistor with a small clamp right at the input transistor keeps the pad voltage away from the thin gate oxide. Remove a stage and watch which oxide breaks: HBM is mostly about current capacity, CDM about the voltage drop inside the chip during that first nanosecond."},
+  eos:{pill:"EOS", name:"Electrical overstress", sub:"A longer, lower-voltage overstress from the board pumps far more energy into the chip until metal or silicon melts",
+    text:"Electrical overstress is any voltage or current beyond the rating that lasts microseconds or longer: a hot-plugged cable, an inductive kickback, a wrong or reversed supply, a slow overvoltage during power-up. Compared with ESD the voltage is lower but the event is thousands of times longer, so the energy is far larger. The on-chip ESD power clamp is triggered by fast edges and only stays on for about a microsecond; it is not meant to absorb a long event. After that, if the voltage is high enough, a core transistor breaks down and snaps back, and all the power concentrates in a small spot. The temperature rise follows the Wunsch–Bell picture: for nanosecond pulses the heat has no time to leave (adiabatic), for longer pulses it spreads as the square root of time, and after milliseconds it reaches a steady state. So the power that melts a device falls steeply with pulse length. When aluminium (660 °C) or silicon (1414 °C) melts, the damage is large and visible: fused metal lines, burnt bond wires, craters. That is why EOS is prevented on the board, with TVS diodes, series resistors, fuses and correct power sequencing; but even a TVS diode has an energy limit and burns open if the overstress lasts too long."}
+};
+Object.assign(TIP, {
+  "ESD peak current":"Highest current of the discharge at this test voltage.", "Peak pad voltage":"Highest voltage at the pad during the discharge.", "Peak oxide voltage":"Highest voltage across the gate oxide of the input transistor.",
+  "ESD result":"Pass, or which part fails first.", "Passing level":"Highest test voltage at which nothing fails.", "Discharge circuit":"Series RLC discharge of the tester capacitance.",
+  "Pad voltage":"Diode drop plus the current times the on-resistance of the path.", "Oxide voltage":"The secondary stage limits what the oxide sees.",
+  "Chip current":"Current through the chip at this moment.", "Clamp power":"Power dissipated in the weakest device.", "Peak temperature":"Highest temperature reached in the hottest spot.", "EOS result":"Whether metal or silicon melts.",
+  "Clamp phase":"RC power clamp on for about 1 µs.", "Snapback phase":"Core device breaks down after the clamp turns off.", "Heating":"Thermal impedance with three regimes.", "Wunsch–Bell":"Failure power versus pulse length.", "TVS energy":"The board diode has a limited energy rating."
+});
+const EELEG = {
+  esd:[["accent","Discharge current"],["hole","Charge, damaged oxide"],["oxide","Gate oxide"],["metal","Pad, pins"],["channel","Pass"]],
+  eos:[["accent","Current into the chip"],["channel","Current into the TVS diode"],["hole","Overstress, melting"],["nplus","Clamp transistor"],["si","Silicon"]]
+};
+const eeChip = (sel, attr, on) => document.querySelectorAll(sel).forEach(b => { const o = on(b.dataset[attr]); b.setAttribute("aria-pressed", o); b.style.borderColor = o ? "var(--accent)" : ""; b.style.color = o ? "var(--accent)" : ""; });
+function updateEE(){
+  const v = EES.view, info = EEINFO[v];
+  $("ee-pill").textContent = v === "esd" ? EE_M[EES.model].name : "EOS"; $("ee-name").textContent = info.name; $("ee-sub").textContent = info.sub; $("ee-explain").textContent = info.text;
+  document.querySelectorAll("#ee-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  document.querySelectorAll("#ee-model button").forEach(b => b.setAttribute("aria-pressed", b.dataset.m === EES.model));
+  eeChip("#ee-prot button", "p", p => EES[p]); eeChip("#ee-scen button", "s", s => s === EES.scen);
+  $("ee-c-esd").hidden = v !== "esd"; $("ee-c-eos").hidden = v !== "eos";
+  $("ee-play").textContent = EES.play ? "❚❚ Pause" : v === "esd" ? "⚡ Zap" : "⚡ Apply overstress";
+  $("ee-tvs").textContent = EES.tvs ? "Board TVS diode: on" : "Board TVS diode: off"; $("ee-tvs").style.color = EES.tvs ? "var(--accent)" : ""; $("ee-tvs").style.borderColor = EES.tvs ? "var(--accent)" : "";
+  $("ee-e").value = EES.e; $("ee-lv").value = EES.lv; $("ee-v").value = EES.V; $("ee-tp").value = EES.tp; $("ee-rs").value = EES.rs;
+  $("ee-lv-v").textContent = eeFV(eeLevel()); $("ee-bv-v").textContent = `${EES.bv.toFixed(1)} V`;
+  $("ee-v-v").textContent = `${EES.V.toFixed(1)} V`; $("ee-tp-v").textContent = eeFt(Math.pow(10, EES.tp)); $("ee-rs-v").textContent = `${Math.pow(10, EES.rs).toFixed(Math.pow(10, EES.rs) < 1 ? 2 : 1)} Ω`;
+  setHTML("ee-legend", EELEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  let ro, eq;
+  if (v === "esd"){ const m = EES.model, M = EE_M[m], V = eeLevel(), pk = eePeak(), pass = eePass(), bv = eeBV();
+    $("ee-e-v").textContent = eeFt(eeT(EES.e));
+    ro = [["ESD peak current", `${Math.max(pk.ip, -pk.imin).toFixed(2)} A`], ["Peak pad voltage", `${pk.v1.toFixed(1)} V`], ["Peak oxide voltage", `${pk.vox.toFixed(1)} V`], ["ESD result", pk.fail === "oxide" ? "FAIL: gate oxide" : pk.fail === "clamp" ? "FAIL: clamp" : "PASS"]];
+    eq = [{name:"Discharge circuit", f:"C charged to V, discharged through R and L (series RLC)", sub:`C = ${M.C*1e12} pF, R = ${M.R} Ω, L = ${M.L >= 1e-6 ? `${M.L*1e6} µH` : `${M.L*1e9} nH`} → I_peak = ${Math.max(pk.ip, -pk.imin).toFixed(2)} A (V = ${eeFV(V)})`},
+      {name:"Pad voltage", f:"V_pad = V_D + I · (R_D + R_clamp)", sub:`peak ${pk.v1.toFixed(1)} V`},
+      {name:"Oxide voltage", f:"V_gate = min(V_pad, V_clamp2 + I · R₂)  (with secondary stage)", sub:`peak ${pk.vox.toFixed(1)} V, oxide limit ${bv.toFixed(1)} V${m === "cdm" ? " (×1.3 for a 1 ns pulse)" : ""}`},
+      {name:"Passing level", f:"highest level with V_gate < BV_ox and I < I_t2", sub:pass >= M.vmax ? `above ${eeFV(M.vmax)}` : pass > 0 ? `${eeFV(pass)}` : `below ${eeFV(M.vmin)}`}];
+  } else { const E = eeEOS(), S = eeEOSsum(E), sA = E.segs.find(s => s.ph === "clamp"), sB = E.segs.find(s => s.ph === "snap");
+    $("ee-e-v").textContent = eeFt(eeTe(EES.e, E));
+    ro = [["Chip current", `${Math.max(0, ...E.segs.map(s => s.I)).toFixed(2)} A`], ["Clamp power", `${S.Pmax.toFixed(1)} W`], ["Peak temperature", `${S.Tmax.toFixed(0)} °C`], ["EOS result", S.res]];
+    eq = [{name:"Clamp phase", f:"t < τ_RC = 1 µs:  I = (V − 1 V) / (R_S + R_pkg + 2 Ω)", sub:sA ? `I = ${sA.I.toFixed(2)} A, P = ${sA.P.toFixed(1)} W` : "–"},
+      {name:"Snapback phase", f:"t > τ_RC and V > 8 V:  I = (V − 5 V) / (R_S + R_pkg + 5 Ω)", sub:sB ? `I = ${sB.I.toFixed(2)} A, P = ${sB.P.toFixed(1)} W` : "–"},
+      {name:"Heating", f:"ΔT = Σ ΔP · Z_th(t − t_k),  Z_th = 1 / (1/(b·t) + 1/(a·√t) + 1/Z_ss)", sub:`T_peak = ${S.Tmax.toFixed(0)} °C`},
+      {name:"Wunsch–Bell", f:"P_fail(t) = (T_melt − T₀) / Z_th(t)", sub:`t_p = ${eeFt(E.tp)} → Si ${((EE_SI - 25)/eeZ(E.tp)).toFixed(1)} W, Al ${((EE_AL - 25)/eeZ(E.tp)).toFixed(1)} W`},
+      {name:"TVS energy", f:"E = V_TVS · I_TVS · t ≤ 0.6 J", sub:!EES.tvs ? "no TVS diode" : E.Ptvs > 0 ? `${E.Ptvs.toFixed(1)} W → burns open after ${eeFt(E.tvsFail)}` : "not conducting"}];
+  }
+  renderRo($("ee-ro"), ro); renderEq($("ee-eq"), eq);
+  drawEEPlots();
+}
+function eeTick(dt){
+  if (!(dt >= 0)) return;
+  if (EES.play){ EES.e = Math.min(1, EES.e + dt/(EES.view === "esd" ? 6 : 7)); if (EES.e >= 1) EES.play = false;
+    EES.acc += dt; if (EES.acc > 0.1 || !EES.play){ EES.acc = 0; updateEE(); } }
+}
+document.querySelectorAll("#ee-view button").forEach(b => b.addEventListener("click", () => { EES.view = b.dataset.v; if (!findCrawling){ EES.play = false; EES.e = 1; } updateEE(); }));
+document.querySelectorAll("#ee-model button").forEach(b => b.addEventListener("click", () => { EES.model = b.dataset.m; EES.lv = EE_M[EES.model].def; EES.e = 0; EES.play = true; updateEE(); }));
+document.querySelectorAll("#ee-prot button").forEach(b => b.addEventListener("click", () => { EES[b.dataset.p] = !EES[b.dataset.p]; updateEE(); }));
+document.querySelectorAll("#ee-scen button").forEach(b => b.addEventListener("click", () => { const s = EE_SC[b.dataset.s]; EES.scen = b.dataset.s; Object.assign(EES, s); EES.e = 0; EES.play = true; updateEE(); }));
+$("ee-play").addEventListener("click", () => { if (EES.play) EES.play = false; else { if (EES.e >= 1) EES.e = 0; EES.play = true; } updateEE(); });
+$("ee-tvs").addEventListener("click", () => { EES.tvs = !EES.tvs; updateEE(); });
+[["ee-e", "e"], ["ee-lv", "lv"], ["ee-bv", "bv"], ["ee-v", "V"], ["ee-tp", "tp"], ["ee-rs", "rs"]].forEach(([id, k]) =>
+  $(id).addEventListener("input", e => { EES[k] = +e.target.value; if (k === "e") EES.play = false; if (["V", "tp", "rs"].includes(k)) EES.scen = ""; updateEE(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb","ca","sm","la"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb","ca","sm","la","ee"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown", ca:"#capacitors", sm:"#smith-chart", la:"#latchup-antenna"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev", ca:"rf", sm:"rf", la:"rel"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown", ca:"#capacitors", sm:"#smith-chart", la:"#latchup-antenna", ee:"#esd-eos"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev", ca:"rf", sm:"rf", la:"rel", ee:"rel"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -26455,6 +27101,7 @@ function showTab(t){
   else if (t === "ca"){ $("sub-top").textContent = "Capacitors · MIM and MOS varactor: C versus voltage and frequency"; CAC.resize(); updateCA(); }
   else if (t === "sm"){ $("sub-top").textContent = "Smith chart · add series and shunt L, R and C to a load and match it to Z₀"; SMC.resize(); updateSM(); }
   else if (t === "la"){ $("sub-top").textContent = "Latch-up and antenna effect · parasitic thyristor and plasma charging damage"; LAC.resize(); updateLA(); }
+  else if (t === "ee"){ $("sub-top").textContent = "ESD and EOS · human-body, machine and charged-device models, electrical overstress"; EEC.resize(); updateEE(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -26495,6 +27142,7 @@ function frame(now){
   else if (tab === "ca"){ caTick(dt); if (CAC.cv.clientWidth) drawCA(dt, T); }
   else if (tab === "sm"){ if (SMC.cv.clientWidth) drawSM(dt, T); }
   else if (tab === "la"){ laTick(dt); if (LAC.cv.clientWidth) drawLA(dt, T); }
+  else if (tab === "ee"){ eeTick(dt); if (EEC.cv.clientWidth) drawEE(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
