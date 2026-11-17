@@ -9278,6 +9278,149 @@ Object.assign(window.I18N_ZH, {
 "A longer, lower-voltage overstress from the board pumps far more energy into the chip until metal or silicon melts": "來自電路板、較長且電壓較低的過應力，把多得多的能量灌進晶片，直到金屬或矽熔化",
 "Electrical overstress is any voltage or current beyond the rating that lasts microseconds or longer: a hot-plugged cable, an inductive kickback, a wrong or reversed supply, a slow overvoltage during power-up. Compared with ESD the voltage is lower but the event is thousands of times longer, so the energy is far larger. The on-chip ESD power clamp is triggered by fast edges and only stays on for about a microsecond; it is not meant to absorb a long event. After that, if the voltage is high enough, a core transistor breaks down and snaps back, and all the power concentrates in a small spot. The temperature rise follows the Wunsch–Bell picture: for nanosecond pulses the heat has no time to leave (adiabatic), for longer pulses it spreads as the square root of time, and after milliseconds it reaches a steady state. So the power that melts a device falls steeply with pulse length. When aluminium (# °C) or silicon (# °C) melts, the damage is large and visible: fused metal lines, burnt bond wires, craters. That is why EOS is prevented on the board, with TVS diodes, series resistors, fuses and correct power sequencing; but even a TVS diode has an energy limit and burns open if the overstress lasts too long.": "電性過應力是指超過額定值、持續微秒以上的電壓或電流：熱插拔的電纜、電感反衝、接錯或接反的電源、上電時緩慢的過電壓。和 ESD 相比，電壓較低，但事件長了數千倍，所以能量大得多。晶片內的 ESD 電源鉗位由快速邊緣觸發，只會導通約一微秒；它不是用來吸收長時間事件的。之後如果電壓夠高，核心電晶體會崩潰並驟回，所有功率集中在一個小點上。溫升遵循 Wunsch–Bell 的描述：奈秒脈衝的熱來不及散出（絕熱），較長的脈衝熱量隨時間的平方根擴散，數毫秒後達到穩態。所以熔化元件所需的功率隨脈衝長度急遽下降。當鋁（# °C）或矽（# °C）熔化，損傷大且肉眼可見：熔斷的金屬線、燒毀的打線、坑洞。因此 EOS 要在電路板上防止：TVS 二極體、串聯電阻、保險絲與正確的上電順序；但即使是 TVS 二極體也有能量上限，過應力持續太久它也會燒斷。"
 });
+Object.assign(window.I18N_ZH, {
+"Transmission lines": "傳輸線",
+"Transmission lines · microstrip, stripline and coplanar waveguide": "傳輸線 · 微帶線、帶狀線與共面波導",
+"Transmission line type": "傳輸線類型",
+"Microstrip": "微帶線",
+"Stripline": "帶狀線",
+"Coplanar waveguide (CPW)": "共面波導（CPW）",
+"Cross-section of the transmission line with animated electric and magnetic field lines, next to the voltage wave travelling along the line with its guided wavelength, attenuation and radiation": "傳輸線剖面與動態的電場、磁場線，旁邊是沿著線傳播的電壓波，含導波波長、衰減與輻射",
+"Let one slider sweep automatically back and forth; the cross-section, the wave and the curves follow. Press again, or drag the slider, to stop.": "讓一個滑桿自動來回掃描；剖面、波與曲線會同步變化。再按一次或拖曳滑桿即停止。",
+"▶ Sweep frequency": "▶ 掃描頻率",
+"▶ Sweep width": "▶ 掃描線寬",
+"Make it # Ω": "調成 # Ω",
+"Substrate": "基板",
+"Board or chip material. ε_r sets the impedance and the wave speed; the loss tangent tan δ sets the dielectric loss.": "電路板或晶片的材料。ε_r 決定阻抗與波速；損耗正切 tan δ 決定介電損耗。",
+"FR-# (ε_r #)": "FR-#（ε_r #）",
+"Rogers RO#B (#)": "Rogers RO#B（#）",
+"Alumina (#)": "氧化鋁（#）",
+"High-res Si (#)": "高阻矽（#）",
+"GaAs (#)": "GaAs（#）",
+"Strip width w": "線寬 w",
+"Width of the signal strip. A wider strip has more capacitance to ground and a lower impedance.": "訊號導帶的寬度。導帶越寬，對地電容越大，阻抗越低。",
+"Substrate height h": "基板厚度 h",
+"Dielectric thickness: strip to ground plane for microstrip, each of the two layers for stripline (ground spacing b = #h), the substrate thickness for CPW.": "介電層厚度：微帶線是導帶到地平面的距離，帶狀線是上下兩層各自的厚度（地平面間距 b = #h），共面波導則是基板厚度。",
+"Gap s": "間隙 s",
+"Gap between the signal strip and the coplanar grounds. A narrower gap couples more strongly to the grounds: lower impedance, less radiation, but more conductor loss from current crowding at the edges.": "訊號導帶與共面地之間的間隙。間隙越窄，與地的耦合越強：阻抗較低、輻射較少，但邊緣電流擁擠使導體損耗變大。",
+"Frequency f": "頻率 f",
+"Signal frequency (logarithmic slider).": "訊號頻率（對數滑桿）。",
+"Characteristic impedance versus strip width for microstrip, stripline and coplanar waveguide on the same substrate": "同一基板上微帶線、帶狀線與共面波導的特性阻抗對線寬",
+"Attenuation versus frequency for the three line types, each sized to the same impedance": "三種傳輸線的衰減對頻率，各自調成相同阻抗",
+"Explain the terms: characteristic impedance, effective permittivity, TEM and quasi-TEM, guided wavelength, dispersion, conductor, dielectric and radiation loss": "名詞解釋：特性阻抗、等效介電常數、TEM 與準 TEM、導波波長、色散、導體、介電與輻射損耗",
+"The three planar lines": "三種平面傳輸線",
+"CPW": "CPW",
+"Grounds": "地",
+"one plane below": "下方一層地平面",
+"planes above and below": "上下各一層地平面",
+"beside the strip, same layer": "在導帶兩側，同一層",
+"Mode": "模式",
+"quasi-TEM": "準 TEM",
+"TEM": "TEM",
+"Fabrication": "製作",
+"easy": "容易",
+"multilayer": "需多層板",
+"easy, no vias needed": "容易，不需導通孔",
+"Shielding": "屏蔽",
+"poor": "差",
+"excellent": "極佳",
+"moderate": "中等",
+"Radiation": "輻射",
+"high": "高",
+"none": "無",
+"low": "低",
+"Dispersion": "色散",
+"present": "有",
+"Parts and probing": "元件與探測",
+"difficult": "困難",
+"easy shunt and series parts": "容易接串聯與並聯元件",
+"Terms": "名詞",
+"Characteristic impedance Z₀": "特性阻抗 Z₀",
+"Voltage over current of a wave travelling on the line, √(L/C) per unit length. Systems use # Ω; a mismatch reflects part of the signal.": "在線上傳播的波的電壓除以電流，即單位長度的 √(L/C)。系統多用 # Ω；不匹配會反射部分訊號。",
+"Effective permittivity ε_eff": "等效介電常數 ε_eff",
+"The single permittivity that gives the same capacitance as the real mix of substrate and air; it sets the speed v = c/√ε_eff.": "與實際基板和空氣混合情況有相同電容的單一介電常數；它決定波速 v = c/√ε_eff。",
+"TEM / quasi-TEM": "TEM / 準 TEM",
+"In a uniform dielectric (stripline) the fields are purely transverse. With air above (microstrip, CPW) they are nearly so, and ε_eff changes with frequency.": "在均勻介質中（帶狀線）場完全是橫向的。上方有空氣時（微帶線、CPW）則接近橫向，ε_eff 會隨頻率改變。",
+"Guided wavelength λ_g": "導波波長 λ_g",
+"λ₀/√ε_eff: the length of one cycle on the line, used to size stubs and quarter-wave sections.": "λ₀/√ε_eff：線上一個週期的長度，用來決定短截線與四分之一波長段的尺寸。",
+"Frequency-dependent speed: at high frequency more field crowds into the substrate, ε_eff rises and pulses spread.": "隨頻率改變的波速：高頻時更多場集中到基板內，ε_eff 上升，脈衝變寬。",
+"Conductor loss": "導體損耗",
+"Resistance of the skin-deep current layer, growing as √f and worse where the current crowds at strip edges.": "集膚深度內電流層的電阻，隨 √f 增加，在導帶邊緣電流擁擠處更嚴重。",
+"Dielectric loss": "介電損耗",
+"Energy absorbed by the substrate, proportional to tan δ and to f.": "基板吸收的能量，與 tan δ 和 f 成正比。",
+"Radiation and surface waves": "輻射與表面波",
+"Open lines leak energy into space and into the substrate, rising roughly as (f·h)²; above a cutoff, higher-order modes appear.": "開放式傳輸線會把能量洩漏到空間與基板中，大約隨 (f·h)² 增加；超過截止頻率會出現高階模態。",
+"Characteristic impedance": "特性阻抗",
+"Guided wavelength": "導波波長",
+"Total loss": "總損耗",
+"Phase velocity": "相速度",
+"Radiation loss": "輻射損耗",
+"none (shielded)": "無（有屏蔽）",
+"Higher-order modes above": "高階模態出現於",
+"Voltage over current of the travelling wave.": "傳播波的電壓除以電流。",
+"Permittivity that gives the same wave speed as the real mix of substrate and air.": "與實際基板加空氣有相同波速的介電常數。",
+"Length of one cycle on the line at this frequency.": "此頻率下線上一個週期的長度。",
+"Conductor + dielectric + radiation loss per centimetre.": "每公分的導體 + 介電 + 輻射損耗。",
+"ε_eff (Hammerstad)": "ε_eff（Hammerstad）",
+"Quasi-static formula for a zero-thickness strip.": "零厚度導帶的準靜態公式。",
+"Z₀ (Hammerstad)": "Z₀（Hammerstad）",
+"Accurate to about # % for # < w/h < #.": "在 # < w/h < # 範圍內誤差約 # %。",
+"ε_eff rises toward ε_r at high frequency.": "高頻時 ε_eff 往 ε_r 上升。",
+"Z₀ (exact, thin strip)": "Z₀（精確解，薄導帶）",
+"Conformal map with complete elliptic integrals.": "使用完全橢圓積分的保角映射。",
+"TEM wave": "TEM 波",
+"Uniform dielectric: no dispersion.": "均勻介質：沒有色散。",
+"Conformal map": "保角映射",
+"Moduli of the elliptic integrals for CPW.": "CPW 橢圓積分的模數。",
+"ε_eff of CPW": "CPW 的 ε_eff",
+"Half the field in air, half in the substrate, corrected for its finite thickness.": "一半的場在空氣、一半在基板，並修正基板的有限厚度。",
+"Z₀ of CPW": "CPW 的 Z₀",
+"Set by the ratio of strip width to strip plus gaps.": "由導帶寬度與導帶加間隙的比值決定。",
+"Loss estimate": "損耗估計",
+"Conductor, dielectric and radiation parts.": "導體、介電與輻射三部分。",
+"Wavelength and speed": "波長與速度",
+"Phase velocity and guided wavelength.": "相速度與導波波長。",
+"ε_eff = ε_r (no dispersion)": "ε_eff = ε_r（沒有色散）",
+"ε_eff = # at every frequency": "ε_eff 在所有頻率都是 #",
+"w/h = # → ε_eff = # (static)": "w/h = # → ε_eff = #（靜態）",
+"= # (static)": "= #（靜態）",
+"Microstrip: cross-section and fields": "微帶線：剖面與場",
+"Stripline: cross-section and fields": "帶狀線：剖面與場",
+"Coplanar waveguide: cross-section and fields": "共面波導：剖面與場",
+"air": "空氣",
+"ground plane": "地平面",
+"substrate ε_r = #": "基板 ε_r = #",
+"substrate ε_r = # all around the strip": "基板 ε_r = # 包圍導帶",
+"no ground plane below": "下方沒有地平面",
+"ground": "地",
+"E-field": "電場",
+"H-field": "磁場",
+"all field in the dielectric: pure TEM": "所有場都在介質中：純 TEM",
+"# % of the field energy in the substrate: quasi-TEM": "# % 的場能量在基板中：準 TEM",
+"Wave along the line (# guided wavelengths)": "沿線傳播的波（# 個導波波長）",
+"(buried between two ground planes)": "（埋在兩層地平面之間）",
+"radiation": "輻射",
+"loss over these # mm: # dB": "這 # mm 的損耗：# dB",
+"loss over these # µm: # dB": "這 # µm 的損耗：# dB",
+"above the cutoff: higher-order modes can propagate": "超過截止頻率：高階模態可以傳播",
+"— microstrip": "— 微帶線",
+"— stripline": "— 帶狀線",
+"— CPW": "— CPW",
+"w (mm)": "w (mm)",
+"loss (dB/cm)": "損耗 (dB/cm)",
+"modes": "高階模態",
+"all three at Z₀ = # Ω": "三者都在 Z₀ = # Ω",
+"H-field, radiation": "磁場、輻射",
+"Strip and grounds": "導帶與地",
+"Voltage wave": "電壓波",
+"A strip on top of the substrate over one ground plane: easy to build, open to the air": "基板上方的導帶加上下方一層地平面：容易製作，上方開放在空氣中",
+"A microstrip is a copper strip on top of a dielectric with a ground plane underneath. The electric field runs from the strip down to the ground, mostly through the substrate, but part of it fringes through the air above. Because the wave sees a mix of air and dielectric, it is not a pure TEM wave but quasi-TEM, and it travels at c/√ε_eff with ε_eff between # and ε_r. A wider strip, or a thinner or higher-ε_r substrate, raises the capacitance per length and lowers Z₀: on # mm Rogers a # Ω line is about # mm wide. With rising frequency more of the field is pulled into the substrate, so ε_eff creeps up (dispersion) and pulses spread. Being open, microstrip radiates, especially at discontinuities and the open end, and picks up and causes crosstalk; above a cutoff set by the substrate thickness surface waves and higher-order modes appear. It is still the most common line because it is a single layer, easy to probe and easy to solder parts onto.": "微帶線是介電層上方的一條銅導帶，下方有一層地平面。電場從導帶往下到地，大部分穿過基板，但有一部分從上方的空氣邊緣繞過。因為波同時看到空氣與介質，它不是純 TEM 波而是準 TEM，以 c/√ε_eff 的速度前進，ε_eff 介於 # 與 ε_r 之間。導帶越寬、基板越薄或 ε_r 越高，單位長度電容越大、Z₀ 越低：在 # mm 厚的 Rogers 上，# Ω 線寬約 # mm。頻率升高時，更多場被拉進基板，ε_eff 慢慢上升（色散），脈衝因此變寬。由於是開放結構，微帶線會輻射，特別是在不連續處與開路端，也容易接收與造成串音；超過由基板厚度決定的截止頻率後，會出現表面波與高階模態。它仍是最常用的傳輸線，因為只需一層、容易探測、也容易焊上元件。",
+"A strip buried in the dielectric between two ground planes: shielded, pure TEM": "埋在介質中、夾在兩層地平面之間的導帶：有屏蔽，純 TEM",
+"A stripline is a strip buried inside the dielectric, centred between two ground planes. All the field stays in one uniform dielectric, so the wave is pure TEM: ε_eff equals ε_r at every frequency, there is no dispersion, and pulses keep their shape. The two grounds shield the line, so it neither radiates nor picks up noise, which makes it the choice for dense multilayer boards and for routing between sensitive blocks. The price is a narrower strip for the same impedance, because the strip couples to two grounds, hence more conductor loss; a multilayer stack-up; vias to reach it; and no way to mount components on it. Its impedance follows exactly from a conformal map with complete elliptic integrals, Z₀ = #π/√ε_r · K(k)/K(k'), k = sech(πw/#b), for a thin strip.": "帶狀線是埋在介質裡、位於兩層地平面正中間的導帶。所有場都在同一種均勻介質中，所以波是純 TEM：ε_eff 在每個頻率都等於 ε_r，沒有色散，脈衝保持原狀。兩層地平面把線屏蔽起來，它既不輻射也不容易接收雜訊，因此適合高密度多層板與敏感區塊之間的走線。代價是：同樣阻抗需要較窄的導帶（因為導帶耦合到兩層地），所以導體損耗較大；需要多層疊構；需要導通孔才能接到它；也無法在上面安裝元件。它的阻抗可以由完全橢圓積分的保角映射精確求得，對薄導帶 Z₀ = #π/√ε_r · K(k)/K(k')，k = sech(πw/#b)。",
+"Coplanar waveguide": "共面波導",
+"Signal and grounds side by side on the same surface: no vias, easy shunt parts, ideal for probing": "訊號與地在同一表面並排：不需導通孔、容易接並聯元件，最適合探測",
+"A coplanar waveguide puts the signal strip and its two ground conductors side by side on the same surface, separated by gaps. The field lives mostly in the gaps, partly in the substrate below and partly in the air above, so the wave is quasi-TEM with ε_eff close to (ε_r + #)/#. The impedance depends on the ratio of strip width to strip-plus-gaps, not on the substrate thickness, so the line can be made very small: that is why CPW is used on MMICs and why RF probes are ground-signal-ground. Series and shunt parts mount directly between strip and ground without vias. Because the opposite currents in the strip and the grounds are close together, it radiates less than microstrip, but the current crowds at the strip edges, which raises the conductor loss when the gaps are narrow. The grounds on both sides must be kept at the same potential with air bridges or via fences, otherwise an unwanted slot-line mode appears.": "共面波導把訊號導帶與兩側的地導體並排放在同一表面上，中間以間隙隔開。場主要集中在間隙中，一部分在下方基板、一部分在上方空氣，所以是準 TEM 波，ε_eff 接近 (ε_r + #)/#。阻抗取決於導帶寬度與導帶加間隙的比值，而不是基板厚度，所以線可以做得非常小：這就是 MMIC 使用 CPW、RF 探針採用地-訊號-地排列的原因。串聯與並聯元件可以直接接在導帶與地之間，不需要導通孔。由於導帶與地上的反向電流彼此很接近，它的輻射比微帶線少，但電流會擠在導帶邊緣，間隙窄時導體損耗會增加。兩側的地必須用空橋或導通孔圍籬保持同電位，否則會出現不需要的槽線模態。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -9692,6 +9835,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-sm" aria-selected="false" aria-controls="tab-sm">Smith chart (L · R · C)</button>
         <button role="tab" id="tab-btn-la" aria-selected="false" aria-controls="tab-la">Latch-up & antenna effect</button>
         <button role="tab" id="tab-btn-ee" aria-selected="false" aria-controls="tab-ee">ESD models & EOS</button>
+        <button role="tab" id="tab-btn-tl" aria-selected="false" aria-controls="tab-tl">Transmission lines</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -14514,6 +14658,114 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Power clamp</dt><dd>A large transistor between VDD and VSS, switched on by an RC edge detector, that carries ESD current between the rails.</dd>
               <dt>Secondary protection</dt><dd>A series resistor and a small clamp right at the input transistor, so the gate oxide never sees the pad voltage.</dd>
               <dt>Wunsch–Bell curve</dt><dd>The power that destroys a device versus pulse length: it falls as 1/√t because longer pulses let the heat build up.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== TRANSMISSION LINES TAB ===================== -->
+  <section id="tab-tl" role="tabpanel" aria-labelledby="tab-btn-tl" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="tl-pill">50 Ω</span><h2 id="tl-name">Microstrip</h2></div>
+      <p id="tl-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="tl-view" role="group" aria-label="Transmission line type" style="flex-wrap:wrap">
+        <button data-v="ms" aria-pressed="true">Microstrip</button>
+        <button data-v="sl" aria-pressed="false">Stripline</button>
+        <button data-v="cpw" aria-pressed="false">Coplanar waveguide (CPW)</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvtl" aria-label="Cross-section of the transmission line with animated electric and magnetic field lines, next to the voltage wave travelling along the line with its guided wavelength, attenuation and radiation"></canvas>
+      <div class="legend" id="tl-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="tl-ro"></div>
+        <div style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Let one slider sweep automatically back and forth; the cross-section, the wave and the curves follow. Press again, or drag the slider, to stop.">Sweep</span>
+          <div class="chips" id="tl-swp">
+            <button class="chipbtn" data-w="f">▶ Sweep frequency</button>
+            <button class="chipbtn" data-w="w">▶ Sweep width</button>
+            <button class="chipbtn" id="tl-50">Make it 50 Ω</button>
+          </div>
+        </div>
+        <div style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Board or chip material. ε_r sets the impedance and the wave speed; the loss tangent tan δ sets the dielectric loss.">Substrate</span>
+          <div class="chips" id="tl-sub-m">
+            <button class="chipbtn" data-m="fr4">FR-4 (ε_r 4.4)</button>
+            <button class="chipbtn" data-m="ro">Rogers RO4350B (3.66)</button>
+            <button class="chipbtn" data-m="al">Alumina (9.8)</button>
+            <button class="chipbtn" data-m="si">High-res Si (11.9)</button>
+            <button class="chipbtn" data-m="gaas">GaAs (12.9)</button>
+          </div>
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Width of the signal strip. A wider strip has more capacitance to ground and a lower impedance.">Strip width w</span><span id="tl-w-v"></span></div>
+          <input id="tl-w" type="range" min="-2" max="0.7" step="0.005" value="0">
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Dielectric thickness: strip to ground plane for microstrip, each of the two layers for stripline (ground spacing b = 2h), the substrate thickness for CPW.">Substrate height h</span><span id="tl-h-v"></span></div>
+          <input id="tl-h" type="range" min="-1.3" max="0.2" step="0.005" value="-0.3">
+        </div>
+        <div class="slider" id="tl-c-s">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Gap between the signal strip and the coplanar grounds. A narrower gap couples more strongly to the grounds: lower impedance, less radiation, but more conductor loss from current crowding at the edges.">Gap s</span><span id="tl-s-v"></span></div>
+          <input id="tl-s" type="range" min="-2" max="0" step="0.005" value="-0.7">
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Signal frequency (logarithmic slider).">Frequency f</span><span id="tl-f-v"></span></div>
+          <input id="tl-f" type="range" min="-1" max="2" step="0.005" value="1">
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="tl-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Characteristics</p>
+        <div class="plots">
+          <div class="plot"><svg id="tl-p1" viewBox="0 0 300 230" role="img" aria-label="Characteristic impedance versus strip width for microstrip, stripline and coplanar waveguide on the same substrate"></svg></div>
+          <div class="plot"><svg id="tl-p2" viewBox="0 0 220 230" role="img" aria-label="Attenuation versus frequency for the three line types, each sized to the same impedance"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="tl-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: characteristic impedance, effective permittivity, TEM and quasi-TEM, guided wavelength, dispersion, conductor, dielectric and radiation loss</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>The three planar lines</h3>
+            <div class="tbl"><table>
+              <tr><th></th><th>Microstrip</th><th>Stripline</th><th>CPW</th></tr>
+              <tr><td>Grounds</td><td>one plane below</td><td>planes above and below</td><td>beside the strip, same layer</td></tr>
+              <tr><td>Mode</td><td>quasi-TEM</td><td>TEM</td><td>quasi-TEM</td></tr>
+              <tr><td>Fabrication</td><td>easy</td><td>multilayer</td><td>easy, no vias needed</td></tr>
+              <tr><td>Shielding</td><td>poor</td><td>excellent</td><td>moderate</td></tr>
+              <tr><td>Radiation</td><td>high</td><td>none</td><td>low</td></tr>
+              <tr><td>Dispersion</td><td>present</td><td>none</td><td>low</td></tr>
+              <tr><td>Parts and probing</td><td>easy</td><td>difficult</td><td>easy shunt and series parts</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>Characteristic impedance Z₀</dt><dd>Voltage over current of a wave travelling on the line, √(L/C) per unit length. Systems use 50 Ω; a mismatch reflects part of the signal.</dd>
+              <dt>Effective permittivity ε_eff</dt><dd>The single permittivity that gives the same capacitance as the real mix of substrate and air; it sets the speed v = c/√ε_eff.</dd>
+              <dt>TEM / quasi-TEM</dt><dd>In a uniform dielectric (stripline) the fields are purely transverse. With air above (microstrip, CPW) they are nearly so, and ε_eff changes with frequency.</dd>
+              <dt>Guided wavelength λ_g</dt><dd>λ₀/√ε_eff: the length of one cycle on the line, used to size stubs and quarter-wave sections.</dd>
+              <dt>Dispersion</dt><dd>Frequency-dependent speed: at high frequency more field crowds into the substrate, ε_eff rises and pulses spread.</dd>
+              <dt>Conductor loss</dt><dd>Resistance of the skin-deep current layer, growing as √f and worse where the current crowds at strip edges.</dd>
+              <dt>Dielectric loss</dt><dd>Energy absorbed by the substrate, proportional to tan δ and to f.</dd>
+              <dt>Radiation and surface waves</dt><dd>Open lines leak energy into space and into the substrate, rising roughly as (f·h)²; above a cutoff, higher-order modes appear.</dd>
             </dl>
           </div>
         </div>
@@ -27048,12 +27300,197 @@ $("ee-tvs").addEventListener("click", () => { EES.tvs = !EES.tvs; updateEE(); })
 [["ee-e", "e"], ["ee-lv", "lv"], ["ee-bv", "bv"], ["ee-v", "V"], ["ee-tp", "tp"], ["ee-rs", "rs"]].forEach(([id, k]) =>
   $(id).addEventListener("input", e => { EES[k] = +e.target.value; if (k === "e") EES.play = false; if (["V", "tp", "rs"].includes(k)) EES.scen = ""; updateEE(); }));
 
+/* ===================== TRANSMISSION LINES TAB: microstrip, stripline, coplanar waveguide ===================== */
+// Microstrip: Hammerstad ε_eff and Z₀ (zero thickness) with a Kirschning-type dispersion. Stripline (ground spacing b = 2h):
+// exact thin-strip conformal map Z₀ = 30π/√ε_r · K(k)/K(k'), k = sech(πw/2b). CPW on a substrate of thickness h (no back ground):
+// k₀ = w/(w+2s), k₁ = sinh(πw/4h)/sinh(π(w+2s)/4h). Losses are estimates: conductor R_s/(Z₀w) with an edge-crowding factor,
+// dielectric with the filling factor, radiation ∝ (f·h)² for the open lines. K(k)/K(k') = AGM(1,k)/AGM(1,k').
+const TLC = setupCanvas($("cvtl"), 1000, 488);
+const TLS = {view:"ms", mat:"ro", w:0, h:-0.3, s:-0.7, f:1, sw:null, swu:0, swacc:0, tm:0};
+const TL_MAT = {fr4:{er:4.4, td:0.02, name:"FR-4"}, ro:{er:3.66, td:0.0037, name:"RO4350B"}, al:{er:9.8, td:1e-4, name:"Alumina"}, si:{er:11.9, td:0.001, name:"High-res Si"}, gaas:{er:12.9, td:6e-4, name:"GaAs"}};
+const TL_SW = {f:[-1, 2, 0.005, "tl-f"], w:[-2, 0.7, 0.005, "tl-w"]};
+const TL_C = 299.79;                                          // speed of light in mm·GHz
+const TL_NAME = {ms:"Microstrip", sl:"Stripline", cpw:"CPW"}, TL_COL = {ms:"accent", sl:"electron", cpw:"channel"};
+const tlAGM = (a, b) => { for (let i = 0; i < 40; i++){ const n = (a + b)/2; b = Math.sqrt(a*b); a = n; } return a; };
+const tlKr = k => tlAGM(1, k)/tlAGM(1, Math.sqrt(Math.max(1e-30, 1 - k*k)));      // K(k)/K(k')
+const tlMm = x => Math.pow(10, x);
+function tlLine(t, w, h, s, er, td, f){
+  let ee0, Z0;
+  if (t === "ms"){ const u = w/h; ee0 = (er + 1)/2 + (er - 1)/2*(Math.pow(1 + 12/u, -0.5) + (u < 1 ? 0.04*(1 - u)*(1 - u) : 0));
+    Z0 = u <= 1 ? 60/Math.sqrt(ee0)*Math.log(8/u + u/4) : 120*Math.PI/(Math.sqrt(ee0)*(u + 1.393 + 0.667*Math.log(u + 1.444))); }
+  else if (t === "sl"){ const b = 2*h, k = 1/Math.cosh(Math.PI*w/(2*b)); ee0 = er; Z0 = 30*Math.PI/Math.sqrt(er)*tlKr(k); }
+  else { const k0 = w/(w + 2*s), k1 = Math.sinh(Math.PI*w/(4*h))/Math.sinh(Math.PI*(w + 2*s)/(4*h));
+    ee0 = 1 + (er - 1)/2*tlKr(k1)/tlKr(k0); Z0 = 30*Math.PI/Math.sqrt(ee0)/tlKr(k0); }
+  let ee = ee0, fp = Infinity;
+  if (t !== "sl"){ fp = Z0/(2*4*Math.PI*1e-7*h*1e-3)/1e9*(t === "cpw" ? 3 : 1); ee = er - (er - ee0)/(1 + (0.6 + 0.009*Z0)*Math.pow(f/fp, 2)); }
+  const Rs = Math.sqrt(Math.PI*f*1e9*4*Math.PI*1e-7/5.8e7), crowd = t === "ms" ? 1 : t === "sl" ? 0.75 : Math.min(4, 1 + 0.5*w/s);
+  const lam0 = 0.29979/f, ac = 8.686*Rs/(Z0*w*1e-3)*crowd/100;
+  const ad = (t === "sl" ? 27.3*Math.sqrt(er) : 27.3*er/Math.sqrt(ee)*(ee - 1)/(er - 1))*td/lam0/100;
+  const ar = t === "ms" ? 0.003*Math.pow(f*h, 2)/Math.sqrt(ee) : t === "cpw" ? 0.003*Math.pow(f*2*s, 2)/Math.sqrt(ee) : 0;
+  const fco = t === "ms" ? 150/(Math.PI*h)*Math.sqrt(2/(er - 1))*Math.atan(er) : t === "sl" ? TL_C/(2*(w + Math.PI*2*h/4)*Math.sqrt(er)) : 75/(h*Math.sqrt(er - 1));
+  return {Z0, ee0, ee, fp, lg:TL_C/(f*Math.sqrt(ee)), vp:1/Math.sqrt(ee), ac, ad, ar, at:ac + ad + ar, fco, q:(ee - 1)/(er - 1)};
+}
+const tlNow = (t = TLS.view) => { const M = TL_MAT[TLS.mat]; return tlLine(t, tlMm(TLS.w), tlMm(TLS.h), tlMm(TLS.s), M.er, M.td, tlMm(TLS.f)); };
+function tlSolveW(t, Zt, f = tlMm(TLS.f)){
+  const M = TL_MAT[TLS.mat]; let lo = -3, hi = 1.5;
+  for (let i = 0; i < 50; i++){ const m = (lo + hi)/2; if (tlLine(t, tlMm(m), tlMm(TLS.h), tlMm(TLS.s), M.er, M.td, f).Z0 > Zt) lo = m; else hi = m; }
+  return (lo + hi)/2;
+}
+const tlFmm = x => x >= 10 ? `${x.toFixed(1)} mm` : x >= 1 ? `${x.toFixed(2)} mm` : `${(x*1000).toFixed(0)} µm`;
+const tlFf = g => g >= 10 ? `${g.toFixed(0)} GHz` : g >= 1 ? `${g.toFixed(1)} GHz` : `${(g*1000).toFixed(0)} MHz`;
+const tlFdb = x => x >= 0.1 ? x.toFixed(2) : x >= 0.001 ? x.toFixed(3) : x.toExponential(1);
+
+/* ---------------- drawing ---------------- */
+function tlArrow(x, y, ang, col){ ctx.fillStyle = col; ctx.beginPath(); ctx.moveTo(x + 6*Math.cos(ang), y + 6*Math.sin(ang)); ctx.lineTo(x - 4*Math.cos(ang) + 4*Math.sin(ang), y - 4*Math.sin(ang) - 4*Math.cos(ang)); ctx.lineTo(x - 4*Math.cos(ang) - 4*Math.sin(ang), y - 4*Math.sin(ang) + 4*Math.cos(ang)); ctx.closePath(); ctx.fill(); }
+// one E-field line from p0 to p1 bulging through control point c; arrow at the middle points along the field (sign of the phase)
+function tlE(p0, c, p1, A){
+  ctx.strokeStyle = C.hole; ctx.globalAlpha = 0.2 + 0.7*Math.abs(A); ctx.lineWidth = 1.4; ctx.setLineDash([4, 3]);
+  ctx.beginPath(); ctx.moveTo(p0[0], p0[1]); ctx.quadraticCurveTo(c[0], c[1], p1[0], p1[1]); ctx.stroke(); ctx.setLineDash([]);
+  const m = [0.25*p0[0] + 0.5*c[0] + 0.25*p1[0], 0.25*p0[1] + 0.5*c[1] + 0.25*p1[1]], d = [p1[0] - p0[0], p1[1] - p0[1]];
+  tlArrow(m[0], m[1], Math.atan2(d[1], d[0]) + (A < 0 ? Math.PI : 0), C.hole); ctx.globalAlpha = 1;
+}
+function tlH(cx, cy, rx, ry, A, T){
+  ctx.strokeStyle = C.electron; ctx.globalAlpha = 0.25 + 0.6*Math.abs(A); ctx.lineWidth = 1.4; ctx.setLineDash([6, 5]); ctx.lineDashOffset = (A >= 0 ? -1 : 1)*T*30;
+  ctx.beginPath(); ctx.ellipse(cx, cy, rx, ry, 0, 0, 2*Math.PI); ctx.stroke(); ctx.setLineDash([]); ctx.lineDashOffset = 0; ctx.globalAlpha = 1;
+}
+function tlTag(s, x, y){ ctx.fillStyle = C.panel2; ctx.globalAlpha = .85; ctx.fillRect(x - 4, y - 9, s.length*6.2 + 8, 18); ctx.globalAlpha = 1; txt(s, x, y, {px:10, col:C.fg}); }
+function drawTLx(T, L){
+  const t = TLS.view, M = TL_MAT[TLS.mat], w = tlMm(TLS.w), h = tlMm(TLS.h), s = tlMm(TLS.s), A = Math.cos(2*Math.PI*0.8*T), cx = 270;
+  panel(20, 20, 500, 450, `${t === "ms" ? "Microstrip" : t === "sl" ? "Stripline" : "Coplanar waveguide"}: cross-section and fields`);
+  const hp = t === "sl" ? 100 : 110, k = hp/h, wp = clamp(w*k, 8, 400), sp = clamp(s*k, 5, 120), x0 = cx - wp/2, x1 = cx + wp/2;
+  const sub = (y0, y1) => { ctx.fillStyle = C.oxide; ctx.globalAlpha = .16; ctx.fillRect(36, y0, 468, y1 - y0); ctx.globalAlpha = 1; };
+  const metal = (xa, ya, xb, yb) => { ctx.fillStyle = C.metal; ctx.fillRect(xa, ya, xb - xa, yb - ya); };
+  if (t === "ms"){ const yS = 250, yG = yS + hp; sub(yS, yG); metal(36, yG, 504, yG + 12); metal(x0, yS - 9, x1, yS);
+    txt("air", 48, 70, {px:11, w:700, col:C.fg}); txt("ground plane", 48, yG + 26, {px:10, col:C.fg});
+    for (let i = 0; i < 5; i++){ const x = x0 + (i + 0.5)*wp/5; tlE([x, yS], [x, (yS + yG)/2], [x, yG], A); }
+    [1, 2, 3].forEach(i => { const d = i*28; tlE([x0, yS - 4], [x0 - d, yS - 4], [x0 - d*1.3, yG], A); tlE([x1, yS - 4], [x1 + d, yS - 4], [x1 + d*1.3, yG], A); });
+    [1, 2].forEach(i => { const d = i*40; tlE([x0 + 4, yS - 9], [x0 - d, yS - 9 - d*1.6], [x0 - d*2.2, yG], A); tlE([x1 - 4, yS - 9], [x1 + d, yS - 9 - d*1.6], [x1 + d*2.2, yG], A); });
+    tlH(cx, yS - 4, wp/2 + 26, 30, A, T); tlH(cx, yS - 4, wp/2 + 60, 62, A, T); tlTag(`substrate ε_r = ${M.er}`, 48, yG - 14);
+    txt("E-field", x1 + 70, yS - 70, {px:10, w:700, col:C.hole}); txt("H-field", cx, yS - 104, {al:"center", px:10, w:700, col:C.electron});
+  } else if (t === "sl"){ const yT = 130, yB = yT + 2*hp, yS = (yT + yB)/2; sub(yT, yB); metal(36, yT - 12, 504, yT); metal(36, yB, 504, yB + 12); metal(x0, yS - 4, x1, yS + 4);
+    txt("ground plane", 48, yT - 22, {px:10, col:C.fg}); txt("ground plane", 48, yB + 26, {px:10, col:C.fg});
+    for (let i = 0; i < 5; i++){ const x = x0 + (i + 0.5)*wp/5; tlE([x, yS - 4], [x, (yS + yT)/2], [x, yT], A); tlE([x, yS + 4], [x, (yS + yB)/2], [x, yB], A); }
+    [1, 2, 3].forEach(i => { const d = i*26; [[x0, -1], [x1, 1]].forEach(([xe, sg]) => { tlE([xe, yS], [xe + sg*d, yS], [xe + sg*d*1.2, yT], A); tlE([xe, yS], [xe + sg*d, yS], [xe + sg*d*1.2, yB], A); }); });
+    tlH(cx, yS, wp/2 + 24, 26, A, T); tlH(cx, yS, wp/2 + 56, 60, A, T); tlTag(`substrate ε_r = ${M.er} all around the strip`, 48, yB - 14);
+    txt("E-field", x1 + 60, yS - 50, {px:10, w:700, col:C.hole}); txt("H-field", cx, yS + 74, {al:"center", px:10, w:700, col:C.electron});
+  } else { const yS = 250, yG = yS + hp; sub(yS, yG); metal(x0, yS - 9, x1, yS); metal(36, yS - 9, x0 - sp, yS); metal(x1 + sp, yS - 9, 504, yS);
+    txt("air", 48, 70, {px:11, w:700, col:C.fg}); txt("no ground plane below", 48, yG + 18, {px:10, col:C.fg});
+    txt("ground", (36 + x0 - sp)/2, yS - 20, {al:"center", px:10, w:700, col:C.fg}); txt("ground", (504 + x1 + sp)/2, yS - 20, {al:"center", px:10, w:700, col:C.fg});
+    const nb = Math.round(2 + 3*TLS.q);
+    [1, 2, 3, 4].forEach(i => { if (i > nb) return; const b = i*0.55*sp + 6; tlE([x0, yS], [x0 - sp/2, yS + b], [x0 - sp, yS], A); tlE([x1, yS], [x1 + sp/2, yS + b], [x1 + sp, yS], A); });
+    [1, 2].forEach(i => { const b = i*0.6*sp + 6; tlE([x0, yS - 8], [x0 - sp/2, yS - 8 - b], [x0 - sp, yS - 8], A); tlE([x1, yS - 8], [x1 + sp/2, yS - 8 - b], [x1 + sp, yS - 8], A); });
+    tlH(cx, yS - 4, wp/2 + sp*0.6 + 8, 22 + sp*0.4, A, T); tlTag(`substrate ε_r = ${M.er}`, 48, yG - 14);
+    txt("E-field", x1 + sp + 20, yS + 52, {px:10, w:700, col:C.hole}); txt("H-field", cx, yS - 52 - sp*0.4, {al:"center", px:10, w:700, col:C.electron});
+  }
+  txt(`w = ${tlFmm(w)}, h = ${tlFmm(h)}${t === "cpw" ? `, s = ${tlFmm(s)}` : t === "sl" ? `, b = ${tlFmm(2*h)}` : ""}`, cx, 418, {al:"center", px:11, col:C.fg});
+  txt(t === "sl" ? "all field in the dielectric: pure TEM" : `${(L.q*100).toFixed(0)} % of the field energy in the substrate: quasi-TEM`, cx, 440, {al:"center", px:11, w:700, col:C.accent});
+  txt(`Z₀ = ${L.Z0.toFixed(1)} Ω   ε_eff = ${L.ee.toFixed(2)}`, cx, 50, {al:"center", px:13, w:700, col:C.accent});
+}
+function drawTLwave(T, L){
+  const t = TLS.view, f = tlMm(TLS.f), x0 = 576, x1 = 916, yL = 170, span = 3*L.lg, att = L.at*span/10;
+  panel(540, 20, 440, 450, "Wave along the line (3 guided wavelengths)");
+  // the line seen from above
+  if (t === "cpw"){ ctx.fillStyle = C.metal; ctx.fillRect(x0, yL - 34, x1 - x0, 20); ctx.fillRect(x0, yL + 14, x1 - x0, 20); }
+  if (t === "sl"){ ctx.fillStyle = C.metal; ctx.globalAlpha = .25; ctx.fillRect(x0, yL - 40, x1 - x0, 80); ctx.globalAlpha = 1; txt("(buried between two ground planes)", (x0 + x1)/2, yL + 52, {al:"center", px:9}); }
+  ctx.fillStyle = C.metal; ctx.fillRect(x0, yL - 6, x1 - x0, 12);
+  // voltage wave travelling to the right, shrinking with the attenuation
+  const ph = 2*Math.PI*0.8*T, amp = 70, pts = [];
+  for (let i = 0; i <= 240; i++){ const u = i/240, a = Math.pow(10, -att*u/20); pts.push([x0 + u*(x1 - x0), yL - amp*a*Math.cos(ph - 2*Math.PI*3*u)]); }
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2.4; pl(pts);
+  ctx.strokeStyle = C.accent; ctx.globalAlpha = .4; ctx.setLineDash([3, 4]); pl(pts.map(([x], i) => [x, yL - amp*Math.pow(10, -att*(i/240)/20)])); pl(pts.map(([x], i) => [x, yL + amp*Math.pow(10, -att*(i/240)/20)])); ctx.setLineDash([]); ctx.globalAlpha = 1;
+  // guided wavelength bracket
+  const lx = x0 + (x1 - x0)/3; ctx.strokeStyle = C.fg; ctx.lineWidth = 1.4; pl([[x0, 250], [x0, 258], [lx, 258], [lx, 250]]);
+  txt(`λ_g = ${tlFmm(L.lg)}`, (x0 + lx)/2, 270, {al:"center", px:11, w:700, col:C.fg}); txt(`v = ${L.vp.toFixed(2)} c →`, x1, 270, {al:"right", px:11, w:700, col:C.fg});
+  // radiation from an open line
+  const rs = L.ar/Math.max(L.at, 1e-9);
+  if (rs > 0.02){ ctx.strokeStyle = C.electron; for (let i = 0; i < 4; i++){ const r = ((T*30 + i*12) % 48) + 6; ctx.globalAlpha = Math.min(1, rs*1.5)*(1 - r/56); ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(x1, yL, r, -0.9, 0.9); ctx.stroke(); } ctx.globalAlpha = 1;
+    txt("radiation", x1 - 4, yL - 84, {al:"right", px:10, w:700, col:C.electron}); }
+  txt(`loss over these ${tlFmm(span)}: ${att.toFixed(2)} dB`, (x0 + x1)/2, 60, {al:"center", px:11, col:C.fg});
+  caRows([["Frequency f", tlFf(f)], ["Phase velocity", `${L.vp.toFixed(3)} c`], ["Guided wavelength λ_g", tlFmm(L.lg)], ["Conductor loss", `${tlFdb(L.ac)} dB/cm`],
+    ["Dielectric loss", `${tlFdb(L.ad)} dB/cm`], ["Radiation loss", t === "sl" ? "none (shielded)" : `${tlFdb(L.ar)} dB/cm`], ["Higher-order modes above", tlFf(L.fco)]], 552, 296);
+  if (f > L.fco) txt("above the cutoff: higher-order modes can propagate", 760, 80, {al:"center", px:11, w:700, col:C.hole});
+}
+function drawTL(dt, T){ begin(TLC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488); const L = tlNow(); TLS.q = L.q; drawTLx(T, L); drawTLwave(T, L); }
+
+/* ---------------- plots ---------------- */
+function drawTLPlots(){
+  const M = TL_MAT[TLS.mat], h = tlMm(TLS.h), s = tlMm(TLS.s), f = tlMm(TLS.f), L = tlNow(), types = ["ms", "sl", "cpw"];
+  const A = caAxes(300, 230, {l:34, r:10, t:28, b:30}, -2, 0.7, 0, 150, [[-2, "0.01"], [-1, "0.1"], [0, "1"], [0.7, "5"]], [[0, "0"], [50, "50"], [100, "100"], [150, "150"]], "w (mm)", "Z₀ (Ω)");
+  let a = A.s + `<line x1="34" x2="290" y1="${A.Y(50)}" y2="${A.Y(50)}" stroke="var(--muted)" stroke-dasharray="3 3"/>`;
+  types.forEach(t => a += `<path d="${pathOf(range(-2, 0.7, 90).map(lw => [lw, Math.min(150, tlLine(t, tlMm(lw), h, s, M.er, M.td, f).Z0)]), A.X, A.Y)}" fill="none" stroke="var(--${TL_COL[t]})" stroke-width="${t === TLS.view ? 2.6 : 1.3}"${t === TLS.view ? "" : ` opacity=".6"`}/>`);
+  a += A.frame + dotSvg(A.X(TLS.w), A.Y(Math.min(150, L.Z0))) + `<text x="40" y="12" style="fill:var(--accent)">— microstrip</text><text x="120" y="12" style="fill:var(--electron)">— stripline</text><text x="196" y="12" style="fill:var(--channel)">— CPW</text>`;
+  const Zt = clamp(L.Z0, 20, 140), ws = Object.fromEntries(types.map(t => [t, t === TLS.view ? TLS.w : tlSolveW(t, Zt)]));
+  const B = caAxes(220, 230, {l:40, r:8, t:28, b:30}, -1, 2, -3, 1, [[-1, "0.1"], [0, "1"], [1, "10"], [2, "100"]], [[-3, "0.001"], [-2, "0.01"], [-1, "0.1"], [0, "1"], [1, "10"]], "f (GHz)", "loss (dB/cm)");
+  let b = B.s; const fco = L.fco;
+  if (Math.log10(fco) < 2) b += `<line x1="${B.X(Math.log10(fco))}" x2="${B.X(Math.log10(fco))}" y1="28" y2="200" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${B.X(Math.log10(fco)) - 3}" y="40" text-anchor="end" style="fill:var(--hole)">modes</text>`;
+  types.forEach(t => b += `<path d="${pathOf(range(-1, 2, 90).map(lf => [lf, clamp(Math.log10(tlLine(t, tlMm(ws[t]), h, s, M.er, M.td, tlMm(lf)).at), -3, 1)]), B.X, B.Y)}" fill="none" stroke="var(--${TL_COL[t]})" stroke-width="${t === TLS.view ? 2.6 : 1.3}"${t === TLS.view ? "" : ` opacity=".6"`}/>`);
+  b += B.frame + dotSvg(B.X(TLS.f), B.Y(clamp(Math.log10(L.at), -3, 1))) + `<text x="44" y="12" style="fill:var(--fg)">all three at Z₀ = ${Zt.toFixed(0)} Ω</text>`;
+  $("tl-p1").innerHTML = a; $("tl-p2").innerHTML = b;
+}
+
+/* ---------------- DOM ---------------- */
+const TLINFO = {
+  ms:{pill:"MS", name:"Microstrip", sub:"A strip on top of the substrate over one ground plane: easy to build, open to the air",
+    text:"A microstrip is a copper strip on top of a dielectric with a ground plane underneath. The electric field runs from the strip down to the ground, mostly through the substrate, but part of it fringes through the air above. Because the wave sees a mix of air and dielectric, it is not a pure TEM wave but quasi-TEM, and it travels at c/√ε_eff with ε_eff between 1 and ε_r. A wider strip, or a thinner or higher-ε_r substrate, raises the capacitance per length and lowers Z₀: on 0.5 mm Rogers a 50 Ω line is about 1.1 mm wide. With rising frequency more of the field is pulled into the substrate, so ε_eff creeps up (dispersion) and pulses spread. Being open, microstrip radiates, especially at discontinuities and the open end, and picks up and causes crosstalk; above a cutoff set by the substrate thickness surface waves and higher-order modes appear. It is still the most common line because it is a single layer, easy to probe and easy to solder parts onto."},
+  sl:{pill:"SL", name:"Stripline", sub:"A strip buried in the dielectric between two ground planes: shielded, pure TEM",
+    text:"A stripline is a strip buried inside the dielectric, centred between two ground planes. All the field stays in one uniform dielectric, so the wave is pure TEM: ε_eff equals ε_r at every frequency, there is no dispersion, and pulses keep their shape. The two grounds shield the line, so it neither radiates nor picks up noise, which makes it the choice for dense multilayer boards and for routing between sensitive blocks. The price is a narrower strip for the same impedance, because the strip couples to two grounds, hence more conductor loss; a multilayer stack-up; vias to reach it; and no way to mount components on it. Its impedance follows exactly from a conformal map with complete elliptic integrals, Z₀ = 30π/√ε_r · K(k)/K(k'), k = sech(πw/2b), for a thin strip."},
+  cpw:{pill:"CPW", name:"Coplanar waveguide", sub:"Signal and grounds side by side on the same surface: no vias, easy shunt parts, ideal for probing",
+    text:"A coplanar waveguide puts the signal strip and its two ground conductors side by side on the same surface, separated by gaps. The field lives mostly in the gaps, partly in the substrate below and partly in the air above, so the wave is quasi-TEM with ε_eff close to (ε_r + 1)/2. The impedance depends on the ratio of strip width to strip-plus-gaps, not on the substrate thickness, so the line can be made very small: that is why CPW is used on MMICs and why RF probes are ground-signal-ground. Series and shunt parts mount directly between strip and ground without vias. Because the opposite currents in the strip and the grounds are close together, it radiates less than microstrip, but the current crowds at the strip edges, which raises the conductor loss when the gaps are narrow. The grounds on both sides must be kept at the same potential with air bridges or via fences, otherwise an unwanted slot-line mode appears."}
+};
+Object.assign(TIP, {
+  "Characteristic impedance":"Voltage over current of the travelling wave.", "Effective permittivity ε_eff":"Permittivity that gives the same wave speed as the real mix of substrate and air.",
+  "Guided wavelength":"Length of one cycle on the line at this frequency.", "Total loss":"Conductor + dielectric + radiation loss per centimetre.",
+  "ε_eff (Hammerstad)":"Quasi-static formula for a zero-thickness strip.", "Z₀ (Hammerstad)":"Accurate to about 1 % for 0.1 < w/h < 10.", "Dispersion":"ε_eff rises toward ε_r at high frequency.",
+  "Z₀ (exact, thin strip)":"Conformal map with complete elliptic integrals.", "TEM wave":"Uniform dielectric: no dispersion.", "Conformal map":"Moduli of the elliptic integrals for CPW.",
+  "ε_eff of CPW":"Half the field in air, half in the substrate, corrected for its finite thickness.", "Z₀ of CPW":"Set by the ratio of strip width to strip plus gaps.",
+  "Loss estimate":"Conductor, dielectric and radiation parts.", "Wavelength and speed":"Phase velocity and guided wavelength."
+});
+const TLLEG = [["hole","E-field"],["electron","H-field, radiation"],["metal","Strip and grounds"],["oxide","Substrate"],["accent","Voltage wave"]];
+const tlChip = (sel, attr, on) => document.querySelectorAll(sel).forEach(b => { const o = on(b.dataset[attr]); b.setAttribute("aria-pressed", o); b.style.borderColor = o ? "var(--accent)" : ""; b.style.color = o ? "var(--accent)" : ""; });
+function updateTL(){
+  const v = TLS.view, info = TLINFO[v], M = TL_MAT[TLS.mat], L = tlNow(), w = tlMm(TLS.w), h = tlMm(TLS.h), s = tlMm(TLS.s), f = tlMm(TLS.f);
+  $("tl-pill").textContent = `${L.Z0.toFixed(0)} Ω`; $("tl-name").textContent = info.name; $("tl-sub").textContent = info.sub; $("tl-explain").textContent = info.text;
+  document.querySelectorAll("#tl-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  tlChip("#tl-swp button[data-w]", "w", x => x === TLS.sw); tlChip("#tl-sub-m button", "m", m => m === TLS.mat);
+  $("tl-c-s").hidden = v !== "cpw";
+  ["w", "h", "s", "f"].forEach(k => { const el = $("tl-" + k); if (+el.value !== TLS[k]) el.value = TLS[k]; });
+  $("tl-w-v").textContent = tlFmm(w); $("tl-h-v").textContent = tlFmm(h); $("tl-s-v").textContent = tlFmm(s); $("tl-f-v").textContent = tlFf(f);
+  setHTML("tl-legend", TLLEG.map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  renderRo($("tl-ro"), [["Characteristic impedance", `${L.Z0.toFixed(1)} Ω`], ["Effective permittivity ε_eff", L.ee.toFixed(2)], ["Guided wavelength", tlFmm(L.lg)], ["Total loss", `${tlFdb(L.at)} dB/cm`]]);
+  let eq;
+  if (v === "ms") eq = [{name:"ε_eff (Hammerstad)", f:"ε_eff = (ε_r + 1)/2 + (ε_r − 1)/2 · (1 + 12h/w)^(−1/2)", sub:`w/h = ${(w/h).toFixed(2)} → ε_eff = ${L.ee0.toFixed(3)} (static)`},
+      {name:"Z₀ (Hammerstad)", f:"w/h > 1: Z₀ = 120π / (√ε_eff · (w/h + 1.393 + 0.667·ln(w/h + 1.444)));  w/h ≤ 1: Z₀ = 60/√ε_eff · ln(8h/w + w/4h)", sub:`Z₀ = ${L.Z0.toFixed(1)} Ω`},
+      {name:"Dispersion", f:"ε_eff(f) = ε_r − (ε_r − ε_eff)/(1 + G·(f/f_p)²),  f_p = Z₀/(2µ₀h),  G = 0.6 + 0.009·Z₀", sub:`f_p = ${tlFf(L.fp)} → ε_eff(${tlFf(f)}) = ${L.ee.toFixed(3)}`}];
+  else if (v === "sl") eq = [{name:"Z₀ (exact, thin strip)", f:"Z₀ = 30π/√ε_r · K(k)/K(k'),  k = sech(πw/2b),  b = 2h", sub:`k = ${(1/Math.cosh(Math.PI*w/(4*h))).toFixed(4)} → Z₀ = ${L.Z0.toFixed(1)} Ω`},
+      {name:"TEM wave", f:"ε_eff = ε_r  (no dispersion)", sub:`ε_eff = ${L.ee.toFixed(2)} at every frequency`}];
+  else { const k0 = w/(w + 2*s), k1 = Math.sinh(Math.PI*w/(4*h))/Math.sinh(Math.PI*(w + 2*s)/(4*h));
+    eq = [{name:"Conformal map", f:"k₀ = w/(w + 2s),  k₁ = sinh(πw/4h) / sinh(π(w + 2s)/4h)", sub:`k₀ = ${k0.toFixed(3)}, k₁ = ${k1.toFixed(3)}`},
+      {name:"ε_eff of CPW", f:"ε_eff = 1 + (ε_r − 1)/2 · K(k₁)K(k₀')/(K(k₁')K(k₀))", sub:`= ${L.ee0.toFixed(3)} (static)`},
+      {name:"Z₀ of CPW", f:"Z₀ = 30π/√ε_eff · K(k₀')/K(k₀)", sub:`Z₀ = ${L.Z0.toFixed(1)} Ω`}]; }
+  eq.push({name:"Loss estimate", f:"α_c ∝ R_s/(Z₀·w) ∝ √f,  α_d ∝ tan δ · f,  α_r ∝ (f·h)²", sub:`${tlFdb(L.ac)} + ${tlFdb(L.ad)} + ${tlFdb(L.ar)} = ${tlFdb(L.at)} dB/cm (tan δ = ${M.td})`},
+    {name:"Wavelength and speed", f:"v = c/√ε_eff,  λ_g = c/(f·√ε_eff)", sub:`v = ${L.vp.toFixed(3)} c, λ_g(${tlFf(f)}) = ${tlFmm(L.lg)}`});
+  renderEq($("tl-eq"), eq);
+  drawTLPlots();
+}
+function tlTick(dt){
+  if (!(dt >= 0)) return; TLS.tm += dt;
+  if (TLS.sw){ const [lo, hi, st, id] = TL_SW[TLS.sw]; TLS.swu = (TLS.swu + dt/8) % 2; const u = TLS.swu < 1 ? TLS.swu : 2 - TLS.swu;
+    TLS[TLS.sw] = +(lo + Math.round((hi - lo)*u/st)*st).toFixed(3); $(id).value = TLS[TLS.sw];
+    TLS.swacc += dt; if (TLS.swacc > 0.1){ TLS.swacc = 0; updateTL(); } }
+}
+document.querySelectorAll("#tl-view button").forEach(b => b.addEventListener("click", () => { TLS.view = b.dataset.v; if (!findCrawling) TLS.sw = null; updateTL(); }));
+document.querySelectorAll("#tl-sub-m button").forEach(b => b.addEventListener("click", () => { TLS.mat = b.dataset.m; updateTL(); }));
+document.querySelectorAll("#tl-swp button[data-w]").forEach(b => b.addEventListener("click", () => { const w = b.dataset.w; if (TLS.sw === w) TLS.sw = null;
+  else { TLS.sw = w; const [lo, hi] = TL_SW[w]; TLS.swu = clamp((TLS[w] - lo)/(hi - lo), 0, 1); } updateTL(); }));
+$("tl-50").addEventListener("click", () => { TLS.sw = null; TLS.w = +clamp(tlSolveW(TLS.view, 50), -2, 0.7).toFixed(3); updateTL(); });
+[["tl-w", "w"], ["tl-h", "h"], ["tl-s", "s"], ["tl-f", "f"]].forEach(([id, k]) => $(id).addEventListener("input", e => { TLS[k] = +e.target.value; if (TLS.sw === k) TLS.sw = null; updateTL(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb","ca","sm","la","ee"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb","ca","sm","la","ee","tl"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown", ca:"#capacitors", sm:"#smith-chart", la:"#latchup-antenna", ee:"#esd-eos"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev", ca:"rf", sm:"rf", la:"rel", ee:"rel"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown", ca:"#capacitors", sm:"#smith-chart", la:"#latchup-antenna", ee:"#esd-eos", tl:"#transmission-lines"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev", ca:"rf", sm:"rf", la:"rel", ee:"rel", tl:"rf"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -27102,6 +27539,7 @@ function showTab(t){
   else if (t === "sm"){ $("sub-top").textContent = "Smith chart · add series and shunt L, R and C to a load and match it to Z₀"; SMC.resize(); updateSM(); }
   else if (t === "la"){ $("sub-top").textContent = "Latch-up and antenna effect · parasitic thyristor and plasma charging damage"; LAC.resize(); updateLA(); }
   else if (t === "ee"){ $("sub-top").textContent = "ESD and EOS · human-body, machine and charged-device models, electrical overstress"; EEC.resize(); updateEE(); }
+  else if (t === "tl"){ $("sub-top").textContent = "Transmission lines · microstrip, stripline and coplanar waveguide"; TLC.resize(); updateTL(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -27143,6 +27581,7 @@ function frame(now){
   else if (tab === "sm"){ if (SMC.cv.clientWidth) drawSM(dt, T); }
   else if (tab === "la"){ laTick(dt); if (LAC.cv.clientWidth) drawLA(dt, T); }
   else if (tab === "ee"){ eeTick(dt); if (EEC.cv.clientWidth) drawEE(dt, T); }
+  else if (tab === "tl"){ tlTick(dt); if (TLC.cv.clientWidth) drawTL(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);

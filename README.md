@@ -194,6 +194,11 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **ESD: HBM · MM · CDM** – slow-motion zap: a charged person (100 pF / 1.5 kΩ), a charged machine (200 pF, ringing) or the charged chip itself (CDM, ~1 ns) discharges into a pin; exact series-RLC current, animated current path through the primary diodes, RC power clamp and secondary R + clamp to the input gate; pad and gate-oxide voltage, pass/fail and the passing level; all three waveforms on one log-time axis; switch protection stages off to see HBM fail on current and CDM fail on gate-oxide voltage
 - **EOS (electrical overstress)** – hot-plug spike, inductive kickback, wrong 12 V supply or slow overvoltage through a source resistance: RC clamp for ~1 µs, then core snapback; three-regime thermal impedance (adiabatic, √t, steady) heats the clamp until aluminium (660 °C) or silicon (1414 °C) melts, with a persistent crater; Wunsch–Bell failure-power curve and temperature versus time; optional board TVS diode that burns open beyond 0.6 J
 
+## Transmission lines tab (`#transmission-lines`)
+- **Microstrip, stripline, coplanar waveguide** – animated cross-section with E-field lines that reverse every half cycle and H-field loops, and the voltage wave travelling along the line with its guided wavelength, attenuation envelope and radiation from open lines
+- Z₀ and ε_eff from Hammerstad (microstrip, with Kirschning-type dispersion), the exact thin-strip conformal map for stripline (b = 2h) and the elliptic-integral CPW formulas; conductor, dielectric and radiation loss estimates and the higher-order-mode cutoff
+- Substrates FR-4, RO4350B, alumina, high-resistivity Si, GaAs; width, height, gap and frequency sliders, frequency and width sweeps, “Make it 50 Ω”; Z₀ versus width for all three lines, and loss versus frequency with all three sized to the same Z₀
+
 ## Quiz and glossary
 - **Quiz** (? button in the header) – multiple-choice questions generated from the "Explain the terms" list of the open tab, or of all tabs; score, feedback and a link to the term in its tab
 - **Glossary** (book button) – every term explained on the site (about 390) in one filterable alphabetical list, each linked to its tab; works in English and Chinese
