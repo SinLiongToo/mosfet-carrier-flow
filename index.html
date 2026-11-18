@@ -10511,6 +10511,147 @@ Object.assign(window.I18N_ZH, {
 "Fast, low-resistance switching from the #DEG; the breakdown voltage comes from the length and shape of the gate–drain field": "#DEG 帶來快速、低電阻的開關；崩潰電壓取決於閘極–汲極電場的長度與形狀",
 "In the transistor, source and drain contacts reach down to the #DEG, and the gate between them controls the electron density underneath. The #DEG between the contacts acts as a very low sheet resistance, a few hundred ohms per square, so the device has a low on-resistance and, with no minority carriers to remove, switches in nanoseconds: GaN chargers run at hundreds of kilohertz to megahertz, which shrinks their transformers and capacitors. The current saturates when the electrons reach their saturation velocity under the gate. When the transistor is off, the drain voltage is held by the gate–drain gap. The field does not spread evenly: it crowds at the drain-side edge of the gate, and the device breaks down when that peak reaches the critical field of GaN, # MV/cm. A longer gap blocks more but adds resistance; a field plate, a metal extension of the gate over the passivation, splits the peak in two and lets the same gap block much more. The right plot shows why wide-gap materials win: the lowest possible on-resistance of a power device scales with the breakdown voltage squared divided by the critical field cubed, so a ten times higher critical field gives roughly a thousand times lower resistance than silicon at the same voltage. GaN's practical limits are its traps (current collapse after high-voltage stress), its lateral structure and the difficulty of making it normally off.": "在電晶體中，源極與汲極接點向下接到 #DEG，中間的閘極控制它下方的電子密度。接點之間的 #DEG 是很低的片電阻，每方塊只有幾百歐姆，所以元件導通電阻低；又因為沒有少數載子需要移除，切換只要幾奈秒：GaN 充電器操作在幾百 kHz 到 MHz，變壓器與電容都因此縮小。當閘極下的電子達到飽和速度，電流就飽和。電晶體關閉時，汲極電壓由閘極–汲極間隙承受。電場並不平均分佈，而是集中在閘極靠汲極的邊緣；當這個峰值達到 GaN 的臨界電場 # MV/cm，元件就崩潰。間隙越長耐壓越高，但電阻也越大；場板是閘極金屬越過保護層的延伸，它把峰值分成兩個，讓同樣的間隙能承受高得多的電壓。右圖說明寬能隙材料為何勝出：功率元件可能達到的最低導通電阻，與崩潰電壓的平方成正比、與臨界電場的三次方成反比，所以臨界電場高十倍，在同樣電壓下電阻約低一千倍。GaN 實務上的限制在於陷阱（高壓應力後的電流崩塌）、橫向結構，以及難以做成常關型。"
 });
+Object.assign(window.I18N_ZH, {
+"Power integrity": "電源完整性",
+"Power integrity · PDN impedance, decoupling capacitors, target impedance and load-step droop": "電源完整性 · PDN 阻抗、去耦電容、目標阻抗與負載階躍下陷",
+"Power integrity view": "電源完整性畫面",
+"Impedance versus frequency": "阻抗對頻率",
+"Load step and voltage droop": "負載階躍與電壓下陷",
+"Power delivery network from the voltage regulator through the board decoupling capacitors and the package to the die, with the current each part delivers; below it the impedance seen from the die against the target impedance, or the die voltage after a load step with the first, second and third droop": "從穩壓器經過電路板去耦電容與封裝到晶粒的供電網路，並顯示各部分提供的電流；下方是從晶粒看進去的阻抗與目標阻抗的比較，或負載階躍後晶粒電壓的第一、二、三次下陷",
+"Cursor": "游標",
+"The cursor sweeps the frequency (or the time after the step) and the circuit shows which part delivers the current there.": "游標掃過頻率（或階躍後的時間），電路圖顯示在那一點由哪個部分提供電流。",
+"Bulk capacitors (# µF)": "大容量電容（# µF）",
+"Bulk electrolytic or polymer capacitors near the regulator: large capacitance, but several nanohenries of inductance.": "穩壓器附近的電解或高分子大容量電容：電容很大，但有好幾 nH 的電感。",
+"# µF ceramic capacitors": "# µF 陶瓷電容",
+"Ceramic capacitors around the processor. Each one adds capacitance and, in parallel, lowers the total inductance.": "處理器周圍的陶瓷電容。每多一顆就增加電容，並聯後也降低總電感。",
+"# nF ceramic capacitors": "# nF 陶瓷電容",
+"Small ceramic capacitors, often placed under the package. Their mounting inductance, not their value, decides how high in frequency they help.": "小顆陶瓷電容，常放在封裝正下方。決定它們在多高頻率還有幫助的是安裝電感，而不是電容值。",
+"Package inductance": "封裝電感",
+"Effective inductance of the package power and ground paths (balls, vias, planes) between the board and the die, all in parallel.": "電路板與晶粒之間封裝電源與接地路徑（錫球、導通孔、平面）全部並聯後的等效電感。",
+"On-die capacitance": "晶片內電容",
+"Capacitance on the chip itself: the gates and wells of idle circuits plus dedicated decoupling cells. It is the only charge close enough for the first nanoseconds.": "晶片本身的電容：閒置電路的閘極與井，加上專用的去耦單元。只有它的電荷近到能應付最初幾奈秒。",
+"Load step ΔI": "負載階躍 ΔI",
+"Sudden change of the load current, for example when a processor core wakes up. It rises in # ns.": "負載電流的突然變化，例如處理器核心被喚醒時。上升時間 # ns。",
+"Impedance of each capacitor bank alone, or the current each part supplies after the load step": "各組電容單獨的阻抗，或負載階躍後各部分提供的電流",
+"Peak impedance below and above # MHz versus the number of # µF capacitors, or worst droop versus on-die capacitance": "# MHz 以下與以上的峰值阻抗對 # µF 電容數量，或最差下陷對晶片內電容",
+"Explain the terms: PDN, target impedance, ESR and ESL, self-resonance, anti-resonance, first, second and third droop, on-die capacitance, ground bounce": "名詞解釋：PDN、目標阻抗、ESR 與 ESL、自諧振、反諧振、第一、二、三次下陷、晶片內電容、接地彈跳",
+"Who supplies the current, and when": "誰在什麼時候提供電流",
+"Time after the step": "階躍後的時間",
+"Frequency": "頻率",
+"Supplied by": "由誰提供",
+"On-die capacitance (first droop)": "晶片內電容（第一次下陷）",
+"Ceramic capacitors through the package (second droop)": "經過封裝的陶瓷電容（第二次下陷）",
+"Bulk capacitors (third droop)": "大容量電容（第三次下陷）",
+"Voltage regulator control loop": "穩壓器控制迴路",
+"Good practice": "設計要點",
+"Set the target impedance from the supply tolerance and the worst load step, and keep |Z| below it over the whole range.": "由電源容差與最差負載階躍決定目標阻抗，並讓 |Z| 在整個頻率範圍都低於它。",
+"Minimize the mounting inductance: short, wide pads, vias right at the pads, thin dielectric between the power and ground planes.": "把安裝電感降到最低：短而寬的焊墊、導通孔緊貼焊墊、電源與接地平面之間用薄介電層。",
+"Mix values so the self-resonances overlap, and do not leave gaps that create anti-resonance peaks.": "混用不同電容值讓自諧振互相重疊，不要留下會形成反諧振峰的空隙。",
+"Some ESR helps: it damps the anti-resonance peaks.": "適量的 ESR 有幫助：它能抑制反諧振峰。",
+"PDN": "PDN",
+"Power delivery network: everything between the regulator and the transistors that draw current.": "供電網路：穩壓器與消耗電流的電晶體之間的一切。",
+"Target impedance": "目標阻抗",
+"Z_t = V·tolerance/ΔI: the impedance that keeps the voltage within tolerance for the largest current step.": "Z_t = V·容差/ΔI：在最大電流階躍下仍能讓電壓保持在容差內的阻抗。",
+"ESR and ESL": "ESR 與 ESL",
+"Equivalent series resistance and inductance of a real capacitor, including its mounting.": "實際電容的等效串聯電阻與電感，包含安裝的部分。",
+"The frequency #/(#π√(ESL·C)) where a capacitor is lowest (just ESR); above it, it behaves like an inductor.": "頻率 #/(#π√(ESL·C))，此時電容阻抗最低（只剩 ESR）；高於此頻率就像電感。",
+"Anti-resonance": "反諧振",
+"A peak where the inductance of one stage resonates with the capacitance of the next, for example the package with the die.": "某一級的電感與下一級的電容產生諧振而形成的阻抗峰，例如封裝與晶粒。",
+"First, second, third droop": "第一、二、三次下陷",
+"The voltage dips after a load step, set by the die–package, the board capacitors and the bulk capacitors with the regulator.": "負載階躍後的電壓下陷，分別由晶粒–封裝、電路板電容，以及大容量電容與穩壓器決定。",
+"Capacitance on the chip; nothing else can respond within the first nanoseconds.": "晶片上的電容；最初幾奈秒內沒有其他元件來得及反應。",
+"Ground bounce": "接地彈跳",
+"V = L·di/dt across shared ground inductance when many outputs switch at once; it shifts the local ground.": "許多輸出同時切換時，共用接地電感上的 V = L·di/dt；它會讓局部接地電位偏移。",
+"Power delivery network: regulator → board capacitors → package → die": "供電網路：穩壓器 → 電路板電容 → 封裝 → 晶粒",
+"package # pH": "封裝 # pH",
+"VRM": "VRM",
+"control loop": "控制迴路",
+"not fitted": "未安裝",
+"Bulk": "大容量",
+"MLCC": "MLCC",
+"load": "負載",
+"# A test": "# A 測試",
+"VRM # %": "VRM # %",
+"share of the load current at the cursor frequency": "游標頻率下負載電流的分配比例",
+"share of the load current at the cursor time": "游標時間下負載電流的分配比例",
+"|Z(f)| seen from the die against the target impedance": "從晶粒看進去的 |Z(f)| 與目標阻抗",
+"target # mΩ = # V × # % / # A": "目標 # mΩ = # V × # % / # A",
+"peak # mΩ at # MHz": "峰值 # mΩ（# MHz）",
+"peak # mΩ at # kHz": "峰值 # mΩ（# kHz）",
+"peak # mΩ at # GHz": "峰值 # mΩ（# GHz）",
+"die–package resonance ≈ # MHz": "晶粒–封裝諧振 ≈ # MHz",
+"die–package resonance ≈ # kHz": "晶粒–封裝諧振 ≈ # kHz",
+"Die voltage after a # A load step (rise # ns), log time axis": "# A 負載階躍（上升 # ns）後的晶粒電壓，時間軸為對數",
+"tolerance # mV (−# %)": "容差 # mV（−# %）",
+"#st droop # mV": "第 # 次下陷 # mV",
+"#nd droop # mV": "第 # 次下陷 # mV",
+"#rd droop # mV": "第 # 次下陷 # mV",
+"log# f (Hz)": "log# f（Hz）",
+"log# |Z| (Ω)": "log# |Z|（Ω）",
+"— bulk": "— 大容量",
+"— die": "— 晶粒",
+"- - total |Z|": "- - 總 |Z|",
+"number of # µF capacitors": "# µF 電容數量",
+"peak |Z| (mΩ)": "峰值 |Z|（mΩ）",
+"- - target": "- - 目標",
+"log# t (s)": "log# t（s）",
+"current / ΔI": "電流 / ΔI",
+"— VRM": "— VRM",
+"log# C_die (nF)": "log# C_die（nF）",
+"worst droop (mV)": "最差下陷（mV）",
+"— worst droop": "— 最差下陷",
+"PDN target impedance": "PDN 目標阻抗",
+"Peak impedance": "峰值阻抗",
+"Die–package resonance": "晶粒–封裝諧振",
+"Impedance margin": "阻抗餘裕",
+"First droop": "第一次下陷",
+"Second droop": "第二次下陷",
+"Third droop": "第三次下陷",
+"Lowest die voltage": "晶粒最低電壓",
+"V × tolerance / ΔI.": "V × 容差 / ΔI。",
+"Highest |Z| seen from the die above # kHz.": "從晶粒看進去、# kHz 以上的最高 |Z|。",
+"Package plus board inductance against the on-die capacitance.": "封裝加電路板電感與晶片內電容的諧振。",
+"Target divided by the peak; above # the design meets the target.": "目標除以峰值；大於 # 表示設計符合目標。",
+"Die capacitance against the package inductance.": "晶粒電容對封裝電感。",
+"Board ceramic capacitors.": "電路板陶瓷電容。",
+"Bulk capacitors until the regulator responds.": "大容量電容撐到穩壓器反應為止。",
+"Minimum of the die voltage after the step.": "階躍後晶粒電壓的最小值。",
+"From the supply tolerance and the largest load step.": "由電源容差與最大負載階躍決定。",
+"Capacitor impedance": "電容阻抗",
+"Series R-L-C of each capacitor including mounting.": "每顆電容含安裝的串聯 R-L-C。",
+"Self-resonance frequency": "自諧振頻率",
+"Where the capacitor is purely resistive.": "電容呈純電阻的頻率。",
+"Package inductance with the on-die capacitance.": "封裝電感與晶片內電容。",
+"First droop estimate": "第一次下陷估計",
+"Undamped LC response to a current step.": "無阻尼 LC 對電流階躍的響應。",
+"Inductive voltage": "電感電壓",
+"Voltage across an inductance for a current change.": "電流變化時電感上的電壓。",
+"Charge from a capacitor": "電容提供的電荷",
+"How long a capacitor can carry the load.": "電容能撐住負載多久。",
+"Shared ground inductance with many outputs switching.": "許多輸出同時切換時的共用接地電感。",
+"Z_t = V · tolerance / ΔI": "Z_t = V · 容差 / ΔI",
+"Z = ESR + jωESL + #/(jωC), N in parallel: ESR/N, ESL/N, N·C": "Z = ESR + jωESL + #/(jωC)，N 顆並聯：ESR/N、ESL/N、N·C",
+"at the cursor # kHz: |Z| = # mΩ": "游標 # kHz：|Z| = # mΩ",
+"at the cursor # MHz: |Z| = # mΩ": "游標 # MHz：|Z| = # mΩ",
+"at the cursor # GHz: |Z| = # mΩ": "游標 # GHz：|Z| = # mΩ",
+"f = # / (#π·√(L·C_die)), Z_# = √(L/C_die)": "f = # / (#π·√(L·C_die))，Z_# = √(L/C_die)",
+"# mV undamped, # mV simulated": "無阻尼 # mV，模擬 # mV",
+"# mV if the package had to deliver ΔI in # ns": "若封裝要在 # ns 內提供 ΔI，會有 # mV",
+"C_die alone: # mV per ns": "只靠 C_die：每 ns 下降 # mV",
+"N outputs switching through a shared ground path": "N 個輸出經過共用接地路徑同時切換",
+"Total |Z|, on-die capacitance": "總 |Z|、晶片內電容",
+"# nF capacitors": "# nF 電容",
+"# µF capacitors": "# µF 電容",
+"Bulk capacitors": "大容量電容",
+"Regulator": "穩壓器",
+"Die voltage, on-die capacitance": "晶粒電壓、晶片內電容",
+"Board voltage, regulator": "電路板電壓、穩壓器",
+"PDN impedance and target impedance": "PDN 阻抗與目標阻抗",
+"Every capacitor helps only in its own frequency band: together they must keep |Z| below the target from kilohertz to gigahertz": "每顆電容只在自己的頻段有用：它們必須合力讓 |Z| 從 kHz 到 GHz 都低於目標",
+"A processor core can change its current by many amperes within a nanosecond, and its supply must stay within a few percent. The power delivery network between the regulator and the transistors is therefore designed in the frequency domain: if the impedance seen from the die stays below the target impedance Z_t = V × tolerance / ΔI at every frequency, no current change can push the voltage out of tolerance. No single component can do this. The regulator is very good at low frequency but its control loop is slow, so above some tens of kilohertz its output looks like an inductor. Bulk capacitors take over up to around a megahertz, ceramic capacitors to tens of megahertz, and only the capacitance on the die itself works above that, because the package inductance isolates the die from everything on the board. Each real capacitor is a series R-L-C: below its self-resonance it is a capacitor, above it an inductor, so its mounting inductance, not its value, decides how high it helps. Where the inductance of one stage meets the capacitance of the next, they form a parallel resonance, an anti-resonance peak; the largest is usually the package against the on-die capacitance, at tens of megahertz. Move the cursor sweep and watch which element delivers the current at each frequency.": "處理器核心可能在一奈秒內改變好幾安培的電流，而它的電源必須維持在幾個百分比以內。因此穩壓器與電晶體之間的供電網路是在頻域中設計的：只要從晶粒看進去的阻抗在每個頻率都低於目標阻抗 Z_t = V × 容差 / ΔI，任何電流變化都無法把電壓推出容差。沒有單一元件做得到這件事。穩壓器在低頻表現很好，但控制迴路很慢，所以在幾十 kHz 以上它的輸出看起來像電感。大容量電容接手到約 MHz 等級，陶瓷電容到幾十 MHz，再往上只有晶片本身的電容有作用，因為封裝電感把晶粒和電路板上的一切隔開。每顆實際電容都是串聯的 R-L-C：低於自諧振頻率時是電容，高於時是電感，所以決定它在多高頻率還有用的是安裝電感，而不是電容值。某一級的電感遇上下一級的電容，就形成並聯諧振，也就是反諧振峰；最大的通常是封裝對晶片內電容，在幾十 MHz。讓游標掃描，看看每個頻率由哪個元件提供電流。",
+"First, second and third droop: the die capacitance, the board capacitors and the bulk capacitors take turns until the regulator catches up": "第一、二、三次下陷：晶粒電容、電路板電容與大容量電容輪流上場，直到穩壓器跟上",
+"The same network seen in time. At the instant the load current jumps, only the charge stored right next to the transistors, the on-die capacitance, can respond: the package inductance stops any faster current from the board, so the die voltage dips quickly. This first droop, a few nanoseconds to tens of nanoseconds after the step, is usually the deepest and is set by the package inductance against the on-die capacitance, roughly ΔI × √(L/C). As the current through the package builds up, the board ceramic capacitors take over and the voltage recovers, then sags again more slowly as they run down: the second droop, over hundreds of nanoseconds. The bulk capacitors then carry the load for microseconds (the third droop) until the regulator's control loop has raised its own current to the new load. Each droop is the time-domain view of one impedance peak in the frequency plot; the lower the peaks, the shallower the droops. The dots in the circuit show the current each part delivers at the cursor time: the hand-over from the die to the # nF, the # µF, the bulk capacitors and finally the regulator.": "同一個網路，從時間來看。負載電流跳變的瞬間，只有緊鄰電晶體儲存的電荷，也就是晶片內電容，來得及反應：封裝電感擋住任何更快的電路板電流，所以晶粒電壓迅速下降。這個第一次下陷發生在階躍後幾奈秒到幾十奈秒，通常最深，由封裝電感對晶片內電容決定，大約是 ΔI × √(L/C)。隨著流過封裝的電流增加，電路板上的陶瓷電容接手，電壓回升，然後在它們放電時再慢慢下垂：這是第二次下陷，持續數百奈秒。接著大容量電容撐住負載好幾微秒（第三次下陷），直到穩壓器的控制迴路把自己的電流提高到新的負載。每次下陷都是頻率圖中一個阻抗峰在時域的樣子；峰越低，下陷越淺。電路圖中的點顯示在游標時間各部分提供的電流：從晶粒交棒給 # nF、# µF、大容量電容，最後是穩壓器。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -10932,6 +11073,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-op" aria-selected="false" aria-controls="tab-op">Optoelectronics (photodiode · LED)</button>
         <button role="tab" id="tab-btn-sx" aria-selected="false" aria-controls="tab-sx">Semiconductor basics</button>
         <button role="tab" id="tab-btn-gh" aria-selected="false" aria-controls="tab-gh">GaN HEMT</button>
+        <button role="tab" id="tab-btn-pi" aria-selected="false" aria-controls="tab-pi">Power integrity</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -16538,6 +16680,111 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Normally-off</dt><dd>No current at 0 V on the gate, obtained with a p-GaN gate, a recessed gate or a cascode with a silicon MOSFET.</dd>
               <dt>Current collapse</dt><dd>After high-voltage stress, trapped electrons near the surface or in the buffer temporarily raise the on-resistance.</dd>
               <dt>Baliga figure of merit</dt><dd>ε·µ·E_c³: sets the lowest on-resistance for a given breakdown voltage.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== POWER INTEGRITY TAB ===================== -->
+  <section id="tab-pi" role="tabpanel" aria-labelledby="tab-btn-pi" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="pi-pill">Z(f)</span><h2 id="pi-name">PDN impedance and target impedance</h2></div>
+      <p id="pi-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="pi-view" role="group" aria-label="Power integrity view" style="flex-wrap:wrap">
+        <button data-v="z" aria-pressed="true">Impedance versus frequency</button>
+        <button data-v="t" aria-pressed="false">Load step and voltage droop</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvpi" aria-label="Power delivery network from the voltage regulator through the board decoupling capacitors and the package to the die, with the current each part delivers; below it the impedance seen from the die against the target impedance, or the die voltage after a load step with the first, second and third droop"></canvas>
+      <div class="legend" id="pi-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="pi-ro"></div>
+        <div style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="The cursor sweeps the frequency (or the time after the step) and the circuit shows which part delivers the current there.">Cursor</span>
+          <div class="chips"><button class="chipbtn" id="pi-play">❚❚ Pause</button></div>
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Bulk electrolytic or polymer capacitors near the regulator: large capacitance, but several nanohenries of inductance.">Bulk capacitors (330 µF)</span><span id="pi-nb-v"></span></div>
+          <input id="pi-nb" type="range" min="0" max="6" step="1" value="2">
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Ceramic capacitors around the processor. Each one adds capacitance and, in parallel, lowers the total inductance.">1 µF ceramic capacitors</span><span id="pi-n1-v"></span></div>
+          <input id="pi-n1" type="range" min="0" max="40" step="1" value="20">
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Small ceramic capacitors, often placed under the package. Their mounting inductance, not their value, decides how high in frequency they help.">100 nF ceramic capacitors</span><span id="pi-n2-v"></span></div>
+          <input id="pi-n2" type="range" min="0" max="60" step="1" value="20">
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Effective inductance of the package power and ground paths (balls, vias, planes) between the board and the die, all in parallel.">Package inductance</span><span id="pi-lp-v"></span></div>
+          <input id="pi-lp" type="range" min="5" max="200" step="1" value="40">
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Capacitance on the chip itself: the gates and wells of idle circuits plus dedicated decoupling cells. It is the only charge close enough for the first nanoseconds.">On-die capacitance</span><span id="pi-cd-v"></span></div>
+          <input id="pi-cd" type="range" min="50" max="3000" step="10" value="400">
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Sudden change of the load current, for example when a processor core wakes up. It rises in 1 ns.">Load step ΔI</span><span id="pi-di-v"></span></div>
+          <input id="pi-di" type="range" min="1" max="20" step="0.5" value="5">
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="pi-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Characteristics</p>
+        <div class="plots">
+          <div class="plot"><svg id="pi-p1" viewBox="0 0 300 230" role="img" aria-label="Impedance of each capacitor bank alone, or the current each part supplies after the load step"></svg></div>
+          <div class="plot"><svg id="pi-p2" viewBox="0 0 220 230" role="img" aria-label="Peak impedance below and above 10 MHz versus the number of 1 µF capacitors, or worst droop versus on-die capacitance"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="pi-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: PDN, target impedance, ESR and ESL, self-resonance, anti-resonance, first, second and third droop, on-die capacitance, ground bounce</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>Who supplies the current, and when</h3>
+            <div class="tbl"><table>
+              <tr><th>Time after the step</th><th>Frequency</th><th>Supplied by</th></tr>
+              <tr><td>0–30 ns</td><td>&gt; 30 MHz</td><td>On-die capacitance (first droop)</td></tr>
+              <tr><td>30 ns – 1 µs</td><td>1–30 MHz</td><td>Ceramic capacitors through the package (second droop)</td></tr>
+              <tr><td>1–20 µs</td><td>20 kHz – 1 MHz</td><td>Bulk capacitors (third droop)</td></tr>
+              <tr><td>&gt; 20 µs</td><td>&lt; 20 kHz</td><td>Voltage regulator control loop</td></tr>
+            </table></div>
+            <h3>Good practice</h3>
+            <ol>
+              <li>Set the target impedance from the supply tolerance and the worst load step, and keep |Z| below it over the whole range.</li>
+              <li>Minimize the mounting inductance: short, wide pads, vias right at the pads, thin dielectric between the power and ground planes.</li>
+              <li>Mix values so the self-resonances overlap, and do not leave gaps that create anti-resonance peaks.</li>
+              <li>Some ESR helps: it damps the anti-resonance peaks.</li>
+            </ol>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>PDN</dt><dd>Power delivery network: everything between the regulator and the transistors that draw current.</dd>
+              <dt>Target impedance</dt><dd>Z_t = V·tolerance/ΔI: the impedance that keeps the voltage within tolerance for the largest current step.</dd>
+              <dt>ESR and ESL</dt><dd>Equivalent series resistance and inductance of a real capacitor, including its mounting.</dd>
+              <dt>Self-resonance</dt><dd>The frequency 1/(2π√(ESL·C)) where a capacitor is lowest (just ESR); above it, it behaves like an inductor.</dd>
+              <dt>Anti-resonance</dt><dd>A peak where the inductance of one stage resonates with the capacitance of the next, for example the package with the die.</dd>
+              <dt>First, second, third droop</dt><dd>The voltage dips after a load step, set by the die–package, the board capacitors and the bulk capacitors with the regulator.</dd>
+              <dt>On-die capacitance</dt><dd>Capacitance on the chip; nothing else can respond within the first nanoseconds.</dd>
+              <dt>Ground bounce</dt><dd>V = L·di/dt across shared ground inductance when many outputs switch at once; it shifts the local ground.</dd>
             </dl>
           </div>
         </div>
@@ -30602,12 +30849,249 @@ document.querySelectorAll("#gh-gt button").forEach(b => b.addEventListener("clic
 document.querySelectorAll("#gh-fp button").forEach(b => b.addEventListener("click", () => { GHS.fp = b.dataset.f === "1"; updateGH(); }));
 [["gh-x", "x"], ["gh-d", "d"], ["gh-vg", "vg"], ["gh-vd", "vd"], ["gh-lgd", "lgd"]].forEach(([id, k]) => $(id).addEventListener("input", e => { GHS[k] = +e.target.value; updateGH(); }));
 
+/* ===================== POWER INTEGRITY TAB: PDN impedance and load-step droop ===================== */
+// Lumped PDN: VRM (R_v + L_v from 1 V) → board node → banks of bulk, 1 µF and 100 nF capacitors (each R + L + C, N in parallel)
+// → package (R_p + L_p) → die node with on-die capacitance (C_d + R_d) and the load current. |Z(f)| is seen from the die.
+// Load step: backward Euler on the DAE with a geometric time step from 20 ps to 200 µs; the board node is algebraic (KCL).
+const PIS = {view:"z", nb:2, n1:20, n2:20, lp:40, cd:400, di:5, fz:0, play:true};
+const PI_V = 1.0, PI_RIP = 0.05, PI_VRM = {R:0.5e-3, L:30e-9}, PI_PK = {R:0.3e-3}, PI_RD = 3e-3;
+const PI_BANK = [{k:"nb", C:330e-6, R:12e-3, L:3e-9, name:"Bulk 330 µF"}, {k:"n1", C:1e-6, R:6e-3, L:0.8e-9, name:"MLCC 1 µF"}, {k:"n2", C:100e-9, R:15e-3, L:0.6e-9, name:"MLCC 100 nF"}];
+const cx = (re, im = 0) => ({re, im}), cAdd = (a, b) => cx(a.re + b.re, a.im + b.im), cMul = (a, b) => cx(a.re*b.re - a.im*b.im, a.re*b.im + a.im*b.re);
+const cDiv = (a, b) => { const d = b.re*b.re + b.im*b.im; return cx((a.re*b.re + a.im*b.im)/d, (a.im*b.re - a.re*b.im)/d); }, cAbs = a => Math.hypot(a.re, a.im);
+const cPar = (a, b) => cDiv(cMul(a, b), cAdd(a, b)), cInv = a => cDiv(cx(1), a);
+function piParts(P = PIS){
+  const banks = PI_BANK.map(b => ({...b, N:P[b.k], Re:b.R/Math.max(P[b.k], 1), Le:b.L/Math.max(P[b.k], 1), Ce:b.C*P[b.k]}));
+  return {banks, Lp:P.lp*1e-12, Rp:PI_PK.R, Cd:P.cd*1e-9, Rd:PI_RD};
+}
+// die–package anti-resonance: package plus the lowest board inductance against the on-die capacitance
+const piFdie = (P = PIS, Q = piParts(P)) => { const Lb = Math.min(PI_VRM.L, ...Q.banks.filter(b => b.N).map(b => b.Le)); return 1/(2*Math.PI*Math.sqrt((Q.Lp + Lb)*Q.Cd)); };
+const piZrlc = (R, L, C, w) => cx(R, w*L - (C > 0 ? 1/(w*C) : 0));
+// impedance seen from the die and the current share of every element for a 1 A source at the die
+function piZ(f, P = PIS, Q = piParts(P)){
+  const w = 2*Math.PI*f, zv = cx(PI_VRM.R, w*PI_VRM.L), zb = Q.banks.map(b => b.N ? piZrlc(b.Re, b.Le, b.Ce, w) : null);
+  let yb = cInv(zv); zb.forEach(z => { if (z) yb = cAdd(yb, cInv(z)); });
+  const Zb = cInv(yb), Zup = cAdd(Zb, cx(Q.Rp, w*Q.Lp)), Zd = piZrlc(Q.Rd, 0, Q.Cd, w), Z = cPar(Zd, Zup);
+  const ip = cDiv(Zd, cAdd(Zd, Zup)), id = cDiv(Zup, cAdd(Zd, Zup)), vb = cMul(ip, Zb);
+  return {Z, m:cAbs(Z), cur:{vrm:cAbs(cDiv(vb, zv)), banks:zb.map(z => z ? cAbs(cDiv(vb, z)) : 0), pkg:cAbs(ip), die:cAbs(id)}};
+}
+const PI_F = (() => { const a = []; for (let i = 0; i <= 240; i++) a.push(Math.pow(10, 3 + 6*i/240)); return a; })();
+function piPeak(P = PIS, f0 = 1e4, f1 = 2e9){ const Q = piParts(P); let best = {m:0, f:0}; PI_F.forEach(f => { if (f < f0 || f > f1) return; const m = piZ(f, P, Q).m; if (m > best.m) best = {m, f}; }); return best; }
+// dense solve (Gaussian elimination with partial pivoting)
+function piSolve(A, b){ const n = b.length;
+  for (let c = 0; c < n; c++){ let p = c; for (let r = c + 1; r < n; r++) if (Math.abs(A[r][c]) > Math.abs(A[p][c])) p = r; [A[c], A[p]] = [A[p], A[c]]; [b[c], b[p]] = [b[p], b[c]];
+    for (let r = c + 1; r < n; r++){ const f = A[r][c]/A[c][c]; if (!f) continue; for (let k = c; k < n; k++) A[r][k] -= f*A[c][k]; b[r] -= f*b[c]; } }
+  const x = new Array(n).fill(0); for (let r = n - 1; r >= 0; r--){ let s = b[r]; for (let k = r + 1; k < n; k++) s -= A[r][k]*x[k]; x[r] = s/A[r][r]; } return x; }
+// state x = [i_v, (i_k, v_k) per bank in use, i_p, v_cd, v_b]; load step 0 → ΔI with 1 ns rise at t = 0
+function piStep(P = PIS, tEnd = 2e-4){
+  const Q = piParts(P), B = Q.banks.filter(b => b.N), nb = B.length, n = 1 + 2*nb + 3, iP = 1 + 2*nb, iC = iP + 1, iB = iP + 2, tr = 1e-9;
+  const Il = t => P.di*Math.min(1, Math.max(0, t)/tr);
+  let x = new Array(n).fill(0); x[iC] = PI_V; x[iB] = PI_V; B.forEach((b, k) => x[2 + 2*k] = PI_V);
+  const out = {t:[0], vd:[PI_V], vb:[PI_V], iv:[0], ib:B.map(() => [0]), id:[0], names:B.map(b => b.k)};
+  let t = 0, h = 2e-11;
+  while (t < tEnd){
+    const tn = t + h, A = Array.from({length:n}, () => new Array(n).fill(0)), r = new Array(n).fill(0), I = Il(tn);
+    // VRM: L_v (i_v − i_v0)/h = V − R_v i_v − v_b
+    A[0][0] = PI_VRM.L/h + PI_VRM.R; A[0][iB] = 1; r[0] = PI_VRM.L/h*x[0] + PI_V;
+    B.forEach((b, k) => { const ii = 1 + 2*k, iv = ii + 1;
+      A[ii][ii] = b.Le/h + b.Re; A[ii][iv] = 1; A[ii][iB] = -1; r[ii] = b.Le/h*x[ii];
+      A[iv][iv] = b.Ce/h; A[iv][ii] = -1; r[iv] = b.Ce/h*x[iv]; });
+    // package: L_p (i_p − i_p0)/h = v_b − R_p i_p − v_d,  v_d = v_cd + R_d (i_p − I)
+    A[iP][iP] = Q.Lp/h + Q.Rp + Q.Rd; A[iP][iB] = -1; A[iP][iC] = 1; r[iP] = Q.Lp/h*x[iP] + Q.Rd*I;
+    A[iC][iC] = Q.Cd/h; A[iC][iP] = -1; r[iC] = Q.Cd/h*x[iC] - I;
+    // board KCL: i_v − Σ i_k − i_p = 0
+    A[iB][0] = 1; B.forEach((b, k) => A[iB][1 + 2*k] = -1); A[iB][iP] = -1;
+    x = piSolve(A, r); t = tn;
+    out.t.push(t); out.vd.push(x[iC] + Q.Rd*(x[iP] - I)); out.vb.push(x[iB]); out.iv.push(x[0]); B.forEach((b, k) => out.ib[k].push(x[1 + 2*k])); out.id.push(I - x[iP]);
+    h = Math.min(h*1.012, t*0.02 + 2e-11);
+  }
+  // droops: minimum of v_die in three windows
+  const win = (a, b) => { let m = {v:PI_V, t:0}; out.t.forEach((tt, i) => { if (tt >= a && tt < b && out.vd[i] < m.v) m = {v:out.vd[i], t:tt}; }); return m; };
+  const T1 = Math.max(3e-8, 1.2/piFdie(P, Q)); out.T1 = T1; out.d1 = win(0, T1); out.d2 = win(T1, 3e-6); out.d3 = win(3e-6, tEnd); out.min = [out.d1, out.d2, out.d3].reduce((a, b) => b.v < a.v ? b : a);
+  return out;
+}
+
+const PIC = setupCanvas($("cvpi"), 1000, 488);
+const PI_COL = ["hole", "electron", "channel"], PI_PH = {vrm:0, b0:0, b1:0, b2:0, pkg:0, die:0};
+let PI_SIM = null, PI_KEY = "";
+const piSim = () => { const key = [PIS.nb, PIS.n1, PIS.n2, PIS.lp, PIS.cd, PIS.di].join(); if (key !== PI_KEY){ PI_SIM = piStep(); PI_KEY = key; } return PI_SIM; };
+const piZt = () => PI_V*PI_RIP/PIS.di;
+const piFmt = f => f >= 1e9 ? `${(f/1e9).toFixed(2)} GHz` : f >= 1e6 ? `${(f/1e6).toFixed(f >= 1e7 ? 0 : 1)} MHz` : f >= 1e3 ? `${(f/1e3).toFixed(f >= 1e4 ? 0 : 1)} kHz` : `${f.toFixed(0)} Hz`;
+const piTf = t => t >= 1e-6 ? `${(t*1e6).toFixed(t >= 1e-5 ? 0 : 1)} µs` : `${(t*1e9).toFixed(0)} ns`;
+const piCur = () => PIS.view === "z" ? Math.pow(10, 3 + 6*PIS.fz) : Math.pow(10, -9 + 5.3*PIS.fz);
+// signed currents (A, or per ampere of load in the frequency view) of every element at the cursor
+function piCurrents(){
+  if (PIS.view === "z"){ const c = piZ(piCur()).cur; return {vrm:c.vrm, banks:c.banks, pkg:c.pkg, die:c.die, load:1, unit:1}; }
+  const S = piSim(), t = piCur(); let i = 1; while (i < S.t.length - 1 && S.t[i] < t) i++;
+  const a = (t - S.t[i - 1])/Math.max(S.t[i] - S.t[i - 1], 1e-30), L = arr => arr[i - 1] + (arr[i] - arr[i - 1])*clamp(a, 0, 1);
+  const banks = [0, 0, 0]; let k = 0; PI_BANK.forEach((b, j) => { if (PIS[b.k]) banks[j] = -L(S.ib[k++]); });
+  const id = L(S.id), load = PIS.di*Math.min(1, t/1e-9);
+  return {vrm:L(S.iv), banks, pkg:load - id, die:id, load, unit:PIS.di, vd:L(S.vd), vb:L(S.vb)};
+}
+function piTick(dt){
+  if (PIS.play) PIS.fz = (PIS.fz + dt/(PIS.view === "z" ? 12 : 10)) % 1;
+  const c = piCurrents(), sp = v => clamp(v/c.unit, -1.5, 1.5)*90;
+  PI_PH.vrm += dt*sp(c.vrm); c.banks.forEach((v, j) => PI_PH["b" + j] += dt*sp(v)); PI_PH.pkg += dt*sp(c.pkg); PI_PH.die += dt*sp(c.die);
+}
+// dots along a polyline; phase in px, the sign gives the direction
+function piFlow(pts, ph, share, col){
+  const P = polyline(pts); if (share < 0.02) return; const n = Math.max(2, Math.round(P.tot/26));
+  for (let i = 0; i < n; i++){ const d = ((i*P.tot/n + ph) % P.tot + P.tot) % P.tot, [x, y] = P.at(d); dot(x, y, col, false, clamp(0.35 + share, 0.35, 1), 3); }
+}
+function piCap(x, y0, y1, col, on){
+  ctx.strokeStyle = on ? col : C.muted; ctx.lineWidth = on ? 2 : 1.2; if (!on) ctx.setLineDash([4, 4]);
+  const m = (y0 + y1)/2; pl([[x, y0], [x, y0 + 12]]);
+  ctx.beginPath(); for (let i = 0; i <= 24; i++){ const yy = y0 + 12 + i*0.75; ctx.lineTo(x + (i % 6 < 3 ? (i % 3)*3 : (3 - i % 3)*3) - 4, yy); } ctx.stroke();       // ESR zigzag
+  pl([[x, y0 + 30], [x, y0 + 34]]); ctx.beginPath(); for (let i = 0; i < 3; i++) ctx.arc(x, y0 + 38 + i*7, 3.5, -Math.PI/2, Math.PI/2); ctx.stroke(); // ESL coil
+  pl([[x, y0 + 56], [x, m + 18]]); pl([[x - 12, m + 18], [x + 12, m + 18]]); pl([[x - 12, m + 24], [x + 12, m + 24]]); pl([[x, m + 24], [x, y1]]); ctx.setLineDash([]);
+}
+function drawPIschem(T){
+  const c = piCurrents(), yT = 66, yG = 196, xs = [230, 370, 510], xB = 610, xP0 = 640, xP1 = 730, xD = 800, xL = 900;
+  panel(20, 20, 960, 196, "Power delivery network: regulator → board capacitors → package → die");
+  const sh = v => Math.abs(v)/c.unit, lw = v => 1.4 + 3*clamp(sh(v), 0, 1);
+  // rails
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; pl([[130, yT], [xP0, yT]]); pl([[xP1, yT], [960, yT]]); pl([[130, yG], [960, yG]]);
+  ctx.beginPath(); for (let i = 0; i < 4; i++) ctx.arc(xP0 + 11 + i*22.5, yT, 11, Math.PI, 0); ctx.stroke();
+  txt(`package ${PIS.lp} pH`, (xP0 + xP1)/2, yT - 20, {al:"center", px:10, w:700, col:C.fg});
+  ctx.fillStyle = C.muted; ctx.globalAlpha = .12; ctx.fillRect(760, 34, 210, 176); ctx.globalAlpha = 1; txt("die", 960, 44, {al:"right", px:10, w:700, col:C.fg});
+  // regulator
+  ctx.fillStyle = "#1f2630"; ctx.fillRect(40, 84, 90, 96); ctx.strokeStyle = C.fg; ctx.strokeRect(40, 84, 90, 96);
+  txt("VRM", 85, 104, {al:"center", px:12, w:700, col:"#e8edf3"}); txt(`${PI_V.toFixed(1)} V`, 85, 124, {al:"center", px:11, col:"#e8edf3"}); txt("0.5 mΩ, 30 nH", 85, 144, {al:"center", px:9, col:"#c3ccd6"}); txt("control loop", 85, 160, {al:"center", px:9, col:"#c3ccd6"});
+  ctx.strokeStyle = C.fg; pl([[85, 84], [85, yT], [130, yT]]); pl([[85, 180], [85, yG], [130, yG]]);
+  // capacitor banks
+  PI_BANK.forEach((b, j) => { const on = PIS[b.k] > 0, col = C[PI_COL[j]];
+    piCap(xs[j], yT, yG, col, on); txt(on ? `${PIS[b.k]} × ${b.name.replace(/^\S+ /, "")}` : "not fitted", xs[j] + 16, 100, {px:10, w:700, col:on ? col : C.muted});
+    txt(b.name.split(" ")[0], xs[j] + 16, 116, {px:9, col:C.fg}); txt(`ESR ${b.R*1e3} mΩ, ESL ${b.L*1e9} nH`, xs[j] + 16, 132, {px:9, col:C.fg});
+    if (on){ ctx.strokeStyle = col; ctx.lineWidth = lw(c.banks[j]); ctx.globalAlpha = .35; pl([[xs[j], yT], [xs[j], yG]]); ctx.globalAlpha = 1;
+      piFlow([[xs[j], yG - 4], [xs[j], yT + 4]], PI_PH["b" + j], sh(c.banks[j]), col); }
+    txt(`${(sh(c.banks[j])*100).toFixed(0)} %`, xs[j] + 16, 160, {px:11, w:700, col:on ? col : C.muted}); });
+  // die capacitance and load
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2; pl([[xD, yT], [xD, 122]]); pl([[xD - 14, 122], [xD + 14, 122]]); pl([[xD - 14, 130], [xD + 14, 130]]); pl([[xD, 130], [xD, yG]]);
+  txt(`C_die ${PIS.cd} nF`, xD - 18, 112, {al:"right", px:10, w:700, col:C.accent}); txt(`${(sh(c.die)*100).toFixed(0)} %`, xD - 18, 146, {al:"right", px:11, w:700, col:C.accent});
+  piFlow([[xD, yG - 4], [xD, yT + 4]], PI_PH.die, sh(c.die), C.accent);
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; pl([[xL, yT], [xL, 110]]); ctx.beginPath(); ctx.arc(xL, 128, 18, 0, 2*Math.PI); ctx.stroke(); pl([[xL, 146], [xL, yG]]);
+  pl([[xL, 138], [xL, 118]]); ctx.beginPath(); ctx.moveTo(xL, 140); ctx.lineTo(xL - 5, 132); ctx.lineTo(xL + 5, 132); ctx.fillStyle = C.fg; ctx.fill();
+  txt("load", xL, 163, {al:"center", px:10, w:700, col:C.fg}); txt(PIS.view === "z" ? "1 A test" : `${c.load.toFixed(1)} A`, xL, 178, {al:"center", px:10, w:700, col:C.fg});
+  // rail currents: regulator and package
+  piFlow([[96, yT], [xB, yT]], PI_PH.vrm, sh(c.vrm), C.muted); txt(`VRM ${(sh(c.vrm)*100).toFixed(0)} %`, 140, yT - 12, {px:10, w:700, col:C.fg});
+  piFlow([[xP1 + 4, yT], [xL - 4, yT]], PI_PH.pkg, sh(c.pkg), C.fg);
+  txt(PIS.view === "z" ? "share of the load current at the cursor frequency" : "share of the load current at the cursor time", 500, 208, {al:"center", px:9, col:C.fg});
+}
+// log-log impedance plot on the canvas
+function drawPIz(){
+  const x0 = 90, x1 = 950, y0 = 452, y1 = 262, X = f => x0 + (Math.log10(f) - 3)/6*(x1 - x0), Y = z => y0 - (Math.log10(clamp(z, 1e-4, 1)) + 4)/4*(y0 - y1), Zt = piZt();
+  panel(20, 226, 960, 244, "|Z(f)| seen from the die against the target impedance");
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1;
+  for (let e = 3; e <= 9; e++){ pl([[X(Math.pow(10, e)), y1], [X(Math.pow(10, e)), y0]]); txt(piFmt(Math.pow(10, e)), X(Math.pow(10, e)), y0 + 11, {al:"center", px:9, col:C.fg}); }
+  for (let e = -4; e <= 0; e++){ pl([[x0, Y(Math.pow(10, e))], [x1, Y(Math.pow(10, e))]]); txt(["0.1 mΩ", "1 mΩ", "10 mΩ", "100 mΩ", "1 Ω"][e + 4], x0 - 6, Y(Math.pow(10, e)), {al:"right", px:9, col:C.fg}); }
+  const Q = piParts(), zs = PI_F.map(f => piZ(f, PIS, Q).m);
+  ctx.fillStyle = "#d9534f"; ctx.globalAlpha = .22; PI_F.forEach((f, i) => { if (i && zs[i] > Zt){ ctx.fillRect(X(PI_F[i - 1]), Y(zs[i]), X(f) - X(PI_F[i - 1]) + 0.5, Y(Zt) - Y(zs[i])); } }); ctx.globalAlpha = 1;
+  ctx.strokeStyle = "#d9534f"; ctx.lineWidth = 1.6; ctx.setLineDash([6, 4]); pl([[x0, Y(Zt)], [x1, Y(Zt)]]); ctx.setLineDash([]);
+  txt(`target ${(Zt*1e3).toFixed(1)} mΩ = ${PI_V} V × ${PI_RIP*100} % / ${PIS.di} A`, x0 + 6, Y(Zt) - 9, {px:10, w:700, col:"#d9534f"});
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2.6; pl(PI_F.map((f, i) => [X(f), Y(zs[i])]));
+  const pk = piPeak(), fd = piFdie(); txt(`peak ${(pk.m*1e3).toFixed(1)} mΩ at ${piFmt(pk.f)}`, X(pk.f), Y(pk.m) - 10, {al:X(pk.f) > 800 ? "right" : "center", px:10, w:700, col:pk.m > Zt ? "#d9534f" : C.accent});
+  txt(`die–package resonance ≈ ${piFmt(fd)}`, x1 - 4, y1 + 12, {al:"right", px:9, col:C.fg});
+  const fc = piCur(), zc = piZ(fc).m; ctx.strokeStyle = C.fg; ctx.lineWidth = 1; pl([[X(fc), y1], [X(fc), y0]]); dot(X(fc), Y(zc), C.accent, false, 1, 5);
+  txt(`${piFmt(fc)}: ${(zc*1e3).toFixed(2)} mΩ`, X(fc) + (X(fc) > 800 ? -8 : 8), y1 + 28, {al:X(fc) > 800 ? "right" : "left", px:10, w:700, col:C.fg});
+}
+function drawPIt(){
+  const S = piSim(), x0 = 90, x1 = 950, y0 = 452, y1 = 262, t0 = -9, t1 = -9 + 5.3, X = t => x0 + (Math.log10(Math.max(t, 1e-9)) - t0)/(t1 - t0)*(x1 - x0);
+  const lo = Math.min(PI_V*(1 - PI_RIP) - 0.01, S.min.v - 0.01), Y = v => y0 - (v - lo)/(PI_V + 0.01 - lo)*(y0 - y1), tol = PI_V*(1 - PI_RIP);
+  panel(20, 226, 960, 244, `Die voltage after a ${PIS.di} A load step (rise 1 ns), log time axis`);
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1;
+  for (let e = -9; e <= -4; e++){ pl([[X(Math.pow(10, e)), y1], [X(Math.pow(10, e)), y0]]); txt(piTf(Math.pow(10, e)), X(Math.pow(10, e)), y0 + 11, {al:"center", px:9, col:C.fg}); }
+  const st = niceStep((PI_V + 0.01 - lo)/5); for (let v = Math.ceil(lo/st)*st; v <= PI_V + 0.01; v += st){ pl([[x0, Y(v)], [x1, Y(v)]]); txt(`${(v*1000).toFixed(0)} mV`, x0 - 6, Y(v), {al:"right", px:9, col:C.fg}); }
+  ctx.fillStyle = "#d9534f"; ctx.globalAlpha = .12; ctx.fillRect(x0, Y(tol), x1 - x0, y0 - Y(tol)); ctx.globalAlpha = 1;
+  ctx.strokeStyle = "#d9534f"; ctx.lineWidth = 1.4; ctx.setLineDash([6, 4]); pl([[x0, Y(tol)], [x1, Y(tol)]]); ctx.setLineDash([]);
+  txt(`tolerance ${(tol*1000).toFixed(0)} mV (−${PI_RIP*100} %)`, x1 - 4, Y(tol) + 12, {al:"right", px:10, w:700, col:"#d9534f"});
+  const pts = i => S.t[i] >= 1e-9;
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1.6; pl(S.t.map((t, i) => [X(t), Y(S.vb[i])]).filter((p, i) => pts(i)));
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2.6; pl(S.t.map((t, i) => [X(t), Y(S.vd[i])]).filter((p, i) => pts(i)));
+  [[S.d1, "1st"], [S.d2, "2nd"], [S.d3, "3rd"]].forEach(([d, l]) => { if (PI_V - d.v < 5e-4) return; const bad = d.v < tol;
+    dot(X(d.t), Y(d.v), bad ? "#d9534f" : C.accent, false, 1, 4.5); txt(`${l} droop ${((PI_V - d.v)*1000).toFixed(0)} mV`, X(d.t), Y(d.v) + 16, {al:"center", px:10, w:700, col:bad ? "#d9534f" : C.fg}); });
+  const tc = piCur(), c = piCurrents(); ctx.strokeStyle = C.fg; ctx.lineWidth = 1; pl([[X(tc), y1], [X(tc), y0]]); dot(X(tc), Y(c.vd), C.accent, false, 1, 5);
+  txt(`${piTf(tc)}: ${(c.vd*1000).toFixed(1)} mV`, X(tc) + (X(tc) > 800 ? -8 : 8), y1 + 14, {al:X(tc) > 800 ? "right" : "left", px:10, w:700, col:C.fg});
+}
+function drawPI(dt, T){ begin(PIC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488); drawPIschem(T); (PIS.view === "z" ? drawPIz : drawPIt)(); }
+
+/* ---------------- plots ---------------- */
+function drawPIPlots(){
+  let a, b; const Zt = piZt();
+  if (PIS.view === "z"){
+    const fs = PI_F.filter((f, i) => i % 3 === 0), A = axesR(300, 230, {l:40, r:10, t:28, b:30}, 3, 9, -4, 1, 1, 1, "log10 f (Hz)", "log10 |Z| (Ω)"), Q = piParts(), lz = z => clamp(Math.log10(z), -4, 1);
+    const curve = (fz, col, w, dash) => `<path d="${pathOf(fs.map(f => [Math.log10(f), lz(fz(f))]), A.X, A.Y)}" fill="none" stroke="var(--${col})" stroke-width="${w}"${dash ? ' stroke-dasharray="3 3"' : ""}/>`;
+    a = A.s + Q.banks.map((bk, j) => bk.N ? curve(f => cAbs(piZrlc(bk.Re, bk.Le, bk.Ce, 2*Math.PI*f)), PI_COL[j], 1.8) : "").join("")
+      + curve(f => cAbs(piZrlc(Q.Rd, 0, Q.Cd, 2*Math.PI*f)), "accent", 1.8) + curve(f => piZ(f, PIS, Q).m, "fg", 1.2, true)
+      + `<line x1="40" x2="290" y1="${A.Y(Math.log10(Zt))}" y2="${A.Y(Math.log10(Zt))}" stroke="#d9534f" stroke-dasharray="5 3"/>` + A.frame
+      + `<text x="46" y="12" style="fill:var(--hole)">— bulk</text><text x="88" y="12" style="fill:var(--electron)">— 1 µF</text><text x="134" y="12" style="fill:var(--channel)">— 100 nF</text><text x="190" y="12" style="fill:var(--accent)">— die</text><text x="46" y="196" style="fill:var(--fg)">- - total |Z|</text>`;
+    const ns = range(0, 40, 20), pb = ns.map(n => [n, piPeak({...PIS, n1:Math.round(n)}, 1e4, 1e7).m*1e3]), pd = ns.map(n => [n, piPeak({...PIS, n1:Math.round(n)}, 1e7, 2e9).m*1e3]), ym = Math.min(150, Math.max(Zt*1e3*1.3, ...pb.map(p => p[1]), ...pd.map(p => p[1]))*1.1);
+    const B = axesR(220, 230, {l:34, r:8, t:28, b:30}, 0, 40, 0, ym, 10, niceStep(ym/4), "number of 1 µF capacitors", "peak |Z| (mΩ)");
+    b = B.s + `<line x1="34" x2="212" y1="${B.Y(Zt*1e3)}" y2="${B.Y(Zt*1e3)}" stroke="#d9534f" stroke-dasharray="5 3"/><path d="${pathOf(pb.map(p => [p[0], Math.min(p[1], ym)]), B.X, B.Y)}" fill="none" stroke="var(--electron)" stroke-width="2.4"/><path d="${pathOf(pd.map(p => [p[0], Math.min(p[1], ym)]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + B.frame
+      + dotSvg(B.X(PIS.n1), B.Y(Math.min(ym, piPeak(PIS, 1e4, 1e7).m*1e3))) + `<text x="38" y="12" style="fill:var(--electron)">— &lt; 10 MHz</text><text x="100" y="12" style="fill:var(--accent)">— &gt; 10 MHz</text><text x="208" y="196" text-anchor="end" style="fill:#d9534f">- - target</text>`;
+  } else {
+    const S = piSim(), L = t => clamp(Math.log10(Math.max(t, 1e-9)), -9, -3.7), A = axesR(300, 230, {l:40, r:10, t:28, b:30}, -9, -3.7, -0.2, 1.3, 1, 0.5, "log10 t (s)", "current / ΔI");
+    const idx = S.t.map((t, i) => i).filter(i => S.t[i] >= 1e-9 && i % 2 === 0), ser = (arr, sg, col, w) => `<path d="${pathOf(idx.map(i => [L(S.t[i]), clamp(sg*arr[i]/PIS.di, -0.2, 1.3)]), A.X, A.Y)}" fill="none" stroke="var(--${col})" stroke-width="${w}"/>`;
+    let k = 0; a = A.s + `<line x1="40" x2="290" y1="${A.Y(0)}" y2="${A.Y(0)}" stroke="var(--line)"/>` + ser(S.id, 1, "accent", 2) + PI_BANK.map((bk, j) => PIS[bk.k] ? ser(S.ib[k++], -1, PI_COL[j], 2) : "").join("") + ser(S.iv, 1, "muted", 2.2) + A.frame
+      + `<text x="46" y="12" style="fill:var(--accent)">— die</text><text x="84" y="12" style="fill:var(--channel)">— 100 nF</text><text x="138" y="12" style="fill:var(--electron)">— 1 µF</text><text x="182" y="12" style="fill:var(--hole)">— bulk</text><text x="224" y="12" style="fill:var(--muted)">— VRM</text>`;
+    const cs = [50, 100, 200, 400, 700, 1000, 1500, 2000, 3000], dr = cs.map(cd => { const s = piStep({...PIS, cd}); return [Math.log10(cd), (PI_V - s.min.v)*1e3]; }), ym = Math.max(PI_V*PI_RIP*1e3*1.3, ...dr.map(p => p[1]))*1.1;
+    const B = axesR(220, 230, {l:34, r:8, t:28, b:30}, 1.6, 3.5, 0, ym, 0.5, niceStep(ym/4), "log10 C_die (nF)", "worst droop (mV)");
+    b = B.s + `<line x1="34" x2="212" y1="${B.Y(PI_V*PI_RIP*1e3)}" y2="${B.Y(PI_V*PI_RIP*1e3)}" stroke="#d9534f" stroke-dasharray="5 3"/><path d="${pathOf(dr, B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + B.frame
+      + dotSvg(B.X(Math.log10(PIS.cd)), B.Y((PI_V - S.min.v)*1e3)) + `<text x="38" y="12" style="fill:var(--accent)">— worst droop</text><text x="124" y="12" style="fill:#d9534f">- - 5 %</text>`;
+  }
+  $("pi-p1").innerHTML = a; $("pi-p2").innerHTML = b;
+}
+
+/* ---------------- DOM ---------------- */
+const PIINFO = {
+  z:{pill:"Z(f)", name:"PDN impedance and target impedance", sub:"Every capacitor helps only in its own frequency band: together they must keep |Z| below the target from kilohertz to gigahertz",
+    text:"A processor core can change its current by many amperes within a nanosecond, and its supply must stay within a few percent. The power delivery network between the regulator and the transistors is therefore designed in the frequency domain: if the impedance seen from the die stays below the target impedance Z_t = V × tolerance / ΔI at every frequency, no current change can push the voltage out of tolerance. No single component can do this. The regulator is very good at low frequency but its control loop is slow, so above some tens of kilohertz its output looks like an inductor. Bulk capacitors take over up to around a megahertz, ceramic capacitors to tens of megahertz, and only the capacitance on the die itself works above that, because the package inductance isolates the die from everything on the board. Each real capacitor is a series R-L-C: below its self-resonance it is a capacitor, above it an inductor, so its mounting inductance, not its value, decides how high it helps. Where the inductance of one stage meets the capacitance of the next, they form a parallel resonance, an anti-resonance peak; the largest is usually the package against the on-die capacitance, at tens of megahertz. Move the cursor sweep and watch which element delivers the current at each frequency."},
+  t:{pill:"ΔV", name:"Load step and voltage droop", sub:"First, second and third droop: the die capacitance, the board capacitors and the bulk capacitors take turns until the regulator catches up",
+    text:"The same network seen in time. At the instant the load current jumps, only the charge stored right next to the transistors, the on-die capacitance, can respond: the package inductance stops any faster current from the board, so the die voltage dips quickly. This first droop, a few nanoseconds to tens of nanoseconds after the step, is usually the deepest and is set by the package inductance against the on-die capacitance, roughly ΔI × √(L/C). As the current through the package builds up, the board ceramic capacitors take over and the voltage recovers, then sags again more slowly as they run down: the second droop, over hundreds of nanoseconds. The bulk capacitors then carry the load for microseconds (the third droop) until the regulator's control loop has raised its own current to the new load. Each droop is the time-domain view of one impedance peak in the frequency plot; the lower the peaks, the shallower the droops. The dots in the circuit show the current each part delivers at the cursor time: the hand-over from the die to the 100 nF, the 1 µF, the bulk capacitors and finally the regulator."}
+};
+Object.assign(TIP, {
+  "PDN target impedance":"V × tolerance / ΔI.", "Peak impedance":"Highest |Z| seen from the die above 10 kHz.", "Die–package resonance":"Package plus board inductance against the on-die capacitance.", "Impedance margin":"Target divided by the peak; above 1 the design meets the target.",
+  "First droop":"Die capacitance against the package inductance.", "Second droop":"Board ceramic capacitors.", "Third droop":"Bulk capacitors until the regulator responds.", "Lowest die voltage":"Minimum of the die voltage after the step.",
+  "Target impedance":"From the supply tolerance and the largest load step.", "Capacitor impedance":"Series R-L-C of each capacitor including mounting.", "Self-resonance frequency":"Where the capacitor is purely resistive.", "Anti-resonance":"Package inductance with the on-die capacitance.",
+  "First droop estimate":"Undamped LC response to a current step.", "Inductive voltage":"Voltage across an inductance for a current change.", "Charge from a capacitor":"How long a capacitor can carry the load.", "Ground bounce":"Shared ground inductance with many outputs switching."
+});
+const PILEG = {z:[["accent","Total |Z|, on-die capacitance"],["channel","100 nF capacitors"],["electron","1 µF capacitors"],["hole","Bulk capacitors"],["muted","Regulator"]],
+  t:[["accent","Die voltage, on-die capacitance"],["channel","100 nF capacitors"],["electron","1 µF capacitors"],["hole","Bulk capacitors"],["muted","Board voltage, regulator"]]};
+function updatePI(){
+  const v = PIS.view, info = PIINFO[v], Zt = piZt();
+  $("pi-pill").textContent = info.pill; $("pi-name").textContent = info.name; $("pi-sub").textContent = info.sub; $("pi-explain").textContent = info.text;
+  document.querySelectorAll("#pi-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  $("pi-play").textContent = PIS.play ? "❚❚ Pause" : "▶ Play"; $("pi-play").style.color = PIS.play ? "var(--accent)" : ""; $("pi-play").style.borderColor = PIS.play ? "var(--accent)" : "";
+  ["nb", "n1", "n2", "lp", "cd", "di"].forEach(k => { const el = $("pi-" + k); if (+el.value !== PIS[k]) el.value = PIS[k]; });
+  $("pi-nb-v").textContent = `${PIS.nb}`; $("pi-n1-v").textContent = `${PIS.n1}`; $("pi-n2-v").textContent = `${PIS.n2}`; $("pi-lp-v").textContent = `${PIS.lp} pH`; $("pi-cd-v").textContent = `${PIS.cd} nF`; $("pi-di-v").textContent = `${PIS.di} A`;
+  setHTML("pi-legend", PILEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  const pk = piPeak(), fd = piFdie(), Q = piParts(), L = Q.Lp + Math.min(...Q.banks.filter(b => b.N).map(b => b.Le), PI_VRM.L);
+  let ro, eq;
+  if (v === "z"){
+    ro = [["PDN target impedance", `${(Zt*1e3).toFixed(1)} mΩ`], ["Peak impedance", `${(pk.m*1e3).toFixed(1)} mΩ`], ["Die–package resonance", piFmt(fd)], ["Impedance margin", `${(Zt/pk.m).toFixed(2)} ×`]];
+    eq = [{name:"Target impedance", f:"Z_t = V · tolerance / ΔI", sub:`${PI_V} V × ${PI_RIP*100} % / ${PIS.di} A = ${(Zt*1e3).toFixed(1)} mΩ`},
+      {name:"Capacitor impedance", f:"Z = ESR + jωESL + 1/(jωC),  N in parallel: ESR/N, ESL/N, N·C", sub:`at the cursor ${piFmt(piCur())}: |Z| = ${(piZ(piCur()).m*1e3).toFixed(2)} mΩ`},
+      {name:"Self-resonance frequency", f:"f_SRF = 1 / (2π·√(ESL·C))", sub:PI_BANK.map(b => piFmt(1/(2*Math.PI*Math.sqrt(b.L*b.C)))).join(" · ")},
+      {name:"Anti-resonance", f:"f = 1 / (2π·√(L·C_die)),  Z_0 = √(L/C_die)", sub:`${piFmt(fd)}, Z_0 = ${(Math.sqrt(L/Q.Cd)*1e3).toFixed(1)} mΩ`}];
+  } else {
+    const S = piSim(), dm = x => `${((PI_V - x.v)*1000).toFixed(1)} mV`;
+    ro = [["First droop", dm(S.d1)], ["Second droop", dm(S.d2)], ["Third droop", dm(S.d3)], ["Lowest die voltage", `${(S.min.v*1000).toFixed(0)} mV${S.min.v < PI_V*(1 - PI_RIP) ? " ✗" : " ✓"}`]];
+    eq = [{name:"First droop estimate", f:"ΔV_1 ≈ ΔI · √(L / C_die)", sub:`${(PIS.di*Math.sqrt(L/Q.Cd)*1000).toFixed(0)} mV undamped, ${dm(S.d1)} simulated`},
+      {name:"Inductive voltage", f:"V = L · di/dt", sub:`${(L*PIS.di/1e-9*1000).toFixed(0)} mV if the package had to deliver ΔI in 1 ns`},
+      {name:"Charge from a capacitor", f:"ΔV = I · t / C", sub:`C_die alone: ${(PIS.di*1e-9/Q.Cd*1000).toFixed(1)} mV per ns`},
+      {name:"Ground bounce", f:"V_gnd = N · L · di/dt", sub:"N outputs switching through a shared ground path"}];
+  }
+  renderRo($("pi-ro"), ro); renderEq($("pi-eq"), eq);
+  drawPIPlots();
+}
+document.querySelectorAll("#pi-view button").forEach(b => b.addEventListener("click", () => { PIS.view = b.dataset.v; if (!findCrawling) PIS.fz = 0; updatePI(); }));
+$("pi-play").addEventListener("click", () => { PIS.play = !PIS.play; updatePI(); });
+[["pi-nb", "nb"], ["pi-n1", "n1"], ["pi-n2", "n2"], ["pi-lp", "lp"], ["pi-cd", "cd"], ["pi-di", "di"]].forEach(([id, k]) => $(id).addEventListener("input", e => { PIS[k] = +e.target.value; updatePI(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb","ca","sm","la","ee","tl","sb","dm","of","op","sx","gh"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb","ca","sm","la","ee","tl","sb","dm","of","op","sx","gh","pi"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown", ca:"#capacitors", sm:"#smith-chart", la:"#latchup-antenna", ee:"#esd-eos", tl:"#transmission-lines", sb:"#serial-interfaces", dm:"#modulation", of:"#ofdm", op:"#optoelectronics", sx:"#semiconductor-basics", gh:"#gan-hemt"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev", ca:"rf", sm:"rf", la:"rel", ee:"rel", tl:"rf", sb:"cir", dm:"rf", of:"rf", op:"dev", sx:"dev", gh:"dev"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown", ca:"#capacitors", sm:"#smith-chart", la:"#latchup-antenna", ee:"#esd-eos", tl:"#transmission-lines", sb:"#serial-interfaces", dm:"#modulation", of:"#ofdm", op:"#optoelectronics", sx:"#semiconductor-basics", gh:"#gan-hemt", pi:"#power-integrity"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev", ca:"rf", sm:"rf", la:"rel", ee:"rel", tl:"rf", sb:"cir", dm:"rf", of:"rf", op:"dev", sx:"dev", gh:"dev", pi:"rel"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -30663,6 +31147,7 @@ function showTab(t){
   else if (t === "op"){ $("sub-top").textContent = "Optoelectronics · photodiodes, solar cells, LEDs and laser diodes"; OPC.resize(); updateOP(); }
   else if (t === "sx"){ $("sub-top").textContent = "Semiconductor basics · bands, Fermi level, doping, temperature and the Hall effect"; SXC.resize(); updateSX(); }
   else if (t === "gh"){ $("sub-top").textContent = "GaN HEMT · polarization, the 2DEG, normally-off gates, breakdown and Si / SiC / GaN"; GHC.resize(); updateGH(); }
+  else if (t === "pi"){ $("sub-top").textContent = "Power integrity · PDN impedance, decoupling capacitors, target impedance and load-step droop"; PIC.resize(); updatePI(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -30711,6 +31196,7 @@ function frame(now){
   else if (tab === "op"){  if (OPC.cv.clientWidth) drawOP(dt, T); }
   else if (tab === "sx"){  if (SXC.cv.clientWidth) drawSX(dt, T); }
   else if (tab === "gh"){  if (GHC.cv.clientWidth) drawGH(dt, T); }
+  else if (tab === "pi"){ piTick(dt); if (PIC.cv.clientWidth) drawPI(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);

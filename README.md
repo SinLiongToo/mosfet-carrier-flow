@@ -228,6 +228,10 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **How the 2DEG forms** – Al fraction, AlGaN barrier thickness, gate voltage, Schottky (normally on) or p-GaN (normally off) gate; layer stack with the ±σ polarization charges and the animated electron sheet, conduction band along the depth with the triangular well below E_F; n_s versus barrier thickness with the critical thickness, n_s versus V_GS and the threshold
 - **HEMT I–V and Si / SiC / GaN** – cross-section with source, gate, drain, SiN passivation and optional field plate, 2DEG electrons depleted under the gate; I_D–V_DS family (velocity saturation plus access resistances); off-state lateral field at 400 V against the 3.3 MV/cm critical field and the resulting breakdown voltage; specific on-resistance versus breakdown voltage with the Si, SiC and GaN limits and this device
 
+## Power integrity tab (`#power-integrity`)
+- **Impedance versus frequency** – regulator, bulk 330 µF, 1 µF and 100 nF ceramic banks (count sliders, each R-L-C), package inductance and on-die capacitance; |Z(f)| seen from the die from 1 kHz to 1 GHz against the target impedance V·5 %/ΔI with the violations shaded; a sweeping cursor shows in the circuit which element delivers the current at each frequency; impedance of each bank alone and peak |Z| below and above 10 MHz versus the number of 1 µF capacitors
+- **Load step and voltage droop** – transient of the same ladder (backward Euler, geometric time step) for a 1 ns load step on a log time axis: first, second and third droop against the tolerance, the hand-over of the current from the die to the 100 nF, 1 µF, bulk capacitors and the regulator, worst droop versus on-die capacitance
+
 ## Quiz and glossary
 - **Quiz** (? button in the header) – multiple-choice questions generated from the "Explain the terms" list of the open tab, or of all tabs; score, feedback and a link to the term in its tab
 - **Glossary** (book button) – every term explained on the site (about 390) in one filterable alphabetical list, each linked to its tab; works in English and Chinese
