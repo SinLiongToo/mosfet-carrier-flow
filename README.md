@@ -219,6 +219,11 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Photodiode / solar cell** – Si, GaAs, Ge or InGaAs; photons absorbed at the depth set by the measured absorption coefficient α(λ), electron-hole pairs collected from the depletion region or lost to recombination; band diagram with absorption and separation; single wavelength or sunlight (black-body AM1.5), solar cell with a load or photodiode under reverse bias, temperature, anti-reflection coating; J–V curve with power and load line (V_oc, FF, efficiency), quantum efficiency versus wavelength with the cutoff λ_c = 1240/E_g
 - **LED / laser** – GaN, InGaN blue and green, AlGaInP, GaAs and indirect Si; carriers recombining in the quantum wells and emitting photons of the band-gap colour (Si: phonons, heat); laser mirrors, threshold and coherent beam; emission spectrum (≈ 1.8 kT wide, or a narrow laser line) and light output versus current
 
+## Semiconductor basics tab (`#semiconductor-basics`)
+- **Bands and Fermi level** – Si, Ge or GaAs, intrinsic, n-type (P) or p-type (B), doping and temperature; band diagram with E_c, E_v, E_i, E_F, donor/acceptor levels and their ionization, next to g(E), f(E) and the electron and hole distributions on the same energy axis; E_F versus doping and n, p versus doping (n·p = n_i²)
+- **Carriers versus temperature** – animated lattice with dopants (bound when frozen out, free in the extrinsic range) and thermally broken bonds; charge neutrality with incomplete ionization; n versus 1000/T with freeze-out, extrinsic and intrinsic regions, E_F versus T
+- **Hall effect and mobility** – Hall bar with carriers deflected by B and the charge piling up on one edge, sign of V_H for n- and p-type; Hall coefficient, carrier density, conductivity, mobility (Caughey–Thomas with lattice scattering)
+
 ## Quiz and glossary
 - **Quiz** (? button in the header) – multiple-choice questions generated from the "Explain the terms" list of the open tab, or of all tabs; score, feedback and a link to the term in its tab
 - **Glossary** (book button) – every term explained on the site (about 390) in one filterable alphabetical list, each linked to its tab; works in English and Chinese
