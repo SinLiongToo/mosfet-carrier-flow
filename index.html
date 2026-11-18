@@ -30565,16 +30565,16 @@ function drawSXhall(T){
   const x0 = 220, x1 = 780, yT = 110, yB = 230;
   ctx.fillStyle = SXS.type === "p" ? C.pplus : C.nplus; ctx.globalAlpha = .7; ctx.fillRect(x0, yT, x1 - x0, yB - yT); ctx.globalAlpha = 1; ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; ctx.strokeRect(x0, yT, x1 - x0, yB - yT);
   for (let i = 0; i < 9; i++) for (let j = 0; j < 3; j++){ const x = x0 + 30 + i*62, y = yT + 22 + j*38; ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(x, y, 6, 0, 2*Math.PI); ctx.stroke(); pl([[x - 4, y - 4], [x + 4, y + 4]]); pl([[x - 4, y + 4], [x + 4, y - 4]]); }
-  txt(`B = ${SXS.B.toFixed(2)} T into the page`, (x0 + x1)/2, yT - 14, {al:"center", px:11, w:700, col:C.fg});
-  ctx.strokeStyle = C.fg; ctx.lineWidth = 2; pl([[x0 - 120, 170], [x0, 170]]); pl([[x1, 170], [x1 + 120, 170]]); txt(`I = ${SXS.I.toFixed(1)} mA →`, x0 - 60, 156, {al:"center", px:11, w:700, col:C.accent});
+  txt(`B = ${SXS.B.toFixed(2)} T into the page`, x0 + 20, yT - 14, {px:11, w:700, col:C.fg});
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 2; pl([[x0 - 120, 170], [x0, 170]]); pl([[x1, 170], [x1 + 70, 170]]); txt(`I = ${SXS.I.toFixed(1)} mA →`, x0 - 60, 156, {al:"center", px:11, w:700, col:C.accent}); txt("I →", x1 + 35, 156, {al:"center", px:11, w:700, col:C.accent});
   // carriers drift and bend toward the top edge (the force is the same for electrons moving left and holes moving right)
   const dom = nType ? "e" : "h", sB = SXS.B, nC = 14;
   for (let i = 0; i < nC; i++){ const u = (T*0.18 + i/nC) % 1, x = dom === "e" ? x1 - u*(x1 - x0) : x0 + u*(x1 - x0), y = clamp(yB - 20 - (yB - yT - 40)*sxRnd(i) - sB*55*u, yT + 8, yB - 8);
     if (dom === "e") dot(x, y, C.electron, false, 1, 3.2); else dot(x, y, C.hole, true, 1, 3.2); }
   const nq = Math.round(sB*10);
-  for (let i = 0; i < nq; i++){ const x = x0 + 30 + i*50; txt(nType ? "−" : "+", x, yT + 6, {al:"center", px:13, w:700, col:nType ? C.electron : C.hole}); txt(nType ? "+" : "−", x, yB - 6, {al:"center", px:13, w:700, col:nType ? C.hole : C.electron}); }
-  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; pl([[500, yT], [500, 60], [880, 60], [880, 150]]); pl([[500, yB], [500, 290], [880, 290], [880, 190]]); ctx.beginPath(); ctx.arc(880, 170, 20, 0, 2*Math.PI); ctx.stroke(); txt("V", 880, 170, {al:"center", px:12, w:700, col:C.fg});
-  txt(`V_H = ${VH >= 0 ? "+" : "−"}${Math.abs(VH).toFixed(3)} mV`, 880, 210, {al:"center", px:12, w:700, col:C.accent});
+  for (let i = 0; i < nq; i++){ const x = x0 + 20 + i*(x1 - x0 - 40)/Math.max(1, nq - 1); txt(nType ? "−" : "+", x, yT + 6, {al:"center", px:13, w:700, col:nType ? C.electron : C.hole}); txt(nType ? "+" : "−", x, yB - 6, {al:"center", px:13, w:700, col:nType ? C.hole : C.electron}); }
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; pl([[500, yT], [500, 60], [920, 60], [920, 150]]); pl([[500, yB], [500, 290], [920, 290], [920, 190]]); dot(500, yT, C.fg, false, 1, 3.5); dot(500, yB, C.fg, false, 1, 3.5); ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(920, 170, 20, 0, 2*Math.PI); ctx.stroke(); txt("V", 920, 170, {al:"center", px:12, w:700, col:C.fg});
+  txt(`V_H = ${VH >= 0 ? "+" : "−"}${Math.abs(VH).toFixed(3)} mV`, 908, 216, {al:"right", px:12, w:700, col:C.accent});
   txt(nType ? "electrons pile up on the top edge: V_H < 0, n-type" : "holes pile up on the top edge: V_H > 0, p-type", 500, 306, {al:"center", px:11, w:700, col:nType ? C.electron : C.hole});
   panel(20, 330, 960, 140, "What the measurement gives");
   sxRows([["Hall coefficient R_H", `${S.RH.toExponential(2)} cm³/C`], ["Carrier density 1/(q|R_H|)", `${sxE(1/(SX_Q*Math.abs(S.RH)))} cm⁻³`], ["Conductivity σ", `${S.sg.toExponential(2)} S/cm`]], 40, 364, 420);
