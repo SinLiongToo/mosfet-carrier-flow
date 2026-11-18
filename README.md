@@ -206,6 +206,11 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **SPI** – four CPOL/CPHA modes, two chip selects, master and slave shift registers swapping bytes, MISO delayed by clock-to-out and the trace round trip until the master samples too early
 - **CAN** – real frame with CRC-15 and bit stuffing, CAN_H / CAN_L levels, two nodes arbitrating on the wired-AND bus (lower ID wins), ACK slot and acceptance filters 0x100–0x3FF; bus-length and frame-length plots
 
+## Digital modulation tab (`#modulation`)
+- **ASK, FSK, PSK (BPSK / QPSK / 8PSK), QAM (16 / 64)** – data bits grouped into Gray-coded symbols drive the carrier; the waveform plays symbol by symbol with each symbol's amplitude, frequency or phase, plus noise
+- I/Q constellation (FSK: f₀/f₁ correlators) with the current phasor, a cloud of noisy received symbols and wrong decisions in red; the receiver compares sent and decided bits and measures the bit error rate by Monte Carlo against the textbook formula
+- Eb/N0 and carrier-cycles sliders, new random data; spectrum at the same bit rate (main lobe 2 R_b / k, ASK carrier line, FSK two tones) and BER versus Eb/N0 for all schemes
+
 ## Quiz and glossary
 - **Quiz** (? button in the header) – multiple-choice questions generated from the "Explain the terms" list of the open tab, or of all tabs; score, feedback and a link to the term in its tab
 - **Glossary** (book button) – every term explained on the site (about 390) in one filterable alphabetical list, each linked to its tab; works in English and Chinese

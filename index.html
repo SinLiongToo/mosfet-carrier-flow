@@ -9710,6 +9710,130 @@ Object.assign(window.I18N_ZH, {
 "A differential two-wire bus for many nodes; messages carry an ID, and the lowest ID wins the bus": "多節點的差動雙線匯流排；訊息帶有 ID，ID 最小者取得匯流排",
 "A CAN bus is a twisted pair, CAN_H and CAN_L, terminated with # Ω at both ends. A dominant bit (#) drives CAN_H to about # V and CAN_L to about # V; a recessive bit (#) lets both float to # V. Any node sending a dominant bit therefore overrides a recessive one: the bus is a wired-AND. Frames carry no destination address but an #-bit identifier that says what the message is. If two nodes start at the same time, both send their IDs bit by bit while listening; a node that sends recessive but reads dominant knows that a more important message is on the bus and stops transmitting, so the frame with the lowest ID gets through undamaged. Each node decides from its acceptance filter whether to keep the message, but every node that received it correctly pulls the ACK slot dominant. A CRC protects the frame, and after five equal bits the transmitter inserts one opposite stuff bit so that receivers always see edges to resynchronise.": "CAN 匯流排是一對絞線 CAN_H 與 CAN_L，兩端各以 # Ω 終端。顯性位元（#）把 CAN_H 拉到約 # V、CAN_L 拉到約 # V；隱性位元（#）讓兩條線都浮在 # V。任何節點送出的顯性位元都會蓋過隱性位元：匯流排是線-AND。訊框沒有目的位址，而是帶一個 # 位元識別碼，說明這是什麼訊息。如果兩個節點同時開始，雙方一邊送出 ID 一邊監聽；送出隱性卻讀到顯性的節點就知道有更重要的訊息在匯流排上，於是停止傳送，所以 ID 最小的訊框能完整通過。每個節點依自己的接收濾波器決定是否保留訊息，但每個正確收到的節點都會在 ACK 槽把線拉成顯性。CRC 保護整個訊框，連續五個相同位元後傳送端會插入一個相反的填充位元，讓接收端總能看到邊緣來重新同步。"
 });
+Object.assign(window.I18N_ZH, {
+"Digital modulation": "數位調變",
+"Digital modulation · ASK, FSK, PSK and QAM": "數位調變 · ASK、FSK、PSK 與 QAM",
+"Modulation": "調變",
+"Digital data bits turned into a modulated radio signal symbol by symbol, the I/Q constellation with noisy received symbols, and the receiver comparing sent and decoded bits": "數位資料位元逐個符元變成調變後的無線電訊號、含雜訊接收符元的 I/Q 星座圖，以及比較送出與解出位元的接收端",
+"Transmission": "傳輸",
+"Play the transmission symbol by symbol, or drag the slider. New data draws a fresh random bit pattern.": "逐個符元播放傳輸，或拖曳滑桿。「新的隨機資料」會產生新的位元序列。",
+"▶ Transmit": "▶ 傳送",
+"❚❚ Pause": "❚❚ 暫停",
+"New random data": "新的隨機資料",
+"Symbol": "符元",
+"Which symbol of the burst is being sent.": "正在送出這串資料中的第幾個符元。",
+"PSK order": "PSK 階數",
+"Number of phases. Each doubling packs one more bit into a symbol but puts the points closer together.": "相位的數量。每加倍一次，每個符元多帶一個位元，但點與點之間更靠近。",
+"BPSK (# bit)": "BPSK（# 位元）",
+"QPSK (# bits)": "QPSK（# 位元）",
+"#PSK (# bits)": "#PSK（# 位元）",
+"QAM order": "QAM 階數",
+"Number of amplitude-and-phase points. #-QAM carries # bits per symbol, #-QAM # bits, as used in Wi-Fi and LTE.": "振幅加相位的點數。#-QAM 每個符元帶 # 位元，#-QAM 帶 # 位元，用於 Wi-Fi 與 LTE。",
+"#-QAM (# bits)": "#-QAM（# 位元）",
+"Signal-to-noise Eb/N#": "訊噪比 Eb/N#",
+"Signal energy per bit over noise power density. Lower values spread the received points into clouds until they cross the decision boundaries.": "每位元訊號能量除以雜訊功率密度。數值越低，接收點散成越大的雲，直到越過判決邊界。",
+"Carrier cycles per symbol": "每符元載波週期數",
+"How many carrier cycles fit in one symbol; only changes the picture of the waveform.": "一個符元內有幾個載波週期；只影響波形的畫法。",
+"Power spectrum of the modulated signal for the same bit rate": "相同位元率下調變訊號的功率頻譜",
+"Bit error rate versus Eb/N# for all schemes": "所有調變方式的位元錯誤率對 Eb/N#",
+"Explain the terms: carrier, symbol, constellation, I and Q, Gray code, Eb/N#, bit error rate, spectral efficiency": "名詞解釋：載波、符元、星座圖、I 與 Q、格雷碼、Eb/N#、位元錯誤率、頻譜效率",
+"The four schemes": "四種調變方式",
+"Changes": "改變的量",
+"Bits / symbol": "位元 / 符元",
+"Noise tolerance": "抗雜訊能力",
+"Used in": "應用",
+"amplitude": "振幅",
+"poor": "差",
+"RFID, optical on-off keying": "RFID、光通訊開關鍵控",
+"frequency": "頻率",
+"fair, simple receiver": "尚可，接收器簡單",
+"Bluetooth (GFSK), key fobs, pagers": "藍牙（GFSK）、遙控鑰匙、呼叫器",
+"phase": "相位",
+"#–#": "#–#",
+"best per bit (BPSK, QPSK)": "每位元最佳（BPSK、QPSK）",
+"GPS, satellite, Wi-Fi control": "GPS、衛星、Wi-Fi 控制訊號",
+"amplitude and phase": "振幅與相位",
+"needs high SNR": "需要高訊噪比",
+"Wi-Fi, LTE / #G, cable modems": "Wi-Fi、LTE / #G、纜線數據機",
+"Terms": "名詞",
+"Carrier": "載波",
+"The high-frequency sine wave that is modulated so the data can travel as a radio signal.": "被調變的高頻正弦波，讓資料以無線電訊號的形式傳送。",
+"One fixed state of the carrier, held for a symbol time; with M states it carries log₂M bits.": "載波在一個符元時間內保持的一種固定狀態；有 M 種狀態時帶 log₂M 個位元。",
+"I and Q": "I 與 Q",
+"In-phase and quadrature parts: s(t) = I·cos(ωt) − Q·sin(ωt). Every symbol is a point in the I/Q plane.": "同相與正交分量：s(t) = I·cos(ωt) − Q·sin(ωt)。每個符元都是 I/Q 平面上的一個點。",
+"Constellation": "星座圖",
+"The set of all symbol points; the receiver picks the point closest to what it measured.": "所有符元點的集合；接收端選擇最接近量測值的點。",
+"Gray code": "格雷碼",
+"Neighbouring points differ in only one bit, so the usual small error costs just one bit.": "相鄰點只差一個位元，所以常見的小誤差只會錯一個位元。",
+"Eb/N#": "Eb/N#",
+"Energy per bit over noise density, the fair way to compare schemes with different bits per symbol.": "每位元能量除以雜訊密度，用來公平比較每符元位元數不同的調變方式。",
+"Bit error rate": "位元錯誤率",
+"Share of received bits that are wrong.": "收到的位元中錯誤的比例。",
+"Spectral efficiency": "頻譜效率",
+"Bits per second per hertz: more bits per symbol means a narrower spectrum for the same bit rate.": "每赫茲每秒的位元數：每符元位元越多，相同位元率下頻譜越窄。",
+"Bits per symbol": "每符元位元數",
+"Measured BER": "實測 BER",
+"Theory BER": "理論 BER",
+"Symbol rate": "符元率",
+"Errors in this burst": "這串資料的錯誤",
+"log₂ of the number of constellation points.": "星座點數的 log₂。",
+"Bit rate divided by bits per symbol.": "位元率除以每符元位元數。",
+"Bit errors counted in a Monte-Carlo run.": "蒙地卡羅模擬中數到的位元錯誤。",
+"Textbook bit error rate at this Eb/N#.": "此 Eb/N# 下的教科書位元錯誤率。",
+"Wrong bits among the eight symbols shown.": "顯示的八個符元中錯誤的位元。",
+"Bits per second per hertz of main-lobe bandwidth.": "主瓣頻寬每赫茲每秒的位元數。",
+"Modulated carrier": "調變後的載波",
+"How the symbol shapes the transmitted wave.": "符元如何塑造送出的波。",
+"Noise model": "雜訊模型",
+"Additive white Gaussian noise.": "加性白高斯雜訊。",
+"BER formula": "BER 公式",
+"Bit error rate formula.": "位元錯誤率公式。",
+"BER = Q(√(Eb/N#)) (coherent, orthogonal)": "BER = Q(√(Eb/N#))（同調、正交）",
+"R_s = R_b / k, main lobe # R_s": "R_s = R_b / k，主瓣 # R_s",
+"σ² = N# / # per dimension, E_s = k · E_b": "每維 σ² = N# / #，E_s = k · E_b",
+"# points, # bits per symbol, Gray coded": "# 個點，每符元 # 位元，格雷編碼",
+"# points, # bit per symbol, Gray coded": "# 個點，每符元 # 位元，格雷編碼",
+"k = # → main lobe # R_b": "k = # → 主瓣 # R_b",
+"#e-# (simulated #e-#)": "#e-#（模擬 #e-#）",
+"#e-# (simulated < #e-#)": "#e-#（模擬 < #e-#）",
+"Digital data → modulator → radio signal": "數位資料 → 調變器 → 無線電訊號",
+"data bits": "資料位元",
+"signal": "訊號",
+"Constellation (I/Q plane)": "星座圖（I/Q 平面）",
+"Receiver: f₀ and f₁ correlators": "接收端：f₀ 與 f₁ 相關器",
+"blue: received with noise, red: wrong decision": "藍：含雜訊的接收點，紅：判決錯誤",
+"Receiver: decisions and bit errors": "接收端：判決與位元錯誤",
+"sent": "送出",
+"decided": "判決",
+"f / R_b": "f / R_b",
+"PSD (dB)": "功率頻譜 (dB)",
+"carrier line": "載波譜線",
+"main lobe # R_b": "主瓣 # R_b",
+"— spectrum at the same bit rate R_b": "— 相同位元率 R_b 下的頻譜",
+"Eb/N# (dB)": "Eb/N# (dB)",
+"BER": "BER",
+"Data bits, received points": "資料位元、接收點",
+"Transmitted signal, current symbol": "送出的訊號、目前符元",
+"Correct decision": "正確判決",
+"Wrong decision": "錯誤判決",
+"Amplitude shift keying": "振幅鍵移（ASK）",
+"Same frequency, the amplitude says the bit": "頻率不變，用振幅代表位元",
+"Amplitude shift keying sends each bit by switching the carrier between two amplitudes: here a # is full amplitude and a # a quarter of it (on-off keying would switch it off completely). The receiver only has to measure how strong the signal is, which makes it the simplest scheme to build: RFID tags and optical links use it. The weakness is noise: noise adds directly to the amplitude, and both points lie on the same line close together, so ASK needs several decibels more signal than PSK for the same error rate, and a fading channel easily turns a # into a #. Its spectrum also wastes power in a strong line at the carrier frequency, which carries no information.": "振幅鍵移以兩種載波振幅傳送每個位元：這裡 # 是全振幅，# 是四分之一振幅（開關鍵控則會完全關掉）。接收端只需量測訊號強度，所以是最容易實作的方式：RFID 標籤與光通訊都使用它。弱點在於雜訊：雜訊直接疊加在振幅上，而兩個點落在同一條線上又彼此靠近，所以 ASK 要比 PSK 多好幾 dB 的訊號才能達到相同錯誤率，衰落通道也很容易把 # 變成 #。它的頻譜還在載波頻率上浪費功率形成一條強譜線，而這條譜線不帶任何資訊。",
+"Frequency shift keying": "頻率鍵移（FSK）",
+"Same amplitude, two frequencies for the two bits": "振幅不變，用兩個頻率代表兩種位元",
+"Frequency shift keying sends a # at one frequency and a # at another, with the same amplitude, so the waveform visibly squeezes and stretches. The receiver compares the energy in two filters or correlators, one per frequency, and picks the larger: that is why the constellation is drawn on two axes, f₀ and f₁. When the two tones are spaced by half the symbol rate they are orthogonal and do not interfere. Because the amplitude is constant, FSK works with cheap non-linear power amplifiers and is robust against amplitude fading, which is why Bluetooth (as GFSK), key fobs and many sensors use it. It needs more bandwidth than PSK and about # dB more signal than BPSK for the same error rate.": "頻率鍵移用一個頻率送 #、另一個頻率送 #，振幅相同，所以波形看起來時而緊密時而疏鬆。接收端比較兩個濾波器或相關器（每個頻率一個）的能量，選擇較大者：這就是星座圖畫在 f₀ 與 f₁ 兩個軸上的原因。當兩個頻率相距半個符元率時彼此正交、互不干擾。因為振幅固定，FSK 可以搭配便宜的非線性功率放大器，也不怕振幅衰落，所以藍牙（GFSK）、遙控鑰匙與許多感測器都使用它。它比 PSK 需要更多頻寬，在相同錯誤率下也比 BPSK 多需要約 # dB 的訊號。",
+"Phase shift keying": "相位鍵移（PSK）",
+"Same amplitude and frequency, the phase says the bits": "振幅與頻率不變，用相位代表位元",
+"Phase shift keying keeps amplitude and frequency fixed and jumps the phase of the carrier. BPSK uses #° and #°: the two points are as far apart as possible, which gives the best error rate per bit of all schemes here. QPSK uses four phases, # bits per symbol, with exactly the same error rate per bit as BPSK but half the bandwidth, because the I and Q carriers are independent. #PSK puts # bits on eight phases, but its points are closer together, so it needs more signal. The receiver must know the carrier phase, so it recovers it from the signal. Gray coding makes neighbouring phases differ in one bit, so the typical error costs a single bit. GPS, satellite links and the robust modes of Wi-Fi and LTE use PSK.": "相位鍵移保持振幅與頻率固定，讓載波相位跳變。BPSK 使用 #° 與 #°：兩個點相距最遠，在這裡所有方式中每位元錯誤率最好。QPSK 使用四個相位、每符元 # 位元，每位元錯誤率與 BPSK 完全相同，但頻寬只要一半，因為 I 與 Q 兩個載波互相獨立。#PSK 把 # 位元放在八個相位上，但點更靠近，所以需要更強的訊號。接收端必須知道載波相位，因此要從訊號中把它恢復出來。格雷編碼讓相鄰相位只差一個位元，所以典型的錯誤只會錯一位。GPS、衛星鏈路以及 Wi-Fi 與 LTE 的穩健模式都使用 PSK。",
+"Quadrature amplitude modulation": "正交振幅調變（QAM）",
+"Amplitude and phase together: many bits per symbol": "振幅與相位一起變：每個符元帶很多位元",
+"QAM changes both the amplitude and the phase, which is the same as sending two independent amplitude-modulated carriers, I on a cosine and Q on a sine, and adding them. The symbols form a grid: #-QAM carries # bits per symbol, #-QAM # bits, #- and #-QAM in Wi-Fi # and cable modems # and # bits. For the same bit rate the symbol rate falls, and so does the bandwidth, which is why modern systems use it. The price is that the points sit close together, so noise, phase noise and amplifier non-linearity quickly push a received symbol into its neighbour's square: higher orders need a much higher signal-to-noise ratio. Real systems therefore adapt the order to the channel, falling back from #-QAM to QPSK when the signal gets weak.": "QAM 同時改變振幅與相位，等於分別在餘弦（I）與正弦（Q）兩個載波上做振幅調變再相加。符元排成網格：#-QAM 每符元帶 # 位元，#-QAM 帶 # 位元，#- 與 #-QAM 用於 Wi-Fi # 與纜線數據機，帶 # 與 # 位元。在相同位元率下符元率降低，頻寬也隨之減少，這就是現代系統使用它的原因。代價是點彼此靠得很近，雜訊、相位雜訊與放大器非線性很快就會把接收到的符元推進鄰居的方格：階數越高需要的訊噪比越高。因此實際系統會依通道調整階數，訊號變弱時從 #-QAM 退回 QPSK。",
+"— ASK": "— ASK",
+"— FSK": "— FSK",
+"— BPSK/QPSK": "— BPSK/QPSK",
+"— #PSK": "— #PSK",
+"— #-QAM": "— #-QAM"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -10126,6 +10250,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-ee" aria-selected="false" aria-controls="tab-ee">ESD models & EOS</button>
         <button role="tab" id="tab-btn-tl" aria-selected="false" aria-controls="tab-tl">Transmission lines</button>
         <button role="tab" id="tab-btn-sb" aria-selected="false" aria-controls="tab-sb">Serial interfaces (UART · I²C · SPI · CAN)</button>
+        <button role="tab" id="tab-btn-dm" aria-selected="false" aria-controls="tab-dm">Digital modulation</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -15199,6 +15324,102 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Dominant / recessive</dt><dd>On CAN a 0 is dominant (CAN_H ≈ 3.5 V, CAN_L ≈ 1.5 V) and overrides a recessive 1 (both ≈ 2.5 V).</dd>
               <dt>Arbitration</dt><dd>Nodes that start together compare the bus with what they send; the one with the lower ID wins without destroying the frame.</dd>
               <dt>Bit stuffing</dt><dd>After five equal bits the CAN transmitter inserts one opposite bit, so receivers always see edges to stay in sync.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== DIGITAL MODULATION TAB (ASK · FSK · PSK · QAM) ===================== -->
+  <section id="tab-dm" role="tabpanel" aria-labelledby="tab-btn-dm" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="dm-pill">1 bit/sym</span><h2 id="dm-name">ASK</h2></div>
+      <p id="dm-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="dm-view" role="group" aria-label="Modulation" style="flex-wrap:wrap">
+        <button data-v="ask" aria-pressed="true">ASK</button>
+        <button data-v="fsk" aria-pressed="false">FSK</button>
+        <button data-v="psk" aria-pressed="false">PSK</button>
+        <button data-v="qam" aria-pressed="false">QAM</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvdm" aria-label="Digital data bits turned into a modulated radio signal symbol by symbol, the I/Q constellation with noisy received symbols, and the receiver comparing sent and decoded bits"></canvas>
+      <div class="legend" id="dm-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="dm-ro"></div>
+        <div style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Play the transmission symbol by symbol, or drag the slider. New data draws a fresh random bit pattern.">Transmission</span>
+          <div class="chips"><button class="chipbtn" id="dm-play">▶ Transmit</button><button class="chipbtn" id="dm-new">New random data</button></div>
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Which symbol of the burst is being sent.">Symbol</span><span id="dm-u-v"></span></div>
+          <input id="dm-u" type="range" min="0" max="0.999" step="0.001" value="0">
+        </div>
+        <div id="dm-c-psk" hidden style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Number of phases. Each doubling packs one more bit into a symbol but puts the points closer together.">PSK order</span>
+          <div class="seg" id="dm-pm" role="group" aria-label="PSK order"><button data-m="2">BPSK (1 bit)</button><button data-m="4">QPSK (2 bits)</button><button data-m="8">8PSK (3 bits)</button></div>
+        </div>
+        <div id="dm-c-qam" hidden style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Number of amplitude-and-phase points. 16-QAM carries 4 bits per symbol, 64-QAM 6 bits, as used in Wi-Fi and LTE.">QAM order</span>
+          <div class="seg" id="dm-qm" role="group" aria-label="QAM order"><button data-m="16">16-QAM (4 bits)</button><button data-m="64">64-QAM (6 bits)</button></div>
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Signal energy per bit over noise power density. Lower values spread the received points into clouds until they cross the decision boundaries.">Signal-to-noise Eb/N0</span><span id="dm-snr-v"></span></div>
+          <input id="dm-snr" type="range" min="-2" max="30" step="0.5" value="12">
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="How many carrier cycles fit in one symbol; only changes the picture of the waveform.">Carrier cycles per symbol</span><span id="dm-cyc-v"></span></div>
+          <input id="dm-cyc" type="range" min="2" max="8" step="1" value="3">
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="dm-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Characteristics</p>
+        <div class="plots">
+          <div class="plot"><svg id="dm-p1" viewBox="0 0 300 230" role="img" aria-label="Power spectrum of the modulated signal for the same bit rate"></svg></div>
+          <div class="plot"><svg id="dm-p2" viewBox="0 0 220 230" role="img" aria-label="Bit error rate versus Eb/N0 for all schemes"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="dm-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: carrier, symbol, constellation, I and Q, Gray code, Eb/N0, bit error rate, spectral efficiency</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>The four schemes</h3>
+            <div class="tbl"><table>
+              <tr><th></th><th>Changes</th><th>Bits / symbol</th><th>Noise tolerance</th><th>Used in</th></tr>
+              <tr><td>ASK</td><td>amplitude</td><td>1</td><td>poor</td><td>RFID, optical on-off keying</td></tr>
+              <tr><td>FSK</td><td>frequency</td><td>1</td><td>fair, simple receiver</td><td>Bluetooth (GFSK), key fobs, pagers</td></tr>
+              <tr><td>PSK</td><td>phase</td><td>1–3</td><td>best per bit (BPSK, QPSK)</td><td>GPS, satellite, Wi-Fi control</td></tr>
+              <tr><td>QAM</td><td>amplitude and phase</td><td>4–10</td><td>needs high SNR</td><td>Wi-Fi, LTE / 5G, cable modems</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>Carrier</dt><dd>The high-frequency sine wave that is modulated so the data can travel as a radio signal.</dd>
+              <dt>Symbol</dt><dd>One fixed state of the carrier, held for a symbol time; with M states it carries log₂M bits.</dd>
+              <dt>I and Q</dt><dd>In-phase and quadrature parts: s(t) = I·cos(ωt) − Q·sin(ωt). Every symbol is a point in the I/Q plane.</dd>
+              <dt>Constellation</dt><dd>The set of all symbol points; the receiver picks the point closest to what it measured.</dd>
+              <dt>Gray code</dt><dd>Neighbouring points differ in only one bit, so the usual small error costs just one bit.</dd>
+              <dt>Eb/N0</dt><dd>Energy per bit over noise density, the fair way to compare schemes with different bits per symbol.</dd>
+              <dt>Bit error rate</dt><dd>Share of received bits that are wrong.</dd>
+              <dt>Spectral efficiency</dt><dd>Bits per second per hertz: more bits per symbol means a narrower spectrum for the same bit rate.</dd>
             </dl>
           </div>
         </div>
@@ -28252,12 +28473,185 @@ $("sb-two").addEventListener("click", () => { SBS.two = !SBS.two; sbRestart(); u
 [["sb-e", "e"], ["sb-byte", "byte"], ["sb-mis", "mis"], ["sb-rp", "rp"], ["sb-cb", "cb"], ["sb-sck", "sck"], ["sb-len", "len"], ["sb-ida", "ida"], ["sb-idb", "idb"]].forEach(([id, k]) =>
   $(id).addEventListener("input", e => { SBS[k] = +e.target.value; if (k === "e") SBS.play = false; updateSB(); }));
 
+/* ===================== DIGITAL MODULATION TAB: ASK, FSK, PSK, QAM ===================== */
+// Bits are grouped into symbols of k bits and mapped (Gray code) to constellation points I + jQ, normalised to unit average energy
+// (ASK uses the two amplitudes 1 and 0.25). The waveform is I·cos(ωt) − Q·sin(ωt); FSK switches between f_c − Δf and f_c + Δf.
+// AWGN with σ² = N0/2 per dimension, N0 = E_s/(k·Eb/N0). The receiver picks the nearest point (FSK: the larger correlator);
+// the bit error rate is measured by Monte Carlo and compared with the textbook formulas.
+const DMC = setupCanvas($("cvdm"), 1000, 488);
+const DMS = {view:"ask", pm:4, qm:16, snr:12, cyc:3, u:0, play:true, acc:0, seed:7};
+const DM_NS = 8;                                                       // symbols shown in the burst
+const dmRng = s => () => { s |= 0; s = s + 0x6D2B79F5 | 0; let t = Math.imul(s ^ s >>> 15, 1 | s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0)/4294967296; };
+const dmGauss = r => Math.sqrt(-2*Math.log(r() + 1e-12))*Math.cos(2*Math.PI*r());
+const dmQ = x => 0.5*dmErfc(x/Math.SQRT2);
+function dmErfc(x){ const z = Math.abs(x), t = 1/(1 + 0.5*z), r = t*Math.exp(-z*z - 1.26551223 + t*(1.00002368 + t*(0.37409196 + t*(0.09678418 + t*(-0.18628806 + t*(0.27886807 + t*(-1.13520398 + t*(1.48851587 + t*(-0.82215223 + t*0.17087277))))))))); return x >= 0 ? r : 2 - r; }
+const dmGray = i => i ^ (i >> 1);
+// constellation: list of {I, Q, lab} where lab is the bit pattern (integer) the point carries
+function dmConst(v = DMS.view){
+  if (v === "ask") return {k:1, pts:[{I:0.25, Q:0, lab:0}, {I:1, Q:0, lab:1}]};
+  if (v === "fsk") return {k:1, pts:[{I:1, Q:0, lab:0}, {I:0, Q:1, lab:1}]};          // axes: f₀ and f₁ correlators
+  if (v === "psk"){ const M = DMS.pm, off = M === 4 ? Math.PI/4 : 0;
+    return {k:Math.log2(M), pts:[...Array(M)].map((_, i) => ({I:Math.cos(off + 2*Math.PI*i/M), Q:Math.sin(off + 2*Math.PI*i/M), lab:dmGray(i)}))}; }
+  const M = DMS.qm, m = Math.sqrt(M), kk = Math.log2(m), sc = 1/Math.sqrt(2*(M - 1)/3), pts = [];
+  for (let a = 0; a < m; a++) for (let b = 0; b < m; b++) pts.push({I:(-(m - 1) + 2*a)*sc, Q:(-(m - 1) + 2*b)*sc, lab:(dmGray(a) << kk) | dmGray(b)});
+  return {k:Math.log2(M), pts};
+}
+const dmEs = C => C.pts.reduce((s, p) => s + p.I*p.I + p.Q*p.Q, 0)/C.pts.length;
+const dmSigma = C => Math.sqrt(dmEs(C)/(C.k*Math.pow(10, DMS.snr/10))/2);
+const dmNear = (C, I, Q) => { let best = C.pts[0], d0 = Infinity; for (const p of C.pts){ const d = (p.I - I)**2 + (p.Q - Q)**2; if (d < d0){ d0 = d; best = p; } } return best; };
+const dmBits = (v, k) => v.toString(2).padStart(k, "0");
+// the burst: symbols, their noisy receptions and decisions
+function dmBurst(){
+  const C = dmConst(), r = dmRng(DMS.seed), rn = dmRng(DMS.seed*31 + Math.round(DMS.snr*2) + 5), sg = dmSigma(C), syms = [];
+  for (let s = 0; s < DM_NS; s++){ const p = C.pts[Math.floor(r()*C.pts.length)], I = p.I + sg*dmGauss(rn), Q = p.Q + sg*dmGauss(rn), d = dmNear(C, I, Q); syms.push({p, I, Q, d, err:d.lab ^ p.lab}); }
+  return {C, sg, syms};
+}
+let dmMCkey = "", dmMCval = 0, dmCloud = [];
+function dmMC(C, sg){
+  const key = [DMS.view, DMS.pm, DMS.qm, DMS.snr].join("|"); if (key === dmMCkey) return dmMCval;
+  const r = dmRng(99), n = Math.round(24000/C.k); let bad = 0; dmCloud = [];
+  for (let i = 0; i < n; i++){ const p = C.pts[Math.floor(r()*C.pts.length)], I = p.I + sg*dmGauss(r), Q = p.Q + sg*dmGauss(r), d = dmNear(C, I, Q), e = d.lab ^ p.lab;
+    for (let b = e; b; b >>= 1) bad += b & 1; if (i < 500) dmCloud.push({I, Q, e:!!e}); }
+  dmMCkey = key; dmMCval = bad/(n*C.k); return dmMCval;
+}
+function dmTheory(v, M, g){                                            // bit error rate at Eb/N0 = g (linear)
+  if (v === "ask") return dmQ(Math.sqrt(0.5625/0.53125*g/2));
+  if (v === "fsk") return dmQ(Math.sqrt(g));
+  if (v === "psk") return M <= 4 ? dmQ(Math.sqrt(2*g)) : (2/3)*dmQ(Math.sqrt(2*3*g)*Math.sin(Math.PI/8));
+  const k = Math.log2(M); return Math.min(0.5, (4/k)*(1 - 1/Math.sqrt(M))*dmQ(Math.sqrt(3*k/(M - 1)*g)));
+}
+
+/* ---------------- drawing ---------------- */
+function drawDM(dt, T){
+  begin(DMC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488);
+  const B = dmBurst(), K = B.C.k, v = DMS.view, cur = Math.min(DM_NS - 1, Math.floor(DMS.u*DM_NS)), uIn = DMS.u*DM_NS - cur;
+  // ---- data → modulator → signal
+  panel(20, 20, 960, 206, "Digital data → modulator → radio signal");
+  const x0 = 130, x1 = 966, w = (x1 - x0)/DM_NS, yB = 72, yS = 160, cyc = DMS.cyc, rn = dmRng(DMS.seed + 3);
+  txt("data bits", 30, yB, {px:11, w:700, col:C.fg}); txt("signal", 30, yS, {px:11, w:700, col:C.fg});
+  for (let s = 0; s < DM_NS; s++){ const xs = x0 + s*w, on = s === cur, sy = B.syms[s];
+    if (on){ ctx.fillStyle = C.accent; ctx.globalAlpha = .1; ctx.fillRect(xs, 44, w, 176); ctx.globalAlpha = 1; }
+    ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.setLineDash([3, 3]); pl([[xs, 44], [xs, 216]]); ctx.setLineDash([]);
+    const bits = dmBits(sy.p.lab, K);
+    for (let b = 0; b < K; b++){ const bx = xs + (b + 0.5)*w/K; txt(bits[b], bx, yB - 22, {al:"center", px:11, w:700, col:C.fg}); }
+    ctx.strokeStyle = C.electron; ctx.lineWidth = 2; const pts = [];
+    for (let b = 0; b < K; b++){ const hv = bits[b] === "1" ? yB - 10 : yB + 10, bx = xs + b*w/K; pts.push([bx, hv], [bx + w/K, hv]); } pl(pts);
+    const desc = v === "ask" ? `A = ${sy.p.I.toFixed(2)}` : v === "fsk" ? (sy.p.lab ? "f₁" : "f₀") : v === "psk" ? `${((Math.atan2(sy.p.Q, sy.p.I)*180/Math.PI + 360) % 360).toFixed(0)}°`
+      : `${Math.hypot(sy.p.I, sy.p.Q).toFixed(2)}∠${((Math.atan2(sy.p.Q, sy.p.I)*180/Math.PI + 360) % 360).toFixed(0)}°`;
+    txt(desc, xs + w/2, 112, {al:"center", px:10, w:700, col:on ? C.accent : C.muted});
+  }
+  // waveform with continuous phase, drawn up to the cursor in full colour
+  const amp = 40/Math.max(...B.C.pts.map(p => Math.hypot(p.I, p.Q))), N = 1400, wave = [];
+  let ph = 0;
+  for (let j = 0; j <= N; j++){ const u = j/N*DM_NS, s = Math.min(DM_NS - 1, Math.floor(u)), sy = B.syms[s], tl = u - s;
+    let y;
+    if (v === "fsk"){ const f = sy.p.lab ? cyc + 1 : cyc - 1; ph += 2*Math.PI*f/(N/DM_NS); y = Math.cos(ph); }
+    else { const a = 2*Math.PI*cyc*tl; y = sy.p.I*Math.cos(a) - sy.p.Q*Math.sin(a); }
+    wave.push([x0 + u*w, yS - amp*(y + B.sg*0.6*dmGauss(rn))]); }
+  ctx.strokeStyle = C.accent; ctx.globalAlpha = .25; ctx.lineWidth = 1.6; pl(wave); ctx.globalAlpha = 1;
+  ctx.lineWidth = 2; pl(wave.slice(0, Math.round(DMS.u*N) + 1));
+  const xc = x0 + DMS.u*DM_NS*w; ctx.strokeStyle = C.fg; ctx.lineWidth = 1.2; pl([[xc, 44], [xc, 216]]);
+  // ---- constellation
+  panel(20, 236, 420, 234, v === "fsk" ? "Receiver: f₀ and f₁ correlators" : "Constellation (I/Q plane)");
+  const cx = 230, cy = 356, R = 74/Math.max(...B.C.pts.map(p => Math.max(Math.abs(p.I), Math.abs(p.Q)))), P = (I, Q) => [cx + I*R, cy - Q*R];
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1; pl([[cx - 100, cy], [cx + 100, cy]]); pl([[cx, cy - 92], [cx, cy + 92]]);
+  txt(v === "fsk" ? "f₀" : "I", cx + 106, cy, {px:11, w:700, col:C.fg}); txt(v === "fsk" ? "f₁" : "Q", cx + 8, cy - 92, {px:11, w:700, col:C.fg});
+  dmMC(B.C, B.sg);
+  dmCloud.forEach(c => { const [x, y] = P(c.I, c.Q); if (Math.abs(x - cx) > 110 || Math.abs(y - cy) > 96) return; ctx.fillStyle = c.e ? C.hole : C.electron; ctx.globalAlpha = .35; ctx.fillRect(x - 1, y - 1, 2.4, 2.4); ctx.globalAlpha = 1; });
+  B.C.pts.forEach(p => { const [x, y] = P(p.I, p.Q); ctx.fillStyle = C.fg; ctx.beginPath(); ctx.arc(x, y, 3.6, 0, 2*Math.PI); ctx.fill();
+    if (B.C.pts.length <= 16) txt(dmBits(p.lab, K), x + 6, y - 8, {px:9, col:C.fg}); });
+  const sy = B.syms[cur], [px, py] = P(sy.p.I, sy.p.Q), [rx, ry] = P(sy.I, sy.Q);
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2.4; pl([[cx, cy], [px, py]]);
+  if (uIn > 0.5){ ctx.strokeStyle = sy.err ? C.hole : C.channel; ctx.lineWidth = 1.4; ctx.setLineDash([3, 3]); pl([[px, py], [rx, ry]]); ctx.setLineDash([]);
+    ctx.fillStyle = sy.err ? C.hole : C.channel; ctx.beginPath(); ctx.arc(rx, ry, 5, 0, 2*Math.PI); ctx.fill(); }
+  txt("blue: received with noise, red: wrong decision", 230, 462, {al:"center", px:9, col:C.fg});
+  // ---- receiver
+  panel(460, 236, 520, 234, "Receiver: decisions and bit errors");
+  const xb = 580, cw = Math.min(56, 380/DM_NS);
+  txt("sent", 472, 280, {px:11, w:700, col:C.fg}); txt("decided", 472, 310, {px:11, w:700, col:C.fg});
+  for (let s = 0; s < DM_NS; s++){ const S = B.syms[s], sx = xb + s*cw, done = s < cur || (s === cur && uIn > 0.5);
+    txt(dmBits(S.p.lab, K), sx + cw/2, 280, {al:"center", px:K > 4 ? 8 : 10, w:700, col:s === cur ? C.accent : C.fg});
+    if (done) txt(dmBits(S.d.lab, K), sx + cw/2, 310, {al:"center", px:K > 4 ? 8 : 10, w:700, col:S.err ? C.hole : C.channel}); }
+  const ber = dmMCval, th = dmTheory(v, v === "psk" ? DMS.pm : DMS.qm, Math.pow(10, DMS.snr/10));
+  caRows([["Bits per symbol", `${K}`], ["Symbol rate", `R_b / ${K}`], ["Measured BER", ber > 0 ? ber.toExponential(1) : "< 1e-5"], ["Theory BER", th.toExponential(1)], ["Errors in this burst", `${B.syms.reduce((n, S) => { let c = 0; for (let b = S.err; b; b >>= 1) c += b & 1; return n + c; }, 0)} / ${DM_NS*K}`]], 472, 344);
+}
+
+/* ---------------- plots ---------------- */
+function drawDMPlots(){
+  const v = DMS.view, Cn = dmConst(), K = Cn.k, fs = range(0, 8, 400), A = axesR(300, 230, {l:36, r:10, t:28, b:30}, 0, 8, -40, 0, 1, 10, "f / R_b", "PSD (dB)");
+  const sinc2 = x => { if (Math.abs(x) < 1e-9) return 1; const s = Math.sin(Math.PI*x)/(Math.PI*x); return s*s; }, fc = 4, Rs = 1/K;
+  const db = x => Math.max(-40, 10*Math.log10(x + 1e-9));
+  const psd = f => v === "fsk" ? 0.5*(sinc2((f - fc + 0.5*Rs)/Rs) + sinc2((f - fc - 0.5*Rs)/Rs)) : sinc2((f - fc)/Rs);
+  let a = A.s + `<path d="${pathOf(fs.map(f => [f, db(psd(f))]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`;
+  if (v === "ask") a += `<line x1="${A.X(fc)}" x2="${A.X(fc)}" y1="${A.Y(0)}" y2="200" stroke="var(--hole)" stroke-width="2.4"/><text x="${A.X(fc) + 4}" y="40" style="fill:var(--hole)">carrier line</text>`;
+  a += `<line x1="${A.X(fc - Rs)}" x2="${A.X(fc + Rs)}" y1="${A.Y(-30)}" y2="${A.Y(-30)}" stroke="var(--fg)"/><text x="${A.X(7.9)}" y="40" text-anchor="end">main lobe ${(2*Rs).toFixed(2)} R_b</text>`
+    + A.frame + `<text x="40" y="12" style="fill:var(--accent)">— spectrum at the same bit rate R_b</text>`;
+  const gs = range(-2, 20, 88), B = caAxes(220, 230, {l:40, r:8, t:28, b:30}, -2, 20, -6, 0, [[0, "0"], [5, "5"], [10, "10"], [15, "15"], [20, "20"]], [[-6, "1e-6"], [-4, "1e-4"], [-2, "0.01"], [0, "1"]], "Eb/N0 (dB)", "BER");
+  const curves = [["ask", 0, "muted", "ASK"], ["fsk", 0, "electron", "FSK"], ["psk", 4, "accent", "BPSK/QPSK"], ["psk", 8, "channel", "8PSK"], ["qam", 16, "hole", "16-QAM"], ["qam", 64, "metal", "64-QAM"]];
+  const cm = v === "psk" ? (DMS.pm === 8 ? 8 : 4) : v === "qam" ? DMS.qm : 0;
+  let b = B.s;
+  curves.forEach(([cv, M, col, lab], i) => { const me = cv === v && (cv === "ask" || cv === "fsk" || M === cm);
+    b += `<path d="${pathOf(gs.map(g => [g, clamp(Math.log10(dmTheory(cv, M, Math.pow(10, g/10)) + 1e-12), -6, 0)]), B.X, B.Y)}" fill="none" stroke="var(--${col})" stroke-width="${me ? 2.6 : 1.2}"${me ? "" : ` opacity=".55"`}/>`;
+    b += `<text x="${150}" y="${40 + i*11}" style="fill:var(--${col});font-size:9px">— ${lab}</text>`; });
+  const th = dmTheory(v, v === "psk" ? DMS.pm : DMS.qm, Math.pow(10, DMS.snr/10));
+  b += B.frame + dotSvg(B.X(DMS.snr), B.Y(clamp(Math.log10(th + 1e-12), -6, 0)));
+  $("dm-p1").innerHTML = a; $("dm-p2").innerHTML = b;
+}
+
+/* ---------------- DOM ---------------- */
+const DMINFO = {
+  ask:{pill:"ASK", name:"Amplitude shift keying", sub:"Same frequency, the amplitude says the bit",
+    text:"Amplitude shift keying sends each bit by switching the carrier between two amplitudes: here a 1 is full amplitude and a 0 a quarter of it (on-off keying would switch it off completely). The receiver only has to measure how strong the signal is, which makes it the simplest scheme to build: RFID tags and optical links use it. The weakness is noise: noise adds directly to the amplitude, and both points lie on the same line close together, so ASK needs several decibels more signal than PSK for the same error rate, and a fading channel easily turns a 1 into a 0. Its spectrum also wastes power in a strong line at the carrier frequency, which carries no information."},
+  fsk:{pill:"FSK", name:"Frequency shift keying", sub:"Same amplitude, two frequencies for the two bits",
+    text:"Frequency shift keying sends a 0 at one frequency and a 1 at another, with the same amplitude, so the waveform visibly squeezes and stretches. The receiver compares the energy in two filters or correlators, one per frequency, and picks the larger: that is why the constellation is drawn on two axes, f₀ and f₁. When the two tones are spaced by half the symbol rate they are orthogonal and do not interfere. Because the amplitude is constant, FSK works with cheap non-linear power amplifiers and is robust against amplitude fading, which is why Bluetooth (as GFSK), key fobs and many sensors use it. It needs more bandwidth than PSK and about 3 dB more signal than BPSK for the same error rate."},
+  psk:{pill:"PSK", name:"Phase shift keying", sub:"Same amplitude and frequency, the phase says the bits",
+    text:"Phase shift keying keeps amplitude and frequency fixed and jumps the phase of the carrier. BPSK uses 0° and 180°: the two points are as far apart as possible, which gives the best error rate per bit of all schemes here. QPSK uses four phases, 2 bits per symbol, with exactly the same error rate per bit as BPSK but half the bandwidth, because the I and Q carriers are independent. 8PSK puts 3 bits on eight phases, but its points are closer together, so it needs more signal. The receiver must know the carrier phase, so it recovers it from the signal. Gray coding makes neighbouring phases differ in one bit, so the typical error costs a single bit. GPS, satellite links and the robust modes of Wi-Fi and LTE use PSK."},
+  qam:{pill:"QAM", name:"Quadrature amplitude modulation", sub:"Amplitude and phase together: many bits per symbol",
+    text:"QAM changes both the amplitude and the phase, which is the same as sending two independent amplitude-modulated carriers, I on a cosine and Q on a sine, and adding them. The symbols form a grid: 16-QAM carries 4 bits per symbol, 64-QAM 6 bits, 256- and 1024-QAM in Wi-Fi 6 and cable modems 8 and 10 bits. For the same bit rate the symbol rate falls, and so does the bandwidth, which is why modern systems use it. The price is that the points sit close together, so noise, phase noise and amplifier non-linearity quickly push a received symbol into its neighbour's square: higher orders need a much higher signal-to-noise ratio. Real systems therefore adapt the order to the channel, falling back from 64-QAM to QPSK when the signal gets weak."}
+};
+Object.assign(TIP, {
+  "Bits per symbol":"log₂ of the number of constellation points.", "Symbol rate":"Bit rate divided by bits per symbol.", "Measured BER":"Bit errors counted in a Monte-Carlo run.", "Theory BER":"Textbook bit error rate at this Eb/N0.",
+  "Errors in this burst":"Wrong bits among the eight symbols shown.", "Spectral efficiency":"Bits per second per hertz of main-lobe bandwidth.",
+  "Modulated carrier":"How the symbol shapes the transmitted wave.", "Noise model":"Additive white Gaussian noise.", "BER formula":"Bit error rate formula."
+});
+const DMLEG = [["electron","Data bits, received points"],["accent","Transmitted signal, current symbol"],["channel","Correct decision"],["hole","Wrong decision"]];
+function updateDM(){
+  const v = DMS.view, info = DMINFO[v], Cn = dmConst(), K = Cn.k, sg = dmSigma(Cn), ber = dmMC(Cn, sg), th = dmTheory(v, v === "psk" ? DMS.pm : DMS.qm, Math.pow(10, DMS.snr/10));
+  $("dm-pill").textContent = `${K} bit${K > 1 ? "s" : ""}/sym`; $("dm-name").textContent = info.name; $("dm-sub").textContent = info.sub; $("dm-explain").textContent = info.text;
+  document.querySelectorAll("#dm-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  document.querySelectorAll("#dm-pm button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.m === DMS.pm));
+  document.querySelectorAll("#dm-qm button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.m === DMS.qm));
+  $("dm-c-psk").hidden = v !== "psk"; $("dm-c-qam").hidden = v !== "qam";
+  $("dm-play").textContent = DMS.play ? "❚❚ Pause" : "▶ Transmit";
+  ["u", "snr", "cyc"].forEach(k => { const el = $("dm-" + k); if (+el.value !== DMS[k]) el.value = DMS[k]; });
+  $("dm-u-v").textContent = `${Math.min(DM_NS, Math.floor(DMS.u*DM_NS) + 1)} / ${DM_NS}`; $("dm-snr-v").textContent = `${DMS.snr.toFixed(1)} dB`; $("dm-cyc-v").textContent = `${DMS.cyc}`;
+  setHTML("dm-legend", DMLEG.map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  renderRo($("dm-ro"), [["Bits per symbol", `${K}`], ["Spectral efficiency", `${K} bit/s/Hz`], ["Measured BER", ber > 0 ? ber.toExponential(1) : "< 1e-5"], ["Theory BER", th.toExponential(1)]]);
+  const f = {ask:"s(t) = A_k · cos(2π f_c t),  A_k ∈ {0.25, 1}", fsk:"s(t) = cos(2π (f_c ± Δf) t),  Δf = R_s / 2", psk:"s(t) = cos(2π f_c t + φ_k),  φ_k = 2π m / M", qam:"s(t) = I_k · cos(2π f_c t) − Q_k · sin(2π f_c t)"}[v];
+  const fe = {ask:"BER = Q(√(0.53 · Eb/N0))", fsk:"BER = Q(√(Eb/N0))  (coherent, orthogonal)", psk:DMS.pm <= 4 ? "BER = Q(√(2 · Eb/N0))" : "BER ≈ (2/3) · Q(√(6 · Eb/N0) · sin(π/8))", qam:"BER ≈ (4/k)(1 − 1/√M) · Q(√(3k/(M − 1) · Eb/N0))"}[v];
+  renderEq($("dm-eq"), [{name:"Modulated carrier", f, sub:`${Cn.pts.length} points, ${K} bit${K > 1 ? "s" : ""} per symbol, Gray coded`},
+    {name:"Symbol rate", f:"R_s = R_b / k,  main lobe 2 R_s", sub:`k = ${K} → main lobe ${(2/K).toFixed(2)} R_b`},
+    {name:"Noise model", f:"σ² = N0 / 2 per dimension,  E_s = k · E_b", sub:`Eb/N0 = ${DMS.snr.toFixed(1)} dB → σ = ${sg.toFixed(3)}`},
+    {name:"BER formula", f:fe, sub:`${th.toExponential(1)} (simulated ${ber > 0 ? ber.toExponential(1) : "< 1e-5"})`}]);
+  drawDMPlots();
+}
+function dmTick(dt){
+  if (!(dt >= 0)) return;
+  if (DMS.play){ DMS.u += dt/(DM_NS*1.4); if (DMS.u >= 1) DMS.u = 0; DMS.acc += dt; if (DMS.acc > 0.25){ DMS.acc = 0; updateDM(); } }
+}
+document.querySelectorAll("#dm-view button").forEach(b => b.addEventListener("click", () => { DMS.view = b.dataset.v; if (!findCrawling){ DMS.u = 0; DMS.play = true; } updateDM(); }));
+document.querySelectorAll("#dm-pm button").forEach(b => b.addEventListener("click", () => { DMS.pm = +b.dataset.m; updateDM(); }));
+document.querySelectorAll("#dm-qm button").forEach(b => b.addEventListener("click", () => { DMS.qm = +b.dataset.m; updateDM(); }));
+$("dm-play").addEventListener("click", () => { DMS.play = !DMS.play; updateDM(); });
+$("dm-new").addEventListener("click", () => { DMS.seed = (DMS.seed*1103515245 + 12345) % 2147483647; DMS.u = 0; updateDM(); });
+[["dm-u", "u"], ["dm-snr", "snr"], ["dm-cyc", "cyc"]].forEach(([id, k]) => $(id).addEventListener("input", e => { DMS[k] = +e.target.value; if (k === "u") DMS.play = false; updateDM(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb","ca","sm","la","ee","tl","sb"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb","ca","sm","la","ee","tl","sb","dm"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown", ca:"#capacitors", sm:"#smith-chart", la:"#latchup-antenna", ee:"#esd-eos", tl:"#transmission-lines", sb:"#serial-interfaces"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev", ca:"rf", sm:"rf", la:"rel", ee:"rel", tl:"rf", sb:"cir"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown", ca:"#capacitors", sm:"#smith-chart", la:"#latchup-antenna", ee:"#esd-eos", tl:"#transmission-lines", sb:"#serial-interfaces", dm:"#modulation"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev", ca:"rf", sm:"rf", la:"rel", ee:"rel", tl:"rf", sb:"cir", dm:"rf"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -28308,6 +28702,7 @@ function showTab(t){
   else if (t === "ee"){ $("sub-top").textContent = "ESD and EOS · human-body, machine and charged-device models, electrical overstress"; EEC.resize(); updateEE(); }
   else if (t === "tl"){ $("sub-top").textContent = "Transmission lines · microstrip, stripline and coplanar waveguide"; TLC.resize(); updateTL(); }
   else if (t === "sb"){ $("sub-top").textContent = "Serial interfaces · UART, I²C, SPI and CAN bit by bit"; SBC.resize(); updateSB(); }
+  else if (t === "dm"){ $("sub-top").textContent = "Digital modulation · ASK, FSK, PSK and QAM"; DMC.resize(); updateDM(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -28351,6 +28746,7 @@ function frame(now){
   else if (tab === "ee"){ eeTick(dt); if (EEC.cv.clientWidth) drawEE(dt, T); }
   else if (tab === "tl"){ tlTick(dt); if (TLC.cv.clientWidth) drawTL(dt, T); }
   else if (tab === "sb"){ sbTick(dt); if (SBC.cv.clientWidth) drawSB(dt, T); }
+  else if (tab === "dm"){ dmTick(dt); if (DMC.cv.clientWidth) drawDM(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
