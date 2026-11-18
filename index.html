@@ -9421,6 +9421,295 @@ Object.assign(window.I18N_ZH, {
 "Signal and grounds side by side on the same surface: no vias, easy shunt parts, ideal for probing": "訊號與地在同一表面並排：不需導通孔、容易接並聯元件，最適合探測",
 "A coplanar waveguide puts the signal strip and its two ground conductors side by side on the same surface, separated by gaps. The field lives mostly in the gaps, partly in the substrate below and partly in the air above, so the wave is quasi-TEM with ε_eff close to (ε_r + #)/#. The impedance depends on the ratio of strip width to strip-plus-gaps, not on the substrate thickness, so the line can be made very small: that is why CPW is used on MMICs and why RF probes are ground-signal-ground. Series and shunt parts mount directly between strip and ground without vias. Because the opposite currents in the strip and the grounds are close together, it radiates less than microstrip, but the current crowds at the strip edges, which raises the conductor loss when the gaps are narrow. The grounds on both sides must be kept at the same potential with air bridges or via fences, otherwise an unwanted slot-line mode appears.": "共面波導把訊號導帶與兩側的地導體並排放在同一表面上，中間以間隙隔開。場主要集中在間隙中，一部分在下方基板、一部分在上方空氣，所以是準 TEM 波，ε_eff 接近 (ε_r + #)/#。阻抗取決於導帶寬度與導帶加間隙的比值，而不是基板厚度，所以線可以做得非常小：這就是 MMIC 使用 CPW、RF 探針採用地-訊號-地排列的原因。串聯與並聯元件可以直接接在導帶與地之間，不需要導通孔。由於導帶與地上的反向電流彼此很接近，它的輻射比微帶線少，但電流會擠在導帶邊緣，間隙窄時導體損耗會增加。兩側的地必須用空橋或導通孔圍籬保持同電位，否則會出現不需要的槽線模態。"
 });
+Object.assign(window.I18N_ZH, {
+"Serial interfaces (UART · I²C · SPI · CAN)": "序列介面（UART · I²C · SPI · CAN）",
+"Serial interfaces · UART, I²C, SPI and CAN bit by bit": "序列介面 · 逐位元看 UART、I²C、SPI 與 CAN",
+"Serial protocol": "序列協定",
+"Animated bus: the devices and wires of the protocol with the bit on each wire, above a logic-analyzer view of every signal with the decoded fields and a moving time cursor": "動態匯流排：協定中的裝置與導線以及每條線上的位元，下方是邏輯分析儀，顯示每個訊號、解碼欄位與移動的時間游標",
+"Transfer": "傳輸",
+"Send the frame in slow motion, or drag the slider to any moment of it.": "以慢動作送出這個訊框，或拖曳滑桿到任何時刻。",
+"▶ Send": "▶ 傳送",
+"❚❚ Pause": "❚❚ 暫停",
+"Time in the frame": "訊框中的時間",
+"Position of the time cursor within the frame.": "時間游標在訊框中的位置。",
+"Data byte": "資料位元組",
+"The byte the master (or transmitter) sends.": "主控端（或傳送端）送出的位元組。",
+"Baud rate": "鮑率",
+"Parity": "同位",
+"No parity": "無同位",
+"Even": "偶同位",
+"Odd": "奇同位",
+"Stop bits": "停止位元",
+"# stop": "# 個停止位元",
+"Receiver clock error": "接收端時脈誤差",
+"How far the receiver's clock is off from the transmitter's. UART has no clock wire: the receiver re-synchronises only on the start bit, so its sample points drift through the frame.": "接收端時脈與傳送端相差多少。UART 沒有時脈線：接收端只在起始位元重新同步，所以取樣點會在整個訊框中漂移。",
+"Target address": "目標位址",
+"The #-bit address the master calls. #x# belongs to no device on this bus, so nobody answers and the master sees a NACK.": "主控端呼叫的 # 位元位址。#x# 在這條匯流排上沒有對應的裝置，所以沒人回應，主控端收到 NACK。",
+"#x# (absent)": "#x#（不存在）",
+"Direction": "方向",
+"Write": "寫入",
+"Read": "讀取",
+"I#C speed": "I#C 速度",
+"Pull-up resistor": "上拉電阻",
+"Pull-up resistor on SCL and SDA. I²C outputs only pull low; the resistor pulls the line high, slowly, through the bus capacitance.": "SCL 與 SDA 上的上拉電阻。I²C 輸出只會拉低；電阻透過匯流排電容把線緩慢拉高。",
+"Bus capacitance": "匯流排電容",
+"Total capacitance of the wires and device pins on the bus. The standard allows up to # pF.": "匯流排上導線與裝置腳位的總電容。規範允許最多 # pF。",
+"Chip select": "晶片選擇",
+"CS# → Slave #": "CS# → 從端 #",
+"SPI mode": "SPI 模式",
+"Mode #": "模式 #",
+"Clock SCLK": "時脈 SCLK",
+"SPI clock frequency. The master samples MISO half a clock after it shifts out, so the slave's delay plus the round trip on the board must fit in half a period.": "SPI 時脈頻率。主控端在移出資料半個時脈後取樣 MISO，所以從端延遲加上電路板上的來回時間必須在半個週期內完成。",
+"Trace length": "走線長度",
+"Board trace length between master and slave. The clock travels out and the MISO data travels back: about # ns per centimetre each way.": "主控端與從端之間的電路板走線長度。時脈送出去、MISO 資料傳回來：單程每公分約 # ns。",
+"Node # sends ID": "節點 # 送出 ID",
+"#-bit identifier of the frame Node # sends. A lower identifier means a higher priority.": "節點 # 送出訊框的 # 位元識別碼。識別碼越小，優先權越高。",
+"Node # sends at the same time: on": "節點 # 同時傳送：開",
+"Node # sends at the same time: off": "節點 # 同時傳送：關",
+"Identifier of the frame Node # starts at the same moment. Both send, the bus is a wired-AND, and the node that sends a recessive # but reads a dominant # stops: it lost arbitration.": "節點 # 在同一時刻開始送出的訊框識別碼。兩者都在傳送，匯流排是線-AND；送出隱性 # 卻讀到顯性 # 的節點會停止：它仲裁失敗。",
+"CAN bit rate": "CAN 位元率",
+"UART sample drift, I#C rise of the open-drain line, SPI timing margin or CAN bus length limit": "UART 取樣漂移、I#C 開汲極線的上升、SPI 時序裕度或 CAN 匯流排長度限制",
+"UART throughput, I#C pull-up window, SPI maximum clock or CAN frame length": "UART 傳輸量、I#C 上拉電阻範圍、SPI 最高時脈或 CAN 訊框長度",
+"Explain the terms: UART, start and stop bit, baud, I²C, open drain, ACK, SPI, CPOL and CPHA, chip select, CAN, dominant and recessive, arbitration, bit stuffing": "名詞解釋：UART、起始與停止位元、鮑率、I²C、開汲極、ACK、SPI、CPOL 與 CPHA、晶片選擇、CAN、顯性與隱性、仲裁、位元填充",
+"The four buses side by side": "四種匯流排的比較",
+"Wires": "導線",
+"TX, RX": "TX、RX",
+"SCL, SDA": "SCL、SDA",
+"SCLK, MOSI, MISO, CS per slave": "SCLK、MOSI、MISO，每個從端一條 CS",
+"CAN_H, CAN_L": "CAN_H、CAN_L",
+"Clock": "時脈",
+"none (agreed baud)": "無（事先約定鮑率）",
+"from the master": "由主控端提供",
+"none (resync on edges)": "無（在邊緣重新同步）",
+"many, by address": "多個，以位址區分",
+"many, by chip select": "多個，以晶片選擇區分",
+"many, by message ID": "多個，以訊息 ID 區分",
+"Duplex": "雙工",
+"full": "全雙工",
+"half": "半雙工",
+"Typical speed": "典型速度",
+"# k–# Mbit/s": "# k–# Mbit/s",
+"#–# Mbit/s": "#–# Mbit/s",
+"Typical use": "典型用途",
+"debug console, GPS, modems": "除錯終端、GPS、數據機",
+"sensors, EEPROM, PMIC": "感測器、EEPROM、PMIC",
+"flash, displays, ADCs": "快閃記憶體、顯示器、ADC",
+"cars, industry": "汽車、工業",
+"Terms": "名詞",
+"Start and stop bit": "起始與停止位元",
+"UART frames begin with a # after the idle # (the receiver syncs on this edge) and end with one or two #s.": "UART 訊框在閒置的 # 之後以一個 # 開始（接收端靠這個邊緣同步），並以一或兩個 # 結束。",
+"Open drain": "開汲極",
+"Outputs that can only pull low; a resistor pulls the wire high. Any device can hold the line low without a short circuit.": "只能拉低的輸出；由電阻把線拉高。任何裝置都可以把線拉低而不會短路。",
+"ACK / NACK": "ACK / NACK",
+"In I²C the receiver pulls SDA low during the ninth clock to acknowledge a byte; a released (high) SDA is a NACK.": "在 I²C 中，接收端在第九個時脈把 SDA 拉低來確認一個位元組；放開（高電位）的 SDA 就是 NACK。",
+"CPOL / CPHA": "CPOL / CPHA",
+"SPI clock polarity (idle level) and phase (sample on the first or the second edge), giving modes #–#. Master and slave must agree.": "SPI 時脈極性（閒置準位）與相位（在第一或第二個邊緣取樣），組合成模式 #–#。主控端與從端必須一致。",
+"One active-low line per SPI slave; only the selected slave drives MISO, the others stay high-impedance.": "每個 SPI 從端一條低態有效的線；只有被選中的從端驅動 MISO，其他保持高阻抗。",
+"Dominant / recessive": "顯性 / 隱性",
+"On CAN a # is dominant (CAN_H ≈ # V, CAN_L ≈ # V) and overrides a recessive # (both ≈ # V).": "在 CAN 上 # 是顯性（CAN_H ≈ # V，CAN_L ≈ # V），會蓋過隱性的 #（兩線都 ≈ # V）。",
+"Arbitration": "仲裁",
+"Nodes that start together compare the bus with what they send; the one with the lower ID wins without destroying the frame.": "同時開始的節點會比對匯流排與自己送出的內容；ID 較小者勝出，且訊框不會被破壞。",
+"Bit stuffing": "位元填充",
+"After five equal bits the CAN transmitter inserts one opposite bit, so receivers always see edges to stay in sync.": "連續五個相同位元後，CAN 傳送端插入一個相反位元，讓接收端總能看到邊緣以保持同步。",
+"Frame length": "訊框長度",
+"Byte time": "位元組時間",
+"Received byte": "收到的位元組",
+"UART status": "UART 狀態",
+"framing error": "訊框錯誤",
+"parity error": "同位錯誤",
+"wrong data": "資料錯誤",
+"OK": "正常",
+"Rise time": "上升時間",
+"Rise time limit": "上升時間上限",
+"Target answer": "目標回應",
+"I#C status": "I#C 狀態",
+"NACK: no device at this address": "NACK：這個位址沒有裝置",
+"# bit misread: rise too slow": "# 個位元讀錯：上升太慢",
+"# bits misread: rise too slow": "# 個位元讀錯：上升太慢",
+"MISO delay": "MISO 延遲",
+"Timing margin": "時序裕度",
+"SPI status": "SPI 狀態",
+"MISO arrives too late: wrong byte": "MISO 到得太晚：位元組錯誤",
+"Winning ID": "勝出的 ID",
+"Frame bits": "訊框位元數",
+"CAN frame time": "CAN 訊框時間",
+"Kept by": "被保留於",
+"nobody": "無",
+"Node #": "節點 #",
+"Node #, Node #": "節點 #、節點 #",
+"# (# stuffed)": "#（填充 # 個）",
+"# bits": "# 位元",
+"Bits on the wire for one byte, including start, parity and stop.": "傳送一個位元組在線上的位元數，含起始、同位與停止位元。",
+"Time to send one frame at this baud rate.": "在此鮑率下送一個訊框的時間。",
+"What device # decodes from its samples.": "裝置 # 從取樣解出的值。",
+"Framing error, parity error or OK.": "訊框錯誤、同位錯誤或正常。",
+"# · R_p · C_bus: from # % to # % of V_DD.": "# · R_p · C_bus：從 V_DD 的 # % 到 # %。",
+"Maximum rise time allowed at this I²C speed.": "此 I²C 速度允許的最大上升時間。",
+"ACK from the addressed slave, or NACK.": "被定址從端的 ACK，或 NACK。",
+"Whether every bit was read correctly.": "每個位元是否都被正確讀取。",
+"Clock polarity and phase.": "時脈極性與相位。",
+"Slave clock-to-output plus the round trip on the board.": "從端時脈到輸出的延遲加上電路板來回時間。",
+"Time left before the master samples MISO.": "主控端取樣 MISO 前剩下的時間。",
+"Whether the master received the slave's byte.": "主控端是否收到從端的位元組。",
+"Frame that got through arbitration.": "通過仲裁的訊框。",
+"Bits on the bus including stuff bits.": "匯流排上的位元數，含填充位元。",
+"Duration at this bit rate.": "在此位元率下的持續時間。",
+"Nodes whose acceptance filter passes this ID.": "接收濾波器讓這個 ID 通過的節點。",
+"Bit time": "位元時間",
+"One bit lasts #/baud.": "一個位元持續 #/鮑率。",
+"Clock tolerance": "時脈容差",
+"Largest clock error that keeps the stop bit sample inside the stop bit.": "讓停止位元的取樣仍落在停止位元內的最大時脈誤差。",
+"Sample drift": "取樣漂移",
+"Error accumulates over the frame.": "誤差在訊框中累積。",
+"Pull-up limits": "上拉電阻限制",
+"Strong enough to pull high in time, weak enough for the # mA low level.": "要夠強才能及時拉高，也要夠弱才能讓 # mA 的低準位成立。",
+"Address byte": "位址位元組",
+"#-bit address followed by the R/W bit.": "# 位元位址後接 R/W 位元。",
+"Clock modes": "時脈模式",
+"CPOL is the idle level, CPHA selects the sampling edge.": "CPOL 是閒置準位，CPHA 選擇取樣邊緣。",
+"Round trip": "來回時間",
+"Clock out to the slave, data back to the master.": "時脈送到從端，資料傳回主控端。",
+"Dominant # wins on the wired-AND bus.": "在線-AND 匯流排上顯性 # 勝出。",
+"CRC-#": "CRC-#",
+"Checksum over the frame up to the data.": "涵蓋到資料欄的檢查碼。",
+"An opposite bit after five equal ones.": "五個相同位元後插入一個相反位元。",
+"Bus length": "匯流排長度",
+"The signal must reach the far node and come back before the sample point.": "訊號必須在取樣點之前到達最遠的節點再傳回。",
+"#-bit address << # | R/W": "# 位元位址 << # | R/W",
+"bus = AND of all transmitters (# dominant)": "匯流排 = 所有傳送端的 AND（# 為顯性）",
+"single transmitter": "只有一個傳送端",
+"after # equal bits insert # opposite bit (SOF … CRC)": "連續 # 個相同位元後插入 # 個相反位元（SOF … CRC）",
+"# stuff bits in this frame": "這個訊框有 # 個填充位元",
+"# µs at # baud": "# 鮑時為 # µs",
+"# ms at # baud": "# 鮑時為 # ms",
+"stop bit sampled # bit from its centre": "停止位元的取樣點離中心 # 位元",
+"stop bit sampled -# bit from its centre": "停止位元的取樣點離中心 -# 位元",
+"n = # → ±# % (real receivers allow about half)": "n = # → ±# %（實際接收器約只容許一半）",
+"data changes on the leading edge, sampled on the trailing edge": "資料在前緣改變，在後緣取樣",
+"data ready before the leading edge, sampled on it": "資料在前緣之前就緒，在前緣取樣",
+"UART: two devices, TX crossed to RX, no clock": "UART：兩個裝置，TX 交叉接到 RX，沒有時脈",
+"Device #": "裝置 #",
+"start": "起始",
+"stop": "停止",
+"RX shift register (LSB arrives first)": "RX 移位暫存器（LSB 先到）",
+"received": "收到",
+"receiver samples the middle of each bit": "接收端在每個位元的中間取樣",
+"receiver samples the middle of each bit (clock off by # %)": "接收端在每個位元的中間取樣（時脈偏差 # %）",
+"receiver samples the middle of each bit (clock off by -# %)": "接收端在每個位元的中間取樣（時脈偏差 -# %）",
+"I²C: two open-drain wires shared by every device": "I²C：所有裝置共用兩條開汲極導線",
+"Master": "主控端",
+"Slave #x#": "從端 #x#",
+"Slave #x#C": "從端 #x#C",
+"answers the read": "回應讀取",
+"selected": "被選中",
+"START: SDA falls while SCL is high": "START：SCL 為高時 SDA 下降",
+"STOP: SDA rises while SCL is high": "STOP：SCL 為高時 SDA 上升",
+"address bit A# = #": "位址位元 A# = #",
+"R/W bit = # (write)": "R/W 位元 = #（寫入）",
+"R/W bit = # (read)": "R/W 位元 = #（讀取）",
+"data bit # = # (driven by the master)": "資料位元 # = #（由主控端驅動）",
+"data bit # = # (driven by the slave)": "資料位元 # = #（由從端驅動）",
+"slave pulls SDA low: ACK": "從端把 SDA 拉低：ACK",
+"nobody pulls SDA low: NACK": "沒人把 SDA 拉低：NACK",
+"master leaves SDA high: NACK, last byte": "主控端讓 SDA 保持高：NACK，最後一個位元組",
+"rise time # ns (limit # ns)": "上升時間 # ns（上限 # ns）",
+"address": "位址",
+"data": "資料",
+"SPI: shared clock and data, one chip select per slave": "SPI：共用時脈與資料線，每個從端一條晶片選擇",
+"Slave #": "從端 #",
+"master shift register": "主控端移位暫存器",
+"slave shift register": "從端移位暫存器",
+"not selected: MISO high-Z": "未選中：MISO 高阻抗",
+"mode #: CPOL #, CPHA # · #/# bits exchanged": "模式 #：CPOL #，CPHA # · 已交換 #/# 位元",
+"CAN: two twisted wires, every node hears every frame": "CAN：兩條絞線，每個節點都聽得到每個訊框",
+"bus idle: recessive (both wires # V)": "匯流排閒置：隱性（兩線都是 # V）",
+"dominant #: CAN_H # V, CAN_L # V": "顯性 #：CAN_H # V，CAN_L # V",
+"recessive #: both wires # V": "隱性 #：兩線都是 # V",
+"accepts #x#–#x#FF": "接收 #x#–#x#FF",
+"transmits ID": "傳送 ID",
+"lost arbitration, now receiving": "仲裁失敗，改為接收",
+"receiving": "接收中",
+"✓ ID passes the filter: kept": "✓ ID 通過濾波器：保留",
+"✗ filtered out": "✗ 被濾掉",
+"sends ACK (dominant)": "送出 ACK（顯性）",
+"bit in the frame": "訊框中的位元",
+"sample offset (bits)": "取樣偏移（位元）",
+"— where the receiver samples": "— 接收端取樣的位置",
+"next bit": "下一個位元",
+"previous bit": "前一個位元",
+"baud": "鮑率",
+"kB/s (log)": "kB/s（對數）",
+"— bytes per second (#-bit frames)": "— 每秒位元組數（# 位元訊框）",
+"one SCL period": "一個 SCL 週期",
+"SDA / V_DD": "SDA / V_DD",
+"SCL high: sampled": "SCL 為高：取樣",
+"V_IH = # V_DD": "V_IH = # V_DD",
+"— SDA released at # T: # − e^(−t/RC)": "— SDA 在 # T 放開：# − e^(−t/RC)",
+"C_bus (pF)": "C_bus (pF)",
+"R_p (kΩ)": "R_p (kΩ)",
+"— R_max (rise time)": "— R_max（上升時間）",
+"R_min (# mA)": "R_min（# mA）",
+"log# SCLK (MHz)": "log# SCLK (MHz)",
+"margin (ns)": "裕度 (ns)",
+"— T/# − (t_co + round trip) − t_su": "— T/# − (t_co + 來回時間) − t_su",
+"log# trace (cm)": "log# 走線 (cm)",
+"max SCLK (MHz)": "最高 SCLK (MHz)",
+"— fastest clock that still works": "— 仍能正常運作的最快時脈",
+"log# bit rate (kbit/s)": "log# 位元率 (kbit/s)",
+"max bus length (m)": "最大匯流排長度 (m)",
+"— the round trip must fit before the sample point": "— 來回時間必須在取樣點之前完成",
+"data bytes": "資料位元組數",
+"bits per frame": "每訊框位元數",
+"— no stuffing": "— 無填充",
+"- - worst case": "- - 最壞情況",
+"High (#)": "高 (#)",
+"Low (#)": "低 (#)",
+"In between, errors": "中間電位、錯誤",
+"Slave / receiver driving": "從端 / 接收端驅動",
+"Released, high-Z": "放開、高阻抗",
+"Logic analyzer": "邏輯分析儀",
+"Node # TX": "節點 # TX",
+"lost": "仲裁失敗",
+"# MHz": "# MHz",
+"# Mbit/s": "# Mbit/s",
+"# kHz": "# kHz",
+"# kbit/s": "# kbit/s",
+"bit #/#: SOF": "第 #/# 位元：SOF",
+"bit #/#: SOF (stuff bit)": "第 #/# 位元：SOF（填充位元）",
+"bit #/#: ID": "第 #/# 位元：ID",
+"bit #/#: ID (stuff bit)": "第 #/# 位元：ID（填充位元）",
+"bit #/#: RTR": "第 #/# 位元：RTR",
+"bit #/#: RTR (stuff bit)": "第 #/# 位元：RTR（填充位元）",
+"bit #/#: IDE": "第 #/# 位元：IDE",
+"bit #/#: IDE (stuff bit)": "第 #/# 位元：IDE（填充位元）",
+"bit #/#: r#": "第 #/# 位元：r#",
+"bit #/#: r# (stuff bit)": "第 #/# 位元：r#（填充位元）",
+"bit #/#: DLC": "第 #/# 位元：DLC",
+"bit #/#: DLC (stuff bit)": "第 #/# 位元：DLC（填充位元）",
+"bit #/#: data": "第 #/# 位元：資料",
+"bit #/#: data (stuff bit)": "第 #/# 位元：資料（填充位元）",
+"bit #/#: CRC": "第 #/# 位元：CRC",
+"bit #/#: CRC (stuff bit)": "第 #/# 位元：CRC（填充位元）",
+"bit #/#: del": "第 #/# 位元：分隔",
+"bit #/#: del (stuff bit)": "第 #/# 位元：分隔（填充位元）",
+"bit #/#: ACK": "第 #/# 位元：ACK",
+"bit #/#: ACK (stuff bit)": "第 #/# 位元：ACK（填充位元）",
+"bit #/#: EOF": "第 #/# 位元：EOF",
+"bit #/#: EOF (stuff bit)": "第 #/# 位元：EOF（填充位元）",
+"del": "分隔",
+"UART": "UART",
+"Two wires crossed between two devices; no clock, both sides agree on the baud rate": "兩條在兩個裝置之間交叉的導線；沒有時脈，雙方事先約定鮑率",
+"A UART link is the simplest serial interface: device #'s TX wire goes to device #'s RX and the other way round, so both can talk at the same time (full duplex). There is no clock wire. The line idles high; a frame starts with a low start bit, carries eight data bits least-significant first, optionally a parity bit, and ends with one or two high stop bits. The receiver waits for the falling edge of the start bit, then samples the middle of each bit using its own clock at the agreed baud rate. Because it re-synchronises only once per frame, the two clocks must agree to within a few percent: the sample point drifts by the clock error times the number of bits, and when it slides past the edge of the stop bit the receiver reports a framing error. Try a receiver clock error of # % or more.": "UART 是最簡單的序列介面：裝置 # 的 TX 接到裝置 # 的 RX，反之亦然，所以雙方可以同時說話（全雙工）。沒有時脈線。線路閒置時為高；訊框以一個低的起始位元開始，接著八個資料位元（最低位先送），可選一個同位位元，最後以一或兩個高的停止位元結束。接收端等待起始位元的下降緣，然後用自己的時脈、依約定的鮑率在每個位元的中間取樣。因為每個訊框只重新同步一次，雙方時脈必須相差在幾個百分點內：取樣點的漂移等於時脈誤差乘以位元數，一旦滑過停止位元的邊緣，接收端就會報告訊框錯誤。試試把接收端時脈誤差調到 # % 以上。",
+"I²C": "I²C",
+"Two open-drain wires, many devices, each with a #-bit address; the master provides the clock": "兩條開汲極導線、多個裝置，每個裝置有 # 位元位址；時脈由主控端提供",
+"I²C uses only two wires for any number of devices: the clock SCL and the data SDA. Every device can only pull a wire low; pull-up resistors bring it back high, so two devices can never short each other. A transfer starts with a START condition, SDA falling while SCL is high. The master then sends the #-bit address and a read/write bit, most significant bit first, changing SDA only while SCL is low. In the ninth clock the addressed device pulls SDA low to acknowledge; if no device has that address SDA stays high (NACK) and the master stops. Data bytes follow, each acknowledged the same way, and the transfer ends with a STOP condition, SDA rising while SCL is high. Because the lines rise through the pull-up resistor and the bus capacitance, the rise time is #·R·C; too large a resistor or too much capacitance and a # does not reach the input threshold before it is sampled.": "I²C 只用兩條導線就能連接任意數量的裝置：時脈 SCL 與資料 SDA。每個裝置只能把線拉低；上拉電阻再把它拉回高，所以兩個裝置永遠不會互相短路。傳輸以 START 條件開始：SCL 為高時 SDA 下降。接著主控端送出 # 位元位址與一個讀/寫位元，最高位先送，而且只在 SCL 為低時改變 SDA。在第九個時脈，被定址的裝置把 SDA 拉低以確認；如果沒有裝置是這個位址，SDA 保持高（NACK），主控端就停止。之後的資料位元組也以同樣方式確認，傳輸以 STOP 條件結束：SCL 為高時 SDA 上升。因為線路是透過上拉電阻與匯流排電容上升的，上升時間是 # · R · C；電阻太大或電容太多，# 在被取樣前就到不了輸入門檻。",
+"SPI": "SPI",
+"A clock, data out, data in and one chip select per slave: fast and full duplex": "時脈、資料出、資料入，加上每個從端一條晶片選擇：快速且全雙工",
+"SPI connects a master to one or more slaves with a clock SCLK, MOSI (master out, slave in), MISO (master in, slave out) and one active-low chip select per slave. The master pulls the chosen CS low and toggles the clock; on every clock one bit leaves each shift register and enters the other, so after eight clocks master and slave have swapped their bytes. Clock polarity (CPOL, the idle level) and phase (CPHA, whether data is sampled on the first or the second edge) give four modes, and both sides must use the same one. Slaves that are not selected leave MISO floating. SPI has no addressing and no acknowledgement, so it is simple and fast, up to tens of MHz; the limit is timing: the slave starts driving MISO only after a clock edge, the data must travel back along the board, and it has to arrive before the master samples half a period later.": "SPI 用時脈 SCLK、MOSI（主出從入）、MISO（主入從出）以及每個從端一條低態有效的晶片選擇，把主控端連到一個或多個從端。主控端把選定的 CS 拉低並切換時脈；每個時脈各有一個位元離開一個移位暫存器、進入另一個，所以八個時脈後主控端與從端交換了彼此的位元組。時脈極性（CPOL，閒置準位）與相位（CPHA，在第一或第二個邊緣取樣）組合出四種模式，雙方必須使用同一種。沒被選中的從端讓 MISO 浮接。SPI 沒有定址也沒有確認，所以簡單又快，可達數十 MHz；限制在於時序：從端在時脈邊緣之後才開始驅動 MISO，資料還要沿電路板傳回來，而且必須在主控端半個週期後取樣之前到達。",
+"CAN": "CAN",
+"A differential two-wire bus for many nodes; messages carry an ID, and the lowest ID wins the bus": "多節點的差動雙線匯流排；訊息帶有 ID，ID 最小者取得匯流排",
+"A CAN bus is a twisted pair, CAN_H and CAN_L, terminated with # Ω at both ends. A dominant bit (#) drives CAN_H to about # V and CAN_L to about # V; a recessive bit (#) lets both float to # V. Any node sending a dominant bit therefore overrides a recessive one: the bus is a wired-AND. Frames carry no destination address but an #-bit identifier that says what the message is. If two nodes start at the same time, both send their IDs bit by bit while listening; a node that sends recessive but reads dominant knows that a more important message is on the bus and stops transmitting, so the frame with the lowest ID gets through undamaged. Each node decides from its acceptance filter whether to keep the message, but every node that received it correctly pulls the ACK slot dominant. A CRC protects the frame, and after five equal bits the transmitter inserts one opposite stuff bit so that receivers always see edges to resynchronise.": "CAN 匯流排是一對絞線 CAN_H 與 CAN_L，兩端各以 # Ω 終端。顯性位元（#）把 CAN_H 拉到約 # V、CAN_L 拉到約 # V；隱性位元（#）讓兩條線都浮在 # V。任何節點送出的顯性位元都會蓋過隱性位元：匯流排是線-AND。訊框沒有目的位址，而是帶一個 # 位元識別碼，說明這是什麼訊息。如果兩個節點同時開始，雙方一邊送出 ID 一邊監聽；送出隱性卻讀到顯性的節點就知道有更重要的訊息在匯流排上，於是停止傳送，所以 ID 最小的訊框能完整通過。每個節點依自己的接收濾波器決定是否保留訊息，但每個正確收到的節點都會在 ACK 槽把線拉成顯性。CRC 保護整個訊框，連續五個相同位元後傳送端會插入一個相反的填充位元，讓接收端總能看到邊緣來重新同步。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -9836,6 +10125,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-la" aria-selected="false" aria-controls="tab-la">Latch-up & antenna effect</button>
         <button role="tab" id="tab-btn-ee" aria-selected="false" aria-controls="tab-ee">ESD models & EOS</button>
         <button role="tab" id="tab-btn-tl" aria-selected="false" aria-controls="tab-tl">Transmission lines</button>
+        <button role="tab" id="tab-btn-sb" aria-selected="false" aria-controls="tab-sb">Serial interfaces (UART · I²C · SPI · CAN)</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -14766,6 +15056,149 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Conductor loss</dt><dd>Resistance of the skin-deep current layer, growing as √f and worse where the current crowds at strip edges.</dd>
               <dt>Dielectric loss</dt><dd>Energy absorbed by the substrate, proportional to tan δ and to f.</dd>
               <dt>Radiation and surface waves</dt><dd>Open lines leak energy into space and into the substrate, rising roughly as (f·h)²; above a cutoff, higher-order modes appear.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== SERIAL INTERFACES TAB (UART · I2C · SPI · CAN) ===================== -->
+  <section id="tab-sb" role="tabpanel" aria-labelledby="tab-btn-sb" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="sb-pill">UART</span><h2 id="sb-name">UART</h2></div>
+      <p id="sb-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="sb-view" role="group" aria-label="Serial protocol" style="flex-wrap:wrap">
+        <button data-v="uart" aria-pressed="true">UART</button>
+        <button data-v="i2c" aria-pressed="false">I²C</button>
+        <button data-v="spi" aria-pressed="false">SPI</button>
+        <button data-v="can" aria-pressed="false">CAN</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvsb" aria-label="Animated bus: the devices and wires of the protocol with the bit on each wire, above a logic-analyzer view of every signal with the decoded fields and a moving time cursor"></canvas>
+      <div class="legend" id="sb-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="sb-ro"></div>
+        <div style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Send the frame in slow motion, or drag the slider to any moment of it.">Transfer</span>
+          <div class="chips"><button class="chipbtn" id="sb-play">▶ Send</button></div>
+        </div>
+        <div class="slider">
+          <div class="lab"><span class="term" tabindex="0" data-tip="Position of the time cursor within the frame.">Time in the frame</span><span id="sb-e-v"></span></div>
+          <input id="sb-e" type="range" min="0" max="1" step="0.001" value="0">
+        </div>
+        <div class="slider" id="sb-c-byte">
+          <div class="lab"><span class="term" tabindex="0" data-tip="The byte the master (or transmitter) sends.">Data byte</span><span id="sb-byte-v"></span></div>
+          <input id="sb-byte" type="range" min="0" max="255" step="1" value="65">
+        </div>
+        <div id="sb-c-uart" style="display:grid;gap:12px">
+          <div class="chips">
+            <div class="seg" id="sb-baud" role="group" aria-label="Baud rate"><button data-b="9600">9600</button><button data-b="115200">115200</button><button data-b="1000000">1 M</button></div>
+            <div class="seg" id="sb-par" role="group" aria-label="Parity"><button data-p="none">No parity</button><button data-p="even">Even</button><button data-p="odd">Odd</button></div>
+            <div class="seg" id="sb-stop" role="group" aria-label="Stop bits"><button data-s="1">1 stop</button><button data-s="2">2 stop</button></div>
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="How far the receiver's clock is off from the transmitter's. UART has no clock wire: the receiver re-synchronises only on the start bit, so its sample points drift through the frame.">Receiver clock error</span><span id="sb-mis-v"></span></div>
+            <input id="sb-mis" type="range" min="-10" max="10" step="0.1" value="0">
+          </div>
+        </div>
+        <div id="sb-c-i2c" hidden style="display:grid;gap:12px">
+          <div style="display:grid;gap:8px">
+            <span class="term" tabindex="0" data-tip="The 7-bit address the master calls. 0x50 belongs to no device on this bus, so nobody answers and the master sees a NACK.">Target address</span>
+            <div class="chips" id="sb-addr">
+              <button class="chipbtn" data-a="60">0x3C</button><button class="chipbtn" data-a="72">0x48</button><button class="chipbtn" data-a="104">0x68</button><button class="chipbtn" data-a="80">0x50 (absent)</button>
+            </div>
+          </div>
+          <div class="chips">
+            <div class="seg" id="sb-rw" role="group" aria-label="Direction"><button data-r="w">Write</button><button data-r="r">Read</button></div>
+            <div class="seg" id="sb-i2cf" role="group" aria-label="I2C speed"><button data-f="100">100 kHz</button><button data-f="400">400 kHz</button><button data-f="1000">1 MHz</button></div>
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Pull-up resistor on SCL and SDA. I²C outputs only pull low; the resistor pulls the line high, slowly, through the bus capacitance.">Pull-up resistor</span><span id="sb-rp-v"></span></div>
+            <input id="sb-rp" type="range" min="-0.3" max="1.3" step="0.005" value="0.67">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Total capacitance of the wires and device pins on the bus. The standard allows up to 400 pF.">Bus capacitance</span><span id="sb-cb-v"></span></div>
+            <input id="sb-cb" type="range" min="10" max="500" step="5" value="100">
+          </div>
+        </div>
+        <div id="sb-c-spi" hidden style="display:grid;gap:12px">
+          <div class="chips">
+            <div class="seg" id="sb-cs" role="group" aria-label="Chip select"><button data-c="1">CS1 → Slave 1</button><button data-c="2">CS2 → Slave 2</button></div>
+            <div class="seg" id="sb-mode" role="group" aria-label="SPI mode"><button data-m="0">Mode 0</button><button data-m="1">Mode 1</button><button data-m="2">Mode 2</button><button data-m="3">Mode 3</button></div>
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="SPI clock frequency. The master samples MISO half a clock after it shifts out, so the slave's delay plus the round trip on the board must fit in half a period.">Clock SCLK</span><span id="sb-sck-v"></span></div>
+            <input id="sb-sck" type="range" min="0" max="2" step="0.005" value="1">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Board trace length between master and slave. The clock travels out and the MISO data travels back: about 0.067 ns per centimetre each way.">Trace length</span><span id="sb-len-v"></span></div>
+            <input id="sb-len" type="range" min="0" max="2.3" step="0.005" value="1">
+          </div>
+        </div>
+        <div id="sb-c-can" hidden style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="11-bit identifier of the frame Node 1 sends. A lower identifier means a higher priority.">Node 1 sends ID</span><span id="sb-ida-v"></span></div>
+            <input id="sb-ida" type="range" min="0" max="2047" step="1" value="581">
+          </div>
+          <div class="chips"><button class="chipbtn" id="sb-two">Node 3 sends at the same time: on</button></div>
+          <div class="slider" id="sb-c-idb">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Identifier of the frame Node 3 starts at the same moment. Both send, the bus is a wired-AND, and the node that sends a recessive 1 but reads a dominant 0 stops: it lost arbitration.">Node 3 sends ID</span><span id="sb-idb-v"></span></div>
+            <input id="sb-idb" type="range" min="0" max="2047" step="1" value="416">
+          </div>
+          <div class="seg" id="sb-rate" role="group" aria-label="CAN bit rate"><button data-k="125">125 kbit/s</button><button data-k="500">500 kbit/s</button><button data-k="1000">1 Mbit/s</button></div>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="sb-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Characteristics</p>
+        <div class="plots">
+          <div class="plot"><svg id="sb-p1" viewBox="0 0 300 230" role="img" aria-label="UART sample drift, I2C rise of the open-drain line, SPI timing margin or CAN bus length limit"></svg></div>
+          <div class="plot"><svg id="sb-p2" viewBox="0 0 220 230" role="img" aria-label="UART throughput, I2C pull-up window, SPI maximum clock or CAN frame length"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="sb-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: UART, start and stop bit, baud, I²C, open drain, ACK, SPI, CPOL and CPHA, chip select, CAN, dominant and recessive, arbitration, bit stuffing</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>The four buses side by side</h3>
+            <div class="tbl"><table>
+              <tr><th></th><th>UART</th><th>I²C</th><th>SPI</th><th>CAN</th></tr>
+              <tr><td>Wires</td><td>TX, RX</td><td>SCL, SDA</td><td>SCLK, MOSI, MISO, CS per slave</td><td>CAN_H, CAN_L</td></tr>
+              <tr><td>Clock</td><td>none (agreed baud)</td><td>from the master</td><td>from the master</td><td>none (resync on edges)</td></tr>
+              <tr><td>Devices</td><td>2</td><td>many, by address</td><td>many, by chip select</td><td>many, by message ID</td></tr>
+              <tr><td>Duplex</td><td>full</td><td>half</td><td>full</td><td>half</td></tr>
+              <tr><td>Typical speed</td><td>9.6 k–3 Mbit/s</td><td>0.1–1 Mbit/s</td><td>1–100 Mbit/s</td><td>125 k–1 Mbit/s</td></tr>
+              <tr><td>Typical use</td><td>debug console, GPS, modems</td><td>sensors, EEPROM, PMIC</td><td>flash, displays, ADCs</td><td>cars, industry</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>Start and stop bit</dt><dd>UART frames begin with a 0 after the idle 1 (the receiver syncs on this edge) and end with one or two 1s.</dd>
+              <dt>Open drain</dt><dd>Outputs that can only pull low; a resistor pulls the wire high. Any device can hold the line low without a short circuit.</dd>
+              <dt>ACK / NACK</dt><dd>In I²C the receiver pulls SDA low during the ninth clock to acknowledge a byte; a released (high) SDA is a NACK.</dd>
+              <dt>CPOL / CPHA</dt><dd>SPI clock polarity (idle level) and phase (sample on the first or the second edge), giving modes 0–3. Master and slave must agree.</dd>
+              <dt>Chip select</dt><dd>One active-low line per SPI slave; only the selected slave drives MISO, the others stay high-impedance.</dd>
+              <dt>Dominant / recessive</dt><dd>On CAN a 0 is dominant (CAN_H ≈ 3.5 V, CAN_L ≈ 1.5 V) and overrides a recessive 1 (both ≈ 2.5 V).</dd>
+              <dt>Arbitration</dt><dd>Nodes that start together compare the bus with what they send; the one with the lower ID wins without destroying the frame.</dd>
+              <dt>Bit stuffing</dt><dd>After five equal bits the CAN transmitter inserts one opposite bit, so receivers always see edges to stay in sync.</dd>
             </dl>
           </div>
         </div>
@@ -27485,12 +27918,346 @@ document.querySelectorAll("#tl-swp button[data-w]").forEach(b => b.addEventListe
 $("tl-50").addEventListener("click", () => { TLS.sw = null; TLS.w = +clamp(tlSolveW(TLS.view, 50), -2, 0.7).toFixed(3); updateTL(); });
 [["tl-w", "w"], ["tl-h", "h"], ["tl-s", "s"], ["tl-f", "f"]].forEach(([id, k]) => $(id).addEventListener("input", e => { TLS[k] = +e.target.value; if (TLS.sw === k) TLS.sw = null; updateTL(); }));
 
+/* ===================== SERIAL INTERFACES TAB: UART, I2C, SPI, CAN ===================== */
+// Each protocol builds its frame bit by bit: signals as functions of time (unit = one bit or one clock period),
+// decoded fields and sample points. The top of the canvas animates the bus at the cursor, the bottom is a logic analyzer.
+// UART: start / 8 data LSB first / parity / stop, receiver samples at (k+½)(1+Δf). I2C: open-drain lines rise as 1 − e^(−t/RC).
+// SPI: CPOL/CPHA modes, MISO delayed by t_co + round trip. CAN: CRC-15, bit stuffing, wired-AND arbitration, ACK slot.
+const SBC = setupCanvas($("cvsb"), 1000, 488);
+const SBS = {view:"uart", e:0, play:true, acc:0, byte:0x41, baud:115200, par:"none", stop:1, mis:0,
+  addr:72, rw:"w", i2cf:100, rp:0.67, cb:100, cs:1, mode:0, sck:1, len:1, ida:0x245, idb:0x1A0, two:true, rate:500};
+const SB_SLV = {60:0xAF, 72:0x19, 104:0x07}, SB_SPIS = {1:0x5A, 2:0xC3};
+const SB_FLT = [[0x300, 0x3FF], [0x100, 0x1FF], [0x200, 0x2FF]];
+const sbHex = (v, n = 2) => "0x" + v.toString(16).toUpperCase().padStart(n, "0");
+const sbChr = v => v >= 32 && v < 127 ? ` '${String.fromCharCode(v)}'` : "";
+const sbTs = s => s >= 1e-3 ? `${(s*1e3).toFixed(2)} ms` : `${(s*1e6).toFixed(s >= 1e-5 ? 1 : 2)} µs`;
+const sbStep = bits => t => { const k = Math.floor(t); return k < 0 || k >= bits.length ? null : bits[k]; };
+
+/* ---------------- frame builders ---------------- */
+function sbUART(){
+  const b = SBS.byte, p = SBS.par, ns = SBS.stop, m = SBS.mis/100;
+  const frame = v => { const o = [{v:0, f:"start"}]; for (let i = 0; i < 8; i++) o.push({v:(v >> i) & 1, f:`D${i}`});
+    if (p !== "none"){ let n1 = 0; for (let i = 0; i < 8; i++) n1 += (v >> i) & 1; o.push({v:p === "even" ? n1 % 2 : 1 - n1 % 2, f:"P"}); }
+    for (let i = 0; i < ns; i++) o.push({v:1, f:"stop"}); return o; };
+  const f1 = frame(b), f2 = frame(0x06), t1 = 1, t2 = 1.5, n = f1.length, T = t2 + n + 1;
+  const lv = (fr, t0) => t => { const k = Math.floor(t - t0); return k < 0 || k >= fr.length ? 1 : fr[k].v; };
+  const tx1 = lv(f1, t1), tx2 = lv(f2, t2);
+  const samp = f1.map((x, k) => { const t = t1 + (k + 0.5)*(1 + m); return {t, v:tx1(t), f:x.f}; });
+  let val = 0; for (let i = 0; i < 8; i++) val |= samp[1 + i].v << i;
+  let n1 = 0; for (let i = 0; i < 8; i++) n1 += (val >> i) & 1;
+  const pIdx = p === "none" ? -1 : 9, sIdx = p === "none" ? 9 : 10;
+  const parOK = p === "none" || samp[pIdx].v === (p === "even" ? n1 % 2 : 1 - n1 % 2), stopOK = samp[sIdx].v === 1;
+  const status = !stopOK ? "framing error" : !parOK ? "parity error" : val !== b ? "wrong data" : "OK";
+  const ann = f1.map((x, k) => ({row:0, t0:t1 + k, t1:t1 + k + 1, txt:x.f, col:x.f === "start" || x.f === "stop" ? "muted" : x.f === "P" ? "hole" : "accent"}))
+    .concat([{row:1, t0:t2, t1:t2 + 1, txt:"start", col:"muted"}, {row:1, t0:t2 + 1, t1:t2 + 9, txt:"0x06 (ACK)", col:"channel"}]);
+  return {T, n, rows:[{name:"TX1 → RX2", f:tx1}, {name:"TX2 → RX1", f:tx2}], ann, marks:samp.map(s => ({row:0, t:s.t, v:s.v})), f1, f2, t1, t2, samp, val, status, m};
+}
+function sbI2C(){
+  const a = SBS.addr, rd = SBS.rw === "r", here = a in SB_SLV, bits = [];
+  for (let i = 6; i >= 0; i--) bits.push({v:(a >> i) & 1, d:"m", f:"addr"});
+  bits.push({v:rd ? 1 : 0, d:"m", f:"rw"}); bits.push({v:here ? 0 : 1, d:here ? "s" : "z", f:"ack1"});
+  const dv = here ? (rd ? SB_SLV[a] : SBS.byte) : 0;
+  if (here){ for (let i = 7; i >= 0; i--) bits.push({v:(dv >> i) & 1, d:rd ? "s" : "m", f:"data"}); bits.push({v:rd ? 1 : 0, d:rd ? "z" : "s", f:"ack2"}); }
+  const K = bits.length, T = 3 + K;
+  const push = (arr, t, v) => { if (arr[arr.length - 1][1] !== v) arr.push([t, v]); };
+  const sda = [[-100, 1]], scl = [[-100, 1]]; push(sda, 0.5, 0); push(scl, 1, 0);
+  bits.forEach((b, k) => { push(sda, 1 + k + 0.1, b.v); push(scl, 1.5 + k, 1); push(scl, 2 + k, 0); });
+  push(sda, 1 + K + 0.1, 0); push(scl, 1.5 + K, 1); push(sda, 2 + K, 1);
+  const R = Math.pow(10, SBS.rp)*1e3, Cb = SBS.cb*1e-12, Tscl = 1/(SBS.i2cf*1e3), tau = R*Cb/Tscl;
+  const at = tr => t => { let v0 = 1, t0 = -100; for (const [tt, v] of tr){ if (tt > t) break; v0 = v; t0 = tt; } return v0 ? 1 - Math.exp(-(t - t0)/Math.max(tau, 1e-4)) : 0; };
+  const fs = at(sda), fc = at(scl);
+  const reads = bits.map((b, k) => ({t:1.75 + k, v:fs(1.75 + k) > 0.7 ? 1 : 0, want:b.v}));
+  const bad = reads.filter(r => r.v !== r.want).length;
+  const tr = 0.8473*R*Cb*1e9, spec = SBS.i2cf >= 1000 ? 120 : SBS.i2cf >= 400 ? 300 : 1000;
+  const ann = [{row:1, t0:0.5, t1:1, txt:"S", col:"accent"}, {row:1, t0:1, t1:8, txt:"address", val:sbHex(a), col:"accent"}, {row:1, t0:8, t1:9, txt:rd ? "R" : "W", col:"accent"},
+    {row:1, t0:9, t1:10, txt:here ? "ACK" : "NACK", col:here ? "channel" : "hole"}];
+  if (here) ann.push({row:1, t0:10, t1:18, txt:"data", val:sbHex(dv), col:rd ? "channel" : "accent"}, {row:1, t0:18, t1:19, txt:rd ? "NACK" : "ACK", col:rd ? "accent" : "channel"});
+  ann.push({row:1, t0:1 + K, t1:2.4 + K, txt:"P", col:"accent"});
+  const status = bad ? `${bad} bit${bad > 1 ? "s" : ""} misread: rise too slow` : !here ? "NACK: no device at this address" : "OK";
+  return {T, K, rows:[{name:"SCL", f:fc}, {name:"SDA", f:fs}], ann, marks:reads.map(r => ({row:1, t:r.t, v:r.v, bad:r.v !== r.want})), bits, here, rd, dv, tr, spec, tau, status, R, Cb};
+}
+function sbSPI(){
+  const md = SBS.mode, cpol = md >> 1, cpha = md & 1, cs = SBS.cs, m = SBS.byte, s = SB_SPIS[cs];
+  const fM = Math.pow(10, SBS.sck), L = Math.pow(10, SBS.len), Tns = 1000/fM, dly = 8 + 2*0.067*L, du = dly/Tns, margin = Tns/2 - dly - 2;
+  const bit = (v, i) => (v >> (7 - i)) & 1, on = t => t >= 0.5 && t < 9.5;
+  const sclk = t => { for (let i = 0; i < 8; i++) if (t >= 1 + i && t < 1.5 + i) return 1 - cpol; return cpol; };
+  const idx = t => clamp(cpha ? Math.floor(t - 1) : Math.floor(t - 0.5), 0, 7);
+  const mosi = t => on(t) ? bit(m, idx(t)) : 0, misoS = t => on(t) ? bit(s, idx(t)) : null, miso = t => misoS(t - du);
+  const smp = i => cpha ? 1.5 + i : 1 + i;
+  let rd = 0; for (let i = 0; i < 8; i++){ const v = miso(smp(i)); rd |= ((v === null ? 1 : v) << (7 - i)); }
+  const win = i => cpha ? [1 + i, 2 + i] : [0.5 + i, 1.5 + i];
+  const ann = []; for (let i = 0; i < 8; i++){ const [a0, a1] = win(i); ann.push({row:1, t0:a0, t1:a1, txt:`${bit(m, i)}`, col:"accent"}, {row:2, t0:a0 + du, t1:a1 + du, txt:`${bit(s, i)}`, col:"channel"}); }
+  const marks = []; for (let i = 0; i < 8; i++){ const v = miso(smp(i)); marks.push({row:2, t:smp(i), v:v === null ? 1 : v, bad:(v === null ? 1 : v) !== bit(s, i)}, {row:1, t:smp(i), v:bit(m, i)}); }
+  const rows = [{name:"SCLK", f:sclk}, {name:"MOSI", f:mosi}, {name:"MISO", f:miso}, {name:"CS1", f:t => cs === 1 && on(t) ? 0 : 1}, {name:"CS2", f:t => cs === 2 && on(t) ? 0 : 1}];
+  const status = rd !== s ? "MISO arrives too late: wrong byte" : "OK";
+  return {T:10, rows, ann, marks, cpol, cpha, m, s, rd, smp, fM, L, Tns, dly, margin, status};
+}
+function sbCRC15(bits){ let c = 0; for (const b of bits){ const n = b ^ ((c >> 14) & 1); c = (c << 1) & 0x7FFF; if (n) c ^= 0x4599; } return c; }
+function sbCANframe(id, data){
+  const raw = [], push = (v, f) => raw.push({v, f});
+  push(0, "SOF"); for (let i = 10; i >= 0; i--) push((id >> i) & 1, "ID"); push(0, "RTR"); push(0, "IDE"); push(0, "r0");
+  for (let i = 3; i >= 0; i--) push((1 >> i) & 1, "DLC"); for (let i = 7; i >= 0; i--) push((data >> i) & 1, "data");
+  const crc = sbCRC15(raw.map(r => r.v)); for (let i = 14; i >= 0; i--) push((crc >> i) & 1, "CRC");
+  const st = []; let run = 0, last = -1;
+  raw.forEach(r => { st.push({v:r.v, f:r.f, s:false}); if (r.v === last) run++; else { run = 1; last = r.v; }
+    if (run === 5){ const sv = 1 - r.v; st.push({v:sv, f:r.f, s:true}); run = 1; last = sv; } });
+  st.push({v:1, f:"del"}, {v:1, f:"ACK"}, {v:1, f:"del"}); for (let i = 0; i < 7; i++) st.push({v:1, f:"EOF"});
+  return {bits:st, crc, nstuff:st.filter(b => b.s).length};
+}
+function sbCAN(){
+  const A = sbCANframe(SBS.ida, SBS.byte), B = SBS.two && SBS.idb !== SBS.ida ? sbCANframe(SBS.idb, SBS.byte ^ 0xFF) : null;
+  let lose = -1, win = "A";
+  if (B){ for (let i = 0; i < Math.min(A.bits.length, B.bits.length); i++) if (A.bits[i].v !== B.bits[i].v){ lose = i; win = A.bits[i].v === 0 ? "A" : "B"; break; } }
+  const W = win === "A" ? A : B, wid = win === "A" ? SBS.ida : SBS.idb, t0 = 1, n = W.bits.length, T = t0 + n + 3;
+  const ackI = W.bits.findIndex(b => b.f === "ACK");
+  const busBit = k => k < 0 || k >= n ? 1 : k === ackI ? 0 : W.bits[k].v;
+  const bus = t => busBit(Math.floor(t - t0));
+  const txOf = (F, me) => t => { const k = Math.floor(t - t0); if (k < 0 || k >= F.bits.length) return 1; if (k === ackI) return 1; return me === win || lose < 0 || k < lose ? F.bits[k].v : 1; };
+  const H = t => bus(t) ? 0.625 : 0.875, Lo = t => bus(t) ? 0.625 : 0.375;
+  const rows = [{name:"CAN_H / CAN_L", f:H, f2:Lo}, {name:"Node 1 TX", f:txOf(A, "A")}]; if (B) rows.push({name:"Node 3 TX", f:txOf(B, "B")});
+  const ann = []; let k0 = 0;
+  for (let k = 1; k <= n; k++) if (k === n || W.bits[k].f !== W.bits[k0].f){ const f = W.bits[k0].f;
+    const val = f === "ID" ? sbHex(wid, 3) : f === "data" ? sbHex(win === "A" ? SBS.byte : SBS.byte ^ 0xFF) : f === "CRC" ? sbHex(W.crc, 4) : "";
+    ann.push({row:0, t0:t0 + k0, t1:t0 + k, txt:f, val, col:f === "ID" ? "accent" : f === "ACK" ? "channel" : f === "data" ? "electron" : "muted"}); k0 = k; }
+  const marks = W.bits.map((b, k) => b.s ? {row:0, t:t0 + k + 0.5, v:b.v, lab:"S"} : null).filter(Boolean);
+  if (lose >= 0) marks.push({row:win === "A" ? 2 : 1, t:t0 + lose + 0.5, v:1, lab:"lost", bad:true});
+  const acc = SB_FLT.map(([lo, hi]) => wid >= lo && wid <= hi);
+  return {T, n, rows, ann, marks, A, B, W, win, wid, lose, ackI, t0, bus, acc};
+}
+const sbBuild = () => ({uart:sbUART, i2c:sbI2C, spi:sbSPI, can:sbCAN})[SBS.view]();
+
+/* ---------------- drawing: logic analyzer ---------------- */
+function sbScope(F, tc){
+  panel(20, 248, 960, 222, "Logic analyzer");
+  const xL = 140, xR = 966, nR = F.rows.length, top = 278, rh = Math.min(70, (462 - top)/nR), X = t => xL + t/F.T*(xR - xL), N = 900;
+  F.rows.forEach((r, i) => {
+    const y0 = top + i*rh, hi = y0 + 16, lo = y0 + rh - 10, Y = v => lo - v*(lo - hi);
+    txt(r.name, 30, (hi + lo)/2, {px:11, w:700, col:C.fg});
+    [[r.f, C.accent], [r.f2, C.electron]].forEach(([fn, col]) => { if (!fn) return;
+      [[0, 1, 0.3], [0, tc/F.T, 1]].forEach(([u0, u1, al]) => { if (u1 <= u0) return; ctx.strokeStyle = col; ctx.globalAlpha = al; ctx.lineWidth = 2; ctx.beginPath(); let pen = false;
+        for (let j = 0; j <= N; j++){ const u = u0 + (u1 - u0)*j/N, v = fn(u*F.T); if (v === null){ pen = false; continue; } const x = X(u*F.T), y = Y(v); pen ? ctx.lineTo(x, y) : ctx.moveTo(x, y); pen = true; }
+        ctx.stroke(); ctx.globalAlpha = 1; });
+      for (let j = 0; j <= 120; j++){ const t = F.T*j/120; if (fn(t) === null){ ctx.strokeStyle = C.muted; ctx.setLineDash([3, 3]); pl([[X(t), Y(0.5)], [X(t + F.T/120), Y(0.5)]]); ctx.setLineDash([]); } } });
+  });
+  F.ann.forEach(a => { const y = top + a.row*rh + 6, x0 = X(a.t0) + 1, x1 = X(a.t1) - 1; if (x1 - x0 < 3) return;
+    ctx.fillStyle = C[a.col]; ctx.globalAlpha = .18; ctx.fillRect(x0, y - 6, x1 - x0, 12); ctx.globalAlpha = 1;
+    const need = (a.txt.length + (a.val ? a.val.length + 1 : 0))*5.6 + 2, cx = (x0 + x1)/2;
+    if (x1 - x0 > need){ if (a.val){ txt(a.txt, cx - 1, y, {al:"right", px:9, w:700, col:C[a.col]}); txt(a.val, cx + 3, y, {px:9, w:700, col:C[a.col]}); } else txt(a.txt, cx, y, {al:"center", px:9, w:700, col:C[a.col]}); } });
+  F.marks.forEach(mk => { if (mk.t > tc) return; const y0 = top + mk.row*rh, Y = v => y0 + rh - 10 - v*(rh - 26);
+    ctx.fillStyle = mk.bad ? C.hole : C.fg; ctx.beginPath(); ctx.arc(X(mk.t), Y(mk.v), 3, 0, 2*Math.PI); ctx.fill();
+    if (mk.lab) txt(mk.lab, X(mk.t), y0 + rh - 2, {al:"center", px:9, w:700, col:mk.bad ? C.hole : C.fg}); });
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.2; ctx.setLineDash([3, 3]); pl([[X(tc), top - 6], [X(tc), 466]]); ctx.setLineDash([]);
+}
+const sbLv = v => v === null ? C.muted : v > 0.7 ? C.accent : v < 0.3 ? C.electron : C.hole;
+function sbWire(pts, v, w = 4){ ctx.strokeStyle = sbLv(v); ctx.lineWidth = w; ctx.lineCap = "round"; pl(pts); }
+function sbBox(x, y, w, h, lab, on, sub){ ctx.fillStyle = C.panel; ctx.fillRect(x, y, w, h); ctx.strokeStyle = on ? C.accent : C.line; ctx.lineWidth = on ? 2.6 : 1.4; ctx.strokeRect(x, y, w, h);
+  txt(lab, x + w/2, y + (sub ? h/2 - 8 : h/2), {al:"center", px:12, w:700, col:C.fg}); if (sub) txt(sub, x + w/2, y + h/2 + 10, {al:"center", px:9, col:C.fg}); }
+function sbReg(x, y, v, n, lab, hiN){ for (let i = 0; i < 8; i++){ const b = (v >> (7 - i)) & 1, on = i >= 8 - (hiN || 0);
+  ctx.fillStyle = on ? C.accent : C.panel2; ctx.globalAlpha = on ? .3 : 1; ctx.fillRect(x + i*17, y, 16, 16); ctx.globalAlpha = 1; ctx.strokeStyle = C.line; ctx.strokeRect(x + i*17 + .5, y + .5, 15, 15);
+  txt(i < n ? `${b}` : "·", x + i*17 + 8, y + 8, {al:"center", px:10, w:700, col:C.fg}); } if (lab) txt(lab, x, y - 9, {px:9, col:C.fg}); }
+
+/* ---------------- drawing: topologies ---------------- */
+function sbTopUART(F, tc){
+  panel(20, 20, 960, 216, "UART: two devices, TX crossed to RX, no clock");
+  sbBox(50, 60, 170, 140, "Device 1", false, `→ ${sbHex(SBS.byte)}${sbChr(SBS.byte)}`); sbBox(780, 60, 170, 140, "Device 2", false, "← 0x06 (ACK)");
+  const v1 = F.rows[0].f(tc), v2 = F.rows[1].f(tc), xa = 220, xb = 780, y1 = 100, y2 = 168;
+  sbWire([[xa, y1], [xb, y1]], v1); sbWire([[xb, y2], [xa, y2]], v2);
+  txt("TX", xa - 8, y1, {al:"right", px:10, w:700, col:C.fg}); txt("RX", xb + 8, y1, {px:10, w:700, col:C.fg}); txt("RX", xa - 8, y2, {al:"right", px:10, w:700, col:C.fg}); txt("TX", xb + 8, y2, {px:10, w:700, col:C.fg});
+  const flight = (fr, t0, y, dir) => fr.forEach((b, k) => { const u = (tc - (t0 + k))/3; if (u < 0 || u > 1) return; const x = dir > 0 ? xa + u*(xb - xa) : xb - u*(xb - xa);
+    ctx.fillStyle = b.v ? C.accent : C.electron; ctx.fillRect(x - 11, y - 24, 22, 16); txt(`${b.v}`, x, y - 16, {al:"center", px:10, w:700, col:C.bg}); txt(b.f, x, y - 32, {al:"center", px:8, col:C.fg}); });
+  flight(F.f1, F.t1, y1, 1); flight(F.f2, F.t2, y2 + 32, -1);
+  const got = F.samp.filter(s => s.t <= tc), nd = Math.max(0, Math.min(8, got.length - 1));
+  let rv = 0; for (let i = 0; i < nd; i++) rv |= got[1 + i].v << i;
+  for (let i = 0; i < 8; i++){ const b = i < nd ? (rv >> i) & 1 : null; ctx.fillStyle = C.panel2; ctx.fillRect(796 + (7 - i)*17, 176, 16, 16); ctx.strokeStyle = C.line; ctx.strokeRect(796.5 + (7 - i)*17, 176.5, 15, 15); txt(b === null ? "·" : `${b}`, 804 + (7 - i)*17, 184, {al:"center", px:10, w:700, col:C.fg}); }
+  txt("RX shift register (LSB arrives first)", 865, 214, {al:"center", px:8, col:C.fg});
+  if (tc >= F.samp[F.samp.length - 1].t){ const c = F.status === "OK" ? C.channel : C.hole; txt("received", 440, 222, {al:"right", px:12, w:700, col:c}); txt(`${sbHex(F.val)}${sbChr(F.val)}`, 450, 222, {px:12, w:700, col:c}); txt(F.status, 560, 222, {px:12, w:700, col:c}); }
+  else txt(`receiver samples the middle of each bit${F.m ? ` (clock off by ${(F.m*100).toFixed(1)} %)` : ""}`, 500, 222, {al:"center", px:11, col:C.fg});
+}
+function sbTopI2C(F, tc){
+  panel(20, 20, 960, 216, "I²C: two open-drain wires shared by every device");
+  sbBox(40, 64, 120, 70, "Master", false);
+  const vc = F.rows[0].f(tc), vd = F.rows[1].f(tc), yC = 78, yD = 118, k = Math.floor(tc - 1), b = k >= 0 && k < F.K ? F.bits[k] : null;
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.4; pl([[760, 46], [960, 46]]); txt("VDD", 954, 38, {al:"right", px:9, w:700, col:C.fg});
+  [[880, yC], [910, yD]].forEach(([x, y]) => { pl([[x, 46], [x, 50]]); const z = []; for (let i = 0; i <= 6; i++) z.push([x + (i % 2 ? 5 : -5)*(i > 0 && i < 6 ? 1 : 0), 50 + i*(y - 56)/6]); pl(z); pl([[x, y - 6], [x, y]]); });
+  txt(`R_p ${(F.R/1000).toFixed(1)} kΩ`, 872, 60, {al:"right", px:9, col:C.fg});
+  sbWire([[160, yC], [960, yC]], vc); sbWire([[160, yD], [960, yD]], vd);
+  txt("SCL", 966, yC - 12, {al:"right", px:10, w:700, col:C.fg}); txt("SDA", 966, yD - 12, {al:"right", px:10, w:700, col:C.fg});
+  const slaves = [[60, 330], [72, 540], [104, 750]];
+  slaves.forEach(([ad, x]) => { const match = ad === SBS.addr && tc >= 9, pull = b && b.d === "s" && b.v === 0 && ad === SBS.addr;
+    ctx.strokeStyle = sbLv(vc); ctx.lineWidth = 1.6; ctx.setLineDash([4, 3]); pl([[x + 30, yC], [x + 30, 170]]); ctx.setLineDash([]);
+    ctx.strokeStyle = pull ? C.channel : sbLv(vd); ctx.lineWidth = pull ? 4 : 2; pl([[x + 110, yD], [x + 110, 170]]);
+    sbBox(x, 170, 150, 40, `Slave ${sbHex(ad)}`, match, match ? (F.rd ? "answers the read" : "selected") : ""); });
+  if (b && b.d === "m" && b.v === 0){ ctx.strokeStyle = C.accent; ctx.lineWidth = 4; pl([[160, yD], [190, yD]]); }
+  const lab = !b ? (tc < 1 ? "START: SDA falls while SCL is high" : tc > F.K + 1.4 ? "STOP: SDA rises while SCL is high" : "")
+    : b.f === "addr" ? `address bit A${6 - k} = ${b.v}` : b.f === "rw" ? `R/W bit = ${b.v} (${F.rd ? "read" : "write"})` : b.f === "data" ? `data bit ${7 - (k - 9)} = ${b.v} (driven by the ${b.d === "s" ? "slave" : "master"})`
+    : b.f === "ack1" ? (F.here ? "slave pulls SDA low: ACK" : "nobody pulls SDA low: NACK") : (F.rd ? "master leaves SDA high: NACK, last byte" : "slave pulls SDA low: ACK");
+  if (lab){ ctx.fillStyle = C.panel2; ctx.globalAlpha = .9; ctx.fillRect(600 - lab.length*3.7, 140, lab.length*7.4, 20); ctx.globalAlpha = 1; }
+  txt(lab, 600, 150, {al:"center", px:12, w:700, col:C.accent});
+  txt(`rise time ${F.tr.toFixed(0)} ns (limit ${F.spec} ns)`, 600, 56, {al:"center", px:10, col:F.tr > F.spec ? C.hole : C.fg});
+}
+function sbTopSPI(F, tc){
+  panel(20, 20, 960, 216, "SPI: shared clock and data, one chip select per slave");
+  sbBox(40, 44, 190, 170, "Master", false);
+  const v = F.rows.map(r => r.f(tc)), ys = [56, 80, 104], xs1 = 560, xs2 = 780;
+  ["SCLK", "MOSI", "MISO"].forEach((nm, i) => { sbWire([[230, ys[i]], [960, ys[i]]], v[i], 3); txt(nm, 226, ys[i], {al:"right", px:10, w:700, col:C.fg}); });
+  [[xs1, 1], [xs2, 2]].forEach(([x, n]) => { const sel = SBS.cs === n; [0, 1, 2].forEach(i => { ctx.strokeStyle = i === 2 && !sel ? C.muted : sbLv(v[i]); ctx.lineWidth = 1.8; if (i === 0) ctx.setLineDash([4, 3]); pl([[x + 30 + i*40, ys[i]], [x + 30 + i*40, 130]]); ctx.setLineDash([]); });
+    sbBox(x, 130, 170, 80, "", sel && tc > 0.5 && tc < 9.5); txt(`Slave ${n}`, x + 85, 145, {al:"center", px:12, w:700, col:C.fg}); });
+  sbWire([[230, 150], [xs1, 150]], v[3], 3); txt("CS1", 236, 142, {px:9, w:700, col:C.fg});
+  sbWire([[230, 200], [520, 200], [520, 222], [xs2 - 20, 222], [xs2 - 20, 190], [xs2, 190]], v[4], 3); txt("CS2", 236, 192, {px:9, w:700, col:C.fg});
+  const k = F.smp ? [0, 1, 2, 3, 4, 5, 6, 7].filter(i => F.smp(i) <= tc).length : 0, m = F.m, s = F.s;
+  const mreg = k ? ((m << k) & 0xFF) | (F.rd >> (8 - k)) : m, sreg = k ? ((s << k) & 0xFF) | (m >> (8 - k)) : s;
+  sbReg(60, 180, mreg, 8, "master shift register", k); sbReg(xs1 + 17 + (SBS.cs === 2 ? xs2 - xs1 : 0), 182, sreg, 8, "slave shift register", k);
+  const other = SBS.cs === 1 ? xs2 : xs1; sbReg(other + 17, 182, SB_SPIS[SBS.cs === 1 ? 2 : 1], 8, "not selected: MISO high-Z", 0);
+  txt(`mode ${SBS.mode}: CPOL ${F.cpol}, CPHA ${F.cpha} · ${k}/8 bits exchanged`, 600, 32, {al:"center", px:11, w:700, col:C.accent});
+}
+function sbTopCAN(F, tc){
+  panel(20, 20, 960, 216, "CAN: two twisted wires, every node hears every frame");
+  const k = Math.floor(tc - F.t0), dom = F.bus(tc) === 0, yH = 66, yL = 90;
+  sbWire([[60, yH], [940, yH]], dom ? 1 : null, dom ? 5 : 3); sbWire([[60, yL], [940, yL]], dom ? 0 : null, dom ? 5 : 3);
+  txt("CAN_H", 56, yH, {al:"right", px:9, w:700, col:C.fg}); txt("CAN_L", 56, yL, {al:"right", px:9, w:700, col:C.fg});
+  [44, 956].forEach(x => { ctx.strokeStyle = C.fg; ctx.lineWidth = 1.4; pl([[x, yH], [x, yH + 6]]); ctx.strokeRect(x - 4, yH + 6, 8, 12); pl([[x, yH + 18], [x, yL]]); });
+  txt("120 Ω", 44, yL + 12, {al:"center", px:8}); txt("120 Ω", 956, yL + 12, {al:"center", px:8});
+  txt(k < 0 || k >= F.n ? "bus idle: recessive (both wires 2.5 V)" : dom ? "dominant 0: CAN_H 3.5 V, CAN_L 1.5 V" : "recessive 1: both wires 2.5 V", 968, 36, {al:"right", px:11, w:700, col:dom ? C.accent : C.fg});
+  const nodes = [[80, 1], [400, 2], [720, 3]], b = k >= 0 && k < F.n ? F.W.bits[k] : null;
+  nodes.forEach(([x, n]) => {
+    const tx = (n === 1) || (n === 3 && SBS.two), isW = (n === 1 && F.win === "A") || (n === 3 && F.win === "B"), lost = tx && !isW && F.lose >= 0 && k >= F.lose;
+    ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; pl([[x + 80, yH], [x + 80, 130]]); pl([[x + 110, yL], [x + 110, 130]]);
+    const [lo, hi] = SB_FLT[n - 1], acc = !isW && F.acc[n - 1];
+    const sending = isW || (tx && k < (F.lose < 0 ? 1e9 : F.lose)), st = sending ? "transmits ID" : lost ? "lost arbitration, now receiving" : "receiving";
+    const end = k >= F.n - 7, acked = k >= F.ackI;
+    sbBox(x, 130, 200, 84, `Node ${n}`, isW || (end && acc), `accepts ${sbHex(lo, 3)}–${sbHex(hi, 3)}`);
+    if (sending){ txt(st, x + 98, 196, {al:"right", px:9, w:700, col:isW ? C.accent : C.fg}); txt(sbHex(n === 1 ? SBS.ida : SBS.idb, 3), x + 102, 196, {px:9, w:700, col:isW ? C.accent : C.fg}); }
+    else txt(st, x + 100, 196, {al:"center", px:9, w:700, col:lost ? C.hole : C.fg});
+    if (!isW && acked) txt(end ? (acc ? "✓ ID passes the filter: kept" : "✗ filtered out") : "sends ACK (dominant)", x + 100, 208, {al:"center", px:9, w:700, col:acc || !end ? C.channel : C.muted}); });
+  if (b) txt(`bit ${k + 1}/${F.n}: ${b.f}${b.s ? " (stuff bit)" : ""}`, 500, 116, {al:"center", px:11, w:700, col:b.s ? C.hole : C.fg});
+}
+function drawSB(dt, T){
+  begin(SBC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488);
+  const F = sbBuild(), tc = SBS.e*F.T; ({uart:sbTopUART, i2c:sbTopI2C, spi:sbTopSPI, can:sbTopCAN})[SBS.view](F, tc); sbScope(F, tc);
+}
+
+/* ---------------- plots ---------------- */
+function drawSBPlots(F){
+  let a, b; const v = SBS.view;
+  if (v === "uart"){ const n = F.n, A = axesR(300, 230, {l:40, r:10, t:28, b:30}, 0, n - 1, -1, 1, 1, 0.5, "bit in the frame", "sample offset (bits)");
+    a = A.s + `<rect x="${A.X(0)}" y="${A.Y(1)}" width="${A.X(n - 1) - A.X(0)}" height="${A.Y(0.5) - A.Y(1)}" fill="var(--hole)" opacity=".1"/><rect x="${A.X(0)}" y="${A.Y(-0.5)}" width="${A.X(n - 1) - A.X(0)}" height="${A.Y(-1) - A.Y(-0.5)}" fill="var(--hole)" opacity=".1"/>`
+      + `<path d="${pathOf(range(0, n - 1, n - 1).map(k => [k, clamp((k + 0.5)*F.m, -1, 1)]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + A.frame
+      + `<text x="44" y="12" style="fill:var(--accent)">— where the receiver samples</text><text x="${A.X(0.2)}" y="${A.Y(0.75)}" style="fill:var(--hole)">next bit</text><text x="${A.X(0.2)}" y="${A.Y(-0.75)}" style="fill:var(--hole)">previous bit</text>`;
+    const B = caAxes(220, 230, {l:40, r:8, t:28, b:30}, 3, 7, 0, 3, [[4, "10 k"], [5, "100 k"], [6, "1 M"]], [[0, "0"], [1, "10"], [2, "100"], [3, "1000"]], "baud", "kB/s (log)");
+    b = B.s + `<path d="${pathOf(range(3, 7, 40).map(l => [l, clamp(Math.log10(Math.pow(10, l)/n/1000), 0, 3)]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>` + B.frame
+      + dotSvg(B.X(Math.log10(SBS.baud)), B.Y(clamp(Math.log10(SBS.baud/n/1000), 0, 3))) + `<text x="40" y="12" style="fill:var(--accent)">— bytes per second (${n}-bit frames)</text>`;
+  } else if (v === "i2c"){ const A = axesR(300, 230, {l:34, r:10, t:28, b:30}, 0, 1, 0, 1, 0.25, 0.25, "one SCL period", "SDA / V_DD");
+    a = A.s + `<rect x="${A.X(0.5)}" y="28" width="${A.X(1) - A.X(0.5)}" height="172" fill="var(--accent)" opacity=".08"/><text x="${A.X(0.75)}" y="40" text-anchor="middle" style="fill:var(--accent)">SCL high: sampled</text>`
+      + `<line x1="34" x2="290" y1="${A.Y(0.7)}" y2="${A.Y(0.7)}" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="38" y="${A.Y(0.7) - 4}" style="fill:var(--hole)">V_IH = 0.7 V_DD</text>`
+      + `<path d="${pathOf(range(0, 1, 100).map(u => [u, u < 0.1 ? 0 : 1 - Math.exp(-(u - 0.1)/Math.max(F.tau, 1e-4))]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + A.frame
+      + `<text x="40" y="12" style="fill:var(--accent)">— SDA released at 0.1 T: 1 − e^(−t/RC)</text>`;
+    const cs = range(10, 500, 60), spec = F.spec*1e-9, B = axesR(220, 230, {l:34, r:8, t:28, b:30}, 0, 500, 0, 20, 100, 5, "C_bus (pF)", "R_p (kΩ)");
+    b = B.s + `<path d="${pathOf(cs.map(c => [c, Math.min(20, spec/(0.8473*c*1e-12)/1e3)]), B.X, B.Y)}" fill="none" stroke="var(--hole)" stroke-width="2"/>`
+      + `<line x1="34" x2="212" y1="${B.Y(0.97)}" y2="${B.Y(0.97)}" stroke="var(--electron)" stroke-dasharray="4 3"/>`
+      + B.frame + dotSvg(B.X(SBS.cb), B.Y(Math.min(20, F.R/1e3))) + `<text x="38" y="12" style="fill:var(--hole)">— R_max (rise time)</text><text x="38" y="${B.Y(0.97) - 4}" style="fill:var(--electron)">R_min (3 mA)</text>`;
+  } else if (v === "spi"){ const fs = range(0, 2, 60), A = axesR(300, 230, {l:40, r:10, t:28, b:30}, 0, 2, -40, 60, 0.5, 20, "log10 SCLK (MHz)", "margin (ns)");
+    a = A.s + `<line x1="40" x2="290" y1="${A.Y(0)}" y2="${A.Y(0)}" stroke="var(--hole)" stroke-dasharray="3 3"/>`
+      + `<path d="${pathOf(fs.map(l => [l, clamp(500/Math.pow(10, l) - F.dly - 2, -40, 60)]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + A.frame
+      + dotSvg(A.X(SBS.sck), A.Y(clamp(F.margin, -40, 60))) + `<text x="46" y="12" style="fill:var(--accent)">— T/2 − (t_co + round trip) − t_su</text>`;
+    const ls = range(0, 2.3, 60), B = axesR(220, 230, {l:34, r:8, t:28, b:30}, 0, 2.3, 0, 60, 0.5, 15, "log10 trace (cm)", "max SCLK (MHz)");
+    b = B.s + `<path d="${pathOf(ls.map(l => [l, Math.min(60, 1000/(2*(8 + 2*0.067*Math.pow(10, l) + 2)))]), B.X, B.Y)}" fill="none" stroke="var(--channel)" stroke-width="2.2"/>` + B.frame
+      + dotSvg(B.X(SBS.len), B.Y(Math.min(60, Math.pow(10, SBS.sck)))) + `<text x="38" y="12" style="fill:var(--channel)">— fastest clock that still works</text>`;
+  } else { const rs = range(1.7, 3.0, 60), A = axesR(300, 230, {l:40, r:10, t:28, b:30}, 1.7, 3.0, 0, 600, 0.3, 100, "log10 bit rate (kbit/s)", "max bus length (m)");
+    const Lm = kb => Math.max(0, (0.75*1e6/kb - 2*210)/(2*5));
+    a = A.s + `<path d="${pathOf(rs.map(l => [l, Math.min(600, Lm(Math.pow(10, l)))]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>` + A.frame
+      + dotSvg(A.X(Math.log10(SBS.rate)), A.Y(Math.min(600, Lm(SBS.rate)))) + `<text x="46" y="12" style="fill:var(--accent)">— the round trip must fit before the sample point</text>`;
+    const ds = range(0, 8, 8), B = axesR(220, 230, {l:34, r:8, t:28, b:30}, 0, 8, 40, 160, 2, 20, "data bytes", "bits per frame");
+    b = B.s + `<path d="${pathOf(ds.map(d => [d, 47 + 8*d]), B.X, B.Y)}" fill="none" stroke="var(--channel)" stroke-width="2"/><path d="${pathOf(ds.map(d => [d, 47 + 8*d + Math.floor((34 + 8*d - 1)/4)]), B.X, B.Y)}" fill="none" stroke="var(--hole)" stroke-width="1.6" stroke-dasharray="4 3"/>`
+      + B.frame + dotSvg(B.X(1), B.Y(F.n)) + `<text x="38" y="12" style="fill:var(--channel)">— no stuffing</text><text x="110" y="12" style="fill:var(--hole)">- - worst case</text>`;
+  }
+  $("sb-p1").innerHTML = a; $("sb-p2").innerHTML = b;
+}
+
+/* ---------------- DOM ---------------- */
+const SBINFO = {
+  uart:{pill:"UART", name:"UART", sub:"Two wires crossed between two devices; no clock, both sides agree on the baud rate",
+    text:"A UART link is the simplest serial interface: device 1's TX wire goes to device 2's RX and the other way round, so both can talk at the same time (full duplex). There is no clock wire. The line idles high; a frame starts with a low start bit, carries eight data bits least-significant first, optionally a parity bit, and ends with one or two high stop bits. The receiver waits for the falling edge of the start bit, then samples the middle of each bit using its own clock at the agreed baud rate. Because it re-synchronises only once per frame, the two clocks must agree to within a few percent: the sample point drifts by the clock error times the number of bits, and when it slides past the edge of the stop bit the receiver reports a framing error. Try a receiver clock error of 5 % or more."},
+  i2c:{pill:"I²C", name:"I²C", sub:"Two open-drain wires, many devices, each with a 7-bit address; the master provides the clock",
+    text:"I²C uses only two wires for any number of devices: the clock SCL and the data SDA. Every device can only pull a wire low; pull-up resistors bring it back high, so two devices can never short each other. A transfer starts with a START condition, SDA falling while SCL is high. The master then sends the 7-bit address and a read/write bit, most significant bit first, changing SDA only while SCL is low. In the ninth clock the addressed device pulls SDA low to acknowledge; if no device has that address SDA stays high (NACK) and the master stops. Data bytes follow, each acknowledged the same way, and the transfer ends with a STOP condition, SDA rising while SCL is high. Because the lines rise through the pull-up resistor and the bus capacitance, the rise time is 0.85·R·C; too large a resistor or too much capacitance and a 1 does not reach the input threshold before it is sampled."},
+  spi:{pill:"SPI", name:"SPI", sub:"A clock, data out, data in and one chip select per slave: fast and full duplex",
+    text:"SPI connects a master to one or more slaves with a clock SCLK, MOSI (master out, slave in), MISO (master in, slave out) and one active-low chip select per slave. The master pulls the chosen CS low and toggles the clock; on every clock one bit leaves each shift register and enters the other, so after eight clocks master and slave have swapped their bytes. Clock polarity (CPOL, the idle level) and phase (CPHA, whether data is sampled on the first or the second edge) give four modes, and both sides must use the same one. Slaves that are not selected leave MISO floating. SPI has no addressing and no acknowledgement, so it is simple and fast, up to tens of MHz; the limit is timing: the slave starts driving MISO only after a clock edge, the data must travel back along the board, and it has to arrive before the master samples half a period later."},
+  can:{pill:"CAN", name:"CAN", sub:"A differential two-wire bus for many nodes; messages carry an ID, and the lowest ID wins the bus",
+    text:"A CAN bus is a twisted pair, CAN_H and CAN_L, terminated with 120 Ω at both ends. A dominant bit (0) drives CAN_H to about 3.5 V and CAN_L to about 1.5 V; a recessive bit (1) lets both float to 2.5 V. Any node sending a dominant bit therefore overrides a recessive one: the bus is a wired-AND. Frames carry no destination address but an 11-bit identifier that says what the message is. If two nodes start at the same time, both send their IDs bit by bit while listening; a node that sends recessive but reads dominant knows that a more important message is on the bus and stops transmitting, so the frame with the lowest ID gets through undamaged. Each node decides from its acceptance filter whether to keep the message, but every node that received it correctly pulls the ACK slot dominant. A CRC protects the frame, and after five equal bits the transmitter inserts one opposite stuff bit so that receivers always see edges to resynchronise."}
+};
+Object.assign(TIP, {
+  "Frame length":"Bits on the wire for one byte, including start, parity and stop.", "Byte time":"Time to send one frame at this baud rate.", "Received byte":"What device 2 decodes from its samples.", "UART status":"Framing error, parity error or OK.",
+  "Rise time":"0.8473 · R_p · C_bus: from 30 % to 70 % of V_DD.", "Rise time limit":"Maximum rise time allowed at this I²C speed.", "Target answer":"ACK from the addressed slave, or NACK.", "I2C status":"Whether every bit was read correctly.",
+  "SPI mode":"Clock polarity and phase.", "MISO delay":"Slave clock-to-output plus the round trip on the board.", "Timing margin":"Time left before the master samples MISO.", "SPI status":"Whether the master received the slave's byte.",
+  "Winning ID":"Frame that got through arbitration.", "Frame bits":"Bits on the bus including stuff bits.", "CAN frame time":"Duration at this bit rate.", "Kept by":"Nodes whose acceptance filter passes this ID.",
+  "Bit time":"One bit lasts 1/baud.", "Clock tolerance":"Largest clock error that keeps the stop bit sample inside the stop bit.", "Sample drift":"Error accumulates over the frame.",
+  "Pull-up limits":"Strong enough to pull high in time, weak enough for the 3 mA low level.", "Address byte":"7-bit address followed by the R/W bit.",
+  "Clock modes":"CPOL is the idle level, CPHA selects the sampling edge.", "Round trip":"Clock out to the slave, data back to the master.",
+  "Arbitration":"Dominant 0 wins on the wired-AND bus.", "CRC-15":"Checksum over the frame up to the data.", "Bit stuffing":"An opposite bit after five equal ones.", "Bus length":"The signal must reach the far node and come back before the sample point."
+});
+const SBLEG = [["accent","High (1)"],["electron","Low (0)"],["hole","In between, errors"],["channel","Slave / receiver driving"],["muted","Released, high-Z"]];
+const sbChip = (sel, attr, on) => document.querySelectorAll(sel).forEach(b => b.setAttribute("aria-pressed", on(b.dataset[attr])));
+function updateSB(){
+  const v = SBS.view, info = SBINFO[v], F = sbBuild();
+  $("sb-pill").textContent = info.pill; $("sb-name").textContent = info.name; $("sb-sub").textContent = info.sub; $("sb-explain").textContent = info.text;
+  document.querySelectorAll("#sb-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  ["uart", "i2c", "spi", "can"].forEach(k => $("sb-c-" + k).hidden = k !== v);
+  $("sb-c-byte").hidden = v === "i2c" && SBS.rw === "r";
+  sbChip("#sb-baud button", "b", x => +x === SBS.baud); sbChip("#sb-par button", "p", x => x === SBS.par); sbChip("#sb-stop button", "s", x => +x === SBS.stop);
+  sbChip("#sb-rw button", "r", x => x === SBS.rw); sbChip("#sb-i2cf button", "f", x => +x === SBS.i2cf); sbChip("#sb-cs button", "c", x => +x === SBS.cs);
+  sbChip("#sb-mode button", "m", x => +x === SBS.mode); sbChip("#sb-rate button", "k", x => +x === SBS.rate);
+  document.querySelectorAll("#sb-addr button").forEach(b => { const o = +b.dataset.a === SBS.addr; b.setAttribute("aria-pressed", o); b.style.borderColor = o ? "var(--accent)" : ""; b.style.color = o ? "var(--accent)" : ""; });
+  $("sb-two").textContent = SBS.two ? "Node 3 sends at the same time: on" : "Node 3 sends at the same time: off"; $("sb-c-idb").hidden = !SBS.two;
+  $("sb-play").textContent = SBS.play ? "❚❚ Pause" : "▶ Send";
+  ["e", "byte", "mis", "rp", "cb", "sck", "len", "ida", "idb"].forEach(k => { const el = $("sb-" + k); if (+el.value !== SBS[k]) el.value = SBS[k]; });
+  $("sb-e-v").textContent = `${(SBS.e*100).toFixed(0)} %`; $("sb-byte-v").textContent = `${sbHex(SBS.byte)}${sbChr(SBS.byte)}`; $("sb-mis-v").textContent = `${SBS.mis > 0 ? "+" : ""}${SBS.mis.toFixed(1)} %`;
+  $("sb-rp-v").textContent = `${Math.pow(10, SBS.rp).toFixed(2)} kΩ`; $("sb-cb-v").textContent = `${SBS.cb} pF`; $("sb-sck-v").textContent = `${Math.pow(10, SBS.sck).toFixed(1)} MHz`;
+  $("sb-len-v").textContent = `${Math.pow(10, SBS.len).toFixed(1)} cm`; $("sb-ida-v").textContent = sbHex(SBS.ida, 3); $("sb-idb-v").textContent = sbHex(SBS.idb, 3);
+  let ro, eq;
+  if (v === "uart"){ const tb = 1/SBS.baud, tol = 50/(F.n - 0.5);
+    ro = [["Frame length", `${F.n} bits`], ["Byte time", sbTs(F.n*tb)], ["Received byte", `${sbHex(F.val)}${sbChr(F.val)}`], ["UART status", F.status]];
+    eq = [{name:"Bit time", f:"t_bit = 1 / baud", sub:`${sbTs(tb)} at ${SBS.baud} baud`}, {name:"Sample drift", f:"offset_k = (k + ½) · Δf", sub:`stop bit sampled ${((F.n - 0.5)*F.m).toFixed(2)} bit from its centre`},
+      {name:"Clock tolerance", f:"|Δf| < 0.5 / (n − 0.5)", sub:`n = ${F.n} → ±${tol.toFixed(1)} % (real receivers allow about half)`}];
+  } else if (v === "i2c"){
+    ro = [["Rise time", `${F.tr.toFixed(0)} ns`], ["Rise time limit", `${F.spec} ns`], ["Target answer", F.here ? "ACK" : "NACK"], ["I2C status", F.status]];
+    eq = [{name:"Address byte", f:"7-bit address << 1 | R/W", sub:`(${sbHex(SBS.addr)} << 1) | ${F.rd ? 1 : 0} = ${sbHex((SBS.addr << 1) | (F.rd ? 1 : 0))}`},
+      {name:"Rise time", f:"t_r = 0.8473 · R_p · C_bus", sub:`${(F.R/1000).toFixed(2)} kΩ × ${SBS.cb} pF = ${F.tr.toFixed(0)} ns`},
+      {name:"Pull-up limits", f:"(V_DD − 0.4 V) / 3 mA < R_p < t_r,max / (0.8473 · C_bus)", sub:`0.97 kΩ < R_p < ${(F.spec*1e-9/(0.8473*F.Cb)/1e3).toFixed(2)} kΩ`}];
+  } else if (v === "spi"){
+    ro = [["SPI mode", `${SBS.mode} (CPOL ${F.cpol}, CPHA ${F.cpha})`], ["MISO delay", `${F.dly.toFixed(1)} ns`], ["Timing margin", `${F.margin.toFixed(1)} ns`], ["SPI status", F.status]];
+    eq = [{name:"Clock modes", f:"mode = 2·CPOL + CPHA", sub:F.cpha ? "data changes on the leading edge, sampled on the trailing edge" : "data ready before the leading edge, sampled on it"},
+      {name:"Round trip", f:"t_MISO = t_co + 2·L / v,  v ≈ 15 cm/ns", sub:`8 ns + 2 × ${Math.pow(10, SBS.len).toFixed(1)} cm × 0.067 ns/cm = ${F.dly.toFixed(1)} ns`},
+      {name:"Timing margin", f:"T/2 − t_MISO − t_su", sub:`${(F.Tns/2).toFixed(1)} − ${F.dly.toFixed(1)} − 2 = ${F.margin.toFixed(1)} ns`}];
+  } else { const kept = [1, 2, 3].filter(n => F.acc[n - 1] && !((n === 1 && F.win === "A") || (n === 3 && F.win === "B")));
+    ro = [["Winning ID", sbHex(F.wid, 3)], ["Frame bits", `${F.n} (${F.W.nstuff} stuffed)`], ["CAN frame time", sbTs(F.n/(SBS.rate*1e3))], ["Kept by", kept.length ? kept.map(n => `Node ${n}`).join(", ") : "nobody"]];
+    eq = [{name:"Arbitration", f:"bus = AND of all transmitters (0 dominant)", sub:F.B ? `${sbHex(SBS.ida, 3)} ∧ ${sbHex(SBS.idb, 3)} → ${sbHex(F.wid, 3)}` : "single transmitter"},
+      {name:"CRC-15", f:"x¹⁵ + x¹⁴ + x¹⁰ + x⁸ + x⁷ + x⁴ + x³ + 1", sub:`CRC = ${sbHex(F.W.crc, 4)}`},
+      {name:"Bit stuffing", f:"after 5 equal bits insert 1 opposite bit (SOF … CRC)", sub:`${F.W.nstuff} stuff bits in this frame`},
+      {name:"Bus length", f:"L_max ≈ (0.75 · t_bit − 2 · t_node) / (2 · 5 ns/m)", sub:`${SBS.rate} kbit/s → ${Math.max(0, (0.75*1e6/SBS.rate - 420)/10).toFixed(0)} m`}];
+  }
+  renderRo($("sb-ro"), ro); renderEq($("sb-eq"), eq);
+  setHTML("sb-legend", SBLEG.map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  drawSBPlots(F);
+}
+function sbTick(dt){
+  if (!(dt >= 0)) return;
+  if (SBS.play){ SBS.e += dt/12; if (SBS.e >= 1){ SBS.e = 1; SBS.play = false; } SBS.acc += dt; if (SBS.acc > 0.15 || !SBS.play){ SBS.acc = 0; updateSB(); } }
+}
+const sbRestart = () => { SBS.e = 0; SBS.play = true; };
+document.querySelectorAll("#sb-view button").forEach(b => b.addEventListener("click", () => { SBS.view = b.dataset.v; if (!findCrawling) sbRestart(); updateSB(); }));
+[["#sb-baud", "b", "baud", Number], ["#sb-par", "p", "par", String], ["#sb-stop", "s", "stop", Number], ["#sb-rw", "r", "rw", String], ["#sb-i2cf", "f", "i2cf", Number],
+ ["#sb-cs", "c", "cs", Number], ["#sb-mode", "m", "mode", Number], ["#sb-rate", "k", "rate", Number], ["#sb-addr", "a", "addr", Number]].forEach(([sel, at, key, cv]) =>
+  document.querySelectorAll(sel + " button").forEach(b => b.addEventListener("click", () => { SBS[key] = cv(b.dataset[at]); sbRestart(); updateSB(); })));
+$("sb-play").addEventListener("click", () => { if (SBS.play) SBS.play = false; else { if (SBS.e >= 1) SBS.e = 0; SBS.play = true; } updateSB(); });
+$("sb-two").addEventListener("click", () => { SBS.two = !SBS.two; sbRestart(); updateSB(); });
+[["sb-e", "e"], ["sb-byte", "byte"], ["sb-mis", "mis"], ["sb-rp", "rp"], ["sb-cb", "cb"], ["sb-sck", "sck"], ["sb-len", "len"], ["sb-ida", "ida"], ["sb-idb", "idb"]].forEach(([id, k]) =>
+  $(id).addEventListener("input", e => { SBS[k] = +e.target.value; if (k === "e") SBS.play = false; updateSB(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb","ca","sm","la","ee","tl"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb","ca","sm","la","ee","tl","sb"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown", ca:"#capacitors", sm:"#smith-chart", la:"#latchup-antenna", ee:"#esd-eos", tl:"#transmission-lines"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev", ca:"rf", sm:"rf", la:"rel", ee:"rel", tl:"rf"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown", ca:"#capacitors", sm:"#smith-chart", la:"#latchup-antenna", ee:"#esd-eos", tl:"#transmission-lines", sb:"#serial-interfaces"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev", ca:"rf", sm:"rf", la:"rel", ee:"rel", tl:"rf", sb:"cir"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -27540,6 +28307,7 @@ function showTab(t){
   else if (t === "la"){ $("sub-top").textContent = "Latch-up and antenna effect · parasitic thyristor and plasma charging damage"; LAC.resize(); updateLA(); }
   else if (t === "ee"){ $("sub-top").textContent = "ESD and EOS · human-body, machine and charged-device models, electrical overstress"; EEC.resize(); updateEE(); }
   else if (t === "tl"){ $("sub-top").textContent = "Transmission lines · microstrip, stripline and coplanar waveguide"; TLC.resize(); updateTL(); }
+  else if (t === "sb"){ $("sub-top").textContent = "Serial interfaces · UART, I²C, SPI and CAN bit by bit"; SBC.resize(); updateSB(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -27582,6 +28350,7 @@ function frame(now){
   else if (tab === "la"){ laTick(dt); if (LAC.cv.clientWidth) drawLA(dt, T); }
   else if (tab === "ee"){ eeTick(dt); if (EEC.cv.clientWidth) drawEE(dt, T); }
   else if (tab === "tl"){ tlTick(dt); if (TLC.cv.clientWidth) drawTL(dt, T); }
+  else if (tab === "sb"){ sbTick(dt); if (SBC.cv.clientWidth) drawSB(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);

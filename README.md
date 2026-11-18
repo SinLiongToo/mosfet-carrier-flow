@@ -199,6 +199,13 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - Z₀ and ε_eff from Hammerstad (microstrip, with Kirschning-type dispersion), the exact thin-strip conformal map for stripline (b = 2h) and the elliptic-integral CPW formulas; conductor, dielectric and radiation loss estimates and the higher-order-mode cutoff
 - Substrates FR-4, RO4350B, alumina, high-resistivity Si, GaAs; width, height, gap and frequency sliders, frequency and width sweeps, “Make it 50 Ω”; Z₀ versus width for all three lines, and loss versus frequency with all three sized to the same Z₀
 
+## Serial interfaces tab (`#serial-interfaces`)
+- Animated bus topology (wires coloured by level, bits in flight, shift registers filling) above a logic analyzer with decoded fields, sample points and a moving cursor
+- **UART** – full-duplex TX/RX, 8 data bits LSB first, parity and stop bits, baud 9600 / 115200 / 1 M; a receiver clock error makes the sample points drift into framing or data errors
+- **I²C** – START, 7-bit address + R/W, ACK or NACK (0x50 has no device), data, STOP; open-drain lines rise as 1 − e^(−t/RC) with the pull-up and bus capacitance, slow edges are misread; pull-up window plot
+- **SPI** – four CPOL/CPHA modes, two chip selects, master and slave shift registers swapping bytes, MISO delayed by clock-to-out and the trace round trip until the master samples too early
+- **CAN** – real frame with CRC-15 and bit stuffing, CAN_H / CAN_L levels, two nodes arbitrating on the wired-AND bus (lower ID wins), ACK slot and acceptance filters 0x100–0x3FF; bus-length and frame-length plots
+
 ## Quiz and glossary
 - **Quiz** (? button in the header) – multiple-choice questions generated from the "Explain the terms" list of the open tab, or of all tabs; score, feedback and a link to the term in its tab
 - **Glossary** (book button) – every term explained on the site (about 390) in one filterable alphabetical list, each linked to its tab; works in English and Chinese
