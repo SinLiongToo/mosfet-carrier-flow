@@ -234,6 +234,7 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 
 ## Quiz and glossary
 - **Quiz** (? button in the header) – multiple-choice questions generated from the "Explain the terms" list of the open tab, or of all tabs; score, feedback and a link to the term in its tab
+- **Learning path** (route button) – suggested order of all tabs in seven stages, from semiconductor basics to communications and radar; click a tab to open it, a tab is ticked after a few seconds in it (stored in the browser), with progress, a "continue with" shortcut and a reset
 - **Glossary** (book button) – every term explained on the site (about 390) in one filterable alphabetical list, each linked to its tab; works in English and Chinese
 
 Tabs are grouped into five topics (Devices · Circuits · Power & RF · Fab & yield · Package & reliability); the topic selector in the header shows that topic's tabs.

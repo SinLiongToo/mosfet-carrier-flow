@@ -10652,6 +10652,7 @@ Object.assign(window.I18N_ZH, {
 "First, second and third droop: the die capacitance, the board capacitors and the bulk capacitors take turns until the regulator catches up": "第一、二、三次下陷：晶粒電容、電路板電容與大容量電容輪流上場，直到穩壓器跟上",
 "The same network seen in time. At the instant the load current jumps, only the charge stored right next to the transistors, the on-die capacitance, can respond: the package inductance stops any faster current from the board, so the die voltage dips quickly. This first droop, a few nanoseconds to tens of nanoseconds after the step, is usually the deepest and is set by the package inductance against the on-die capacitance, roughly ΔI × √(L/C). As the current through the package builds up, the board ceramic capacitors take over and the voltage recovers, then sags again more slowly as they run down: the second droop, over hundreds of nanoseconds. The bulk capacitors then carry the load for microseconds (the third droop) until the regulator's control loop has raised its own current to the new load. Each droop is the time-domain view of one impedance peak in the frequency plot; the lower the peaks, the shallower the droops. The dots in the circuit show the current each part delivers at the cursor time: the hand-over from the die to the # nF, the # µF, the bulk capacitors and finally the regulator.": "同一個網路，從時間來看。負載電流跳變的瞬間，只有緊鄰電晶體儲存的電荷，也就是晶片內電容，來得及反應：封裝電感擋住任何更快的電路板電流，所以晶粒電壓迅速下降。這個第一次下陷發生在階躍後幾奈秒到幾十奈秒，通常最深，由封裝電感對晶片內電容決定，大約是 ΔI × √(L/C)。隨著流過封裝的電流增加，電路板上的陶瓷電容接手，電壓回升，然後在它們放電時再慢慢下垂：這是第二次下陷，持續數百奈秒。接著大容量電容撐住負載好幾微秒（第三次下陷），直到穩壓器的控制迴路把自己的電流提高到新的負載。每次下陷都是頻率圖中一個阻抗峰在時域的樣子；峰越低，下陷越淺。電路圖中的點顯示在游標時間各部分提供的電流：從晶粒交棒給 # nF、# µF、大容量電容，最後是穩壓器。"
 });
+Object.assign(window.I18N_ZH, {"Learning path": "學習路徑", "Close learning path": "關閉學習路徑", "Reset progress": "重設進度", "Suggested order, from the physics of the crystal to complete systems. A tab is ticked once you have spent a few seconds in it.": "建議的學習順序，從晶體的物理到完整系統。在分頁停留幾秒後就會自動打勾。", "tabs visited": "個分頁已看過", "Continue with": "接著看", "You have visited every tab.": "你已經看過所有分頁了。", "Foundations": "基礎", "Bands, carriers and doping, then the two structures everything else is built from.": "能帶、載子與摻雜，然後是其他一切的兩個基本結構。", "Devices and their limits": "元件與它們的極限", "How real transistors leak, break down and vary, and the other device families: bipolar, wide-gap power and optoelectronics.": "真實電晶體如何漏電、崩潰與變異，以及其他元件家族：雙極性、寬能隙功率元件與光電元件。", "Circuits": "電路", "From the inverter and the current mirror to analog blocks, memory, power management and on-chip capacitors.": "從反相器與電流鏡，到類比方塊、記憶體、電源管理與晶片上的電容。", "Design and manufacturing": "設計與製造", "How a design becomes a layout, and how the fab builds, measures and tests it.": "設計如何變成佈局，以及晶圓廠如何製造、量測與測試它。", "Package and reliability": "封裝與可靠度", "Getting the chip into a package, keeping it cool and powered, and making it survive ESD, latch-up and ageing.": "把晶片放進封裝、讓它散熱並供電，並讓它撐過 ESD、閂鎖效應與老化。", "Signals and interfaces": "訊號與介面", "Wires as transmission lines, chip-to-chip interfaces and high-frequency passives.": "把導線當成傳輸線、晶片之間的介面，以及高頻被動元件。", "Communications and radar": "通訊與雷達", "Modulation and OFDM, then a complete 77 GHz radar from the PLL to the antennas and the signal processing.": "調變與 OFDM，然後是一整套 # GHz 雷達，從 PLL 到天線與訊號處理。"});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -10998,6 +10999,20 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
 .qz-fb{font:500 .9rem/1.45 var(--f-body);color:var(--fg)}
 .qz-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
 .qz-score{font:600 .8rem var(--f-mono);color:var(--muted)}
+.lp-stage{display:grid;gap:6px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.lp-sh{display:flex;align-items:center;gap:10px}
+.lp-n{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--bg);font:700 .8rem var(--f-mono);flex:none}
+.lp-t{font:700 .98rem var(--f-body);color:var(--fg)}
+.lp-c{margin-left:auto;font:600 .75rem var(--f-mono);color:var(--muted)}
+.lp-why{margin:0;font:400 .86rem/1.45 var(--f-body);color:var(--muted)}
+.lp-steps{display:flex;flex-wrap:wrap;gap:6px}
+.lp-step{display:inline-flex;align-items:center;gap:6px;font:600 .8rem var(--f-mono);color:var(--fg);background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:5px 11px;cursor:pointer}
+.lp-step:hover{border-color:var(--accent)}
+.lp-step.done{color:var(--channel);border-color:color-mix(in srgb, var(--channel) 55%, var(--line))}
+.lp-step.cur{outline:2px solid var(--accent);outline-offset:1px}
+.lp-ck{font-weight:700}
+.lp-prog{font:600 .78rem var(--f-mono);color:var(--muted)}
+.lp-next{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font:500 .9rem var(--f-body);color:var(--fg)}
 .gl-item{display:grid;gap:3px;padding:8px 10px;border-radius:10px}
 .gl-item:hover{background:var(--panel2)}
 .gl-term{font:700 .95rem var(--f-body);color:var(--fg)}
@@ -11015,6 +11030,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
   <div class="brandbar">
       <h1>MOSFET Carrier Flow<small id="sub-top">N-channel · Vth = +1.0 V · body tied to source</small></h1>
     <div class="hdr-icons">
+        <button class="iconbtn" id="path-btn" aria-label="Learning path" title="Learning path"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7.5a3.5 3.5 0 0 0 0-7h-7a3.5 3.5 0 0 1 0-7H16"/></svg></button>
         <button class="iconbtn" id="quiz-btn" aria-label="Quiz on this tab" title="Quiz on this tab"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14"/><circle cx="12" cy="17.2" r=".6" fill="currentColor"/></svg></button>
         <button class="iconbtn" id="gloss-btn" aria-label="Glossary of all terms" title="Glossary of all terms"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h10"/></svg></button>
         <button class="iconbtn" id="lang" data-i18n-skip aria-label="切換為中文" title="中文"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.5 3.9 5.5 3.9 9s-1.3 6.5-3.9 9c-2.6-2.5-3.9-5.5-3.9-9S9.4 5.5 12 3z"/></svg><span id="lang-lab">中文</span></button>
@@ -16802,6 +16818,13 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
       <div class="seg" id="qz-scope" role="group" aria-label="Quiz scope"><button data-q="tab" aria-pressed="true">This tab</button><button data-q="all" aria-pressed="false">All tabs</button></div>
       <button class="iconbtn" id="qz-close" aria-label="Close quiz">✕</button></div>
     <div class="qz-body" id="qz-body"></div>
+  </div>
+</div>
+<div id="path-ov" class="find-ov" hidden>
+  <div class="find-box" role="dialog" aria-modal="true" aria-label="Learning path">
+    <div class="qz-head"><h3 style="margin:0">Learning path</h3><span class="lp-prog" id="lp-prog"></span><button class="iconbtn" id="lp-close" aria-label="Close learning path" style="margin-left:auto">✕</button></div>
+    <div class="qz-body" id="lp-body"></div>
+    <p class="find-foot" id="lp-foot"><span>Suggested order, from the physics of the crystal to complete systems. A tab is ticked once you have spent a few seconds in it.</span> <button class="gl-tab" id="lp-reset">Reset progress</button></p>
   </div>
 </div>
 <div id="gloss-ov" class="find-ov" hidden>
@@ -31102,7 +31125,7 @@ document.querySelectorAll("#tab-cat button").forEach(b => b.addEventListener("cl
 }));
 function showTab(t){
   zoomClose();
-  tab = t;
+  tab = t; lpVisit(t);
   setCat(TABCAT[t] || "dev");
   TABS.forEach(k => { $("tab-"+k).hidden = t !== k; $("tab-btn-"+k).setAttribute("aria-selected", t === k); });
   $("seg-type").hidden = t !== "mos";
@@ -31408,6 +31431,39 @@ document.addEventListener("keydown", e => {
   else if (!$("gloss-ov").hidden){ e.preventDefault(); $("gloss-ov").hidden = true; if (glLast) glLast.focus(); }
   else return;
 });
+
+/* ================= learning path ================= */
+const LP = [
+  {t:"Foundations", why:"Bands, carriers and doping, then the two structures everything else is built from.", k:["sx", "pn", "mos", "body"]},
+  {t:"Devices and their limits", why:"How real transistors leak, break down and vary, and the other device families: bipolar, wide-gap power and optoelectronics.", k:["lk", "mb", "ml", "va", "bj", "sc", "gh", "op"]},
+  {t:"Circuits", why:"From the inverter and the current mirror to analog blocks, memory, power management and on-chip capacitors.", k:["inv", "cm", "an", "mm", "pw", "ca"]},
+  {t:"Design and manufacturing", why:"How a design becomes a layout, and how the fab builds, measures and tests it.", k:["df", "ly", "fb", "up", "lt", "sp", "yd"]},
+  {t:"Package and reliability", why:"Getting the chip into a package, keeping it cool and powered, and making it survive ESD, latch-up and ageing.", k:["pk", "th", "pi", "rl", "re", "la", "ee"]},
+  {t:"Signals and interfaces", why:"Wires as transmission lines, chip-to-chip interfaces and high-frequency passives.", k:["tl", "sb", "hs", "rf", "sm"]},
+  {t:"Communications and radar", why:"Modulation and OFDM, then a complete 77 GHz radar from the PLL to the antennas and the signal processing.", k:["dm", "of", "rd", "rx", "mi", "rp"]}
+];
+let lpSeen = new Set(), lpTimer = null, lpLast = null;
+try { lpSeen = new Set(JSON.parse(localStorage.getItem("lpSeen") || "[]")); } catch(e){}
+function lpSave(){ try { localStorage.setItem("lpSeen", JSON.stringify([...lpSeen])); } catch(e){} }
+function lpVisit(t){ clearTimeout(lpTimer); lpTimer = setTimeout(() => { if (tab === t && !lpSeen.has(t)){ lpSeen.add(t); lpSave(); if (!$("path-ov").hidden) lpRender(); } }, 3000); }
+function lpRender(){
+  const all = LP.flatMap(g => g.k).filter(k => $("tab-btn-" + k)), done = all.filter(k => lpSeen.has(k)).length, next = all.find(k => !lpSeen.has(k));
+  const nm = k => escH(fClean($("tab-btn-" + k).textContent));
+  $("lp-prog").innerHTML = `<span data-i18n-skip>${done} / ${all.length}</span> <span>tabs visited</span>`;
+  let h = next ? `<div class="lp-next"><span>Continue with</span> <button class="chipbtn lp-go" data-k="${next}" style="border-color:var(--accent);color:var(--accent)" data-i18n-skip>→ ${nm(next)}</button></div>` : `<div class="lp-next"><b style="color:var(--channel)">You have visited every tab.</b></div>`;
+  LP.forEach((g, i) => { const ks = g.k.filter(k => $("tab-btn-" + k)), d = ks.filter(k => lpSeen.has(k)).length;
+    h += `<div class="lp-stage"><div class="lp-sh"><span class="lp-n" data-i18n-skip>${i + 1}</span><span class="lp-t">${g.t}</span><span class="lp-c" data-i18n-skip>${d} / ${ks.length}</span></div><p class="lp-why">${g.why}</p><div class="lp-steps">`
+      + ks.map(k => `<button class="lp-step lp-go${lpSeen.has(k) ? " done" : ""}${k === tab ? " cur" : ""}" data-k="${k}" data-i18n-skip><span class="lp-ck">${lpSeen.has(k) ? "✓" : "○"}</span>${nm(k)}</button>`).join("") + `</div></div>`; });
+  $("lp-body").innerHTML = h;
+}
+function lpOpen(){ lpLast = document.activeElement; $("path-ov").hidden = false; lpRender(); const b = $("lp-body").querySelector(".lp-go"); if (b) b.focus(); }
+function lpClose(){ $("path-ov").hidden = true; if (lpLast) lpLast.focus(); }
+$("path-btn").addEventListener("click", lpOpen);
+$("lp-close").addEventListener("click", lpClose);
+$("lp-reset").addEventListener("click", () => { lpSeen.clear(); lpSave(); lpRender(); });
+$("lp-body").addEventListener("click", e => { const b = e.target.closest(".lp-go"); if (!b) return; $("path-ov").hidden = true; showTab(b.dataset.k); window.scrollTo({top:0}); });
+$("path-ov").addEventListener("click", e => { if (e.target === $("path-ov")) lpClose(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("path-ov").hidden){ e.preventDefault(); lpClose(); } });
 
 /* ================= last updated (deploy time of this page) ================= */
 function updFmt(d){
