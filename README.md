@@ -224,6 +224,10 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Carriers versus temperature** – animated lattice with dopants (bound when frozen out, free in the extrinsic range) and thermally broken bonds; charge neutrality with incomplete ionization; n versus 1000/T with freeze-out, extrinsic and intrinsic regions, E_F versus T
 - **Hall effect and mobility** – Hall bar with carriers deflected by B and the charge piling up on one edge, sign of V_H for n- and p-type; Hall coefficient, carrier density, conductivity, mobility (Caughey–Thomas with lattice scattering)
 
+## GaN HEMT tab (`#gan-hemt`)
+- **How the 2DEG forms** – Al fraction, AlGaN barrier thickness, gate voltage, Schottky (normally on) or p-GaN (normally off) gate; layer stack with the ±σ polarization charges and the animated electron sheet, conduction band along the depth with the triangular well below E_F; n_s versus barrier thickness with the critical thickness, n_s versus V_GS and the threshold
+- **HEMT I–V and Si / SiC / GaN** – cross-section with source, gate, drain, SiN passivation and optional field plate, 2DEG electrons depleted under the gate; I_D–V_DS family (velocity saturation plus access resistances); off-state lateral field at 400 V against the 3.3 MV/cm critical field and the resulting breakdown voltage; specific on-resistance versus breakdown voltage with the Si, SiC and GaN limits and this device
+
 ## Quiz and glossary
 - **Quiz** (? button in the header) – multiple-choice questions generated from the "Explain the terms" list of the open tab, or of all tabs; score, feedback and a link to the term in its tab
 - **Glossary** (book button) – every term explained on the site (about 390) in one filterable alphabetical list, each linked to its tab; works in English and Chinese
