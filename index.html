@@ -9834,6 +9834,170 @@ Object.assign(window.I18N_ZH, {
 "— #PSK": "— #PSK",
 "— #-QAM": "— #-QAM"
 });
+Object.assign(window.I18N_ZH, {
+"OFDM": "OFDM",
+"OFDM · subcarriers, cyclic prefix and multipath": "OFDM · 子載波、循環前綴與多路徑",
+"OFDM view": "OFDM 畫面",
+"Build an OFDM symbol": "組成一個 OFDM 符元",
+"Multipath and cyclic prefix": "多路徑與循環前綴",
+"OFDM: the subcarriers, each carrying a QAM symbol, adding up to one OFDM symbol with its cyclic prefix; or a multipath channel with an echo, the FFT window, the channel response across subcarriers and the equalized constellation": "OFDM：各自帶一個 QAM 符元的子載波，加總成一個帶循環前綴的 OFDM 符元；或含一個回波的多路徑通道、FFT 視窗、各子載波的通道響應與等化後的星座圖",
+"Transmission": "傳輸",
+"Animate the symbol, or draw a fresh random set of data symbols.": "播放符元動畫，或產生一組新的隨機資料符元。",
+"❚❚ Pause": "❚❚ 暫停",
+"▶ Play": "▶ 播放",
+"New random data": "新的隨機資料",
+"Subcarrier modulation": "子載波調變",
+"QPSK": "QPSK",
+"#-QAM": "#-QAM",
+"Subcarriers N": "子載波數 N",
+"Number of subcarriers in this picture. Real systems use # (Wi-Fi) up to thousands (#G, DVB).": "這張圖中的子載波數。實際系統從 #（Wi-Fi）到數千個（#G、DVB）。",
+"Cyclic prefix": "循環前綴",
+"Length of the cyclic prefix as a share of the useful symbol time: the end of the symbol copied in front of it.": "循環前綴長度占有效符元時間的比例：把符元的尾端複製到前面。",
+"Echo delay": "回波延遲",
+"Delay of the echo (a reflection from a wall or a building) in samples of the #-point FFT.": "回波（牆壁或建築物的反射）的延遲，以 # 點 FFT 的取樣數表示。",
+"Echo strength": "回波強度",
+"Strength of the echo relative to the direct path. Strong echoes carve deep notches into the channel response.": "回波相對於直達路徑的強度。強回波會在通道響應上刻出很深的凹口。",
+"Cyclic prefix length": "循環前綴長度",
+"Cyclic prefix length in samples. Wi-Fi uses # samples on a #-point symbol (# µs of # µs).": "以取樣數表示的循環前綴長度。Wi-Fi 在 # 點符元上用 # 個取樣（# µs 中的 # µs）。",
+"SNR": "訊噪比",
+"Signal-to-noise ratio at the receiver.": "接收端的訊噪比。",
+"One-tap equalizer: on": "單抽頭等化器：開",
+"One-tap equalizer: off": "單抽頭等化器：關",
+"Spectrum of the subcarriers: each one peaks where all others are zero; or the channel response across subcarriers": "子載波的頻譜：每個子載波的峰值都落在其他子載波為零的位置；或各子載波的通道響應",
+"Probability that the peak-to-average power ratio exceeds a value; or the error vector magnitude versus echo delay": "峰均功率比超過某值的機率；或誤差向量幅度對回波延遲",
+"Explain the terms: OFDM, subcarrier, orthogonality, IFFT and FFT, cyclic prefix, multipath, equalizer, PAPR": "名詞解釋：OFDM、子載波、正交、IFFT 與 FFT、循環前綴、多路徑、等化器、PAPR",
+"Where OFDM is used": "OFDM 用在哪裡",
+"System": "系統",
+"FFT size": "FFT 大小",
+"Subcarrier spacing": "子載波間距",
+"Wi-Fi #a/g/n": "Wi-Fi #a/g/n",
+"#": "#",
+"# kHz": "# kHz",
+"# µs": "# µs",
+"Wi-Fi # (#ax)": "Wi-Fi #（#ax）",
+"# per # MHz": "每 # MHz # 點",
+"#–# µs": "#–# µs",
+"LTE / #G NR": "LTE / #G NR",
+"up to #": "最多 #",
+"#–# kHz": "#–# kHz",
+"≈ # % of the symbol": "≈ 符元的 # %",
+"DVB-T digital TV": "DVB-T 數位電視",
+"#k / #k": "#k / #k",
+"# / # kHz": "# / # kHz",
+"#/# – #/#": "#/# – #/#",
+"Terms": "名詞",
+"Many slow, narrow subcarriers instead of one fast, wide carrier.": "以許多慢速、窄頻的子載波取代一個快速、寬頻的載波。",
+"Orthogonal frequency-division multiplexing: many slow, narrow subcarriers instead of one fast, wide carrier.": "正交分頻多工：以許多慢速、窄頻的子載波取代一個快速、寬頻的載波。",
+"Subcarrier": "子載波",
+"One of the tones, spaced Δf = #/T apart, each carrying its own QAM symbol.": "其中一個音調，彼此相距 Δf = #/T，各自帶著自己的 QAM 符元。",
+"Orthogonality": "正交",
+"Over one symbol time T every subcarrier fits a whole number of cycles, so they do not leak into each other even though their spectra overlap.": "在一個符元時間 T 內，每個子載波都剛好是整數個週期，所以即使頻譜重疊也不會互相洩漏。",
+"IFFT / FFT": "IFFT / FFT",
+"The transmitter builds the sum of all subcarriers with one inverse FFT; the receiver separates them again with one FFT.": "傳送端用一次反 FFT 產生所有子載波的總和；接收端再用一次 FFT 把它們分開。",
+"A copy of the end of the symbol placed in front of it; echoes shorter than the prefix then only rotate and scale each subcarrier.": "把符元尾端的副本放在它前面；比前綴短的回波只會讓每個子載波旋轉與縮放。",
+"Multipath": "多路徑",
+"Reflections arriving later than the direct signal; they make the channel frequency-selective.": "比直達訊號晚到的反射波；它們讓通道具有頻率選擇性。",
+"One-tap equalizer": "單抽頭等化器",
+"Divide each subcarrier by its channel value H(k): a single complex multiplication per subcarrier.": "把每個子載波除以它的通道值 H(k)：每個子載波只需一次複數乘法。",
+"PAPR": "PAPR",
+"Peak-to-average power ratio: many subcarriers can add up in phase, so OFDM peaks are high and need a linear power amplifier.": "峰均功率比：許多子載波可能同相相加，所以 OFDM 的峰值很高，需要線性的功率放大器。",
+"Subcarriers": "子載波數",
+"PAPR of this symbol": "這個符元的 PAPR",
+"CP overhead": "CP 開銷",
+"Echo vs prefix": "回波與前綴",
+"inside the CP": "在 CP 之內",
+"longer than the CP": "比 CP 長",
+"EVM": "EVM",
+"Symbol errors": "符元錯誤",
+"Deepest fade": "最深衰落",
+"Number of tones in the symbol.": "符元中的音調數。",
+"Δf = #/T keeps the subcarriers orthogonal.": "Δf = #/T 讓子載波保持正交。",
+"Peak over average power of the drawn symbol.": "畫出的符元的峰值功率除以平均功率。",
+"Share of airtime spent on the cyclic prefix.": "花在循環前綴上的時間比例。",
+"Whether the echo delay fits in the cyclic prefix.": "回波延遲是否在循環前綴之內。",
+"RMS distance of the received points from the ideal ones.": "接收點與理想點的均方根距離。",
+"Wrong decisions among all subcarriers of # symbols.": "# 個符元所有子載波中的錯誤判決。",
+"Weakest subcarrier of the channel.": "通道中最弱的子載波。",
+"OFDM symbol": "OFDM 符元",
+"Sum of all subcarriers over one symbol time.": "一個符元時間內所有子載波的總和。",
+"Whole numbers of cycles per symbol.": "每個符元都是整數個週期。",
+"Cyclic prefix copy": "循環前綴的複製",
+"The prefix repeats the end of the symbol.": "前綴重複符元的尾端。",
+"Peak-to-average ratio": "峰均比",
+"High peaks need a linear power amplifier.": "高峰值需要線性功率放大器。",
+"Two-path channel": "雙路徑通道",
+"Direct path plus one echo.": "直達路徑加一個回波。",
+"Per subcarrier": "每個子載波",
+"Echoes inside the prefix become a multiplication.": "前綴內的回波變成一個乘法。",
+"Divide by the channel value.": "除以通道值。",
+"Error vector magnitude": "誤差向量幅度",
+"Quality of the received constellation.": "接收星座圖的品質。",
+"(#/T) ∫₀ᵀ e^(j#π(k − m)t/T) dt = # for k ≠ m": "(#/T) ∫₀ᵀ e^(j#π(k − m)t/T) dt = #，當 k ≠ m",
+"FFT bin m sees only subcarrier m": "FFT 第 m 格只看到子載波 m",
+"x(t) = x(t + T) for −T_cp ≤ t < #": "x(t) = x(t + T)，當 −T_cp ≤ t < #",
+"T_cp = # % of T": "T_cp = T 的 # %",
+"PAPR = max|x(t)|² / mean|x(t)|² ≤ N": "PAPR = max|x(t)|² / 平均|x(t)|² ≤ N",
+"# dB (at most # dB)": "# dB（最多 # dB）",
+"# subcarriers, QPSK": "# 個子載波，QPSK",
+"# subcarriers, #-QAM": "# 個子載波，#-QAM",
+"holds: echo inside the prefix": "成立：回波在前綴之內",
+"broken: ISI and ICI": "不成立：ISI 與 ICI",
+"EVM = √(mean|X̂_k − X_k|²) / √(mean|X_k|²)": "EVM = √(平均|X̂_k − X_k|²) / √(平均|X_k|²)",
+"Subcarriers: each one carries a symbol": "子載波：每一個都帶一個符元",
+"Their sum: one OFDM symbol (real part and envelope)": "它們的總和：一個 OFDM 符元（實部與包絡）",
+"CP": "CP",
+"copied to the front": "複製到前面",
+"useful symbol time T": "有效符元時間 T",
+"At this moment: the subcarrier phasors add head to tail": "此刻：子載波相量頭尾相接相加",
+"time t / T": "時間 t / T",
+"sum, real part": "總和的實部",
+"envelope |x(t)|": "包絡 |x(t)|",
+"subcarrier k turns": "子載波 k 旋轉",
+"k times per T": "每個 T 轉 k 圈",
+"inside the cyclic prefix: same as the end of the symbol": "在循環前綴內：和符元的尾端相同",
+"the receiver's FFT separates the subcarriers again exactly": "接收端的 FFT 把子載波完全分開",
+"Direct path, echo and the receiver's FFT window": "直達路徑、回波與接收端的 FFT 視窗",
+"direct": "直達",
+"echo (# %)": "回波（# %）",
+"symbol #": "符元 #",
+"FFT window of symbol #": "符元 # 的 FFT 視窗",
+"echo # samples > CP #: the end of symbol # leaks into the window (ISI, ICI)": "回波 # 個取樣 > CP #：符元 # 的尾端漏進視窗（ISI、ICI）",
+"echo # samples ≤ CP #: only the prefix is disturbed, every subcarrier is just scaled by H(k)": "回波 # 個取樣 ≤ CP #：只有前綴受干擾，每個子載波只是乘上 H(k)",
+"Channel H(k) seen by each subcarrier": "每個子載波看到的通道 H(k)",
+"subcarrier k →": "子載波 k →",
+"deepest fade -# dB": "最深衰落 -# dB",
+"After FFT and one-tap equalizer": "經 FFT 與單抽頭等化器之後",
+"After FFT, no equalizer": "經 FFT，沒有等化器",
+"Echo": "回波",
+"# samples, # %": "# 個取樣，# %",
+"# samples": "# 個取樣",
+"f / Δf": "f / Δf",
+"|S(f)|": "|S(f)|",
+"each peak sits on the others' nulls": "每個峰值都落在其他子載波的零點",
+"PAPR (dB)": "PAPR (dB)",
+"P(PAPR > x)": "P(PAPR > x)",
+"— N = #, random data": "— N = #，隨機資料",
+"subcarrier k": "子載波 k",
+"|H| (dB)": "|H| (dB)",
+"— |H(k)| from one echo": "— 一個回波造成的 |H(k)|",
+"echo delay (samples)": "回波延遲（取樣）",
+"EVM (%)": "EVM (%)",
+"inside CP": "在 CP 內",
+"— EVM with CP = #": "— CP = # 時的 EVM",
+"# % of T": "T 的 # %",
+"Sum, cyclic prefix": "總和、循環前綴",
+"Envelope": "包絡",
+"Recovered exactly": "完整還原",
+"Direct path, |H(k)|": "直達路徑、|H(k)|",
+"Echo, received points": "回波、接收點",
+"ISI, deep fades, errors": "ISI、深衰落、錯誤",
+"Building an OFDM symbol": "組成一個 OFDM 符元",
+"Many slow subcarriers side by side, each with its own QAM symbol, added together by one inverse FFT": "許多慢速子載波並排，各帶一個 QAM 符元，由一次反 FFT 加總",
+"OFDM sends data not on one fast carrier but on many slow ones at the same time. Each subcarrier k carries one QAM symbol, a fixed amplitude and phase, for one symbol time T, and the subcarriers are spaced exactly Δf = #/T apart, so that every one of them completes a whole number of cycles in T. That is what makes them orthogonal: their spectra overlap, but at the frequency of each subcarrier all the others pass through zero, and the receiver's FFT pulls them apart without crosstalk. The transmitted signal is simply their sum, which the transmitter computes with one inverse FFT; as the phasor chain shows, the subcarriers sometimes add up in phase, so the signal has high peaks, a large peak-to-average power ratio that the power amplifier must handle without distortion. In front of each symbol the transmitter repeats its last part, the cyclic prefix: because every subcarrier is periodic over T, the prefix is a seamless continuation, and it costs a little time but protects against echoes.": "OFDM 不是用一個快速載波送資料，而是同時用許多慢速載波。每個子載波 k 在一個符元時間 T 內帶一個 QAM 符元（固定的振幅與相位），子載波之間剛好相距 Δf = #/T，讓每一個都在 T 內完成整數個週期。這就是它們正交的原因：頻譜互相重疊，但在每個子載波的頻率上，其他子載波都剛好通過零，接收端的 FFT 可以毫無串擾地把它們分開。送出的訊號就是它們的總和，傳送端用一次反 FFT 算出；如相量鏈所示，子載波有時會同相相加，所以訊號有很高的峰值，也就是很大的峰均功率比，功率放大器必須能不失真地處理。傳送端在每個符元前面重複它的最後一段，也就是循環前綴：因為每個子載波在 T 內都是週期性的，前綴是無縫的延續，它花掉一點時間，卻能抵抗回波。",
+"Multipath and the cyclic prefix": "多路徑與循環前綴",
+"An echo arrives a few samples late; if it fits in the cyclic prefix, one division per subcarrier undoes it": "回波晚到幾個取樣；只要它在循環前綴之內，每個子載波做一次除法就能消除",
+"Indoors and in cities the signal arrives along several paths: directly and as reflections that come a little later. For a single fast carrier such echoes smear one symbol into the next and need a complicated equalizer. In OFDM each symbol lasts long, and the cyclic prefix in front of it acts as a guard: as long as the echo is shorter than the prefix, the receiver's FFT window contains only parts of the same symbol, and the echo turns into a circular convolution. In the frequency domain that means every subcarrier is just multiplied by one complex number, the channel H(k) at its frequency; echoes make H(k) frequency-selective, with deep fades on some subcarriers. The receiver estimates H(k) from known pilot symbols and divides by it, one complex division per subcarrier. If the echo is longer than the prefix, the end of the previous symbol leaks into the window (inter-symbol interference) and the subcarriers lose their orthogonality (inter-carrier interference): the constellation smears no matter how good the equalizer is. Subcarriers in a deep fade also get noisier after equalization, which is why OFDM systems add error-correcting codes across subcarriers.": "在室內與城市中，訊號會經由好幾條路徑到達：直達波，以及稍晚到達的反射波。對單一快速載波來說，這些回波會把一個符元拖進下一個，需要複雜的等化器。OFDM 的每個符元很長，前面的循環前綴就是保護區間：只要回波比前綴短，接收端的 FFT 視窗裡只有同一個符元的內容，回波變成循環摺積。在頻域中，這表示每個子載波只是乘上一個複數，也就是它頻率上的通道值 H(k)；回波讓 H(k) 具有頻率選擇性，有些子載波會陷入深衰落。接收端從已知的導頻符元估計 H(k) 並除掉它，每個子載波只需一次複數除法。如果回波比前綴長，前一個符元的尾端會漏進視窗（符元間干擾），子載波也失去正交性（子載波間干擾）：不管等化器多好，星座圖都會散開。陷入深衰落的子載波在等化後雜訊也會變大，所以 OFDM 系統會在子載波之間加上錯誤更正碼。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -10251,6 +10415,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-tl" aria-selected="false" aria-controls="tab-tl">Transmission lines</button>
         <button role="tab" id="tab-btn-sb" aria-selected="false" aria-controls="tab-sb">Serial interfaces (UART · I²C · SPI · CAN)</button>
         <button role="tab" id="tab-btn-dm" aria-selected="false" aria-controls="tab-dm">Digital modulation</button>
+        <button role="tab" id="tab-btn-of" aria-selected="false" aria-controls="tab-of">OFDM</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -15420,6 +15585,113 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Eb/N0</dt><dd>Energy per bit over noise density, the fair way to compare schemes with different bits per symbol.</dd>
               <dt>Bit error rate</dt><dd>Share of received bits that are wrong.</dd>
               <dt>Spectral efficiency</dt><dd>Bits per second per hertz: more bits per symbol means a narrower spectrum for the same bit rate.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== OFDM TAB ===================== -->
+  <section id="tab-of" role="tabpanel" aria-labelledby="tab-btn-of" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="of-pill">OFDM</span><h2 id="of-name">OFDM symbol</h2></div>
+      <p id="of-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="of-view" role="group" aria-label="OFDM view" style="flex-wrap:wrap">
+        <button data-v="sym" aria-pressed="true">Build an OFDM symbol</button>
+        <button data-v="mp" aria-pressed="false">Multipath and cyclic prefix</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvof" aria-label="OFDM: the subcarriers, each carrying a QAM symbol, adding up to one OFDM symbol with its cyclic prefix; or a multipath channel with an echo, the FFT window, the channel response across subcarriers and the equalized constellation"></canvas>
+      <div class="legend" id="of-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="of-ro"></div>
+        <div style="display:grid;gap:8px">
+          <span class="term" tabindex="0" data-tip="Animate the symbol, or draw a fresh random set of data symbols.">Transmission</span>
+          <div class="chips">
+            <button class="chipbtn" id="of-play">❚❚ Pause</button>
+            <button class="chipbtn" id="of-new">New random data</button>
+            <div class="seg" id="of-mod" role="group" aria-label="Subcarrier modulation"><button data-m="4">QPSK</button><button data-m="16">16-QAM</button></div>
+          </div>
+        </div>
+        <div id="of-c-sym" style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Number of subcarriers in this picture. Real systems use 64 (Wi-Fi) up to thousands (5G, DVB).">Subcarriers N</span><span id="of-n-v"></span></div>
+            <input id="of-n" type="range" min="2" max="16" step="1" value="6">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Length of the cyclic prefix as a share of the useful symbol time: the end of the symbol copied in front of it.">Cyclic prefix</span><span id="of-cp-v"></span></div>
+            <input id="of-cp" type="range" min="0" max="0.25" step="0.005" value="0.125">
+          </div>
+        </div>
+        <div id="of-c-mp" hidden style="display:grid;gap:12px">
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Delay of the echo (a reflection from a wall or a building) in samples of the 64-point FFT.">Echo delay</span><span id="of-d-v"></span></div>
+            <input id="of-d" type="range" min="0" max="24" step="1" value="6">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Strength of the echo relative to the direct path. Strong echoes carve deep notches into the channel response.">Echo strength</span><span id="of-a-v"></span></div>
+            <input id="of-a" type="range" min="0" max="0.95" step="0.01" value="0.6">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Cyclic prefix length in samples. Wi-Fi uses 16 samples on a 64-point symbol (0.8 µs of 3.2 µs).">Cyclic prefix length</span><span id="of-cpn-v"></span></div>
+            <input id="of-cpn" type="range" min="0" max="16" step="1" value="8">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Signal-to-noise ratio at the receiver.">SNR</span><span id="of-snr-v"></span></div>
+            <input id="of-snr" type="range" min="5" max="40" step="0.5" value="25">
+          </div>
+          <div class="chips"><button class="chipbtn" id="of-eq">One-tap equalizer: on</button></div>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="of-eq-box"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Characteristics</p>
+        <div class="plots">
+          <div class="plot"><svg id="of-p1" viewBox="0 0 300 230" role="img" aria-label="Spectrum of the subcarriers: each one peaks where all others are zero; or the channel response across subcarriers"></svg></div>
+          <div class="plot"><svg id="of-p2" viewBox="0 0 220 230" role="img" aria-label="Probability that the peak-to-average power ratio exceeds a value; or the error vector magnitude versus echo delay"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="of-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: OFDM, subcarrier, orthogonality, IFFT and FFT, cyclic prefix, multipath, equalizer, PAPR</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>Where OFDM is used</h3>
+            <div class="tbl"><table>
+              <tr><th>System</th><th>FFT size</th><th>Subcarrier spacing</th><th>Cyclic prefix</th></tr>
+              <tr><td>Wi-Fi 802.11a/g/n</td><td>64</td><td>312.5 kHz</td><td>0.8 µs</td></tr>
+              <tr><td>Wi-Fi 6 (802.11ax)</td><td>256 per 20 MHz</td><td>78.1 kHz</td><td>0.8–3.2 µs</td></tr>
+              <tr><td>LTE / 5G NR</td><td>up to 4096</td><td>15–120 kHz</td><td>≈ 7 % of the symbol</td></tr>
+              <tr><td>DVB-T digital TV</td><td>2k / 8k</td><td>4.5 / 1.1 kHz</td><td>1/4 – 1/32</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>OFDM</dt><dd>Orthogonal frequency-division multiplexing: many slow, narrow subcarriers instead of one fast, wide carrier.</dd>
+              <dt>Subcarrier</dt><dd>One of the tones, spaced Δf = 1/T apart, each carrying its own QAM symbol.</dd>
+              <dt>Orthogonality</dt><dd>Over one symbol time T every subcarrier fits a whole number of cycles, so they do not leak into each other even though their spectra overlap.</dd>
+              <dt>IFFT / FFT</dt><dd>The transmitter builds the sum of all subcarriers with one inverse FFT; the receiver separates them again with one FFT.</dd>
+              <dt>Cyclic prefix</dt><dd>A copy of the end of the symbol placed in front of it; echoes shorter than the prefix then only rotate and scale each subcarrier.</dd>
+              <dt>Multipath</dt><dd>Reflections arriving later than the direct signal; they make the channel frequency-selective.</dd>
+              <dt>One-tap equalizer</dt><dd>Divide each subcarrier by its channel value H(k): a single complex multiplication per subcarrier.</dd>
+              <dt>PAPR</dt><dd>Peak-to-average power ratio: many subcarriers can add up in phase, so OFDM peaks are high and need a linear power amplifier.</dd>
             </dl>
           </div>
         </div>
@@ -28646,12 +28918,212 @@ $("dm-play").addEventListener("click", () => { DMS.play = !DMS.play; updateDM();
 $("dm-new").addEventListener("click", () => { DMS.seed = (DMS.seed*1103515245 + 12345) % 2147483647; DMS.u = 0; updateDM(); });
 [["dm-u", "u"], ["dm-snr", "snr"], ["dm-cyc", "cyc"]].forEach(([id, k]) => $(id).addEventListener("input", e => { DMS[k] = +e.target.value; if (k === "u") DMS.play = false; updateDM(); }));
 
+/* ===================== OFDM TAB ===================== */
+// Symbol view: N subcarriers k = 1…N, x(t) = Σ X_k e^{j2πkt/T}; the cyclic prefix is the periodic extension for −T_cp ≤ t < 0.
+// The head-to-tail phasor chain at time t is the sum. Multipath view: 64-point IFFT/FFT, a burst of 14 symbols, channel
+// y[n] = x[n] + a·e^{jφ}·x[n − d] + w[n]; the receiver drops the prefix, takes the FFT and divides by H_k = 1 + a e^{jφ} e^{−j2πkd/N}.
+const OFC = setupCanvas($("cvof"), 1000, 488);
+const OFS = {view:"sym", m:4, n:6, cp:0.125, d:6, a:0.6, cpn:8, snr:25, eq:true, seed:11, t:0, play:true, acc:0};
+const OF_N = 64, OF_S = 14, OF_PH = 2.0;
+function ofRows(rows, x, y, w){ rows.forEach(([l, v], i) => { txt(l, x, y + i*24, {px:11}); txt(v, x + w, y + i*24, {al:"right", px:11, w:700, col:C.fg}); }); }
+const ofRng = s0 => { let s = Math.imul(s0 | 0, 2654435761) ^ 0x5bd1e995; return () => { s |= 0; s = s + 0x6D2B79F5 | 0; let t = Math.imul(s ^ s >>> 15, 1 | s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0)/4294967296; }; };
+const ofGauss = r => Math.sqrt(-2*Math.log(r() + 1e-12))*Math.cos(2*Math.PI*r());
+function ofPts(M){ if (M === 4) return [[1, 1], [-1, 1], [-1, -1], [1, -1]].map(([a, b]) => [a/Math.SQRT2, b/Math.SQRT2]);
+  const L = [-3, -1, 1, 3], p = []; L.forEach(a => L.forEach(b => p.push([a/Math.sqrt(10), b/Math.sqrt(10)]))); return p; }
+const ofNear = (P, re, im) => { let b = 0, d0 = Infinity; P.forEach((p, i) => { const d = (p[0] - re)**2 + (p[1] - im)**2; if (d < d0){ d0 = d; b = i; } }); return b; };
+function ofFFT(re, im, inv){                                           // in-place radix-2, unitary scaling
+  const n = re.length;
+  for (let i = 1, j = 0; i < n; i++){ let bit = n >> 1; for (; j & bit; bit >>= 1) j ^= bit; j ^= bit; if (i < j){ [re[i], re[j]] = [re[j], re[i]]; [im[i], im[j]] = [im[j], im[i]]; } }
+  for (let len = 2; len <= n; len <<= 1){ const ang = (inv ? 2 : -2)*Math.PI/len, wr = Math.cos(ang), wi = Math.sin(ang);
+    for (let i = 0; i < n; i += len){ let cr = 1, ci = 0; for (let j = 0; j < len/2; j++){ const a = i + j, b = a + len/2, tr = re[b]*cr - im[b]*ci, ti = re[b]*ci + im[b]*cr;
+      re[b] = re[a] - tr; im[b] = im[a] - ti; re[a] += tr; im[a] += ti; const nr = cr*wr - ci*wi; ci = cr*wi + ci*wr; cr = nr; } } }
+  const s = 1/Math.sqrt(n); for (let i = 0; i < n; i++){ re[i] *= s; im[i] *= s; }
+}
+
+/* ---------------- symbol view ---------------- */
+function ofSym(){
+  const P = ofPts(OFS.m), r = ofRng(OFS.seed), X = [...Array(OFS.n)].map(() => P[Math.floor(r()*P.length)]);
+  const at = t => { let re = 0, im = 0; X.forEach(([a, b], i) => { const k = i + 1, w = 2*Math.PI*k*t; re += a*Math.cos(w) - b*Math.sin(w); im += a*Math.sin(w) + b*Math.cos(w); }); return [re, im]; };
+  let pk = 0, av = 0; const M = 400; for (let i = 0; i < M; i++){ const [re, im] = at(i/M), p = re*re + im*im; pk = Math.max(pk, p); av += p/M; }
+  return {X, at, papr:10*Math.log10(pk/av)};
+}
+let ofCKey = "", ofCVal = [];
+function ofCCDF(){
+  const key = OFS.n + "|" + OFS.m; if (key === ofCKey) return ofCVal;
+  const P = ofPts(OFS.m), r = ofRng(5), vals = [];
+  for (let s = 0; s < 1500; s++){ const X = [...Array(OFS.n)].map(() => P[Math.floor(r()*P.length)]); let pk = 0, av = 0; const M = 8*OFS.n;
+    for (let i = 0; i < M; i++){ let re = 0, im = 0; X.forEach(([a, b], j) => { const w = 2*Math.PI*(j + 1)*i/M; re += a*Math.cos(w) - b*Math.sin(w); im += a*Math.sin(w) + b*Math.cos(w); }); const p = re*re + im*im; pk = Math.max(pk, p); av += p/M; }
+    vals.push(10*Math.log10(pk/av)); }
+  vals.sort((a, b) => a - b); ofCKey = key; ofCVal = vals; return vals;
+}
+/* ---------------- multipath view ---------------- */
+function ofRun(d = OFS.d, L = OFS.cpn){
+  const P = ofPts(OFS.m), r = ofRng(OFS.seed*7 + 3), rn = ofRng(OFS.seed*13 + 1), N = OF_N, X = [], tx = [];
+  for (let s = 0; s < OF_S; s++){ const xs = [...Array(N)].map(() => Math.floor(r()*P.length)), re = xs.map(i => P[i][0]), im = xs.map(i => P[i][1]);
+    X.push(xs); ofFFT(re, im, true); for (let n = N - L; n < N; n++) tx.push([re[n], im[n]]); for (let n = 0; n < N; n++) tx.push([re[n], im[n]]); }
+  const ar = OFS.a*Math.cos(OF_PH), ai = OFS.a*Math.sin(OF_PH), sg = Math.sqrt(Math.pow(10, -OFS.snr/10)/2);
+  const rx = tx.map((v, n) => { const e = n - d >= 0 ? tx[n - d] : [0, 0]; return [v[0] + ar*e[0] - ai*e[1] + sg*ofGauss(rn), v[1] + ar*e[1] + ai*e[0] + sg*ofGauss(rn)]; });
+  const H = [...Array(N)].map((_, k) => { const w = -2*Math.PI*k*d/N; return [1 + ar*Math.cos(w) - ai*Math.sin(w), ar*Math.sin(w) + ai*Math.cos(w)]; });
+  const pts = []; let err = 0, e2 = 0;
+  for (let s = 1; s < OF_S; s++){ const st = s*(N + L) + L, re = [], im = []; for (let n = 0; n < N; n++){ re.push(rx[st + n][0]); im.push(rx[st + n][1]); } ofFFT(re, im, false);
+    for (let k = 0; k < N; k++){ let zr = re[k], zi = im[k]; if (OFS.eq){ const [hr, hi] = H[k], m2 = hr*hr + hi*hi; [zr, zi] = [(zr*hr + zi*hi)/m2, (zi*hr - zr*hi)/m2]; }
+      const x = P[X[s][k]]; e2 += (zr - x[0])**2 + (zi - x[1])**2; if (ofNear(P, zr, zi) !== X[s][k]) err++; pts.push([zr, zi, ofNear(P, zr, zi) !== X[s][k]]); } }
+  const tot = (OF_S - 1)*N, Hm = H.map(([a, b]) => Math.hypot(a, b));
+  return {pts, err, tot, evm:Math.sqrt(e2/tot)*100, H, Hm, P, fade:20*Math.log10(Math.max(1e-3, Math.min(...Hm)))};
+}
+let ofEKey = "", ofEVal = [];
+function ofEVMcurve(){
+  const key = [OFS.m, OFS.a, OFS.cpn, OFS.snr, OFS.eq, OFS.seed].join("|"); if (key === ofEKey) return ofEVal;
+  ofEVal = [...Array(25)].map((_, d) => [d, ofRun(d).evm]); ofEKey = key; return ofEVal;
+}
+
+/* ---------------- drawing ---------------- */
+const OF_COL = ["accent", "electron", "channel", "hole", "oxide", "metal"];
+function drawOFsym(T){
+  const S = ofSym(), N = OFS.n, cp = OFS.cp, t = OFS.t*(1 + cp) - cp;
+  panel(20, 20, 420, 450, "Subcarriers: each one carries a symbol");
+  const x0 = 120, x1 = 430, X = tt => x0 + (tt + cp)/(1 + cp)*(x1 - x0), rh = Math.min(48, 410/N);
+  S.X.forEach(([a, b], i) => { const k = i + 1, y = 52 + i*rh + rh/2, A = rh*0.38, col = C[OF_COL[i % OF_COL.length]];
+    txt(`k = ${k}`, 30, y - 6, {px:10, w:700, col:C.fg}); txt(`${Math.hypot(a, b).toFixed(2)}∠${((Math.atan2(b, a)*180/Math.PI + 360) % 360).toFixed(0)}°`, 30, y + 7, {px:9, col:C.fg});
+    const pts = []; for (let j = 0; j <= 240; j++){ const tt = -cp + (1 + cp)*j/240, w = 2*Math.PI*k*tt; pts.push([X(tt), y - A*(a*Math.cos(w) - b*Math.sin(w))/0.95]); }
+    ctx.strokeStyle = col; ctx.lineWidth = 1.6; pl(pts); });
+  ctx.fillStyle = C.muted; ctx.globalAlpha = .12; ctx.fillRect(X(-cp), 44, X(0) - X(-cp), 420); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1; pl([[X(t), 44], [X(t), 464]]);
+  // the sum
+  panel(460, 20, 520, 214, "Their sum: one OFDM symbol (real part and envelope)");
+  const y0 = 128, sx0 = 520, sx1 = 966, SX = tt => sx0 + (tt + cp)/(1 + cp)*(sx1 - sx0), amp = 80/Math.max(2, Math.sqrt(N)*1.6), re = [], env = [];
+  for (let j = 0; j <= 500; j++){ const tt = -cp + (1 + cp)*j/500, [a, b] = S.at(tt); re.push([SX(tt), y0 - amp*a]); env.push([SX(tt), y0 - amp*Math.hypot(a, b)]); }
+  ctx.fillStyle = C.accent; ctx.globalAlpha = .12; ctx.fillRect(SX(-cp), 44, SX(0) - SX(-cp), 184); ctx.globalAlpha = 1;
+  ctx.fillStyle = C.accent; ctx.globalAlpha = .07; ctx.fillRect(SX(1 - cp), 44, SX(1) - SX(1 - cp), 184); ctx.globalAlpha = 1;
+  ctx.strokeStyle = C.electron; ctx.setLineDash([4, 3]); ctx.lineWidth = 1.2; pl(env); ctx.setLineDash([]); ctx.strokeStyle = C.accent; ctx.lineWidth = 2; pl(re);
+  if (cp > 0.01){ txt("CP", (SX(-cp) + SX(0))/2, 54, {al:"center", px:10, w:700, col:C.accent}); txt("copied to the front", (SX(1 - cp) + SX(1))/2, 54, {al:"center", px:9, col:C.accent});
+    ctx.strokeStyle = C.accent; ctx.lineWidth = 1.2; pl([[(SX(1 - cp) + SX(1))/2, 62], [(SX(1 - cp) + SX(1))/2, 70], [(SX(-cp) + SX(0))/2, 70], [(SX(-cp) + SX(0))/2, 62]]); }
+  txt("useful symbol time T", (SX(0) + SX(1))/2, 222, {al:"center", px:10, col:C.fg}); txt(`PAPR ${S.papr.toFixed(1)} dB`, 960, 36, {al:"right", px:11, w:700, col:C.hole});
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1; pl([[SX(t), 44], [SX(t), 230]]);
+  // phasor chain at time t
+  panel(460, 244, 520, 226, "At this moment: the subcarrier phasors add head to tail");
+  const pc = [600, 360], ps = 40/Math.max(1, Math.sqrt(N)*0.7); let cxp = pc[0], cyp = pc[1];
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; pl([[pc[0] - 110, pc[1]], [pc[0] + 110, pc[1]]]); pl([[pc[0], pc[1] - 100], [pc[0], pc[1] + 100]]);
+  S.X.forEach(([a, b], i) => { const w = 2*Math.PI*(i + 1)*t, re2 = a*Math.cos(w) - b*Math.sin(w), im2 = a*Math.sin(w) + b*Math.cos(w), nx = cxp + ps*re2, ny = cyp - ps*im2;
+    ctx.strokeStyle = C[OF_COL[i % OF_COL.length]]; ctx.lineWidth = 2.2; pl([[cxp, cyp], [nx, ny]]); cxp = nx; cyp = ny; });
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 1.4; ctx.setLineDash([3, 3]); pl([[pc[0], pc[1]], [cxp, cyp]]); ctx.setLineDash([]); ctx.fillStyle = C.fg; ctx.beginPath(); ctx.arc(cxp, cyp, 4, 0, 2*Math.PI); ctx.fill();
+  const [sa, sb] = S.at(t);
+  ofRows([["time t / T", t.toFixed(3)], ["sum, real part", sa.toFixed(2)], ["envelope |x(t)|", Math.hypot(sa, sb).toFixed(2)], ["subcarrier k turns", "k times per T"]], 740, 290, 226);
+  txt(t < 0 ? "inside the cyclic prefix: same as the end of the symbol" : "the receiver's FFT separates the subcarriers again exactly", 720, 456, {al:"center", px:10, w:700, col:C.channel});
+}
+function drawOFmp(T){
+  const R = ofRun(), L = OFS.cpn, d = OFS.d, N = OF_N, isi = d > L;
+  panel(20, 20, 960, 200, "Direct path, echo and the receiver's FFT window");
+  const x0 = 140, x1 = 960, spt = (x1 - x0)/(2.6*(N + L)), X = n => x0 + n*spt, sym = s => s*(N + L);
+  const row = (y, off, lab, sc, col) => { txt(lab, 30, y + 12, {px:11, w:700, col:C.fg});
+    for (let s = 0; s < 3; s++){ const a = X(sym(s) + off), b = X(sym(s) + off + L), c = X(sym(s + 1) + off);
+      if (a > x1) break; ctx.globalAlpha = sc; ctx.fillStyle = C.muted; ctx.fillRect(a, y, Math.max(0, Math.min(b, x1) - a), 24); ctx.fillStyle = C[col]; ctx.fillRect(b, y, Math.max(0, Math.min(c, x1) - b - 1), 24); ctx.globalAlpha = 1;
+      if (L > 2 && b < x1) txt("CP", (a + b)/2, y + 12, {al:"center", px:9, w:700, col:C.bg}); if (c - b > 60 && b < x1) txt(`symbol ${s + 1}`, (b + Math.min(c, x1))/2, y + 12, {al:"center", px:10, w:700, col:C.bg}); } };
+  row(56, 0, "direct", 1, "accent"); row(96, d, `echo (${(OFS.a*100).toFixed(0)} %)`, 0.35 + 0.65*OFS.a, "electron");
+  const ws = X(sym(1) + L), we = X(sym(1) + L + N);
+  ctx.strokeStyle = C.fg; ctx.lineWidth = 2; pl([[ws, 138], [ws, 148], [we, 148], [we, 138]]); txt("FFT window of symbol 2", (ws + we)/2, 162, {al:"center", px:11, w:700, col:C.fg});
+  if (isi){ ctx.fillStyle = C.hole; ctx.globalAlpha = .45; ctx.fillRect(ws, 96, X(sym(1) + d) - ws + X(L) - X(0) - (X(L) - X(0)), 24); ctx.globalAlpha = 1; }
+  const msg = isi ? `echo ${d} samples > CP ${L}: the end of symbol 1 leaks into the window (ISI, ICI)` : `echo ${d} samples ≤ CP ${L}: only the prefix is disturbed, every subcarrier is just scaled by H(k)`;
+  txt(msg, 550, 196, {al:"center", px:11, w:700, col:isi ? C.hole : C.channel});
+  const u = (T*0.25) % 1; dot(x0 + u*(x1 - x0), 50, C.accent, false, 1, 3.5); dot(x0 + d*spt + u*(x1 - x0 - d*spt), 90, C.electron, false, 1, 3.5);
+  // channel response across subcarriers
+  panel(20, 230, 470, 240, "Channel H(k) seen by each subcarrier");
+  const bx0 = 50, bw = 420/N, mx = Math.max(2, ...R.Hm);
+  R.Hm.forEach((h, k) => { const hh = h/mx*170; ctx.fillStyle = h < 0.5 ? C.hole : C.accent; ctx.fillRect(bx0 + k*bw, 450 - hh, bw - 1, hh); });
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.setLineDash([3, 3]); pl([[bx0, 450 - 170/mx], [bx0 + 420, 450 - 170/mx]]); ctx.setLineDash([]);
+  txt("|H| = 1", bx0 + 2, 450 - 170/mx - 8, {px:9, col:C.fg}); txt("subcarrier k →", 470, 462, {al:"right", px:9, col:C.fg});
+  txt(`deepest fade ${R.fade.toFixed(1)} dB`, 466, 256, {al:"right", px:10, w:700, col:C.hole});
+  // constellation after the FFT
+  panel(510, 230, 470, 240, OFS.eq ? "After FFT and one-tap equalizer" : "After FFT, no equalizer");
+  const cx = 640, cy = 352, sc = 70; ctx.strokeStyle = C.line; pl([[cx - 105, cy], [cx + 105, cy]]); pl([[cx, cy - 100], [cx, cy + 100]]);
+  R.pts.forEach(([a, b, e]) => { const x = cx + a*sc, y = cy - b*sc; if (Math.abs(x - cx) > 110 || Math.abs(y - cy) > 105) return; ctx.fillStyle = e ? C.hole : C.electron; ctx.globalAlpha = .45; ctx.fillRect(x - 1.2, y - 1.2, 2.6, 2.6); ctx.globalAlpha = 1; });
+  R.P.forEach(([a, b]) => { ctx.fillStyle = C.fg; ctx.beginPath(); ctx.arc(cx + a*sc, cy - b*sc, 3, 0, 2*Math.PI); ctx.fill(); });
+  ofRows([["EVM", `${R.evm.toFixed(1)} %`], ["Symbol errors", `${R.err} / ${R.tot}`], ["Echo", `${d} samples, ${(OFS.a*100).toFixed(0)} %`], ["Cyclic prefix", `${L} samples`]], 760, 300, 206);
+}
+function drawOF(dt, T){ begin(OFC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488); if (OFS.view === "sym") drawOFsym(T); else drawOFmp(T); }
+
+/* ---------------- plots ---------------- */
+function drawOFPlots(){
+  let a, b;
+  if (OFS.view === "sym"){ const N = OFS.n, A = axesR(300, 230, {l:34, r:10, t:28, b:30}, 0, N + 1, 0, 1, 1, 0.25, "f / Δf", "|S(f)|");
+    a = A.s; for (let i = 0; i < N; i++){ const k = i + 1; a += `<path d="${pathOf(range(0, N + 1, 300).map(f => { const x = f - k; return [f, Math.abs(Math.abs(x) < 1e-9 ? 1 : Math.sin(Math.PI*x)/(Math.PI*x))]; }), A.X, A.Y)}" fill="none" stroke="var(--${OF_COL[i % OF_COL.length]})" stroke-width="1.6"/>`
+      + `<circle cx="${A.X(k)}" cy="${A.Y(1)}" r="3" fill="var(--${OF_COL[i % OF_COL.length]})"/>`; }
+    a += A.frame + `<text x="40" y="12" style="fill:var(--fg)">each peak sits on the others' nulls</text>`;
+    const V = ofCCDF(), S = ofSym(), B = caAxes(220, 230, {l:40, r:8, t:28, b:30}, 0, 12, -3, 0, [[0, "0"], [4, "4"], [8, "8"], [12, "12"]], [[-3, "0.001"], [-2, "0.01"], [-1, "0.1"], [0, "1"]], "PAPR (dB)", "P(PAPR > x)");
+    const cc = range(0, 12, 120).map(x => { const n = V.filter(v => v > x).length; return [x, Math.log10(Math.max(n/V.length, 1e-3))]; });
+    b = B.s + `<path d="${pathOf(cc, B.X, B.Y)}" fill="none" stroke="var(--hole)" stroke-width="2.2"/>` + B.frame
+      + `<line x1="${B.X(S.papr)}" x2="${B.X(S.papr)}" y1="28" y2="200" stroke="var(--accent)" stroke-dasharray="3 3"/><text x="40" y="12" style="fill:var(--hole)">— N = ${N}, random data</text>`;
+  } else { const R = ofRun(), A = axesR(300, 230, {l:34, r:10, t:28, b:30}, 0, OF_N, -30, 10, 16, 10, "subcarrier k", "|H| (dB)");
+    a = A.s + `<path d="${pathOf(range(0, OF_N, 300).map(k => { const w = -2*Math.PI*k*OFS.d/OF_N, hr = 1 + OFS.a*Math.cos(OF_PH + w), hi = OFS.a*Math.sin(OF_PH + w); return [k, Math.max(-30, 20*Math.log10(Math.hypot(hr, hi)))]; }), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>`
+      + A.frame + `<text x="40" y="12" style="fill:var(--accent)">— |H(k)| from one echo</text>`;
+    const E = ofEVMcurve(), ym = Math.max(20, Math.ceil(Math.max(...E.map(e => e[1]))/10)*10), B = axesR(220, 230, {l:34, r:8, t:28, b:30}, 0, 24, 0, ym, 4, ym/4, "echo delay (samples)", "EVM (%)");
+    b = B.s + `<rect x="${B.X(0)}" y="28" width="${B.X(OFS.cpn) - B.X(0)}" height="172" fill="var(--channel)" opacity=".1"/><text x="${B.X(Math.max(OFS.cpn, 3))/1 - 3}" y="40" text-anchor="end" style="fill:var(--channel)">inside CP</text>`
+      + `<path d="${pathOf(E.map(([d, e]) => [d, Math.min(e, ym)]), B.X, B.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>` + B.frame + dotSvg(B.X(OFS.d), B.Y(Math.min(R.evm, ym)))
+      + `<text x="38" y="12" style="fill:var(--accent)">— EVM with CP = ${OFS.cpn}</text>`;
+  }
+  $("of-p1").innerHTML = a; $("of-p2").innerHTML = b;
+}
+
+/* ---------------- DOM ---------------- */
+const OFINFO = {
+  sym:{pill:"OFDM", name:"Building an OFDM symbol", sub:"Many slow subcarriers side by side, each with its own QAM symbol, added together by one inverse FFT",
+    text:"OFDM sends data not on one fast carrier but on many slow ones at the same time. Each subcarrier k carries one QAM symbol, a fixed amplitude and phase, for one symbol time T, and the subcarriers are spaced exactly Δf = 1/T apart, so that every one of them completes a whole number of cycles in T. That is what makes them orthogonal: their spectra overlap, but at the frequency of each subcarrier all the others pass through zero, and the receiver's FFT pulls them apart without crosstalk. The transmitted signal is simply their sum, which the transmitter computes with one inverse FFT; as the phasor chain shows, the subcarriers sometimes add up in phase, so the signal has high peaks, a large peak-to-average power ratio that the power amplifier must handle without distortion. In front of each symbol the transmitter repeats its last part, the cyclic prefix: because every subcarrier is periodic over T, the prefix is a seamless continuation, and it costs a little time but protects against echoes."},
+  mp:{pill:"CP", name:"Multipath and the cyclic prefix", sub:"An echo arrives a few samples late; if it fits in the cyclic prefix, one division per subcarrier undoes it",
+    text:"Indoors and in cities the signal arrives along several paths: directly and as reflections that come a little later. For a single fast carrier such echoes smear one symbol into the next and need a complicated equalizer. In OFDM each symbol lasts long, and the cyclic prefix in front of it acts as a guard: as long as the echo is shorter than the prefix, the receiver's FFT window contains only parts of the same symbol, and the echo turns into a circular convolution. In the frequency domain that means every subcarrier is just multiplied by one complex number, the channel H(k) at its frequency; echoes make H(k) frequency-selective, with deep fades on some subcarriers. The receiver estimates H(k) from known pilot symbols and divides by it, one complex division per subcarrier. If the echo is longer than the prefix, the end of the previous symbol leaks into the window (inter-symbol interference) and the subcarriers lose their orthogonality (inter-carrier interference): the constellation smears no matter how good the equalizer is. Subcarriers in a deep fade also get noisier after equalization, which is why OFDM systems add error-correcting codes across subcarriers."}
+};
+Object.assign(TIP, {
+  "Subcarriers":"Number of tones in the symbol.", "Subcarrier spacing":"Δf = 1/T keeps the subcarriers orthogonal.", "PAPR of this symbol":"Peak over average power of the drawn symbol.", "CP overhead":"Share of airtime spent on the cyclic prefix.",
+  "Echo vs prefix":"Whether the echo delay fits in the cyclic prefix.", "EVM":"RMS distance of the received points from the ideal ones.", "Symbol errors":"Wrong decisions among all subcarriers of 13 symbols.", "Deepest fade":"Weakest subcarrier of the channel.",
+  "OFDM symbol":"Sum of all subcarriers over one symbol time.", "Orthogonality":"Whole numbers of cycles per symbol.", "Cyclic prefix copy":"The prefix repeats the end of the symbol.", "Peak-to-average ratio":"High peaks need a linear power amplifier.",
+  "Two-path channel":"Direct path plus one echo.", "Per subcarrier":"Echoes inside the prefix become a multiplication.", "One-tap equalizer":"Divide by the channel value.", "Error vector magnitude":"Quality of the received constellation."
+});
+const OFLEG = {sym:[["accent","Sum, cyclic prefix"],["electron","Envelope"],["channel","Recovered exactly"],["hole","PAPR"]],
+  mp:[["accent","Direct path, |H(k)|"],["electron","Echo, received points"],["hole","ISI, deep fades, errors"],["muted","Cyclic prefix"]]};
+function updateOF(){
+  const v = OFS.view, info = OFINFO[v];
+  $("of-pill").textContent = info.pill; $("of-name").textContent = info.name; $("of-sub").textContent = info.sub; $("of-explain").textContent = info.text;
+  document.querySelectorAll("#of-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  document.querySelectorAll("#of-mod button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.m === OFS.m));
+  $("of-c-sym").hidden = v !== "sym"; $("of-c-mp").hidden = v !== "mp";
+  $("of-play").textContent = OFS.play ? "❚❚ Pause" : "▶ Play"; $("of-eq").textContent = OFS.eq ? "One-tap equalizer: on" : "One-tap equalizer: off";
+  ["n", "cp", "d", "a", "cpn", "snr"].forEach(k => { const el = $("of-" + k); if (+el.value !== OFS[k]) el.value = OFS[k]; });
+  $("of-n-v").textContent = `${OFS.n}`; $("of-cp-v").textContent = `${(OFS.cp*100).toFixed(1)} % of T`; $("of-d-v").textContent = `${OFS.d} samples`; $("of-a-v").textContent = `${(OFS.a*100).toFixed(0)} %`;
+  $("of-cpn-v").textContent = `${OFS.cpn} samples`; $("of-snr-v").textContent = `${OFS.snr.toFixed(1)} dB`;
+  setHTML("of-legend", OFLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  let ro, eq;
+  if (v === "sym"){ const S = ofSym();
+    ro = [["Subcarriers", `${OFS.n}`], ["Subcarrier spacing", "Δf = 1/T"], ["PAPR of this symbol", `${S.papr.toFixed(1)} dB`], ["CP overhead", `${(OFS.cp/(1 + OFS.cp)*100).toFixed(1)} %`]];
+    eq = [{name:"OFDM symbol", f:"x(t) = Σ_k X_k · e^(j2πk·Δf·t),  0 ≤ t < T,  Δf = 1/T", sub:`${OFS.n} subcarriers, ${OFS.m === 4 ? "QPSK" : "16-QAM"}`},
+      {name:"Orthogonality", f:"(1/T) ∫₀ᵀ e^(j2π(k − m)t/T) dt = 0  for k ≠ m", sub:"FFT bin m sees only subcarrier m"},
+      {name:"Cyclic prefix copy", f:"x(t) = x(t + T)  for −T_cp ≤ t < 0", sub:`T_cp = ${(OFS.cp*100).toFixed(1)} % of T`},
+      {name:"Peak-to-average ratio", f:"PAPR = max|x(t)|² / mean|x(t)|²  ≤ N", sub:`${S.papr.toFixed(1)} dB (at most ${(10*Math.log10(OFS.n)).toFixed(1)} dB)`}];
+  } else { const R = ofRun();
+    ro = [["Echo vs prefix", OFS.d <= OFS.cpn ? "inside the CP" : "longer than the CP"], ["EVM", `${R.evm.toFixed(1)} %`], ["Symbol errors", `${R.err} / ${R.tot}`], ["Deepest fade", `${R.fade.toFixed(1)} dB`]];
+    eq = [{name:"Two-path channel", f:"y[n] = x[n] + a·e^(jφ)·x[n − d] + w[n]", sub:`a = ${OFS.a.toFixed(2)}, d = ${OFS.d}, SNR = ${OFS.snr.toFixed(1)} dB`},
+      {name:"Per subcarrier", f:"d ≤ L_CP:  Y_k = H_k · X_k + W_k,  H_k = 1 + a·e^(jφ)·e^(−j2πkd/N)", sub:OFS.d <= OFS.cpn ? "holds: echo inside the prefix" : "broken: ISI and ICI"},
+      {name:"One-tap equalizer", f:"X̂_k = Y_k / H_k", sub:OFS.eq ? "on" : "off"},
+      {name:"Error vector magnitude", f:"EVM = √(mean|X̂_k − X_k|²) / √(mean|X_k|²)", sub:`${R.evm.toFixed(1)} %`}];
+  }
+  renderRo($("of-ro"), ro); renderEq($("of-eq-box"), eq);
+  drawOFPlots();
+}
+function ofTick(dt){
+  if (!(dt >= 0)) return;
+  if (OFS.play && OFS.view === "sym"){ OFS.t = (OFS.t + dt/10) % 1; OFS.acc += dt; if (OFS.acc > 0.2){ OFS.acc = 0; updateOF(); } }
+}
+document.querySelectorAll("#of-view button").forEach(b => b.addEventListener("click", () => { OFS.view = b.dataset.v; updateOF(); }));
+document.querySelectorAll("#of-mod button").forEach(b => b.addEventListener("click", () => { OFS.m = +b.dataset.m; updateOF(); }));
+$("of-play").addEventListener("click", () => { OFS.play = !OFS.play; updateOF(); });
+$("of-new").addEventListener("click", () => { OFS.seed = (OFS.seed*1103515245 + 12345) % 2147483647; updateOF(); });
+$("of-eq").addEventListener("click", () => { OFS.eq = !OFS.eq; updateOF(); });
+[["of-n", "n"], ["of-cp", "cp"], ["of-d", "d"], ["of-a", "a"], ["of-cpn", "cpn"], ["of-snr", "snr"]].forEach(([id, k]) => $(id).addEventListener("input", e => { OFS[k] = +e.target.value; updateOF(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb","ca","sm","la","ee","tl","sb","dm"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb","ca","sm","la","ee","tl","sb","dm","of"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown", ca:"#capacitors", sm:"#smith-chart", la:"#latchup-antenna", ee:"#esd-eos", tl:"#transmission-lines", sb:"#serial-interfaces", dm:"#modulation"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev", ca:"rf", sm:"rf", la:"rel", ee:"rel", tl:"rf", sb:"cir", dm:"rf"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown", ca:"#capacitors", sm:"#smith-chart", la:"#latchup-antenna", ee:"#esd-eos", tl:"#transmission-lines", sb:"#serial-interfaces", dm:"#modulation", of:"#ofdm"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev", ca:"rf", sm:"rf", la:"rel", ee:"rel", tl:"rf", sb:"cir", dm:"rf", of:"rf"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -28703,6 +29175,7 @@ function showTab(t){
   else if (t === "tl"){ $("sub-top").textContent = "Transmission lines · microstrip, stripline and coplanar waveguide"; TLC.resize(); updateTL(); }
   else if (t === "sb"){ $("sub-top").textContent = "Serial interfaces · UART, I²C, SPI and CAN bit by bit"; SBC.resize(); updateSB(); }
   else if (t === "dm"){ $("sub-top").textContent = "Digital modulation · ASK, FSK, PSK and QAM"; DMC.resize(); updateDM(); }
+  else if (t === "of"){ $("sub-top").textContent = "OFDM · subcarriers, cyclic prefix and multipath"; OFC.resize(); updateOF(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -28747,6 +29220,7 @@ function frame(now){
   else if (tab === "tl"){ tlTick(dt); if (TLC.cv.clientWidth) drawTL(dt, T); }
   else if (tab === "sb"){ sbTick(dt); if (SBC.cv.clientWidth) drawSB(dt, T); }
   else if (tab === "dm"){ dmTick(dt); if (DMC.cv.clientWidth) drawDM(dt, T); }
+  else if (tab === "of"){ ofTick(dt); if (OFC.cv.clientWidth) drawOF(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);

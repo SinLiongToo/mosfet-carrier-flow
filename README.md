@@ -211,6 +211,10 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - I/Q constellation (FSK: f₀/f₁ correlators) with the current phasor, a cloud of noisy received symbols and wrong decisions in red; the receiver compares sent and decided bits and measures the bit error rate by Monte Carlo against the textbook formula
 - Eb/N0 and carrier-cycles sliders, new random data; spectrum at the same bit rate (main lobe 2 R_b / k, ASK carrier line, FSK two tones) and BER versus Eb/N0 for all schemes
 
+## OFDM tab (`#ofdm`)
+- **Build an OFDM symbol** – 2–16 subcarriers, each with a QPSK or 16-QAM symbol, drawn one by one and summed into the OFDM symbol with its cyclic prefix (the periodic extension), envelope and PAPR; animated head-to-tail phasor chain; subcarrier spectra peaking on each other's nulls; PAPR CCDF
+- **Multipath and cyclic prefix** – 64-point IFFT/FFT burst through a two-path channel (echo delay, strength, SNR); direct and echo symbol blocks with the FFT window and the ISI region when the echo exceeds the prefix; |H(k)| across subcarriers with deep fades; constellation after the FFT with or without the one-tap equalizer, EVM and symbol errors; EVM versus echo delay
+
 ## Quiz and glossary
 - **Quiz** (? button in the header) – multiple-choice questions generated from the "Explain the terms" list of the open tab, or of all tabs; score, feedback and a link to the term in its tab
 - **Glossary** (book button) – every term explained on the site (about 390) in one filterable alphabetical list, each linked to its tab; works in English and Chinese
