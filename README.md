@@ -215,6 +215,10 @@ Each shows the schematic, cross-sections of the affected transistor vs a referen
 - **Build an OFDM symbol** – 2–16 subcarriers, each with a QPSK or 16-QAM symbol, drawn one by one and summed into the OFDM symbol with its cyclic prefix (the periodic extension), envelope and PAPR; animated head-to-tail phasor chain; subcarrier spectra peaking on each other's nulls; PAPR CCDF
 - **Multipath and cyclic prefix** – 64-point IFFT/FFT burst through a two-path channel (echo delay, strength, SNR); direct and echo symbol blocks with the FFT window and the ISI region when the echo exceeds the prefix; |H(k)| across subcarriers with deep fades; constellation after the FFT with or without the one-tap equalizer, EVM and symbol errors; EVM versus echo delay
 
+## Optoelectronics tab (`#optoelectronics`)
+- **Photodiode / solar cell** – Si, GaAs, Ge or InGaAs; photons absorbed at the depth set by the measured absorption coefficient α(λ), electron-hole pairs collected from the depletion region or lost to recombination; band diagram with absorption and separation; single wavelength or sunlight (black-body AM1.5), solar cell with a load or photodiode under reverse bias, temperature, anti-reflection coating; J–V curve with power and load line (V_oc, FF, efficiency), quantum efficiency versus wavelength with the cutoff λ_c = 1240/E_g
+- **LED / laser** – GaN, InGaN blue and green, AlGaInP, GaAs and indirect Si; carriers recombining in the quantum wells and emitting photons of the band-gap colour (Si: phonons, heat); laser mirrors, threshold and coherent beam; emission spectrum (≈ 1.8 kT wide, or a narrow laser line) and light output versus current
+
 ## Quiz and glossary
 - **Quiz** (? button in the header) – multiple-choice questions generated from the "Explain the terms" list of the open tab, or of all tabs; score, feedback and a link to the term in its tab
 - **Glossary** (book button) – every term explained on the site (about 390) in one filterable alphabetical list, each linked to its tab; works in English and Chinese

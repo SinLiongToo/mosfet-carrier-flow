@@ -9998,6 +9998,188 @@ Object.assign(window.I18N_ZH, {
 "An echo arrives a few samples late; if it fits in the cyclic prefix, one division per subcarrier undoes it": "回波晚到幾個取樣；只要它在循環前綴之內，每個子載波做一次除法就能消除",
 "Indoors and in cities the signal arrives along several paths: directly and as reflections that come a little later. For a single fast carrier such echoes smear one symbol into the next and need a complicated equalizer. In OFDM each symbol lasts long, and the cyclic prefix in front of it acts as a guard: as long as the echo is shorter than the prefix, the receiver's FFT window contains only parts of the same symbol, and the echo turns into a circular convolution. In the frequency domain that means every subcarrier is just multiplied by one complex number, the channel H(k) at its frequency; echoes make H(k) frequency-selective, with deep fades on some subcarriers. The receiver estimates H(k) from known pilot symbols and divides by it, one complex division per subcarrier. If the echo is longer than the prefix, the end of the previous symbol leaks into the window (inter-symbol interference) and the subcarriers lose their orthogonality (inter-carrier interference): the constellation smears no matter how good the equalizer is. Subcarriers in a deep fade also get noisier after equalization, which is why OFDM systems add error-correcting codes across subcarriers.": "在室內與城市中，訊號會經由好幾條路徑到達：直達波，以及稍晚到達的反射波。對單一快速載波來說，這些回波會把一個符元拖進下一個，需要複雜的等化器。OFDM 的每個符元很長，前面的循環前綴就是保護區間：只要回波比前綴短，接收端的 FFT 視窗裡只有同一個符元的內容，回波變成循環摺積。在頻域中，這表示每個子載波只是乘上一個複數，也就是它頻率上的通道值 H(k)；回波讓 H(k) 具有頻率選擇性，有些子載波會陷入深衰落。接收端從已知的導頻符元估計 H(k) 並除掉它，每個子載波只需一次複數除法。如果回波比前綴長，前一個符元的尾端會漏進視窗（符元間干擾），子載波也失去正交性（子載波間干擾）：不管等化器多好，星座圖都會散開。陷入深衰落的子載波在等化後雜訊也會變大，所以 OFDM 系統會在子載波之間加上錯誤更正碼。"
 });
+Object.assign(window.I18N_ZH, {
+"Optoelectronics (photodiode · LED)": "光電元件（光二極體 · LED）",
+"Optoelectronics · photodiodes, solar cells, LEDs and laser diodes": "光電元件 · 光二極體、太陽能電池、LED 與雷射二極體",
+"Optoelectronic device": "光電元件",
+"Photodiode / solar cell": "光二極體 / 太陽能電池",
+"LED / laser": "LED / 雷射",
+"Photodiode: photons absorbed at a depth set by their wavelength, electron-hole pairs separated by the junction field, next to the band diagram; or LED and laser: electrons and holes recombining in the active layer and emitting light of the band-gap colour": "光二極體：光子依波長在不同深度被吸收，電子電洞對被接面電場分開，旁邊是能帶圖；或 LED 與雷射：電子與電洞在主動層復合，發出能隙對應顏色的光",
+"Material": "材料",
+"Semiconductor of the junction. Its band gap sets the longest wavelength it can absorb, λ_c = # nm·eV / E_g.": "接面的半導體材料。它的能隙決定能吸收的最長波長，λ_c = # nm·eV / E_g。",
+"Si (# eV)": "Si（# eV）",
+"GaAs (# eV)": "GaAs（# eV）",
+"Ge (# eV)": "Ge（# eV）",
+"InGaAs (# eV)": "InGaAs（# eV）",
+"Light source": "光源",
+"Single wavelength": "單一波長",
+"Sunlight (AM#)": "太陽光（AM#）",
+"Operating mode": "工作模式",
+"Solar cell + load": "太陽能電池 + 負載",
+"Photodiode, reverse bias": "光二極體，逆偏",
+"Wavelength": "波長",
+"Wavelength of the light. Blue light is absorbed right at the surface, near-infrared light deep inside; beyond the cutoff the photons pass straight through.": "光的波長。藍光在表面就被吸收，近紅外光在深處才被吸收；超過截止波長的光子會直接穿過。",
+"Light intensity": "光強度",
+"Optical power per area falling on the device. Full sunlight is about # mW/cm².": "照到元件上的單位面積光功率。全日照約 # mW/cm²。",
+"Load resistance": "負載電阻",
+"Load resistance of a # cm² cell. The best load puts the operating point at the maximum power point.": "# cm² 電池的負載電阻。最佳負載讓工作點落在最大功率點。",
+"Reverse bias": "逆偏電壓",
+"Reverse bias across the photodiode. It widens the depletion region, so more carriers are collected quickly, but the current stays the photocurrent.": "光二極體上的逆偏電壓。它讓空乏區變寬，更多載子能被快速收集，但電流仍等於光電流。",
+"Temperature": "溫度",
+"Device temperature. The dark current rises steeply with temperature, so the open-circuit voltage and the efficiency of a solar cell fall.": "元件溫度。暗電流隨溫度急遽增加，所以太陽能電池的開路電壓與效率會下降。",
+"Anti-reflection coating: on": "抗反射膜：開",
+"Anti-reflection coating: off": "抗反射膜：關",
+"Light-emitting semiconductor. The band gap sets the photon energy and therefore the colour. Silicon has an indirect gap and hardly emits light.": "發光半導體。能隙決定光子能量，也就決定顏色。矽是間接能隙，幾乎不發光。",
+"GaN (UV)": "GaN（紫外）",
+"InGaN (blue)": "InGaN（藍）",
+"InGaN (green)": "InGaN（綠）",
+"AlGaInP (red)": "AlGaInP（紅）",
+"GaAs (infrared)": "GaAs（紅外）",
+"Si (indirect)": "Si（間接能隙）",
+"Device type": "元件類型",
+"LED": "LED",
+"Laser diode": "雷射二極體",
+"Forward current": "順向電流",
+"Forward current through the junction.": "流過接面的順向電流。",
+"Junction temperature": "接面溫度",
+"Junction temperature. A hotter junction has a slightly smaller band gap (redder light), a broader spectrum and lower efficiency.": "接面溫度。接面越熱，能隙越小（光偏紅）、頻譜越寬、效率越低。",
+"Current-voltage curve under light with the power curve and the operating point; or the emission spectrum": "照光下的電流-電壓曲線與功率曲線及工作點；或發光頻譜",
+"Quantum efficiency versus wavelength; or optical power versus current": "量子效率對波長；或光功率對電流",
+"Explain the terms: band gap and cutoff wavelength, absorption depth, quantum efficiency, responsivity, open-circuit voltage, fill factor, direct and indirect gap, stimulated emission": "名詞解釋：能隙與截止波長、吸收深度、量子效率、響應度、開路電壓、填充因子、直接與間接能隙、受激輻射",
+"Light and band gap": "光與能隙",
+"E_g (eV)": "E_g (eV)",
+"Use": "用途",
+"# nm (UV)": "# nm（紫外）",
+"UV LEDs, power transistors": "紫外 LED、功率電晶體",
+"#–#": "#–#",
+"#–# nm": "#–# nm",
+"blue and green LEDs, white LEDs with phosphor": "藍光與綠光 LED，加螢光粉成為白光 LED",
+"red and amber LEDs": "紅光與琥珀色 LED",
+"# nm": "# nm",
+"infrared LEDs, lasers, space solar cells": "紅外 LED、雷射、太空太陽能電池",
+"solar cells, image sensors (indirect: no light)": "太陽能電池、影像感測器（間接能隙：不發光）",
+"fibre-optic photodiodes (# / # nm)": "光纖通訊光二極體（# / # nm）",
+"infrared detectors": "紅外偵測器",
+"Terms": "名詞",
+"Cutoff wavelength": "截止波長",
+"λ_c = # nm·eV / E_g: longer wavelengths have too little energy to lift an electron across the gap.": "λ_c = # nm·eV / E_g：更長的波長能量不足，無法把電子提升越過能隙。",
+"Absorption depth": "吸收深度",
+"#/α, the depth where the light has dropped to # %; short for blue light, long for light near the cutoff.": "#/α，光強降到 # % 的深度；藍光很淺，接近截止波長的光很深。",
+"Quantum efficiency": "量子效率",
+"Electrons collected per incoming photon (external: including the reflection at the surface).": "每個入射光子收集到的電子數（外部量子效率：包含表面反射）。",
+"Responsivity": "響應度",
+"Photocurrent per optical power, R = QE · λ / # nm in A/W.": "每單位光功率的光電流，R = QE · λ / # nm，單位 A/W。",
+"Open-circuit voltage": "開路電壓",
+"Voltage of an unloaded cell, where the photocurrent is balanced by the diode's forward current.": "電池不接負載時的電壓，此時光電流被二極體的順向電流抵消。",
+"Fill factor": "填充因子",
+"Maximum power divided by V_oc · I_sc: how square the I–V curve is.": "最大功率除以 V_oc · I_sc：I–V 曲線有多方正。",
+"Direct / indirect gap": "直接 / 間接能隙",
+"In a direct material the electron can drop and emit a photon; in an indirect one (Si, Ge) it also needs a phonon, so light emission is very weak.": "在直接能隙材料中，電子可以直接落下並發出光子；在間接能隙材料（Si、Ge）中還需要聲子，所以發光非常弱。",
+"Stimulated emission": "受激輻射",
+"A photon triggers an identical one; with mirrors and enough current (above threshold) this gives laser light, narrow and coherent.": "一個光子激發出一個完全相同的光子；加上鏡面與足夠電流（超過閾值）就得到窄頻且同調的雷射光。",
+"Photocurrent": "光電流",
+"Solar efficiency": "太陽能效率",
+"Photon energy": "光子能量",
+"Peak wavelength": "峰值波長",
+"Optical power": "光功率",
+"Wall-plug efficiency": "插座效率",
+"Longest wavelength the band gap can absorb.": "能隙能吸收的最長波長。",
+"Electrons collected per incoming photon.": "每個入射光子收集到的電子數。",
+"Current density generated by the light.": "光產生的電流密度。",
+"Maximum electrical power over light power.": "最大電功率除以光功率。",
+"Photocurrent per optical power.": "每單位光功率的光電流。",
+"Squareness of the I–V curve.": "I–V 曲線的方正程度。",
+"Voltage at zero current.": "電流為零時的電壓。",
+"E = # nm·eV / λ.": "E = # nm·eV / λ。",
+"Wavelength of strongest emission.": "發光最強的波長。",
+"Light power leaving the device.": "離開元件的光功率。",
+"Optical power over electrical power.": "光功率除以電功率。",
+"Absorption": "吸收",
+"Light decays exponentially with depth.": "光隨深度指數衰減。",
+"Diode under light": "照光的二極體",
+"Photocurrent minus the diode current.": "光電流減去二極體電流。",
+"Emission energy": "發光能量",
+"Photon energy close to the band gap.": "光子能量接近能隙。",
+"Line width": "線寬",
+"Thermal spread of the carriers.": "載子的熱分佈寬度。",
+"Light output": "光輸出",
+"Photons per electron times photon energy.": "每個電子產生的光子數乘以光子能量。",
+"Laser threshold": "雷射閾值",
+"Above it, stimulated emission dominates.": "超過它，受激輻射佔主導。",
+"λ_c = # nm·eV / E_g": "λ_c = # nm·eV / E_g",
+"R = EQE · λ / # nm (A/W)": "R = EQE · λ / # nm（A/W）",
+"laser: < # nm": "雷射：< # nm",
+"Si cannot lase": "Si 無法產生雷射",
+"LED: no threshold": "LED：沒有閾值",
+"Light on a PN junction": "照在 PN 接面上的光",
+"p (emitter)": "p（射極層）",
+"depletion: field": "空乏區：電場",
+"n (base), # µm": "n（基極），# µm",
+"depth (log scale)": "深度（對數刻度）",
+"absorption depth #/α = # µm": "吸收深度 #/α = # µm",
+"absorption depth #/α = # nm": "吸收深度 #/α = # nm",
+"below the band gap: the light passes through": "低於能隙：光直接穿過",
+"R_L": "R_L",
+"Band diagram: absorption and separation": "能帶圖：吸收與分離",
+"p": "p",
+"n": "n",
+"photon energy below E_g: not absorbed": "光子能量低於 E_g：不被吸收",
+"full spectrum": "全頻譜",
+"Internal QE": "內部量子效率",
+"Operating point": "工作點",
+"Laser diode: active layer between two mirrors": "雷射二極體：兩面鏡子之間的主動層",
+"LED: recombination in the active layer": "LED：在主動層中復合",
+"p-type": "p 型",
+"n-type": "n 型",
+"active layer: InGaN quantum wells": "主動層：InGaN 量子井",
+"active layer: GaN quantum wells": "主動層：GaN 量子井",
+"active layer: AlGaInP quantum wells": "主動層：AlGaInP 量子井",
+"active layer: GaAs quantum wells": "主動層：GaAs 量子井",
+"active layer: Si quantum wells": "主動層：Si",
+"mirror": "鏡面",
+"coherent beam": "同調光束",
+"indirect gap: the energy goes into lattice vibrations (heat)": "間接能隙：能量變成晶格振動（熱）",
+"below threshold (# mA): weak spontaneous light": "低於閾值（# mA）：微弱的自發光",
+"above threshold: stimulated emission": "超過閾值：受激輻射",
+"electrons and holes meet and emit photons": "電子與電洞相遇並發出光子",
+"Band diagram under forward bias": "順偏下的能帶圖",
+"needs a phonon (momentum)": "需要聲子（動量）",
+"hν = # eV → # nm": "hν = # eV → # nm",
+"Band gap": "能隙",
+"Forward voltage": "順向電壓",
+"V (V)": "V (V)",
+"J (mA/cm²)": "J (mA/cm²)",
+"— lit": "— 照光",
+"- - dark": "- - 暗",
+"— power": "— 功率",
+"- - load": "- - 負載",
+"wavelength (nm)": "波長 (nm)",
+"EQE": "EQE",
+"— QE": "— 量子效率",
+"▒ sunlight": "▒ 太陽光",
+"λ_c": "λ_c",
+"intensity": "強度",
+"laser line (stimulated emission)": "雷射譜線（受激輻射）",
+"spontaneous emission, width ≈ # kT": "自發輻射，寬度 ≈ # kT",
+"current (mA)": "電流 (mA)",
+"P (mW)": "P (mW)",
+"threshold": "閾值",
+"— light output": "— 光輸出",
+"p emitter, holes": "p 射極、電洞",
+"n base, electrons": "n 基極、電子",
+"Depletion region": "空乏區",
+"Contacts": "電極",
+"p-type, holes": "p 型、電洞",
+"n-type, electrons": "n 型、電子",
+"Active layer": "主動層",
+"Heat (phonons)": "熱（聲子）",
+"Photodiode and solar cell": "光二極體與太陽能電池",
+"Photons lift electrons across the band gap; the junction field separates them into a current": "光子把電子提升越過能隙，接面電場把它們分開形成電流",
+"A photon with an energy above the band gap can lift an electron from the valence band into the conduction band, leaving a hole behind. How deep that happens depends on the wavelength: silicon absorbs blue light within a fraction of a micrometre, red light within a few micrometres and near-infrared light only after hundreds of micrometres, and light beyond the cutoff wavelength # nm·eV / E_g passes straight through. Pairs created in or near the depletion region are pulled apart by its built-in field, the electron toward the n side and the hole toward the p side, and flow out as a photocurrent; pairs created too far away recombine before they arrive. The fraction collected per photon is the quantum efficiency. Under reverse bias the device is a photodiode: its current is simply proportional to the light. Connected to a load it is a solar cell: the photocurrent drives the junction into forward bias, and the operating point slides along the curve J = J_ph − J#(e^(qV/kT) − #). The best load sits at the maximum power point; the open-circuit voltage grows only logarithmically with light and falls with temperature, because the dark current J# rises steeply. Photons with more energy than the gap lose the excess as heat, and photons below it are lost entirely: that is why a single junction can never convert all of sunlight.": "能量高於能隙的光子可以把電子從價帶提升到導帶，留下一個電洞。發生的深度取決於波長：矽在不到一微米內就吸收藍光，紅光要幾微米，近紅外光要好幾百微米，而超過截止波長 # nm·eV / E_g 的光會直接穿過。在空乏區內或附近產生的電子電洞對會被內建電場分開，電子往 n 側、電洞往 p 側，形成光電流流出；產生位置太遠的會在到達前就復合。每個光子被收集到的比例就是量子效率。逆偏時元件是光二極體：電流就與光強成正比。接上負載時它是太陽能電池：光電流把接面推向順偏，工作點沿著 J = J_ph − J#(e^(qV/kT) − #) 曲線移動。最佳負載落在最大功率點；開路電壓只隨光強對數增加，並隨溫度下降，因為暗電流 J# 急遽上升。能量高於能隙的光子把多餘能量變成熱，低於能隙的光子則完全損失：這就是單一接面永遠無法轉換全部太陽光的原因。",
+"LED and laser diode": "LED 與雷射二極體",
+"Forward current pushes electrons and holes together; they recombine and emit light of the band-gap colour": "順向電流把電子與電洞推到一起；它們復合並發出能隙顏色的光",
+"In a forward-biased junction electrons from the n side and holes from the p side flow into a thin active layer, often a stack of quantum wells, and recombine. In a direct-gap material such as GaN, InGaN, AlGaInP or GaAs the electron can drop straight into the hole and emit a photon whose energy is close to the band gap, so the material decides the colour: GaN ultraviolet, InGaN blue to green, AlGaInP red, GaAs infrared. The spectrum of an LED is a few kT wide because the carriers are spread thermally above the band edges, and it shifts to longer wavelengths when the junction heats up. Silicon has an indirect gap: the electron also needs a phonon to change its momentum, so almost all the energy ends up as heat. A laser diode adds mirrors at the ends of the active layer. Below the threshold current it glows weakly like an LED; above it, the gain from stimulated emission exceeds the losses, photons bouncing between the mirrors trigger identical photons, and the output jumps into a narrow, coherent line whose power rises steeply with current. LED efficiency droops at high current, especially in green InGaN, the so-called green gap.": "在順偏的接面中，來自 n 側的電子與來自 p 側的電洞流進一層很薄的主動層（通常是多層量子井）並復合。在 GaN、InGaN、AlGaInP 或 GaAs 這類直接能隙材料中，電子可以直接落入電洞並發出能量接近能隙的光子，所以材料決定顏色：GaN 紫外、InGaN 藍到綠、AlGaInP 紅、GaAs 紅外。LED 的頻譜寬約數個 kT，因為載子在能帶邊緣上方有熱分佈；接面變熱時頻譜會往長波長移動。矽是間接能隙：電子還需要一個聲子來改變動量，所以幾乎所有能量都變成熱。雷射二極體在主動層兩端加上鏡面。低於閾值電流時它像 LED 一樣微弱發光；超過閾值後，受激輻射的增益超過損耗，在鏡面間來回反射的光子激發出完全相同的光子，輸出變成一條窄而同調的譜線，功率隨電流急遽上升。LED 效率在大電流時會下降（效率衰退），綠光 InGaN 特別明顯，也就是所謂的「綠光缺口」。"
+});
 window.I18N_ZH["Zoom in plot"] = "放大圖表"; window.I18N_ZH["Close zoom"] = "關閉放大";
 window.I18N_ZH_PREFIX = {"÷ sequence": "÷ 序列", "prototype g:": "原型 g："};
 </script>
@@ -10416,6 +10598,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
         <button role="tab" id="tab-btn-sb" aria-selected="false" aria-controls="tab-sb">Serial interfaces (UART · I²C · SPI · CAN)</button>
         <button role="tab" id="tab-btn-dm" aria-selected="false" aria-controls="tab-dm">Digital modulation</button>
         <button role="tab" id="tab-btn-of" aria-selected="false" aria-controls="tab-of">OFDM</button>
+        <button role="tab" id="tab-btn-op" aria-selected="false" aria-controls="tab-op">Optoelectronics (photodiode · LED)</button>
       </div>
       <div class="seg" role="group" aria-label="Transistor type" id="seg-type">
         <button id="bt-n" aria-pressed="true">NMOS</button>
@@ -15692,6 +15875,131 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
               <dt>Multipath</dt><dd>Reflections arriving later than the direct signal; they make the channel frequency-selective.</dd>
               <dt>One-tap equalizer</dt><dd>Divide each subcarrier by its channel value H(k): a single complex multiplication per subcarrier.</dd>
               <dt>PAPR</dt><dd>Peak-to-average power ratio: many subcarriers can add up in phase, so OFDM peaks are high and need a linear power amplifier.</dd>
+            </dl>
+          </div>
+        </div>
+      </details>
+    </section>
+  </section>
+  <!-- ===================== OPTOELECTRONICS TAB ===================== -->
+  <section id="tab-op" role="tabpanel" aria-labelledby="tab-btn-op" hidden style="display:grid;gap:18px">
+    <div class="stagehead">
+      <div class="row"><span class="pill" id="op-pill">PV</span><h2 id="op-name">Photodiode and solar cell</h2></div>
+      <p id="op-sub"></p>
+    </div>
+    <div class="stepper">
+      <div class="seg" id="op-view" role="group" aria-label="Optoelectronic device" style="flex-wrap:wrap">
+        <button data-v="pd" aria-pressed="true">Photodiode / solar cell</button>
+        <button data-v="led" aria-pressed="false">LED / laser</button>
+      </div>
+    </div>
+
+    <section class="device">
+      <canvas id="cvop" aria-label="Photodiode: photons absorbed at a depth set by their wavelength, electron-hole pairs separated by the junction field, next to the band diagram; or LED and laser: electrons and holes recombining in the active layer and emitting light of the band-gap colour"></canvas>
+      <div class="legend" id="op-legend"></div>
+    </section>
+
+    <div class="bench">
+      <section class="card">
+        <p class="eyebrow">Controls</p>
+        <div class="readouts four" id="op-ro"></div>
+        <div id="op-c-pd" style="display:grid;gap:12px">
+          <div style="display:grid;gap:8px">
+            <span class="term" tabindex="0" data-tip="Semiconductor of the junction. Its band gap sets the longest wavelength it can absorb, λ_c = 1240 nm·eV / E_g.">Material</span>
+            <div class="chips" id="op-pm">
+              <button class="chipbtn" data-m="si">Si (1.12 eV)</button><button class="chipbtn" data-m="gaas">GaAs (1.42 eV)</button>
+              <button class="chipbtn" data-m="ge">Ge (0.66 eV)</button><button class="chipbtn" data-m="ingaas">InGaAs (0.75 eV)</button>
+            </div>
+          </div>
+          <div class="chips">
+            <div class="seg" id="op-src" role="group" aria-label="Light source"><button data-s="mono">Single wavelength</button><button data-s="sun">Sunlight (AM1.5)</button></div>
+            <div class="seg" id="op-mode" role="group" aria-label="Operating mode"><button data-o="solar">Solar cell + load</button><button data-o="pd">Photodiode, reverse bias</button></div>
+          </div>
+          <div class="slider" id="op-c-lam">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Wavelength of the light. Blue light is absorbed right at the surface, near-infrared light deep inside; beyond the cutoff the photons pass straight through.">Wavelength</span><span id="op-lam-v"></span></div>
+            <input id="op-lam" type="range" min="300" max="1800" step="5" value="650">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Optical power per area falling on the device. Full sunlight is about 100 mW/cm².">Light intensity</span><span id="op-pw-v"></span></div>
+            <input id="op-pw" type="range" min="0" max="2" step="0.01" value="1">
+          </div>
+          <div class="slider" id="op-c-rl">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Load resistance of a 1 cm² cell. The best load puts the operating point at the maximum power point.">Load resistance</span><span id="op-rl-v"></span></div>
+            <input id="op-rl" type="range" min="-0.5" max="3" step="0.01" value="1.2">
+          </div>
+          <div class="slider" id="op-c-vr">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Reverse bias across the photodiode. It widens the depletion region, so more carriers are collected quickly, but the current stays the photocurrent.">Reverse bias</span><span id="op-vr-v"></span></div>
+            <input id="op-vr" type="range" min="0" max="10" step="0.1" value="3">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Device temperature. The dark current rises steeply with temperature, so the open-circuit voltage and the efficiency of a solar cell fall.">Temperature</span><span id="op-T-v"></span></div>
+            <input id="op-T" type="range" min="-40" max="100" step="1" value="25">
+          </div>
+          <div class="chips"><button class="chipbtn" id="op-ar">Anti-reflection coating: on</button></div>
+        </div>
+        <div id="op-c-led" hidden style="display:grid;gap:12px">
+          <div style="display:grid;gap:8px">
+            <span class="term" tabindex="0" data-tip="Light-emitting semiconductor. The band gap sets the photon energy and therefore the colour. Silicon has an indirect gap and hardly emits light.">Material</span>
+            <div class="chips" id="op-lm">
+              <button class="chipbtn" data-m="gan">GaN (UV)</button><button class="chipbtn" data-m="blue">InGaN (blue)</button><button class="chipbtn" data-m="green">InGaN (green)</button>
+              <button class="chipbtn" data-m="red">AlGaInP (red)</button><button class="chipbtn" data-m="gaas">GaAs (infrared)</button><button class="chipbtn" data-m="si">Si (indirect)</button>
+            </div>
+          </div>
+          <div class="seg" id="op-lt" role="group" aria-label="Device type"><button data-t="led">LED</button><button data-t="laser">Laser diode</button></div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Forward current through the junction.">Forward current</span><span id="op-ci-v"></span></div>
+            <input id="op-ci" type="range" min="0" max="100" step="0.5" value="20">
+          </div>
+          <div class="slider">
+            <div class="lab"><span class="term" tabindex="0" data-tip="Junction temperature. A hotter junction has a slightly smaller band gap (redder light), a broader spectrum and lower efficiency.">Junction temperature</span><span id="op-lT-v"></span></div>
+            <input id="op-lT" type="range" min="-40" max="120" step="1" value="25">
+          </div>
+        </div>
+        <p class="eyebrow">Equations</p>
+        <div class="eq" id="op-eq"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Characteristics</p>
+        <div class="plots">
+          <div class="plot"><svg id="op-p1" viewBox="0 0 300 230" role="img" aria-label="Current-voltage curve under light with the power curve and the operating point; or the emission spectrum"></svg></div>
+          <div class="plot"><svg id="op-p2" viewBox="0 0 220 230" role="img" aria-label="Quantum efficiency versus wavelength; or optical power versus current"></svg></div>
+        </div>
+        <div class="sub-card explain">
+          <p class="eyebrow">How it works</p>
+          <p id="op-explain"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="gloss" open>
+        <summary>Explain the terms: band gap and cutoff wavelength, absorption depth, quantum efficiency, responsivity, open-circuit voltage, fill factor, direct and indirect gap, stimulated emission</summary>
+        <div class="gloss-grid">
+          <div>
+            <h3>Light and band gap</h3>
+            <div class="tbl"><table>
+              <tr><th>Material</th><th>E_g (eV)</th><th>Wavelength</th><th>Use</th></tr>
+              <tr><td>GaN</td><td>3.4</td><td>365 nm (UV)</td><td>UV LEDs, power transistors</td></tr>
+              <tr><td>InGaN</td><td>2.3–2.8</td><td>450–530 nm</td><td>blue and green LEDs, white LEDs with phosphor</td></tr>
+              <tr><td>AlGaInP</td><td>1.9</td><td>620–650 nm</td><td>red and amber LEDs</td></tr>
+              <tr><td>GaAs</td><td>1.42</td><td>870 nm</td><td>infrared LEDs, lasers, space solar cells</td></tr>
+              <tr><td>Si</td><td>1.12</td><td>1107 nm</td><td>solar cells, image sensors (indirect: no light)</td></tr>
+              <tr><td>InGaAs</td><td>0.75</td><td>1650 nm</td><td>fibre-optic photodiodes (1310 / 1550 nm)</td></tr>
+              <tr><td>Ge</td><td>0.66</td><td>1880 nm</td><td>infrared detectors</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <h3>Terms</h3>
+            <dl>
+              <dt>Cutoff wavelength</dt><dd>λ_c = 1240 nm·eV / E_g: longer wavelengths have too little energy to lift an electron across the gap.</dd>
+              <dt>Absorption depth</dt><dd>1/α, the depth where the light has dropped to 37 %; short for blue light, long for light near the cutoff.</dd>
+              <dt>Quantum efficiency</dt><dd>Electrons collected per incoming photon (external: including the reflection at the surface).</dd>
+              <dt>Responsivity</dt><dd>Photocurrent per optical power, R = QE · λ / 1240 nm in A/W.</dd>
+              <dt>Open-circuit voltage</dt><dd>Voltage of an unloaded cell, where the photocurrent is balanced by the diode's forward current.</dd>
+              <dt>Fill factor</dt><dd>Maximum power divided by V_oc · I_sc: how square the I–V curve is.</dd>
+              <dt>Direct / indirect gap</dt><dd>In a direct material the electron can drop and emit a photon; in an indirect one (Si, Ge) it also needs a phonon, so light emission is very weak.</dd>
+              <dt>Stimulated emission</dt><dd>A photon triggers an identical one; with mirrors and enough current (above threshold) this gives laser light, narrow and coherent.</dd>
             </dl>
           </div>
         </div>
@@ -29118,12 +29426,248 @@ $("of-new").addEventListener("click", () => { OFS.seed = (OFS.seed*1103515245 + 
 $("of-eq").addEventListener("click", () => { OFS.eq = !OFS.eq; updateOF(); });
 [["of-n", "n"], ["of-cp", "cp"], ["of-d", "d"], ["of-a", "a"], ["of-cpn", "cpn"], ["of-snr", "snr"]].forEach(([id, k]) => $(id).addEventListener("input", e => { OFS[k] = +e.target.value; updateOF(); }));
 
+/* ===================== OPTOELECTRONICS TAB: photodiode / solar cell, LED / laser ===================== */
+// Photodiode: absorption coefficient α(λ) interpolated from measured data; collection c(x) = 0.4 in the surface layer, 1 in the
+// depletion region, e^(−(x − x_j − W)/L) beyond; IQE = ∫ α e^(−αx) c(x) dx (analytic per region), EQE = (1 − R)·IQE,
+// R = EQE·λ/1240. J(V) = J_ph − J0 (e^(V/V_t) − 1), J0 = 3e7·e^(−E_g/kT) A/cm². Sunlight ≈ 5778 K black body, 100 mW/cm².
+// LED: spectrum ∝ √(E − E_g)·e^(−(E − E_g)/(b·kT)); P = η_ext·E·I/(1 + I/I_droop). Laser: P = η_d·E·(I − I_th) above threshold.
+const OPC = setupCanvas($("cvop"), 1000, 488);
+const OPS = {view:"pd", pm:"si", src:"mono", mode:"solar", lam:650, pw:1, rl:1.2, vr:3, T:25, ar:true, lm:"blue", lt:"led", ci:20, lT:25};
+const OP_PD = {
+  si:{name:"Si", Eg:1.12, d:180, L:300, xj:0.3, R0:0.33, a:[[300,1.7e6],[350,1e6],[400,9.5e4],[450,2.6e4],[500,1.1e4],[550,6.4e3],[600,4.1e3],[650,2.8e3],[700,1.9e3],[750,1.3e3],[800,850],[850,535],[900,306],[950,157],[1000,64],[1050,16],[1100,3.5],[1130,0.5]]},
+  gaas:{name:"GaAs", Eg:1.42, d:3, L:3, xj:0.15, R0:0.31, a:[[300,1.5e6],[400,7e5],[500,1.2e5],[600,4.4e4],[700,2.6e4],[800,1.2e4],[850,7e3],[870,2e3],[880,10]]},
+  ge:{name:"Ge", Eg:0.66, d:150, L:100, xj:0.3, R0:0.36, a:[[300,1e6],[400,7e5],[500,4.5e5],[600,1.5e5],[800,5e4],[1000,1.5e4],[1200,8e3],[1400,6e3],[1550,500],[1700,100],[1800,30],[1880,1]]},
+  ingaas:{name:"InGaAs", Eg:0.75, d:3, L:3, xj:0.15, R0:0.30, a:[[300,1e6],[500,1.5e5],[800,4e4],[1000,1.5e4],[1300,1.2e4],[1550,7e3],[1600,4e3],[1650,1e3],[1680,10]]}};
+const OP_LED = {gan:{name:"GaN", Eg:3.40, ext:0.35, b:1.2, dr:300, ith:40}, blue:{name:"InGaN", Eg:2.72, ext:0.65, b:1.6, dr:80, ith:30}, green:{name:"InGaN", Eg:2.36, ext:0.30, b:2.2, dr:40, ith:50},
+  red:{name:"AlGaInP", Eg:1.91, ext:0.45, b:1.1, dr:1000, ith:20}, gaas:{name:"GaAs", Eg:1.42, ext:0.30, b:1.0, dr:1e4, ith:15}, si:{name:"Si", Eg:1.12, ext:1e-5, b:1.0, dr:1e9, ith:Infinity}};
+const opKT = T => 8.617e-5*(T + 273.15);
+function opAlpha(m, lam){ const A = OP_PD[m].a; if (lam <= A[0][0]) return A[0][1]; if (lam >= A[A.length - 1][0]) return 0;
+  for (let i = 1; i < A.length; i++) if (lam <= A[i][0]){ const [l0, a0] = A[i - 1], [l1, a1] = A[i], u = (lam - l0)/(l1 - l0); return Math.pow(10, Math.log10(a0) + u*(Math.log10(a1) - Math.log10(a0))); } return 0; }
+function opIQE(m, lam, W){ const M = OP_PD[m], a = opAlpha(m, lam)*1e-4, xj = M.xj, d = M.d, L = M.L; if (a <= 0) return 0;          // α in 1/µm
+  const e = x => Math.exp(-a*Math.min(x, d)), top = 0.4*(1 - e(xj)), dep = e(xj) - e(xj + W), b = xj + W;
+  const diff = b < d ? a/(a + 1/L)*Math.exp(-a*b)*(1 - Math.exp(-(a + 1/L)*(d - b))) : 0; return top + dep + diff; }
+const opW = () => 0.5*Math.sqrt((0.8 + (OPS.mode === "pd" ? OPS.vr : 0))/0.8);
+const opEQE = (m, lam) => (1 - (OPS.ar ? 0.04 : OP_PD[m].R0))*opIQE(m, lam, opW());
+const OP_SUN = (() => { const out = []; let tot = 0; for (let l = 300; l <= 2500; l += 10){ const lm = l*1e-9, s = 1/(Math.pow(lm, 5)*(Math.exp(1.4388e-2/(lm*5778)) - 1)); out.push([l, s]); tot += s*10; }
+  return out.map(([l, s]) => [l, s/tot*100]); })();                                         // mW/cm² per nm, integral 100
+function opPV(){
+  const m = OPS.pm, M = OP_PD[m], T = OPS.T, kT = opKT(T), Eg = M.Eg - 4.5e-4*(T - 25), Pin = 100*OPS.pw;
+  const Rsp = lam => opEQE(m, lam)*lam/1240;                                                   // A/W
+  const Jph = OPS.src === "mono" ? Rsp(OPS.lam)*Pin : OP_SUN.reduce((s, [l, e]) => s + Rsp(l)*e*10, 0)*OPS.pw;   // mA/cm²
+  const J0 = 3e7*Math.exp(-Eg/kT)*1e3, J = V => Jph - J0*(Math.exp(V/kT) - 1), Voc = Jph > 0 ? kT*Math.log(Jph/J0 + 1) : 0;
+  let Pm = 0, Vm = 0; for (let i = 1; i <= 400; i++){ const V = Voc*i/400, p = V*J(V); if (p > Pm){ Pm = p; Vm = V; } }
+  let V = 0, I = 0;
+  if (OPS.mode === "solar"){ const R = Math.pow(10, OPS.rl); let lo = 0, hi = Math.max(Voc, 1e-6); for (let i = 0; i < 60; i++){ const mid = (lo + hi)/2; if (mid/R*1e3 > J(mid)) hi = mid; else lo = mid; } V = (lo + hi)/2; I = J(V); }
+  else { V = -OPS.vr; I = J(V); }
+  return {m, M, Eg, kT, Pin, Jph, J0, J, Voc, Pm, Vm, FF:Jph > 0 && Voc > 0 ? Pm/(Voc*Jph) : 0, eff:Pin > 0 ? Pm/Pin : 0, V, I, Rsp, alpha:opAlpha(m, OPS.lam), iqe:opIQE(m, OPS.lam, opW()), eqe:opEQE(m, OPS.lam)};
+}
+function opLED(){
+  const M = OP_LED[OPS.lm], T = OPS.lT, kT = opKT(T), Eg = M.Eg - 4.5e-4*(T - 25), I = OPS.ci, Ep = Eg + M.b*kT/2, las = OPS.lt === "laser";
+  const ext = M.ext*Math.max(0.2, 1 - 0.004*(T - 25)), ith = M.ith*Math.exp((T - 25)/60);
+  let P; if (!las) P = ext*Ep*I/(1 + I/M.dr); else P = I < ith ? 0.02*Ep*I : 0.02*Ep*ith + 0.5*Ep*(I - ith);
+  const lasing = las && I >= ith, Vf = Eg + I*0.012, Eg2 = Eg;
+  const fw = 1.8*M.b*kT, lam = 1240/Ep, dl = lasing ? 0.6 : 1240/(Ep - fw/2) - 1240/(Ep + fw/2);
+  return {M, kT, Eg:Eg2, Ep, lam, dl, P, Vf, wpe:I > 0 ? P/(Vf*I) : 0, las, lasing, ith, ext, I};
+}
+// colour of a wavelength (nm), grey outside the visible range
+function opRGB(l, a = 1){ let r = 0, g = 0, b = 0;
+  if (l < 380 || l > 750){ return l < 380 ? `rgba(150,110,220,${a})` : `rgba(150,60,60,${a})`; }
+  if (l < 440){ r = (440 - l)/60; b = 1; } else if (l < 490){ g = (l - 440)/50; b = 1; } else if (l < 510){ g = 1; b = (510 - l)/20; } else if (l < 580){ r = (l - 510)/70; g = 1; } else if (l < 645){ r = 1; g = (645 - l)/65; } else r = 1;
+  return `rgba(${Math.round(255*r)},${Math.round(255*g)},${Math.round(255*b)},${a})`; }
+const opRnd = i => { const x = Math.sin(i*12.9898 + 4.1)*43758.5453; return x - Math.floor(x); };
+function opWave(x0, y0, x1, y1, col, ph){ const n = 40, pts = []; for (let i = 0; i <= n; i++){ const u = i/n, x = x0 + (x1 - x0)*u, y = y0 + (y1 - y0)*u, nx = -(y1 - y0), ny = x1 - x0, L = Math.hypot(nx, ny) || 1, s = 4*Math.sin(u*12 + ph);
+  pts.push([x + nx/L*s, y + ny/L*s]); } ctx.strokeStyle = col; ctx.lineWidth = 2; pl(pts); }
+
+/* ---------------- drawing: photodiode / solar cell ---------------- */
+function drawOPpd(T){
+  const P = opPV(), M = P.M, sun = OPS.src === "sun", mono = !sun;
+  panel(20, 20, 540, 450, "Light on a PN junction");
+  const yT = 122, yD = 430, dmax = M.d, Y = x => yT + (yD - yT)*Math.log10(1 + Math.min(x, dmax)/0.05)/Math.log10(1 + dmax/0.05), x0 = 50, x1 = 380;
+  const W = opW(), yj = Y(M.xj), yw = Y(M.xj + W);
+  ctx.fillStyle = C.pplus; ctx.globalAlpha = .7; ctx.fillRect(x0, yT, x1 - x0, yj - yT); ctx.globalAlpha = 1;
+  ctx.fillStyle = C.deplete; ctx.fillRect(x0, yj, x1 - x0, yw - yj);
+  ctx.fillStyle = C.nplus; ctx.globalAlpha = .7; ctx.fillRect(x0, yw, x1 - x0, yD - yw); ctx.globalAlpha = 1;
+  ctx.fillStyle = C.metal; ctx.fillRect(x0, yD, x1 - x0, 8); for (let i = 0; i < 4; i++) ctx.fillRect(x0 + 30 + i*90, yT - 6, 14, 6);
+  if (OPS.ar){ ctx.fillStyle = C.electron; ctx.globalAlpha = .5; ctx.fillRect(x0, yT - 2, x1 - x0, 2); ctx.globalAlpha = 1; }
+  txt("p (emitter)", x1 + 8, (yT + yj)/2, {px:10, col:C.hole, w:700}); txt("depletion: field", x1 + 8, (yj + yw)/2 + 4, {px:10, col:C.fg, w:700}); txt(`n (base), ${M.d} µm`, x1 + 8, (yw + yD)/2, {px:10, col:C.electron, w:700});
+  txt("depth (log scale)", x0 + 4, yD - 10, {px:9, col:C.fg});
+  // photons arriving
+  const nP = Math.round(6 + 10*Math.min(OPS.pw, 2));
+  for (let i = 0; i < nP; i++){ const lam = mono ? OPS.lam : 350 + 900*opRnd(i), u = (T*0.7 + opRnd(i + 40)) % 1, x = x0 + 20 + (x1 - x0 - 40)*opRnd(i + 80);
+    if (u < 0.35) opWave(x, 44 + u*170, x, 44 + u*170 + 18, opRGB(lam), T*8 + i); }
+  if (mono){ const a = P.alpha*1e-4; if (a > 0){ const yd = Y(1/a); ctx.strokeStyle = opRGB(OPS.lam); ctx.lineWidth = 1.6; ctx.setLineDash([5, 4]); pl([[x0, yd], [x1, yd]]); ctx.setLineDash([]);
+    const dep = 1/a; txt(`absorption depth 1/α = ${dep >= 1 ? dep.toFixed(dep >= 10 ? 0 : 1) + " µm" : (dep*1000).toFixed(0) + " nm"}`, x0 + 6, yd - 8, {px:10, w:700, col:C.fg}); }
+    else txt("below the band gap: the light passes through", (x0 + x1)/2, yD - 30, {al:"center", px:11, w:700, col:C.hole}); }
+  // electron-hole pairs: generated at depth −ln(u)/α, separated if collected, else recombine
+  const nE = Math.round(4 + 14*Math.min(OPS.pw, 2));
+  for (let i = 0; i < nE; i++){ const lam = mono ? OPS.lam : 350 + 900*opRnd(i + 7), a = opAlpha(OPS.pm, lam)*1e-4; if (a <= 0) continue;
+    const xd = -Math.log(opRnd(i + 11) + 1e-6)/a; if (xd > M.d) continue;
+    const c = xd < M.xj ? 0.4 : xd < M.xj + W ? 1 : Math.exp(-(xd - M.xj - W)/M.L), ok = opRnd(i + 23) < c, u = (T*0.35 + opRnd(i + 31)) % 1, gx = x0 + 15 + (x1 - x0 - 30)*opRnd(i + 51), gy = Y(xd);
+    if (ok){ dot(gx, gy + u*(yD - gy), C.electron, false, 1 - 0.3*u, 2.6); dot(gx + 4, gy - u*(gy - yT), C.hole, true, 1 - 0.3*u, 2.6); }
+    else if (u < 0.6){ dot(gx, gy, C.electron, false, 1 - u/0.6, 2.4); dot(gx + 4, gy, C.hole, true, 1 - u/0.6, 2.4); } else txt("×", gx + 2, gy, {al:"center", px:10, w:700, col:C.muted}); }
+  // external circuit
+  const xc = 500; ctx.strokeStyle = C.fg; ctx.lineWidth = 1.6; pl([[x0 + 37, yT - 6], [x0 + 37, 80], [xc, 80], [xc, 220]]); pl([[xc, 300], [xc, yD + 20], [x0 + 160, yD + 20], [x0 + 160, yD + 8]]);
+  if (OPS.mode === "solar"){ ctx.strokeRect(xc - 9, 220, 18, 80); txt("R_L", xc + 14, 260, {px:10, w:700, col:C.fg}); }
+  else { pl([[xc - 14, 252], [xc + 14, 252]]); pl([[xc - 8, 262], [xc + 8, 262]]); pl([[xc, 220], [xc, 252]]); pl([[xc, 262], [xc, 300]]); txt(`−${OPS.vr} V`, xc + 16, 257, {px:10, w:700, col:C.fg}); }
+  txt(`${Math.abs(P.I).toFixed(2)} mA`, xc - 14, 66, {al:"right", px:11, w:700, col:C.accent});
+  if (Math.abs(P.I) > 0.01) for (let i = 0; i < 5; i++){ const u = (T*0.5 + i/5) % 1; dot(x0 + 37 + u*(xc - x0 - 37), 80, C.accent, false, 1, 2.6); }
+  // band diagram
+  panel(580, 20, 400, 450, "Band diagram: absorption and separation");
+  const bx0 = 600, bx1 = 960, xa = 720, xb = 800, gp = clamp(M.Eg*70, 40, 110), Ec = x => x < xa ? 110 : x > xb ? 170 : 110 + 60*(x - xa)/(xb - xa), Ev = x => Ec(x) + gp;
+  ctx.strokeStyle = C.electron; ctx.lineWidth = 2.4; pl(range(bx0, bx1, 60).map(x => [x, Ec(x)])); ctx.strokeStyle = C.hole; pl(range(bx0, bx1, 60).map(x => [x, Ev(x)]));
+  txt("E_c", bx0, 98, {px:10, w:700, col:C.electron}); txt("E_v", bx0, Ev(bx0) + 14, {px:10, w:700, col:C.hole}); txt("p", 650, 270, {al:"center", px:11, w:700, col:C.hole}); txt("n", 880, 270, {al:"center", px:11, w:700, col:C.electron});
+  txt(`E_g = ${P.Eg.toFixed(2)} eV`, 610, (Ec(bx0) + Ev(bx0))/2, {px:10, col:C.fg});
+  const lamE = mono ? OPS.lam : 600, Eph = 1240/lamE, ph = (T*0.4) % 1, xg = 760, absorbed = Eph >= P.Eg;
+  if (ph < 0.3) opWave(xg - 80 + ph/0.3*70, 60 + ph/0.3*40, xg - 70 + ph/0.3*70, 70 + ph/0.3*40, opRGB(lamE), T*9);
+  else if (absorbed){ const u = (ph - 0.3)/0.7, ex = xg + u*(bx1 - 20 - xg), hx = xg - u*(xg - bx0 - 20);
+    if (u < 0.12){ ctx.strokeStyle = C.accent; ctx.lineWidth = 1.6; ctx.setLineDash([3, 3]); pl([[xg, Ev(xg)], [xg, Ec(xg) - (Eph - P.Eg)*40]]); ctx.setLineDash([]); }
+    dot(ex, Ec(ex) - Math.max(0, (Eph - P.Eg)*40*(1 - u*6)), C.electron, false, 1, 4); dot(hx, Ev(hx), C.hole, true, 1, 4); }
+  else txt("photon energy below E_g: not absorbed", 780, 70, {al:"center", px:10, w:700, col:C.hole});
+  caRows([["Photon energy", mono ? `${Eph.toFixed(2)} eV` : "full spectrum"], ["Cutoff wavelength", `${(1240/P.Eg).toFixed(0)} nm`], ["Internal QE", mono ? `${(P.iqe*100).toFixed(0)} %` : "–"],
+    ["Photocurrent", `${P.Jph.toFixed(2)} mA/cm²`], ["Operating point", `${P.V.toFixed(3)} V, ${P.I.toFixed(2)} mA`]].map(([l, v]) => [l, v]), 592, 300);
+}
+function opRows(rows, x, y, w){ rows.forEach(([l, v], i) => { txt(l, x, y + i*24, {px:11}); txt(v, x + w, y + i*24, {al:"right", px:11, w:700, col:C.fg}); }); }
+
+/* ---------------- drawing: LED / laser ---------------- */
+function drawOPled(T){
+  const L = opLED(), M = L.M, col = opRGB(L.lam), si = OPS.lm === "si";
+  panel(20, 20, 540, 450, L.las ? "Laser diode: active layer between two mirrors" : "LED: recombination in the active layer");
+  const x0 = 70, x1 = 470, yA = 220, hA = 22;
+  ctx.fillStyle = C.metal; ctx.fillRect(x0 + 120, 104, 160, 10); ctx.fillRect(x0, 420, x1 - x0, 10);
+  ctx.fillStyle = C.pplus; ctx.globalAlpha = .7; ctx.fillRect(x0, 114, x1 - x0, yA - 114); ctx.globalAlpha = 1;
+  ctx.fillStyle = C.nplus; ctx.globalAlpha = .7; ctx.fillRect(x0, yA + hA, x1 - x0, 420 - yA - hA); ctx.globalAlpha = 1;
+  ctx.fillStyle = C.panel; ctx.fillRect(x0, yA, x1 - x0, hA); for (let i = 0; i < 4; i++){ ctx.fillStyle = C.accent; ctx.globalAlpha = .25; ctx.fillRect(x0, yA + 2 + i*5, x1 - x0, 2); ctx.globalAlpha = 1; }
+  txt("p-type", x0 + 8, 130, {px:10, w:700, col:C.hole}); txt("n-type", x0 + 8, 404, {px:10, w:700, col:C.electron}); txt(`active layer: ${M.name} quantum wells`, x0 + 8, yA - 9, {px:9, w:700, col:C.fg});
+  if (L.las){ ctx.strokeStyle = C.fg; ctx.lineWidth = 3; pl([[x0, yA - 8], [x0, yA + hA + 8]]); pl([[x1, yA - 8], [x1, yA + hA + 8]]); txt("mirror", x0, yA - 16, {al:"center", px:9, col:C.fg}); txt("mirror", x1, yA - 16, {al:"center", px:9, col:C.fg}); }
+  const rate = Math.min(1, OPS.ci/60), nC = Math.round(4 + 22*rate);
+  for (let i = 0; i < nC; i++){ const u = (T*0.5 + opRnd(i)) % 1, x = x0 + 20 + (x1 - x0 - 40)*opRnd(i + 9);
+    if (u < 0.6){ const f = u/0.6; dot(x, 410 - f*(410 - yA - hA/2), C.electron, false, 1, 2.6); dot(x + 3, 120 + f*(yA + hA/2 - 120), C.hole, true, 1, 2.6); }
+    else { const f = (u - 0.6)/0.4;
+      if (si && opRnd(i + 3) > 0.02){ ctx.strokeStyle = C.muted; ctx.lineWidth = 1.4; const p = []; for (let k = 0; k <= 10; k++) p.push([x - 8 + k*1.6, yA + hA/2 + 3*Math.sin(k*2 + T*10)]); pl(p); }
+      else if (!L.lasing){ const ang = -Math.PI/2 + (opRnd(i + 5) - 0.5)*2.4, r = 10 + f*120; opWave(x + Math.cos(ang)*r*0.6, yA + Math.sin(ang)*r*0.6, x + Math.cos(ang)*(r*0.6 + 16), yA + Math.sin(ang)*(r*0.6 + 16), col, T*9 + i); }
+      if (f < 0.25){ ctx.fillStyle = si ? C.muted : col; ctx.globalAlpha = 1 - f*4; ctx.beginPath(); ctx.arc(x, yA + hA/2, 6, 0, 2*Math.PI); ctx.fill(); ctx.globalAlpha = 1; } } }
+  if (L.lasing){ for (let i = 0; i < 6; i++){ const u = (T*1.2 + i/6) % 1, dir = i % 2, x = dir ? x0 + u*(x1 - x0) : x1 - u*(x1 - x0); opWave(x - 8, yA + 6 + (i % 3)*5, x + 8, yA + 6 + (i % 3)*5, col, T*12 + i); }
+    const g = ctx.createLinearGradient(x1, 0, 552, 0); g.addColorStop(0, col); g.addColorStop(1, opRGB(L.lam, 0)); ctx.fillStyle = g; ctx.fillRect(x1, yA + 4, 552 - x1, hA - 8);
+    txt("coherent beam", 512, yA + 40, {al:"center", px:10, w:700, col:C.fg}); }
+  const glow = Math.min(1, L.P/20);
+  if (!L.las && glow > 0.01 && !si){ const g = ctx.createRadialGradient(270, 90, 4, 270, 90, 150); g.addColorStop(0, opRGB(L.lam, 0.6*glow)); g.addColorStop(1, opRGB(L.lam, 0)); ctx.fillStyle = g; ctx.fillRect(40, 30, 460, 90); }
+  txt(si ? "indirect gap: the energy goes into lattice vibrations (heat)" : L.las && !L.lasing ? `below threshold (${L.ith.toFixed(0)} mA): weak spontaneous light` : L.lasing ? "above threshold: stimulated emission" : "electrons and holes meet and emit photons", 290, 456, {al:"center", px:11, w:700, col:si ? C.hole : C.accent});
+  // band diagram
+  panel(580, 20, 400, 450, "Band diagram under forward bias");
+  const gp = clamp(L.Eg*45, 40, 150), xq0 = 760, xq1 = 800, Ec = x => x < xq0 ? 100 : x > xq1 ? 112 : 118, Ev = x => (x < xq0 ? 100 : x > xq1 ? 112 : 118) + gp + (x >= xq0 && x <= xq1 ? -12 : 0);
+  ctx.strokeStyle = C.electron; ctx.lineWidth = 2.4; pl(range(600, 960, 120).map(x => [x, Ec(x)])); ctx.strokeStyle = C.hole; pl(range(600, 960, 120).map(x => [x, Ev(x)]));
+  txt("E_c", 604, 88, {px:10, w:700, col:C.electron}); txt("E_v", 604, Ev(600) + 14, {px:10, w:700, col:C.hole}); txt("p", 650, Ev(600) + 30, {al:"center", px:11, w:700, col:C.hole}); txt("n", 900, Ev(900) + 30, {al:"center", px:11, w:700, col:C.electron});
+  const ph = (T*0.5) % 1; dot(940 - ph*(940 - 780), Ec(940 - ph*160) - 4, C.electron, false, 1, 4); dot(620 + ph*(780 - 620), Ev(620 + ph*160) + 4, C.hole, true, 1, 4);
+  if (si){ ctx.strokeStyle = C.muted; ctx.lineWidth = 1.6; ctx.setLineDash([4, 3]); pl([[790, Ec(790)], [770, Ev(770)]]); ctx.setLineDash([]); txt("needs a phonon (momentum)", 780, Ev(780) + 50, {al:"center", px:10, w:700, col:C.hole}); }
+  else { ctx.strokeStyle = col; ctx.lineWidth = 2; pl([[780, Ec(780) + 4], [780, Ev(780) - 4]]); opWave(790, (Ec(780) + Ev(780))/2, 870, (Ec(780) + Ev(780))/2 - 30, col, T*9);
+    txt(`hν = ${L.Ep.toFixed(2)} eV → ${L.lam.toFixed(0)} nm`, 780, Ev(780) + 50, {al:"center", px:11, w:700, col:C.fg}); }
+  opRows([["Band gap", `${L.Eg.toFixed(2)} eV`], ["Peak wavelength", `${L.lam.toFixed(0)} nm`], ["Line width", `${L.dl.toFixed(L.lasing ? 1 : 0)} nm`], ["Forward voltage", `${L.Vf.toFixed(2)} V`],
+    ["Optical power", `${L.P >= 0.1 ? L.P.toFixed(1) : L.P.toExponential(1)} mW`], ["Wall-plug efficiency", `${(L.wpe*100).toFixed(L.wpe < 0.01 ? 3 : 0)} %`]], 592, 318, 376);
+}
+function drawOP(dt, T){ begin(OPC); ctx.fillStyle = C.panel2; ctx.fillRect(0, 0, 1000, 488); if (OPS.view === "pd") drawOPpd(T); else drawOPled(T); }
+
+/* ---------------- plots ---------------- */
+function drawOPPlots(){
+  let a, b;
+  if (OPS.view === "pd"){ const P = opPV(), vmax = Math.max(0.3, Math.ceil((P.Voc + 0.1)*10)/10); let jm = Math.max(1, P.Jph*1.15); const vmin = OPS.mode === "pd" ? -Math.max(1, OPS.vr) : -0.1;
+    const jst = niceStep(jm/4), jlo = -jst, jhi = Math.ceil(jm/jst)*jst; jm = jhi;
+    const A = axesR(300, 230, {l:38, r:10, t:28, b:30}, vmin, vmax, jlo, jhi, +((vmax - vmin)/5).toFixed(2), jst, "V (V)", "J (mA/cm²)");
+    const vs = range(vmin, vmax, 200);
+    a = A.s + `<line x1="${A.X(vmin)}" x2="${A.X(vmax)}" y1="${A.Y(0)}" y2="${A.Y(0)}" stroke="var(--muted)"/>`
+      + `<path d="${pathOf(vs.map(v => [v, clamp(-P.J0*(Math.exp(v/P.kT) - 1), jlo, jm)]), A.X, A.Y)}" fill="none" stroke="var(--muted)" stroke-width="1.4" stroke-dasharray="4 3"/>`
+      + `<path d="${pathOf(vs.map(v => [v, clamp(P.J(v), jlo, jm)]), A.X, A.Y)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/>`
+      + `<path d="${pathOf(range(0, P.Voc, 80).map(v => [v, clamp(v*P.J(v)/Math.max(P.Pm, 1e-9)*jm*0.6, jlo, jm)]), A.X, A.Y)}" fill="none" stroke="var(--channel)" stroke-width="1.6"/>`;
+    if (OPS.mode === "solar") a += `<line x1="${A.X(0)}" y1="${A.Y(0)}" x2="${A.X(vmax)}" y2="${A.Y(clamp(vmax/Math.pow(10, OPS.rl)*1e3, jlo, jm))}" stroke="var(--electron)" stroke-dasharray="3 3"/>`;
+    a += `<circle cx="${A.X(P.Vm)}" cy="${A.Y(P.J(P.Vm))}" r="3.5" fill="var(--channel)"/>` + A.frame + dotSvg(A.X(P.V), A.Y(clamp(P.I, jlo, jm)))
+      + `<text x="44" y="12" style="fill:var(--accent)">— lit</text><text x="80" y="12" style="fill:var(--muted)">- - dark</text><text x="132" y="12" style="fill:var(--channel)">— power</text>${OPS.mode === "solar" ? `<text x="190" y="12" style="fill:var(--electron)">- - load</text>` : ""}`;
+    const ls = range(300, 1800, 150), B = axesR(220, 230, {l:34, r:8, t:28, b:30}, 300, 1800, 0, 1, 300, 0.25, "wavelength (nm)", "EQE");
+    const sunMax = Math.max(...OP_SUN.map(s => s[1]));
+    b = B.s + `<path d="${pathOf(OP_SUN.filter(s => s[0] <= 1800).map(([l, s]) => [l, s/sunMax*0.9]), B.X, B.Y)}" fill="var(--accent)" fill-opacity=".1" stroke="var(--accent)" stroke-opacity=".35"/>`
+      + `<line x1="${B.X(1240/P.Eg)}" x2="${B.X(1240/P.Eg)}" y1="28" y2="200" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${B.X(1240/P.Eg) + 3}" y="40" style="fill:var(--hole)">λ_c</text>`
+      + `<path d="${pathOf(ls.map(l => [l, opEQE(OPS.pm, l)]), B.X, B.Y)}" fill="none" stroke="var(--electron)" stroke-width="2.4"/>` + B.frame
+      + (OPS.src === "mono" ? dotSvg(B.X(OPS.lam), B.Y(opEQE(OPS.pm, OPS.lam))) : "") + `<text x="38" y="12" style="fill:var(--electron)">— QE</text><text x="76" y="12" style="fill:var(--accent)">▒ sunlight</text>`;
+  } else { const L = opLED(), M = L.M, kT = L.kT, ls = range(300, 1300, 500);
+    const sp = l => { const E = 1240/l; if (L.lasing){ return Math.exp(-Math.pow((l - L.lam)/0.6, 2)) + 0.03*sp0(E); } return sp0(E); };
+    const sp0 = E => { const x = E - L.Eg; return x <= 0 ? 0 : Math.sqrt(x/(M.b*kT))*Math.exp(-x/(M.b*kT))/0.4289; };
+    const A = axesR(300, 230, {l:34, r:10, t:28, b:30}, 300, 1300, 0, 1.1, 200, 0.25, "wavelength (nm)", "intensity");
+    let s = ""; for (let l = 380; l < 750; l += 5) s += `<rect x="${A.X(l)}" y="196" width="${A.X(l + 5) - A.X(l) + 0.5}" height="4" fill="${opRGB(l)}"/>`;
+    a = A.s + s + `<path d="${pathOf(ls.map(l => [l, Math.min(1.1, sp(l))]), A.X, A.Y)}" fill="${opRGB(L.lam, 0.25)}" stroke="${opRGB(L.lam)}" stroke-width="2"/>` + A.frame
+      + `<text x="40" y="12" style="fill:var(--fg)">${L.lasing ? "laser line (stimulated emission)" : "spontaneous emission, width ≈ 1.8 kT"}</text>`;
+    const is = range(0, 100, 100);
+    const pw = is.map(i => { const o = OPS.ci; OPS.ci = i; const p = opLED().P; OPS.ci = o; return [i, p]; }), pmax = Math.max(5, Math.ceil(Math.max(...pw.map(p => p[1]))*1.1/5)*5);
+    const B2 = axesR(220, 230, {l:34, r:8, t:28, b:30}, 0, 100, 0, pmax, 25, pmax/4, "current (mA)", "P (mW)");
+    b = B2.s + (L.las && L.ith < 100 ? `<line x1="${B2.X(L.ith)}" x2="${B2.X(L.ith)}" y1="28" y2="200" stroke="var(--hole)" stroke-dasharray="3 3"/><text x="${B2.X(L.ith) + 3}" y="40" style="fill:var(--hole)">threshold</text>` : "")
+      + `<path d="${pathOf(pw, B2.X, B2.Y)}" fill="none" stroke="${opRGB(L.lam)}" stroke-width="2.4"/>` + B2.frame + dotSvg(B2.X(OPS.ci), B2.Y(Math.min(L.P, pmax)))
+      + `<text x="38" y="12" style="fill:var(--fg)">— light output</text>`;
+  }
+  $("op-p1").innerHTML = a; $("op-p2").innerHTML = b;
+}
+
+/* ---------------- DOM ---------------- */
+const OPINFO = {
+  pd:{pill:"PV", name:"Photodiode and solar cell", sub:"Photons lift electrons across the band gap; the junction field separates them into a current",
+    text:"A photon with an energy above the band gap can lift an electron from the valence band into the conduction band, leaving a hole behind. How deep that happens depends on the wavelength: silicon absorbs blue light within a fraction of a micrometre, red light within a few micrometres and near-infrared light only after hundreds of micrometres, and light beyond the cutoff wavelength 1240 nm·eV / E_g passes straight through. Pairs created in or near the depletion region are pulled apart by its built-in field, the electron toward the n side and the hole toward the p side, and flow out as a photocurrent; pairs created too far away recombine before they arrive. The fraction collected per photon is the quantum efficiency. Under reverse bias the device is a photodiode: its current is simply proportional to the light. Connected to a load it is a solar cell: the photocurrent drives the junction into forward bias, and the operating point slides along the curve J = J_ph − J0(e^(qV/kT) − 1). The best load sits at the maximum power point; the open-circuit voltage grows only logarithmically with light and falls with temperature, because the dark current J0 rises steeply. Photons with more energy than the gap lose the excess as heat, and photons below it are lost entirely: that is why a single junction can never convert all of sunlight."},
+  led:{pill:"LED", name:"LED and laser diode", sub:"Forward current pushes electrons and holes together; they recombine and emit light of the band-gap colour",
+    text:"In a forward-biased junction electrons from the n side and holes from the p side flow into a thin active layer, often a stack of quantum wells, and recombine. In a direct-gap material such as GaN, InGaN, AlGaInP or GaAs the electron can drop straight into the hole and emit a photon whose energy is close to the band gap, so the material decides the colour: GaN ultraviolet, InGaN blue to green, AlGaInP red, GaAs infrared. The spectrum of an LED is a few kT wide because the carriers are spread thermally above the band edges, and it shifts to longer wavelengths when the junction heats up. Silicon has an indirect gap: the electron also needs a phonon to change its momentum, so almost all the energy ends up as heat. A laser diode adds mirrors at the ends of the active layer. Below the threshold current it glows weakly like an LED; above it, the gain from stimulated emission exceeds the losses, photons bouncing between the mirrors trigger identical photons, and the output jumps into a narrow, coherent line whose power rises steeply with current. LED efficiency droops at high current, especially in green InGaN, the so-called green gap."}
+};
+Object.assign(TIP, {
+  "Cutoff wavelength":"Longest wavelength the band gap can absorb.", "Quantum efficiency":"Electrons collected per incoming photon.", "Photocurrent":"Current density generated by the light.", "Solar efficiency":"Maximum electrical power over light power.",
+  "Responsivity":"Photocurrent per optical power.", "Fill factor":"Squareness of the I–V curve.", "Open-circuit voltage":"Voltage at zero current.",
+  "Photon energy":"E = 1240 nm·eV / λ.", "Peak wavelength":"Wavelength of strongest emission.", "Optical power":"Light power leaving the device.", "Wall-plug efficiency":"Optical power over electrical power.",
+  "Absorption":"Light decays exponentially with depth.", "Diode under light":"Photocurrent minus the diode current.", "Emission energy":"Photon energy close to the band gap.", "Line width":"Thermal spread of the carriers.", "Light output":"Photons per electron times photon energy.", "Laser threshold":"Above it, stimulated emission dominates."
+});
+const OPLEG = {pd:[["pplus","p emitter, holes"],["nplus","n base, electrons"],["deplete","Depletion region"],["accent","Photocurrent"],["metal","Contacts"]],
+  led:[["pplus","p-type, holes"],["nplus","n-type, electrons"],["accent","Active layer"],["muted","Heat (phonons)"],["metal","Contacts"]]};
+const opChip = (sel, attr, on) => document.querySelectorAll(sel).forEach(b => { const o = on(b.dataset[attr]); b.setAttribute("aria-pressed", o); b.style.borderColor = o ? "var(--accent)" : ""; b.style.color = o ? "var(--accent)" : ""; });
+function updateOP(){
+  const v = OPS.view, info = OPINFO[v];
+  $("op-pill").textContent = info.pill; $("op-name").textContent = info.name; $("op-sub").textContent = info.sub; $("op-explain").textContent = info.text;
+  document.querySelectorAll("#op-view button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  opChip("#op-pm button", "m", m => m === OPS.pm); opChip("#op-lm button", "m", m => m === OPS.lm);
+  document.querySelectorAll("#op-src button").forEach(b => b.setAttribute("aria-pressed", b.dataset.s === OPS.src));
+  document.querySelectorAll("#op-mode button").forEach(b => b.setAttribute("aria-pressed", b.dataset.o === OPS.mode));
+  document.querySelectorAll("#op-lt button").forEach(b => b.setAttribute("aria-pressed", b.dataset.t === OPS.lt));
+  $("op-c-pd").hidden = v !== "pd"; $("op-c-led").hidden = v !== "led"; $("op-c-lam").hidden = OPS.src !== "mono"; $("op-c-rl").hidden = OPS.mode !== "solar"; $("op-c-vr").hidden = OPS.mode !== "pd";
+  $("op-ar").textContent = OPS.ar ? "Anti-reflection coating: on" : "Anti-reflection coating: off";
+  ["lam", "pw", "rl", "vr", "T", "ci", "lT"].forEach(k => { const el = $("op-" + k); if (+el.value !== OPS[k]) el.value = OPS[k]; });
+  $("op-lam-v").textContent = `${OPS.lam} nm`; $("op-pw-v").textContent = `${(OPS.pw*100).toFixed(0)} mW/cm²`; $("op-rl-v").textContent = `${Math.pow(10, OPS.rl).toFixed(Math.pow(10, OPS.rl) < 10 ? 2 : 0)} Ω`;
+  $("op-vr-v").textContent = `${OPS.vr.toFixed(1)} V`; $("op-T-v").textContent = `${OPS.T} °C`; $("op-ci-v").textContent = `${OPS.ci.toFixed(1)} mA`; $("op-lT-v").textContent = `${OPS.lT} °C`;
+  setHTML("op-legend", OPLEG[v].map(([c, l]) => rfSw(c) + l + "</span>").join(""));
+  let ro, eq;
+  if (v === "pd"){ const P = opPV(), mono = OPS.src === "mono";
+    ro = [["Cutoff wavelength", `${(1240/P.Eg).toFixed(0)} nm`], ["Quantum efficiency", mono ? `${(P.eqe*100).toFixed(0)} %` : "–"], ["Photocurrent", `${P.Jph.toFixed(2)} mA/cm²`],
+      OPS.mode === "solar" ? ["Solar efficiency", `${(P.eff*100).toFixed(1)} %`] : ["Responsivity", mono ? `${P.Rsp(OPS.lam).toFixed(3)} A/W` : "–"]];
+    eq = [{name:"Cutoff wavelength", f:"λ_c = 1240 nm·eV / E_g", sub:`E_g = ${P.Eg.toFixed(3)} eV → ${(1240/P.Eg).toFixed(0)} nm`},
+      {name:"Absorption", f:"G(x) = α·Φ·e^(−αx)", sub:mono ? (P.alpha > 0 ? `α(${OPS.lam} nm) = ${P.alpha.toExponential(1)} cm⁻¹` : "α = 0") : "–"},
+      {name:"Responsivity", f:"R = EQE · λ / 1240 nm  (A/W)", sub:mono ? `EQE ${(P.eqe*100).toFixed(0)} % → ${P.Rsp(OPS.lam).toFixed(3)} A/W` : "–"},
+      {name:"Diode under light", f:"J = J_ph − J0 · (e^(qV/kT) − 1)", sub:`J_ph = ${P.Jph.toFixed(2)} mA/cm², J0 = ${P.J0.toExponential(1)} mA/cm²`},
+      {name:"Open-circuit voltage", f:"V_oc = (kT/q) · ln(J_ph / J0 + 1)", sub:`V_oc = ${P.Voc.toFixed(3)} V`},
+      {name:"Fill factor", f:"FF = P_max / (V_oc · J_sc),  η = P_max / P_in", sub:`FF = ${(P.FF*100).toFixed(0)} %, η = ${(P.eff*100).toFixed(1)} %`}];
+  } else { const L = opLED();
+    ro = [["Photon energy", `${L.Ep.toFixed(2)} eV`], ["Peak wavelength", `${L.lam.toFixed(0)} nm`], ["Optical power", `${L.P >= 0.1 ? L.P.toFixed(1) : L.P.toExponential(1)} mW`], ["Wall-plug efficiency", `${(L.wpe*100).toFixed(L.wpe < 0.01 ? 3 : 0)} %`]];
+    eq = [{name:"Emission energy", f:"hν ≈ E_g + kT/2,  λ = 1240 nm·eV / hν", sub:`E_g = ${L.Eg.toFixed(3)} eV → ${L.lam.toFixed(0)} nm`},
+      {name:"Line width", f:"ΔE ≈ 1.8 kT  →  Δλ ≈ λ² · ΔE / 1240", sub:L.lasing ? "laser: < 1 nm" : `${L.dl.toFixed(0)} nm`},
+      {name:"Light output", f:"P = η_ext · (hν/q) · I", sub:`η_ext = ${(L.ext*100).toFixed(L.ext < 0.01 ? 4 : 0)} %`},
+      {name:"Laser threshold", f:"P = η_d · (hν/q) · (I − I_th)", sub:L.las ? (isFinite(L.ith) ? `I_th = ${L.ith.toFixed(0)} mA` : "Si cannot lase") : "LED: no threshold"}];
+  }
+  renderRo($("op-ro"), ro); renderEq($("op-eq"), eq);
+  drawOPPlots();
+}
+document.querySelectorAll("#op-view button").forEach(b => b.addEventListener("click", () => { OPS.view = b.dataset.v; updateOP(); }));
+document.querySelectorAll("#op-pm button").forEach(b => b.addEventListener("click", () => { OPS.pm = b.dataset.m; updateOP(); }));
+document.querySelectorAll("#op-lm button").forEach(b => b.addEventListener("click", () => { OPS.lm = b.dataset.m; updateOP(); }));
+document.querySelectorAll("#op-src button").forEach(b => b.addEventListener("click", () => { OPS.src = b.dataset.s; updateOP(); }));
+document.querySelectorAll("#op-mode button").forEach(b => b.addEventListener("click", () => { OPS.mode = b.dataset.o; updateOP(); }));
+document.querySelectorAll("#op-lt button").forEach(b => b.addEventListener("click", () => { OPS.lt = b.dataset.t; updateOP(); }));
+$("op-ar").addEventListener("click", () => { OPS.ar = !OPS.ar; updateOP(); });
+[["op-lam", "lam"], ["op-pw", "pw"], ["op-rl", "rl"], ["op-vr", "vr"], ["op-T", "T"], ["op-ci", "ci"], ["op-lT", "lT"]].forEach(([id, k]) => $(id).addEventListener("input", e => { OPS[k] = +e.target.value; updateOP(); }));
+
 /* ================= tabs + loop ================= */
 let tab = "mos";
-const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb","ca","sm","la","ee","tl","sb","dm","of"];
+const TABS = ["mos","inv","body","cm","pw","rd","rf","mi","pn","lk","mm","rx","bj","an","re","fb","pk","yd","lt","rl","ly","rp","sp","th","up","va","df","hs","sc","ml","mb","ca","sm","la","ee","tl","sb","dm","of","op"];
 let bdInit = false;
-const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown", ca:"#capacitors", sm:"#smith-chart", la:"#latchup-antenna", ee:"#esd-eos", tl:"#transmission-lines", sb:"#serial-interfaces", dm:"#modulation", of:"#ofdm"};
-const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev", ca:"rf", sm:"rf", la:"rel", ee:"rel", tl:"rf", sb:"cir", dm:"rf", of:"rf"};
+const HASH = {mos:"#transistor", inv:"#inverter", body:"#body-effect", pw:"#power", rd:"#radar", rf:"#rf-passives", mi:"#mimo", cm:"#current-mirror", pn:"#pn-junction", lk:"#leakage-finfet", mm:"#memory", rx:"#radar-receiver", bj:"#bipolar", an:"#analog", re:"#latchup-esd", fb:"#process-flow", pk:"#packaging", yd:"#yield", lt:"#lithography", rl:"#reliability", ly:"#layout", rp:"#radar-dsp", sp:"#metrology-spc", th:"#thermal", up:"#unit-processes", va:"#variability", df:"#design-flow", hs:"#high-speed-links", sc:"#sic", ml:"#miller", mb:"#mos-breakdown", ca:"#capacitors", sm:"#smith-chart", la:"#latchup-antenna", ee:"#esd-eos", tl:"#transmission-lines", sb:"#serial-interfaces", dm:"#modulation", of:"#ofdm", op:"#optoelectronics"};
+const TABCAT = {mos:"dev", body:"dev", pn:"dev", lk:"dev", bj:"dev", inv:"cir", cm:"cir", an:"cir", mm:"cir", pw:"rf", rd:"rf", rx:"rf", rf:"rf", mi:"rf", fb:"fab", pk:"rel", re:"rel", yd:"fab", lt:"fab", rl:"rel", ly:"fab", rp:"rf", sp:"fab", th:"rel", up:"fab", va:"cir", df:"cir", hs:"rf", sc:"fab", ml:"dev", mb:"dev", ca:"rf", sm:"rf", la:"rel", ee:"rel", tl:"rf", sb:"cir", dm:"rf", of:"rf", op:"dev"};
 function setCat(c){
   document.querySelectorAll("#tab-cat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   TABS.forEach(k => { $("tab-btn-" + k).hidden = (TABCAT[k] || "dev") !== c; });
@@ -29176,6 +29720,7 @@ function showTab(t){
   else if (t === "sb"){ $("sub-top").textContent = "Serial interfaces · UART, I²C, SPI and CAN bit by bit"; SBC.resize(); updateSB(); }
   else if (t === "dm"){ $("sub-top").textContent = "Digital modulation · ASK, FSK, PSK and QAM"; DMC.resize(); updateDM(); }
   else if (t === "of"){ $("sub-top").textContent = "OFDM · subcarriers, cyclic prefix and multipath"; OFC.resize(); updateOF(); }
+  else if (t === "op"){ $("sub-top").textContent = "Optoelectronics · photodiodes, solar cells, LEDs and laser diodes"; OPC.resize(); updateOP(); }
   else if (t === "pw"){ $("sub-top").textContent = "Voltage regulators · how a chip's supply voltage is set"; PWC.resize(); updatePower(); }
   else { $("sub-top").textContent = `Body effect · VDD = ${VDD} V · Vth₀ = 1.0 V · 2φF = 0.7 V`; BC.resize(); if (!bdInit){ bdInit = true; setCirc(BF.circ); } else updateBody(); }
 }
@@ -29221,6 +29766,7 @@ function frame(now){
   else if (tab === "sb"){ sbTick(dt); if (SBC.cv.clientWidth) drawSB(dt, T); }
   else if (tab === "dm"){ dmTick(dt); if (DMC.cv.clientWidth) drawDM(dt, T); }
   else if (tab === "of"){ ofTick(dt); if (OFC.cv.clientWidth) drawOF(dt, T); }
+  else if (tab === "op"){  if (OPC.cv.clientWidth) drawOP(dt, T); }
   else if (tab === "pw"){ powerTick(dt); if (PWC.cv.clientWidth) drawPower(dt, T); }
   else { bodyTick(dt); if (BC.cv.clientWidth) drawBody(dt, T); }
   requestAnimationFrame(frame);
