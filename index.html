@@ -27760,8 +27760,8 @@ function drawEEesd(T){
   else if (m === "mm"){ ctx.fillStyle = C.metal; ctx.fillRect(60, 110, 120, 90); ctx.fillRect(170, 180, 160, 14); txt("machine / tool", 120, 96, {al:"center", px:10, col:C.fg});
     for (let i = 0; i < nq; i++) txt(sg, 72 + (i*19) % 100, 125 + Math.floor(i/5)*18, {al:"center", px:13, w:700, col:q >= 0 ? C.hole : C.electron}); }
   else { ctx.fillStyle = C.metal; ctx.globalAlpha = .5; ctx.fillRect(40, 300, 290, 12); ctx.globalAlpha = 1; txt("field plate", 185, 324, {al:"center", px:10});
-    ctx.fillStyle = C.fg; ctx.fillRect(90, 230, 180, 60); ctx.fillStyle = C.metal; for (let i = 0; i < 6; i++){ ctx.fillRect(100 + i*30, 290, 10, 10); ctx.fillRect(100 + i*30, 220, 10, 10); }
-    txt("charged chip", 180, 260, {al:"center", px:11, w:700, col:C.bg});
+    ctx.fillStyle = "#1f2630"; ctx.fillRect(90, 230, 180, 60); ctx.strokeStyle = C.muted; ctx.lineWidth = 1.4; ctx.strokeRect(90.5, 230.5, 179, 59); ctx.fillStyle = C.metal; for (let i = 0; i < 6; i++){ ctx.fillRect(100 + i*30, 290, 10, 10); ctx.fillRect(100 + i*30, 220, 10, 10); }
+    txt("charged chip", 180, 260, {al:"center", px:11, w:700, col:"#e7edf5"});
     for (let i = 0; i < nq; i++) txt(sg, 104 + (i*29) % 150, 240 + (i % 3)*16, {al:"center", px:12, w:700, col:C.hole});
     ctx.fillStyle = C.metal; ctx.fillRect(251, 120, 8, 98); txt("pogo pin to ground", 255, 108, {al:"center", px:10, col:C.fg}); }
   if (!early && ar > 0.15) eeSpark(m === "cdm" ? 255 : 330, m === "cdm" ? 220 : 250, T, 10 + 10*ar);
@@ -27816,7 +27816,7 @@ function drawEEeos(T){
   txt(`${E.V.toFixed(1)} V`, 85, 122, {al:"center", px:11, w:700, col:on ? C.hole : C.fg}); txt(`for ${eeFt(E.tp)}`, 85, 138, {al:"center", px:10, col:C.fg});
   ctx.strokeStyle = C.fg; ctx.lineWidth = 1.8; pl([[130, 195], [150, 195]]); eeRes(150, 195, 200); pl([[200, 195], [380, 195]]); txt(`R_S ${E.Rs.toFixed(E.Rs < 1 ? 2 : 1)} Ω`, 175, 176, {al:"center", px:10, col:C.fg});
   pl([[85, 240], [85, 330], [380, 330]]); txt("board ground", 230, 346, {al:"center", px:10});
-  ctx.fillStyle = C.fg; ctx.fillRect(380, 160, 40, 190); txt("chip", 400, 255, {al:"center", px:10, w:700, col:C.bg});
+  ctx.fillStyle = "#1f2630"; ctx.fillRect(380, 160, 40, 190); ctx.strokeStyle = C.muted; ctx.lineWidth = 1.4; ctx.strokeRect(380.5, 160.5, 39, 189); txt("chip", 400, 255, {al:"center", px:10, w:700, col:"#e7edf5"});
   if (EES.tvs){ ctx.strokeStyle = tvsOk ? C.fg : C.muted; pl([[290, 195], [290, 252]]); eeDiode(290, 262, true, tvsOk ? C.channel : C.hole); pl([[290, 272], [290, 330]]);
     txt(tvsOk ? "TVS 5 V" : "TVS burnt open", 276, 262, {al:"right", px:10, w:700, col:tvsOk ? C.channel : C.hole}); }
   if (on && seg){ const itv = tvsOk ? (E.V - EE_TVS)/E.Rs : 0, ich = seg.I;
@@ -27838,7 +27838,7 @@ function drawEEeos(T){
   if (h > 0.02){ const g = ctx.createRadialGradient(720, yS + 10, 4, 720, yS + 10, 60 + 160*Math.min(h, 1));
     g.addColorStop(0, h > 1 ? "rgba(255,250,220,.95)" : `rgba(255,${Math.round(200 - 120*h)},40,${0.35 + 0.5*Math.min(h, 1)})`); g.addColorStop(1, "rgba(255,120,40,0)");
     ctx.fillStyle = g; ctx.fillRect(480, 100, 480, 340); }
-  if (melt){ ctx.fillStyle = C.fg; ctx.beginPath(); ctx.ellipse(720, yS + 30, 70, 34, 0, 0, 2*Math.PI); ctx.fill(); txt("crater: melted silicon", 720, yS + 82, {al:"center", px:11, w:700, col:C.hole});
+  if (melt){ ctx.fillStyle = "rgba(35,22,14,.95)"; ctx.beginPath(); ctx.ellipse(720, yS + 30, 70, 34, 0, 0, 2*Math.PI); ctx.fill(); txt("crater: melted silicon", 720, yS + 82, {al:"center", px:11, w:700, col:C.hole});
     for (let i = 0; i < 8; i++){ const u = (T*0.4 + i/8) % 1; ctx.fillStyle = C.muted; ctx.globalAlpha = 0.5*(1 - u); ctx.beginPath(); ctx.arc(690 + i*8 + 10*Math.sin(T + i), yS - 20 - u*90, 6 + 10*u, 0, 2*Math.PI); ctx.fill(); ctx.globalAlpha = 1; } }
   txt(`${Tn.toFixed(0)} °C`, 720, 60, {al:"center", px:22, w:700, col:Tn >= EE_AL ? C.hole : Tn > 300 ? C.accent : C.fg});
   txt(`peak ${S.Tmax.toFixed(0)} °C · Al melts at 660 °C, Si at 1414 °C`, 720, 86, {al:"center", px:10, col:C.fg});
